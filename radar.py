@@ -55,6 +55,7 @@ STATS = STATE / "sources.json"
 DAILY = STATE / "daily.json"
 LAST = STATE / "last_run.json"
 STORIES = STATE / "stories.json"
+SCHED = STATE / "schedule.json"
 ARCHIVE = ARCH / "items.jsonl"
 
 def env_clean(name):
@@ -1119,6 +1120,74 @@ def watchdog_run():
     return 0
 
 
+# ---------------------------------------------------------------- auto
+
+def auto_run(s, st, seen, extra):
+    """یک اجرا که خودش تصمیم می‌گیرد کدام رادار وقتش است.
+
+    جای زمان‌بندی گیت‌هاب را می‌گیرد، چون آن زمان‌بندی با تأخیر چندساعته
+    می‌رسد. این تابع با تریگر بیرونی هر پانزده دقیقه صدا زده می‌شود.
+    """
+    sch = read_json(SCHED, {})
+    started = time.time()
+    budget = int(s.get("auto_budget_sec", 1500))
+    ran = []
+
+    def left():
+        return budget - (time.time() - started)
+
+    def is_due(key, minutes):
+        ts = sch.get(key)
+        if not ts:
+            return True
+        try:
+            return (now() - datetime.fromisoformat(ts)).total_seconds() >= minutes * 60
+        except Exception:
+            return True
+
+    def mark(key, value=None):
+        sch[key] = value or now().isoformat(timespec="seconds")
+        if not DRY:
+            write_json(SCHED, sch)
+
+    teh = now().astimezone(TZ)
+
+    if left() > 120:
+        security_run(s, st, seen)
+        mark("security")
+        ran.append("security")
+
+    if is_due("news", int(s.get("news_every_min", 115))) and left() > 300:
+        model_run("news", s, st, seen, extra)
+        mark("news")
+        ran.append("news")
+
+    if is_due("tools", int(s.get("tools_every_min", 350))) and left() > 300:
+        model_run("tools", s, st, seen, extra)
+        mark("tools")
+        ran.append("tools")
+
+    if teh.weekday() in (0, 2, 4) and is_due("showcase", 2880) and left() > 240:
+        model_run("showcase", s, st, seen, extra)
+        mark("showcase")
+        ran.append("showcase")
+
+    day = teh.date().isoformat()
+    if teh.hour == 23 and sch.get("digest_day") != day and left() > 120:
+        digest_run(s)
+        mark("digest_day", day)
+        ran.append("digest")
+
+    week = "{}-{}".format(*tuple(teh.isocalendar())[:2])
+    if teh.weekday() == 0 and 9 <= teh.hour <= 11 and sch.get("report_week") != week and left() > 120:
+        report_run(s, st)
+        mark("report_week", week)
+        ran.append("report")
+
+    log("auto ran:", ", ".join(ran) if ran else "nothing due", "| left", int(left()), "s")
+    return 0
+
+
 # ---------------------------------------------------------------- entry
 
 def selftest_run():
@@ -1182,6 +1251,14 @@ def main():
     st = read_json(STATS, {})
     seen = read_json(SEEN, {"v": 1, "ids": {}})
 
+    extra = ""
+    access = read_optional("access.txt")
+    glossary = read_optional("glossary.txt")
+    if access:
+        extra += "فایل دسترسی (فقط از این نقل کن):\n" + access + "\n"
+    if glossary:
+        extra += "املای ثابت نام‌ها:\n" + glossary + "\n"
+
     if cmd == "security":
         security_run(s, st, seen)
     elif cmd == "digest":
@@ -1190,14 +1267,9 @@ def main():
         report_run(s, st)
     elif cmd == "watchdog":
         return watchdog_run()
+    elif cmd == "auto":
+        auto_run(s, st, seen, extra)
     else:
-        extra = ""
-        access = read_optional("access.txt")
-        glossary = read_optional("glossary.txt")
-        if access:
-            extra += "فایل دسترسی (فقط از این نقل کن):\n" + access + "\n"
-        if glossary:
-            extra += "املای ثابت نام‌ها:\n" + glossary + "\n"
         model_run(cmd, s, st, seen, extra)
 
     cutoff = (now() - timedelta(days=180)).date().isoformat()

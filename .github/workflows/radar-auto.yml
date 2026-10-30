@@ -1,0 +1,35 @@
+name: radar-auto
+
+# این ورک‌فلو زمان‌بندی داخلی ندارد.
+# با تریگر بیرونی هر پانزده دقیقه صدا زده می‌شود،
+# چون زمان‌بندی خود گیت‌هاب با تأخیر چندساعته می‌رسد.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: radar-auto
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - name: run
+        env:
+          API_BASE: ${{ secrets.API_BASE }}
+          API_KEY: ${{ secrets.API_KEY }}
+          TG_TOKEN: ${{ secrets.TG_TOKEN }}
+          TG_CHAT: ${{ secrets.TG_CHAT }}
+          TG_ADMIN: ${{ secrets.TG_ADMIN }}
+        run: python radar.py auto
+      - name: save
+        if: always()
+        run: bash .github/save.sh

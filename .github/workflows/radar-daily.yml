@@ -1,9 +1,6 @@
 name: radar-daily
 
 on:
-  schedule:
-    - cron: "30 19 * * *"
-    - cron: "0 6 * * 1"
   workflow_dispatch:
 
 permissions:

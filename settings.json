@@ -24,5 +24,8 @@
  "model_timeout": 300,
  "model_retries": 2,
  "chunk_size": 7,
- "run_budget_sec": 840
+ "run_budget_sec": 840,
+ "auto_budget_sec": 1500,
+ "news_every_min": 115,
+ "tools_every_min": 350
 }

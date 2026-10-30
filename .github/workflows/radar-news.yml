@@ -1,8 +1,6 @@
 name: radar-news
 
 on:
-  schedule:
-    - cron: "20 */2 * * *"
   workflow_dispatch:
 
 permissions:
