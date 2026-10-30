@@ -1,0 +1,22 @@
+# واژه‌نامه نگارش
+# خط اول قاعده، بعد نمونه‌ها. رادار موقع نوشتن به این فایل نگاه می‌کند.
+
+نام محصول، افزونه و شرکت را لاتین بنویس. مخاطب با همان اسم جست‌وجو می‌کند.
+واژه‌های عمومی را فارسی بنویس، نه لاتین.
+
+لاتین می‌مانند:
+Elementor, WooCommerce, Yoast, Rank Math, Jetpack, Kinsta, Divi, ACF, Gutenberg, Figma, Lovable, Bolt, v0, MCP, Cursor, Notion, Canva
+
+فارسی نوشته می‌شوند:
+WordPress = وردپرس
+plugin = افزونه
+theme = قالب
+page = برگه
+post = نوشته
+block = بلوک
+backup = پشتیبان‌گیری
+update = به‌روزرسانی
+release = انتشار نسخه
+free tier = نسخه رایگان
+prompt = پرامپت
+agent = ایجنت

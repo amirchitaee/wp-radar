@@ -1,0 +1,39 @@
+name: radar-daily
+
+on:
+  schedule:
+    - cron: "30 19 * * *"
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: radar-daily
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: digest or report
+        env:
+          API_BASE: ${{ secrets.API_BASE }}
+          API_KEY: ${{ secrets.API_KEY }}
+          TG_TOKEN: ${{ secrets.TG_TOKEN }}
+          TG_CHAT: ${{ secrets.TG_CHAT }}
+        run: |
+          if [ "${{ github.event.schedule }}" = "0 6 * * 1" ]; then
+            python radar.py report
+          else
+            python radar.py digest
+          fi
+      - name: save
+        if: always()
+        run: bash .github/save.sh
