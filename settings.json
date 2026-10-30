@@ -1,11 +1,13 @@
 {
  "daily_cap": 10,
  "queue_days": 7,
- "max_items_per_call": 25,
+ "max_items_per_call": 14,
  "max_posts_per_run": 10,
  "per_source_cap": 3,
  "models": [
-  "Gemma-4-31B-IT"
+  "Gemma-4-31B-IT",
+  "Qwen3.8-27B",
+  "Qwen3.8-Flash-Next"
  ],
  "emoji": {
   "هشدار امنیتی": "🚨",
@@ -18,5 +20,9 @@
   "نمایشگاه": "🖼",
   "آموزش": "📚",
   "جمع‌بندی": "🗂"
- }
+ },
+ "model_timeout": 300,
+ "model_retries": 2,
+ "chunk_size": 7,
+ "run_budget_sec": 840
 }

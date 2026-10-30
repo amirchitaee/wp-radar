@@ -410,31 +410,55 @@ def code_score(item, source_count):
 
 # ---------------------------------------------------------------- model
 
-def call_models(prompt_system, prompt_user):
+def call_models(prompt_system, prompt_user, deadline=None):
     s = settings()
     models = s.get("models") or ["Gemma-4-31B-IT"]
+    limit = int(s.get("model_timeout", 300))
+    retries = int(s.get("model_retries", 2))
     last = None
     for name in models:
-        try:
-            data = http_post_json(
-                API_BASE + "/chat/completions",
-                {
-                    "model": name,
-                    "messages": [
-                        {"role": "system", "content": prompt_system},
-                        {"role": "user", "content": prompt_user},
-                    ],
-                    "temperature": 0.3,
-                },
-                headers={"Authorization": "Bearer " + API_KEY},
-            )
-            content = data["choices"][0]["message"]["content"]
-            log("  model ok:", name)
-            return extract_json(content)
-        except Exception as exc:
-            last = exc
-            log("  model fail:", name, str(exc)[:120])
-            time.sleep(3)
+        for attempt in range(1, retries + 1):
+            wait = limit
+            if deadline:
+                left = int(deadline - time.time())
+                if left < 30:
+                    raise RuntimeError("زمان مجاز این اجرا تمام شد، بقیه در اجرای بعدی")
+                wait = min(limit, left)
+            try:
+                data = http_post_json(
+                    API_BASE + "/chat/completions",
+                    {
+                        "model": name,
+                        "messages": [
+                            {"role": "system", "content": prompt_system},
+                            {"role": "user", "content": prompt_user},
+                        ],
+                        "temperature": 0.3,
+                    },
+                    headers={"Authorization": "Bearer " + API_KEY},
+                    timeout=wait,
+                )
+                content = data["choices"][0]["message"]["content"]
+                log("  model ok:", name, "try", attempt)
+                return extract_json(content)
+            except urllib.error.HTTPError as exc:
+                last = exc
+                detail = ""
+                try:
+                    detail = exc.read().decode("utf-8", "replace")[:160]
+                except Exception:
+                    pass
+                log("  model http", exc.code, name, detail[:110])
+                if exc.code == 429:
+                    time.sleep(6)
+                    break
+                if exc.code in (400, 401, 403, 404):
+                    break
+                time.sleep(4)
+            except Exception as exc:
+                last = exc
+                log("  model fail:", name, "try", attempt, str(exc)[:110])
+                time.sleep(4)
     raise RuntimeError("همه مدل‌ها جواب ندادند: {}".format(last))
 
 
@@ -490,7 +514,7 @@ def build_prompt(items, extra):
                 "source": it["source"],
                 "lang": it.get("lang", "en"),
                 "title": it["title"],
-                "text": it.get("full") or it["desc"],
+                "text": (it.get("full") or it["desc"] or "")[:1600],
                 "published": pub,
                 "sources_count": it.get("sources_count", 1),
                 "plugin": it.get("plugin", {}),
@@ -886,9 +910,11 @@ def model_run(kind, s, st, seen, extra):
     posted = 0
     store = load_stories()
     failures = 0
+    deadline = time.time() + int(s.get("run_budget_sec", 840))
 
-    for start in range(0, len(pool), 10):
-        chunk = pool[start : start + 10]
+    step = max(3, int(s.get("chunk_size", 7)))
+    for start in range(0, len(pool), step):
+        chunk = pool[start : start + step]
         if posted >= per_run or d["count"] >= cap:
             break
         try:
@@ -897,15 +923,15 @@ def model_run(kind, s, st, seen, extra):
                     item["full"] = fetch_article_text(item["link"])
             filled = sum(1 for x in chunk if x.get("full"))
             log("  full text: {}/{}".format(filled, len(chunk)))
-            result = call_models(SYSTEM_PROMPT, build_prompt(chunk, extra))
+            result = call_models(SYSTEM_PROMPT, build_prompt(chunk, extra), deadline)
         except Exception as exc:
             failures += 1
             log("model error:", str(exc)[:150])
             if failures >= 2:
                 send(
-                    "<b>هشدار رادار</b>\nمدل دو بار جواب نداد. صف دست نخورد.\n<code>{}</code>".format(
-                        esc(str(exc)[:300])
-                    ),
+                    "<b>هشدار رادار</b>\n"
+                    "مدل جواب نداد. هیچ خبری از دست نرفت، صف سالم است و اجرای بعدی جبران می‌کند.\n"
+                    "<code>{}</code>".format(esc(str(exc)[:260])),
                     False,
                 )
                 break
