@@ -860,7 +860,12 @@ def model_run(kind, s, st, seen, extra):
             failures += 1
             log("model error:", str(exc)[:150])
             if failures >= 2:
-                send("<b>هشدار رادار</b>\nمدل دو بار جواب نداد. صف دست نخورد.", False)
+                send(
+                    "<b>هشدار رادار</b>\nمدل دو بار جواب نداد. صف دست نخورد.\n<code>{}</code>".format(
+                        esc(str(exc)[:300])
+                    ),
+                    False,
+                )
                 break
             continue
 
@@ -1032,6 +1037,35 @@ def watchdog_run():
 
 # ---------------------------------------------------------------- entry
 
+def selftest_run():
+    lines = ["<b>خودآزمایی رادار</b>", ""]
+    lines.append("آدرس: " + esc(API_BASE or "خالی"))
+    lines.append("کلید: " + ("هست، {} کاراکتر".format(len(API_KEY)) if API_KEY else "خالی"))
+    lines.append("توکن: " + ("هست" if TG_TOKEN else "خالی"))
+    lines.append("چت: " + esc(TG_CHAT or "خالی"))
+    lines.append("")
+    if API_BASE and API_KEY:
+        model = (settings().get("models") or ["Gemma-4-31B-IT"])[0]
+        try:
+            data = http_post_json(
+                API_BASE + "/chat/completions",
+                {"model": model, "messages": [{"role": "user", "content": "بگو سلام"}], "max_tokens": 20},
+                headers={"Authorization": "Bearer " + API_KEY},
+                timeout=45,
+            )
+            answer = data["choices"][0]["message"]["content"][:80]
+            lines.append("مدل: کار کرد")
+            lines.append(esc(answer))
+        except Exception as exc:
+            lines.append("مدل: خطا")
+            lines.append("<code>{}</code>".format(esc(str(exc)[:300])))
+    else:
+        lines.append("مدل: تست نشد، آدرس یا کلید نیست")
+    send("\n".join(lines), False)
+    log("\n".join(lines))
+    return 0
+
+
 def whoami_run():
     if not TG_TOKEN:
         log("TG_TOKEN خالی است. فایل .env را پر کن.")
@@ -1055,6 +1089,8 @@ def main():
     cmd = next((a for a in sys.argv[1:] if not a.startswith("-")), "news")
     if cmd == "whoami":
         return whoami_run()
+    if cmd == "selftest":
+        return selftest_run()
     STATE.mkdir(parents=True, exist_ok=True)
     ARCH.mkdir(parents=True, exist_ok=True)
     s = settings()
