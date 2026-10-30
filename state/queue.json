@@ -3380,6 +3380,19 @@
    "age_hours": 0.7,
    "published": "2026-10-30T14:46:12+00:00",
    "added": "2026-10-30T15:30:57+00:00"
+  },
+  {
+   "id": "e12d27b3cf0e77da",
+   "title": "Creating A Design System From A Screenshot with Divi AI Agents",
+   "link": "https://www.elegantthemes.com/blog/divi-resources/creating-a-design-system-from-a-screenshot-with-divi-ai-agents",
+   "desc": "A screenshot gives you a visual direction, but turning it into a reusable website takes more than matching colors and spacing. You need shared values for typography and sizing, plus reusable styles that keep later pages consistent. With Divi AI Agents in Divi 5, you can use a screenshot to establish those foundations, apply them […]",
+   "source": "الگانت",
+   "lang": "en",
+   "tier": 3,
+   "kind": "news",
+   "age_hours": 1.5,
+   "published": "2026-10-30T16:00:00+00:00",
+   "added": "2026-10-30T17:31:10+00:00"
   }
  ]
 }
