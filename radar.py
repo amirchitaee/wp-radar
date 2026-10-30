@@ -57,10 +57,14 @@ LAST = STATE / "last_run.json"
 STORIES = STATE / "stories.json"
 ARCHIVE = ARCH / "items.jsonl"
 
-API_BASE = os.environ.get("API_BASE", "").rstrip("/")
-API_KEY = os.environ.get("API_KEY", "")
-TG_TOKEN = os.environ.get("TG_TOKEN", "")
-TG_CHAT = os.environ.get("TG_CHAT", "")
+def env_clean(name):
+    return "".join(os.environ.get(name, "").split()).strip()
+
+
+API_BASE = env_clean("API_BASE").rstrip("/")
+API_KEY = env_clean("API_KEY")
+TG_TOKEN = env_clean("TG_TOKEN")
+TG_CHAT = env_clean("TG_CHAT")
 
 DRY = "--dry" in sys.argv
 TZ = timezone(timedelta(minutes=210))
