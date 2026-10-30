@@ -65,6 +65,7 @@ API_BASE = env_clean("API_BASE").rstrip("/")
 API_KEY = env_clean("API_KEY")
 TG_TOKEN = env_clean("TG_TOKEN")
 TG_CHAT = env_clean("TG_CHAT")
+TG_ADMIN = env_clean("TG_ADMIN")
 
 DRY = "--dry" in sys.argv
 TZ = timezone(timedelta(minutes=210))
@@ -643,16 +644,25 @@ def esc(text):
     return html.escape(str(text or ""), quote=False)
 
 
-def send(text, preview=True):
-    if DRY or not (TG_TOKEN and TG_CHAT):
+def send_to(chat, text, preview=True):
+    if DRY or not (TG_TOKEN and chat):
         log("--- post ---")
         log(text)
         return {"ok": True, "dry": True}
     return http_post_json(
         "https://api.telegram.org/bot{}/sendMessage".format(TG_TOKEN),
-        {"chat_id": TG_CHAT, "text": text[:4000], "parse_mode": "HTML", "disable_web_page_preview": not preview},
+        {"chat_id": chat, "text": text[:4000], "parse_mode": "HTML", "disable_web_page_preview": not preview},
         timeout=30,
     )
+
+
+def send(text, preview=True):
+    return send_to(TG_CHAT, text, preview)
+
+
+def alert(text):
+    """پیام‌های خطا و سلامت به چت شخصی می‌روند، نه کانال."""
+    return send_to(TG_ADMIN or TG_CHAT, text, False)
 
 
 def send_photo(photo_url, caption):
@@ -928,11 +938,10 @@ def model_run(kind, s, st, seen, extra):
             failures += 1
             log("model error:", str(exc)[:150])
             if failures >= 2:
-                send(
+                alert(
                     "<b>هشدار رادار</b>\n"
                     "مدل جواب نداد. هیچ خبری از دست نرفت، صف سالم است و اجرای بعدی جبران می‌کند.\n"
-                    "<code>{}</code>".format(esc(str(exc)[:260])),
-                    False,
+                    "<code>{}</code>".format(esc(str(exc)[:260]))
                 )
                 break
             continue
@@ -1092,7 +1101,7 @@ def report_run(s, st):
     lines.append("در صف: {}".format(len([x for x in q["items"] if not x.get("posted")])))
     lines.append("")
     lines.append("#گزارش")
-    send("\n".join(lines), preview=False)
+    alert("\n".join(lines))
     return 1
 
 
@@ -1100,11 +1109,11 @@ def watchdog_run():
     last = read_json(LAST, {})
     ts = last.get("at")
     if not ts:
-        send("<b>نگهبان</b>\nهیچ اجرایی ثبت نشده.", False)
+        alert("<b>نگهبان</b>\nهیچ اجرایی ثبت نشده.")
         return 0
     age = (now() - datetime.fromisoformat(ts)).total_seconds() / 3600
     if age > 6:
-        send("<b>نگهبان</b>\n{:.0f} ساعت است هیچ اجرایی ثبت نشده. چرخه خوابیده.".format(age), False)
+        alert("<b>نگهبان</b>\n{:.0f} ساعت است هیچ اجرایی ثبت نشده. چرخه خوابیده.".format(age))
         return 1
     log("watchdog ok, last run {:.1f}h ago".format(age))
     return 0
@@ -1117,7 +1126,8 @@ def selftest_run():
     lines.append("آدرس: " + esc(API_BASE or "خالی"))
     lines.append("کلید: " + ("هست، {} کاراکتر".format(len(API_KEY)) if API_KEY else "خالی"))
     lines.append("توکن: " + ("هست" if TG_TOKEN else "خالی"))
-    lines.append("چت: " + esc(TG_CHAT or "خالی"))
+    lines.append("چت کانال: " + esc(TG_CHAT or "خالی"))
+    lines.append("چت شخصی: " + esc(TG_ADMIN or "خالی"))
     lines.append("")
     if API_BASE and API_KEY:
         model = (settings().get("models") or ["Gemma-4-31B-IT"])[0]
@@ -1136,7 +1146,7 @@ def selftest_run():
             lines.append("<code>{}</code>".format(esc(str(exc)[:300])))
     else:
         lines.append("مدل: تست نشد، آدرس یا کلید نیست")
-    send("\n".join(lines), False)
+    alert("\n".join(lines))
     log("\n".join(lines))
     return 0
 

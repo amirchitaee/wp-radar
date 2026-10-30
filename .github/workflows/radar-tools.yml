@@ -27,6 +27,7 @@ jobs:
           API_KEY: ${{ secrets.API_KEY }}
           TG_TOKEN: ${{ secrets.TG_TOKEN }}
           TG_CHAT: ${{ secrets.TG_CHAT }}
+          TG_ADMIN: ${{ secrets.TG_ADMIN }}
         run: python radar.py tools
       - name: save
         if: always()
