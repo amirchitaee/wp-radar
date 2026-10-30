@@ -55,6 +55,50 @@
   {
    "t": "2026-10-30T01:04:16+00:00",
    "title": "Dev Chat Agenda – October 28, 2026"
+  },
+  {
+   "t": "2026-10-30T13:31:19+00:00",
+   "title": "WordPress doesn’t ship Brotli. It’s still exposed to CVE-2026-111497"
+  },
+  {
+   "t": "2026-10-30T13:32:39+00:00",
+   "title": "Inside Kinsta’s emergency PHP2Shell patch rollout"
+  },
+  {
+   "t": "2026-10-30T13:32:43+00:00",
+   "title": "When Technology Outruns Its Institutions: Neal Stephenson on AI, Truth, and Control"
+  },
+  {
+   "t": "2026-10-30T13:34:58+00:00",
+   "title": "Show HN: Apache 2.0 Registry to let agents share skills with each other"
+  },
+  {
+   "t": "2026-10-30T13:35:02+00:00",
+   "title": "I can't use CapCut, so I built an MCP server for video editing with Claude Code"
+  },
+  {
+   "t": "2026-10-30T13:35:05+00:00",
+   "title": "Ekly MCP + ChatGPT on mobile: refining a 26-second concept ad through feedback"
+  },
+  {
+   "t": "2026-10-30T13:35:09+00:00",
+   "title": "Wikipedia’s operator says a bad AI copyright ruling could threaten the open web"
+  },
+  {
+   "t": "2026-10-30T13:35:13+00:00",
+   "title": "Sam Altman sympathizes with mathematicians, but says OpenAI’s math onslaught won’t stop"
+  },
+  {
+   "t": "2026-10-30T13:35:17+00:00",
+   "title": "Show HN: Navital Gym – open environments for testing AI agents on Indian tasks"
+  },
+  {
+   "t": "2026-10-30T13:35:20+00:00",
+   "title": "Show HN: PicoPlayer – A tiny, open-source website for playing small webgames"
+  },
+  {
+   "t": "2026-10-30T13:36:11+00:00",
+   "title": "NVIDIA Releases Nemotron 3.5 Transcribe: An Open 30B MoE Model for 40-Language Transcription with ~4B Active Parameters"
   }
  ]
 }
