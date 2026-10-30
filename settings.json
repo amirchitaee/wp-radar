@@ -1,5 +1,5 @@
 {
- "daily_cap": 13,
+ "daily_cap": 10,
  "queue_days": 7,
  "max_items_per_call": 25,
  "max_posts_per_run": 10,
