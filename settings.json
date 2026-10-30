@@ -1,10 +1,12 @@
 {
- "daily_cap": 10,
+ "daily_cap": 13,
  "queue_days": 7,
  "max_items_per_call": 25,
  "max_posts_per_run": 10,
  "per_source_cap": 3,
- "models": ["Gemma-4-31B-IT"],
+ "models": [
+  "Gemma-4-31B-IT"
+ ],
  "emoji": {
   "هشدار امنیتی": "🚨",
   "فوری": "🚨🚨🚨",
