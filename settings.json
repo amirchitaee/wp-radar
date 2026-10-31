@@ -1,9 +1,10 @@
 {
- "daily_cap": 10,
+ "daily_cap": 11,
  "caps": {
   "news": 4,
   "tools": 2,
   "offers": 2,
+  "security": 2,
   "showcase": 1
  },
  "fast_lane": {

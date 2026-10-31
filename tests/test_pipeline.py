@@ -64,18 +64,32 @@ radar.write_json(tmp2, {"at": (radar.now() - timedelta(minutes=3)).isoformat(), 
 check("اصلی: سه دقیقه بعد از پشتیبان صبر می‌کند", radar.guardian_ready(sb, "main"), False)
 
 # ---------------------------------------------------------------- سهمیهٔ روزانه
-caps = {"news": 4, "tools": 2, "offers": 2, "showcase": 1}
-daily = 10
+sched = {
+    "daily_cap": 11,
+    "caps": {"news": 4, "tools": 2, "offers": 2, "security": 2, "showcase": 1},
+}
 
 
-def effective(kind, kinds):
-    reserved = sum(int(v) for k, v in caps.items() if k != kind and int(kinds.get(k, 0)) < int(v))
-    return max(int(caps.get(kind, daily)), daily - reserved)
+def room(kind, kinds):
+    d = {"count": sum(int(v) for v in kinds.values()), "kinds": dict(kinds)}
+    return radar.daily_room(sched, kind, d)
 
 
-check("سهمیه: روز خالی، خبر حداکثر پنج", effective("news", {}), 5)
-check("سهمیه: خبر چهار پست گذاشته، ابزار هفت", effective("tools", {"news": 4}), 7)
-check("سهمیه: همهٔ دسته‌ها پر، سقف کلی آزاد می‌شود", effective("news", {"news": 4, "tools": 2, "offers": 2, "showcase": 1}), 10)
+check("سهمیه: روز خالی، خبر چهار", room("news", {}), 4)
+check("سهمیه: روز خالی، ابزار دو", room("tools", {}), 2)
+check("سهمیه: خبر چهار پست گذاشته، ابزار دو", room("tools", {"news": 4}), 2)
+check(
+    "سهمیه: روز پر، نمایشگاه هم یک جا دارد",
+    room("showcase", {"news": 4, "tools": 2, "offers": 2, "security": 2}),
+    1,
+)
+check(
+    "سهمیه: روز کامل، هیچ‌کس پست نمی‌کند",
+    room("news", {"news": 4, "tools": 2, "offers": 2, "security": 2, "showcase": 1}),
+    0,
+)
+check("سهمیه: امنیت در روز پر هم سهمش را دارد", room("security", {"news": 4, "tools": 2, "offers": 2}), 2)
+check("سهمیه: دستهٔ ناشناخته هم بی‌سهم نمی‌ماند", room("offers", {"news": 4, "tools": 2}), 2)
 
 # ---------------------------------------------------------------- دروازهٔ کیفیت
 ok, _ = radar.quality_ok("تست", "این یک خلاصهٔ کوتاه است.")
@@ -141,6 +155,7 @@ check("امتیاز: دو منبع بیشتر از یک منبع", radar.code_sc
 box = Path(tempfile.mkdtemp())
 radar.STORIES = box / "stories.json"
 radar.SEEN = box / "seen.json"
+radar.DAILY = box / "daily.json"
 radar.DRY = True
 
 sent = []
@@ -162,13 +177,28 @@ sec_items = [
 ]
 radar.fetch_source = lambda src, st: sec_items
 
-n = radar.security_run({"security_max_age_h": 24}, {}, {"v": 1, "ids": {}})
+sec_settings = {"security_max_age_h": 24, "daily_cap": 11, "caps": {"security": 2}}
+n = radar.security_run(sec_settings, {}, {"v": 1, "ids": {}})
 check("امنیت: فقط هشدار تازه پست شد", n, 1)
 check("امنیت: یک پیام فرستاده شد", len(sent), 1)
 check("امنیت: هشدار دو ساعته رفت", "a.test/fresh" in sent[0], True)
 check("امنیت: هشدار سی ساعته رد شد", "a.test/mid" in sent[0], False)
 check("امنیت: هشدار هفتاد ساعته رد شد", "a.test/old" in sent[0], False)
 check("امنیت: هشدار کهنه هیچ پیامی نساخت", any("a.test/old" in t for t in sent), False)
+
+# سقف روزانه: هشدار امنیتی هم باید بودجه را رعایت کند.
+radar.DRY = False
+radar.write_json(radar.DAILY, {"date": radar.today(), "count": 11, "kinds": {}})
+sent.clear()
+n = radar.security_run(sec_settings, {}, {"v": 1, "ids": {}})
+check("امنیت: روز پر، پستی نمی‌رود", n, 0)
+check("امنیت: روز پر، پیامی ساخته نشد", len(sent), 0)
+
+# سقف دسته: حداکثر دو هشدار در روز.
+radar.write_json(radar.DAILY, {"date": radar.today(), "count": 2, "kinds": {"security": 2}})
+sent.clear()
+n = radar.security_run(sec_settings, {}, {"v": 1, "ids": {}})
+check("امنیت: سقف دوتایی دسته رعایت شد", n, 0)
 
 # ---------------------------------------------------------------- برچسب درست
 def lab(kind, text, model_label="", urgent=False):

@@ -1386,7 +1386,19 @@ def security_run(s, st, seen):
 
     posted = 0
     store = load_stories()
+    d = read_json(DAILY, {"date": today(), "count": 0})
+    if d.get("date") != today():
+        d = {"date": today(), "count": 0}
+    d.setdefault("kinds", {})
+    my_limit = daily_room(s, "security", d)
+    if my_limit <= 0:
+        log("security: no room left today")
+        return 0
+    posted_sec = int(d["kinds"].get("security", 0))
     for it in batch:
+        if posted >= my_limit:
+            log("security: share for today is used up")
+            break
         if is_recent_story(store, it):
             log("  already covered:", it["title"][:60])
             continue
@@ -1434,11 +1446,15 @@ def security_run(s, st, seen):
             break
         seen["ids"][it["id"]] = today()
         add_story(store, it)
+        d["count"] = int(d.get("count", 0)) + 1
+        posted_sec += 1
+        d["kinds"]["security"] = posted_sec
         # هر پست همان لحظه ثبت می‌شود. اگر اجرا وسط کار قطع شود،
         # پست بعدی همین خبر را دوباره نمی‌فرستد.
         if not DRY:
             write_json(SEEN, seen)
             write_json(STORIES, store)
+            write_json(DAILY, d)
         archive_row(it, label, title, summary, entry.get("score", 100) if entry else 100, "security")
         posted += 1
         time.sleep(2)
@@ -1537,6 +1553,33 @@ def cap_per_source(items, limit=3):
     return out
 
 
+def daily_room(s, kind, d):
+    """این دسته همین حالا چند پست اجازه دارد.
+
+    سقف روز سقف است. ولی هر دستهٔ دیگری که هنوز به سقف خودش نرسیده،
+    یک جا برای خودش نگه می‌دارد تا یک دسته کل بودجهٔ روز را نخورد و
+    بقیه تا آخر روز بی‌سهم نمانند.
+    """
+    cap = int(s.get("daily_cap", 10))
+    caps = s.get("caps") or {}
+    kinds = d.get("kinds") or {}
+    remaining = cap - int(d.get("count", 0))
+    if remaining <= 0:
+        return 0
+    kind_cap = int(caps.get(kind) or cap)
+    posted_kind = int(kinds.get(kind, 0))
+    starving = 0
+    for other, value in caps.items():
+        if other == kind:
+            continue
+        if int(kinds.get(other, 0)) < int(value or 0):
+            starving += 1
+    room = remaining - starving
+    if room < 1:
+        room = 1
+    return max(0, min(kind_cap - posted_kind, room))
+
+
 def model_run(kind, s, st, seen, extra, hard_deadline=None):
     rows = collect(kind, st, seen)
     rows = dedupe_stories(rows)
@@ -1575,15 +1618,12 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
     d.setdefault("kinds", {})
     posted_kind = int(d["kinds"].get(kind, 0))
 
-    # سهمیهٔ بقیهٔ دسته‌ها رزرو می‌شود تا یک دسته کل سقف روز را نخورد.
-    all_caps = s.get("caps") or {}
-    reserved = 0
-    for other, value in all_caps.items():
-        if other == kind:
-            continue
-        if int(d["kinds"].get(other, 0)) < int(value or 0):
-            reserved += int(value or 0)
-    effective_cap = max(kind_cap, cap - reserved)
+    # سهم این دسته از بودجهٔ امروز، با احترام به سهم بقیه.
+    my_limit = daily_room(s, kind, d)
+    if my_limit <= 0:
+        log("no room left today for", kind)
+        return 0
+    log("room today:", my_limit)
     fast_cfg = s.get("fast_lane") or {}
     fast_score = float(fast_cfg.get("score", 85))
     fast_age = float(fast_cfg.get("max_age_h", 3))
@@ -1600,7 +1640,7 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
         log("frugal mode: single call per run, last provider was", last_prov)
     for start in range(0, len(pool), step):
         chunk = pool[start : start + step]
-        if posted >= per_run or d["count"] >= effective_cap or posted_kind >= kind_cap:
+        if posted >= per_run or posted >= my_limit or d["count"] >= cap or posted_kind >= kind_cap:
             break
         try:
             for item in chunk:
@@ -1633,8 +1673,8 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
         for entry in items:
             if posted >= per_run:
                 break
-            if d["count"] >= effective_cap:
-                log("daily cap reached")
+            if posted >= my_limit or d["count"] >= cap:
+                log("share for this run is used up")
                 break
             it = by_id.get(str(entry.get("id", "")))
             if not it:
