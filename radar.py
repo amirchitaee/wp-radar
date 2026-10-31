@@ -1696,30 +1696,38 @@ def selftest_run():
     if not provs:
         lines.append("هیچ لایهٔ مدلی تنظیم نشده")
     for prov in provs:
-        name = prov["models"][0]
         ok = False
-        try:
-            if prov.get("type") == "gemini":
-                answer = gemini_call(prov, name, "", "بگو سلام", 90, json_mode=False).strip()[:60]
-            else:
-                data = http_post_json(
-                    prov["base"] + "/chat/completions",
-                    {"model": name, "messages": [{"role": "user", "content": "بگو سلام"}]},
-                    headers={"Authorization": "Bearer " + prov["key"]},
-                    timeout=90,
-                )
-                answer = (data["choices"][0]["message"].get("content") or "").strip()[:60]
-            lines.append("✅ {} — {}".format(prov["name"], esc(answer) or "(پاسخ خالی)"))
-            ok = True
-        except urllib.error.HTTPError as exc:
+        errs = []
+        last_body = ""
+        for name in prov["models"]:
             try:
-                body = exc.read().decode("utf-8", "replace")
-                body = re.sub(r"\s+", " ", body)[:160]
-            except Exception:
-                body = ""
-            lines.append("❌ {} — خطای {} {}".format(prov["name"], exc.code, esc(body)))
-        except Exception as exc:
-            lines.append("❌ {} — {}".format(prov["name"], esc(str(exc)[:120])))
+                if prov.get("type") == "gemini":
+                    answer = gemini_call(prov, name, "", "بگو سلام", 45, json_mode=False).strip()[:50]
+                else:
+                    data = http_post_json(
+                        prov["base"] + "/chat/completions",
+                        {"model": name, "messages": [{"role": "user", "content": "بگو سلام"}]},
+                        headers={"Authorization": "Bearer " + prov["key"]},
+                        timeout=45,
+                    )
+                    answer = (data["choices"][0]["message"].get("content") or "").strip()[:50]
+                lines.append("✅ {} — {} — {}".format(prov["name"], esc(name), esc(answer) or "(پاسخ خالی)"))
+                ok = True
+                break
+            except urllib.error.HTTPError as exc:
+                try:
+                    body = exc.read().decode("utf-8", "replace")
+                    last_body = re.sub(r"\s+", " ", body)[:150]
+                except Exception:
+                    last_body = ""
+                errs.append("{}:{}".format(name, exc.code))
+            except Exception as exc:
+                errs.append("{}:{}".format(name, str(exc)[:45]))
+        if not ok:
+            tail = " | ".join(errs[-3:])
+            if last_body:
+                tail = tail + " — " + last_body
+            lines.append("❌ {} — {}".format(prov["name"], esc(tail)))
         if not ok and prov["name"] == "google":
             try:
                 base = prov["base"].replace("/openai", "")
@@ -1730,12 +1738,13 @@ def selftest_run():
                     for m in data.get("models", [])
                     if "generateContent" in (m.get("supportedGenerationMethods") or [])
                 ]
-                lines.append("مدل‌های موجود: " + esc("، ".join(names[:8]) if names else "هیچ"))
+                lines.append("مدل‌های موجود: " + esc("، ".join(names[:12]) if names else "هیچ"))
             except Exception as exc2:
                 lines.append("فهرست مدل‌ها نیامد: " + esc(str(exc2)[:90]))
     alert("\n".join(lines))
     log("\n".join(lines))
     return 0
+
 
 
 def whoami_run():
