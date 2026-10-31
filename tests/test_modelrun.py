@@ -149,6 +149,132 @@ SENT.clear()
 got = radar.model_run("offers", fast_settings, {}, {"v": 1, "ids": {}}, "", hard_deadline=None)
 check("مسیر سریع: سهمیهٔ روزانه‌اش تمام، پستی نمی‌رود", got, 0)
 
+# ---------------------------------------------------------------- باگ‌های ۱۰ آبان
+# آموزش دیوی با برچسب «هشدار امنیتی» منتشر شده بود، چون «WooCommerce»
+# کلمهٔ RCE را در خود دارد و برچسب از متن کامل مقاله ساخته می‌شد.
+DIVI = {
+    "id": "divi01",
+    "title": "How To Build A Product Grid With Divi 5’s CSS Grid Editor",
+    "link": "https://example.com/divi-grid",
+    "desc": "a practical guide to laying out WooCommerce products with the CSS grid editor",
+    "source": "الگانت",
+    "lang": "en",
+    "tier": 3,
+    "kind": "news",
+    "age_hours": 1.0,
+    "published": radar.now().isoformat(),
+    "added": radar.now().isoformat(timespec="seconds"),
+    "sources_count": 1,
+}
+
+radar.collect = lambda kind, st, seen, budget_sec=None: [dict(DIVI)]
+
+
+def divi_model(system, user, deadline=None, budget=None):
+    return {
+        "items": [
+            {
+                "id": "divi01",
+                "label": "هشدار امنیتی",
+                "name": "Divi",
+                "title": "ساخت جدول محصولات با ابزار جدید دیوی",
+                "summary": "این راهنما نشان می‌دهد چطور با ویرایشگر شبکه‌ای، چیدمان محصولات فروشگاه را "
+                "درست کنی تا در موبایل و تبلت هم مرتب بماند. برای فروشگاه‌های کوچک کاربردی است.",
+                "details": "ستون‌ها را با ویرایشگر شبکه بچین.\nهر کارت را با حلقه تکرار کن.\n"
+                "برای فروشگاه ووکامرس مناسب است.",
+                "meta": "",
+                "score": 15,
+                "imp": 5,
+                "use": 8,
+            }
+        ]
+    }
+
+
+radar.call_models = divi_model
+radar.DAILY.write_text(json.dumps({"date": radar.today(), "count": 0, "kinds": {}}), encoding="utf-8")
+SENT.clear()
+got = radar.model_run("news", settings, {}, {"v": 1, "ids": {}}, "", hard_deadline=None)
+check("دیوی: آموزش در دستهٔ خبر منتشر نمی‌شود", got, 0)
+check("دیوی: هیچ پیام امنیتی ساخته نشد", len(SENT), 0)
+
+# همان آیتم در دستهٔ ابزار، برچسب آموزش می‌گیرد و نام محصول هم دارد.
+DIVI_TOOLS = dict(DIVI)
+DIVI_TOOLS["id"] = "divi02"
+DIVI_TOOLS["kind"] = "tools"
+radar.collect = lambda kind, st, seen, budget_sec=None: [dict(DIVI_TOOLS)]
+
+
+def divi_tools_model(system, user, deadline=None, budget=None):
+    out = divi_model(system, user)
+    out["items"][0]["id"] = "divi02"
+    return out
+
+
+radar.call_models = divi_tools_model
+radar.DAILY.write_text(json.dumps({"date": radar.today(), "count": 0, "kinds": {}}), encoding="utf-8")
+SENT.clear()
+got = radar.model_run("tools", settings, {}, {"v": 1, "ids": {}}, "", hard_deadline=None)
+divi_body = SENT[0] if SENT else ""
+check("دیوی: در دستهٔ ابزار پست می‌شود", got, 1)
+check("دیوی: برچسب امنیتی ندارد", "#هشدار_امنیتی" in divi_body, False)
+check("دیوی: برچسب آموزش دارد", "#آموزش" in divi_body, True)
+check("دیوی: نام محصول در پست هست", "<b>Divi</b>" in divi_body, True)
+
+# بازی تخته‌ای رایگان نباید در کانال وردپرس منتشر شود.
+GAME = dict(FAKE_ROW)
+GAME.update(
+    {
+        "id": "game01",
+        "title": "Show HN: Play Nightmare – the 1991 VHS board game, with a TV and phones",
+        "link": "https://example.com/game",
+        "desc": "a free board game you play with your TV and phones",
+    }
+)
+radar.collect = lambda kind, st, seen, budget_sec=None: [dict(GAME)]
+
+
+def game_model(system, user, deadline=None, budget=None):
+    return {
+        "items": [
+            {
+                "id": "game01",
+                "label": "فرصت",
+                "name": "Nightmare",
+                "title": "بازی تخته‌ای رایگان با تم نوستالژیک",
+                "summary": "یک بازی رایگان که با تلویزیون و تلفن بازی می‌شود و برای دورهمی ساخته شده است.",
+                "details": "رایگان است و کارت نمی‌خواهد.\nبا تلویزیون و تلفن کار می‌کند.",
+                "meta": "",
+                "score": 5,
+                "imp": 3,
+                "use": 9,
+            }
+        ]
+    }
+
+
+radar.call_models = game_model
+radar.DAILY.write_text(json.dumps({"date": radar.today(), "count": 0, "kinds": {}}), encoding="utf-8")
+SENT.clear()
+got = radar.model_run("offers", settings, {}, {"v": 1, "ids": {}}, "", hard_deadline=None)
+check("بازی: منتشر نمی‌شود", got, 0)
+check("بازی: هیچ پیامی ساخته نشد", len(SENT), 0)
+
+# «وضعیت دسترسی: نامشخص» فیلد پوک است و کل پست را رد می‌کند.
+radar.collect = lambda kind, st, seen, budget_sec=None: [dict(FAKE_ROW)]
+
+
+def hollow_model(system, user, deadline=None, budget=None):
+    item = dict(fake_model(system, user)["items"][0])
+    item["details"] = "وضعیت دسترسی: نامشخص.\nبا ایمیل ثبت‌نام کن و سهمیه را بگیر.\nکارت بانکی لازم نیست."
+    return {"items": [item]}
+
+
+radar.call_models = hollow_model
+SENT.clear()
+got = radar.model_run("offers", settings, {}, {"v": 1, "ids": {}}, "", hard_deadline=None)
+check("پوک: وضعیت نامشخص پست نمی‌شود", got, 0)
+
 # ---------------------------------------------------------------- نتیجه
 print("{} آزمون اجرا شد.".format(COUNT))
 if FAILS:

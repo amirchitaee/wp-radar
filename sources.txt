@@ -31,9 +31,11 @@
 تورک|https://torquemag.io/feed/|news|en|3
 دبلیوپی بگینر|https://www.wpbeginner.com/feed/|news|en|3
 وپی مایور|https://wpmayor.com/feed/|news|en|3
-الگانت|https://www.elegantthemes.com/blog/feed|news|en|3
 
 # ---------- ابزار و فرصت ----------
+# وبلاگ سازنده‌ها آموزش می‌نویسد نه خبر. جای درستش دستهٔ ابزار است،
+# وگرنه کانال پر می‌شود از «چطور فلان کار را بکنیم» با برچسب خبر.
+الگانت|https://www.elegantthemes.com/blog/feed|tools|en|3
 اوپن‌ای‌آی|https://openai.com/news/rss.xml|tools|en|1
 گوگل|https://blog.google/technology/ai/rss/|tools|en|1
 دیپ‌مایند|https://deepmind.google/blog/rss.xml|tools|en|1

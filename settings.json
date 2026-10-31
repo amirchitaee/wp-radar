@@ -15,7 +15,14 @@
  "queue_days": 7,
  "max_items_per_call": 14,
  "max_posts_per_run": 4,
- "per_source_cap": 2,
+ "per_source_cap": {
+  "news": 1,
+  "security": 2,
+  "tools": 1,
+  "offers": 2,
+  "showcase": 1,
+  "default": 2
+ },
  "providers": [
   {
    "name": "amd",

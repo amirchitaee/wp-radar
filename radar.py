@@ -747,6 +747,46 @@ def clean_details(text):
     return "\n".join(keep)
 
 
+def valid_name(raw, item):
+    """نام رسمی محصول، فقط اگر در متن منبع هم باشد.
+
+    مدل اگر نامی بسازد که در منبع نیست، همان لحظه دور ریخته می‌شود.
+    نامی که در تیتر یا توضیح منبع نباشد، حاصل خیال است.
+    """
+    name = str(raw or "").strip().strip("«»\"'")
+    if not (2 <= len(name) <= 40):
+        return ""
+    if not re.search(r"[A-Za-z]", name):
+        return ""
+    hay = " ".join([str(item.get("title", "")), str(item.get("desc", ""))]).lower()
+    if name.lower() not in hay:
+        return ""
+    return name
+
+
+# واژه‌های رایجی که اسم محصول نیستند، هرچند با حرف بزرگ شروع می‌شوند.
+NAME_STOP = {
+    "the", "a", "an", "show", "ask", "launch", "tell", "how", "to", "new", "free",
+    "ai", "api", "hn", "guide", "tutorial", "introducing", "announcing", "top",
+    "best", "why", "what", "week", "day", "release", "update", "vs",
+}
+NAME_RE = re.compile(r"[A-Z][A-Za-z0-9][A-Za-z0-9.\-]{1,29}")
+
+
+def auto_name(item):
+    """نام محصول را از تیتر منبع برمی‌دارد.
+
+    اگر مدل نامی نداد، پست نباید بی‌نام بماند. تیتر منبع معمولاً نام
+    محصول را دارد و آن قابل اعتمادتر از ساختن نام توسط مدل است.
+    """
+    for m in NAME_RE.finditer(str(item.get("title", ""))):
+        word = m.group(0)
+        if word.lower() in NAME_STOP:
+            continue
+        return word
+    return ""
+
+
 def rel_age(hours):
     """سن را به زبان آدم می‌گوید: «۱۸ ساعت پیش»، «یک روز پیش»."""
     try:
@@ -954,7 +994,7 @@ SYSTEM_PROMPT = """تو نویسندهٔ یک کانال فارسی تخصصی �
 10. خوانایی: در هر جمله حداکثر یک عبارت لاتین. کل پست حداکثر سه عبارت لاتین. نام محصول را یک بار در خلاصه بیاور تا مخاطب بداند از چه حرف می‌زنی، جای دیگر با ضمیر یا «این ابزار» ادامه بده. نسخه و شماره و نام مدل را از دل جملهٔ فارسی بیرون بکش و در details بگذار. هرگز عبارت لاتین را وسط جملهٔ فارسی نچسبان.
 11. اولویت موضوعی: اول ابزاری که به ساخت و طراحی سایت کمک می‌کند، بعد تولید محتوا، بعد ساخت ویدیو و تصویر. اگر هر سه در یک دسته بودند، اولی را بالاتر بگذار. این یعنی ترتیب، نه حذف.
 3. هیچ واقعیتی از خودت نساز. اگر در متن منبع نبود، ننویس. عدد و نسخه و قیمت را از دادهٔ ورودی بردار، نه از حافظه.
-4. دربارهٔ دسترسی از ایران و کارت بانکی حدس نزن. فقط از فایل دسترسی نقل کن. اگر نبود، «نامشخص» بگذار.
+4. دربارهٔ دسترسی از ایران و کارت بانکی حدس نزن. فقط از فایل دسترسی نقل کن. اگر نمی‌دانی، دربارهٔ دسترسی هیچ خطی ننویس. نوشتن «نامشخص» ممنوع است؛ خط نامعلوم کل پست را رد می‌کند.
 5. هیچ برچسبی مثل «تیتر:» یا «خلاصه:» یا «جزئیات:» یا «نام محصول:» یا «قیمت:» در متن ننویس. این قاعده داخل بلوک نقل‌قول هم هست. متن باید روان و انسانی باشد، نه فرم پرکردنی.
 6. هرگز دربارهٔ خود متن ورودی حرف نزن. جمله‌هایی مثل «متن ورودی جزئیات بیشتری ندارد» یا «عنوان به فلان چیز اشاره دارد» ممنوع است. اگر داده کم بود، کمتر بنویس، ولی دربارهٔ کمبودش حرف نزن.
 7. قبل از نوشتن، برای هر آیتم در ذهن جواب بده: این چیه؟ چه کاری می‌کند؟ برای کی خوب است؟ چه چیزی گیر مخاطب می‌آید؟ بعد همان جواب را ساده و خودمونی بنویس.
@@ -964,6 +1004,7 @@ summary: دو تا سه جمله. اولی این چیه و چه کاری می�
 details: سه تا پنج خط کوتاه، هر خط یک نکتهٔ تازه که در summary نگفتی. اگر ابزار یا فرصت است: رایگان است یا نه، چطور شروع کند، محدودیتش چیست. اگر رایگان با ایمیل است، صریح بگو همین حالا با ایمیلش ثبت‌نام کند و اعتبار را بگیرد. این بخش هرگز خالی یا تشریفاتی نباشد؛ اگر واقعاً سه نکته نداری، همان دو نکتهٔ واقعی را بنویس و خط الکی اضافه نکن. جای عبارت‌های لاتین و نام مدل و نسخه همین بخش است.
 meta: یک خط داده‌ی چسبیده مثل نصب فعال، نسخه، قیمت. اگر نبود، رشتهٔ خالی.
 title: فایده را بگو نه اسم محصول را. بازنویسی عنوان منبع ممنوع.
+name: نام رسمی محصول یا سرویس، فقط اگر در متن منبع آمده. همان‌طور که در منبع نوشته شده، لاتین و بدون ترجمه. اگر در منبع نامی نبود، رشتهٔ خالی. نامی که در منبع نیست، ساختنش ممنوع است.
 
 برچسب را از این فهرست انتخاب کن و با معنی‌اش جابه‌جا نکن:
 - خبر: اتفاقی افتاده که مخاطب باید بداند. تغییر قیمت، تغییر سیاست، یا انتشار چیزی که مال خودش نیست.
@@ -988,7 +1029,7 @@ use: صفر تا ده. مخاطب همین حالا می‌تواند استفا
 برای هر آیتم ورودی یک خروجی بده، حتی اگر کم‌اهمیت باشد. حذف با کد انجام می‌شود نه با تو.
 
 ساختار خروجی:
-{"items":[{"id":"...","label":"...","title":"...","summary":"...","details":"...","meta":"...","score":0,"imp":0,"use":0,"why":"..."}]}
+{"items":[{"id":"...","label":"...","name":"...","title":"...","summary":"...","details":"...","meta":"...","score":0,"imp":0,"use":0,"why":"..."}]}
 """
 
 
@@ -1003,20 +1044,27 @@ KIND_HINT = {
         "توجه: فرصت دائمی که هر ماه تکرار می‌شود هم ارزش دارد. برای فرصت، score را بر "
         "اساس به‌دردخوری بسنج نه بر اساس تازگی؛ اگر مخاطب همین امروز می‌تواند با ایمیلش "
         "چیزی بگیرد، score بالا بده. "
-        "برچسب مجاز: فقط «فرصت». خبر و ابزار در این دسته ممنوع."
+        "برچسب مجاز: فقط «فرصت». خبر و ابزار در این دسته ممنوع. "
+        "فرصت فقط وقتی است که به کار ساخت سایت، طراحی، تولید محتوا یا هوش مصنوعی "
+        "بیاید. بازی، فیلم، موسیقی، سرگرمی و هر چیز رایگان بی‌ربط را با score صفر "
+        "ردش کن، حتی اگر واقعاً رایگان باشد. این کانال سرگرمی نیست. "
+        "دربارهٔ وضعیت دسترسی اگر در متن چیزی نبود، هیچ خطی ننویس. «نامشخص» ممنوع."
     ),
     "tools": (
         "این دسته ابزار است، نه خبر. یعنی چیزی که مخاطب می‌تواند امروز باز کند و از آن "
         "استفاده کند. تمرکز روی کاری که ابزار انجام می‌دهد و اینکه به کار چه کسی می‌آید. "
         "اگر پلن رایگان دارد، در details صریح بنویس چطور شروع کند. "
         "برچسب مجاز: «ابزار»، «پلاگین تازه»، «آموزش». خبر و فرصت در این دسته ممنوع. "
-        "اگر ورودی خبر است و نه ابزار، با score صفر ردش کن."
+        "اگر ورودی خبر است و نه ابزار، با score صفر ردش کن. "
+        "اگر ورودی راهنما و آموزش است، برچسب «آموزش» بده، نه «پلاگین تازه»."
     ),
     "news": (
         "این دسته خبر است، نه معرفی ابزار. فقط چیزی که برای سازندهٔ سایت فارسی مهم است: "
         "هستهٔ وردپرس، افزونه‌های پرکاربرد، امنیت، تغییر قیمت، یا سیاست‌های گوگل. "
-        "برچسب مجاز: «خبر»، «آپدیت»، «هشدار امنیتی»، «فوری». ابزار و فرصت در این دسته ممنوع. "
-        "اگر ورودی معرفی یک ابزار تازه است و نه خبر، با score صفر ردش کن."
+        "برچسب مجاز: «خبر»، «آپدیت»، «هشدار امنیتی»، «فوری»، «آموزش». ابزار و فرصت در این دسته ممنوع. "
+        "اگر ورودی معرفی یک ابزار تازه است و نه خبر، با score صفر ردش کن. "
+        "اگر ورودی «چطور فلان کار را بکنیم» است، آموزش است نه خبر؛ برچسب «آموزش» بده و "
+        "هرگز برچسب امنیتی نده."
     ),
 }
 
@@ -1104,10 +1152,38 @@ URGENT_HINT = re.compile(
     r"exploited in the wild|under attack|zero-day|بحرانی|در حال سوءاستفاده|فعالانه)",
     re.I,
 )
+# «آموزش» یعنی راهنما، نه خبر. تیتری که با «چطور» شروع می‌شود آموزش است.
+TUTORIAL_TITLE = re.compile(
+    r"(how to|how-to|tutorial|walkthrough|step by step|step-by-step|a guide to|"
+    r"^\s*(?:creating|building|using|understanding|designing|adding|making|"
+    r"setting up|getting started)\b|"
+    r"آموزش|راهنمای|گام‌به‌گام|چطور)",
+    re.I,
+)
+# شمارهٔ نسخه یعنی به‌روزرسانی چیزی که از قبل بوده، نه محصول تازه.
+VERSION_HINT = re.compile(
+    r"(نسخهٔ?\s*\d|\bversion\s*\d|\bv\d+\.\d+|\d+\.\d+)",
+    re.I,
+)
+# فرصت باید به کار مخاطب این کانال بیاید: هوش مصنوعی، طراحی، سایت، کد.
+OFFER_TOPIC = re.compile(
+    r"(هوش مصنوعی|\bai\b|a\.i|llm|model|api|token|credit|کردیت|توکن|سهمیه|رایگان|free|"
+    r"design|طراحی|site|سایت|wordpress|وردپرس|plugin|افزونه|image|تصویر|video|ویدیو|"
+    r"code|کد|developer|توسعه|server|سرور|cloud|ابر)",
+    re.I,
+)
+# چیزهایی که به این کانال ربط ندارند، حتی اگر رایگان باشند.
+OFFER_JUNK = re.compile(
+    r"(board game|card game|video game|بازی تخته|بازی ویدیویی|فیلم|movie|music|آهنگ|"
+    r"album|concert|کنسرت|lottery|قرعه‌کشی|casino|شرط‌بندی|gambling)",
+    re.I,
+)
+# «نامشخص» یعنی فیلد پوک. پستی که وضعیتش معلوم نیست نباید منتشر شود.
+HOLLOW_RE = re.compile(r"(نامشخص|نامعلوم|مشخص نیست|در دسترس نیست|unknown|unclear|ناموجود)", re.I)
 
 # برچسب مجاز هر دسته. مدل اجازه ندارد از این فهرست بیرون بزند.
 LABELS = {
-    "news": ("خبر", "آپدیت", "هشدار امنیتی", "فوری", "پلاگین تازه"),
+    "news": ("خبر", "آپدیت", "هشدار امنیتی", "فوری", "پلاگین تازه", "آموزش"),
     "tools": ("ابزار", "پلاگین تازه", "آموزش"),
     "offers": ("فرصت",),
     "security": ("هشدار امنیتی", "فوری"),
@@ -1122,13 +1198,15 @@ DEFAULT_LABEL = {
 }
 
 
-def classify_label(kind, text, model_label="", urgent=False):
+def classify_label(kind, text, model_label="", urgent=False, title="", source_title=""):
     """برچسب را از دسته و متن می‌سازد، نه از سلیقهٔ مدل.
 
     خبر هرگز ابزار نمی‌شود، ابزار هرگز خبر نمی‌شود، و برچسب امنیتی فقط
     وقتی می‌آید که آسیب‌پذیری واقعی در وردپرس یا افزونه باشد.
     """
     text = str(text or "").translate(DIGITS_TO_LATIN)
+    title = str(title or "").translate(DIGITS_TO_LATIN)
+    source_title = str(source_title or "").translate(DIGITS_TO_LATIN)
     model_label = (model_label or "").strip()
     if kind == "security":
         return "فوری" if (urgent or URGENT_HINT.search(text)) else "هشدار امنیتی"
@@ -1137,13 +1215,23 @@ def classify_label(kind, text, model_label="", urgent=False):
     if kind == "offers":
         return "فرصت"
 
-    advisory = is_advisory(text) and bool(WP_HINT.search(text))
+    # راهنما خبر نیست. «How To ...» در تیتر منبع، یا «چطور» در تیتر فارسی.
+    tutorial = bool(TUTORIAL_TITLE.search(title) or TUTORIAL_TITLE.search(source_title))
+    advisory = is_advisory(text) and bool(WP_HINT.search(text)) and not tutorial
     # «نسخهٔ فارسی» نسخهٔ تازه نیست. برای همین فقط شمارهٔ واقعی یا فعل انتشار شاهد است.
 
     if kind == "news":
         if advisory:
             return "فوری" if (urgent or URGENT_HINT.search(text)) else "هشدار امنیتی"
-        if PLUGIN_HINT.search(text) and (model_label == "پلاگین تازه" or NEW_HINT.search(text)):
+        if tutorial:
+            return "آموزش"
+        # «پلاگین تازه» فقط برای محصول تازه، و فقط وقتی خود مدل هم همین را گفته باشد.
+        # آموزش دربارهٔ قالب پلاگین تازه نیست، و نسخهٔ تازهٔ یک افزونهٔ قدیمی هم نیست.
+        if (
+            model_label == "پلاگین تازه"
+            and PLUGIN_HINT.search(text)
+            and not VERSION_HINT.search(title)
+        ):
             return "پلاگین تازه"
         if UPDATE_HINT.search(text):
             return "آپدیت"
@@ -1152,7 +1240,9 @@ def classify_label(kind, text, model_label="", urgent=False):
     # دستهٔ ابزار: پیشنهاد مدل فقط وقتی قبول می‌شود که متن هم شاهدش باشد.
     if model_label == "آموزش" and TUTORIAL_HINT.search(text):
         return "آموزش"
-    if model_label == "پلاگین تازه" and PLUGIN_HINT.search(text) and NEW_HINT.search(text):
+    if tutorial:
+        return "آموزش"
+    if model_label == "پلاگین تازه" and PLUGIN_HINT.search(text) and not VERSION_HINT.search(title):
         return "پلاگین تازه"
     return "ابزار"
 
@@ -1294,7 +1384,16 @@ def emoji_for(label):
     return (settings().get("emoji") or {}).get(label, "")
 
 
-def format_post(label, title, summary, details, meta, link, hashtags, when=None):
+LINK_WORD = {
+    "ابزار": "باز کردن ابزار",
+    "فرصت": "گرفتن فرصت",
+    "پلاگین تازه": "صفحهٔ افزونه",
+    "آموزش": "خواندن راهنما",
+    "نمایشگاه": "دیدن سایت",
+}
+
+
+def format_post(label, title, summary, details, meta, link, hashtags, when=None, name=""):
     tag = emoji_for(label)
     head = "{} {}: {}".format(tag, label, title).strip()
     parts = ["<b>{}</b>".format(esc(bidi(head))), "", esc(bidi(summary))]
@@ -1306,9 +1405,15 @@ def format_post(label, title, summary, details, meta, link, hashtags, when=None)
     if inner:
         parts.append("")
         parts.append("<blockquote expandable>{}</blockquote>".format("\n".join(inner)))
+    # نام رسمی محصول، تا مخاطب بداند از چه چیزی حرف می‌زنیم.
+    if name:
+        parts.append("")
+        parts.append("<b>{}</b>".format(esc(name)))
     if link:
         parts.append("")
-        parts.append('<a href="{}">لینک منبع</a>'.format(link.replace('"', "%22")))
+        parts.append(
+            '<a href="{}">{}</a>'.format(link.replace('"', "%22"), LINK_WORD.get(label, "لینک منبع"))
+        )
     if when is not None:
         parts.append("")
         parts.append("<i>{}</i>".format(esc(stamp(when))))
@@ -1323,7 +1428,9 @@ def format_post(label, title, summary, details, meta, link, hashtags, when=None)
 SEC_LABEL = "هشدار امنیتی"
 
 ADV_HIT = re.compile(
-    r"(vulnerab|CVE-\d{4}|security release|patched|exploit|XSS|SQL injection|RCE|backdoor|privilege escalation|CSRF|LFI|RFI)",
+    r"(vulnerab\w*|CVE-\d{4}-\d+|security release|\bpatched\b|\bexploit\w*|"
+    r"\bXSS\b|\bRCE\b|\bCSRF\b|\bSSRF\b|\bLFI\b|\bRFI\b|\bSQLi\b|SQL injection|"
+    r"\bbackdoor\b|privilege escalation)",
     re.I,
 )
 ADV_SKIP = re.compile(r"(bug bounty|vulnerability report|weekly report|monthly report|podcast|webinar)", re.I)
@@ -1626,7 +1733,10 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
         log("  dropped stale:", len(pending) - len(fresh), "of", len(pending))
     if not fresh:
         return 0
-    pool = cap_per_source(fresh, int(s.get("per_source_cap", 3)))[: int(s.get("max_items_per_call", 25))]
+    # سقف هر منبع در یک اجرا. دو آموزش از یک وبلاگ پشت سر هم، اسپم است.
+    psc = s.get("per_source_cap", 3)
+    per_source = int(psc.get(kind, psc.get("default", 3))) if isinstance(psc, dict) else int(psc)
+    pool = cap_per_source(fresh, per_source)[: int(s.get("max_items_per_call", 25))]
 
     d = read_json(DAILY, {"date": today(), "count": 0})
     if d.get("date") != today():
@@ -1707,7 +1817,7 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
             if not it:
                 continue
             # برچسب‌هایی که مدل خودش می‌گذارد حذف می‌شوند تا پست فرم پرکردنی نباشد.
-            for field in ("title", "summary", "meta"):
+            for field in ("title", "summary", "meta", "name"):
                 if entry.get(field):
                     entry[field] = strip_labels(entry[field])
             if entry.get("details"):
@@ -1716,6 +1826,18 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
                 [
                     it.get("desc", "") or "",
                     it.get("full", "") or "",
+                    entry.get("title", "") or "",
+                    entry.get("summary", "") or "",
+                    entry.get("details", "") or "",
+                ]
+            )
+            # برچسب از متنِ خودِ رویداد ساخته می‌شود، نه از متن کامل مقاله.
+            # متن کامل نوار کنار و لینک‌های بی‌ربط دارد و همان باعث شد
+            # یک آموزش ساخت جدول محصول با برچسب «هشدار امنیتی» پست شود.
+            label_text = " ".join(
+                [
+                    it.get("title", "") or "",
+                    it.get("desc", "") or "",
                     entry.get("title", "") or "",
                     entry.get("summary", "") or "",
                     entry.get("details", "") or "",
@@ -1752,6 +1874,12 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
             if kind == "news" and float(entry.get("imp") or 0) < 4:
                 rejected.append((it, entry, "اهمیت کم"))
                 continue
+            # راهنما خبر نیست. وبلاگ سازنده‌ها هر روز آموزش می‌نویسند و
+            # کانال پر می‌شد از «چطور فلان کار را بکنیم».
+            if kind == "news" and TUTORIAL_TITLE.search(it.get("title", "")):
+                it["channel_skip"] = True  # دیگر به مدل نمی‌رود
+                rejected.append((it, entry, "آموزش است نه خبر"))
+                continue
             if kind in ("tools", "offers") and float(entry.get("use") or 0) < 5:
                 rejected.append((it, entry, "قابل استفاده نیست"))
                 continue
@@ -1759,6 +1887,19 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
             if kind == "offers" and not FREE_HINT.search(text_all):
                 rejected.append((it, entry, "فرصت نیست"))
                 continue
+            # فرصت باید به کار مخاطب بیاید، نه هر چیز رایگانی در اینترنت.
+            if kind == "offers":
+                if OFFER_JUNK.search(it.get("title", "") + " " + it.get("desc", "")):
+                    it["channel_skip"] = True  # دیگر به مدل نمی‌رود
+                    rejected.append((it, entry, "به کار کانال نمی‌آید"))
+                    continue
+                if not OFFER_TOPIC.search(label_text):
+                    it["channel_skip"] = True
+                    rejected.append((it, entry, "موضوع ربطی ندارد"))
+                    continue
+                if float(entry.get("use") or 0) < 7:
+                    rejected.append((it, entry, "کم‌بها"))
+                    continue
             ok_quality, why = quality_ok(entry.get("title", ""), entry.get("summary", ""))
             if not ok_quality:
                 log("  quality gate:", why, entry.get("title", "")[:40])
@@ -1771,13 +1912,30 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
                 log("  hollow blockquote:", entry.get("title", "")[:40])
                 rejected.append((it, entry, "جان مطلب پوک"))
                 continue
+            # «وضعیت دسترسی: نامشخص» یعنی مدل چیزی نمی‌داند و دارد جا پر می‌کند.
+            if HOLLOW_RE.search(det) or HOLLOW_RE.search(entry.get("summary", "")):
+                log("  unknown status:", entry.get("title", "")[:40])
+                rejected.append((it, entry, "وضعیت نامعلوم"))
+                continue
+            # نام محصول: اول از مدل، و اگر نداد از تیتر منبع. پست بی‌نام نمی‌رود.
+            name = valid_name(entry.get("name", ""), it) or auto_name(it)
+            if kind in ("tools", "offers") and not name:
+                log("  nameless post:", entry.get("title", "")[:40])
+                rejected.append((it, entry, "بی‌نام"))
+                continue
             if is_recent_story(store, it):
                 log("  already covered:", it["title"][:60])
                 continue
             if not link_alive(it["link"]):
                 log("  dead link skipped:", it["link"])
                 continue
-            label = classify_label(kind, text_all, entry.get("label", ""))
+            label = classify_label(
+                kind,
+                label_text,
+                entry.get("label", ""),
+                title=entry.get("title", ""),
+                source_title=it.get("title", ""),
+            )
             label_tag = "#" + re.sub(r"\s+", "_", label)
             kind_tag = KIND_TAG.get(kind, "#وردپرس")
             if label_tag == kind_tag or kind_tag.startswith(label_tag):
@@ -1795,6 +1953,7 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
                 it["link"],
                 tags,
                 it.get("published"),
+                name=name,
             )
             try:
                 if kind == "showcase":
@@ -1817,7 +1976,7 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
             d["kinds"][kind] = posted_kind
             if fast:
                 d["fast"] = int(d.get("fast", 0)) + 1
-            archive_row(it, label, entry.get("title", ""), entry.get("summary", ""), entry.get("score", 0), kind)
+            archive_row(it, label, entry.get("title", ""), entry.get("summary", ""), score, kind)
             if not DRY:
                 write_json(QUEUE, q)
                 write_json(DAILY, d)
@@ -1918,18 +2077,36 @@ def digest_run(s, hours=24, top_n=10, mark=True):
         "<i>{} مورد از {} ساعت گذشته</i>".format(fa_num(len(top)), fa_num(hours)),
         "",
     ]
+    blocks = []
     for it in top:
-        title, gist = tr.get(it["id"], (it.get("title", ""), ""))
-        lines.append("• <b>{}</b>".format(esc(str(title)[:120])))
+        title, gist = tr.get(it["id"], ("", ""))
+        title = str(title or "").strip()
+        # تیتر انگلیسی خام برای کانال فارسی بی‌مصرف است. آیتمی که ترجمه نشد، نمی‌آید.
+        if not title or not re.search(r"[\u0600-\u06FF]", title):
+            continue
+        block = ["• <b>{}</b>".format(esc(title[:120]))]
         if gist:
-            lines.append(esc(str(gist)[:240]))
+            block.append(esc(str(gist)[:240]))
+        name = valid_name(it.get("name", ""), it) or auto_name(it)
+        if name:
+            block.append("<b>{}</b>".format(esc(name)))
         pub = it.get("published") or ""
-        lines.append("انتشار: {} · {}".format(esc(stamp(pub) if pub else "نامشخص"), age_label(it.get("age_hours", 0))))
-        lines.append('<a href="{}">لینک</a>'.format(it["link"].replace('"', "%22")))
-        lines.append("")
+        if pub:
+            block.append("<i>{}</i>".format(esc(stamp(pub))))
+        block.append('<a href="{}">باز کردن</a>'.format(it["link"].replace('"', "%22")))
+        block.append("")
+        blocks.append("\n".join(block))
+
+    # برش بر اساس بلوک، تا هیچ لینکی نصفه نماند.
+    if not blocks:
+        log("digest: nothing translated, not sending")
+        return 0
     text = "\n".join(lines)
-    if len(text) > 3900:
-        text = text[:3900] + "…"
+    for block in blocks:
+        if len(text) + len(block) > 3900:
+            text += "\n<i>بقیه در اجرای بعد.</i>"
+            break
+        text += block
     target = personal_chat()
     try:
         send_to(target, text, preview=False)

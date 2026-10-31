@@ -209,7 +209,7 @@ check("امنیت: سقف دوتایی دسته رعایت شد", n, 0)
 
 # ---------------------------------------------------------------- برچسب درست
 def lab(kind, text, model_label="", urgent=False):
-    return radar.classify_label(kind, text, model_label, urgent)
+    return radar.classify_label(kind, text, model_label, urgent, title=text)
 
 
 check("برچسب: خبر نسخه‌دار آپدیت است", lab("news", "WordPress 7.1.4 released with security fixes"), "آپدیت")
@@ -300,6 +300,44 @@ radar.fetch_source = slow_fetch
 rows = radar.collect("news", {}, {"v": 1, "ids": {}}, budget_sec=0.12)
 check("جمع‌آوری: با بودجهٔ کم همهٔ منابع خوانده نمی‌شوند", len(fetched) < 6, True)
 check("جمع‌آوری: دست‌کم یک منبع خوانده می‌شود", len(fetched) >= 1, True)
+
+# ---------------------------------------------------------------- باگ‌های ۱۰ آبان
+# «WooCommerce» کلمهٔ RCE را در خود دارد. نباید هشدار امنیتی بسازد.
+check("هشدار: WooCommerce آسیب‌پذیری نیست", radar.is_advisory("activate WooCommerce and add products"), False)
+check("هشدار: RCE واقعی شناخته می‌شود", radar.is_advisory("Critical RCE in the login form"), True)
+check("هشدار: CVE واقعی شناخته می‌شود", radar.is_advisory("CVE-2026-1234 in core"), True)
+
+divi_title = "How To Build A Product Grid With Divi 5’s CSS Grid Editor"
+divi_text = (
+    divi_title
+    + " یک راهنمای عملی برای چیدمان محصولات فروشگاهی. با Loop Builder برای ۱۹ محصول "
+    "WooCommerce تکرارش کن. نسخهٔ جدید این قالب را نصب کن."
+)
+check("برچسب: آموزش دیوی هشدار امنیتی نمی‌گیرد", lab("news", divi_text, "هشدار امنیتی"), "آموزش")
+check("برچسب: آموزش دیوی پلاگین تازه نمی‌گیرد", lab("news", divi_text, "پلاگین تازه"), "آموزش")
+check("برچسب: تیتر چطور = آموزش", lab("news", "چطور سایت را سریع‌تر کنیم", "خبر"), "آموزش")
+
+# فرصت بی‌ربط نباید رد شود.
+check("فرصت: بازی تخته‌ای رد می‌شود", bool(radar.OFFER_JUNK.search("Play Nightmare – the 1991 VHS board game")), True)
+check("فرصت: موضوع هوش مصنوعی قبول است", bool(radar.OFFER_TOPIC.search("free daily quota for developers")), True)
+check("فرصت: فیلم و موسیقی رد می‌شود", bool(radar.OFFER_JUNK.search("free music album download")), True)
+
+# «نامشخص» فیلد پوک است.
+check("پوک: وضعیت نامشخص رد می‌شود", bool(radar.HOLLOW_RE.search("وضعیت دسترسی: نامشخص")), True)
+check("پوک: متن سالم رد نمی‌شود", bool(radar.HOLLOW_RE.search("با ایمیل ثبت‌نام کن و اعتبار را بگیر")), False)
+
+# نام محصول: ساختگی رد، واقعی قبول، و اگر مدل نداد از تیتر برداشته می‌شود.
+row = {"title": "Cloudflare Workers AI free daily allowance", "desc": "free quota"}
+check("نام: نام ساختگی رد می‌شود", radar.valid_name("OpenAI Turbo Max", row), "")
+check("نام: نام واقعی قبول می‌شود", radar.valid_name("Cloudflare", row), "Cloudflare")
+check("نام: از تیتر منبع برداشته می‌شود", radar.auto_name(row), "Cloudflare")
+check("نام: واژهٔ رایج اسم نیست", radar.auto_name({"title": "Show HN: something"}), "")
+check("نام: تیتر بی‌لاتین نامی ندارد", radar.auto_name({"title": "سایت تازه برای ساخت فروشگاه"}), "")
+
+# سقف منبع حالا برای هر دسته جداست.
+news_rows = [{"source": "الگانت", "title": "a"}, {"source": "الگانت", "title": "b"}, {"source": "x", "title": "c"}]
+check("سقف منبع: خبر یک پست از هر منبع", len(radar.cap_per_source(news_rows, 1)), 2)
+check("سقف منبع: ابزار دو پست از هر منبع", len(radar.cap_per_source(news_rows, 2)), 3)
 
 # ---------------------------------------------------------------- نتیجه
 print("{} آزمون اجرا شد.".format(COUNT))
