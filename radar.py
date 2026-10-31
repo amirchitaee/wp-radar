@@ -1924,34 +1924,38 @@ def watchdog_run():
 
 # ---------------------------------------------------------------- auto
 
-def guardian_ready(s):
-    """آیا این اجرا باید کار کند؟ فاصله از «شروع» اجرای قبلی سنجیده می‌شود.
+def guardian_ready(s, role="main"):
+    """آیا این اجرا باید کار کند؟
 
-    تریگرها پانزده دقیقه‌ای‌اند و اجرای قبلی ممکن است ده دقیقه طول کشیده باشد؛
-    پس فاصله از پایان به کار نمی‌آید. با این نگهبان می‌توان تریگر دوم گذاشت
-    بدون اینکه دو اجرا روی هم بیفتند.
+    دو نقش داریم. تریگر اصلی هر پانزده دقیقه می‌زند و فقط باید از روی‌هم‌افتادن
+    جلوگیری کند، پس فاصلهٔ کوتاه کافی است. تریگر پشتیبان همان پانزده دقیقه را
+    می‌زند ولی فقط وقتی وارد می‌شود که تریگر اصلی مدتی ساکت بوده باشد؛ وگرنه
+    هر دو با هم می‌دوند و سهمیهٔ مدل را دو بار می‌سوزانند.
     """
     ls = read_json(LAST_START, {})
     try:
         gap = (now() - datetime.fromisoformat(str(ls.get("at", "")))).total_seconds() / 60.0
     except Exception:
         gap = 999.0
-    limit = float(s.get("guard_min_gap_min", 10))
+    if role == "backup":
+        limit = float(s.get("backup_min_gap_min", 25))
+    else:
+        limit = float(s.get("guard_min_gap_min", 5))
     if gap < limit:
-        log("guardian: last auto start {:.0f} min ago, skipping".format(gap))
+        log("guardian({}): last auto start {:.0f} min ago, skipping".format(role, gap))
         return False
     if not DRY:
-        write_json(LAST_START, {"at": now().isoformat(timespec="seconds")})
+        write_json(LAST_START, {"at": now().isoformat(timespec="seconds"), "src": role})
     return True
 
 
-def auto_run(s, st, seen, extra):
+def auto_run(s, st, seen, extra, role="main"):
     """یک اجرا که خودش تصمیم می‌گیرد کدام رادار وقتش است.
 
     جای زمان‌بندی گیت‌هاب را می‌گیرد، چون آن زمان‌بندی با تأخیر چندساعته
     می‌رسد. این تابع با تریگر بیرونی هر پانزده دقیقه صدا زده می‌شود.
     """
-    if not guardian_ready(s):
+    if not guardian_ready(s, role):
         return 0
 
     sch = read_json(SCHED, {})
@@ -2108,7 +2112,15 @@ def whoami_run():
 
 
 def main():
-    cmd = next((a for a in sys.argv[1:] if not a.startswith("-")), "news")
+    argv = list(sys.argv[1:])
+    # --src مشخص می‌کند تریگر اصلی صدا زده یا تریگر پشتیبان.
+    role = "main"
+    if "--src" in argv:
+        i = argv.index("--src")
+        if i + 1 < len(argv):
+            role = argv[i + 1]
+            del argv[i : i + 2]
+    cmd = next((a for a in argv if not a.startswith("-")), "news")
     if cmd == "whoami":
         return whoami_run()
     if cmd == "selftest":
@@ -2139,7 +2151,7 @@ def main():
     elif cmd == "watchdog":
         return watchdog_run()
     elif cmd == "auto":
-        auto_run(s, st, seen, extra)
+        auto_run(s, st, seen, extra, role)
     else:
         model_run(cmd, s, st, seen, extra)
 

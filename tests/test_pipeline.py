@@ -47,6 +47,22 @@ check("نگهبان: دوازده دقیقه پیش، اجرا می‌کند", r
 tmp.write_text("not json", encoding="utf-8")
 check("نگهبان: فایل خراب، اجرا می‌کند", radar.guardian_ready(s), True)
 
+# ---------------------------------------------------------------- نگهبان پشتیبان
+tmp2 = Path(tempfile.mkdtemp()) / "last_start.json"
+radar.LAST_START = tmp2
+sb = {"guard_min_gap_min": 5, "backup_min_gap_min": 25}
+
+radar.write_json(tmp2, {"at": (radar.now() - timedelta(minutes=7)).isoformat(), "src": "main"})
+check("پشتیبان: هفت دقیقه بعد از اصلی وارد نمی‌شود", radar.guardian_ready(sb, "backup"), False)
+check("اصلی: هفت دقیقه بعد از اصلی وارد می‌شود", radar.guardian_ready(sb, "main"), True)
+
+radar.write_json(tmp2, {"at": (radar.now() - timedelta(minutes=30)).isoformat(), "src": "main"})
+check("پشتیبان: سی دقیقه سکوت اصلی، وارد می‌شود", radar.guardian_ready(sb, "backup"), True)
+check("پشتیبان: نقشش در فایل ثبت شد", radar.read_json(tmp2, {}).get("src"), "backup")
+
+radar.write_json(tmp2, {"at": (radar.now() - timedelta(minutes=3)).isoformat(), "src": "backup"})
+check("اصلی: سه دقیقه بعد از پشتیبان صبر می‌کند", radar.guardian_ready(sb, "main"), False)
+
 # ---------------------------------------------------------------- سهمیهٔ روزانه
 caps = {"news": 4, "tools": 2, "offers": 2, "showcase": 1}
 daily = 10
