@@ -482,14 +482,82 @@ def code_score(item, source_count):
     return round(fresh + tier + multi, 1)
 
 
+DESIGN_WORDS = (
+    "wordpress", "elementor", "woocommerce", "figma", "web design", "website",
+    "landing page", "page builder", "css", "theme", "plugin", "hosting", "seo",
+    "site builder", "webflow", "framer", "html", "template", "ui kit",
+    "cms", "ecommerce", "shop", "storefront",
+)
+CONTENT_WORDS = (
+    "writing", "copywriting", "blog", "article", "content", "text", "translate",
+    "newsletter", "email", "summar", "editing", "editor", "seo content",
+)
+VIDEO_WORDS = (
+    "video", "animation", "avatar", "voice", "speech", "tts", "music", "audio",
+    "image gen", "text to image", "text-to-image", "film", "movie", "render",
+)
+
+
+def topic_bonus(item, entry):
+    """اولویت موضوعی: طراحی سایت، بعد محتوا، بعد ویدیو.
+
+    برای خبر اعمال نمی‌شود، چون خبر ارزش خودش را دارد.
+    """
+    if item.get("kind") not in ("tools", "offers"):
+        return 0.0
+    blob = " ".join(
+        [
+            str(item.get("title") or ""),
+            str(item.get("desc") or ""),
+            str(entry.get("title") or ""),
+            str(entry.get("summary") or ""),
+            str(entry.get("details") or ""),
+        ]
+    ).lower()
+    if any(w in blob for w in DESIGN_WORDS):
+        return 6.0
+    if any(w in blob for w in CONTENT_WORDS):
+        return 3.0
+    if any(w in blob for w in VIDEO_WORDS):
+        return 0.0
+    return 2.0
+
+
 def final_score(item, entry):
-    """امتیاز نهایی از صد: کد به‌علاوه نظر مدل."""
+    """امتیاز نهایی از صد: کد به‌علاوه نظر مدل به‌علاوه اولویت موضوعی."""
     imp = max(0.0, min(float(entry.get("imp") or 0), 10.0)) * 2.5
     use = max(0.0, min(float(entry.get("use") or 0), 10.0)) * 2.0
-    return round(code_score(item, item.get("sources_count", 1)) + imp + use, 1)
+    return round(code_score(item, item.get("sources_count", 1)) + imp + use + topic_bonus(item, entry), 1)
 
 
 BANNED_PHRASES = ("متن ورودی", "جزئیات بیشتری ندارد", "اشاره دارد", "در دنیای امروز", "لازم به ذکر است")
+
+# مدل گاهی خودش برچسب می‌گذارد؛ پست نباید فرم پرکردنی باشد.
+FIELD_LABELS = (
+    "تیتر", "عنوان", "خلاصه", "جان مطلب", "جزئیات", "توضیح", "شرح",
+    "چه چیزی می‌دهد", "چی گیرت می‌آید", "چرا مهم است", "مهم‌ترین نکته",
+    "نام محصول", "نام ابزار", "نام سرویس", "دسته", "برچسب", "مزیت",
+    "محدودیت", "شروع", "نحوهٔ شروع", "قیمت", "هزینه", "نسخه", "منبع",
+)
+LABEL_RE = re.compile(
+    r"^\s*(?:" + "|".join(re.escape(x) for x in FIELD_LABELS) + r")\s*[:：]\s*",
+    re.MULTILINE,
+)
+
+
+def strip_labels(text):
+    """برچسب فیلد را برمی‌دارد و خطی که فقط یک نام لاتین مانده باشد را حذف می‌کند."""
+    out = []
+    for line in str(text or "").splitlines():
+        m = LABEL_RE.match(line)
+        if not m:
+            out.append(line)
+            continue
+        rest = line[m.end() :].strip()
+        if not rest or not re.search(r"[\u0600-\u06FF]", rest):
+            continue
+        out.append(rest)
+    return "\n".join(out).strip()
 
 
 def quality_ok(title, summary):
@@ -673,16 +741,19 @@ SYSTEM_PROMPT = """تو نویسندهٔ یک کانال فارسی تخصصی �
 
 قواعد سخت:
 1. خروجی فقط یک شیء جیسون معتبر. بدون توضیح، بدون بلوک کد، بدون متن اضافه.
-2. فارسی روان بنویس، مثل کسی که برای یک دوست توضیح می‌دهد. ترجمهٔ لفظی ننویس. فقط نام محصول و شرکت لاتین می‌ماند. کلمه وردپرس را فارسی بنویس.
+2. فارسی روان بنویس، مثل کسی که برای یک دوست توضیح می‌دهد. ترجمهٔ لفظی ننویس. کلمه وردپرس را فارسی بنویس.
+9. مخاطب حرفه‌ای نیست. هر اصطلاح فنی را همان‌جا با یک نیم‌جمله ساده کن. به جای «ای‌پی‌آی» بنویس «سرویسی که برنامه به آن وصل می‌شود». به جای «مدل زبانی» بنویس «هوش مصنوعی‌ای که متن می‌نویسد». خواننده باید بدون دانش قبلی بفهمد چه چیزی گیرش می‌آید.
+10. خوانایی: در هر جمله حداکثر یک عبارت لاتین. کل پست حداکثر سه عبارت لاتین. نام محصول را یک بار بیاور، جای دیگر با ضمیر یا «این ابزار» ادامه بده. نسخه و شماره و نام مدل را از دل جملهٔ فارسی بیرون بکش و در details بگذار. هرگز عبارت لاتین را وسط جملهٔ فارسی نچسبان.
+11. اولویت موضوعی: اول ابزاری که به ساخت و طراحی سایت کمک می‌کند، بعد تولید محتوا، بعد ساخت ویدیو و تصویر. اگر هر سه در یک دسته بودند، اولی را بالاتر بگذار. این یعنی ترتیب، نه حذف.
 3. هیچ واقعیتی از خودت نساز. اگر در متن منبع نبود، ننویس. عدد و نسخه و قیمت را از دادهٔ ورودی بردار، نه از حافظه.
 4. دربارهٔ دسترسی از ایران و کارت بانکی حدس نزن. فقط از فایل دسترسی نقل کن. اگر نبود، «نامشخص» بگذار.
-5. هیچ برچسبی مثل «تیتر:» یا «خلاصه:» یا «جزئیات:» در متن ننویس. متن باید روان و انسانی باشد، نه فرم پرکردنی.
+5. هیچ برچسبی مثل «تیتر:» یا «خلاصه:» یا «جزئیات:» یا «نام محصول:» یا «قیمت:» در متن ننویس. این قاعده داخل بلوک نقل‌قول هم هست. متن باید روان و انسانی باشد، نه فرم پرکردنی.
 6. هرگز دربارهٔ خود متن ورودی حرف نزن. جمله‌هایی مثل «متن ورودی جزئیات بیشتری ندارد» یا «عنوان به فلان چیز اشاره دارد» ممنوع است. اگر داده کم بود، کمتر بنویس، ولی دربارهٔ کمبودش حرف نزن.
 7. قبل از نوشتن، برای هر آیتم در ذهن جواب بده: این چیه؟ چه کاری می‌کند؟ برای کی خوب است؟ چه چیزی گیر مخاطب می‌آید؟ بعد همان جواب را ساده و خودمونی بنویس.
 8. کلیشه ممنوع: «در دنیای امروز»، «این ابزار می‌تواند»، «قابلیت»، «امکان». جملهٔ کوتاه و مستقیم بنویس.
 
 summary: دو تا سه جمله. اولی این چیه و چه کاری می‌کند. دومی چه چیزی گیر مخاطب می‌آید. بدون مقدمه‌چینی.
-details: سه تا پنج خط کوتاه، هر خط یک نکتهٔ تازه که در summary نگفتی. اگر ابزار یا فرصت است: رایگان است یا نه، چطور شروع کند، محدودیتش چیست. اگر رایگان با ایمیل است، صریح بگو همین حالا با ایمیلش ثبت‌نام کند و اعتبار را بگیرد.
+details: سه تا پنج خط کوتاه، هر خط یک نکتهٔ تازه که در summary نگفتی. اگر ابزار یا فرصت است: رایگان است یا نه، چطور شروع کند، محدودیتش چیست. اگر رایگان با ایمیل است، صریح بگو همین حالا با ایمیلش ثبت‌نام کند و اعتبار را بگیرد. این بخش هرگز خالی یا تشریفاتی نباشد؛ اگر واقعاً سه نکته نداری، همان دو نکتهٔ واقعی را بنویس و خط الکی اضافه نکن. جای عبارت‌های لاتین و نام مدل و نسخه همین بخش است.
 meta: یک خط داده‌ی چسبیده مثل نصب فعال، نسخه، قیمت. اگر نبود، رشتهٔ خالی.
 title: فایده را بگو نه اسم محصول را. بازنویسی عنوان منبع ممنوع.
 
@@ -868,6 +939,27 @@ def esc(text):
     return html.escape(str(text or ""), quote=False)
 
 
+# ---------- خوانایی فارسی و لاتین ----------
+# بدون این کار، عبارت لاتین وسط جملهٔ فارسی جهت پاراگراف را به‌هم می‌ریزد
+# و پست کثیف دیده می‌شود. ایزوله‌ی چپ‌به‌راست، همان چیزی است که مرورگرها
+# برای همین کار ساخته‌اند و در تلگرام هم بی‌رنگ و نامرئی است.
+LRI = "\u2066"
+PDI = "\u2069"
+LATIN_RUN = re.compile(r"[A-Za-z][A-Za-z0-9\.\-_/+#'’]*")
+
+
+def bidi(text):
+    text = str(text or "")
+    if not text:
+        return text
+    try:
+        if not settings().get("bidi_isolate", True):
+            return text
+    except Exception:
+        pass
+    return LATIN_RUN.sub(lambda m: LRI + m.group(0) + PDI, text)
+
+
 def send_to(chat, text, preview=True):
     if DRY or not (TG_TOKEN and chat):
         log("--- post ---")
@@ -908,12 +1000,12 @@ def emoji_for(label):
 def format_post(label, title, summary, details, meta, link, hashtags, when=None):
     tag = emoji_for(label)
     head = "{} {}: {}".format(tag, label, title).strip()
-    parts = ["<b>{}</b>".format(esc(head)), "", esc(summary)]
+    parts = ["<b>{}</b>".format(esc(bidi(head))), "", esc(bidi(summary))]
     inner = []
     if details:
-        inner.append(esc(details))
+        inner.append(esc(bidi(details)))
     if meta:
-        inner.append(esc(meta))
+        inner.append(esc(bidi(meta)))
     if inner:
         parts.append("")
         parts.append("<blockquote expandable>{}</blockquote>".format("\n".join(inner)))
@@ -1215,6 +1307,10 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
             it = by_id.get(str(entry.get("id", "")))
             if not it:
                 continue
+            # برچسب‌هایی که مدل خودش می‌گذارد حذف می‌شوند تا پست فرم پرکردنی نباشد.
+            for field in ("title", "summary", "details", "meta"):
+                if entry.get(field):
+                    entry[field] = strip_labels(entry[field])
             score = final_score(it, entry)
             fast = False
             if posted_kind >= kind_cap:
@@ -1251,6 +1347,13 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
                 log("  quality gate:", why, entry.get("title", "")[:40])
                 rejected.append((it, entry, why))
                 continue
+            # بلوک نقل‌قول نباید خالی یا تشریفاتی باشد.
+            det = (entry.get("details") or "").strip()
+            need = 60 if kind in ("tools", "offers") else 30
+            if len(det) < need or len([x for x in det.splitlines() if x.strip()]) < 2:
+                log("  hollow blockquote:", entry.get("title", "")[:40])
+                rejected.append((it, entry, "جان مطلب پوک"))
+                continue
             if is_recent_story(store, it):
                 log("  already covered:", it["title"][:60])
                 continue
@@ -1263,7 +1366,12 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
             )
             label_tag = "#" + re.sub(r"\s+", "_", label)
             kind_tag = KIND_TAG.get(kind, "#وردپرس")
-            tags = label_tag if label_tag == kind_tag else label_tag + " " + kind_tag
+            if label_tag == kind_tag or kind_tag.startswith(label_tag):
+                tags = kind_tag
+            elif label_tag.startswith(kind_tag):
+                tags = label_tag
+            else:
+                tags = label_tag + " " + kind_tag
             text = format_post(
                 label,
                 entry.get("title", ""),
