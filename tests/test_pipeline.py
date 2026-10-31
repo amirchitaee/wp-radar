@@ -3,6 +3,7 @@
 اجرا: python tests/test_pipeline.py
 """
 import os
+import re
 import sys
 import tempfile
 from datetime import timedelta
@@ -50,7 +51,7 @@ check("نگهبان: فایل خراب، اجرا می‌کند", radar.guardian
 # ---------------------------------------------------------------- نگهبان پشتیبان
 tmp2 = Path(tempfile.mkdtemp()) / "last_start.json"
 radar.LAST_START = tmp2
-sb = {"guard_min_gap_min": 5, "backup_min_gap_min": 25}
+sb = {"guard_min_gap_min": 5, "backup_min_gap_min": 12}
 
 radar.write_json(tmp2, {"at": (radar.now() - timedelta(minutes=7)).isoformat(), "src": "main"})
 check("پشتیبان: هفت دقیقه بعد از اصلی وارد نمی‌شود", radar.guardian_ready(sb, "backup"), False)
@@ -62,6 +63,11 @@ check("پشتیبان: نقشش در فایل ثبت شد", radar.read_json(tmp2
 
 radar.write_json(tmp2, {"at": (radar.now() - timedelta(minutes=3)).isoformat(), "src": "backup"})
 check("اصلی: سه دقیقه بعد از پشتیبان صبر می‌کند", radar.guardian_ready(sb, "main"), False)
+
+# ورکر کلادفلر باید خودش را پشتیبان معرفی کند، وگرنه اجرای اصلی دوباره می‌شود.
+worker = Path(__file__).resolve().parent.parent / "trigger" / "worker.js"
+src = worker.read_text(encoding="utf-8")
+check("تریگر: ورکر خودش را پشتیبان معرفی می‌کند", bool(re.search(r"src\s*:\s*[\"']backup[\"']", src)), True)
 
 # ---------------------------------------------------------------- سهمیهٔ روزانه
 sched = {

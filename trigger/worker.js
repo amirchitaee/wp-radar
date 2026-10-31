@@ -1,6 +1,10 @@
 // تریگر پشتیبان رادار روی Cloudflare Workers
 // هر ۱۵ دقیقه، با فاصله هفت دقیقه از تریگر اصلی، به گیت‌هاب می‌گوید اجرا کن.
 // متغیر محیطی لازم: GH_TOKEN  (توکن fine-grained با دسترسی Actions: write)
+//
+// مهم: این ورکر خودش را «پشتیبان» معرفی می‌کند. اگر معرفی نکند، رادار آن را
+// تریگر اصلی حساب می‌کند و هفت دقیقه بعد از هر اجرای اصلی یک اجرای کامل
+// دیگر می‌زند. یعنی سهمیهٔ مدل دو برابر می‌سوزد.
 
 const REPO = "amirchitaee/wp-radar";
 const WORKFLOW = "radar-auto.yml";
@@ -16,7 +20,7 @@ async function dispatch(env) {
       "Content-Type": "application/json",
       "User-Agent": "radar-trigger",
     },
-    body: JSON.stringify({ ref: REF }),
+    body: JSON.stringify({ ref: REF, inputs: { src: "backup" } }),
   });
   const text = await res.text();
   return { status: res.status, body: text.slice(0, 300) };
