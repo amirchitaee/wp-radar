@@ -480,14 +480,15 @@ def model_providers():
 
 
 def gemini_call(prov, model, system, user, timeout, json_mode=True):
-    """فراخوانی مستقیم رابط گوگل، بدون لایهٔ سازگاری.
+    """فراخوانی مستقیم رابط گوگل.
 
-    لایهٔ سازگاری برای بعضی کلیدها مدل را پیدا نمی‌کند و ۴۰۴ می‌دهد،
-    ولی رابط اصلی همیشه کار می‌کند.
+    گوگل چند در دارد و کلیدهای تازه روی بعضی از آن‌ها جواب نمی‌دهند.
+    پس هر دو نسخه و هر دو روش فرستادن کلید امتحان می‌شود تا یکی جواب بدهد.
     """
-    url = "{}/models/{}:generateContent?key={}".format(
-        prov["base"].replace("/openai", ""), model, urllib.parse.quote(prov["key"])
-    )
+    root = prov["base"].replace("/openai", "").rstrip("/")
+    bases = [root]
+    if root.endswith("/v1beta"):
+        bases.append(root[: -len("/v1beta")] + "/v1")
     cfg = {"temperature": 0.35}
     if json_mode:
         cfg["responseMimeType"] = "application/json"
@@ -497,12 +498,31 @@ def gemini_call(prov, model, system, user, timeout, json_mode=True):
     }
     if system:
         payload["systemInstruction"] = {"parts": [{"text": system}]}
-    data = http_post_json(url, payload, timeout=timeout)
-    parts = ((data.get("candidates") or [{}])[0].get("content") or {}).get("parts") or []
-    text = "".join(p.get("text", "") for p in parts).strip()
-    if not text:
-        raise RuntimeError("پاسخ خالی از گوگل")
-    return extract_json(text) if json_mode else text
+
+    last = None
+    for base in bases:
+        for via_header in (False, True):
+            url = "{}/models/{}:generateContent".format(base, model)
+            headers = {}
+            if via_header:
+                headers["x-goog-api-key"] = prov["key"]
+            else:
+                url += "?key=" + urllib.parse.quote(prov["key"])
+            try:
+                data = http_post_json(url, payload, headers=headers, timeout=timeout)
+            except urllib.error.HTTPError as exc:
+                last = exc
+                continue
+            except Exception as exc:
+                last = exc
+                continue
+            parts = ((data.get("candidates") or [{}])[0].get("content") or {}).get("parts") or []
+            text = "".join(p.get("text", "") for p in parts).strip()
+            if not text:
+                last = RuntimeError("پاسخ خالی از گوگل")
+                continue
+            return extract_json(text) if json_mode else text
+    raise last if last else RuntimeError("گوگل جواب نداد")
 
 
 def call_models(prompt_system, prompt_user, deadline=None, budget=None):
@@ -1405,7 +1425,12 @@ def selftest_run():
             lines.append("✅ {} — {}".format(prov["name"], esc(answer) or "(پاسخ خالی)"))
             ok = True
         except urllib.error.HTTPError as exc:
-            lines.append("❌ {} — خطای {}".format(prov["name"], exc.code))
+            try:
+                body = exc.read().decode("utf-8", "replace")
+                body = re.sub(r"\s+", " ", body)[:160]
+            except Exception:
+                body = ""
+            lines.append("❌ {} — خطای {} {}".format(prov["name"], exc.code, esc(body)))
         except Exception as exc:
             lines.append("❌ {} — {}".format(prov["name"], esc(str(exc)[:120])))
         if not ok and prov["name"] == "google":
