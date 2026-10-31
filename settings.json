@@ -52,8 +52,8 @@
    "key": "GEMINI_KEY",
    "models": [
     "gemini-flash-latest",
-    "gemma-4-31b-it",
-    "gemini-3.8-flash"
+    "gemini-3.8-flash",
+    "gemma-4-31b-it"
    ]
   }
  ],
