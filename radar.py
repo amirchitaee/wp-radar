@@ -54,6 +54,7 @@ QUEUE = STATE / "queue.json"
 STATS = STATE / "sources.json"
 DAILY = STATE / "daily.json"
 LAST = STATE / "last_run.json"
+LAST_START = STATE / "last_start.json"
 STORIES = STATE / "stories.json"
 SCHED = STATE / "schedule.json"
 ARCHIVE = ARCH / "items.jsonl"
@@ -344,36 +345,130 @@ def cluster_key(title):
     return hashlib.sha1(" ".join(sorted(words[:6])).encode("utf-8")).hexdigest()[:16]
 
 
+# ---------------------------------------------------------------- dedupe
+
+DIGITS_TO_LATIN = str.maketrans("۰۱۲۳۴۵۶۷۸۹٠١٢٣٤٥٦٧٨٩", "01234567890123456789")
+
+FA_STOP = {
+    "این", "آن", "برای", "از", "که", "با", "را", "در", "به", "است", "شد", "شده",
+    "می", "نمی", "های", "هایی", "یک", "دو", "تا", "هم", "یا", "و", "بر", "کرد",
+    "کرده", "دارد", "دارند", "بود", "خود", "همه", "چه", "چی", "کدام", "اما",
+    "بیشتر", "جدید", "تازه", "منتشر", "عرضه", "نسخه", "افزونه", "قالب", "خبر",
+    "امنیتی", "آسیب", "پذیری", "کاربران", "سایت", "سایت‌ها", "روز", "هفته", "ماه",
+    "سال", "دهد", "دهند", "کند", "کنند", "شود", "شوند", "نیز", "فقط", "الان",
+}
+
+STOPWORDS = {
+    "release", "released", "releases", "update", "updated", "updates", "version",
+    "security", "news", "new", "patch", "patches", "patched", "available", "fixes",
+    "fixed", "critical", "high", "vulnerability", "vulnerabilities", "exploit",
+    "report", "plugin", "theme", "site", "sites", "users", "user", "today", "week",
+    "month", "year", "what", "with", "from", "this", "that", "have", "will", "your",
+    "more", "than", "after", "before", "into", "launch", "launches", "launched",
+    "now", "just", "first", "also", "over", "under", "about", "these", "those",
+    "their", "there", "then", "when", "where", "which", "while", "would", "could",
+    "should", "said", "says", "one", "two", "three", "most", "best", "top", "get",
+    "gets", "adds", "added", "brings", "bring", "here", "why", "how", "you", "are",
+    "show", "ask", "tell", "launch", "introducing", "announcing", "hn", "app",
+    "free", "review", "guide", "tutorial", "tips", "vs", "using", "build", "built",
+    "we", "our", "us", "my", "me", "they", "them", "its", "love", "feedback",
+    "now", "here", "new", "just", "still", "very", "much", "many", "some", "any",
+}
+
+# نام‌هایی که در این فید همه‌جا هستند و اشتراکشان چیزی ثابت نمی‌کند.
+GENERIC_ENTS = {
+    "mcp", "claude", "code", "ai", "api", "server", "model", "agent", "agents",
+    "app", "apps", "tool", "tools", "plugin", "gpt", "llm", "openai", "google",
+    "meta", "apple", "microsoft", "browser", "agentic", "cursor", "codex",
+}
+
+VERSION_RE = re.compile(r"\d+(?:\.\d+)+")
+PROPER_RE = re.compile(r"\b([A-Z][A-Za-z0-9]*(?:[\-\.][A-Za-z0-9]+)*|[A-Z]{2,})\b")
+# فقط وقتی پسوند را می‌بریم که واقعاً نام سایت باشد: کوتاه و بعد از خط عمودی یا خط تیره.
+SITE_SUFFIX_RE = re.compile(r"\s+(?:\|\s*\S.{1,28}|-\s+[A-Z][\w .&'’]{1,24})$")
+# پیشوندهای تیترهای هکرنیوز که در همه تکرار می‌شوند و مقایسه را خراب می‌کنند.
+HN_PREFIX_RE = re.compile(r"^(?:show|ask|launch|tell)\s+hn\s*[:：]\s*", re.IGNORECASE)
+
+
 def tokens(text):
     return {w for w in re.findall(r"[\w\u0600-\u06FF]+", (text or "").lower()) if len(w) > 3}
 
 
-STOPWORDS = {
-    "release", "released", "update", "updated", "version", "security", "news", "new",
-    "patch", "patches", "patched", "available", "fixes", "fixed", "critical", "high",
-    "vulnerability", "vulnerabilities", "exploit", "report", "plugin", "theme", "site",
-    "sites", "users", "user", "today", "week", "month", "year", "what", "with", "from",
-    "this", "that", "have", "will", "your", "more", "than", "after", "before", "into",
-}
+def norm_text(text):
+    """ارقام را یکی می‌کند و پسوند نام سایت را از انتهای تیتر برمی‌دارد."""
+    t = str(text or "").translate(DIGITS_TO_LATIN)
+    t = HN_PREFIX_RE.sub("", t.strip())
+    t = SITE_SUFFIX_RE.sub("", t)
+    return t.strip()
+
+
+def story_sig(title):
+    """امضای داستان: واژه‌های معنادار، نام‌های خاص لاتین، شمارهٔ نسخه."""
+    raw = norm_text(title)
+    low = raw.lower()
+    words = {
+        w
+        for w in re.findall(r"[\w\u0600-\u06FF]+", low)
+        if len(w) > 2 and w not in STOPWORDS and w not in FA_STOP
+    }
+    ents = set()
+    for m in PROPER_RE.findall(raw):
+        e = m.lower().strip(".-")
+        if len(e) > 1 and e not in STOPWORDS:
+            ents.add(e)
+    vers = set(VERSION_RE.findall(low))
+    return words, ents, vers
 
 
 def same_story(a, b):
-    ta, tb = tokens(a.get("title")), tokens(b.get("title"))
-    if not ta or not tb:
+    """دو آیتم یک داستان‌اند؟ واژه + نام خاص + شمارهٔ نسخه.
+
+    ترتیب قاعده‌ها مهم است: اول نسخهٔ متفاوت، بعد تشابه واژگانی، بعد نسخهٔ یکسان،
+    بعد نام‌های خاص متمایز. هر قاعده‌ای که زودتر جواب بدهد تصمیم را می‌بندد.
+    """
+    wa, ea, va = story_sig(a.get("title", ""))
+    wb, eb, vb = story_sig(b.get("title", ""))
+    if not wa or not wb:
         return False
-    inter = len(ta & tb)
-    if inter / len(ta | tb) >= 0.4:
+
+    jac = len(wa & wb) / len(wa | wb)
+    same_ver = bool(va and vb and va == vb)
+    diff_ver = bool(va and vb and va != vb)
+
+    # ۱. نسخهٔ متفاوت با نام‌های خاص هم‌خانواده یعنی دو رویداد جدا.
+    if diff_ver and (ea == eb or (ea & eb and len(ea | eb) <= 3)):
+        return False
+
+    # ۲. نسخهٔ یکسان، قوی‌ترین شاهد است و بر کوتاهی تیتر مقدم می‌شود.
+    if same_ver:
+        if ea or eb:
+            if ea == eb or len(ea & eb) >= 2:
+                return True
+        elif wa & wb:
+            return True
+
+    # ۳. تیتر خیلی کوتاه فقط با تشابه تقریباً کامل یکی حساب می‌شود.
+    short = min(len(wa), len(wb))
+    if short <= 1 and jac < 0.8:
+        return False
+    if short == 2 and jac < 0.6:
+        return False
+
+    # ۴. تشابه واژگانی بالا.
+    if jac >= 0.5:
         return True
-    va = set(re.findall(r"\d+\.\d+(?:\.\d+)?", a.get("title", "")))
-    vb = set(re.findall(r"\d+\.\d+(?:\.\d+)?", b.get("title", "")))
-    if va and vb and (va & vb) and (inter - len((ta & tb) & STOPWORDS)) >= 1:
+
+    # ۵. دو نام خاص متمایز مشترک، به‌علاوهٔ تشابه معقول.
+    if len((ea & eb) - GENERIC_ENTS) >= 2 and jac >= 0.45:
         return True
+
     return False
 
 
 def dedupe_stories(items):
+    """درون یک دستهٔ تازه‌جمع‌آوری‌شده، تکراری‌ها را یکی می‌کند."""
     kept = []
-    for it in sorted(items, key=lambda x: (x.get("tier", 3), x.get("age_hours", 99))):
+    for it in sorted(items, key=lambda x: (x.get("tier", 3), true_age(x))):
         match = next((k for k in kept if same_story(it, k)), None)
         if match is None:
             kept.append(it)
@@ -390,21 +485,65 @@ def bad_lang(text):
     return bool(CYRILLIC.search(text or ""))
 
 
+STORY_WINDOW = {"news": 3, "security": 7, "tools": 14, "offers": 14, "showcase": 30}
+STORY_FAMILY = ("news", "tools", "offers")
+
+
 def load_stories():
+    """حافظهٔ داستان‌ها. پنجرهٔ نگه‌داری به دسته بستگی دارد، نه یک عدد برای همه."""
     d = read_json(STORIES, {"items": []})
-    cutoff = (now() - timedelta(days=7)).isoformat()
-    d["items"] = [x for x in d.get("items", []) if x.get("t", "") >= cutoff]
+    out = []
+    for x in d.get("items", []):
+        kind = x.get("kind") or "news"
+        days = STORY_WINDOW.get(kind, 7)
+        try:
+            ts = datetime.fromisoformat(str(x.get("t", "")))
+        except Exception:
+            continue
+        if (now() - ts).days > days:
+            continue
+        out.append(x)
+    d["items"] = out
     return d
 
 
 def is_recent_story(store, item):
+    """آیا همین داستان قبلاً پست شده؟ بین دسته‌های هم‌خانواده هم چک می‌شود."""
+    kind = item.get("kind") or "news"
     probe = {"title": item.get("title", "")}
-    return any(same_story(probe, {"title": s.get("title", "")}) for s in store["items"])
+    current = now()
+    for s in store.get("items", []):
+        sk = s.get("kind") or "news"
+        if sk == kind:
+            days = STORY_WINDOW.get(kind, 7)
+        elif sk in STORY_FAMILY and kind in STORY_FAMILY:
+            days = 3
+        else:
+            continue
+        try:
+            ts = datetime.fromisoformat(str(s.get("t", "")))
+        except Exception:
+            continue
+        if (current - ts).days > days:
+            continue
+        if same_story(probe, s):
+            return True
+    return False
 
 
 def add_story(store, item):
-    store["items"].append({"t": now().isoformat(timespec="seconds"), "title": item.get("title", "")})
-    store["items"] = store["items"][-300:]
+    words, ents, vers = story_sig(item.get("title", ""))
+    store["items"].append(
+        {
+            "t": now().isoformat(timespec="seconds"),
+            "title": item.get("title", ""),
+            "kind": item.get("kind") or "news",
+            "link": item.get("link", ""),
+            "ents": sorted(ents)[:12],
+            "vers": sorted(vers)[:6],
+        }
+    )
+    store["items"] = store["items"][-400:]
 
 
 def reconcile_seen(seen):
@@ -592,8 +731,9 @@ def quality_ok(title, summary):
     for phrase in BANNED_PHRASES:
         if phrase in s or phrase in (title or ""):
             return False, "عبارت ممنوع"
+    # تیتر کوتاه (دو واژه) طبیعتاً در خلاصه تکرار می‌شود و نباید رد شود.
     tt, st = tokens(title), tokens(summary)
-    if tt and len(tt & st) / max(1, len(tt)) > 0.7:
+    if len(tt) >= 3 and len(tt & st) / len(tt) > 0.7:
         return False, "بازگویی تیتر"
     if len(re.findall(r"[A-Za-z]{3,}", s)) > 3:
         return False, "لاتین زیاد"
@@ -808,7 +948,10 @@ KIND_HINT = {
         "یا نسخهٔ متن‌باز. اگر رایگان نیست، یا به کارت بانکی بین‌المللی و شمارهٔ تلفن "
         "خارجی گره خورده، با score صفر ردش کن. مقدار اعتبار و شرط گرفتنش را فقط از متن "
         "بردار؛ از خودت نساز. اگر در متن مقدار نیست، مقدار را ننویس و به جایش بنویس "
-        "که باید در صفحه ببیند."
+        "که باید در صفحه ببیند. "
+        "توجه: فرصت دائمی که هر ماه تکرار می‌شود هم ارزش دارد. برای فرصت، score را بر "
+        "اساس به‌دردخوری بسنج نه بر اساس تازگی؛ اگر مخاطب همین امروز می‌تواند با ایمیلش "
+        "چیزی بگیرد، score بالا بده."
     ),
     "tools": (
         "این دسته ابزار است. تمرکز روی کاری که ابزار انجام می‌دهد و اینکه به کار چه کسی "
@@ -1370,7 +1513,7 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
                     break
             if not entry.get("title") or not entry.get("summary"):
                 continue
-            if float(entry.get("score") or 0) <= 0:
+            if kind in ("news", "showcase") and float(entry.get("score") or 0) <= 0:
                 log("  empty story skipped:", entry.get("title", "")[:50])
                 continue
             if bad_lang(entry.get("title", "") + entry.get("summary", "") + entry.get("details", "")):
@@ -1625,12 +1768,36 @@ def watchdog_run():
 
 # ---------------------------------------------------------------- auto
 
+def guardian_ready(s):
+    """آیا این اجرا باید کار کند؟ فاصله از «شروع» اجرای قبلی سنجیده می‌شود.
+
+    تریگرها پانزده دقیقه‌ای‌اند و اجرای قبلی ممکن است ده دقیقه طول کشیده باشد؛
+    پس فاصله از پایان به کار نمی‌آید. با این نگهبان می‌توان تریگر دوم گذاشت
+    بدون اینکه دو اجرا روی هم بیفتند.
+    """
+    ls = read_json(LAST_START, {})
+    try:
+        gap = (now() - datetime.fromisoformat(str(ls.get("at", "")))).total_seconds() / 60.0
+    except Exception:
+        gap = 999.0
+    limit = float(s.get("guard_min_gap_min", 10))
+    if gap < limit:
+        log("guardian: last auto start {:.0f} min ago, skipping".format(gap))
+        return False
+    if not DRY:
+        write_json(LAST_START, {"at": now().isoformat(timespec="seconds")})
+    return True
+
+
 def auto_run(s, st, seen, extra):
     """یک اجرا که خودش تصمیم می‌گیرد کدام رادار وقتش است.
 
     جای زمان‌بندی گیت‌هاب را می‌گیرد، چون آن زمان‌بندی با تأخیر چندساعته
     می‌رسد. این تابع با تریگر بیرونی هر پانزده دقیقه صدا زده می‌شود.
     """
+    if not guardian_ready(s):
+        return 0
+
     sch = read_json(SCHED, {})
     started = time.time()
     budget = int(s.get("auto_budget_sec", 720))

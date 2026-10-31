@@ -1,0 +1,33 @@
+name: radar-tests
+
+# فقط وقتی کد یا تنظیمات عوض می‌شود اجرا می‌شود، نه با هر ذخیرهٔ وضعیت.
+on:
+  push:
+    paths:
+      - "radar.py"
+      - "settings.json"
+      - "sources.txt"
+      - "tests/**"
+      - ".github/workflows/radar-tests.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - name: syntax
+        run: python -m py_compile radar.py
+      - name: dedupe
+        run: python tests/test_dedupe.py
+      - name: pipeline
+        run: python tests/test_pipeline.py
+      - name: modelrun
+        run: python tests/test_modelrun.py

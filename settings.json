@@ -81,6 +81,7 @@
  "chunk_size": 7,
  "run_budget_sec": 600,
  "auto_budget_sec": 720,
+ "guard_min_gap_min": 10,
  "news_every_min": 55,
  "tools_every_min": 300,
  "offers_every_min": 240
