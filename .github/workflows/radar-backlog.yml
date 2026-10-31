@@ -1,0 +1,34 @@
+name: radar-backlog
+
+# ارسال دستی ۴۸ ساعت گذشته به کانال شخصی، برای تست و بازبینی.
+# هیچ چیزی را «پست‌شده» علامت نمی‌زند.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: radar-backlog
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - name: backlog
+        env:
+          API_BASE: ${{ secrets.API_BASE }}
+          API_KEY: ${{ secrets.API_KEY }}
+          TG_TOKEN: ${{ secrets.TG_TOKEN }}
+          TG_CHAT: ${{ secrets.TG_CHAT }}
+          TG_ADMIN: ${{ secrets.TG_ADMIN }}
+          TG_PERSONAL: ${{ secrets.TG_PERSONAL }}
+          GEMINI_KEY: ${{ secrets.GEMINI_KEY }}
+          GROQ_KEY: ${{ secrets.GROQ_KEY }}
+        run: python radar.py backlog
