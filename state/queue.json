@@ -5802,7 +5802,8 @@
    "kind": "news",
    "age_hours": 2.5,
    "published": "2026-10-31T08:00:00+00:00",
-   "added": "2026-10-31T10:31:11+00:00"
+   "added": "2026-10-31T10:31:11+00:00",
+   "full": "About The Author Cosima has been an editor at SmashingMag since 2013. Whenever she’s not writing articles for the weekly Smashing Newsletter , she’s probably working on a … More about Cosima ↬ Meet AI 2027 Conference, December 1, 2026. AI-Ready Design Systems For Designers with Christine Vallaure How To Measure UX and Design Impact, 8h video + UX training Design Patterns For AI Interfaces with Vitaly Friedman Let’s kick off November with a new collection of desktop wallpapers! Designed by creatives from across the globe, the wallpapers come in a variety of screen resolutions and can be downloaded for free. Enjoy! November can feel rather gray in many parts of the world, so what better way to brighten the month than with some colorful inspiration? Our new collection of desktop wallpapers has you covered. Following our monthly tradition , which has been going on for more than 15 years already, the wallpapers in this post were designed by artists and designers from across the globe . All of them come in a variety of screen resolutions and can be downloaded for free. A huge thank-you to everyone who shared their creations with us — this post wouldn’t be possible without your wonderful support! If you would also like to get featured in one of our upcoming wallpapers posts, please don’t hesitate to join in . We are always looking for creative talent and can’t wait to see what you come up with! Happy November! “Halloween may be officially over, but the real monster mash is just getting started on your face. This month, we swap the plastic vampire fangs for the ultimate terror: thirty days of completely uninhibited facial hair growth. Think of it as extended character cosplay. By week three, you won’t just be skipping your morning shave, you’ll be auditioning to play Cousin Itt in the next Addams Family reboot. Embrace the itch, dodge the hairbrushes, and let your chin go full ghoul. Who needs a costume when your jawline is the haunted forest?” — Designed by Predrag Kovacev from Serbia. “While I was playing with parametric curves, I noticed a gap inside my drawing: it looked like a bat shadow. Bats are protected animals, not only during Halloween.” — Designed by Philippe Brouard from France. “All those moments will be lost in time, like tears in the rain. November is here, a transitional month leading into December, winter, and everything that entails. November reminds me of home, the warmth of being indoors and enjoying unique, unrepeatable moments, which brings "
   },
   {
    "id": "5db73d385d95f2d6",
@@ -5816,7 +5817,9 @@
    "age_hours": 0.9,
    "published": "2026-10-31T11:35:55+00:00",
    "added": "2026-10-31T12:31:11+00:00",
-   "sources_count": 2
+   "sources_count": 2,
+   "full": "قالب رایگان Miles WP یه انتخاب جذاب و خوش‌ساخت برای وقتیه که می‌خواید بدون دردسر، یه سایت زیبا و متفاوت با WordPress بسازید. ظاهر قالب ساده و مدرنه و دست شما رو برای شخصی‌سازی بخش‌های مختلف باز می‌ذاره. Miles WP کنار صفحه‌ساز Kubio خیلی خوب کار می‌کنه؛ یعنی می‌تونید با بلوک‌های متنوع و تنظیمات ظاهری پیشرفته، صفحه‌ها رو همون‌طور که دوست دارید طراحی کنید. اگه برای کسب‌وکار کوچیک، استارتاپ یا نمونه‌کارهای شخصی‌تون دنبال یه قالب چندمنظوره و قابل تنظیم هستید، Miles WP می‌تونه انتخاب خوبی باشه. با این قالب می‌تونید سایت معرفی خدمات، رزومه، شرکتی یا شخصی‌تون رو سریع‌تر راه‌اندازی کنید. کار با قالب برای کاربران تازه‌کار هم راحته و اگه دوست دارید طراحی سایت رو با ویرایشگر بلوکی WordPress انجام بدید، هماهنگی اون با Kubio آزادی بیشتری بهتون می‌ده. نسخه‌ای که از میهن‌وردپرس دریافت می‌کنید، کاملاً توسط تیم میهن‌وردپرس به فارسی ترجمه شده، برای سایت‌های راست‌چین آماده شده و فونت زیبای Vazirmatn رو هم همراه خودش داره تا از همون اول ظاهر فارسی و خوانایی خوبی داشته باشید. با تکنولوژی لود مجزای اهورا، فایل‌ها فقط زمان نیاز لود خواهند شد. خط به خط کدها را با الگوریتم‌ها و قوانین گوگل هماهنگ کرده‌ایم.",
+   "posted": true
   },
   {
    "id": "927ae941a0f36985",
@@ -6364,6 +6367,19 @@
    "age_hours": 0.0,
    "published": "2026-10-31T12:28:42+00:00",
    "added": "2026-10-31T12:31:21+00:00"
+  },
+  {
+   "id": "002f847f0a53808f",
+   "title": "WordPress 7.2 Beta 2",
+   "link": "https://wordpress.org/news/2026/10/wordpress-7-2-beta-2",
+   "desc": "WordPress 7.2 Beta 2 is ready for download and testing! This beta release is intended for testing and development only. Please do not install, run, or test this version of WordPress on production or mission-critical websites. Instead, use a test environment or local site to explore the new features. How to Test WordPress 7.2 Beta […]",
+   "source": "وردپرس",
+   "lang": "en",
+   "tier": 1,
+   "kind": "news",
+   "age_hours": 95.7,
+   "published": "2026-10-27T15:49:21+00:00",
+   "added": "2026-10-31T15:30:37+00:00"
   }
  ]
 }
