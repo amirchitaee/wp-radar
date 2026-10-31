@@ -1,0 +1,227 @@
+{
+ "items": [
+  {
+   "t": "2026-10-29T23:55:02+00:00",
+   "title": "WordPress 7.1.4 Patches Unauthenticated Upgrade-Window RCE; Exploitation Attempts Detected After Release"
+  },
+  {
+   "t": "2026-10-30T00:06:12+00:00",
+   "title": "The agent-ready approaches that are catching on, and what AI agents actually use"
+  },
+  {
+   "t": "2026-10-30T00:06:18+00:00",
+   "title": "Exploring a design for Feature Notifications"
+  },
+  {
+   "t": "2026-10-30T00:06:24+00:00",
+   "title": "How to Build a Headless News Aggregator With WordPress and WP RSS Aggregator Pro"
+  },
+  {
+   "t": "2026-10-30T00:06:30+00:00",
+   "title": "10 Black Friday Ideas for Small Businesses That Go Beyond Discounts"
+  },
+  {
+   "t": "2026-10-30T00:06:35+00:00",
+   "title": "Creating Custom SVGs with Divi AI Agents"
+  },
+  {
+   "t": "2026-10-30T00:06:41+00:00",
+   "title": "X-post: The Core Security Initiative: two months in"
+  },
+  {
+   "t": "2026-10-30T00:06:48+00:00",
+   "title": "The Frankenstein Table"
+  },
+  {
+   "t": "2026-10-30T00:06:54+00:00",
+   "title": "AI didn’t replace operations. It made good operations more valuable"
+  },
+  {
+   "t": "2026-10-30T00:07:29+00:00",
+   "title": "The October 2026 SEO Update by Yoast recap"
+  },
+  {
+   "t": "2026-10-30T00:07:34+00:00",
+   "title": "Components Inside Of Components Using Slots"
+  },
+  {
+   "t": "2026-10-30T01:04:07+00:00",
+   "title": "X-post: WordPress for the Agentic Web"
+  },
+  {
+   "t": "2026-10-30T01:04:11+00:00",
+   "title": "How AI Threatens WordPress Plugin Businesses, and the 8 Moats That Still Hold"
+  },
+  {
+   "t": "2026-10-30T01:04:16+00:00",
+   "title": "Dev Chat Agenda – October 28, 2026"
+  },
+  {
+   "t": "2026-10-30T13:31:19+00:00",
+   "title": "WordPress doesn’t ship Brotli. It’s still exposed to CVE-2026-111497"
+  },
+  {
+   "t": "2026-10-30T13:32:39+00:00",
+   "title": "Inside Kinsta’s emergency PHP2Shell patch rollout"
+  },
+  {
+   "t": "2026-10-30T13:32:43+00:00",
+   "title": "When Technology Outruns Its Institutions: Neal Stephenson on AI, Truth, and Control"
+  },
+  {
+   "t": "2026-10-30T13:34:58+00:00",
+   "title": "Show HN: Apache 2.0 Registry to let agents share skills with each other"
+  },
+  {
+   "t": "2026-10-30T13:35:02+00:00",
+   "title": "I can't use CapCut, so I built an MCP server for video editing with Claude Code"
+  },
+  {
+   "t": "2026-10-30T13:35:05+00:00",
+   "title": "Ekly MCP + ChatGPT on mobile: refining a 26-second concept ad through feedback"
+  },
+  {
+   "t": "2026-10-30T13:35:09+00:00",
+   "title": "Wikipedia’s operator says a bad AI copyright ruling could threaten the open web"
+  },
+  {
+   "t": "2026-10-30T13:35:13+00:00",
+   "title": "Sam Altman sympathizes with mathematicians, but says OpenAI’s math onslaught won’t stop"
+  },
+  {
+   "t": "2026-10-30T13:35:17+00:00",
+   "title": "Show HN: Navital Gym – open environments for testing AI agents on Indian tasks"
+  },
+  {
+   "t": "2026-10-30T13:35:20+00:00",
+   "title": "Show HN: PicoPlayer – A tiny, open-source website for playing small webgames"
+  },
+  {
+   "t": "2026-10-30T13:36:11+00:00",
+   "title": "NVIDIA Releases Nemotron 3.5 Transcribe: An Open 30B MoE Model for 40-Language Transcription with ~4B Active Parameters"
+  },
+  {
+   "t": "2026-10-31T04:31:52+00:00",
+   "title": "WordPress.com Changelog: Manage Your Site and Build a Store with AI"
+  },
+  {
+   "t": "2026-10-31T04:32:03+00:00",
+   "title": "WPBeginner Spotlight 29: WPVibe Passes 100,000 Users, OptinMonster MCP, and an Urgent PHP Fix"
+  },
+  {
+   "t": "2026-10-31T04:32:09+00:00",
+   "title": "More than bling: How SEO can help your jewelry brand get found"
+  },
+  {
+   "t": "2026-10-31T07:46:09+00:00",
+   "title": "Show HN: Showbuild – Hacker News but only for builders"
+  },
+  {
+   "t": "2026-10-31T07:46:13+00:00",
+   "title": "dyoshikawa/rulesync — A Utility CLI for AI Coding Agents"
+  },
+  {
+   "t": "2026-10-31T07:46:17+00:00",
+   "title": "paperclipai/paperclip — The open-source app everyone uses to manage agents at work"
+  },
+  {
+   "t": "2026-10-31T07:46:20+00:00",
+   "title": "Show HN: What research is your code standing on?"
+  },
+  {
+   "t": "2026-10-31T07:46:23+00:00",
+   "title": "Silicon Valley wants you to invest in miracles"
+  },
+  {
+   "t": "2026-10-31T07:46:27+00:00",
+   "title": "Show HN: Pep/nom, a sed-inspired language for parsing"
+  },
+  {
+   "t": "2026-10-31T07:47:11+00:00",
+   "title": "Open-weight model GLM 5.3 built full Firefox exploit chains with zero human input in under 48 hours"
+  },
+  {
+   "t": "2026-10-31T15:01:09+00:00",
+   "title": "WordPress 7.1.4 Security Release",
+   "kind": "news",
+   "link": "https://patchstack.com/articles/wordpress-7-1-4-security-release",
+   "ents": [
+    "wordpress"
+   ],
+   "vers": [
+    "7.1.4"
+   ]
+  },
+  {
+   "t": "2026-10-31T15:31:52+00:00",
+   "title": "قالب وردپرس Miles WP فارسی",
+   "kind": "news",
+   "link": "https://mihanwp.com/miles-wp",
+   "ents": [
+    "miles",
+    "wp"
+   ],
+   "vers": []
+  },
+  {
+   "t": "2026-10-31T20:32:01+00:00",
+   "title": "How To Build A Product Grid With Divi 5’s CSS Grid Editor",
+   "kind": "news",
+   "link": "https://www.elegantthemes.com/blog/divi-resources/how-to-build-a-product-grid-with-divi-5s-css-grid-editor",
+   "ents": [
+    "css",
+    "divi",
+    "editor",
+    "grid",
+    "product",
+    "to"
+   ],
+   "vers": []
+  },
+  {
+   "t": "2026-10-31T20:32:05+00:00",
+   "title": "Creating A Design System From A Screenshot with Divi AI Agents",
+   "kind": "news",
+   "link": "https://www.elegantthemes.com/blog/divi-resources/creating-a-design-system-from-a-screenshot-with-divi-ai-agents",
+   "ents": [
+    "agents",
+    "ai",
+    "creating",
+    "design",
+    "divi",
+    "screenshot",
+    "system"
+   ],
+   "vers": []
+  },
+  {
+   "t": "2026-10-31T20:46:03+00:00",
+   "title": "Grab 500M Free GLM-5.3-Flash Tokens in the ZCode Weekend Build",
+   "kind": "offers",
+   "link": "https://aifree.dev/news/zcode-weekend-build-500m-free-glm-5-3-flash-tokens",
+   "ents": [
+    "glm-5.3-flash",
+    "grab",
+    "tokens",
+    "weekend",
+    "zcode"
+   ],
+   "vers": [
+    "5.3"
+   ]
+  },
+  {
+   "t": "2026-10-31T20:46:07+00:00",
+   "title": "Show HN: Play Nightmare – the 1991 VHS board game, with a TV and phones",
+   "kind": "offers",
+   "link": "https://playnightmare.app",
+   "ents": [
+    "nightmare",
+    "play",
+    "tv",
+    "vhs"
+   ],
+   "vers": []
+  }
+ ]
+}

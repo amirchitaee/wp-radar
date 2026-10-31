@@ -1,0 +1,22 @@
+8268d86 radar: extract use_link from articles, reject tools/offers without it, show in digest (155 checks)
+d3da7fc radar: 2026-10-31T21:37Z
+b093aba radar: 2026-10-31T21:31Z
+46fe257 radar: 2026-10-31T21:22Z
+d33c366 radar: 2026-10-31T21:15Z
+08e81e3 radar: 2026-10-31T21:07Z
+11df113 radar: skip tutorials in news, filter junk offers, auto names in posts, better labels (152 checks)
+8dbb5e3 radar: 2026-10-31T21:00Z
+e4f5cb4 radar: 2026-10-31T20:52Z
+bf12b62 radar: 2026-10-31T20:46Z
+7d17bb0 radar: 2026-10-31T20:37Z
+2b6297a radar: 2026-10-31T20:32Z
+1e5bf3b radar: 2026-10-31T20:22Z
+6f86345 radar: 2026-10-31T20:15Z
+888b97f radar: 2026-10-31T20:07Z
+7310146 radar: 2026-10-31T20:00Z
+5c78eb2 radar: 2026-10-31T19:52Z
+9b6db22 radar: 2026-10-31T19:45Z
+d28614e radar: 2026-10-31T19:37Z
+a6cd21f radar: 2026-10-31T19:32Z
+---
+8268d868a6ad9389a47893558adbebc97b91e25a
