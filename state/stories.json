@@ -193,6 +193,35 @@
     "system"
    ],
    "vers": []
+  },
+  {
+   "t": "2026-10-31T20:46:03+00:00",
+   "title": "Grab 500M Free GLM-5.3-Flash Tokens in the ZCode Weekend Build",
+   "kind": "offers",
+   "link": "https://aifree.dev/news/zcode-weekend-build-500m-free-glm-5-3-flash-tokens",
+   "ents": [
+    "glm-5.3-flash",
+    "grab",
+    "tokens",
+    "weekend",
+    "zcode"
+   ],
+   "vers": [
+    "5.3"
+   ]
+  },
+  {
+   "t": "2026-10-31T20:46:07+00:00",
+   "title": "Show HN: Play Nightmare – the 1991 VHS board game, with a TV and phones",
+   "kind": "offers",
+   "link": "https://playnightmare.app",
+   "ents": [
+    "nightmare",
+    "play",
+    "tv",
+    "vhs"
+   ],
+   "vers": []
   }
  ]
 }
