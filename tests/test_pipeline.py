@@ -154,6 +154,72 @@ check("امنیت: هشدار سی ساعته رد شد", "a.test/mid" in sent[0
 check("امنیت: هشدار هفتاد ساعته رد شد", "a.test/old" in sent[0], False)
 check("امنیت: هشدار کهنه هیچ پیامی نساخت", any("a.test/old" in t for t in sent), False)
 
+# ---------------------------------------------------------------- برچسب درست
+def lab(kind, text, model_label="", urgent=False):
+    return radar.classify_label(kind, text, model_label, urgent)
+
+
+check("برچسب: خبر نسخه‌دار آپدیت است", lab("news", "WordPress 7.1.4 released with security fixes"), "آپدیت")
+check("برچسب: خبر معمولی خبر است", lab("news", "گوگل سیاست تازه‌ای برای محتوای هوش مصنوعی گذاشت"), "خبر")
+check(
+    "برچسب: آسیب‌پذیری فعال فوری است",
+    lab("news", "Critical vulnerability patched in WordPress core, actively exploited in the wild"),
+    "فوری",
+)
+check(
+    "برچسب: آسیب‌پذیری وردپرس هشدار است",
+    lab("news", "Critical vulnerability patched in a WordPress plugin"),
+    "هشدار امنیتی",
+)
+check(
+    "برچسب: ابزار خبر نمی‌شود",
+    lab("tools", "AI video generator for social media", "خبر"),
+    "ابزار",
+)
+check(
+    "برچسب: ابزار سالم ابزار می‌ماند",
+    lab("tools", "Cloudflare Workers AI free daily allowance", "ابزار"),
+    "ابزار",
+)
+check(
+    "برچسب: افزونهٔ تازه پذیرفته می‌شود",
+    lab("tools", "افزونهٔ تازه برای ساخت فرم در وردپرس معرفی شد", "پلاگین تازه"),
+    "پلاگین تازه",
+)
+check(
+    "برچسب: افزونهٔ قدیمی «تازه» نیست",
+    lab("tools", "افزونهٔ فرم ساز نسخهٔ ۲.۱ منتشر شد", "پلاگین تازه"),
+    "ابزار",
+)
+check("برچسب: آموزش پذیرفته می‌شود", lab("tools", "آموزش ساخت فروشگاه با وردپرس", "آموزش"), "آموزش")
+check("برچسب: فرصت همیشه فرصت است", lab("offers", "پلن رایگان دائمی", "خبر"), "فرصت")
+check("برچسب: امنیت فوری", lab("security", "critical RCE exploited", "", True), "فوری")
+check("برچسب: امنیت عادی", lab("security", "patched XSS in a plugin", ""), "هشدار امنیتی")
+
+# همان موردی که در آرشیو غلط برچسب خورده بود: خبر هوش مصنوعی با برچسب امنیتی.
+glm = "Open-weight model GLM 5.3 built full Firefox exploit chains with zero human input in under 48 hours"
+check("برچسب: خبر هوش مصنوعی هشدار امنیتی نمی‌شود", lab("tools", glm, "هشدار امنیتی"), "ابزار")
+check("برچسب: همان متن در خبر هم هشدار نمی‌شود", lab("news", glm, "هشدار امنیتی") != "هشدار امنیتی", True)
+
+# هیچ برچسبی نباید از فهرست دستهٔ خودش بیرون بزند.
+samples = [
+    ("news", "WordPress 7.1.4 released"),
+    ("news", "Critical vulnerability patched in WordPress core"),
+    ("news", "گوگل سیاست تازه‌ای گذاشت"),
+    ("tools", "افزونهٔ تازه معرفی شد"),
+    ("tools", "آموزش ساخت سایت"),
+    ("tools", "Cloudflare Workers AI"),
+    ("offers", "پلن رایگان"),
+    ("security", "patched XSS"),
+    ("showcase", "سایت ساخته‌شده با المنتور"),
+]
+outside = []
+for kind, text in samples:
+    got = radar.classify_label(kind, text, "خبر")
+    if got not in radar.LABELS[kind]:
+        outside.append("{} → {}".format(kind, got))
+check("برچسب: هیچ برچسبی بیرون از فهرست دسته نیست", outside, [])
+
 # ---------------------------------------------------------------- نتیجه
 print("{} آزمون اجرا شد.".format(COUNT))
 if FAILS:

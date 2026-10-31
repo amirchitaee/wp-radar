@@ -965,7 +965,18 @@ details: سه تا پنج خط کوتاه، هر خط یک نکتهٔ تازه �
 meta: یک خط داده‌ی چسبیده مثل نصب فعال، نسخه، قیمت. اگر نبود، رشتهٔ خالی.
 title: فایده را بگو نه اسم محصول را. بازنویسی عنوان منبع ممنوع.
 
-برچسب‌ها: هشدار امنیتی، آپدیت، خبر، ابزار، فرصت، پلاگین تازه، نمایشگاه، آموزش
+برچسب را از این فهرست انتخاب کن و با معنی‌اش جابه‌جا نکن:
+- خبر: اتفاقی افتاده که مخاطب باید بداند. تغییر قیمت، تغییر سیاست، یا انتشار چیزی که مال خودش نیست.
+- آپدیت: نسخهٔ تازهٔ چیزی که مخاطب همین حالا نصب دارد.
+- ابزار: یک سرویس یا نرم‌افزار که مخاطب می‌تواند امروز شروع کند و از آن استفاده کند.
+- فرصت: چیزی رایگان که با ایمیل می‌گیرد. اگر رایگان نیست، فرصت نیست.
+- پلاگین تازه: افزونه یا قالب تازه برای وردپرس.
+- آموزش: راهنمای گام‌به‌گام برای انجام یک کار.
+- هشدار امنیتی: فقط وقتی آسیب‌پذیری واقعی در وردپرس یا افزونه یا قالب باشد.
+- فوری: همان هشدار امنیتی که همین حالا در حال سوءاستفاده است.
+- نمایشگاه: معرفی سایت یا پروژه‌ای که با این ابزارها ساخته شده.
+
+فرق‌ها را رعایت کن: ابزار را خبر صدا نزن. خبر را ابزار صدا نزن. یک خبر دربارهٔ هوش مصنوعی، ابزار نیست. یک ابزار که تازه نسخه داده، خبر نیست. فرصت را فقط وقتی بزن که چیزی واقعاً رایگان باشد.
 
 امتیازها:
 score: صفر تا سی‌وپنج. بیست برای اهمیت رویداد، پانزده برای کاربرد واقعی برای مخاطب ایرانی.
@@ -983,23 +994,29 @@ use: صفر تا ده. مخاطب همین حالا می‌تواند استفا
 
 KIND_HINT = {
     "offers": (
-        "این دسته فقط فرصت رایگان است. دنبال چیزی بگرد که کاربر ایرانی همین امروز "
-        "با ایمیلش بتواند بگیرد: کردیت هدیه، پلن رایگان دائمی، سهمیهٔ روزانه، توکن رایگان، "
-        "یا نسخهٔ متن‌باز. اگر رایگان نیست، یا به کارت بانکی بین‌المللی و شمارهٔ تلفن "
-        "خارجی گره خورده، با score صفر ردش کن. مقدار اعتبار و شرط گرفتنش را فقط از متن "
-        "بردار؛ از خودت نساز. اگر در متن مقدار نیست، مقدار را ننویس و به جایش بنویس "
-        "که باید در صفحه ببیند. "
+        "این دسته فقط فرصت رایگان است و برچسبش همیشه «فرصت» است. دنبال چیزی بگرد که "
+        "کاربر ایرانی همین امروز با ایمیلش بتواند بگیرد: کردیت هدیه، پلن رایگان دائمی، "
+        "سهمیهٔ روزانه، توکن رایگان، یا نسخهٔ متن‌باز. اگر رایگان نیست، یا به کارت بانکی "
+        "بین‌المللی و شمارهٔ تلفن خارجی گره خورده، با score صفر ردش کن. مقدار اعتبار و "
+        "شرط گرفتنش را فقط از متن بردار؛ از خودت نساز. اگر در متن مقدار نیست، مقدار را "
+        "ننویس و به جایش بنویس که باید در صفحه ببیند. "
         "توجه: فرصت دائمی که هر ماه تکرار می‌شود هم ارزش دارد. برای فرصت، score را بر "
         "اساس به‌دردخوری بسنج نه بر اساس تازگی؛ اگر مخاطب همین امروز می‌تواند با ایمیلش "
-        "چیزی بگیرد، score بالا بده."
+        "چیزی بگیرد، score بالا بده. "
+        "برچسب مجاز: فقط «فرصت». خبر و ابزار در این دسته ممنوع."
     ),
     "tools": (
-        "این دسته ابزار است. تمرکز روی کاری که ابزار انجام می‌دهد و اینکه به کار چه کسی "
-        "می‌آید. اگر پلن رایگان دارد، در details صریح بنویس چطور شروع کند."
+        "این دسته ابزار است، نه خبر. یعنی چیزی که مخاطب می‌تواند امروز باز کند و از آن "
+        "استفاده کند. تمرکز روی کاری که ابزار انجام می‌دهد و اینکه به کار چه کسی می‌آید. "
+        "اگر پلن رایگان دارد، در details صریح بنویس چطور شروع کند. "
+        "برچسب مجاز: «ابزار»، «پلاگین تازه»، «آموزش». خبر و فرصت در این دسته ممنوع. "
+        "اگر ورودی خبر است و نه ابزار، با score صفر ردش کن."
     ),
     "news": (
-        "این دسته خبر است. فقط چیزی که برای سازندهٔ سایت فارسی مهم است: هستهٔ وردپرس، "
-        "افزونه‌های پرکاربرد، امنیت، تغییر قیمت، یا سیاست‌های گوگل."
+        "این دسته خبر است، نه معرفی ابزار. فقط چیزی که برای سازندهٔ سایت فارسی مهم است: "
+        "هستهٔ وردپرس، افزونه‌های پرکاربرد، امنیت، تغییر قیمت، یا سیاست‌های گوگل. "
+        "برچسب مجاز: «خبر»، «آپدیت»، «هشدار امنیتی»، «فوری». ابزار و فرصت در این دسته ممنوع. "
+        "اگر ورودی معرفی یک ابزار تازه است و نه خبر، با score صفر ردش کن."
     ),
 }
 
@@ -1061,14 +1078,80 @@ def fetch_article_text(url, limit=2500):
     return " ".join(chunks)[:limit]
 
 
-FREE_HINT = re.compile(r"(رایگان|free tier|free plan|free trial|credits|no credit card|بدون کارت|آزمایشی)", re.I)
+FREE_HINT = re.compile(
+    r"(رایگان|مجانی|بدون هزینه|بدون پرداخت|free tier|free plan|free trial|credits|"
+    r"no credit card|بدون کارت|آزمایشی|هدیه|کردیت|سهمیه|متن‌باز|open source|open-source)",
+    re.I,
+)
+
+PLUGIN_HINT = re.compile(
+    r"(افزونه|پلاگین|plugin|قالب|theme|addon|ماژول|ووکامرس|woocommerce|المنتور|elementor)",
+    re.I,
+)
+TUTORIAL_HINT = re.compile(
+    r"(آموزش|راهنمای|گام‌به‌گام|چطور|guide|tutorial|how to|walkthrough|step by step)", re.I
+)
+UPDATE_HINT = re.compile(
+    r"(به‌روزرسانی|بروزرسانی|آپدیت|نسخه|release|released|update|updated|version|\d+\.\d+)", re.I
+)
+NEW_HINT = re.compile(r"(تازه|جدید|معرفی|رونمایی|new|launch|introduc|debut|unveil)", re.I)
+WP_HINT = re.compile(
+    r"(وردپرس|wordpress|افزونه|plugin|هسته|core|قالب|theme|ووکامرس|woocommerce|المنتور|elementor)",
+    re.I,
+)
+URGENT_HINT = re.compile(
+    r"(actively exploited|actively attempt|attempting to exploit|already exploiting|"
+    r"exploited in the wild|under attack|zero-day|بحرانی|در حال سوءاستفاده|فعالانه)",
+    re.I,
+)
+
+# برچسب مجاز هر دسته. مدل اجازه ندارد از این فهرست بیرون بزند.
+LABELS = {
+    "news": ("خبر", "آپدیت", "هشدار امنیتی", "فوری"),
+    "tools": ("ابزار", "پلاگین تازه", "آموزش"),
+    "offers": ("فرصت",),
+    "security": ("هشدار امنیتی", "فوری"),
+    "showcase": ("نمایشگاه",),
+}
+DEFAULT_LABEL = {
+    "news": "خبر",
+    "tools": "ابزار",
+    "offers": "فرصت",
+    "security": "هشدار امنیتی",
+    "showcase": "نمایشگاه",
+}
 
 
-def fix_label(label, text):
-    label = (label or "خبر").strip()
-    if label == "فرصت" and not FREE_HINT.search(text or ""):
+def classify_label(kind, text, model_label="", urgent=False):
+    """برچسب را از دسته و متن می‌سازد، نه از سلیقهٔ مدل.
+
+    خبر هرگز ابزار نمی‌شود، ابزار هرگز خبر نمی‌شود، و برچسب امنیتی فقط
+    وقتی می‌آید که آسیب‌پذیری واقعی در وردپرس یا افزونه باشد.
+    """
+    text = text or ""
+    model_label = (model_label or "").strip()
+    if kind == "security":
+        return "فوری" if (urgent or URGENT_HINT.search(text)) else "هشدار امنیتی"
+    if kind == "showcase":
+        return "نمایشگاه"
+    if kind == "offers":
+        return "فرصت"
+
+    advisory = is_advisory(text) and bool(WP_HINT.search(text))
+
+    if kind == "news":
+        if advisory:
+            return "فوری" if (urgent or URGENT_HINT.search(text)) else "هشدار امنیتی"
+        if UPDATE_HINT.search(text):
+            return "آپدیت"
         return "خبر"
-    return label
+
+    # دستهٔ ابزار: پیشنهاد مدل فقط وقتی قبول می‌شود که متن هم شاهدش باشد.
+    if model_label == "آموزش" and TUTORIAL_HINT.search(text):
+        return "آموزش"
+    if model_label == "پلاگین تازه" and PLUGIN_HINT.search(text) and NEW_HINT.search(text):
+        return "پلاگین تازه"
+    return "ابزار"
 
 
 def og_image(url):
@@ -1318,14 +1401,22 @@ def security_run(s, st, seen):
                 re.I,
             )
         )
+        sec_text = " ".join(
+            [
+                it.get("title", "") or "",
+                it.get("desc", "") or "",
+                (entry or {}).get("title", "") or "",
+                (entry or {}).get("summary", "") or "",
+            ]
+        )
         if entry:
-            label = "فوری" if urgent else (entry.get("label") or SEC_LABEL)
+            label = classify_label("security", sec_text, entry.get("label", ""), urgent)
             title = entry.get("title") or it["title"]
             summary = entry.get("summary") or ""
             details = clean_details(entry.get("details") or "")
             meta = entry.get("meta") or ""
         else:
-            label = "فوری" if urgent else SEC_LABEL
+            label = classify_label("security", sec_text, "", urgent)
             title = "هشدار تازه از {}".format(it["source"])
             summary = "منبع امنیتی تازه‌ای منتشر کرده است. متن اصلی داخل کادر آمده."
             details = it["title"] + ("\n" + it["desc"][:400] if it["desc"] else "")
@@ -1554,6 +1645,15 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
                     entry[field] = strip_labels(entry[field])
             if entry.get("details"):
                 entry["details"] = clean_details(entry["details"])
+            text_all = " ".join(
+                [
+                    it.get("desc", "") or "",
+                    it.get("full", "") or "",
+                    entry.get("title", "") or "",
+                    entry.get("summary", "") or "",
+                    entry.get("details", "") or "",
+                ]
+            )
             score = final_score(it, entry)
             fast = False
             if posted_kind >= kind_cap:
@@ -1584,6 +1684,10 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
             if kind in ("tools", "offers") and float(entry.get("use") or 0) < 5:
                 rejected.append((it, entry, "قابل استفاده نیست"))
                 continue
+            # در دستهٔ فرصت، چیزی که رایگان نیست فرصت نیست.
+            if kind == "offers" and not FREE_HINT.search(text_all):
+                rejected.append((it, entry, "فرصت نیست"))
+                continue
             ok_quality, why = quality_ok(entry.get("title", ""), entry.get("summary", ""))
             if not ok_quality:
                 log("  quality gate:", why, entry.get("title", "")[:40])
@@ -1602,10 +1706,7 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
             if not link_alive(it["link"]):
                 log("  dead link skipped:", it["link"])
                 continue
-            label = fix_label(
-                entry.get("label", "خبر"),
-                (it.get("desc", "") or "") + " " + (it.get("full", "") or "") + " " + entry.get("summary", ""),
-            )
+            label = classify_label(kind, text_all, entry.get("label", ""))
             label_tag = "#" + re.sub(r"\s+", "_", label)
             kind_tag = KIND_TAG.get(kind, "#وردپرس")
             if label_tag == kind_tag or kind_tag.startswith(label_tag):
