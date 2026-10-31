@@ -460,7 +460,15 @@ def model_providers():
         base = (p.get("base") or "").rstrip("/")
         models = p.get("models") or []
         if key and base and models:
-            out.append({"name": p.get("name") or base, "base": base, "key": key, "models": models})
+            out.append(
+                {
+                    "name": p.get("name") or base,
+                    "type": p.get("type") or "openai",
+                    "base": base,
+                    "key": key,
+                    "models": models,
+                }
+            )
     if out:
         return out
     base = env_clean("API_BASE").rstrip("/")
@@ -469,6 +477,32 @@ def model_providers():
     if base and key and models:
         return [{"name": "default", "base": base, "key": key, "models": models}]
     return []
+
+
+def gemini_call(prov, model, system, user, timeout, json_mode=True):
+    """فراخوانی مستقیم رابط گوگل، بدون لایهٔ سازگاری.
+
+    لایهٔ سازگاری برای بعضی کلیدها مدل را پیدا نمی‌کند و ۴۰۴ می‌دهد،
+    ولی رابط اصلی همیشه کار می‌کند.
+    """
+    url = "{}/models/{}:generateContent?key={}".format(
+        prov["base"].replace("/openai", ""), model, urllib.parse.quote(prov["key"])
+    )
+    cfg = {"temperature": 0.35}
+    if json_mode:
+        cfg["responseMimeType"] = "application/json"
+    payload = {
+        "contents": [{"role": "user", "parts": [{"text": user}]}],
+        "generationConfig": cfg,
+    }
+    if system:
+        payload["systemInstruction"] = {"parts": [{"text": system}]}
+    data = http_post_json(url, payload, timeout=timeout)
+    parts = ((data.get("candidates") or [{}])[0].get("content") or {}).get("parts") or []
+    text = "".join(p.get("text", "") for p in parts).strip()
+    if not text:
+        raise RuntimeError("پاسخ خالی از گوگل")
+    return extract_json(text) if json_mode else text
 
 
 def call_models(prompt_system, prompt_user, deadline=None, budget=None):
@@ -495,6 +529,10 @@ def call_models(prompt_system, prompt_user, deadline=None, budget=None):
             if left < 25:
                 raise RuntimeError("بودجهٔ مدل تمام شد، {} ثانیه مانده".format(max(left, 0)))
             try:
+                if prov.get("type") == "gemini":
+                    result = gemini_call(prov, name, prompt_system, prompt_user, min(per, left))
+                    log("  model ok:", prov["name"], name)
+                    return result
                 data = http_post_json(
                     prov["base"] + "/chat/completions",
                     {
@@ -513,7 +551,11 @@ def call_models(prompt_system, prompt_user, deadline=None, budget=None):
                 return extract_json(content)
             except urllib.error.HTTPError as exc:
                 errors.append("{}:{}".format(name, exc.code))
-                log("  model http", exc.code, prov["name"], name)
+                try:
+                    body = exc.read().decode("utf-8", "replace")[:160]
+                except Exception:
+                    body = ""
+                log("  model http", exc.code, prov["name"], name, body[:110])
                 if exc.code in (401, 403, 429):
                     PROVIDER_DEAD.add(prov["name"])
                     break
@@ -1350,13 +1392,16 @@ def selftest_run():
         name = prov["models"][0]
         ok = False
         try:
-            data = http_post_json(
-                prov["base"] + "/chat/completions",
-                {"model": name, "messages": [{"role": "user", "content": "بگو سلام"}]},
-                headers={"Authorization": "Bearer " + prov["key"]},
-                timeout=90,
-            )
-            answer = (data["choices"][0]["message"].get("content") or "").strip()[:60]
+            if prov.get("type") == "gemini":
+                answer = gemini_call(prov, name, "", "بگو سلام", 90, json_mode=False).strip()[:60]
+            else:
+                data = http_post_json(
+                    prov["base"] + "/chat/completions",
+                    {"model": name, "messages": [{"role": "user", "content": "بگو سلام"}]},
+                    headers={"Authorization": "Bearer " + prov["key"]},
+                    timeout=90,
+                )
+                answer = (data["choices"][0]["message"].get("content") or "").strip()[:60]
             lines.append("✅ {} — {}".format(prov["name"], esc(answer) or "(پاسخ خالی)"))
             ok = True
         except urllib.error.HTTPError as exc:

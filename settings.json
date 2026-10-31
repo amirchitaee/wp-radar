@@ -28,6 +28,7 @@
   },
   {
    "name": "google",
+   "type": "gemini",
    "base": "https://generativelanguage.googleapis.com/v1beta/openai",
    "key": "GEMINI_KEY",
    "models": [
