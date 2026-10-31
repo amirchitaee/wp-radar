@@ -4296,7 +4296,9 @@
    "kind": "tools",
    "age_hours": 0.0,
    "published": "2026-10-30T19:31:59+00:00",
-   "added": "2026-10-30T19:32:20+00:00"
+   "added": "2026-10-30T19:32:20+00:00",
+   "digest_sent": true,
+   "channel_skip": true
   },
   {
    "id": "d1b8475c516c2484",
@@ -4309,7 +4311,9 @@
    "kind": "tools",
    "age_hours": 0.0,
    "published": "2026-10-30T19:31:55+00:00",
-   "added": "2026-10-30T19:32:20+00:00"
+   "added": "2026-10-30T19:32:20+00:00",
+   "digest_sent": true,
+   "channel_skip": true
   },
   {
    "id": "222f6dc8c156df98",
@@ -4337,7 +4341,9 @@
    "published": "2026-10-30T19:31:32+00:00",
    "added": "2026-10-30T19:32:20+00:00",
    "sources_count": 2,
-   "full": "You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session. You switched accounts on another tab or window. Reload to refresh your session. Dismiss alert {{ message }} main Branches Tags Go to file Code Open more actions menu Latest commit History 1,359 Commits 1,359 Commits Folders and files Name Name Last commit message Last commit date .github .github assets assets console console core core deploy deploy docs docs examples examples gateway gateway scripts scripts signatures/ version1 signatures/ version1 switch-expert switch-expert .dockerignore .dockerignore .env.example .env.example .gitignore .gitignore .gitleaks.toml .gitleaks.toml .gitleaksignore .gitleaksignore .pre-commit-config.yaml .pre-commit-config.yaml CCLA.pdf CCLA.pdf CHANGELOG.md CHANGELOG.md CLA.md CLA.md CLAUDE.md CLAUDE.md CODE_OF_CONDUCT.md CODE_OF_CONDUCT.md CONTRIBUTING.md CONTRIBUTING.md LICENSE LICENSE NOTICE NOTICE README.md README.md RELEASING.md RELEASING.md SECURITY.md SECURITY.md artifacts.yaml artifacts.yaml justfile justfile renovate.json5 renovate.json5 ruff.toml ruff.toml socket.yml socket.yml View all files Repository files navigation Open-source AI teammates, working alongside your team in Slack, Teams, Discord, Telegram and Mattermost. Self-host it, with any agent and any model. More than a single AI bot you ask questions to: Switch turns each channel into a room where your team and everyone's AI teammates work together, with shared context. Install Switch Console , the desktop app, for your platform. Open it and talk to switch-buddy , your own assistant in Switch. Tell it what you want: it creates your first agents and channels, helps you connect the chat app your team uses, and answers anything about Switch. Platform Install macOS Apple Silicon · Intel Windows Installer Linux x64 AppImage · DEB Linux ARM64 AppImage · DEB See the latest release for all desktop builds. The same incident, in the apps teams already use. Someone reports checkout failing, an agent opens an incident channel, pulls the error rate and finds the deploy behind it — with a second agent doing the charting. Under a minute each, no narration. slack-mov.mp4 Discord discord-mov.mp4 Mattermost mattermost-mov.mp4 Why Switch Your agents can do far more for your team than answer one question at a time. Switch is what unlocks it. You do not have to start big. Each level builds on the one before it, the first works on da"
+   "full": "You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session. You switched accounts on another tab or window. Reload to refresh your session. Dismiss alert {{ message }} main Branches Tags Go to file Code Open more actions menu Latest commit History 1,359 Commits 1,359 Commits Folders and files Name Name Last commit message Last commit date .github .github assets assets console console core core deploy deploy docs docs examples examples gateway gateway scripts scripts signatures/ version1 signatures/ version1 switch-expert switch-expert .dockerignore .dockerignore .env.example .env.example .gitignore .gitignore .gitleaks.toml .gitleaks.toml .gitleaksignore .gitleaksignore .pre-commit-config.yaml .pre-commit-config.yaml CCLA.pdf CCLA.pdf CHANGELOG.md CHANGELOG.md CLA.md CLA.md CLAUDE.md CLAUDE.md CODE_OF_CONDUCT.md CODE_OF_CONDUCT.md CONTRIBUTING.md CONTRIBUTING.md LICENSE LICENSE NOTICE NOTICE README.md README.md RELEASING.md RELEASING.md SECURITY.md SECURITY.md artifacts.yaml artifacts.yaml justfile justfile renovate.json5 renovate.json5 ruff.toml ruff.toml socket.yml socket.yml View all files Repository files navigation Open-source AI teammates, working alongside your team in Slack, Teams, Discord, Telegram and Mattermost. Self-host it, with any agent and any model. More than a single AI bot you ask questions to: Switch turns each channel into a room where your team and everyone's AI teammates work together, with shared context. Install Switch Console , the desktop app, for your platform. Open it and talk to switch-buddy , your own assistant in Switch. Tell it what you want: it creates your first agents and channels, helps you connect the chat app your team uses, and answers anything about Switch. Platform Install macOS Apple Silicon · Intel Windows Installer Linux x64 AppImage · DEB Linux ARM64 AppImage · DEB See the latest release for all desktop builds. The same incident, in the apps teams already use. Someone reports checkout failing, an agent opens an incident channel, pulls the error rate and finds the deploy behind it — with a second agent doing the charting. Under a minute each, no narration. slack-mov.mp4 Discord discord-mov.mp4 Mattermost mattermost-mov.mp4 Why Switch Your agents can do far more for your team than answer one question at a time. Switch is what unlocks it. You do not have to start big. Each level builds on the one before it, the first works on da",
+   "digest_sent": true,
+   "channel_skip": true
   },
   {
    "id": "7b57dfe90522f9e9",
@@ -4363,7 +4369,9 @@
    "kind": "tools",
    "age_hours": 0.0,
    "published": "2026-10-30T19:31:56+00:00",
-   "added": "2026-10-30T19:32:21+00:00"
+   "added": "2026-10-30T19:32:21+00:00",
+   "digest_sent": true,
+   "channel_skip": true
   },
   {
    "id": "4341922ec9bb436c",
@@ -4376,7 +4384,9 @@
    "kind": "tools",
    "age_hours": 0.0,
    "published": "2026-10-30T19:31:46+00:00",
-   "added": "2026-10-30T19:32:21+00:00"
+   "added": "2026-10-30T19:32:21+00:00",
+   "digest_sent": true,
+   "channel_skip": true
   },
   {
    "id": "2c650dc340b0f56d",
@@ -5079,7 +5089,9 @@
    "age_hours": 0.0,
    "published": "2026-10-31T01:33:21+00:00",
    "added": "2026-10-31T01:33:46+00:00",
-   "sources_count": 2
+   "sources_count": 2,
+   "digest_sent": true,
+   "channel_skip": true
   },
   {
    "id": "6bcf26840bdf1a85",
@@ -5092,7 +5104,9 @@
    "kind": "tools",
    "age_hours": 0.0,
    "published": "2026-10-31T01:32:24+00:00",
-   "added": "2026-10-31T01:33:46+00:00"
+   "added": "2026-10-31T01:33:46+00:00",
+   "digest_sent": true,
+   "channel_skip": true
   },
   {
    "id": "dd9a81b0fe522847",
@@ -5105,7 +5119,9 @@
    "kind": "tools",
    "age_hours": 0.0,
    "published": "2026-10-31T01:31:39+00:00",
-   "added": "2026-10-31T01:33:46+00:00"
+   "added": "2026-10-31T01:33:46+00:00",
+   "digest_sent": true,
+   "channel_skip": true
   },
   {
    "id": "1fea424550cac8ad",
@@ -5118,7 +5134,9 @@
    "kind": "tools",
    "age_hours": 0.0,
    "published": "2026-10-31T01:31:09+00:00",
-   "added": "2026-10-31T01:33:46+00:00"
+   "added": "2026-10-31T01:33:46+00:00",
+   "digest_sent": true,
+   "channel_skip": true
   },
   {
    "id": "815e651251b7cf76",
@@ -5132,7 +5150,9 @@
    "age_hours": 0.0,
    "published": "2026-10-31T01:33:16+00:00",
    "added": "2026-10-31T01:33:46+00:00",
-   "sources_count": 2
+   "sources_count": 2,
+   "digest_sent": true,
+   "channel_skip": true
   },
   {
    "id": "b8fa1d425b6cc7f4",
