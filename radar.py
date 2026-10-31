@@ -1194,7 +1194,20 @@ def digest_run(s, hours=24, top_n=10, mark=True):
     text = "\n".join(lines)
     if len(text) > 3900:
         text = text[:3900] + "…"
-    send_to(personal_chat(), text, preview=False)
+    target = personal_chat()
+    try:
+        send_to(target, text, preview=False)
+    except Exception as exc:
+        log("personal send failed:", str(exc)[:150])
+        try:
+            alert(
+                "<b>ارسال جمع‌بندی به کانال شخصی نشد</b>\n"
+                "ربات باید در آن کانال ادمین باشد. متن در چت خودت می‌آید.\n"
+                "<code>{}</code>".format(esc(str(exc)[:200]))
+            )
+            send_to(TG_ADMIN or TG_CHAT, text, preview=False)
+        except Exception as exc2:
+            log("fallback send failed:", str(exc2)[:120])
     if mark and not DRY:
         for it in top:
             it["digest_sent"] = True
