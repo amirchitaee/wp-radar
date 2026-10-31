@@ -722,17 +722,45 @@ def strip_labels(text):
     return "\n".join(out).strip()
 
 
+AR_MARKS = re.compile(r"[\u064B-\u0652\u0670\u0653-\u0655]")
+
+
 def clean_details(text):
-    """جزئیات: برچسب‌ها حذف، و هر خطی که هیچ حرف فارسی ندارد دور ریخته می‌شود."""
+    """جزئیات: برچسب حذف، خط تکراری یکی می‌شود، خط بی‌فارسی دور ریخته می‌شود."""
     keep = []
+    keys = []
     for line in strip_labels(text).splitlines():
         line = line.strip()
         if not line:
             continue
         if not re.search(r"[\u0600-\u06FF]", line):
             continue
+        # «نسخه ۷.۱.۴» و «نسخهٔ ۷.۱.۴» دو خط جدا نیستند.
+        key = AR_MARKS.sub("", line)
+        key = re.sub(r"[\s،.,:؛;!؟?\-–—_]+", " ", key).strip().lower()
+        if not key:
+            continue
+        if any(key == k or key in k or k in key for k in keys):
+            continue
+        keys.append(key)
         keep.append(line)
     return "\n".join(keep)
+
+
+def rel_age(hours):
+    """سن را به زبان آدم می‌گوید: «۱۸ ساعت پیش»، «یک روز پیش»."""
+    try:
+        h = float(hours)
+    except Exception:
+        return ""
+    if h < 1:
+        return "کمتر از یک ساعت پیش"
+    if h < 24:
+        return "{} ساعت پیش".format(fa_num(int(round(h))))
+    d = int(round(h / 24.0))
+    if d <= 1:
+        return "یک روز پیش"
+    return "{} روز پیش".format(fa_num(d))
 
 
 def quality_ok(title, summary):
@@ -1221,7 +1249,10 @@ def is_advisory(text):
 
 def security_run(s, st, seen):
     sources = load_sources("security")
+    # هشدار امنیتی کهنه، هشدار نیست. کاربر باید همین امروز کاری بکند.
+    max_age = float(s.get("security_max_age_h", 24))
     fresh = []
+    stale = 0
     for src in sources:
         for it in fetch_source(src, st):
             iid = item_id(it["link"])
@@ -1230,7 +1261,8 @@ def security_run(s, st, seen):
             age = 99
             if it["published"]:
                 age = (now() - it["published"]).total_seconds() / 3600
-            if age > 72:
+            if age > max_age:
+                stale += 1
                 continue
             if not is_advisory(it["title"] + " " + it["desc"]):
                 continue
@@ -1244,6 +1276,8 @@ def security_run(s, st, seen):
                     "age_hours": age,
                 }
             )
+    if stale:
+        log("security: {} کهنه (بیشتر از {} ساعت) کنار گذاشته شد".format(stale, int(max_age)))
 
     fresh.sort(key=lambda x: x["age_hours"])
     fresh = dedupe_stories(fresh)
@@ -1288,7 +1322,7 @@ def security_run(s, st, seen):
             label = "فوری" if urgent else (entry.get("label") or SEC_LABEL)
             title = entry.get("title") or it["title"]
             summary = entry.get("summary") or ""
-            details = entry.get("details") or ""
+            details = clean_details(entry.get("details") or "")
             meta = entry.get("meta") or ""
         else:
             label = "فوری" if urgent else SEC_LABEL
@@ -1296,6 +1330,10 @@ def security_run(s, st, seen):
             summary = "منبع امنیتی تازه‌ای منتشر کرده است. متن اصلی داخل کادر آمده."
             details = it["title"] + ("\n" + it["desc"][:400] if it["desc"] else "")
             meta = "منبع: " + it["source"] + " | ترجمه نشده، مدل در دسترس نبود"
+        # سن هشدار صریح گفته می‌شود تا خواننده بداند چقدر تازه است.
+        age_h = float(it.get("age_hours") or 0)
+        if age_h >= 6:
+            meta = (meta + "\n" if meta else "") + "منتشر شده " + rel_age(age_h)
         tags = "#فوری #هشدار_امنیتی #امنیت" if urgent else "#هشدار_امنیتی #امنیت"
         text = format_post(label, title, summary, details, meta, it["link"], tags, it.get("published"))
         try:
@@ -1305,6 +1343,11 @@ def security_run(s, st, seen):
             break
         seen["ids"][it["id"]] = today()
         add_story(store, it)
+        # هر پست همان لحظه ثبت می‌شود. اگر اجرا وسط کار قطع شود،
+        # پست بعدی همین خبر را دوباره نمی‌فرستد.
+        if not DRY:
+            write_json(SEEN, seen)
+            write_json(STORIES, store)
         archive_row(it, label, title, summary, entry.get("score", 100) if entry else 100, "security")
         posted += 1
         time.sleep(2)

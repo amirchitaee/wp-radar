@@ -91,6 +91,18 @@ check(
 
 check("برچسب: خط فارسی سالم می‌ماند", radar.strip_labels("خلاصه: این یک ابزار است."), "این یک ابزار است.")
 
+check(
+    "جزئیات: خط تکراری یکی می‌شود",
+    radar.clean_details("نسخه 7.1.4 منتشر شد\nنسخهٔ 7.1.4 منتشر شد\nاین نسخه ۲۲ حفره را می‌بندد."),
+    "نسخه 7.1.4 منتشر شد\nاین نسخه ۲۲ حفره را می‌بندد.",
+)
+
+# ---------------------------------------------------------------- سن به زبان آدم
+check("سن: نیم ساعت", radar.rel_age(0.5), "کمتر از یک ساعت پیش")
+check("سن: هجده ساعت", radar.rel_age(18), "۱۸ ساعت پیش")
+check("سن: سی ساعت", radar.rel_age(30), "یک روز پیش")
+check("سن: هفتاد ساعت", radar.rel_age(70), "۳ روز پیش")
+
 # ---------------------------------------------------------------- اولویت موضوعی
 def bonus(title, kind="tools"):
     return radar.topic_bonus({"title": title, "kind": kind}, {"title": title, "summary": title})
@@ -107,6 +119,40 @@ fresh_item = {"title": "x", "published": (now - timedelta(hours=2)).isoformat(),
 old_item = {"title": "x", "published": (now - timedelta(hours=40)).isoformat(), "tier": 1, "kind": "news"}
 check("امتیاز: تازه بیشتر از کهنه", radar.code_score(fresh_item, 1) > radar.code_score(old_item, 1), True)
 check("امتیاز: دو منبع بیشتر از یک منبع", radar.code_score(fresh_item, 2) > radar.code_score(fresh_item, 1), True)
+
+# ---------------------------------------------------------------- تازگی هشدار امنیتی
+# هشدار امنیتی کهنه نباید پست شود، حتی اگر مدل و لینک سالم باشند.
+box = Path(tempfile.mkdtemp())
+radar.STORIES = box / "stories.json"
+radar.SEEN = box / "seen.json"
+radar.DRY = True
+
+sent = []
+radar.send = lambda text: sent.append(text)
+radar.link_alive = lambda link: True
+radar.archive_row = lambda *a, **k: None
+radar.is_recent_story = lambda store, it: False
+radar.load_sources = lambda kind: [{"name": "آزمون", "url": "x", "lang": "en", "tier": 1}]
+radar.call_models = lambda sysp, prompt: {"items": []}
+
+t0 = radar.now()
+sec_items = [
+    {"title": "Critical RCE in WordPress core", "desc": "CVE-2026-1111 patched", "link": "https://a.test/fresh",
+     "published": t0 - timedelta(hours=2)},
+    {"title": "Critical RCE in Elementor", "desc": "CVE-2026-2222 patched", "link": "https://a.test/mid",
+     "published": t0 - timedelta(hours=30)},
+    {"title": "Critical XSS in a plugin", "desc": "CVE-2026-3333 patched", "link": "https://a.test/old",
+     "published": t0 - timedelta(hours=70)},
+]
+radar.fetch_source = lambda src, st: sec_items
+
+n = radar.security_run({"security_max_age_h": 24}, {}, {"v": 1, "ids": {}})
+check("امنیت: فقط هشدار تازه پست شد", n, 1)
+check("امنیت: یک پیام فرستاده شد", len(sent), 1)
+check("امنیت: هشدار دو ساعته رفت", "a.test/fresh" in sent[0], True)
+check("امنیت: هشدار سی ساعته رد شد", "a.test/mid" in sent[0], False)
+check("امنیت: هشدار هفتاد ساعته رد شد", "a.test/old" in sent[0], False)
+check("امنیت: هشدار کهنه هیچ پیامی نساخت", any("a.test/old" in t for t in sent), False)
 
 # ---------------------------------------------------------------- نتیجه
 print("{} آزمون اجرا شد.".format(COUNT))
