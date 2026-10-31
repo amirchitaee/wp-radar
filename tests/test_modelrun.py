@@ -124,6 +124,31 @@ SENT.clear()
 got = radar.model_run("offers", settings, {}, {"v": 1, "ids": {}}, "", hard_deadline=None)
 check("رد: فرصت ده روزه", got, 0)
 
+# ---------------------------------------------------------------- مسیر سریع
+# وقتی سهم دسته تمام شده، فقط خبر خیلی مهم و خیلی تازه می‌تواند رد شود.
+fast_settings = dict(settings)
+fast_settings["fast_lane"] = {"score": 1, "max_age_h": 3, "per_day": 2}
+fast_settings["caps"] = {"news": 4, "tools": 2, "offers": 2, "security": 2, "showcase": 1}
+fast_settings["daily_cap"] = 11
+
+radar.collect = lambda kind, st, seen: [dict(FAKE_ROW)]
+radar.call_models = fake_model
+radar.DAILY.write_text(
+    json.dumps({"date": radar.today(), "count": 11, "kinds": {"offers": 2}}), encoding="utf-8"
+)
+SENT.clear()
+got = radar.model_run("offers", fast_settings, {}, {"v": 1, "ids": {}}, "", hard_deadline=None)
+check("مسیر سریع: سهم تمام شده ولی خبر مهم رد می‌شود", got, 1)
+
+# اگر جای مسیر سریع تمام شده باشد، همان خبر هم رد می‌شود.
+radar.DAILY.write_text(
+    json.dumps({"date": radar.today(), "count": 11, "kinds": {"offers": 2}, "fast": 2}),
+    encoding="utf-8",
+)
+SENT.clear()
+got = radar.model_run("offers", fast_settings, {}, {"v": 1, "ids": {}}, "", hard_deadline=None)
+check("مسیر سریع: سهمیهٔ روزانه‌اش تمام، پستی نمی‌رود", got, 0)
+
 # ---------------------------------------------------------------- نتیجه
 print("{} آزمون اجرا شد.".format(COUNT))
 if FAILS:

@@ -1092,7 +1092,7 @@ TUTORIAL_HINT = re.compile(
     r"(آموزش|راهنمای|گام‌به‌گام|چطور|guide|tutorial|how to|walkthrough|step by step)", re.I
 )
 UPDATE_HINT = re.compile(
-    r"(به‌روزرسانی|بروزرسانی|آپدیت|نسخه|release|released|update|updated|version|\d+\.\d+)", re.I
+    r"(به‌روزرسانی|بروزرسانی|آپدیت|release|released|update|updated|version|\d+\.\d+)", re.I
 )
 NEW_HINT = re.compile(r"(تازه|جدید|معرفی|رونمایی|new|launch|introduc|debut|unveil)", re.I)
 WP_HINT = re.compile(
@@ -1107,7 +1107,7 @@ URGENT_HINT = re.compile(
 
 # برچسب مجاز هر دسته. مدل اجازه ندارد از این فهرست بیرون بزند.
 LABELS = {
-    "news": ("خبر", "آپدیت", "هشدار امنیتی", "فوری"),
+    "news": ("خبر", "آپدیت", "هشدار امنیتی", "فوری", "پلاگین تازه"),
     "tools": ("ابزار", "پلاگین تازه", "آموزش"),
     "offers": ("فرصت",),
     "security": ("هشدار امنیتی", "فوری"),
@@ -1128,7 +1128,7 @@ def classify_label(kind, text, model_label="", urgent=False):
     خبر هرگز ابزار نمی‌شود، ابزار هرگز خبر نمی‌شود، و برچسب امنیتی فقط
     وقتی می‌آید که آسیب‌پذیری واقعی در وردپرس یا افزونه باشد.
     """
-    text = text or ""
+    text = str(text or "").translate(DIGITS_TO_LATIN)
     model_label = (model_label or "").strip()
     if kind == "security":
         return "فوری" if (urgent or URGENT_HINT.search(text)) else "هشدار امنیتی"
@@ -1138,10 +1138,13 @@ def classify_label(kind, text, model_label="", urgent=False):
         return "فرصت"
 
     advisory = is_advisory(text) and bool(WP_HINT.search(text))
+    # «نسخهٔ فارسی» نسخهٔ تازه نیست. برای همین فقط شمارهٔ واقعی یا فعل انتشار شاهد است.
 
     if kind == "news":
         if advisory:
             return "فوری" if (urgent or URGENT_HINT.search(text)) else "هشدار امنیتی"
+        if PLUGIN_HINT.search(text) and (model_label == "پلاگین تازه" or NEW_HINT.search(text)):
+            return "پلاگین تازه"
         if UPDATE_HINT.search(text):
             return "آپدیت"
         return "خبر"
@@ -1620,14 +1623,17 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
 
     # سهم این دسته از بودجهٔ امروز، با احترام به سهم بقیه.
     my_limit = daily_room(s, kind, d)
-    if my_limit <= 0:
-        log("no room left today for", kind)
-        return 0
-    log("room today:", my_limit)
     fast_cfg = s.get("fast_lane") or {}
     fast_score = float(fast_cfg.get("score", 85))
     fast_age = float(fast_cfg.get("max_age_h", 3))
     fast_per_day = int(fast_cfg.get("per_day", 2))
+    fast_used = int(d.get("fast", 0))
+    # مسیر سریع چند جای اضافه دارد و سقف روز را می‌شکند، فقط برای خبر خیلی مهم.
+    hard_cap = cap + max(0, fast_per_day - fast_used)
+    if int(d["count"]) >= hard_cap:
+        log("daily cap reached")
+        return 0
+    log("room today:", my_limit)
     rejected = []
 
     step = max(3, int(s.get("chunk_size", 7)))
@@ -1640,7 +1646,7 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
         log("frugal mode: single call per run, last provider was", last_prov)
     for start in range(0, len(pool), step):
         chunk = pool[start : start + step]
-        if posted >= per_run or posted >= my_limit or d["count"] >= cap or posted_kind >= kind_cap:
+        if posted >= per_run or int(d["count"]) >= hard_cap:
             break
         try:
             for item in chunk:
@@ -1671,10 +1677,7 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
 
         items.sort(key=rank, reverse=True)
         for entry in items:
-            if posted >= per_run:
-                break
-            if posted >= my_limit or d["count"] >= cap:
-                log("share for this run is used up")
+            if posted >= per_run or int(d["count"]) >= hard_cap:
                 break
             it = by_id.get(str(entry.get("id", "")))
             if not it:
@@ -1696,15 +1699,19 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
             )
             score = final_score(it, entry)
             fast = False
-            if posted_kind >= kind_cap:
+            # سهم این اجرا یا سقف دسته که تمام شد، فقط یک خبر خیلی مهم
+            # و خیلی تازه می‌تواند از سد رد شود، آن هم دو بار در روز.
+            if posted >= my_limit or posted_kind >= kind_cap:
                 if (
                     score >= fast_score
                     and true_age(it) <= fast_age
-                    and int(d.get("fast", 0)) < fast_per_day
+                    and fast_used < fast_per_day
                 ):
                     fast = True
+                    fast_used += 1
+                    log("fast lane:", kind, entry.get("title", "")[:40])
                 else:
-                    log("per-kind cap reached:", kind)
+                    log("share for this run is used up")
                     break
             if not entry.get("title") or not entry.get("summary"):
                 continue
@@ -1786,7 +1793,7 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
             d["kinds"][kind] = posted_kind
             if fast:
                 d["fast"] = int(d.get("fast", 0)) + 1
-            archive_row(it, entry.get("label", ""), entry.get("title", ""), entry.get("summary", ""), entry.get("score", 0), kind)
+            archive_row(it, label, entry.get("title", ""), entry.get("summary", ""), entry.get("score", 0), kind)
             if not DRY:
                 write_json(QUEUE, q)
                 write_json(DAILY, d)
