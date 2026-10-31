@@ -435,11 +435,43 @@ def plugin_info(slug):
 # ---------------------------------------------------------------- score
 
 def code_score(item, source_count):
-    age_h = item["age_hours"]
-    fresh = 25 if age_h <= 6 else 18 if age_h <= 24 else 10 if age_h <= 48 else 3
-    multi = 25 if source_count >= 3 else 18 if source_count == 2 else 8
-    tier = {1: 15, 2: 10, 3: 5}.get(item["tier"], 8)
-    return fresh + multi + tier
+    """امتیاز بخش کد: تازگی، اعتبار منبع، تأیید چندمنبعی.
+
+    حداکثر پنجاه‌وپنج. دو بُعد دیگر، یعنی اهمیت رویداد و قابل استفاده بودن،
+    از خود مدل می‌آید و در final_score اضافه می‌شود.
+    """
+    age = float(item.get("age_hours", 99) or 99)
+    fresh = max(0.0, 20.0 * (1.0 - min(age, 48.0) / 48.0))
+    tier = {1: 15.0, 2: 11.0, 3: 7.0}.get(int(item.get("tier", 3) or 3), 9.0)
+    sc = int(source_count or 1)
+    multi = 6.0 if sc <= 1 else 12.0 if sc == 2 else 20.0
+    return round(fresh + tier + multi, 1)
+
+
+def final_score(item, entry):
+    """امتیاز نهایی از صد: کد به‌علاوه نظر مدل."""
+    imp = max(0.0, min(float(entry.get("imp") or 0), 10.0)) * 2.5
+    use = max(0.0, min(float(entry.get("use") or 0), 10.0)) * 2.0
+    return round(code_score(item, item.get("sources_count", 1)) + imp + use, 1)
+
+
+BANNED_PHRASES = ("متن ورودی", "جزئیات بیشتری ندارد", "اشاره دارد", "در دنیای امروز", "لازم به ذکر است")
+
+
+def quality_ok(title, summary):
+    """دروازهٔ کیفیت. پست بدتر از پست نبودن است."""
+    s = (summary or "").strip()
+    if len(s) < 80:
+        return False, "خلاصه کوتاه"
+    for phrase in BANNED_PHRASES:
+        if phrase in s or phrase in (title or ""):
+            return False, "عبارت ممنوع"
+    tt, st = tokens(title), tokens(summary)
+    if tt and len(tt & st) / max(1, len(tt)) > 0.7:
+        return False, "بازگویی تیتر"
+    if len(re.findall(r"[A-Za-z]{3,}", s)) > 3:
+        return False, "لاتین زیاد"
+    return True, ""
 
 
 # ---------------------------------------------------------------- model
@@ -1017,6 +1049,7 @@ def queue_merge(rows, s):
 
 
 KIND_TAG = {"news": "#وردپرس", "tools": "#هوش_مصنوعی", "showcase": "#طراحی_سایت", "security": "#امنیت"}
+KIND_FA = {"news": "خبر", "tools": "ابزار", "offers": "فرصت", "showcase": "نمایشگاه", "security": "امنیت"}
 
 
 def cap_per_source(items, limit=3):
@@ -1059,6 +1092,11 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
         deadline = min(deadline, float(hard_deadline))
     d.setdefault("kinds", {})
     posted_kind = int(d["kinds"].get(kind, 0))
+    fast_cfg = s.get("fast_lane") or {}
+    fast_score = float(fast_cfg.get("score", 85))
+    fast_age = float(fast_cfg.get("max_age_h", 3))
+    fast_per_day = int(fast_cfg.get("per_day", 2))
+    rejected = []
 
     step = max(3, int(s.get("chunk_size", 7)))
     for start in range(0, len(pool), step):
@@ -1090,15 +1128,11 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
             target = by_id.get(str(entry.get("id", "")))
             if not target:
                 return -1
-            base = code_score(target, target.get("sources_count", 1)) + float(entry.get("score") or 0)
-            return base + min(target.get("age_hours", 0), 48) * 0.5
+            return final_score(target, entry)
 
         items.sort(key=rank, reverse=True)
         for entry in items:
             if posted >= per_run:
-                break
-            if posted_kind >= kind_cap:
-                log("per-kind cap reached:", kind)
                 break
             if d["count"] >= cap:
                 log("daily cap reached")
@@ -1106,6 +1140,18 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
             it = by_id.get(str(entry.get("id", "")))
             if not it:
                 continue
+            score = final_score(it, entry)
+            fast = False
+            if posted_kind >= kind_cap:
+                if (
+                    score >= fast_score
+                    and float(it.get("age_hours", 99)) <= fast_age
+                    and int(d.get("fast", 0)) < fast_per_day
+                ):
+                    fast = True
+                else:
+                    log("per-kind cap reached:", kind)
+                    break
             if not entry.get("title") or not entry.get("summary"):
                 continue
             if float(entry.get("score") or 0) <= 0:
@@ -1116,6 +1162,17 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
                 continue
             if it.get("age_hours", 0) > 48:
                 log("  too old for a standalone post:", it["title"][:50])
+                continue
+            if kind == "news" and float(entry.get("imp") or 0) < 4:
+                rejected.append((it, entry, "اهمیت کم"))
+                continue
+            if kind in ("tools", "offers") and float(entry.get("use") or 0) < 5:
+                rejected.append((it, entry, "قابل استفاده نیست"))
+                continue
+            ok_quality, why = quality_ok(entry.get("title", ""), entry.get("summary", ""))
+            if not ok_quality:
+                log("  quality gate:", why, entry.get("title", "")[:40])
+                rejected.append((it, entry, why))
                 continue
             if is_recent_story(store, it):
                 log("  already covered:", it["title"][:60])
@@ -1156,6 +1213,8 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
             posted += 1
             posted_kind += 1
             d["kinds"][kind] = posted_kind
+            if fast:
+                d["fast"] = int(d.get("fast", 0)) + 1
             archive_row(it, entry.get("label", ""), entry.get("title", ""), entry.get("summary", ""), entry.get("score", 0), kind)
             if not DRY:
                 write_json(QUEUE, q)
@@ -1163,6 +1222,16 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
                 write_json(STORIES, store)
                 write_json(SEEN, seen)
             time.sleep(3)
+
+    if rejected and len(rejected) >= 2 and not DRY:
+        counts = {}
+        for _, _, why in rejected:
+            counts[why] = counts.get(why, 0) + 1
+        summary = "، ".join("{} {}".format(fa_num(v), k) for k, v in counts.items())
+        try:
+            send_to(personal_chat(), "<b>رد شد — {}</b>\n{}".format(KIND_FA.get(kind, kind), esc(summary)), preview=False)
+        except Exception as exc:
+            log("reject report failed:", str(exc)[:100])
 
     if not DRY:
         write_json(STORIES, store)
