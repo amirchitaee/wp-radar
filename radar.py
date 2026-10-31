@@ -271,13 +271,47 @@ def fetch_json_items(url):
     return [x for x in out if x["title"] and x["link"]]
 
 
+def fetch_perq_offers(limit=26):
+    """فرصت‌های رایگان پرک: فقط برای همه، بدون نیاز به درخواست رسمی، زنده."""
+    url = (
+        "https://perq.sh/api/search?q=&audience=anyone&no_application=true"
+        "&status=live&category=llm-api,voice,dev-tools,agents"
+        "&sort=newest&limit={}".format(int(limit))
+    )
+    data = json.loads(http_get(url, headers={"Accept": "application/json"}).decode("utf-8", "replace"))
+    out = []
+    for r in data.get("results") or []:
+        vendor = (r.get("vendor") or "").strip()
+        value = clean_text(r.get("credit_value") or "")
+        link = (r.get("source_url") or r.get("page_url") or "").strip()
+        if not vendor or not link:
+            continue
+        bits = [value]
+        if r.get("how_to_claim"):
+            bits.append(clean_text(r["how_to_claim"]))
+        if r.get("eligibility"):
+            bits.append(clean_text(r["eligibility"]))
+        title = "{} — {}".format(vendor, value[:120]) if value else vendor
+        out.append(
+            {
+                "title": clean_text(title),
+                "link": norm_link(link),
+                "desc": clean_text(" · ".join([b for b in bits if b]))[:600],
+                "published": parse_date(r.get("last_verified") or r.get("first_seen")),
+            }
+        )
+    return out
+
+
 def fetch_source(src, stats):
     key = src["url"]
     st = stats.setdefault(key, {"name": src["name"], "fails": 0, "last_count": 0, "last_ok": ""})
     last = None
     for _ in range(2):
         try:
-            if "hn.algolia.com" in src["url"] or "api.github.com" in src["url"]:
+            if src["url"].startswith("perq:"):
+                items = fetch_perq_offers()[:40]
+            elif "hn.algolia.com" in src["url"] or "api.github.com" in src["url"]:
                 items = fetch_json_items(src["url"])[:40]
             else:
                 items = parse_feed(http_get(src["url"]))[:40]
@@ -668,6 +702,31 @@ use: صفر تا ده. مخاطب همین حالا می‌تواند استفا
 """
 
 
+KIND_HINT = {
+    "offers": (
+        "این دسته فقط فرصت رایگان است. دنبال چیزی بگرد که کاربر ایرانی همین امروز "
+        "با ایمیلش بتواند بگیرد: کردیت هدیه، پلن رایگان دائمی، سهمیهٔ روزانه، توکن رایگان، "
+        "یا نسخهٔ متن‌باز. اگر رایگان نیست، یا به کارت بانکی بین‌المللی و شمارهٔ تلفن "
+        "خارجی گره خورده، با score صفر ردش کن. مقدار اعتبار و شرط گرفتنش را فقط از متن "
+        "بردار؛ از خودت نساز. اگر در متن مقدار نیست، مقدار را ننویس و به جایش بنویس "
+        "که باید در صفحه ببیند."
+    ),
+    "tools": (
+        "این دسته ابزار است. تمرکز روی کاری که ابزار انجام می‌دهد و اینکه به کار چه کسی "
+        "می‌آید. اگر پلن رایگان دارد، در details صریح بنویس چطور شروع کند."
+    ),
+    "news": (
+        "این دسته خبر است. فقط چیزی که برای سازندهٔ سایت فارسی مهم است: هستهٔ وردپرس، "
+        "افزونه‌های پرکاربرد، امنیت، تغییر قیمت، یا سیاست‌های گوگل."
+    ),
+}
+
+
+def kind_hint(kind):
+    hint = KIND_HINT.get(kind)
+    return (hint + "\n\n") if hint else ""
+
+
 def build_prompt(items, extra):
     payload = []
     for it in items:
@@ -1048,7 +1107,13 @@ def queue_merge(rows, s):
     return q, added
 
 
-KIND_TAG = {"news": "#وردپرس", "tools": "#هوش_مصنوعی", "showcase": "#طراحی_سایت", "security": "#امنیت"}
+KIND_TAG = {
+    "news": "#وردپرس",
+    "tools": "#هوش_مصنوعی",
+    "offers": "#فرصت_رایگان",
+    "showcase": "#طراحی_سایت",
+    "security": "#امنیت",
+}
 KIND_FA = {"news": "خبر", "tools": "ابزار", "offers": "فرصت", "showcase": "نمایشگاه", "security": "امنیت"}
 
 
@@ -1092,6 +1157,16 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
         deadline = min(deadline, float(hard_deadline))
     d.setdefault("kinds", {})
     posted_kind = int(d["kinds"].get(kind, 0))
+
+    # سهمیهٔ بقیهٔ دسته‌ها رزرو می‌شود تا یک دسته کل سقف روز را نخورد.
+    all_caps = s.get("caps") or {}
+    reserved = 0
+    for other, value in all_caps.items():
+        if other == kind:
+            continue
+        if int(d["kinds"].get(other, 0)) < int(value or 0):
+            reserved += int(value or 0)
+    effective_cap = max(kind_cap, cap - reserved)
     fast_cfg = s.get("fast_lane") or {}
     fast_score = float(fast_cfg.get("score", 85))
     fast_age = float(fast_cfg.get("max_age_h", 3))
@@ -1101,7 +1176,7 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
     step = max(3, int(s.get("chunk_size", 7)))
     for start in range(0, len(pool), step):
         chunk = pool[start : start + step]
-        if posted >= per_run or d["count"] >= cap or posted_kind >= kind_cap:
+        if posted >= per_run or d["count"] >= effective_cap or posted_kind >= kind_cap:
             break
         try:
             for item in chunk:
@@ -1109,7 +1184,7 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
                     item["full"] = fetch_article_text(item["link"])
             filled = sum(1 for x in chunk if x.get("full"))
             log("  full text: {}/{}".format(filled, len(chunk)))
-            result = call_models(SYSTEM_PROMPT, build_prompt(chunk, extra), deadline)
+            result = call_models(SYSTEM_PROMPT, build_prompt(chunk, kind_hint(kind) + extra), deadline)
         except Exception as exc:
             failures += 1
             log("model error:", str(exc)[:200])
@@ -1134,7 +1209,7 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
         for entry in items:
             if posted >= per_run:
                 break
-            if d["count"] >= cap:
+            if d["count"] >= effective_cap:
                 log("daily cap reached")
                 break
             it = by_id.get(str(entry.get("id", "")))
@@ -1160,7 +1235,9 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
             if bad_lang(entry.get("title", "") + entry.get("summary", "") + entry.get("details", "")):
                 log("  bad script skipped:", entry.get("title", "")[:50])
                 continue
-            if it.get("age_hours", 0) > 48:
+            # فرصت و ابزار ارزششان به اعتبارشان است نه به تازگی خبر؛ پنجره بازتر.
+            max_age = 96 if kind in ("tools", "offers") else 48
+            if it.get("age_hours", 0) > max_age:
                 log("  too old for a standalone post:", it["title"][:50])
                 continue
             if kind == "news" and float(entry.get("imp") or 0) < 4:
@@ -1184,6 +1261,9 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
                 entry.get("label", "خبر"),
                 (it.get("desc", "") or "") + " " + (it.get("full", "") or "") + " " + entry.get("summary", ""),
             )
+            label_tag = "#" + re.sub(r"\s+", "_", label)
+            kind_tag = KIND_TAG.get(kind, "#وردپرس")
+            tags = label_tag if label_tag == kind_tag else label_tag + " " + kind_tag
             text = format_post(
                 label,
                 entry.get("title", ""),
@@ -1191,7 +1271,7 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
                 entry.get("details", ""),
                 entry.get("meta", ""),
                 it["link"],
-                "#" + re.sub(r"\s+", "_", label) + " " + KIND_TAG.get(kind, "#وردپرس"),
+                tags,
                 it.get("published"),
             )
             try:

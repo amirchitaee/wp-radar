@@ -32,6 +32,7 @@ jobs:
           TG_PERSONAL: ${{ secrets.TG_PERSONAL }}
           GEMINI_KEY: ${{ secrets.GEMINI_KEY }}
           GROQ_KEY: ${{ secrets.GROQ_KEY }}
+          OPENROUTER_KEY: ${{ secrets.OPENROUTER_KEY }}
         run: python radar.py auto
       - name: save
         if: always()

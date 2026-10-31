@@ -27,6 +27,25 @@
    ]
   },
   {
+   "name": "groq",
+   "base": "https://api.groq.com/openai/v1",
+   "key": "GROQ_KEY",
+   "models": [
+    "openai/gpt-oss-120b",
+    "qwen/qwen3.8-27b"
+   ]
+  },
+  {
+   "name": "openrouter",
+   "base": "https://openrouter.ai/api/v1",
+   "key": "OPENROUTER_KEY",
+   "models": [
+    "nvidia/nemotron-3-ultra-550b-a55b:free",
+    "google/gemma-4-31b-it:free",
+    "thinkingmachines/inkling:free"
+   ]
+  },
+  {
    "name": "google",
    "type": "gemini",
    "base": "https://generativelanguage.googleapis.com/v1beta/openai",
@@ -35,15 +54,6 @@
     "gemini-3.8-flash",
     "gemini-flash-latest",
     "gemini-3.8-flash-lite"
-   ]
-  },
-  {
-   "name": "groq",
-   "base": "https://api.groq.com/openai/v1",
-   "key": "GROQ_KEY",
-   "models": [
-    "openai/gpt-oss-120b",
-    "qwen/qwen3.8-27b"
    ]
   }
  ],
