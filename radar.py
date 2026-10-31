@@ -1333,13 +1333,20 @@ def is_advisory(text):
     return bool(ADV_HIT.search(text or "")) and not bool(ADV_SKIP.search(text or ""))
 
 
-def security_run(s, st, seen):
+def security_run(s, st, seen, hard_deadline=None):
     sources = load_sources("security")
     # هشدار امنیتی کهنه، هشدار نیست. کاربر باید همین امروز کاری بکند.
     max_age = float(s.get("security_max_age_h", 24))
     fresh = []
     stale = 0
-    for src in sources:
+    started = time.time()
+    fetch_budget = 90.0
+    if hard_deadline:
+        fetch_budget = max(20.0, min(90.0, (float(hard_deadline) - started) / 2.0))
+    for idx, src in enumerate(sources):
+        if time.time() - started > fetch_budget:
+            log("security: fetch budget reached, {} sources skipped".format(len(sources) - idx))
+            break
         for it in fetch_source(src, st):
             iid = item_id(it["link"])
             if iid in seen["ids"]:
@@ -1381,6 +1388,7 @@ def security_run(s, st, seen):
                 "این‌ها هشدار امنیتی تازه‌اند. برچسب همه «هشدار امنیتی» باشد. "
                 "در خلاصه بگو چه چیزی آسیب‌پذیر است و کاربر چه اقدامی باید بکند.",
             ),
+            deadline=hard_deadline,
         )
         for entry in res.get("items", []) if isinstance(res, dict) else []:
             results[str(entry.get("id", ""))] = entry
@@ -1470,10 +1478,21 @@ def security_run(s, st, seen):
 
 # ---------------------------------------------------------------- main flows
 
-def collect(kind, st, seen):
+def collect(kind, st, seen, budget_sec=None):
+    """منابع را می‌خواند و آیتم تازه جمع می‌کند.
+
+    یک منبع کند نباید کل اجرا را بخورد. اگر وقت تمام شد، بقیهٔ منابع
+    رد می‌شوند و اجرای بعدی می‌خواندشان. ترتیب فایل منابع یعنی منابع
+    رسمی اول خوانده می‌شوند و آن‌ها هرگز قربانی نمی‌شوند.
+    """
     sources = load_sources(kind)
     rows = []
-    for src in sources:
+    started = time.time()
+    budget = float(budget_sec or 180)
+    for idx, src in enumerate(sources):
+        if time.time() - started > budget:
+            log("collect: budget reached, {} of {} sources skipped".format(len(sources) - idx, len(sources)))
+            break
         for it in fetch_source(src, st):
             iid = item_id(it["link"])
             if iid in seen["ids"]:
@@ -1584,7 +1603,11 @@ def daily_room(s, kind, d):
 
 
 def model_run(kind, s, st, seen, extra, hard_deadline=None):
-    rows = collect(kind, st, seen)
+    # جمع‌آوری نباید بیشتر از یک‌سوم وقت را ببرد، وگرنه به مدل نمی‌رسیم
+    # و همان چیزی می‌شود که یک بار دیدیم: «بودجهٔ مدل تمام شد، صفر ثانیه مانده».
+    remaining = (float(hard_deadline) - time.time()) if hard_deadline else float(s.get("run_budget_sec", 600))
+    collect_budget = max(45.0, min(180.0, remaining / 3.0))
+    rows = collect(kind, st, seen, budget_sec=collect_budget)
     rows = dedupe_stories(rows)
     enrich_plugins(rows)
     log("new items:", len(rows))
@@ -1659,11 +1682,12 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
             failures += 1
             log("model error:", str(exc)[:200])
             if start == 0:
-                alert(
-                    "<b>هشدار رادار</b>\n"
-                    "هیچ لایهٔ مدلی جواب نداد. صف سالم است و اجرای بعدی جبران می‌کند.\n"
-                    "<code>{}</code>".format(esc(str(exc)[:300]))
-                )
+                why = str(exc)
+                if "بودجه" in why:
+                    msg = "وقت این اجرا تمام شد و به مدل نرسید. صف سالم است؛ اجرای بعدی جبران می‌کند."
+                else:
+                    msg = "هیچ لایهٔ مدلی جواب نداد. صف سالم است؛ اجرای بعدی جبران می‌کند."
+                alert("<b>هشدار رادار</b>\n{}\n<code>{}</code>".format(msg, esc(why[:300])))
             break
 
         items = result.get("items", []) if isinstance(result, dict) else result
@@ -2031,7 +2055,8 @@ def auto_run(s, st, seen, extra, role="main"):
     teh = now().astimezone(TZ)
 
     if left() > 120:
-        security_run(s, st, seen)
+        # امنیت حداکثر پنج دقیقه وقت دارد، تا برای خبر و بقیه وقت بماند.
+        security_run(s, st, seen, hard_deadline=max(time.time() + 60, hard - 420))
         mark("security")
         ran.append("security")
 

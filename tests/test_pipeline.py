@@ -6,6 +6,7 @@ import os
 import re
 import sys
 import tempfile
+import time
 from datetime import timedelta
 from pathlib import Path
 
@@ -170,7 +171,7 @@ radar.link_alive = lambda link: True
 radar.archive_row = lambda *a, **k: None
 radar.is_recent_story = lambda store, it: False
 radar.load_sources = lambda kind: [{"name": "آزمون", "url": "x", "lang": "en", "tier": 1}]
-radar.call_models = lambda sysp, prompt: {"items": []}
+radar.call_models = lambda sysp, prompt, **kw: {"items": []}
 
 t0 = radar.now()
 sec_items = [
@@ -280,6 +281,25 @@ for kind, text in samples:
     if got not in radar.LABELS[kind]:
         outside.append("{} → {}".format(kind, got))
 check("برچسب: هیچ برچسبی بیرون از فهرست دسته نیست", outside, [])
+
+# ---------------------------------------------------------------- بودجهٔ جمع‌آوری
+# یک منبع کند نباید کل اجرا را بخورد و وقت مدل را بگیرد.
+fetched = []
+radar.load_sources = lambda kind: [
+    {"name": "s{}".format(i), "url": "u{}".format(i), "lang": "en", "tier": 1} for i in range(6)
+]
+
+
+def slow_fetch(src, st):
+    fetched.append(src["url"])
+    time.sleep(0.05)
+    return []
+
+
+radar.fetch_source = slow_fetch
+rows = radar.collect("news", {}, {"v": 1, "ids": {}}, budget_sec=0.12)
+check("جمع‌آوری: با بودجهٔ کم همهٔ منابع خوانده نمی‌شوند", len(fetched) < 6, True)
+check("جمع‌آوری: دست‌کم یک منبع خوانده می‌شود", len(fetched) >= 1, True)
 
 # ---------------------------------------------------------------- نتیجه
 print("{} آزمون اجرا شد.".format(COUNT))
