@@ -560,6 +560,19 @@ def strip_labels(text):
     return "\n".join(out).strip()
 
 
+def clean_details(text):
+    """جزئیات: برچسب‌ها حذف، و هر خطی که هیچ حرف فارسی ندارد دور ریخته می‌شود."""
+    keep = []
+    for line in strip_labels(text).splitlines():
+        line = line.strip()
+        if not line:
+            continue
+        if not re.search(r"[\u0600-\u06FF]", line):
+            continue
+        keep.append(line)
+    return "\n".join(keep)
+
+
 def quality_ok(title, summary):
     """دروازهٔ کیفیت. پست بدتر از پست نبودن است."""
     s = (summary or "").strip()
@@ -579,6 +592,8 @@ def quality_ok(title, summary):
 # ---------------------------------------------------------------- model
 
 PROVIDER_DEAD = set()
+# نام لایه‌ای که در این اجرا جواب داد؛ برای صرفه‌جویی در سهمیهٔ لایه‌های پشتیبان.
+ACTIVE_PROVIDER = ""
 
 
 def model_providers():
@@ -686,6 +701,7 @@ def call_models(prompt_system, prompt_user, deadline=None, budget=None):
                 if prov.get("type") == "gemini":
                     result = gemini_call(prov, name, prompt_system, prompt_user, min(per, left))
                     log("  model ok:", prov["name"], name)
+                    globals()["ACTIVE_PROVIDER"] = prov["name"]
                     return result
                 data = http_post_json(
                     prov["base"] + "/chat/completions",
@@ -702,6 +718,7 @@ def call_models(prompt_system, prompt_user, deadline=None, budget=None):
                 )
                 content = data["choices"][0]["message"]["content"]
                 log("  model ok:", prov["name"], name)
+                globals()["ACTIVE_PROVIDER"] = prov["name"]
                 return extract_json(content)
             except urllib.error.HTTPError as exc:
                 errors.append("{}:{}".format(name, exc.code))
@@ -743,7 +760,7 @@ SYSTEM_PROMPT = """تو نویسندهٔ یک کانال فارسی تخصصی �
 1. خروجی فقط یک شیء جیسون معتبر. بدون توضیح، بدون بلوک کد، بدون متن اضافه.
 2. فارسی روان بنویس، مثل کسی که برای یک دوست توضیح می‌دهد. ترجمهٔ لفظی ننویس. کلمه وردپرس را فارسی بنویس.
 9. مخاطب حرفه‌ای نیست. هر اصطلاح فنی را همان‌جا با یک نیم‌جمله ساده کن. به جای «ای‌پی‌آی» بنویس «سرویسی که برنامه به آن وصل می‌شود». به جای «مدل زبانی» بنویس «هوش مصنوعی‌ای که متن می‌نویسد». خواننده باید بدون دانش قبلی بفهمد چه چیزی گیرش می‌آید.
-10. خوانایی: در هر جمله حداکثر یک عبارت لاتین. کل پست حداکثر سه عبارت لاتین. نام محصول را یک بار بیاور، جای دیگر با ضمیر یا «این ابزار» ادامه بده. نسخه و شماره و نام مدل را از دل جملهٔ فارسی بیرون بکش و در details بگذار. هرگز عبارت لاتین را وسط جملهٔ فارسی نچسبان.
+10. خوانایی: در هر جمله حداکثر یک عبارت لاتین. کل پست حداکثر سه عبارت لاتین. نام محصول را یک بار در خلاصه بیاور تا مخاطب بداند از چه حرف می‌زنی، جای دیگر با ضمیر یا «این ابزار» ادامه بده. نسخه و شماره و نام مدل را از دل جملهٔ فارسی بیرون بکش و در details بگذار. هرگز عبارت لاتین را وسط جملهٔ فارسی نچسبان.
 11. اولویت موضوعی: اول ابزاری که به ساخت و طراحی سایت کمک می‌کند، بعد تولید محتوا، بعد ساخت ویدیو و تصویر. اگر هر سه در یک دسته بودند، اولی را بالاتر بگذار. این یعنی ترتیب، نه حذف.
 3. هیچ واقعیتی از خودت نساز. اگر در متن منبع نبود، ننویس. عدد و نسخه و قیمت را از دادهٔ ورودی بردار، نه از حافظه.
 4. دربارهٔ دسترسی از ایران و کارت بانکی حدس نزن. فقط از فایل دسترسی نقل کن. اگر نبود، «نامشخص» بگذار.
@@ -1266,6 +1283,13 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
     rejected = []
 
     step = max(3, int(s.get("chunk_size", 7)))
+    # اگر اجرای قبلی روی لایهٔ پشتیبان افتاده بود، همهٔ آیتم‌ها را در یک تماس
+    # می‌فرستیم تا سهمیهٔ آن لایه کمتر بسوزد.
+    primary = (model_providers() or [{}])[0].get("name", "")
+    last_prov = read_json(SCHED, {}).get("last_provider") or ""
+    if primary and last_prov and last_prov != primary:
+        step = max(step, int(s.get("max_items_per_call", 14)))
+        log("frugal mode: single call per run, last provider was", last_prov)
     for start in range(0, len(pool), step):
         chunk = pool[start : start + step]
         if posted >= per_run or d["count"] >= effective_cap or posted_kind >= kind_cap:
@@ -1308,9 +1332,11 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
             if not it:
                 continue
             # برچسب‌هایی که مدل خودش می‌گذارد حذف می‌شوند تا پست فرم پرکردنی نباشد.
-            for field in ("title", "summary", "details", "meta"):
+            for field in ("title", "summary", "meta"):
                 if entry.get(field):
                     entry[field] = strip_labels(entry[field])
+            if entry.get("details"):
+                entry["details"] = clean_details(entry["details"])
             score = final_score(it, entry)
             fast = False
             if posted_kind >= kind_cap:
@@ -1650,6 +1676,10 @@ def auto_run(s, st, seen, extra):
         ran.append("report")
 
     log("auto ran:", ", ".join(ran) if ran else "nothing due", "| left", int(left()), "s")
+    if ACTIVE_PROVIDER:
+        sch["last_provider"] = ACTIVE_PROVIDER
+        if not DRY:
+            write_json(SCHED, sch)
     return 0
 
 
