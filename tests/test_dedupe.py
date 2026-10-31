@@ -91,6 +91,16 @@ NOT_DUPES = [
         "WooCommerce 9.4 released",
         "Rank Math 1.0.220 released",
     ),
+    (
+        "شمارهٔ نسخهٔ مجوز، نه نسخهٔ محصول",
+        "sleep2agi/agent-network - Apache 2.0 open source multi-agent runtime",
+        "Rapid-MLX is an open-source (Apache 2.0) OpenAI-compatible LLM inference server",
+    ),
+    (
+        "اشتراک فقط در نام‌های همه‌جاحاضر با نسخهٔ یکسان",
+        "Anthropic Claude 2.0 API server",
+        "OpenAI GPT 2.0 API server",
+    ),
 ]
 
 

@@ -380,9 +380,19 @@ GENERIC_ENTS = {
     "mcp", "claude", "code", "ai", "api", "server", "model", "agent", "agents",
     "app", "apps", "tool", "tools", "plugin", "gpt", "llm", "openai", "google",
     "meta", "apple", "microsoft", "browser", "agentic", "cursor", "codex",
+    "anthropic", "apache", "github", "hugging", "python", "node", "web",
+    "dashboard", "sdk", "runtime", "inference", "llama", "mistral", "open",
+    "windows", "linux", "macos",
 }
 
 VERSION_RE = re.compile(r"\d+(?:\.\d+)+")
+# شمارهٔ نسخهٔ مجوز («Apache 2.0»، «GPL 3.0») نسخهٔ محصول نیست و نباید
+# دو محصول کاملاً بی‌ربط را هم‌نسخه حساب کند.
+LICENSE_VER_RE = re.compile(
+    r"\b(?:apache|gpl|agpl|lgpl|bsd|mit|mpl|isc|cc|creative\s+commons|licen[cs]e)"
+    r"\s*(?:v|ver|version)?\s*\d+(?:\.\d+)*",
+    re.IGNORECASE,
+)
 PROPER_RE = re.compile(r"\b([A-Z][A-Za-z0-9]*(?:[\-\.][A-Za-z0-9]+)*|[A-Z]{2,})\b")
 # فقط وقتی پسوند را می‌بریم که واقعاً نام سایت باشد: کوتاه و بعد از خط عمودی یا خط تیره.
 SITE_SUFFIX_RE = re.compile(r"\s+(?:\|\s*\S.{1,28}|-\s+[A-Z][\w .&'’]{1,24})$")
@@ -416,7 +426,7 @@ def story_sig(title):
         e = m.lower().strip(".-")
         if len(e) > 1 and e not in STOPWORDS:
             ents.add(e)
-    vers = set(VERSION_RE.findall(low))
+    vers = set(VERSION_RE.findall(LICENSE_VER_RE.sub(" ", low)))
     return words, ents, vers
 
 
@@ -442,7 +452,9 @@ def same_story(a, b):
     # ۲. نسخهٔ یکسان، قوی‌ترین شاهد است و بر کوتاهی تیتر مقدم می‌شود.
     if same_ver:
         if ea or eb:
-            if ea == eb or len(ea & eb) >= 2:
+            shared = ea & eb
+            # اشتراک فقط در نام‌های همه‌جاحاضر (apache، openai، llm…) شاهد نیست.
+            if ea == eb or (len(shared) >= 2 and (shared - GENERIC_ENTS)):
                 return True
         elif wa & wb:
             return True
