@@ -132,6 +132,9 @@ def http_post_json(url, payload, headers=None, timeout=90):
     body = json.dumps(payload, ensure_ascii=False).encode("utf-8")
     req = urllib.request.Request(url, data=body, method="POST")
     req.add_header("Content-Type", "application/json")
+    req.add_header("Accept", "application/json")
+    # بدون این خط، کلادفلر بعضی سرویس‌ها را با خطای ۱۰۱۰ رد می‌کند.
+    req.add_header("User-Agent", "Mozilla/5.0 (compatible; RadarBot/2.0)")
     for k, v in (headers or {}).items():
         req.add_header(k, v)
     with urllib.request.urlopen(req, timeout=timeout) as resp:
@@ -511,7 +514,7 @@ def call_models(prompt_system, prompt_user, deadline=None, budget=None):
             except urllib.error.HTTPError as exc:
                 errors.append("{}:{}".format(name, exc.code))
                 log("  model http", exc.code, prov["name"], name)
-                if exc.code in (401, 403, 404, 429):
+                if exc.code in (401, 403, 429):
                     PROVIDER_DEAD.add(prov["name"])
                     break
                 continue
@@ -1356,6 +1359,19 @@ def selftest_run():
             lines.append("✅ {} — {}".format(prov["name"], esc(answer)))
         except urllib.error.HTTPError as exc:
             lines.append("❌ {} — خطای {}".format(prov["name"], exc.code))
+            if prov["name"] == "google":
+                try:
+                    base = prov["base"].replace("/openai", "")
+                    raw = http_get(base + "/models?key=" + urllib.parse.quote(prov["key"]), timeout=30, headers={"Accept": "application/json"})
+                    data = json.loads(raw.decode("utf-8", "replace"))
+                    names = [
+                        str(m.get("name", "")).replace("models/", "")
+                        for m in data.get("models", [])
+                        if "generateContent" in (m.get("supportedGenerationMethods") or [])
+                    ]
+                    lines.append("مدل‌های موجود: " + esc("، ".join(names[:8]) if names else "هیچ"))
+                except Exception as exc2:
+                    lines.append("فهرست مدل‌ها نیامد: " + esc(str(exc2)[:90]))
         except Exception as exc:
             lines.append("❌ {} — {}".format(prov["name"], esc(str(exc)[:120])))
     alert("\n".join(lines))
