@@ -139,6 +139,18 @@
   {
    "t": "2026-10-31T07:47:11+00:00",
    "title": "Open-weight model GLM 5.3 built full Firefox exploit chains with zero human input in under 48 hours"
+  },
+  {
+   "t": "2026-10-31T15:01:09+00:00",
+   "title": "WordPress 7.1.4 Security Release",
+   "kind": "news",
+   "link": "https://patchstack.com/articles/wordpress-7-1-4-security-release",
+   "ents": [
+    "wordpress"
+   ],
+   "vers": [
+    "7.1.4"
+   ]
   }
  ]
 }
