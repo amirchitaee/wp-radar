@@ -82,6 +82,6 @@
  "run_budget_sec": 600,
  "auto_budget_sec": 720,
  "news_every_min": 55,
- "tools_every_min": 180,
+ "tools_every_min": 300,
  "offers_every_min": 240
 }

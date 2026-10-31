@@ -468,13 +468,24 @@ def plugin_info(slug):
 
 # ---------------------------------------------------------------- score
 
+def true_age(item):
+    """سن واقعی از زمان انتشار. فیلد age_hours فقط لحظهٔ جمع‌آوری را می‌داند."""
+    pub = item.get("published") or ""
+    if pub:
+        try:
+            return max(0.0, (now() - datetime.fromisoformat(str(pub))).total_seconds() / 3600.0)
+        except Exception:
+            pass
+    return float(item.get("age_hours", 99) or 99)
+
+
 def code_score(item, source_count):
     """امتیاز بخش کد: تازگی، اعتبار منبع، تأیید چندمنبعی.
 
     حداکثر پنجاه‌وپنج. دو بُعد دیگر، یعنی اهمیت رویداد و قابل استفاده بودن،
     از خود مدل می‌آید و در final_score اضافه می‌شود.
     """
-    age = float(item.get("age_hours", 99) or 99)
+    age = true_age(item)
     fresh = max(0.0, 20.0 * (1.0 - min(age, 48.0) / 48.0))
     tier = {1: 15.0, 2: 11.0, 3: 7.0}.get(int(item.get("tier", 3) or 3), 9.0)
     sc = int(source_count or 1)
@@ -1249,7 +1260,15 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
         return 0
 
     pending.sort(key=lambda x: code_score(x, x.get("sources_count", 1)), reverse=True)
-    pool = cap_per_source(pending, int(s.get("per_source_cap", 3)))[: int(s.get("max_items_per_call", 25))]
+    # سن واقعی، نه سن لحظهٔ جمع‌آوری. آیتمی که سه روز در صف مانده نباید
+    # به‌عنوان خبر تازه پست شود، و نباید توکن مدل هم برایش بسوزد.
+    max_age_gate = 96 if kind in ("tools", "offers") else 48
+    fresh = [x for x in pending if true_age(x) <= max_age_gate]
+    if len(fresh) < len(pending):
+        log("  dropped stale:", len(pending) - len(fresh), "of", len(pending))
+    if not fresh:
+        return 0
+    pool = cap_per_source(fresh, int(s.get("per_source_cap", 3)))[: int(s.get("max_items_per_call", 25))]
 
     d = read_json(DAILY, {"date": today(), "count": 0})
     if d.get("date") != today():
@@ -1342,7 +1361,7 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
             if posted_kind >= kind_cap:
                 if (
                     score >= fast_score
-                    and float(it.get("age_hours", 99)) <= fast_age
+                    and true_age(it) <= fast_age
                     and int(d.get("fast", 0)) < fast_per_day
                 ):
                     fast = True
@@ -1358,8 +1377,7 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
                 log("  bad script skipped:", entry.get("title", "")[:50])
                 continue
             # فرصت و ابزار ارزششان به اعتبارشان است نه به تازگی خبر؛ پنجره بازتر.
-            max_age = 96 if kind in ("tools", "offers") else 48
-            if it.get("age_hours", 0) > max_age:
+            if true_age(it) > max_age_gate:
                 log("  too old for a standalone post:", it["title"][:50])
                 continue
             if kind == "news" and float(entry.get("imp") or 0) < 4:
