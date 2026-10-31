@@ -33,7 +33,7 @@ radar.STORIES = TMP / "stories.json"
 radar.DAILY.write_text(json.dumps({"date": radar.today(), "count": 0, "kinds": {}}), encoding="utf-8")
 radar.alert = lambda t: None
 radar.send_to = lambda chat, text, preview=True: SENT.append(text)
-radar.fetch_article_text = lambda url, limit=2500: "متن کامل تست"
+radar.fetch_article = lambda url, limit=2500: ("متن کامل تست", "https://example.com/use")
 radar.link_alive = lambda url: True
 
 FAKE_ROW = {
@@ -49,6 +49,7 @@ FAKE_ROW = {
     "published": radar.now().isoformat(),
     "added": radar.now().isoformat(timespec="seconds"),
     "sources_count": 1,
+    "use_link": "https://example.com/use",
 }
 
 radar.collect = lambda kind, st, seen, budget_sec=None: [dict(FAKE_ROW)]
@@ -274,6 +275,28 @@ radar.call_models = hollow_model
 SENT.clear()
 got = radar.model_run("offers", settings, {}, {"v": 1, "ids": {}}, "", hard_deadline=None)
 check("پوک: وضعیت نامشخص پست نمی‌شود", got, 0)
+
+# ---------------------------------------------------------------- لینک استفاده
+# پستی که لینک استفاده دارد، باید در متن لینک استفاده را هم نشان بدهد.
+radar.collect = lambda kind, st, seen, budget_sec=None: [dict(FAKE_ROW)]
+radar.call_models = fake_model
+radar.DAILY.write_text(json.dumps({"date": radar.today(), "count": 0, "kinds": {}}), encoding="utf-8")
+SENT.clear()
+got = radar.model_run("offers", settings, {}, {"v": 1, "ids": {}}, "", hard_deadline=None)
+body_use = SENT[0] if SENT else ""
+check("لینک استفاده: پست ساخته شد", got, 1)
+check("لینک استفاده: در متن هست", 'href="https://example.com/use"' in body_use, True)
+
+# ابزار بدون لینک استفاده رد می‌شود.
+NO_USE = dict(FAKE_ROW)
+NO_USE["id"] = "nou01"
+NO_USE["kind"] = "tools"
+NO_USE["use_link"] = ""
+radar.collect = lambda kind, st, seen, budget_sec=None: [dict(NO_USE)]
+radar.call_models = fake_model
+SENT.clear()
+got = radar.model_run("tools", settings, {}, {"v": 1, "ids": {}}, "", hard_deadline=None)
+check("لینک استفاده: ابزار بی‌لینک رد می‌شود", got, 0)
 
 # ---------------------------------------------------------------- نتیجه
 print("{} آزمون اجرا شد.".format(COUNT))

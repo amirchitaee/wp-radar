@@ -1104,11 +1104,80 @@ def read_optional(name, limit=2000):
 
 # ---------------------------------------------------------------- telegram
 
-def fetch_article_text(url, limit=2500):
+def extract_use_link(article_url, raw_html):
+    """از متن خام مقاله، لینک مستقیم به ابزار یا صفحهٔ استفاده را استخراج کن.
+
+    مقاله‌های وبلاگ معمولاً لینک محصول را درون خود دارند. این تابع آن را
+    از بین همهٔ لینک‌ها پیدا می‌کند و لینک‌های شبکهٔ اجتماعی را دور می‌ریزد.
+    """
+    article_domain = urllib.parse.urlparse(article_url).netloc.lower()
+    links = set()
+    for m in re.finditer(r'href=["\'](https?://[^"\']+)["\']', raw_html):
+        links.add(m.group(1))
+    for m in re.finditer(r'href=["\'](/[^"\']+)["\']', raw_html):
+        links.add(urllib.parse.urljoin(article_url, m.group(1)))
+    if not links:
+        return ""
+
+    social = {
+        "twitter.com", "x.com", "facebook.com", "instagram.com",
+        "linkedin.com", "youtube.com", "tiktok.com", "reddit.com",
+        "pinterest.com", "t.me", "discord.gg", "slack.com",
+    }
+    product_domains = {
+        "github.com", "gitlab.com", "bitbucket.org",
+        "wordpress.org", "wordpress.com",
+        "apps.apple.com", "play.google.com",
+        "chrome.google.com", "addons.mozilla.org",
+        "npmjs.com", "pypi.org", "packagist.org",
+        "figma.com", "canva.com", "notion.so",
+        "openai.com", "anthropic.com", "claude.ai",
+        "huggingface.co", "replicate.com",
+        "vercel.com", "netlify.com", "cloudflare.com",
+    }
+
+    # ۱. دامنه‌های شناخته‌شدهٔ محصول
+    for link in sorted(links, key=len):
+        domain = urllib.parse.urlparse(link).netloc.lower()
+        if any(d in domain for d in product_domains):
+            path = urllib.parse.urlparse(link).path.strip("/")
+            if domain == "github.com" and path.count("/") < 1:
+                continue
+            return link
+
+    # ۲. برای وبلاگ الگنت تمز، لینک صفحهٔ محصول
+    if "elegantthemes.com" in article_domain:
+        for link in sorted(links, key=len):
+            if "elegantthemes.com/gallery/" in link or "elegantthemes.com/divi" in link:
+                return link
+
+    # ۳. برای وبلاگ‌های وردپرس، لینک مخزن وردپرس
+    if "wpmayor.com" in article_domain:
+        for link in sorted(links, key=len):
+            if "wordpress.org" in link:
+                return link
+
+    # ۴. اولین لینک خارجی معقول
+    for link in sorted(links, key=len):
+        domain = urllib.parse.urlparse(link).netloc.lower()
+        if domain == article_domain:
+            continue
+        if any(d in domain for d in social):
+            continue
+        if re.search(r'\.(jpg|jpeg|png|gif|svg|pdf|zip|exe|dmg|tar\.gz)$', link, re.I):
+            continue
+        return link
+
+    return ""
+
+
+def fetch_article(url, limit=2500):
+    """متن مقاله و لینک استفاده را با هم می‌آورد."""
     try:
         raw = http_get(url, timeout=15).decode("utf-8", "replace")
     except Exception:
-        return ""
+        return "", ""
+    use_link = extract_use_link(url, raw)
     raw = re.sub(r"(?is)<(script|style|nav|header|footer|aside)[^>]*>.*?</\1>", " ", raw)
     paras = re.findall(r"(?is)<p[^>]*>(.*?)</p>", raw)
     if not paras:
@@ -1123,7 +1192,14 @@ def fetch_article_text(url, limit=2500):
         total += len(text)
         if total >= limit:
             break
-    return " ".join(chunks)[:limit]
+    text = " ".join(chunks)[:limit]
+    return text, use_link
+
+
+def fetch_article_text(url, limit=2500):
+    """فقط متن مقاله. برای سازگاری با کد قدیمی."""
+    text, _ = fetch_article(url, limit)
+    return text
 
 
 FREE_HINT = re.compile(
@@ -1393,7 +1469,7 @@ LINK_WORD = {
 }
 
 
-def format_post(label, title, summary, details, meta, link, hashtags, when=None, name=""):
+def format_post(label, title, summary, details, meta, link, hashtags, when=None, name="", use_link=""):
     tag = emoji_for(label)
     head = "{} {}: {}".format(tag, label, title).strip()
     parts = ["<b>{}</b>".format(esc(bidi(head))), "", esc(bidi(summary))]
@@ -1414,6 +1490,9 @@ def format_post(label, title, summary, details, meta, link, hashtags, when=None,
         parts.append(
             '<a href="{}">{}</a>'.format(link.replace('"', "%22"), LINK_WORD.get(label, "لینک منبع"))
         )
+    # لینک استفاده: جایی که مخاطب واقعاً ابزار را می‌گیرد.
+    if use_link and use_link != link:
+        parts.append('<a href="{}">{}</a>'.format(use_link.replace('"', "%22"), "لینک استفاده"))
     if when is not None:
         parts.append("")
         parts.append("<i>{}</i>".format(esc(stamp(when))))
@@ -1784,7 +1863,7 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
         try:
             for item in chunk:
                 if not item.get("full"):
-                    item["full"] = fetch_article_text(item["link"])
+                    item["full"], item["use_link"] = fetch_article(item["link"])
             filled = sum(1 for x in chunk if x.get("full"))
             log("  full text: {}/{}".format(filled, len(chunk)))
             result = call_models(SYSTEM_PROMPT, build_prompt(chunk, kind_hint(kind) + extra), deadline)
@@ -1923,6 +2002,11 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
                 log("  nameless post:", entry.get("title", "")[:40])
                 rejected.append((it, entry, "بی‌نام"))
                 continue
+            # لینک استفاده: برای ابزار و فرصت، بدون لینک استفاده پست بی‌فایده است.
+            if kind in ("tools", "offers") and not it.get("use_link"):
+                log("  no use link:", entry.get("title", "")[:40])
+                rejected.append((it, entry, "لینک استفاده ندارد"))
+                continue
             if is_recent_story(store, it):
                 log("  already covered:", it["title"][:60])
                 continue
@@ -1954,6 +2038,7 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
                 tags,
                 it.get("published"),
                 name=name,
+                use_link=it.get("use_link", ""),
             )
             try:
                 if kind == "showcase":
@@ -2090,10 +2175,16 @@ def digest_run(s, hours=24, top_n=10, mark=True):
         name = valid_name(it.get("name", ""), it) or auto_name(it)
         if name:
             block.append("<b>{}</b>".format(esc(name)))
+        use_link = it.get("use_link", "")
+        if use_link:
+            block.append('<a href="{}">لینک استفاده</a>'.format(use_link.replace('"', "%22")))
+        else:
+            search_name = name or (it.get("title", "").split()[0] if it.get("title") else "این ابزار")
+            block.append("<i>⚠️ لینک استفاده پیدا نشد — با «{}» دنبالش بگرد</i>".format(esc(search_name)))
+        block.append('<a href="{}">لینک منبع</a>'.format(it["link"].replace('"', "%22")))
         pub = it.get("published") or ""
         if pub:
             block.append("<i>{}</i>".format(esc(stamp(pub))))
-        block.append('<a href="{}">باز کردن</a>'.format(it["link"].replace('"', "%22")))
         block.append("")
         blocks.append("\n".join(block))
 
