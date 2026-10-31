@@ -1348,32 +1348,34 @@ def selftest_run():
         lines.append("هیچ لایهٔ مدلی تنظیم نشده")
     for prov in provs:
         name = prov["models"][0]
+        ok = False
         try:
             data = http_post_json(
                 prov["base"] + "/chat/completions",
-                {"model": name, "messages": [{"role": "user", "content": "بگو سلام"}], "max_tokens": 20},
+                {"model": name, "messages": [{"role": "user", "content": "بگو سلام"}]},
                 headers={"Authorization": "Bearer " + prov["key"]},
-                timeout=45,
+                timeout=90,
             )
-            answer = (data["choices"][0]["message"]["content"] or "").strip()[:60]
-            lines.append("✅ {} — {}".format(prov["name"], esc(answer)))
+            answer = (data["choices"][0]["message"].get("content") or "").strip()[:60]
+            lines.append("✅ {} — {}".format(prov["name"], esc(answer) or "(پاسخ خالی)"))
+            ok = True
         except urllib.error.HTTPError as exc:
             lines.append("❌ {} — خطای {}".format(prov["name"], exc.code))
-            if prov["name"] == "google":
-                try:
-                    base = prov["base"].replace("/openai", "")
-                    raw = http_get(base + "/models?key=" + urllib.parse.quote(prov["key"]), timeout=30, headers={"Accept": "application/json"})
-                    data = json.loads(raw.decode("utf-8", "replace"))
-                    names = [
-                        str(m.get("name", "")).replace("models/", "")
-                        for m in data.get("models", [])
-                        if "generateContent" in (m.get("supportedGenerationMethods") or [])
-                    ]
-                    lines.append("مدل‌های موجود: " + esc("، ".join(names[:8]) if names else "هیچ"))
-                except Exception as exc2:
-                    lines.append("فهرست مدل‌ها نیامد: " + esc(str(exc2)[:90]))
         except Exception as exc:
             lines.append("❌ {} — {}".format(prov["name"], esc(str(exc)[:120])))
+        if not ok and prov["name"] == "google":
+            try:
+                base = prov["base"].replace("/openai", "")
+                raw = http_get(base + "/models?key=" + urllib.parse.quote(prov["key"]), timeout=30, headers={"Accept": "application/json"})
+                data = json.loads(raw.decode("utf-8", "replace"))
+                names = [
+                    str(m.get("name", "")).replace("models/", "")
+                    for m in data.get("models", [])
+                    if "generateContent" in (m.get("supportedGenerationMethods") or [])
+                ]
+                lines.append("مدل‌های موجود: " + esc("، ".join(names[:8]) if names else "هیچ"))
+            except Exception as exc2:
+                lines.append("فهرست مدل‌ها نیامد: " + esc(str(exc2)[:90]))
     alert("\n".join(lines))
     log("\n".join(lines))
     return 0
