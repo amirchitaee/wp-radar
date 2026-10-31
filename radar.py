@@ -1335,29 +1335,29 @@ def auto_run(s, st, seen, extra):
 
 def selftest_run():
     lines = ["<b>خودآزمایی رادار</b>", ""]
-    lines.append("آدرس: " + esc(API_BASE or "خالی"))
-    lines.append("کلید: " + ("هست، {} کاراکتر".format(len(API_KEY)) if API_KEY else "خالی"))
     lines.append("توکن: " + ("هست" if TG_TOKEN else "خالی"))
     lines.append("چت کانال: " + esc(TG_CHAT or "خالی"))
     lines.append("چت شخصی: " + esc(TG_ADMIN or "خالی"))
+    lines.append("کانال شخصی: " + esc(env_clean("TG_PERSONAL") or "خالی"))
     lines.append("")
-    if API_BASE and API_KEY:
-        model = (settings().get("models") or ["Gemma-4-31B-IT"])[0]
+    provs = model_providers()
+    if not provs:
+        lines.append("هیچ لایهٔ مدلی تنظیم نشده")
+    for prov in provs:
+        name = prov["models"][0]
         try:
             data = http_post_json(
-                API_BASE + "/chat/completions",
-                {"model": model, "messages": [{"role": "user", "content": "بگو سلام"}], "max_tokens": 20},
-                headers={"Authorization": "Bearer " + API_KEY},
+                prov["base"] + "/chat/completions",
+                {"model": name, "messages": [{"role": "user", "content": "بگو سلام"}], "max_tokens": 20},
+                headers={"Authorization": "Bearer " + prov["key"]},
                 timeout=45,
             )
-            answer = data["choices"][0]["message"]["content"][:80]
-            lines.append("مدل: کار کرد")
-            lines.append(esc(answer))
+            answer = (data["choices"][0]["message"]["content"] or "").strip()[:60]
+            lines.append("✅ {} — {}".format(prov["name"], esc(answer)))
+        except urllib.error.HTTPError as exc:
+            lines.append("❌ {} — خطای {}".format(prov["name"], exc.code))
         except Exception as exc:
-            lines.append("مدل: خطا")
-            lines.append("<code>{}</code>".format(esc(str(exc)[:300])))
-    else:
-        lines.append("مدل: تست نشد، آدرس یا کلید نیست")
+            lines.append("❌ {} — {}".format(prov["name"], esc(str(exc)[:120])))
     alert("\n".join(lines))
     log("\n".join(lines))
     return 0
