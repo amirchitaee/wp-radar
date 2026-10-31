@@ -162,6 +162,37 @@
     "wp"
    ],
    "vers": []
+  },
+  {
+   "t": "2026-10-31T20:32:01+00:00",
+   "title": "How To Build A Product Grid With Divi 5’s CSS Grid Editor",
+   "kind": "news",
+   "link": "https://www.elegantthemes.com/blog/divi-resources/how-to-build-a-product-grid-with-divi-5s-css-grid-editor",
+   "ents": [
+    "css",
+    "divi",
+    "editor",
+    "grid",
+    "product",
+    "to"
+   ],
+   "vers": []
+  },
+  {
+   "t": "2026-10-31T20:32:05+00:00",
+   "title": "Creating A Design System From A Screenshot with Divi AI Agents",
+   "kind": "news",
+   "link": "https://www.elegantthemes.com/blog/divi-resources/creating-a-design-system-from-a-screenshot-with-divi-ai-agents",
+   "ents": [
+    "agents",
+    "ai",
+    "creating",
+    "design",
+    "divi",
+    "screenshot",
+    "system"
+   ],
+   "vers": []
   }
  ]
 }
