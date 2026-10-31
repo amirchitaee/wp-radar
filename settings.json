@@ -1,9 +1,49 @@
 {
  "daily_cap": 10,
+ "caps": {
+  "news": 4,
+  "tools": 2,
+  "offers": 2,
+  "showcase": 1
+ },
+ "fast_lane": {
+  "score": 85,
+  "max_age_h": 3,
+  "per_day": 2
+ },
  "queue_days": 7,
  "max_items_per_call": 14,
- "max_posts_per_run": 10,
- "per_source_cap": 3,
+ "max_posts_per_run": 4,
+ "per_source_cap": 2,
+ "providers": [
+  {
+   "name": "amd",
+   "base": "https://developer.amd.com.cn/radeon/api/v1",
+   "key": "API_KEY",
+   "models": [
+    "Gemma-4-31B-IT",
+    "Qwen3.8-27B",
+    "Qwen3.8-Flash-Next"
+   ]
+  },
+  {
+   "name": "google",
+   "base": "https://generativelanguage.googleapis.com/v1beta/openai",
+   "key": "GEMINI_KEY",
+   "models": [
+    "gemini-2.5-flash"
+   ]
+  },
+  {
+   "name": "groq",
+   "base": "https://api.groq.com/openai/v1",
+   "key": "GROQ_KEY",
+   "models": [
+    "openai/gpt-oss-120b",
+    "qwen/qwen3.8-27b"
+   ]
+  }
+ ],
  "models": [
   "Gemma-4-31B-IT",
   "Qwen3.8-27B",
@@ -21,11 +61,13 @@
   "آموزش": "📚",
   "جمع‌بندی": "🗂"
  },
- "model_timeout": 300,
- "model_retries": 2,
+ "model_timeout": 90,
+ "model_budget_sec": 240,
+ "model_retries": 1,
  "chunk_size": 7,
- "run_budget_sec": 840,
- "auto_budget_sec": 1500,
- "news_every_min": 115,
- "tools_every_min": 350
+ "run_budget_sec": 600,
+ "auto_budget_sec": 720,
+ "news_every_min": 55,
+ "tools_every_min": 180,
+ "offers_every_min": 240
 }
