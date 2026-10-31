@@ -51,7 +51,7 @@ FAKE_ROW = {
     "sources_count": 1,
 }
 
-radar.collect = lambda kind, st, seen: [dict(FAKE_ROW)]
+radar.collect = lambda kind, st, seen, budget_sec=None: [dict(FAKE_ROW)]
 
 
 def fake_model(system, user, deadline=None, budget=None):
@@ -118,7 +118,7 @@ run_with({"summary": "در دنیای امروز این ابزار می‌توا
 # ---------------------------------------------------------------- قدیمی رد می‌شود
 old_row = dict(FAKE_ROW)
 old_row["published"] = (radar.now() - radar.timedelta(days=10)).isoformat()
-radar.collect = lambda kind, st, seen: [old_row]
+radar.collect = lambda kind, st, seen, budget_sec=None: [old_row]
 radar.call_models = fake_model
 SENT.clear()
 got = radar.model_run("offers", settings, {}, {"v": 1, "ids": {}}, "", hard_deadline=None)
@@ -131,7 +131,7 @@ fast_settings["fast_lane"] = {"score": 1, "max_age_h": 3, "per_day": 2}
 fast_settings["caps"] = {"news": 4, "tools": 2, "offers": 2, "security": 2, "showcase": 1}
 fast_settings["daily_cap"] = 11
 
-radar.collect = lambda kind, st, seen: [dict(FAKE_ROW)]
+radar.collect = lambda kind, st, seen, budget_sec=None: [dict(FAKE_ROW)]
 radar.call_models = fake_model
 radar.DAILY.write_text(
     json.dumps({"date": radar.today(), "count": 11, "kinds": {"offers": 2}}), encoding="utf-8"
