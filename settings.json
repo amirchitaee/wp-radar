@@ -75,7 +75,7 @@
   "جمع‌بندی": "🗂"
  },
  "model_timeout": 90,
- "bidi_isolate": true,
+ "bidi_isolate": false,
  "model_budget_sec": 240,
  "model_retries": 1,
  "chunk_size": 7,
