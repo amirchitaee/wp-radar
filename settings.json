@@ -31,9 +31,9 @@
    "base": "https://generativelanguage.googleapis.com/v1beta/openai",
    "key": "GEMINI_KEY",
    "models": [
-    "gemini-3.8-flash",
-    "gemini-3.6-flash",
-    "gemini-2.5-flash"
+    "gemini-2.5-flash",
+    "gemini-flash-lite-latest",
+    "gemini-flash-latest"
    ]
   },
   {
