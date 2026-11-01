@@ -13,7 +13,7 @@
   "per_day": 2
  },
  "queue_days": 7,
- "max_items_per_call": 14,
+ "max_items_per_call": 10,
  "max_posts_per_run": 4,
  "per_source_cap": {
   "news": 1,
@@ -88,7 +88,7 @@
  "model_retries": 1,
  "chunk_size": 7,
  "run_budget_sec": 600,
- "auto_budget_sec": 720,
+ "auto_budget_sec": 840,
  "guard_min_gap_min": 5,
  "backup_min_gap_min": 12,
  "security_max_age_h": 24,
