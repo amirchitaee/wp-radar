@@ -97,6 +97,9 @@ check("پست: بلوک نقل‌قول دارد", "<blockquote expandable>" in 
 check("پست: برچسب فیلد حذف شد", "نام محصول:" not in body, True)
 check("پست: خط تنهاماندهٔ لاتین حذف شد", "\nCloudflare\n" not in body, True)
 check("پست: لینک منبع دارد", 'href="https://example.com/cf"' in body, True)
+check("پست: لینک منبع روی کلمه نشسته", '>منبع</a>' in body, True)
+check("پست: آدرس منبع در متن چاپ نشده", ">https://example.com/cf<" not in body, True)
+check("پست: تیتر یک خط است", body.split("\n")[0].startswith("<b>"), True)
 
 # ---------------------------------------------------------------- حالت‌های رد
 def run_with(entry_patch, label, want_posted):
@@ -220,7 +223,7 @@ divi_body = SENT[0] if SENT else ""
 check("دیوی: در دستهٔ ابزار پست می‌شود", got, 1)
 check("دیوی: برچسب امنیتی ندارد", "#هشدار_امنیتی" in divi_body, False)
 check("دیوی: برچسب آموزش دارد", "#آموزش" in divi_body, True)
-check("دیوی: نام محصول در پست هست", "<b>Divi</b>" in divi_body, True)
+check("دیوی: نام محصول در تیتر هست", "Divi" in (divi_body.split("\n")[0] if divi_body else ""), True)
 
 # بازی تخته‌ای رایگان نباید در کانال وردپرس منتشر شود.
 GAME = dict(FAKE_ROW)
@@ -286,6 +289,8 @@ got = radar.model_run("offers", settings, {}, {"v": 1, "ids": {}}, "", hard_dead
 body_use = SENT[0] if SENT else ""
 check("لینک استفاده: پست ساخته شد", got, 1)
 check("لینک استفاده: در متن هست", 'href="https://example.com/use"' in body_use, True)
+check("لینک استفاده: خود آدرس دیده می‌شود", ">https://example.com/use</a>" in body_use, True)
+check("لینک استفاده: خط اقدام دارد", "ثبت‌نام" in body_use, True)
 
 # ابزار بدون لینک استفاده رد می‌شود.
 NO_USE = dict(FAKE_ROW)
