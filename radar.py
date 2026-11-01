@@ -2478,9 +2478,15 @@ def auto_run(s, st, seen, extra, role="main"):
             return True
 
     def mark(key, value=None):
-        sch[key] = value or now().isoformat(timespec="seconds")
+        # فایل را تازه می‌خوانیم. در طول اجرا ممکن است جای دیگری هم
+        # نوشته شده باشد (مثل وضعیت سلامت لایه‌های مدل) و نوشتن نسخهٔ
+        # کهنه روی آن، آن را پاک می‌کرد.
+        fresh = read_json(SCHED, {})
+        fresh[key] = value or now().isoformat(timespec="seconds")
+        sch.clear()
+        sch.update(fresh)
         if not DRY:
-            write_json(SCHED, sch)
+            write_json(SCHED, fresh)
 
     teh = now().astimezone(TZ)
 
@@ -2546,9 +2552,12 @@ def auto_run(s, st, seen, extra, role="main"):
 
     log("auto ran:", ", ".join(ran) if ran else "nothing due", "| left", int(left()), "s")
     if ACTIVE_PROVIDER:
-        sch["last_provider"] = ACTIVE_PROVIDER
+        fresh = read_json(SCHED, {})
+        fresh["last_provider"] = ACTIVE_PROVIDER
+        sch.clear()
+        sch.update(fresh)
         if not DRY:
-            write_json(SCHED, sch)
+            write_json(SCHED, fresh)
     return 0
 
 
