@@ -992,7 +992,7 @@ def is_net_error(exc):
     )
 
 
-def call_models(prompt_system, prompt_user, deadline=None, budget=None):
+def call_models(prompt_system, prompt_user, deadline=None, budget=None, only=None):
     """زنجیرهٔ ارائه‌دهنده‌ها با مهلت مطلق.
 
     هر مدل در هر اجرا فقط یک بار صدا زده می‌شود. مهلت هر تلاش از
@@ -1009,9 +1009,13 @@ def call_models(prompt_system, prompt_user, deadline=None, budget=None):
         raise RuntimeError("هیچ ارائه‌دهندهٔ مدلی تنظیم نشده")
     errors = []
     for prov in provs:
+        if only and prov["name"] != only:
+            continue
         if prov["name"] in PROVIDER_DEAD:
             continue
-        for name in prov["models"]:
+        # در حالت مقایسه فقط مدل اول هر لایه امتحان می‌شود تا شرط
+        # برابر باشد و یک لایه با چند مدل شانس بیشتری نداشته باشد.
+        for name in (prov["models"][:1] if only else prov["models"]):
             left = int(hard - time.time())
             if left < 25:
                 raise OutOfTime("وقت مدل تمام شد، {} ثانیه مانده".format(max(left, 0)))
@@ -2628,6 +2632,60 @@ def auto_run(s, st, seen, extra, role="main"):
     return 0
 
 
+def compare_run(s, st, seen, limit=2):
+    """همان آیتم را به هر لایه می‌دهد تا کیفیت را با چشم خودت ببینی.
+
+    جای حدس زدن دربارهٔ «کدام مدل بهتر می‌نویسد» این را ساخته‌ام.
+    هیچ پستی در کانال نمی‌رود؛ فقط به چت شخصی می‌آید.
+    """
+    chat = env_clean("TG_PERSONAL") or TG_ADMIN
+    if not chat:
+        log("compare: no personal chat configured")
+        return 0
+
+    rows = collect("news", st, seen, budget_sec=90)
+    rows = dedupe_stories(rows)
+    if not rows:
+        send_to(chat, "مقایسه: آیتم تازه‌ای پیدا نشد. کمی بعد دوباره بزن.", False)
+        return 0
+    rows.sort(key=lambda x: code_score(x, x.get("sources_count", 1)), reverse=True)
+    batch = rows[:limit]
+    fetch_full_parallel(batch)
+    prompt = build_prompt(batch, kind_hint("news"))
+
+    send_to(
+        chat,
+        "مقایسهٔ مدل‌ها روی {} آیتم. هر لایه یک پیام می‌فرستد.".format(len(batch)),
+        False,
+    )
+    for prov in model_providers():
+        model = (prov.get("models") or [""])[0]
+        head = "<b>{} / {}</b>".format(esc(prov["name"]), esc(model))
+        try:
+            res = call_models(SYSTEM_PROMPT, prompt, budget=150, only=prov["name"])
+        except Exception as exc:
+            send_to(chat, head + "\nخطا: " + esc(str(exc)[:200]), False)
+            continue
+        items = res.get("items", []) if isinstance(res, dict) else (res or [])
+        if not items:
+            send_to(chat, head + "\nپاسخ خالی بود.", False)
+            continue
+        for entry in items[:limit]:
+            text = format_post(
+                entry.get("label") or "خبر",
+                entry.get("title", ""),
+                entry.get("summary", ""),
+                entry.get("details", ""),
+                entry.get("meta", ""),
+                "",
+                "",
+                None,
+                name=entry.get("name", ""),
+            )
+            send_to(chat, head + "\n\n" + text, False)
+    return 0
+
+
 # ---------------------------------------------------------------- entry
 
 def selftest_run():
@@ -2721,6 +2779,16 @@ def main():
             role = argv[i + 1]
             del argv[i : i + 2]
     cmd = next((a for a in argv if not a.startswith("-")), "news")
+    # چند خبر برای مقایسهٔ مدل‌ها.
+    cmp_limit = 2
+    if "--limit" in argv:
+        i = argv.index("--limit")
+        if i + 1 < len(argv):
+            try:
+                cmp_limit = max(1, min(4, int(argv[i + 1])))
+            except Exception:
+                pass
+            del argv[i : i + 2]
     if cmd == "whoami":
         return whoami_run()
     if cmd == "selftest":
@@ -2752,6 +2820,10 @@ def main():
         return watchdog_run()
     elif cmd == "auto":
         auto_run(s, st, seen, extra, role)
+    elif cmd == "compare":
+        # عمداً زودتر برمی‌گردد: مقایسه نباید آیتم‌ها را «دیده‌شده»
+        # ثبت کند، وگرنه همان خبر دیگر هیچ‌وقت پست نمی‌شود.
+        return compare_run(s, st, seen, cmp_limit)
     else:
         model_run(cmd, s, st, seen, extra)
 

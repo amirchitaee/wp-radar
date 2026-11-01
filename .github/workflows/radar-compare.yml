@@ -1,0 +1,41 @@
+name: radar-compare
+
+# یک بار دستی می‌زنی. همان چند خبر را به هر لایهٔ مدل می‌دهد و
+# پیش‌نویس‌ها را به چت شخصی می‌فرستد تا با چشم خودت مقایسه کنی.
+# هیچ چیزی در کانال پست نمی‌شود و وضعیت هم ذخیره نمی‌شود.
+on:
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: "چند خبر برای مقایسه"
+        required: false
+        default: "2"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: radar-compare
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - name: compare
+        env:
+          API_BASE: ${{ secrets.API_BASE }}
+          API_KEY: ${{ secrets.API_KEY }}
+          TG_TOKEN: ${{ secrets.TG_TOKEN }}
+          TG_CHAT: ${{ secrets.TG_CHAT }}
+          TG_ADMIN: ${{ secrets.TG_ADMIN }}
+          TG_PERSONAL: ${{ secrets.TG_PERSONAL }}
+          GEMINI_KEY: ${{ secrets.GEMINI_KEY }}
+          GROQ_KEY: ${{ secrets.GROQ_KEY }}
+          OPENROUTER_KEY: ${{ secrets.OPENROUTER_KEY }}
+        run: python radar.py compare --limit "${{ inputs.limit || '2' }}"
