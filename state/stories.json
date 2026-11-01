@@ -234,6 +234,18 @@
     "wp"
    ],
    "vers": []
+  },
+  {
+   "t": "2026-11-01T14:46:41+00:00",
+   "title": "Presence API meeting summary: October 26, 2026",
+   "kind": "news",
+   "link": "https://make.wordpress.org/core/2026/11/01/presence-api-meeting-summary-october-26-2026",
+   "ents": [
+    "api",
+    "october",
+    "presence"
+   ],
+   "vers": []
   }
  ]
 }
