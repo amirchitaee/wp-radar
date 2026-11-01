@@ -1470,6 +1470,12 @@ NON_NEWS_RE = re.compile(
     r"monthly[- ]update|bi-?weekly[- ]update|status[- ]update|"
     r"call[- ]for[- ]testing|call[- ]for[- ]feedback|dev[ -]?chat|agenda|"
     r"summary[- ]of[- ]the[- ]meeting|"
+    # تیم‌های توسعهٔ وردپرس کار روزمرهٔ خودشان را هم منتشر می‌کنند:
+    # «تیم چه چیزی این هفته منتشر کرد»، «گفتگوی دوهفتگی»، «تغییرات تیم
+    # بازبینی». این‌ها گزارش داخلی است، نه خبر برای مخاطب فارسی.
+    r"team[- ]update|team[- ]changes|core[- ]team|review[- ]team|"
+    r"bi-?weekly[- ](chat|call|meeting|sync)|weekly[- ](chat|sync)|"
+    r"what[- ]we[- ]shipped|shipped[- ]this[- ]week|"
     r"صورت‌جلسه|خلاصهٔ جلسه|خلاصه جلسه|گزارش هفتگی|گزارش جلسه|"
     r"جلسهٔ هفتگی|یادداشت جلسه|دستور جلسه)",
     re.I,

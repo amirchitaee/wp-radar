@@ -394,6 +394,39 @@ check(
     "",
 )
 
+# ---------------------------------------------------------------- خبرنما
+# دو پستی که کاربر به‌حق به آن‌ها ایراد گرفت، هر دو گزارش داخلی تیم
+# توسعه بودند: «به‌روزرسانی هفتگی» و «خلاصهٔ جلسه». این‌ها نباید به
+# مدل برسند، چه در تیتر باشند چه در آدرس.
+def non_news(text):
+    return bool(radar.NON_NEWS_RE.search(text) or radar.JUNK_NEWS_RE.search(text))
+
+
+for bad in (
+    "WP Feature Notifications — Weekly Update",
+    "Presence API — Meeting Summary",
+    "Dev Chat Agenda for November 5",
+    "Core Team Update: What We Shipped This Week",
+    "Call for Testing: New Media Modal",
+    "Performance Team Bi-Weekly Chat",
+    "Plugin Review Team Changes",
+    "https://make.wordpress.org/core/2026/11/01/weekly-update/",
+    "https://make.wordpress.org/core/2026/11/01/meeting-summary/",
+):
+    check("خبرنما رد می‌شود: " + bad[:44], non_news(bad), True)
+
+for good in (
+    "WordPress 7.1.4 Released",
+    "WordPress 7.2 Beta 1",
+    "Gutenberg 20.3 Released",
+    "Security Release: WordPress 6.9.2",
+    "WordPress 7.1.4 Patches Critical RCE",
+    "Divi 5.2 Adds AI Layout Builder",
+    "Cloudflare Workers AI Adds Free Tier",
+    "Introducing the Block Bindings API",
+):
+    check("خبر واقعی رد نمی‌شود: " + good[:44], non_news(good), False)
+
 # ---------------------------------------------------------------- نتیجه
 print("{} آزمون اجرا شد.".format(COUNT))
 if FAILS:
