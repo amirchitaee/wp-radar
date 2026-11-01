@@ -25,13 +25,14 @@
  },
  "providers": [
   {
-   "name": "amd",
-   "base": "https://developer.amd.com.cn/radeon/api/v1",
-   "key": "API_KEY",
+   "name": "google",
+   "type": "gemini",
+   "base": "https://generativelanguage.googleapis.com/v1beta/openai",
+   "key": "GEMINI_KEY",
    "models": [
-    "Gemma-4-31B-IT",
-    "Qwen3.8-27B",
-    "Qwen3.8-Flash-Next"
+    "gemini-flash-latest",
+    "gemini-3.8-flash",
+    "gemma-4-31b-it"
    ]
   },
   {
@@ -54,14 +55,13 @@
    ]
   },
   {
-   "name": "google",
-   "type": "gemini",
-   "base": "https://generativelanguage.googleapis.com/v1beta/openai",
-   "key": "GEMINI_KEY",
+   "name": "amd",
+   "base": "https://developer.amd.com.cn/radeon/api/v1",
+   "key": "API_KEY",
    "models": [
-    "gemini-flash-latest",
-    "gemini-3.8-flash",
-    "gemma-4-31b-it"
+    "Gemma-4-31B-IT",
+    "Qwen3.8-27B",
+    "Qwen3.8-Flash-Next"
    ]
   }
  ],

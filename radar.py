@@ -1051,7 +1051,9 @@ def call_models(prompt_system, prompt_user, deadline=None, budget=None):
                 # هر سه یعنی این لایه الان به کار نمی‌آید.
                 if exc.code in (401, 403, 429, 500, 502, 503, 504):
                     PROVIDER_DEAD.add(prov["name"])
-                    mark_provider_fail(prov["name"])
+                    # سهمیهٔ دقیقه‌ای چند دقیقه بعد برمی‌گردد، ولی کلید رد
+                    # شده یا سرویس خوابیده وقت بیشتری می‌خواهد.
+                    mark_provider_fail(prov["name"], 15 if exc.code == 429 else 45)
                     break
                 continue
             except Exception as exc:
@@ -1201,7 +1203,7 @@ def build_prompt(items, extra):
                 "source": it["source"],
                 "lang": it.get("lang", "en"),
                 "title": it["title"],
-                "text": (it.get("full") or it["desc"] or "")[:1600],
+                "text": (it.get("full") or it["desc"] or "")[:2400],
                 "published": pub,
                 "sources_count": it.get("sources_count", 1),
                 "plugin": it.get("plugin", {}),
@@ -1286,7 +1288,7 @@ def extract_use_link(article_url, raw_html):
     return ""
 
 
-def fetch_article(url, limit=2500):
+def fetch_article(url, limit=3200):
     """متن مقاله و لینک استفاده را با هم می‌آورد."""
     try:
         raw = http_get(url, timeout=15).decode("utf-8", "replace")
@@ -1301,7 +1303,9 @@ def fetch_article(url, limit=2500):
     total = 0
     for p in paras:
         text = clean_text(p)
-        if len(text) < 60:
+        # آستانه پایین است چون قیمت و نسخه و تاریخ معمولاً در جمله‌های
+        # کوتاه می‌آیند و قبلاً همان‌ها دور ریخته می‌شدند.
+        if len(text) < 25:
             continue
         chunks.append(text)
         total += len(text)
