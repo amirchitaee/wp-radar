@@ -25,6 +25,15 @@
  },
  "providers": [
   {
+   "name": "groq",
+   "base": "https://api.groq.com/openai/v1",
+   "key": "GROQ_KEY",
+   "models": [
+    "openai/gpt-oss-120b",
+    "qwen/qwen3.8-27b"
+   ]
+  },
+  {
    "name": "google",
    "type": "gemini",
    "base": "https://generativelanguage.googleapis.com/v1beta/openai",
@@ -33,15 +42,6 @@
     "gemini-flash-latest",
     "gemini-3.8-flash",
     "gemma-4-31b-it"
-   ]
-  },
-  {
-   "name": "groq",
-   "base": "https://api.groq.com/openai/v1",
-   "key": "GROQ_KEY",
-   "models": [
-    "openai/gpt-oss-120b",
-    "qwen/qwen3.8-27b"
    ]
   },
   {
@@ -83,7 +83,10 @@
   "جمع‌بندی": "🗂"
  },
  "model_timeout": 70,
- "frugal_providers": ["openrouter", "google"],
+ "frugal_providers": [
+  "openrouter",
+  "google"
+ ],
  "bidi_isolate": false,
  "model_budget_sec": 240,
  "model_retries": 1,

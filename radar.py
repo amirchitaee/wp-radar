@@ -1051,9 +1051,17 @@ def call_models(prompt_system, prompt_user, deadline=None, budget=None):
                 # هر سه یعنی این لایه الان به کار نمی‌آید.
                 if exc.code in (401, 403, 429, 500, 502, 503, 504):
                     PROVIDER_DEAD.add(prov["name"])
-                    # سهمیهٔ دقیقه‌ای چند دقیقه بعد برمی‌گردد، ولی کلید رد
-                    # شده یا سرویس خوابیده وقت بیشتری می‌خواهد.
-                    mark_provider_fail(prov["name"], 15 if exc.code == 429 else 45)
+                    # هر خطا مدت خودش را دارد. کلید رد شده وقت می‌خواهد،
+                    # سهمیهٔ دقیقه‌ای چند دقیقه، و شلوغی موقت سرویس کمتر
+                    # از همه. قبلاً هر سه یک‌جا چهل‌وپنج دقیقه کنار
+                    # می‌رفتند و یک ۵۰۳ گذرا کل لایه را می‌خواباند.
+                    if exc.code in (401, 403):
+                        cool = 45
+                    elif exc.code == 429:
+                        cool = 15
+                    else:
+                        cool = 10
+                    mark_provider_fail(prov["name"], cool)
                     break
                 continue
             except Exception as exc:
