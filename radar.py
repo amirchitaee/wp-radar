@@ -2491,15 +2491,19 @@ def auto_run(s, st, seen, extra, role="main"):
     teh = now().astimezone(TZ)
 
     def overdue(key, minutes):
-        """چقدر از وقتش گذشته، به واحد دورهٔ خودش. بزرگ‌تر یعنی واجب‌تر."""
+        """چقدر از وقتش گذشته، به واحد دورهٔ خودش. بزرگ‌تر یعنی واجب‌تر.
+
+        سقف دارد تا دسته‌ای که مدت‌ها اجرا نشده، برای همیشه نوبت را
+        قبضه نکند و بقیه را گرسنه نگذارد.
+        """
         ts = sch.get(key)
         if not ts:
-            return 9e9
+            return 2.5
         try:
             gap = (now() - datetime.fromisoformat(ts)).total_seconds()
         except Exception:
-            return 9e9
-        return gap / max(60.0, minutes * 60.0)
+            return 2.5
+        return min(gap / max(60.0, minutes * 60.0), 2.5)
 
     # هر اجرا فقط یک دستهٔ سنگین را برمی‌دارد. دلیلش ساده است: بودجهٔ یک
     # اجرا اندازهٔ یک دسته است، نه چند دسته. قبلاً چهار دسته پشت سر هم
