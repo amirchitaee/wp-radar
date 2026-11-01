@@ -10355,6 +10355,19 @@
    "added": "2026-11-01T20:00:42+00:00",
    "full": "More broadly, the use of LLMs erodes trust in documentation, in software, and in the organizations which produce them. Perhaps engineers will begin to treat any new software project with suspicion—the signals we used to rely on as markers of a mature system are now easier to counterfeit. [...] In the age of LLMs, what can maintainers do to ensure correct software and accurate documentation? Having done that work, how can they demonstrate its quality to users? — Kyle Kingsbury , Jepsen results for ParticleDB 1.1.4 This is a quotation collected by Simon Willison, posted on 1st November 2026 .",
    "use_link": "https://webmention.io/simonwillison.net/xmlrpc"
+  },
+  {
+   "id": "2a7e635064fe4942",
+   "title": "Parker Studio",
+   "link": "https://land-book.com/websites/101540-parker-studio",
+   "desc": "",
+   "source": "لندبوک",
+   "lang": "en",
+   "tier": 3,
+   "kind": "showcase",
+   "age_hours": 155.1,
+   "published": "2026-10-26T09:27:00+00:00",
+   "added": "2026-11-01T20:30:37+00:00"
   }
  ]
 }
