@@ -9834,6 +9834,21 @@
    "full": "The WordPress core Core Core is the set of software required to run WordPress. The Core Development Team builds WordPress. development team builds WordPress! Follow this site for general updates, status reports, and the occasional code debate. There’s lots of ways to contribute: Core uses Slack for real-time communication. Contributors live all over the world, so there are discussions happening at all hours of the day. Core development meetings are every Wednesday at 15:00 UTC in the #core channel on Slack . Anyone can join and participate or listen in! The Presence API API An API or Application Programming Interface is a software intermediary that allows programs to interact with each other and share data in limited, clearly defined ways. meeting took place on Monday, October 26, 2026 at 15:00 UTC in # feature-presence-api . It also hosts the real-time collaboration (RTC) work. This week’s focus was the last two merge criteria, user testing and a security audit. Each item from the handbook’s feature plugin criteria is tracked on #550 . The readiness gate on #550 still has December 3 as the earliest date, eight weeks with no breaking API change from 0.17.0, and that is the earliest an initial proposal would go to Trac Trac An open source project by Edgewall Software that serves as a bug tracker and project management tool for WordPress. . It also asks for three outside projects on the API, and GSE is the only one so far. Anyone building on the API, or considering it for a plugin or host, is welcome to get in touch. Monday, November 9, 2026 at 15:00 UTC in # feature-presence-api .",
    "use_link": "https://wordpress.org/",
    "posted": true
+  },
+  {
+   "id": "71d14dd480ff2481",
+   "title": "I solved my insta scraping script with API",
+   "link": "https://news.ycombinator.com/item?id=50327394",
+   "desc": "Well, I have recently been attempting to gather some public Instagram data, and I must say, it is quite difficult. Initially, I believed the process to be quite simple - obtain the data needed and done. However, it wasn't quite like this, as various issues began to arise. A few attempts later, I got tired of dealing with the same issues repeatedly. Afterwards, I stumbled upon API tools and attempted using many of them, they gave me free credits to test but all of them failed in json requests. But I didnt gave up and came to service named HikerApi (I didnt remember how I found it). At first I d",
+   "source": "هکرنیوز اعتبار رایگان",
+   "lang": "en",
+   "tier": 3,
+   "kind": "offers",
+   "age_hours": 1.0,
+   "published": "2026-11-01T17:00:07+00:00",
+   "added": "2026-11-01T18:00:46+00:00",
+   "full": "Well, I have recently been attempting to gather some public Instagram data, and I must say, it is quite difficult. Initially, I believed the process to be quite simple - obtain the data needed and done. However, it wasn't quite like this, as various issues began to arise. A few attempts later, I got tired of dealing with the same issues repeatedly. Afterwards, I stumbled upon API tools and attempted using many of them, they gave me free credits to test but all of them failed in json requests. But I didnt gave up and came to service named HikerApi (I didnt remember how I found it). At first I didnt expect that this service would work. They gave me 100 free requests to test in my script and it really worked! It is much simpler to use than I expected it to be. No restrictions and very fast. Also if you want to buy more requests they offer very good price ($0.001 per request). It is not an advertising, simply I want to save your time if you want to work with scraping and gathering information on instagram I would really recommend this service. Overall, I am learning, but at least it is not just about resolving the same issues repeatedly anymore. pavel_lishin 46 minutes ago [–] > It is not an advertising Yes, it is.",
+   "use_link": "https://github.com/HackerNews/API"
   }
  ]
 }

@@ -4,19 +4,19 @@
  "tools": "2026-11-01T14:35:27+00:00",
  "showcase": "2026-10-30T13:36:15+00:00",
  "digest_day": "2026-10-31",
- "offers": "2026-11-01T13:35:21+00:00",
- "last_provider": "groq",
+ "offers": "2026-11-01T18:01:02+00:00",
+ "last_provider": "amd",
  "prov_health": {
   "openrouter": {
    "until": "2026-11-01T18:07:09+00:00",
    "fails": 1
   },
-  "amd": {
+  "google": {
    "until": "2026-11-01T18:07:09+00:00",
    "fails": 1
   },
-  "google": {
-   "until": "2026-11-01T18:07:09+00:00",
+  "groq": {
+   "until": "2026-11-01T18:15:53+00:00",
    "fails": 1
   }
  }
