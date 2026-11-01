@@ -9181,6 +9181,77 @@
    "sources_count": 3,
    "full": "اگه دنبال یه قالب رایگان، خوش‌ظاهر و انعطاف‌پذیر برای راه‌اندازی سایت وردپرسی‌تون هستید، Basin می‌تونه شروع خیلی خوبی باشه. ظاهر ساده و مدرن این قالب کمک می‌کنه محتوای شما بیشتر به چشم بیاد و سایتتون حس حرفه‌ای‌تری داشته باشه. شخصی‌سازی Basin هم آسونه و بدون درگیر شدن با تنظیمات پیچیده می‌تونید بخش‌های مختلف سایت رو مطابق سلیقه‌تون تغییر بدید. Basin یه قالب چندمنظوره هست که برای سایت کسب‌وکارهای کوچک، استارتاپ‌ها و نمونه‌کارهای شخصی انتخاب مناسبی به حساب میاد. اگه می‌خواید خدمات، پروژه‌ها یا مهارت‌هاتون رو با یه طراحی مرتب و جذاب معرفی کنید، این قالب ابزارهای لازم رو در اختیارتون می‌ذاره. این قالب با صفحه‌ساز Kubio هماهنگی خوبی داره؛ صفحه‌سازی که ویرایشگر بلوکی WordPress رو با بلوک‌های تازه و تنظیمات ظاهری پیشرفته‌تر کامل می‌کنه تا آزادی بیشتری برای طراحی صفحه‌های سایت داشته باشید. نسخه‌ای که از میهن‌وردپرس دریافت می‌کنید، به‌طور کامل توسط تیم میهن‌وردپرس فارسی شده، برای سایت‌های راست‌چین بهینه شده و فونت زیبای Vazirmatn رو هم همراه خودش داره؛ پس می‌تونید خیلی راحت کار رو شروع کنید و یه سایت فارسی مرتب و دوست‌داشتنی بسازید. با تکنولوژی لود مجزای اهورا، فایل‌ها فقط زمان نیاز لود خواهند شد. خط به خط کدها را با الگوریتم‌ها و قوانین گوگل هماهنگ کرده‌ایم.",
    "use_link": "https://s.w.org"
+  },
+  {
+   "id": "ba841da050a72b1b",
+   "title": "Doppler — Developer plan free for 3 users (then $8/month per additional user)",
+   "link": "https://www.doppler.com/pricing",
+   "desc": "Developer plan free for 3 users (then $8/month per additional user) · Start for free on the Doppler pricing page. · Anyone",
+   "source": "پرک",
+   "lang": "en",
+   "tier": 1,
+   "kind": "offers",
+   "age_hours": 2.4,
+   "published": "2026-11-01T06:06:05-05:00",
+   "added": "2026-11-01T13:30:38+00:00",
+   "full": "Per-seat pricing for your team. AI agents and non-human identities ride free. Integrations Doppler CLI for local development Service tokens Email alerts and recurring reminders 3 days of activity logs Secrets referencing Secret value types API and webhooks access Config syncs (5) Start for Free Most popular Team Unlock team productivity & protect shared secrets. Free for 14 days $21/mo per user Change Requests SAML SSO Identity Based Authentication Role-Based Access Controls Environment-scoped roles Integration Access Scoping 90 Days of activity logs Automatic secret rotation Service accounts Config inheritance Trusted IPs Priority support Config syncs (100) Add-on enterprise features Start 14 Day Trial Enterprise Tailored to your compliance and regulatory needs. Custom pricing Scales with your team Doppler On-prem or Cloud Change Request Policies Secret Health Analytics dashboard Custom permissions & roles User groups Enterprise SCIM Fully manage in Terraform Proxied Secret Rotation Enterprise Key Management (EKM) Dynamic secrets Log Forwarding Unlimited config syncs Custom activity log retention Custom rate limits 99.95% SLO Custom contract & invoicing Enterprise support options Contact Us Detailed Comparison Developer Start for Free Team Start 14 Day Trial Enterprise Contact Us Auditability Activity log retention 3 days 90 days Custom Email alerts and recurring reminders Slack, Microsoft Teams, and Discord alerts Splunk, Datadog, and Sumo Logic alerts Secret Health Analytics dashboard Security Secret generation MFA Secret visibility types API-based secret rotation Trusted IPs 99.95% SLA Dynamic secrets On-prem secret rotation Enterprise Key Management (EKM) Workflow Service tokens 50 500 Custom Projects 10 250 Custom Environments 4 15 Custom Configs per environment 10 100 Custom Config sync limits 5 100 Custom Webhook limits 5 50 Custom CLI tokens per user 5 20 Custom Doppler CLI for local development Personal configs Secrets referencing Secret value types API and webhook access Webhook logs SDKs Official MCP Server Service accounts Service account tokens API Config inheritance Change Requests Custom rate limits Access control Users 25 500 Custom Role-Based Access Controls Environment-scoped Roles Identity Based Authentication SAML and SSO Integration Access Scoping User groups Add-On Custom roles Add-On Manage groups in Terraform Enterprise SCIM Change Request Policies Support Community Priority support Enterprise support options Detailed Comparison De",
+   "use_link": "https://docs.doppler.com/"
+  },
+  {
+   "id": "6df7e8ee2175c1fc",
+   "title": "Descope — Free Forever plan: 7,500 monthly active users, 3 SSO connections, 10,000 M2M exchanges",
+   "link": "https://www.descope.com/pricing",
+   "desc": "Free Forever plan: 7,500 monthly active users, 3 SSO connections, 10,000 M2M exchanges · Start the Free Forever plan on the Descope pricing page. · Anyone (hobbyists, tinkerers and solo builders)",
+   "source": "پرک",
+   "lang": "en",
+   "tier": 1,
+   "kind": "offers",
+   "age_hours": 2.4,
+   "published": "2026-11-01T06:06:05-05:00",
+   "added": "2026-11-01T13:30:38+00:00",
+   "full": "Introducing Agentic Identity Hub 3.0: Governance and Control for AI Agents. Let's go > Sign up Arrow Right Book a demo Arrow Right Pricing Simple and transparent pricing for every app Start for free and scale as you go. Scroll down for detailed plan comparisons. Free Forever $0 For hobbyists, tinkerers, and solo builders. 7,500 Monthly active users (MAUs) Tenants 10 Monthly active tenants Multi-tenancy 3 SSO connections Group 1 Federated app (OIDC) User Management 5 Test users Code App 10,000 M2M exchanges Role-Based Access Control 2,000 Monthly active consents (MACs) Key 2,000 Monthly active tokens (MATKs) Core features: Check Square Outline All auth methods Check Square Outline Role-based access control Check Square Outline MFA / step-up authentication Check Square Outline Secure session management Check Square Outline Self-service admin widgets Check Square Outline Third-party connectors Check Square Outline No Descope watermark Check Square Outline Community support Check Square Outline 99% SLA StartupProductRocketBox Pro Starts at $249 /mo For early-stage startups. Billed annually. Usage-based overages apply (see detailed pricing below). 10,000 Monthly active users (MAUs) Tenants 35 Monthly active tenants Multi-tenancy 5 SSO connections Group 2 Federated apps (SAML / OIDC) User Management 100 Test users Code App 50,000 M2M exchanges Role-Based Access Control 5,000 Monthly active consents (MACs) Key 5,000 Monthly active tokens (MATKs) Everything in Free Forever, plus: Check Square Outline Custom Domain Check Square Outline Google One Tap Check Square Outline Custom OIDC Provider Check Square Outline SSO for third-party apps Check Square Outline Self-service SSO setup Check Square Outline CI / CD integration Check Square Outline Localization Check Square Outline Web and email support Check Square Outline SOC 2 reports Check Square Outline 99.99% SLA StartupProductRocketBox Growth Starts at $799 /mo For growth-stage startups and scaleups. Billed annually. Usage-based overages apply (see detailed pricing below). 25,000 Monthly active users (MAUs) Tenants 100 Monthly active tenants Multi-tenancy 10 SSO connections Group Unlimited Federated apps (SAML / OIDC) User Management 500 Test users Code App 100,000 M2M exchanges Role-Based Access Control 10,000 Monthly active consents (MACs) Key 10,000 Monthly active tokens (MATKs) Everything in Pro, plus: Check Square Outline Bot protection Check Square Outline 1M Anonymous users Check Square Outline Zero-downtime ",
+   "use_link": "https://app.descope.com"
+  },
+  {
+   "id": "c3314db60c6d3057",
+   "title": "Inference.net — Pay as you go plan: 1M gateway requests/month and 1M tracing spans/month included",
+   "link": "https://inference.net/pricing",
+   "desc": "Pay as you go plan: 1M gateway requests/month and 1M tracing spans/month included · Start for free on the Inference.net pricing page; model usage is billed as you go. · Anyone",
+   "source": "پرک",
+   "lang": "en",
+   "tier": 1,
+   "kind": "offers",
+   "age_hours": 2.4,
+   "published": "2026-11-01T06:06:05-05:00",
+   "added": "2026-11-01T13:30:38+00:00"
+  },
+  {
+   "id": "23c4e504788d34f5",
+   "title": "Infisical — Free forever: 5 identities, unlimited projects, 100+ integrations",
+   "link": "https://infisical.com/pricing",
+   "desc": "Free forever: 5 identities, unlimited projects, 100+ integrations · Get started on the Free plan from the Infisical pricing page. · Individuals and teams starting out",
+   "source": "پرک",
+   "lang": "en",
+   "tier": 1,
+   "kind": "offers",
+   "age_hours": 2.4,
+   "published": "2026-11-01T06:06:05-05:00",
+   "added": "2026-11-01T13:30:38+00:00"
+  },
+  {
+   "id": "095d4671ea97670d",
+   "title": "Fluent 2",
+   "link": "https://www.producthunt.com/products/fluent-ai-writing-assistant-for-macos",
+   "desc": "AI teammates that run locally on your Mac Discussion | Link",
+   "source": "پروداکت هانت فرصت",
+   "lang": "en",
+   "tier": 2,
+   "kind": "offers",
+   "age_hours": 66.9,
+   "published": "2026-10-29T11:35:46-07:00",
+   "added": "2026-11-01T13:30:38+00:00",
+   "full": "",
+   "use_link": ""
   }
  ]
 }
