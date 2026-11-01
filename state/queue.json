@@ -8952,7 +8952,9 @@
    "kind": "tools",
    "age_hours": -0.7,
    "published": "2026-11-01T09:58:48+00:00",
-   "added": "2026-11-01T09:15:36+00:00"
+   "added": "2026-11-01T09:15:36+00:00",
+   "digest_sent": true,
+   "channel_skip": true
   },
   {
    "id": "0d37007db09d5313",
@@ -8965,7 +8967,9 @@
    "kind": "tools",
    "age_hours": -0.7,
    "published": "2026-11-01T09:58:16+00:00",
-   "added": "2026-11-01T09:15:36+00:00"
+   "added": "2026-11-01T09:15:36+00:00",
+   "digest_sent": true,
+   "channel_skip": true
   },
   {
    "id": "7b987f35ada88288",
@@ -8981,7 +8985,9 @@
    "added": "2026-11-01T09:15:36+00:00",
    "sources_count": 2,
    "full": "You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session. You switched accounts on another tab or window. Reload to refresh your session. Dismiss alert {{ message }} main Branches Tags Go to file Code Open more actions menu Latest commit History 8,592 Commits 8,592 Commits Folders and files Name Name Last commit message Last commit date .agents/ skills .agents/ skills .claude .claude .codegraph .codegraph .github .github .husky .husky .vscode .vscode changelog changelog clients clients config config design-plans design-plans developing developing docs docs packages packages patches patches release release runtime runtime scripts scripts services services tooling tooling .env.example .env.example .gitattributes .gitattributes .gitignore .gitignore .npmrc .npmrc .nvmrc .nvmrc AGENTS.md AGENTS.md CHANGELOG.md CHANGELOG.md CLAUDE.md CLAUDE.md CODE_OF_CONDUCT.md CODE_OF_CONDUCT.md CONTRIBUTING.md CONTRIBUTING.md CREDITS.md CREDITS.md HANDOFF.md HANDOFF.md LICENSE LICENSE README.md README.md SECURITY.md SECURITY.md SUPPORT.md SUPPORT.md THIRD_PARTY_NOTICES.md THIRD_PARTY_NOTICES.md VERIFICATION.md VERIFICATION.md biome.jsonc biome.jsonc package.json package.json pnpm-lock.yaml pnpm-lock.yaml pnpm-workspace.yaml pnpm-workspace.yaml turbo.json turbo.json View all files Repository files navigation Share context, work in parallel, and pick up where anyone left off with your team, cloud agents, and everyone's agents (Codex, Claude Code, Grok Bot, Grok Build, OpenCode, Antigravity, and Cursor CLI). Quick start · Features · Open app · Downloads · Docs · Contribute · Changelog A shared Space with people and agents. Website demo with sample content. Open OpenMeld and create a workspace or join your team. Open Center Agent , your hosted AI teammate. Give it a small task. No local installation is needed. Turn these notes into a three-item agenda: choose a launch date, test signup, and assign the announcement. Want to use your local agents too? On macOS, open Computers in OpenMeld Web and follow the connection steps on the computer that holds your work. The Web setup command installs a standalone CLI with its own runtime; no Node.js upgrade is needed. For Windows or a manual npm installation, use Node.js 22, 24, or 25. Node.js 24 is recommended. npm only warns about unsupported Node.js versions by default. On Node.js 23 or versions below 22, native dependency installation can fail. Sele",
-   "use_link": "https://help.github.com/"
+   "use_link": "https://help.github.com/",
+   "digest_sent": true,
+   "channel_skip": true
   },
   {
    "id": "0a15d450e0784320",
@@ -8994,7 +9000,9 @@
    "kind": "tools",
    "age_hours": -0.7,
    "published": "2026-11-01T09:56:26+00:00",
-   "added": "2026-11-01T09:15:36+00:00"
+   "added": "2026-11-01T09:15:36+00:00",
+   "digest_sent": true,
+   "channel_skip": true
   },
   {
    "id": "18cd9a16bb86842f",
@@ -9007,7 +9015,9 @@
    "kind": "tools",
    "age_hours": -0.6,
    "published": "2026-11-01T09:49:45+00:00",
-   "added": "2026-11-01T09:15:36+00:00"
+   "added": "2026-11-01T09:15:36+00:00",
+   "digest_sent": true,
+   "channel_skip": true
   },
   {
    "id": "6fe74f5606299043",
@@ -9021,7 +9031,9 @@
    "age_hours": -0.6,
    "published": "2026-11-01T09:49:17+00:00",
    "added": "2026-11-01T09:15:36+00:00",
-   "sources_count": 2
+   "sources_count": 2,
+   "digest_sent": true,
+   "channel_skip": true
   },
   {
    "id": "5ad23f0e2e10f315",
@@ -9034,7 +9046,9 @@
    "kind": "tools",
    "age_hours": -0.5,
    "published": "2026-11-01T09:47:40+00:00",
-   "added": "2026-11-01T09:15:36+00:00"
+   "added": "2026-11-01T09:15:36+00:00",
+   "digest_sent": true,
+   "channel_skip": true
   },
   {
    "id": "a8a85bbe644b03fb",
@@ -9075,7 +9089,9 @@
    "published": "2026-11-01T09:59:19+00:00",
    "added": "2026-11-01T09:15:37+00:00",
    "full": "You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session. You switched accounts on another tab or window. Reload to refresh your session. Dismiss alert {{ message }} main Branches Tags Go to file Code Open more actions menu Latest commit History 544 Commits 544 Commits Folders and files Name Name Last commit message Last commit date .github/ workflows .github/ workflows agents agents assets assets cli cli commands commands daemon daemon devices devices docs docs pkg/ avc2mp4 pkg/ avc2mp4 publish publish rpc rpc server server skills/ mobilecli skills/ mobilecli test test types types utils utils .coderabbit.yaml .coderabbit.yaml .editorconfig .editorconfig .gitignore .gitignore .golangci.yml .golangci.yml CHANGELOG.md CHANGELOG.md LICENSE LICENSE Makefile Makefile README.ja.md README.ja.md README.md README.md README.zh-CN.md README.zh-CN.md ROADMAP.md ROADMAP.md SECURITY.md SECURITY.md go.mod go.mod go.sum go.sum main.go main.go View all files Repository files navigation mobilecli English | 日本語 | 简体中文 A universal command-line tool for managing iOS and Android devices, simulators, emulators and apps from Mobile Next . Device Management : List, manage, interactive with connected mobile devices Cross-Platform Support : Works with iOS physical devices, iOS simulators, Android devices, and Android emulators Emulator/Simulator Control : Boot and shutdown emulators and simulators programmatically Screenshot Capture : Take screenshots from any connected device with format options Multiple Output Formats : Save screenshots as PNG or JPEG with quality control Screencapture video streaming : Stream mjpeg/h264 video directly from device Device Control : Reboot devices, tap screen coordinates, press hardware buttons App Management : Launch, terminate, install, uninstall, clear data, list, and get foreground apps Filesystem : Push, pull, list, mkdir, and rm files on-device or in app containers (Android, iOS Simulator) Location Override : Fake the GPS location reported by a device Crash Reports : List and fetch crash reports from iOS and Android devices Device Logs : Stream real-time device logs with filtering from iOS and Android devices Webview Inspection : List, navigate, query DOM, and evaluate JavaScript in embedded webviews 🎯 Platform Support Platform Supported iOS Real Device ✅ iOS Simulator ✅ Android Real Device ✅ Android Emulator ✅ Installation 📦 Prerequisites 📋 Android SDK wi",
-   "use_link": "https://help.github.com/"
+   "use_link": "https://help.github.com/",
+   "digest_sent": true,
+   "channel_skip": true
   },
   {
    "id": "44873456bf4542fd",
@@ -9088,7 +9104,9 @@
    "kind": "tools",
    "age_hours": -0.7,
    "published": "2026-11-01T09:57:43+00:00",
-   "added": "2026-11-01T09:15:37+00:00"
+   "added": "2026-11-01T09:15:37+00:00",
+   "digest_sent": true,
+   "channel_skip": true
   },
   {
    "id": "71951850cc415f24",
@@ -9101,7 +9119,9 @@
    "kind": "tools",
    "age_hours": -0.6,
    "published": "2026-11-01T09:49:00+00:00",
-   "added": "2026-11-01T09:15:37+00:00"
+   "added": "2026-11-01T09:15:37+00:00",
+   "digest_sent": true,
+   "channel_skip": true
   },
   {
    "id": "be0d0cf6421bd1f3",
