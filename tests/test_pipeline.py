@@ -372,6 +372,28 @@ check(
     "<b>🔄 آپدیت: وردپرس ۷.۱.۴ منتشر شد</b>",
 )
 
+# ---------------------------------------------------------------- لینک تبلیغاتی
+# یک بار لینک نت‌لیفای با پارامتر ردیابی به‌عنوان «جایی که ابزار را
+# می‌گیری» به مخاطب نشان داده شد. لینک پشتیبان، لینک استفاده نیست.
+check(
+    "لینک استفاده: دامنهٔ پشتیبان انتخاب نمی‌شود",
+    radar.extract_use_link(
+        "https://example.com/blog/theme",
+        '<a href="https://wordpress.org/themes/basin/">t</a>'
+        '<a href="https://www.netlify.com/?utm_source=link&utm_medium=parter">n</a>',
+    ),
+    "https://wordpress.org/themes/basin/",
+)
+check(
+    "لینک استفاده: اگر فقط لینک تبلیغاتی بود، خالی برمی‌گردد",
+    radar.extract_use_link(
+        "https://example.com/blog/x",
+        '<a href="https://www.netlify.com/?utm_source=link">n</a>'
+        '<a href="https://vercel.com/partner">v</a>',
+    ),
+    "",
+)
+
 # ---------------------------------------------------------------- نتیجه
 print("{} آزمون اجرا شد.".format(COUNT))
 if FAILS:

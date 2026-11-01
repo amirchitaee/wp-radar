@@ -10,6 +10,10 @@ on:
         description: "چند خبر برای مقایسه"
         required: false
         default: "2"
+      kind:
+        description: "دسته: news یا tools یا offers یا خالی برای انتخاب خودکار"
+        required: false
+        default: ""
 
 permissions:
   contents: read
@@ -38,4 +42,4 @@ jobs:
           GEMINI_KEY: ${{ secrets.GEMINI_KEY }}
           GROQ_KEY: ${{ secrets.GROQ_KEY }}
           OPENROUTER_KEY: ${{ secrets.OPENROUTER_KEY }}
-        run: python radar.py compare --limit "${{ inputs.limit || '2' }}"
+        run: python radar.py compare --limit "${{ inputs.limit || '2' }}" --kind "${{ inputs.kind }}"

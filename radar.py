@@ -2726,7 +2726,7 @@ def auto_run(s, st, seen, extra, role="main"):
     return 0
 
 
-def compare_run(s, st, seen, limit=2):
+def compare_run(s, st, seen, limit=2, kind=""):
     """همان آیتم را به هر لایه می‌دهد تا کیفیت را با چشم خودت ببینی.
 
     جای حدس زدن دربارهٔ «کدام مدل بهتر می‌نویسد» این را ساخته‌ام.
@@ -2737,30 +2737,45 @@ def compare_run(s, st, seen, limit=2):
         log("compare: no personal chat configured")
         return 0
 
-    rows = collect("news", st, seen, budget_sec=90)
-    rows = dedupe_stories(rows)
-
     def keep(x):
         blob = " ".join([x.get("title", "") or "", x.get("link", "") or ""])
         return not (NON_NEWS_RE.search(blob) or JUNK_NEWS_RE.search(blob))
 
-    rows = [x for x in rows if keep(x)]
+    def pool(k):
+        # همان پنجرهٔ تازگی که در اجرای واقعی هست، وگرنه خبر کهنه هم
+        # وارد مقایسه می‌شود و نتیجه گمراه‌کننده است.
+        rows = dedupe_stories(collect(k, st, seen, budget_sec=60))
+        rows = [x for x in rows if keep(x)]
+        fresh = [x for x in rows if true_age(x) <= 48]
+        return fresh or rows
+
+    # دسته مهم است. یک بار یک قالب رایگان را در دستهٔ «خبر» به مدل
+    # دادیم، مدل درست گفت این خبر نیست و صفر داد، و ما به‌غلط نتیجه
+    # گرفتیم که مدل ضعیف است.
+    kind = (kind or "").strip().lower()
+    if kind in KIND_HINT:
+        rows = pool(kind)
+    else:
+        kind, rows = "", []
+        for k in ("news", "tools", "offers"):
+            got = pool(k)
+            if len(got) > len(rows):
+                kind, rows = k, got
+        kind = kind or "news"
+
     if not rows:
         send_to(chat, "مقایسه: آیتم تازه‌ای پیدا نشد. کمی بعد دوباره بزن.", False)
         return 0
-    # همان پنجرهٔ تازگی که در اجرای واقعی هست، وگرنه خبر کهنه هم
-    # وارد مقایسه می‌شود و نتیجه گمراه‌کننده است.
-    fresh = [x for x in rows if true_age(x) <= 48]
-    if fresh:
-        rows = fresh
     rows.sort(key=lambda x: code_score(x, x.get("sources_count", 1)), reverse=True)
     batch = rows[:limit]
     fetch_full_parallel(batch)
-    prompt = build_prompt(batch, kind_hint("news"))
+    prompt = build_prompt(batch, kind_hint(kind))
 
     send_to(
         chat,
-        "مقایسهٔ مدل‌ها روی {} آیتم. هر لایه یک پیام می‌فرستد.".format(len(batch)),
+        "مقایسهٔ مدل‌ها روی {} آیتم از دستهٔ «{}». هر لایه یک پیام می‌فرستد.".format(
+            len(batch), KIND_FA.get(kind, kind)
+        ),
         False,
     )
     for prov in model_providers():
@@ -2912,6 +2927,14 @@ def main():
         if i + 1 < len(argv):
             role = argv[i + 1]
             del argv[i : i + 2]
+    # دسته‌ای که مقایسه رویش انجام می‌شود. خالی یعنی هر سه را نگاه کن و
+    # آن را بردار که واقعاً آیتم دارد.
+    cmp_kind = ""
+    if "--kind" in argv:
+        i = argv.index("--kind")
+        if i + 1 < len(argv):
+            cmp_kind = argv[i + 1]
+            del argv[i : i + 2]
     cmd = next((a for a in argv if not a.startswith("-")), "news")
     # چند خبر برای مقایسهٔ مدل‌ها.
     cmp_limit = 2
@@ -2957,7 +2980,7 @@ def main():
     elif cmd == "compare":
         # عمداً زودتر برمی‌گردد: مقایسه نباید آیتم‌ها را «دیده‌شده»
         # ثبت کند، وگرنه همان خبر دیگر هیچ‌وقت پست نمی‌شود.
-        return compare_run(s, st, seen, cmp_limit)
+        return compare_run(s, st, seen, cmp_limit, cmp_kind)
     else:
         model_run(cmd, s, st, seen, extra)
 
