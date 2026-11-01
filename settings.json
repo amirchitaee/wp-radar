@@ -25,6 +25,16 @@
  },
  "providers": [
   {
+   "name": "amd",
+   "base": "https://developer.amd.com.cn/radeon/api/v1",
+   "key": "API_KEY",
+   "models": [
+    "DeepSeek-V4-Flash",
+    "Gemma-4-31B-IT",
+    "Qwen3.8-27B"
+   ]
+  },
+  {
    "name": "groq",
    "base": "https://api.groq.com/openai/v1",
    "key": "GROQ_KEY",
@@ -41,16 +51,6 @@
     "nvidia/nemotron-3-ultra-550b-a55b:free",
     "google/gemma-4-31b-it:free",
     "thinkingmachines/inkling:free"
-   ]
-  },
-  {
-   "name": "amd",
-   "base": "https://developer.amd.com.cn/radeon/api/v1",
-   "key": "API_KEY",
-   "models": [
-    "Gemma-4-31B-IT",
-    "Qwen3.8-27B",
-    "Qwen3.8-Flash-Next"
    ]
   },
   {

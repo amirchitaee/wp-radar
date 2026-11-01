@@ -1806,10 +1806,18 @@ MAX_DETAIL_LINES = 4
 
 
 def trim_details(text, limit=MAX_DETAIL_LINES):
-    lines = [ln.strip() for ln in str(text or "").splitlines() if ln.strip()]
+    lines = [ln.strip() for ln in fix_newlines(text).splitlines() if ln.strip()]
     if len(lines) <= limit:
         return "\n".join(lines)
     return "\n".join(lines[:limit]) + " …"
+
+
+def fix_newlines(text):
+    """مدل گاهی جای خط تازه، دو حرف بک‌اسلش و n می‌فرستد.
+
+    یک بار کل کتیشن یک خط شد و بین جمله‌ها «\n» چاپ شد.
+    """
+    return str(text or "").replace("\\r", "").replace("\\n", "\n")
 
 
 # خط دعوت به اقدام. کوتاه و مستقیم، بعدش خود آدرس می‌آید.
@@ -1879,7 +1887,7 @@ def format_post(label, title, summary, details, meta, link, hashtags, when=None,
         head = "{} {}: {}".format(tag, label, title).strip()
     else:
         head = "{} {}".format(tag, label).strip()
-    parts = ["<b>{}</b>".format(esc(bidi(head))), "", esc(bidi(summary))]
+    parts = ["<b>{}</b>".format(esc(bidi(head))), "", esc(bidi(fix_newlines(summary)))]
     inner = []
     if details:
         inner.append(esc(bidi(trim_details(details))))

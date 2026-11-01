@@ -13,8 +13,10 @@
 
 # ---------- خبر وردپرس ----------
 وردپرس|https://wordpress.org/news/feed/|news|en|1
-هسته وردپرس|https://make.wordpress.org/core/feed/|news|en|1
-تیم افزونه‌ها|https://make.wordpress.org/plugins/feed/|news|en|1
+# دفتر کار تیم توسعه این‌جا بود و بیشترین پست بی‌ربط را می‌داد:
+# صورت‌جلسه، گزارش هفتگی، تغییرات تیم بازبینی. شش پست از این منبع
+# آرشیو شده و دست‌کم سه‌تایش خبر نبود. خبر واقعی وردپرس از فید رسمی
+# می‌آید که بالاست، پس این دو حذف شدند.
 دولوپر وردپرس|https://developer.wordpress.org/news/feed/|news|en|1
 ووکامرس|https://woocommerce.com/blog/feed/|news|en|1
 وردپرس فارسی|https://fa.wordpress.org/news/feed/|news|fa|2
