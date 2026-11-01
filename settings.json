@@ -34,17 +34,6 @@
    ]
   },
   {
-   "name": "google",
-   "type": "gemini",
-   "base": "https://generativelanguage.googleapis.com/v1beta/openai",
-   "key": "GEMINI_KEY",
-   "models": [
-    "gemini-3.8-flash",
-    "gemini-3.8-flash-lite",
-    "gemma-4-31b-it"
-   ]
-  },
-  {
    "name": "openrouter",
    "base": "https://openrouter.ai/api/v1",
    "key": "OPENROUTER_KEY",
@@ -63,6 +52,18 @@
     "Qwen3.8-27B",
     "Qwen3.8-Flash-Next"
    ]
+  },
+  {
+   "name": "google",
+   "type": "gemini",
+   "base": "https://generativelanguage.googleapis.com/v1beta/openai",
+   "key": "GEMINI_KEY",
+   "models": [
+    "gemini-3.8-flash-lite",
+    "gemini-3.8-flash",
+    "gemma-4-31b-it"
+   ],
+   "timeout": 45
   }
  ],
  "models": [

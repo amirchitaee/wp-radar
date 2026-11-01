@@ -466,6 +466,41 @@ check("عدد: رشتهٔ نامعتبر", radar.num("بالا"), 0.0)
 check("عدد: خالی", radar.num(None), 0.0)
 check("عدد: عدد اعشاری", radar.num(7.5), 7.5)
 
+# ---------------------------------------------------------------- فهرست پیوند
+# مخزن awesome فهرست جمع می‌کند، ابزار نمی‌سازد. یک بار چنین فهرستی در
+# دستهٔ ابزار پست شد و خود مدل نوشت «این یک لیست مرجعی است، نه ابزاری».
+for repo in (
+    "https://github.com/reacher-z/Awesome-REA",
+    "Awesome-REA: مجموعه ابزارها",
+    "awesome-mcp-servers",
+):
+    check("فهرست پیوند رد می‌شود: " + repo[:40], bool(radar.LIST_REPO_RE.search(repo)), True)
+
+check(
+    "فهرست پیوند: عبارت معمولی رد نمی‌شود",
+    bool(radar.LIST_REPO_RE.search("Awesome new AI tool from Google")),
+    False,
+)
+
+check(
+    "حرف خود مدل: لیست مرجعی ابزار نیست",
+    bool(radar.NOT_A_TOOL_SELF_RE.search("این یک لیست مرجعی است، نه ابزاری برای اجرا.")),
+    True,
+)
+check(
+    "حرف خود مدل: ابزار واقعی رد نمی‌شود",
+    bool(radar.NOT_A_TOOL_SELF_RE.search("این ابزار دستورات شل را بررسی می‌کند.")),
+    False,
+)
+
+# ---------------------------------------------------------------- طول کتیشن
+check(
+    "کتیشن: بیش از چهار خط کوتاه می‌شود",
+    radar.trim_details("\n".join("نکته {}".format(i) for i in range(1, 9))),
+    "نکته 1\nنکته 2\nنکته 3\nنکته 4 …",
+)
+check("کتیشن: سه خط دست‌نخورده می‌ماند", radar.trim_details("یک\nدو\nسه"), "یک\nدو\nسه")
+
 # ---------------------------------------------------------------- نتیجه
 print("{} آزمون اجرا شد.".format(COUNT))
 if FAILS:

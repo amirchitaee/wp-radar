@@ -5,5 +5,23 @@
  "showcase": "2026-10-30T13:36:15+00:00",
  "digest_day": "2026-10-31",
  "offers": "2026-11-01T13:35:21+00:00",
- "last_provider": "groq"
+ "last_provider": "groq",
+ "prov_health": {
+  "groq": {
+   "until": "2026-11-01T18:07:09+00:00",
+   "fails": 1
+  },
+  "openrouter": {
+   "until": "2026-11-01T18:07:09+00:00",
+   "fails": 1
+  },
+  "amd": {
+   "until": "2026-11-01T18:07:09+00:00",
+   "fails": 1
+  },
+  "google": {
+   "until": "2026-11-01T18:07:09+00:00",
+   "fails": 1
+  }
+ }
 }

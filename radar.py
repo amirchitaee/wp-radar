@@ -890,15 +890,18 @@ def model_providers():
         base = (p.get("base") or "").rstrip("/")
         models = p.get("models") or []
         if key and base and models:
-            out.append(
-                {
-                    "name": p.get("name") or base,
-                    "type": p.get("type") or "openai",
-                    "base": base,
-                    "key": key,
-                    "models": models,
-                }
-            )
+            item = {
+                "name": p.get("name") or base,
+                "type": p.get("type") or "openai",
+                "base": base,
+                "key": key,
+                "models": models,
+            }
+            # مهلت جدا برای هر لایه. اگر از این‌جا رد نشود، تنظیمِ
+            # settings.json بی‌اثر می‌شود و هیچ‌کس خبردار نمی‌شود.
+            if p.get("timeout"):
+                item["timeout"] = int(p["timeout"])
+            out.append(item)
     if not out:
         base = env_clean("API_BASE").rstrip("/")
         key = env_clean("API_KEY")
@@ -1065,13 +1068,17 @@ def call_models(prompt_system, prompt_user, deadline=None, budget=None, only=Non
             continue
         # در حالت مقایسه فقط مدل اول هر لایه امتحان می‌شود تا شرط
         # برابر باشد و یک لایه با چند مدل شانس بیشتری نداشته باشد.
+        # هر لایه می‌تواند مهلت خودش را داشته باشد. لایه‌ای که دوبار
+        # پشت سر هم در هفتاد ثانیه جواب نداده، باید کمتر وقت بگیرد تا
+        # بقیهٔ زنجیره به آن برسند.
+        ptimeout = int(prov.get("timeout") or per)
         for name in (prov["models"][:1] if only else prov["models"]):
             left = int(hard - time.time())
             if left < 25:
                 raise OutOfTime("وقت مدل تمام شد، {} ثانیه مانده".format(max(left, 0)))
             try:
                 if prov.get("type") == "gemini":
-                    result = gemini_call(prov, name, prompt_system, prompt_user, min(per, left))
+                    result = gemini_call(prov, name, prompt_system, prompt_user, min(ptimeout, left))
                     log("  model ok:", prov["name"], name)
                     globals()["ACTIVE_PROVIDER"] = prov["name"]
                     mark_provider_ok(prov["name"])
@@ -1087,7 +1094,7 @@ def call_models(prompt_system, prompt_user, deadline=None, budget=None, only=Non
                         "temperature": 0.35,
                     },
                     headers={"Authorization": "Bearer " + prov["key"]},
-                    timeout=min(per, left),
+                    timeout=min(ptimeout, left),
                 )
                 content = response_content(data, prov["name"], name)
                 log("  model ok:", prov["name"], name)
@@ -1326,6 +1333,18 @@ def extract_use_link(article_url, raw_html):
         "cloudflare.com",
     }
 
+    # صفحهٔ فهرست، صفحهٔ محصول نیست. یک بار لینک اقدام پستی که منبعش
+    # یک مخزن گیت‌هاب بود، به فهرست موضوع‌ها رسید:
+    # github.com/topics/mcp — که هیچ ابزاری در آن نیست.
+    INDEX_PATHS = re.compile(
+        r"^/(topics|search|explore|trending|collections|marketplace|sponsors|"
+        r"orgs|settings|login|signup|features|pricing|about)(/|$)",
+        re.I,
+    )
+
+    def is_index(link):
+        return bool(INDEX_PATHS.search(urllib.parse.urlparse(link).path or "/"))
+
     # لینک خاص‌تر بهتر است. قبلاً کوتاه‌ترین لینک انتخاب می‌شد و برای
     # یک قالب، ریشهٔ سایت به‌جای صفحهٔ خود قالب برمی‌گشت.
     def specific(link):
@@ -1350,9 +1369,17 @@ def extract_use_link(article_url, raw_html):
             path = urllib.parse.urlparse(link).path.strip("/")
             if domain == "github.com" and path.count("/") < 1:
                 continue
+            if is_index(link):
+                continue
             if re.search(r"/(reviews?|ratings?|support|feed)/?$", "/" + path, re.I):
                 continue
-            return strip_tracking(link)
+            link = strip_tracking(link)
+            # اگر بهترین لینک همان آدرس خود مقاله است، لینک اقدام جدا
+            # لازم نیست. پستی که منبعش یک مخزن گیت‌هاب است نباید خط
+            # «همین حالا بازش کن» داشته باشد که به جای دیگری برود.
+            if link.rstrip("/") == (article_url or "").rstrip("/"):
+                return ""
+            return link
 
     # ۲. برای وبلاگ الگنت تمز، لینک صفحهٔ محصول
     if "elegantthemes.com" in article_domain:
@@ -1377,6 +1404,8 @@ def extract_use_link(article_url, raw_html):
         # لینک پشتیبان و تبلیغات، لینک استفاده نیست. یک بار همین‌ها
         # به‌عنوان «جایی که ابزار را می‌گیری» به مخاطب نشان داده شدند.
         if any(d in domain for d in SPONSOR_DOMAINS):
+            continue
+        if is_index(link):
             continue
         if TRACKING_RE.search(link):
             continue
@@ -1504,6 +1533,20 @@ HOLLOW_RE = re.compile(r"(نامشخص|نامعلوم|مشخص نیست|در د�
 # سرگرمی و تزئینی: والپیپر، محافظ صفحه، تقویم رومیزی. این‌ها خبر
 # نیستند و فقط توکن می‌سوزانند.
 JUNK_NEWS_RE = re.compile(r"(wallpaper|screensaver|desktop calendar|calendar of)", re.I)
+
+# مخزن‌های «awesome» فهرست پیوند جمع می‌کنند، ابزار نمی‌سازند. کانال
+# ابزار معرفی می‌کند. یک بار چنین فهرستی با برچسب «آموزش» پست شد و
+# خود مدل هم نوشت «این یک لیست مرجعی است، نه ابزاری برای اجرا».
+# خط تیره یا زیرخط لازم است تا «awesome new tool» گیر نیفتد.
+LIST_REPO_RE = re.compile(r"awesome[-_]", re.I)
+
+# مدل خودش می‌گوید که این چیز ابزار نیست. حرفش را قبول می‌کنیم.
+NOT_A_TOOL_SELF_RE = re.compile(
+    r"(لیست\s+(مرجعی|پیوند|لینک)|فهرست\s+(مرجعی|پیوند)|"
+    r"نه\s+ابزاری\s+برای|مجموعه‌ای\s+از\s+(پیوند|لینک)|"
+    r"صرفاً\s+یک\s+لیست|صرفا\s+یک\s+لیست)",
+    re.I,
+)
 
 # مدل گاهی در متن خودش می‌نویسد که خبر به این کانال ربطی ندارد و باز هم
 # پستش می‌کند. یک بار مجموعه والپیپر دسکتاپ با همین جمله منتشر شد:
@@ -1755,6 +1798,18 @@ def emoji_for(label):
     return (settings().get("emoji") or {}).get(label, "")
 
 
+# کتیشن جای چند نکته است، نه جای بازنشر صفحهٔ خوانده‌شده. یک بار مدل
+# هشت خط نکته فرستاد و پست از یک خبر به یک فایل خواندنی تبدیل شد.
+MAX_DETAIL_LINES = 4
+
+
+def trim_details(text, limit=MAX_DETAIL_LINES):
+    lines = [ln.strip() for ln in str(text or "").splitlines() if ln.strip()]
+    if len(lines) <= limit:
+        return "\n".join(lines)
+    return "\n".join(lines[:limit]) + " …"
+
+
 # خط دعوت به اقدام. کوتاه و مستقیم، بعدش خود آدرس می‌آید.
 ACTION_LINE = {
     "ابزار": "همین حالا بازش کن و امتحان کن:",
@@ -1812,13 +1867,17 @@ def format_post(label, title, summary, details, meta, link, hashtags, when=None,
         if not (fa and fa in title):
             title = "{} — {}".format(name, title)
     if title:
+        # اگر خود تیتر دونقطه داشته باشد، خط دو دونقطه می‌گیرد:
+        # «ابزار: HOL Guard: آنتی‌ویروس...». اولی می‌ماند، دومی خط تیره.
+        if ":" in title:
+            title = re.sub(r"\s*(?<!\d):(?!\d)\s*", " — ", title, count=1)
         head = "{} {}: {}".format(tag, label, title).strip()
     else:
         head = "{} {}".format(tag, label).strip()
     parts = ["<b>{}</b>".format(esc(bidi(head))), "", esc(bidi(summary))]
     inner = []
     if details:
-        inner.append(esc(bidi(details)))
+        inner.append(esc(bidi(trim_details(details))))
     if meta:
         inner.append(esc(bidi(meta)))
     if inner:
@@ -2172,12 +2231,17 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
     # صورت‌جلسه و گزارش هفتگی خبر نیست. قبل از سوزاندن توکن مدل کنار می‌رود.
     # آدرس هم بررسی می‌شود، چون تیتر ممکن است ترجمه شده باشد و کلمهٔ
     # اصلی را نگه نداشته باشد.
-    if kind == "news":
+    if kind in ("news", "tools"):
         skipped = 0
         kept = []
         for x in pending:
             blob = " ".join([x.get("title", "") or "", x.get("link", "") or ""])
             if NON_NEWS_RE.search(blob) or JUNK_NEWS_RE.search(blob):
+                x["channel_skip"] = True
+                skipped += 1
+                continue
+            # فهرست پیوند، ابزار نیست.
+            if LIST_REPO_RE.search(blob):
                 x["channel_skip"] = True
                 skipped += 1
                 continue
@@ -2360,6 +2424,12 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
             if OFFTOPIC_SELF_RE.search(said):
                 log("  model called it off-topic:", entry.get("title", "")[:50])
                 rejected.append((it, entry, "خودِ مدل گفت بی‌ربط است"))
+                continue
+            # همین الگو، یک بار دیگر: مدل نوشت «این یک لیست مرجعی است،
+            # نه ابزاری برای اجرا» و باز هم در دستهٔ ابزار پست شد.
+            if kind in ("news", "tools", "showcase") and NOT_A_TOOL_SELF_RE.search(said):
+                log("  model said it is a list, not a tool:", entry.get("title", "")[:50])
+                rejected.append((it, entry, "خودِ مدل گفت فهرست است نه ابزار"))
                 continue
             # فرصت و ابزار ارزششان به اعتبارشان است نه به تازگی خبر؛ پنجره بازتر.
             if true_age(it) > max_age_gate:
@@ -2831,7 +2901,9 @@ def compare_run(s, st, seen, limit=2, kind=""):
 
     def keep(x):
         blob = " ".join([x.get("title", "") or "", x.get("link", "") or ""])
-        return not (NON_NEWS_RE.search(blob) or JUNK_NEWS_RE.search(blob))
+        return not (
+            NON_NEWS_RE.search(blob) or JUNK_NEWS_RE.search(blob) or LIST_REPO_RE.search(blob)
+        )
 
     def pool(k):
         # همان پنجرهٔ تازگی که در اجرای واقعی هست، وگرنه خبر کهنه هم
@@ -2887,6 +2959,9 @@ def compare_run(s, st, seen, limit=2, kind=""):
         skipped = []
         for entry in items[:limit]:
             title = (entry.get("title") or "").strip()
+            # برای آیتم ردشده، تیتر مدل خالی است. آن‌وقت باید تیتر
+            # خودِ خبر را نشان دهیم، نه یک علامت سؤال.
+            src = (by_id.get(str(entry.get("id", ""))) or {}).get("title") or ""
             score = num(entry.get("score"))
             why = str(entry.get("why") or "").strip()
             said = " ".join(
@@ -2901,16 +2976,19 @@ def compare_run(s, st, seen, limit=2, kind=""):
             # می‌ماند در کانال هم می‌ماند؛ پس دلیل ماندنش هم باید
             # دیده شود، نه اینکه فقط یک پیام خالی بیاید.
             if not title:
-                skipped.append(("بی‌تیتر", title or "?", score, why))
+                skipped.append(("بی‌تیتر", src or title or "?", score, why))
                 continue
             if not (entry.get("summary") or "").strip():
-                skipped.append(("بی‌خلاصه", title, score, why))
+                skipped.append(("بی‌خلاصه", src or title, score, why))
                 continue
             if kind in ("news", "showcase") and score <= 0:
-                skipped.append(("نمرهٔ صفر", title, score, why))
+                skipped.append(("نمرهٔ صفر", src or title, score, why))
                 continue
             if OFFTOPIC_SELF_RE.search(said):
-                skipped.append(("خودش گفت بی‌ربط", title, score, why))
+                skipped.append(("خودش گفت بی‌ربط", src or title, score, why))
+                continue
+            if kind in ("news", "tools", "showcase") and NOT_A_TOOL_SELF_RE.search(said):
+                skipped.append(("خودش گفت فهرست است", src or title, score, why))
                 continue
             it = by_id.get(str(entry.get("id", ""))) or batch[0]
             text = format_post(
