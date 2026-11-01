@@ -760,6 +760,10 @@ def valid_name(raw, item):
         return ""
     if not re.search(r"[A-Za-z]", name):
         return ""
+    # واژهٔ عمومی نام محصول نیست، حتی اگر در منبع باشد.
+    words = [w for w in re.split(r"[\s\-_.]+", name.lower()) if w]
+    if words and all(w in NAME_STOP for w in words):
+        return ""
     hay = " ".join([str(item.get("title", "")), str(item.get("desc", ""))]).lower()
     if name.lower() not in hay:
         return ""
@@ -771,6 +775,13 @@ NAME_STOP = {
     "the", "a", "an", "show", "ask", "launch", "tell", "how", "to", "new", "free",
     "ai", "api", "hn", "guide", "tutorial", "introducing", "announcing", "top",
     "best", "why", "what", "week", "day", "release", "update", "vs",
+    # واژه‌های عمومی که در متن منبع زیاد می‌آیند ولی نام محصول نیستند.
+    # همین‌ها بودند که یک بار «Feature» را به‌عنوان نام محصول چاپ کردند.
+    "feature", "features", "presence", "notification", "notifications",
+    "security", "core", "version", "plugin", "theme", "block", "editor",
+    "agent", "agents", "model", "models", "proposal", "design", "testing",
+    "beta", "alpha", "preview", "weekly", "monthly", "summary", "meeting",
+    "updates", "report", "notes", "agenda", "draft", "roadmap", "initiative",
 }
 NAME_RE = re.compile(r"[A-Z][A-Za-z0-9][A-Za-z0-9.\-]{1,29}")
 
