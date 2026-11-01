@@ -689,8 +689,8 @@ def topic_bonus(item, entry):
 
 def final_score(item, entry):
     """امتیاز نهایی از صد: کد به‌علاوه نظر مدل به‌علاوه اولویت موضوعی."""
-    imp = max(0.0, min(float(entry.get("imp") or 0), 10.0)) * 2.5
-    use = max(0.0, min(float(entry.get("use") or 0), 10.0)) * 2.0
+    imp = max(0.0, min(num(entry.get("imp")), 10.0)) * 2.5
+    use = max(0.0, min(num(entry.get("use")), 10.0)) * 2.0
     return round(code_score(item, item.get("sources_count", 1)) + imp + use + topic_bonus(item, entry), 1)
 
 
@@ -922,6 +922,14 @@ def model_providers():
     return (warm + cold) if warm else out
 
 
+# مدل‌های گوگل پیش از جواب، فکر می‌کنند. برای این کار فکر کردن هیچ
+# کمکی نمی‌کند و فقط وقت می‌برد؛ یک بار همین باعث شد هر چهار تلاش
+# هفتادثانیه‌ای تمام شوند و لایه با «read operation timed out» رد شود.
+# به ازای هر مدل یک بار آزموده می‌شود: اگر سرور فیلد را نشناخت، دیگر
+# نمی‌فرستیم.
+GEMINI_THINK = {}
+
+
 def gemini_call(prov, model, system, user, timeout, json_mode=True):
     """فراخوانی مستقیم رابط گوگل.
 
@@ -932,15 +940,20 @@ def gemini_call(prov, model, system, user, timeout, json_mode=True):
     bases = [root]
     if root.endswith("/v1beta"):
         bases.append(root[: -len("/v1beta")] + "/v1")
-    cfg = {"temperature": 0.35}
-    if json_mode:
-        cfg["responseMimeType"] = "application/json"
-    payload = {
-        "contents": [{"role": "user", "parts": [{"text": user}]}],
-        "generationConfig": cfg,
-    }
-    if system:
-        payload["systemInstruction"] = {"parts": [{"text": system}]}
+
+    def body(think_off):
+        cfg = {"temperature": 0.35}
+        if json_mode:
+            cfg["responseMimeType"] = "application/json"
+        if think_off:
+            cfg["thinkingConfig"] = {"thinkingBudget": 0}
+        out = {
+            "contents": [{"role": "user", "parts": [{"text": user}]}],
+            "generationConfig": cfg,
+        }
+        if system:
+            out["systemInstruction"] = {"parts": [{"text": system}]}
+        return out
 
     last = None
     for base in bases:
@@ -952,13 +965,29 @@ def gemini_call(prov, model, system, user, timeout, json_mode=True):
             else:
                 url += "?key=" + urllib.parse.quote(prov["key"])
             try:
-                data = http_post_json(url, payload, headers=headers, timeout=timeout)
+                data = http_post_json(url, body(GEMINI_THINK.get(model, True)), headers=headers, timeout=timeout)
             except urllib.error.HTTPError as exc:
-                last = exc
-                continue
-            except Exception as exc:
-                last = exc
-                continue
+                try:
+                    text = exc.read().decode("utf-8", "replace")
+                except Exception:
+                    text = ""
+                # مدل این فیلد را نمی‌شناسد. بی‌صدا برمی‌داریم و یک بار
+                # دیگر همان آدرس را امتحان می‌کنیم.
+                if exc.code == 400 and "thinking" in text.lower():
+                    GEMINI_THINK[model] = False
+                    try:
+                        data = http_post_json(url, body(False), headers=headers, timeout=timeout)
+                    except Exception as exc2:
+                        last = exc2
+                        continue
+                else:
+                    last = exc
+                    continue
+            except Exception:
+                # مهلت خواندن تمام شد. یعنی آدرس درست بود و درخواست
+                # رسید؛ فقط جواب دیر آمد. عوض کردن نسخه یا روش فرستادن
+                # کلید همین هفتاد ثانیه را سه بار دیگر تکرار می‌کند.
+                raise
             parts = ((data.get("candidates") or [{}])[0].get("content") or {}).get("parts") or []
             text = "".join(p.get("text", "") for p in parts).strip()
             if not text:
@@ -1414,6 +1443,17 @@ PLUGIN_HINT = re.compile(
     r"(افزونه|پلاگین|plugin|قالب|theme|addon|ماژول|ووکامرس|woocommerce|المنتور|elementor)",
     re.I,
 )
+
+# قالب، پلاگین نیست. یک بار قالب Basin با برچسب «پلاگین تازه» منتشر شد،
+# چون فهرست بالا هر دو را یک‌جا داشت. این دو فقط برای تفکیک همان دو
+# به کار می‌آیند و جای فهرست بالا را نمی‌گیرند.
+THEME_WORD = re.compile(r"(قالب|theme)", re.I)
+PLUGIN_WORD = re.compile(r"(افزونه|پلاگین|plugin|addon|ماژول)", re.I)
+
+
+def is_theme_title(text):
+    """تیتر دربارهٔ قالب است، نه افزونه."""
+    return bool(THEME_WORD.search(text or "")) and not PLUGIN_WORD.search(text or "")
 TUTORIAL_HINT = re.compile(
     r"(آموزش|راهنمای|گام‌به‌گام|چطور|guide|tutorial|how to|walkthrough|step by step)", re.I
 )
@@ -1464,6 +1504,19 @@ HOLLOW_RE = re.compile(r"(نامشخص|نامعلوم|مشخص نیست|در د�
 # سرگرمی و تزئینی: والپیپر، محافظ صفحه، تقویم رومیزی. این‌ها خبر
 # نیستند و فقط توکن می‌سوزانند.
 JUNK_NEWS_RE = re.compile(r"(wallpaper|screensaver|desktop calendar|calendar of)", re.I)
+
+# مدل گاهی در متن خودش می‌نویسد که خبر به این کانال ربطی ندارد و باز هم
+# پستش می‌کند. یک بار مجموعه والپیپر دسکتاپ با همین جمله منتشر شد:
+# «این مطلب ارتباطی با وردپرس یا ساخت سایت ندارد.» تکیه بر نمرهٔ مدل
+# کافی نیست؛ حرف خودش را هم باید شنید.
+OFFTOPIC_SELF_RE = re.compile(
+    r"(ارتباطی?\s+با[^.\n]{0,40}?(ندارد|نمی‌?شود|نیست)|"
+    r"خارج\s+از\s+(حوزه|موضوع|تخصص|زمینه)|"
+    r"بی[\s\u200c]?ربط|"
+    r"(مربوط|مرتبط)\s+نیست|"
+    r"ربطی\s+ندارد)",
+    re.I,
+)
 
 NON_NEWS_RE = re.compile(
     r"(meeting[- ]summary|meeting[- ]notes|meeting[- ]minutes|weekly[- ]update|"
@@ -1531,6 +1584,7 @@ def classify_label(kind, text, model_label="", urgent=False, title="", source_ti
             model_label == "پلاگین تازه"
             and PLUGIN_HINT.search(text)
             and not VERSION_HINT.search(title)
+            and not is_theme_title(title)
         ):
             return "پلاگین تازه"
         if UPDATE_HINT.search(text):
@@ -1542,7 +1596,12 @@ def classify_label(kind, text, model_label="", urgent=False, title="", source_ti
         return "آموزش"
     if tutorial:
         return "آموزش"
-    if model_label == "پلاگین تازه" and PLUGIN_HINT.search(text) and not VERSION_HINT.search(title):
+    if (
+        model_label == "پلاگین تازه"
+        and PLUGIN_HINT.search(text)
+        and not VERSION_HINT.search(title)
+        and not is_theme_title(title)
+    ):
         return "پلاگین تازه"
     return "ابزار"
 
@@ -1568,6 +1627,18 @@ FA_MONTHS = [
     "فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد", "شهریور",
     "مهر", "آبان", "آذر", "دی", "بهمن", "اسفند",
 ]
+
+
+def num(value, default=0.0):
+    """عدد از خروجی مدل.
+
+    مدل هر از گاهی جای عدد رشته می‌گذارد. یک رشته، کل اجرا را نباید
+    از کار بیندازد.
+    """
+    try:
+        return float(value)
+    except (TypeError, ValueError):
+        return float(default)
 
 
 def fa_num(value):
@@ -2269,17 +2340,32 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
                     break
             if not (entry.get("title") or "").strip() or not (entry.get("summary") or "").strip():
                 continue
-            if kind in ("news", "showcase") and float(entry.get("score") or 0) <= 0:
+            if kind in ("news", "showcase") and num(entry.get("score")) <= 0:
                 log("  empty story skipped:", entry.get("title", "")[:50])
                 continue
             if bad_lang(entry.get("title", "") + entry.get("summary", "") + entry.get("details", "")):
                 log("  bad script skipped:", entry.get("title", "")[:50])
                 continue
+            # اگر خود مدل در متنش نوشته که این موضوع به کانال نمی‌خورد،
+            # حرفش را قبول می‌کنیم. نمره‌اش را قبول نکردیم و همین یک بار
+            # کافی بود تا یک مجموعه والپیپر منتشر شود.
+            said = " ".join(
+                [
+                    entry.get("title", "") or "",
+                    entry.get("summary", "") or "",
+                    entry.get("details", "") or "",
+                    entry.get("why", "") or "",
+                ]
+            )
+            if OFFTOPIC_SELF_RE.search(said):
+                log("  model called it off-topic:", entry.get("title", "")[:50])
+                rejected.append((it, entry, "خودِ مدل گفت بی‌ربط است"))
+                continue
             # فرصت و ابزار ارزششان به اعتبارشان است نه به تازگی خبر؛ پنجره بازتر.
             if true_age(it) > max_age_gate:
                 log("  too old for a standalone post:", it["title"][:50])
                 continue
-            if kind == "news" and float(entry.get("imp") or 0) < 4:
+            if kind == "news" and num(entry.get("imp")) < 4:
                 rejected.append((it, entry, "اهمیت کم"))
                 continue
             # راهنما خبر نیست. وبلاگ سازنده‌ها هر روز آموزش می‌نویسند و
@@ -2288,7 +2374,7 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
                 it["channel_skip"] = True  # دیگر به مدل نمی‌رود
                 rejected.append((it, entry, "آموزش است نه خبر"))
                 continue
-            if kind in ("tools", "offers") and float(entry.get("use") or 0) < 5:
+            if kind in ("tools", "offers") and num(entry.get("use")) < 5:
                 rejected.append((it, entry, "قابل استفاده نیست"))
                 continue
             # در دستهٔ فرصت، چیزی که رایگان نیست فرصت نیست.
@@ -2305,7 +2391,7 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
                     it["channel_skip"] = True
                     rejected.append((it, entry, "موضوع ربطی ندارد"))
                     continue
-                if float(entry.get("use") or 0) < 7:
+                if num(entry.get("use")) < 7:
                     rejected.append((it, entry, "کم‌بها"))
                     continue
             ok_quality, why = quality_ok(entry.get("title", ""), entry.get("summary", ""))
@@ -2798,22 +2884,38 @@ def compare_run(s, st, seen, limit=2, kind=""):
             continue
         by_id = {x["id"]: x for x in batch}
         written = 0
+        skipped = []
         for entry in items[:limit]:
-            # همان دروازهٔ اجرای واقعی. پیش‌نویس بی‌تیتر یا بی‌خلاصه
-            # پست نیست و نباید به‌عنوان نمونه نشان داده شود.
-            if not (entry.get("title") or "").strip():
+            title = (entry.get("title") or "").strip()
+            score = num(entry.get("score"))
+            why = str(entry.get("why") or "").strip()
+            said = " ".join(
+                [
+                    entry.get("title", "") or "",
+                    entry.get("summary", "") or "",
+                    entry.get("details", "") or "",
+                    why,
+                ]
+            )
+            # همان دروازهٔ اجرای واقعی، به همان ترتیب. هر چه اینجا
+            # می‌ماند در کانال هم می‌ماند؛ پس دلیل ماندنش هم باید
+            # دیده شود، نه اینکه فقط یک پیام خالی بیاید.
+            if not title:
+                skipped.append(("بی‌تیتر", title or "?", score, why))
                 continue
             if not (entry.get("summary") or "").strip():
+                skipped.append(("بی‌خلاصه", title, score, why))
                 continue
-            # اجرای واقعی هر چه نمره‌اش صفر یا کمتر باشد دور می‌ریزد.
-            # اگر اینجا نشانش بدهیم، مقایسه دروغ می‌شود: مدلی که همه را
-            # رد کرده، بهتر از مدلی که پست ضعیف نوشته به نظر می‌رسد.
-            if float(entry.get("score") or 0) <= 0:
+            if kind in ("news", "showcase") and score <= 0:
+                skipped.append(("نمرهٔ صفر", title, score, why))
+                continue
+            if OFFTOPIC_SELF_RE.search(said):
+                skipped.append(("خودش گفت بی‌ربط", title, score, why))
                 continue
             it = by_id.get(str(entry.get("id", ""))) or batch[0]
             text = format_post(
                 entry.get("label") or "خبر",
-                entry.get("title", ""),
+                title,
                 entry.get("summary", ""),
                 entry.get("details", ""),
                 entry.get("meta", ""),
@@ -2823,20 +2925,26 @@ def compare_run(s, st, seen, limit=2, kind=""):
                 name=entry.get("name", ""),
                 use_link=it.get("use_link", ""),
             )
-            send_to(chat, head + "\n\n" + text, False)
+            # نمره‌ها را پایین پست می‌گذاریم تا معلوم باشد چرا این
+            # پیش‌نویس از سد رد شده و آن یکی نه.
+            foot = "نمره {} · اهمیت {} · کاربرد {}".format(
+                fa_num(entry.get("score", "?")),
+                fa_num(entry.get("imp", "?")),
+                fa_num(entry.get("use", "?")),
+            )
+            send_to(chat, head + "\n\n" + text + "\n\n" + esc(foot), False)
             written += 1
-        if not written:
-            # چیزی برای نشان دادن نبود. مهم‌ترین چیز اینجا دلیلش است:
-            # مدل یا آیتم را رد کرده، یا پست را نیمه‌کاره نوشته. هر دو
-            # باید دیده شود، نه اینکه یک پیام خالی بیاید.
-            lines = [head, "", "هیچ‌کدام پیش‌نویس نشدند:"]
-            for e in items[:limit]:
-                mark = str(e.get("score", "?"))
-                why = str(e.get("why") or "").strip()[:110]
-                name_ = str(e.get("title") or e.get("name") or e.get("id") or "?")[:40]
-                lines.append("• {} — نمره {}".format(esc(name_), esc(mark)))
+        if skipped:
+            lines = [head, ""]
+            if not written:
+                lines.append("هیچ‌کدام پیش‌نویس نشدند:")
+            for reason, title, score, why in skipped:
+                lines.append(
+                    "• رد شد ({}) — نمره {}".format(esc(reason), fa_num(int(score)))
+                )
+                lines.append("   " + esc(title[:50]))
                 if why:
-                    lines.append("   " + esc(why))
+                    lines.append("   " + esc(why[:120]))
             send_to(chat, "\n".join(lines), False)
     return 0
 
