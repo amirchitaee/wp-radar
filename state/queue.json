@@ -8421,6 +8421,21 @@
    "age_hours": 5.8,
    "published": "2026-10-31T22:10:01+00:00",
    "added": "2026-11-01T04:00:44+00:00"
+  },
+  {
+   "id": "a664cce82b839b90",
+   "title": "Show HN: LayerShop – a love child of ComfyUI and PhotoCraft",
+   "link": "https://github.com/SlavomirDurej/layershop",
+   "desc": "You might have seen PhotoCraft, an open-source Photoshop-style editor. It's great, but it was missing one important ingredient: generative AI. LayerShop fills that gap, and unlike Photoshop, it can run the models locally on your own GPU, for free. Here are the AI features you get with LayerShop: - a guided ComfyUI install (the engine) - guided download and setup of local models, including the latest ones like MOSS Image, Ming, Ernie, FLUX.3 Klein, Z-Image, Krea 2 and Ideogram 4 - support for the latest cloud (paid) models like GPT Image 2.5 Sunburst and Flare, FLUX 3, Grok Imagine 2 and Nano B",
+   "source": "هکرنیوز اعتبار رایگان",
+   "lang": "en",
+   "tier": 3,
+   "kind": "offers",
+   "age_hours": 62.9,
+   "published": "2026-10-29T14:22:09+00:00",
+   "added": "2026-11-01T05:15:29+00:00",
+   "full": "You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session. You switched accounts on another tab or window. Reload to refresh your session. Dismiss alert {{ message }} main Branches Tags Go to file Code Open more actions menu Latest commit History 7,998 Commits 7,998 Commits Folders and files Name Name Last commit message Last commit date .cargo .cargo .claude .claude .config .config .github/ ISSUE_TEMPLATE .github/ ISSUE_TEMPLATE apps apps assets assets book book contributors contributors crates crates docs docs examples/ plugins/ invert-rs examples/ plugins/ invert-rs packaging packaging perf perf scorecard scorecard scripts scripts xtask xtask .coderabbit.yaml .coderabbit.yaml .dockerignore .dockerignore .git-blame-ignore-revs .git-blame-ignore-revs .gitignore .gitignore AGENTS.md AGENTS.md ATTRIBUTION.md ATTRIBUTION.md Cargo.lock Cargo.lock Cargo.toml Cargo.toml Dockerfile Dockerfile LICENSE-APACHE LICENSE-APACHE LICENSE-MIT LICENSE-MIT NOTICE NOTICE README.md README.md ROADMAP.md ROADMAP.md SECURITY.md SECURITY.md clippy.toml clippy.toml rustfmt.toml rustfmt.toml sonar-project.properties sonar-project.properties View all files Repository files navigation LayerShop A free, open-source image editor laid out like Photoshop, with generative AI built in. Select an area, describe the change, and the result lands on its own masked layer. Local models run on your own graphics card. Nothing leaves your PC. layershop-readme.mp4 ▶ Watch the 3½-minute walkthrough on YouTube Preview. LayerShop is early software: the AI integration is new and has been tested on only a few PCs. It runs on Windows 10 and 11 (x64) only. Please report what breaks . LayerShop is a native image editor (layers, masks, adjustment layers, layer styles, type, vector shapes, real PSD files) with one new panel, AI Gen : Every result arrives as a new, named, masked layer above the last, so you can hide it, mask it, blend it or throw it away. LayerShop does not ship its own model. It drives ComfyUI behind the scenes: it builds the graph, picks the model files and the sampler settings, and returns the picture as a layer. You never have to open ComfyUI. System Windows 10 or 11, 64-bit. macOS and Linux installers are not built yet. Graphics card An NVIDIA card for local models. Tested on an RTX 4090 (24 GB); on cards under 16 GB the wizard starts with the small MOSS Image model. Without a usable card you can stil",
+   "use_link": "https://help.github.com/"
   }
  ]
 }
