@@ -9165,6 +9165,22 @@
    "added": "2026-11-01T09:32:40+00:00",
    "full": "The WordPress core Core Core is the set of software required to run WordPress. The Core Development Team builds WordPress. development team builds WordPress! Follow this site for general updates, status reports, and the occasional code debate. There’s lots of ways to contribute: Core uses Slack for real-time communication. Contributors live all over the world, so there are discussions happening at all hours of the day. Core development meetings are every Wednesday at 15:00 UTC in the #core channel on Slack . Anyone can join and participate or listen in! One major change landed this week: the notification repository is now scoped per user, laying the groundwork for the REST API REST API The REST API is an acronym for the RESTful Application Program Interface (API) that uses HTTP requests to GET, PUT, POST and DELETE data. It is how the front end of an application (think “phone app” or “website”) can communicate with the data store (think “database” or “file system”) https://developer.wordpress.org/rest-api/ . In addition, we merged a README note and four Dependabot bumps. A batch of community PRs (fixes, tooling, and PHP PHP The web scripting language in which WordPress is primarily architected. WordPress requires PHP 7.4 or higher test-matrix updates) is open and waiting for review. On 2026-10-29, @ poligilad published a post Exploring a design for Feature Notifications . Contributors are encouraged to read the post and share their feedback in the comments. All patch patch A special text file that describes changes to code, by identifying the files and lines which are added, removed, and altered. It may also be referred to as a diff . A patch can be applied to a codebase for testing. -level npm bumps from Dependabot, merged 2026-10-23: Still open from Dependabot: #647 eslint 10.4.0 → 10.13.0, and #654 fast-uri 3.1.8 → 3.1.9.",
    "use_link": "https://wordpress.org/"
+  },
+  {
+   "id": "bdbb948c171ef525",
+   "title": "قالب وردپرس Basin فارسی",
+   "link": "https://mihanwp.com/basin",
+   "desc": "اگه دنبال یه قالب رایگان، خوش‌ظاهر و انعطاف‌پذیر برای راه‌اندازی سایت وردپرسی‌تون هستید، Basin می‌تونه شروع خیلی خوبی باشه. ظاهر ساده و مدرن این قالب کمک می‌کنه محتوای شما بیشتر به چشم بیاد و سایتتون حس حرفه‌ای‌تری داشته باشه. شخصی‌سازی Basin هم آسونه و بدون درگیر شدن با تنظیمات پیچیده می‌تونید بخش‌های مختلف سایت رو […] منبع این مقاله: قالب وردپرس Basin فارسی",
+   "source": "میهن وردپرس",
+   "lang": "fa",
+   "tier": 3,
+   "kind": "news",
+   "age_hours": 0.2,
+   "published": "2026-11-01T11:36:00+00:00",
+   "added": "2026-11-01T11:45:36+00:00",
+   "sources_count": 3,
+   "full": "اگه دنبال یه قالب رایگان، خوش‌ظاهر و انعطاف‌پذیر برای راه‌اندازی سایت وردپرسی‌تون هستید، Basin می‌تونه شروع خیلی خوبی باشه. ظاهر ساده و مدرن این قالب کمک می‌کنه محتوای شما بیشتر به چشم بیاد و سایتتون حس حرفه‌ای‌تری داشته باشه. شخصی‌سازی Basin هم آسونه و بدون درگیر شدن با تنظیمات پیچیده می‌تونید بخش‌های مختلف سایت رو مطابق سلیقه‌تون تغییر بدید. Basin یه قالب چندمنظوره هست که برای سایت کسب‌وکارهای کوچک، استارتاپ‌ها و نمونه‌کارهای شخصی انتخاب مناسبی به حساب میاد. اگه می‌خواید خدمات، پروژه‌ها یا مهارت‌هاتون رو با یه طراحی مرتب و جذاب معرفی کنید، این قالب ابزارهای لازم رو در اختیارتون می‌ذاره. این قالب با صفحه‌ساز Kubio هماهنگی خوبی داره؛ صفحه‌سازی که ویرایشگر بلوکی WordPress رو با بلوک‌های تازه و تنظیمات ظاهری پیشرفته‌تر کامل می‌کنه تا آزادی بیشتری برای طراحی صفحه‌های سایت داشته باشید. نسخه‌ای که از میهن‌وردپرس دریافت می‌کنید، به‌طور کامل توسط تیم میهن‌وردپرس فارسی شده، برای سایت‌های راست‌چین بهینه شده و فونت زیبای Vazirmatn رو هم همراه خودش داره؛ پس می‌تونید خیلی راحت کار رو شروع کنید و یه سایت فارسی مرتب و دوست‌داشتنی بسازید. با تکنولوژی لود مجزای اهورا، فایل‌ها فقط زمان نیاز لود خواهند شد. خط به خط کدها را با الگوریتم‌ها و قوانین گوگل هماهنگ کرده‌ایم.",
+   "use_link": "https://s.w.org"
   }
  ]
 }
