@@ -1254,6 +1254,17 @@ def read_optional(name, limit=2000):
 
 # ---------------------------------------------------------------- telegram
 
+# سرویس‌هایی که در مقاله‌ها بیشتر تبلیغ و لینک پشتیبان‌اند تا مقصد
+# واقعی مخاطب. یک بار لینک نت‌لیفای به‌عنوان «جایی که ابزار را می‌گیری»
+# به مخاطب نشان داده شد.
+SPONSOR_DOMAINS = {
+    "netlify.com", "vercel.com", "sentry.io", "jetbrains.com",
+    "digitalocean.com", "linode.com", "mongodb.com", "fastly.com",
+    "aws.amazon.com", "cloud.google.com", "azure.microsoft.com",
+}
+TRACKING_RE = re.compile(r"(utm_|gclid=|fbclid=|affiliate|/partner|sponsor)", re.I)
+
+
 def extract_use_link(article_url, raw_html):
     """از متن خام مقاله، لینک مستقیم به ابزار یا صفحهٔ استفاده را استخراج کن.
 
@@ -1283,7 +1294,7 @@ def extract_use_link(article_url, raw_html):
         "figma.com", "canva.com", "notion.so",
         "openai.com", "anthropic.com", "claude.ai",
         "huggingface.co", "replicate.com",
-        "vercel.com", "netlify.com", "cloudflare.com",
+        "cloudflare.com",
     }
 
     # لینک خاص‌تر بهتر است. قبلاً کوتاه‌ترین لینک انتخاب می‌شد و برای
@@ -1295,14 +1306,24 @@ def extract_use_link(article_url, raw_html):
 
     ranked = sorted(links, key=specific)
 
-    # ۱. دامنه‌های شناخته‌شدهٔ محصول
-    for link in ranked:
+    # ۱. دامنه‌های شناخته‌شدهٔ محصول.
+    # ریشهٔ سایت به کار نمی‌آید و فهرست دسته هم نه؛ صفحهٔ خود محصول
+    # می‌خواهیم. عمق دو معمولاً همان است (مخزن، قالب، پلاگین)؛ عمق
+    # کمتر فهرست است و عمق بیشتر صفحهٔ فرعی.
+    def product_rank(link):
+        path = urllib.parse.urlparse(link).path.strip("/")
+        depth = len([p for p in path.split("/") if p])
+        return (abs(depth - 2), -depth, len(link))
+
+    for link in sorted(links, key=product_rank):
         domain = urllib.parse.urlparse(link).netloc.lower()
         if any(d in domain for d in product_domains):
             path = urllib.parse.urlparse(link).path.strip("/")
             if domain == "github.com" and path.count("/") < 1:
                 continue
-            return link
+            if re.search(r"/(reviews?|ratings?|support|feed)/?$", "/" + path, re.I):
+                continue
+            return strip_tracking(link)
 
     # ۲. برای وبلاگ الگنت تمز، لینک صفحهٔ محصول
     if "elegantthemes.com" in article_domain:
@@ -1318,16 +1339,36 @@ def extract_use_link(article_url, raw_html):
 
     # ۴. اولین لینک خارجی معقول
     for link in ranked:
+        link = strip_tracking(link)
         domain = urllib.parse.urlparse(link).netloc.lower()
         if domain == article_domain:
             continue
         if any(d in domain for d in social):
+            continue
+        # لینک پشتیبان و تبلیغات، لینک استفاده نیست. یک بار همین‌ها
+        # به‌عنوان «جایی که ابزار را می‌گیری» به مخاطب نشان داده شدند.
+        if any(d in domain for d in SPONSOR_DOMAINS):
+            continue
+        if TRACKING_RE.search(link):
             continue
         if re.search(r'\.(jpg|jpeg|png|gif|svg|pdf|zip|exe|dmg|tar\.gz)$', link, re.I):
             continue
         return link
 
     return ""
+
+
+def strip_tracking(url):
+    """پارامترهای ردیابی را از آدرس برمی‌دارد."""
+    parts = urllib.parse.urlsplit(url)
+    if not parts.query:
+        return url
+    keep = [
+        p
+        for p in parts.query.split("&")
+        if p and not re.match(r"^(utm_|gclid|fbclid|ref|aff|partner|sponsor)", p, re.I)
+    ]
+    return urllib.parse.urlunsplit((parts.scheme, parts.netloc, parts.path, "&".join(keep), ""))
 
 
 def fetch_article(url, limit=3200):
@@ -1420,6 +1461,10 @@ HOLLOW_RE = re.compile(r"(نامشخص|نامعلوم|مشخص نیست|در د�
 
 # صورت‌جلسه و گزارش وضعیت، خبر نیست. تیم‌های متن‌باز هر هفته این‌ها را
 # می‌نویسند و کانال از «خلاصهٔ جلسه» پر می‌شد، نه از خبر.
+# سرگرمی و تزئینی: والپیپر، محافظ صفحه، تقویم رومیزی. این‌ها خبر
+# نیستند و فقط توکن می‌سوزانند.
+JUNK_NEWS_RE = re.compile(r"(wallpaper|screensaver|desktop calendar|calendar of)", re.I)
+
 NON_NEWS_RE = re.compile(
     r"(meeting[- ]summary|meeting[- ]notes|meeting[- ]minutes|weekly[- ]update|"
     r"monthly[- ]update|bi-?weekly[- ]update|status[- ]update|"
@@ -1681,14 +1726,18 @@ def format_post(label, title, summary, details, meta, link, hashtags, when=None,
     اضافه، خط اقدام با خود آدرس، و آخر منبع که روی کلمه‌اش لینک است.
     """
     tag = emoji_for(label)
+    title = (title or "").strip()
     # اگر مدل نام لاتین را در تیتر نگذاشت و تیتر هیچ لاتینی ندارد،
     # نام تأییدشده را جلوی تیتر می‌گذاریم. مخاطب باید بداند از چه
     # چیزی حرف می‌زنیم. مگر اینکه شکل فارسی نام از قبل در تیتر باشد.
-    if name and not re.search(r"[A-Za-z]", title or ""):
+    if title and name and not re.search(r"[A-Za-z]", title):
         fa = FA_NAME.get(name.lower())
-        if not (fa and fa in (title or "")):
+        if not (fa and fa in title):
             title = "{} — {}".format(name, title)
-    head = "{} {}: {}".format(tag, label, title).strip()
+    if title:
+        head = "{} {}: {}".format(tag, label, title).strip()
+    else:
+        head = "{} {}".format(tag, label).strip()
     parts = ["<b>{}</b>".format(esc(bidi(head))), "", esc(bidi(summary))]
     inner = []
     if details:
@@ -2051,7 +2100,7 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
         kept = []
         for x in pending:
             blob = " ".join([x.get("title", "") or "", x.get("link", "") or ""])
-            if NON_NEWS_RE.search(blob):
+            if NON_NEWS_RE.search(blob) or JUNK_NEWS_RE.search(blob):
                 x["channel_skip"] = True
                 skipped += 1
                 continue
@@ -2212,7 +2261,7 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
                 else:
                     log("share for this run is used up")
                     break
-            if not entry.get("title") or not entry.get("summary"):
+            if not (entry.get("title") or "").strip() or not (entry.get("summary") or "").strip():
                 continue
             if kind in ("news", "showcase") and float(entry.get("score") or 0) <= 0:
                 log("  empty story skipped:", entry.get("title", "")[:50])
@@ -2690,6 +2739,12 @@ def compare_run(s, st, seen, limit=2):
 
     rows = collect("news", st, seen, budget_sec=90)
     rows = dedupe_stories(rows)
+
+    def keep(x):
+        blob = " ".join([x.get("title", "") or "", x.get("link", "") or ""])
+        return not (NON_NEWS_RE.search(blob) or JUNK_NEWS_RE.search(blob))
+
+    rows = [x for x in rows if keep(x)]
     if not rows:
         send_to(chat, "مقایسه: آیتم تازه‌ای پیدا نشد. کمی بعد دوباره بزن.", False)
         return 0
@@ -2721,7 +2776,19 @@ def compare_run(s, st, seen, limit=2):
             send_to(chat, head + "\nپاسخ خالی بود.", False)
             continue
         by_id = {x["id"]: x for x in batch}
+        written = 0
         for entry in items[:limit]:
+            # همان دروازهٔ اجرای واقعی. پیش‌نویس بی‌تیتر یا بی‌خلاصه
+            # پست نیست و نباید به‌عنوان نمونه نشان داده شود.
+            if not (entry.get("title") or "").strip():
+                continue
+            if not (entry.get("summary") or "").strip():
+                continue
+            # اجرای واقعی هر چه نمره‌اش صفر یا کمتر باشد دور می‌ریزد.
+            # اگر اینجا نشانش بدهیم، مقایسه دروغ می‌شود: مدلی که همه را
+            # رد کرده، بهتر از مدلی که پست ضعیف نوشته به نظر می‌رسد.
+            if float(entry.get("score") or 0) <= 0:
+                continue
             it = by_id.get(str(entry.get("id", ""))) or batch[0]
             text = format_post(
                 entry.get("label") or "خبر",
@@ -2736,6 +2803,20 @@ def compare_run(s, st, seen, limit=2):
                 use_link=it.get("use_link", ""),
             )
             send_to(chat, head + "\n\n" + text, False)
+            written += 1
+        if not written:
+            # چیزی برای نشان دادن نبود. مهم‌ترین چیز اینجا دلیلش است:
+            # مدل یا آیتم را رد کرده، یا پست را نیمه‌کاره نوشته. هر دو
+            # باید دیده شود، نه اینکه یک پیام خالی بیاید.
+            lines = [head, "", "هیچ‌کدام پیش‌نویس نشدند:"]
+            for e in items[:limit]:
+                mark = str(e.get("score", "?"))
+                why = str(e.get("why") or "").strip()[:110]
+                name_ = str(e.get("title") or e.get("name") or e.get("id") or "?")[:40]
+                lines.append("• {} — نمره {}".format(esc(name_), esc(mark)))
+                if why:
+                    lines.append("   " + esc(why))
+            send_to(chat, "\n".join(lines), False)
     return 0
 
 
