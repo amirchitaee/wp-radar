@@ -1997,6 +1997,12 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
         log("daily cap reached")
         return 0
     log("room today:", my_limit)
+    # اگر سهم امروز این دسته تمام شده و مسیر سریع هم ظرفیت ندارد،
+    # تماس مدل هیچ پستی درنمی‌آورد و فقط توکن می‌سوزاند. این حالت
+    # روزی چند بار پیش می‌آمد و سهمیهٔ لایه‌های رایگان را می‌خورد.
+    if my_limit <= 0 and fast_used >= fast_per_day:
+        log("no room left today for", kind, "- model call skipped")
+        return 0
     rejected = []
 
     step = max(3, int(s.get("chunk_size", 7)))
