@@ -39,8 +39,8 @@
    "base": "https://generativelanguage.googleapis.com/v1beta/openai",
    "key": "GEMINI_KEY",
    "models": [
-    "gemini-flash-latest",
     "gemini-3.8-flash",
+    "gemini-3.8-flash-lite",
     "gemma-4-31b-it"
    ]
   },

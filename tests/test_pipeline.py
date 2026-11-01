@@ -339,6 +339,39 @@ news_rows = [{"source": "الگانت", "title": "a"}, {"source": "الگانت"
 check("سقف منبع: خبر یک پست از هر منبع", len(radar.cap_per_source(news_rows, 1)), 2)
 check("سقف منبع: ابزار دو پست از هر منبع", len(radar.cap_per_source(news_rows, 2)), 3)
 
+# ---------------------------------------------------------------- لینک استفاده
+# لینک خاص‌تر باید برنده شود، نه کوتاه‌ترین. قبلاً برای یک قالب، ریشهٔ
+# سایت به‌جای صفحهٔ خود قالب انتخاب می‌شد.
+_HTML = (
+    '<a href="https://wordpress.org/">root</a>'
+    '<a href="https://twitter.com/x">tw</a>'
+    '<a href="https://wordpress.org/themes/basin/">theme</a>'
+    '<a href="https://wordpress.org/themes/">list</a>'
+)
+check(
+    "لینک استفاده: صفحهٔ قالب بر ریشه ترجیح داده می‌شود",
+    radar.extract_use_link("https://example.com/blog/basin", _HTML),
+    "https://wordpress.org/themes/basin/",
+)
+check(
+    "لینک استفاده: مخزن گیت‌هاب بر سازمان ترجیح داده می‌شود",
+    radar.extract_use_link(
+        "https://example.com/x",
+        '<a href="https://github.com/acme">o</a><a href="https://github.com/acme/tool">r</a>',
+    ),
+    "https://github.com/acme/tool",
+)
+
+# ---------------------------------------------------------------- نام تکراری
+# «WordPress — وردپرس» تکرار است و نباید ساخته شود.
+check(
+    "قالب پست: نام تکراری چسبانده نمی‌شود",
+    radar.format_post(
+        "آپدیت", "وردپرس ۷.۱.۴ منتشر شد", "خلاصه", "جزئیات", "", "", "", None, name="WordPress"
+    ).split("\n")[0],
+    "<b>🔄 آپدیت: وردپرس ۷.۱.۴ منتشر شد</b>",
+)
+
 # ---------------------------------------------------------------- نتیجه
 print("{} آزمون اجرا شد.".format(COUNT))
 if FAILS:

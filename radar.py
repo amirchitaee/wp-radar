@@ -992,6 +992,27 @@ def is_net_error(exc):
     )
 
 
+def response_content(data, prov_name, model):
+    """متن پاسخ را از دل خروجی درمی‌آورد، با پیام خطای روشن.
+
+    بعضی لایه‌ها خطا را با کد ۲۰۰ برمی‌گردانند و شکل پاسخ عوض می‌شود.
+    قبلاً این حالت یک استثنای مبهم می‌داد که فقط نوشته بود «choices» و
+    معلوم نبود مشکل چیست.
+    """
+    if isinstance(data, dict) and data.get("error") and not data.get("choices"):
+        err = data["error"]
+        if isinstance(err, dict):
+            err = err.get("message") or err.get("code") or err
+        raise RuntimeError("{}: {}".format(prov_name, str(err)[:150]))
+    try:
+        return data["choices"][0]["message"]["content"]
+    except (KeyError, IndexError, TypeError):
+        shape = ",".join(sorted(data.keys()))[:120] if isinstance(data, dict) else type(data).__name__
+        raise RuntimeError(
+            "{}: پاسخ {} شکل ناشناس داشت ({})".format(prov_name, model, shape)
+        )
+
+
 def call_models(prompt_system, prompt_user, deadline=None, budget=None, only=None):
     """زنجیرهٔ ارائه‌دهنده‌ها با مهلت مطلق.
 
@@ -1039,7 +1060,7 @@ def call_models(prompt_system, prompt_user, deadline=None, budget=None, only=Non
                     headers={"Authorization": "Bearer " + prov["key"]},
                     timeout=min(per, left),
                 )
-                content = data["choices"][0]["message"]["content"]
+                content = response_content(data, prov["name"], name)
                 log("  model ok:", prov["name"], name)
                 globals()["ACTIVE_PROVIDER"] = prov["name"]
                 mark_provider_ok(prov["name"])
@@ -1131,7 +1152,7 @@ SYSTEM_PROMPT = """تو نویسندهٔ یک کانال فارسی تخصصی �
 این کانال چه چیزی نیست: استخدام، جذب سرمایه، معرفی کنفرانس و رویداد، حاشیه و شایعهٔ جامعهٔ وردپرس، تغییرات داخلی مخزن کد، و سرگرمی. این‌ها score صفر می‌گیرند.
 
 summary: دو یا سه خط، نه بیشتر. خط اول خبر را می‌گوید، خط دوم چه چیزی گیر مخاطب می‌آید. بدون مقدمه‌چینی و بدون تکرار تیتر.
-details: سه تا پنج خط کوتاه، هر خط یک نکتهٔ تازه که در summary نگفتی. برای ابزار و فرصت این‌ها را بگو: دقیقاً چیست، روی چه موتوری یا مدلی ساخته شده، بنچمارک یا محدودیتش چیست، چطور شروع کند. اگر رایگان با ایمیل است، صریح بگو. جای نام موتور و نسخه و بنچمارک همین بخش است. این بخش هرگز خالی یا تشریفاتی نباشد؛ اگر واقعاً سه نکته نداری، همان دو نکتهٔ واقعی را بنویس و خط الکی اضافه نکن.
+details: سه تا پنج خط کوتاه، هر خط یک نکتهٔ تازه که در summary نگفتی. حداقل یکی از خط‌ها باید یک چیز مشخص از منبع داشته باشد: عدد، نسخه، نام، قیمت، یا شرط استفاده. جملهٔ کلی مثل «ظاهر مدرن و ساده» نکته نیست. برای ابزار و فرصت این‌ها را هم بگو: دقیقاً چیست، روی چه موتوری یا مدلی ساخته شده، بنچمارک یا محدودیتش چیست، چطور شروع کند. اگر رایگان با ایمیل است، صریح بگو. جای نام موتور و نسخه و بنچمارک همین بخش است. این بخش هرگز خالی یا تشریفاتی نباشد؛ اگر واقعاً سه نکته نداری، همان دو نکتهٔ واقعی را بنویس و خط الکی اضافه نکن.
 meta: یک خط داده‌ی چسبیده مثل نصب فعال، نسخه، قیمت. اگر نبود، رشتهٔ خالی.
 title: یک خط. چه اتفاقی افتاده و اسم محصول چیست. نام لاتین محصول باید همین‌جا باشد، مثل «هوش مصنوعی AMIR تا آخر نوامبر دو میلیون توکن رایگان می‌دهد». اگر خبر رایگان بودن است، مقدارش را هم بگو. اسم محصول را به‌جای خبر نگذار. بازنویسی عنوان منبع ممنوع.
 name: نام رسمی محصول یا سرویس، فقط اگر در متن منبع آمده. همان‌طور که در منبع نوشته شده، لاتین و بدون ترجمه. اگر در منبع نامی نبود، رشتهٔ خالی. نامی که در منبع نیست، ساختنش ممنوع است.
@@ -1265,8 +1286,17 @@ def extract_use_link(article_url, raw_html):
         "vercel.com", "netlify.com", "cloudflare.com",
     }
 
+    # لینک خاص‌تر بهتر است. قبلاً کوتاه‌ترین لینک انتخاب می‌شد و برای
+    # یک قالب، ریشهٔ سایت به‌جای صفحهٔ خود قالب برمی‌گشت.
+    def specific(link):
+        path = urllib.parse.urlparse(link).path.strip("/")
+        depth = len([p for p in path.split("/") if p])
+        return (-depth, len(link))
+
+    ranked = sorted(links, key=specific)
+
     # ۱. دامنه‌های شناخته‌شدهٔ محصول
-    for link in sorted(links, key=len):
+    for link in ranked:
         domain = urllib.parse.urlparse(link).netloc.lower()
         if any(d in domain for d in product_domains):
             path = urllib.parse.urlparse(link).path.strip("/")
@@ -1276,18 +1306,18 @@ def extract_use_link(article_url, raw_html):
 
     # ۲. برای وبلاگ الگنت تمز، لینک صفحهٔ محصول
     if "elegantthemes.com" in article_domain:
-        for link in sorted(links, key=len):
+        for link in ranked:
             if "elegantthemes.com/gallery/" in link or "elegantthemes.com/divi" in link:
                 return link
 
     # ۳. برای وبلاگ‌های وردپرس، لینک مخزن وردپرس
     if "wpmayor.com" in article_domain:
-        for link in sorted(links, key=len):
+        for link in ranked:
             if "wordpress.org" in link:
                 return link
 
     # ۴. اولین لینک خارجی معقول
-    for link in sorted(links, key=len):
+    for link in ranked:
         domain = urllib.parse.urlparse(link).netloc.lower()
         if domain == article_domain:
             continue
@@ -1631,6 +1661,19 @@ def url_for_href(url):
     return u.replace('"', "%22")
 
 
+# نام‌های آشنایی که در تیتر فارسی هم می‌آیند. اگر شکل فارسی‌اش در تیتر
+# باشد، چسباندن نام لاتین جلوی تیتر فقط تکرار است: «WordPress — وردپرس».
+FA_NAME = {
+    "wordpress": "وردپرس",
+    "woocommerce": "ووکامرس",
+    "elementor": "المنتور",
+    "gutenberg": "گوتنبرگ",
+    "php": "پی‌اچ‌پی",
+    "mysql": "مای‌اس‌کیو‌ال",
+    "seo": "سئو",
+}
+
+
 def format_post(label, title, summary, details, meta, link, hashtags, when=None, name="", use_link=""):
     """ساخت متن پست.
 
@@ -1640,9 +1683,11 @@ def format_post(label, title, summary, details, meta, link, hashtags, when=None,
     tag = emoji_for(label)
     # اگر مدل نام لاتین را در تیتر نگذاشت و تیتر هیچ لاتینی ندارد،
     # نام تأییدشده را جلوی تیتر می‌گذاریم. مخاطب باید بداند از چه
-    # چیزی حرف می‌زنیم.
+    # چیزی حرف می‌زنیم. مگر اینکه شکل فارسی نام از قبل در تیتر باشد.
     if name and not re.search(r"[A-Za-z]", title or ""):
-        title = "{} — {}".format(name, title)
+        fa = FA_NAME.get(name.lower())
+        if not (fa and fa in (title or "")):
+            title = "{} — {}".format(name, title)
     head = "{} {}: {}".format(tag, label, title).strip()
     parts = ["<b>{}</b>".format(esc(bidi(head))), "", esc(bidi(summary))]
     inner = []
@@ -2648,6 +2693,11 @@ def compare_run(s, st, seen, limit=2):
     if not rows:
         send_to(chat, "مقایسه: آیتم تازه‌ای پیدا نشد. کمی بعد دوباره بزن.", False)
         return 0
+    # همان پنجرهٔ تازگی که در اجرای واقعی هست، وگرنه خبر کهنه هم
+    # وارد مقایسه می‌شود و نتیجه گمراه‌کننده است.
+    fresh = [x for x in rows if true_age(x) <= 48]
+    if fresh:
+        rows = fresh
     rows.sort(key=lambda x: code_score(x, x.get("sources_count", 1)), reverse=True)
     batch = rows[:limit]
     fetch_full_parallel(batch)
@@ -2670,17 +2720,20 @@ def compare_run(s, st, seen, limit=2):
         if not items:
             send_to(chat, head + "\nپاسخ خالی بود.", False)
             continue
+        by_id = {x["id"]: x for x in batch}
         for entry in items[:limit]:
+            it = by_id.get(str(entry.get("id", ""))) or batch[0]
             text = format_post(
                 entry.get("label") or "خبر",
                 entry.get("title", ""),
                 entry.get("summary", ""),
                 entry.get("details", ""),
                 entry.get("meta", ""),
-                "",
+                it.get("link", ""),
                 "",
                 None,
                 name=entry.get("name", ""),
+                use_link=it.get("use_link", ""),
             )
             send_to(chat, head + "\n\n" + text, False)
     return 0
