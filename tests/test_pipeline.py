@@ -596,6 +596,47 @@ check("موضوع: بازی هکرنیوز ابزار کانال نیست", bool
 check("موضوع: آموزش دیوی ابزار است", bool(radar.BUILDER_TOPIC.search(
     "How To Build A Product Grid With Divi 5 CSS Grid Editor")), True)
 
+# ---------------------------------------------------------------- لینک به نام
+# مقاله‌ای دربارهٔ یک مدل تازه، لینک اقدامش صفحهٔ مدل دیگری شد که فقط در
+# متن نامش آمده بود. آدرس باید با نام خود محصول بخواند.
+check(
+    "لینک: نام محصول در آدرس اولویت دارد",
+    radar.extract_use_link(
+        "https://www.marktechpost.com/x/hydrogen",
+        '<a href="https://huggingface.co/zai-org/GLM-5.3">g</a>'
+        '<a href="https://huggingface.co/DeepPrinciple/Hydrogen-1.0">h</a>',
+        "Hydrogen-1.0 با ۷۵۳ میلیارد پارامتر منتشر شد",
+    ),
+    "https://huggingface.co/DeepPrinciple/Hydrogen-1.0",
+)
+check(
+    "لینک: محصول دیگر جای محصول اصلی نمی‌نشیند",
+    radar.extract_use_link(
+        "https://www.marktechpost.com/x/hydrogen",
+        '<a href="https://huggingface.co/zai-org/GLM-5.3">g</a>',
+        "Hydrogen-1.0 منتشر شد",
+    ),
+    "",
+)
+check(
+    "لینک: مخزن بی‌ربط رد می‌شود",
+    radar.extract_use_link(
+        "https://example.com/post",
+        '<a href="https://github.com/ax/apk.sh">a</a>',
+        "HOL-Guard — ابزار امنیتی",
+    ),
+    "",
+)
+check(
+    "لینک: مخزن هم‌نام پذیرفته می‌شود",
+    radar.extract_use_link(
+        "https://example.com/post",
+        '<a href="https://github.com/some/hol-guard">a</a>',
+        "HOL-Guard — ابزار امنیتی",
+    ),
+    "https://github.com/some/hol-guard",
+)
+
 # ---------------------------------------------------------------- نتیجه
 print("{} آزمون اجرا شد.".format(COUNT))
 if FAILS:

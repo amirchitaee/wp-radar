@@ -1405,7 +1405,37 @@ def is_product_link(url):
     return False
 
 
-def extract_use_link(article_url, raw_html):
+HINT_STOP = {
+    "model", "models", "release", "released", "releases", "launch", "launches",
+    "update", "updated", "updates", "announce", "announces", "announced",
+    "introduce", "introduces", "available", "availability", "version",
+    "plugin", "plugins", "theme", "themes", "wordpress", "tool", "tools",
+    "free", "open", "weights", "weight", "benchmark", "scientific", "science",
+    "parameters", "billion", "million", "with", "from", "this", "that",
+    "your", "site", "sites", "news", "first", "now", "new",
+}
+
+
+def hint_tokens(text):
+    """کلمه‌های نام‌دار عنوان را جدا می‌کند تا با آدرس محصول مقایسه شوند.
+
+    یک بار مقاله‌ای دربارهٔ مدل تازه، لینک اقدامش صفحهٔ مدل دیگری شد که
+    فقط در متن نامش آمده بود. عنوان، نام خود محصول را دارد؛ آدرس هم
+    معمولاً همان نام را. همین تطبیق جلوی آن خطا را می‌گیرد.
+    """
+    out = set()
+    for word in re.findall(r"[A-Za-z][A-Za-z0-9.\-]{2,}", text or ""):
+        low = word.lower().strip(".-")
+        if len(low) < 4 or low in HINT_STOP:
+            continue
+        out.add(low)
+        for part in re.split(r"[.\-]", low):
+            if len(part) >= 4 and part not in HINT_STOP:
+                out.add(part)
+    return out
+
+
+def extract_use_link(article_url, raw_html, hint=""):
     """از متن خام مقاله، لینک مستقیم به ابزار یا صفحهٔ استفاده را استخراج کن.
 
     مقاله‌های وبلاگ معمولاً لینک محصول را درون خود دارند. این تابع آن را
@@ -1472,7 +1502,18 @@ def extract_use_link(article_url, raw_html):
         depth = len([p for p in path.split("/") if p])
         return (abs(depth - 2), -depth, len(link))
 
-    for link in sorted(links, key=product_rank):
+    # آدرسی که نام خود محصول در آن هست، بر آدرسی که فقط در متن مقاله
+    # نامش آمده اولویت دارد.
+    hts = hint_tokens(hint)
+
+    def name_hit(link):
+        low = link.lower()
+        return 1 if any(t in low for t in hts) else 0
+
+    def rank(link):
+        return (0 - name_hit(link),) + product_rank(link)
+
+    for link in sorted(links, key=rank):
         domain = urllib.parse.urlparse(link).netloc.lower()
         if any(d in domain for d in product_domains):
             path = urllib.parse.urlparse(link).path.strip("/")
@@ -1491,6 +1532,11 @@ def extract_use_link(article_url, raw_html):
             # لازم نیست. پستی که منبعش یک مخزن گیت‌هاب است نباید خط
             # «همین حالا بازش کن» داشته باشد که به جای دیگری برود.
             if link.rstrip("/") == (article_url or "").rstrip("/"):
+                return ""
+            # نام محصول در عنوان هست ولی هیچ لینکی با آن جور نیست: یعنی
+            # این‌ها محصول‌های دیگری‌اند که در متن نامشان آمده. لینک غلط
+            # بدتر از نبودن لینک است.
+            if hts and not name_hit(link):
                 return ""
             return link
 
@@ -1526,13 +1572,13 @@ def strip_tracking(url):
     return urllib.parse.urlunsplit((parts.scheme, parts.netloc, parts.path, "&".join(keep), ""))
 
 
-def fetch_article(url, limit=3200):
+def fetch_article(url, limit=3200, hint=""):
     """متن مقاله و لینک استفاده را با هم می‌آورد."""
     try:
         raw = http_get(url, timeout=15).decode("utf-8", "replace")
     except Exception:
         return "", ""
-    use_link = extract_use_link(url, raw)
+    use_link = extract_use_link(url, raw, hint)
     raw = re.sub(r"(?is)<(script|style|nav|header|footer|aside)[^>]*>.*?</\1>", " ", raw)
     # صفحه‌های امروزی متن اصلی را داخل article می‌گذارند و باقی صفحه نوار
     # بالا و فهرست است. گیت‌هاب هم README را همان‌جا می‌گذارد. قبلاً به‌جای
@@ -2359,7 +2405,7 @@ def fetch_full_parallel(chunk, workers=6):
     if not todo:
         return
     with ThreadPoolExecutor(max_workers=min(workers, len(todo))) as pool:
-        futs = {pool.submit(fetch_article, it["link"]): it for it in todo}
+        futs = {pool.submit(fetch_article, it["link"], 3200, it.get("title", "") or ""): it for it in todo}
         for fut in as_completed(futs):
             it = futs[fut]
             try:
