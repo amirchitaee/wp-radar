@@ -258,8 +258,11 @@ def load_sources(kind):
         name, url, k = p[0], p[1], p[2]
         lang = p[3] if len(p) > 3 else "en"
         tier = int(p[4]) if len(p) > 4 and p[4].isdigit() else 2
+        group = p[5].lower() if len(p) > 5 else ""
         if k == kind:
-            rows.append({"name": name, "url": url, "kind": k, "lang": lang, "tier": tier})
+            rows.append(
+                {"name": name, "url": url, "kind": k, "lang": lang, "tier": tier, "group": group}
+            )
     return rows
 
 
@@ -308,18 +311,28 @@ def blocked_hit(item, blocked=None):
     return ""
 
 
-# کالای ایرانی، رقیب است. کانال جای معرفی فروشگاه دیگر نیست. این سد اسم
-# فروشگاه را نمی‌شناسد و به فهرست وابسته نیست: دامنهٔ ایرانی به‌اضافهٔ
-# حرف کالا کافی است. عمداً فقط خبر و ابزار و فرصت را می‌گیرد؛ هشدار
-# امنیتی دربارهٔ افزونهٔ خارجی که کاربر ایرانی هم دارد سر جایش می‌ماند.
+# کالای فارسی، رقیب است. نه فقط میهن وردپرس؛ هر افزونه و قالب فارسی.
+# کانال جای معرفی فروشگاه دیگر نیست. این سد اسم فروشگاه را نمی‌شناسد و
+# به هیچ فهرستی وابسته نیست: یا منبع فارسی است یا دامنه ایرانی، به‌اضافهٔ
+# حرف کالا. عمداً فقط خبر و ابزار را می‌گیرد؛ هشدار امنیتی مستثنی است.
 IR_DOMAIN_RE = re.compile(r"\.ir(?::\d+)?(?:/|$)", re.I)
-IRAN_PRODUCT_RE = re.compile(r"(قالب|افزونه|پلاگین|\btheme\b|\bplugin\b)", re.I)
+PRODUCT_WORD_RE = re.compile(
+    r"(قالب|افزونه|پلاگین|\btheme\b|\bplugin\b|\btemplate\b)", re.I
+)
 
 
-def iran_product(item):
-    if not IR_DOMAIN_RE.search(str(item.get("link") or "")):
+def persian_product(item):
+    """کالای فارسی: نه فقط یک فروشگاه، هر افزونه و قالب فارسی.
+
+    یا منبع فارسی است، یا دامنه ایرانی، و حرف کالا در تیتر یا توضیح.
+    هشدار امنیتی هرگز از این سد نمی‌گذرد چون اصلاً صدایش نمی‌زنیم؛
+    خبر، ابزار و فرصت گرفته می‌شوند.
+    """
+    link = str(item.get("link") or "")
+    fa = str(item.get("lang") or "") == "fa"
+    if not fa and not IR_DOMAIN_RE.search(link):
         return False
-    return bool(IRAN_PRODUCT_RE.search(
+    return bool(PRODUCT_WORD_RE.search(
         str(item.get("title") or "") + " " + str(item.get("desc") or "")
     ))
 
@@ -1354,7 +1367,7 @@ SYSTEM_PROMPT = """تو نویسندهٔ یک کانال فارسی تخصصی �
 7. کلیشه ممنوع: «در دنیای امروز»، «این ابزار می‌تواند»، «قابلیت»، «امکان»، «لازم به ذکر است». جملهٔ کوتاه و مستقیم بنویس.
 8. مخاطب حرفه‌ای نیست. هر اصطلاح فنی را همان‌جا با یک نیم‌جمله ساده کن. به جای «ای‌پی‌آی» بنویس «سرویسی که برنامه به آن وصل می‌شود». به جای «مدل زبانی» بنویس «هوش مصنوعی‌ای که متن می‌نویسد». خواننده باید بدون دانش قبلی بفهمد چه چیزی گیرش می‌آید.
 9. نام لاتین محصول را در تیتر بیاور، همان‌جا که می‌گویی چه اتفاقی افتاده. نمونه: «هوش مصنوعی AMIR تا آخر نوامبر دو میلیون توکن رایگان می‌دهد». بقیهٔ عبارت‌های لاتین — نام موتور، نسخه، بنچمارک — در details. در هر جمله حداکثر یک عبارت لاتین. بعد از تیتر، جای تکرار نام با ضمیر یا «این ابزار» ادامه بده.
-10. اولویت موضوعی، به همین ترتیب: اول خبر و آپدیت و افزونهٔ وردپرس؛ بعد ابزاری که مخاطب در ایران واقعاً می‌تواند استفاده کند و کاری برای سایتش می‌کند (ساخت صفحه، سئو، سرعت، فرم، فروشگاه)؛ بعد ابزار تولید محتوا برای همان سایت؛ آخر ابزار ویدیو و تصویر. این یعنی ترتیب، نه حذف. اگر دو مورد هم‌ارزش بودند، آن را بالاتر بگذار که به سایت مربوط است. ابزاری که فقط با کارت بین‌المللی کار می‌کند، در فیلد use نمرهٔ پایین بگیر، ولی پستش را بنویس؛ حذفش نکن.
+10. اولویت موضوعی، به همین ترتیب: اول خبر و آپدیت و افزونهٔ وردپرس؛ بعد ابزاری که مخاطب در ایران واقعاً می‌تواند استفاده کند و کاری برای سایتش می‌کند (ساخت صفحه، سئو، سرعت، فرم، فروشگاه)؛ بعد ابزار تولید محتوا برای همان سایت؛ آخر ابزار ویدیو و تصویر. این یعنی ترتیب، نه حذف. اگر دو مورد هم‌ارزش بودند، آن را بالاتر بگذار که به سایت مربوط است. ابزاری که فقط با کارت بین‌المللی کار می‌کند، در فیلد use نمرهٔ پایین بگیر، ولی پستش را بنویس؛ حذفش نکن. کانال هشتاد درصد وردپرس و طراحی سایت است و بیست درصد هوش مصنوعی؛ پس خبری که هیچ نسبتی با سایت ندارد، حتی اگر جذاب باشد، score پایین بگیرد.
 
 اول فهمیدن، بعد نوشتن:
 11. قبل از نوشتن، در فیلد why در یک جمله بگو دقیقاً چه اتفاقی افتاده و چه کسی از آن سود می‌برد. اگر نمی‌توانی این یک جمله را از متن منبع دربیاوری، یعنی خبر را نفهمیده‌ای؛ score صفر بده.
@@ -2357,6 +2370,7 @@ def hold_ready(it, label, text, score, kind):
             "title": it.get("title", ""),
             "link": it.get("link", ""),
             "source": it.get("source", ""),
+            "group": it.get("group", ""),
             "photo": og_image(it["link"]) if kind == "showcase" else "",
         }
     )
@@ -2431,6 +2445,8 @@ def publish_ready(s, st, seen, hard_deadline=None):
         add_story(store_story, target or row)
         d["count"] = int(d.get("count", 0)) + 1
         d["kinds"][kind] = int(d["kinds"].get(kind, 0)) + 1
+        if (row.get("group") or (target or {}).get("group") or "") == "ai":
+            d["kinds"]["ai"] = int(d["kinds"].get("ai", 0)) + 1
         archive_row(target or row, row.get("label", ""), "", "", row.get("score", 0), kind)
         if not DRY:
             write_json(QUEUE, q)
@@ -2716,8 +2732,8 @@ def collect(kind, st, seen, budget_sec=None):
             if hit:
                 log("  blocked (رقیب):", hit, it["title"][:40])
                 continue
-            if kind != "security" and iran_product(it):
-                log("  blocked (کالای ایرانی):", it["title"][:40])
+            if kind != "security" and persian_product(it):
+                log("  blocked (کالای فارسی):", it["title"][:40])
                 continue
             age = 99
             if it["published"]:
@@ -2733,6 +2749,7 @@ def collect(kind, st, seen, budget_sec=None):
                     "source": src["name"],
                     "lang": src["lang"],
                     "tier": src["tier"],
+                    "group": src.get("group", ""),
                     "kind": kind,
                     "age_hours": round(age, 1),
                     "published": it["published"].isoformat() if it["published"] else "",
@@ -2843,7 +2860,9 @@ def daily_room(s, kind, d):
     remaining = cap - int(d.get("count", 0))
     if remaining <= 0:
         return 0
-    kind_cap = int(caps.get(kind) or cap)
+    # صفر یعنی این دسته امروز تعطیل است. `or` صفر را «نبود» حساب
+    # می‌کرد و دستهٔ خاموش‌شده با سقف کل روز برمی‌گشت.
+    kind_cap = int(caps[kind]) if kind in caps else int(cap)
     posted_kind = int(kinds.get(kind, 0))
     starving = 0
     for other, value in caps.items():
@@ -2946,7 +2965,7 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
                     continue
             # رقیب هرگز. این سد اینجا هم هست چون آیتم ممکن است از قبل در
             # صف مانده باشد، پیش از آن که فهرست رقیب‌ها را ببندیم.
-            if blocked_hit(x, blocked_words) or iran_product(x):
+            if blocked_hit(x, blocked_words) or persian_product(x):
                 x["channel_skip"] = True
                 skipped += 1
                 continue
@@ -2973,8 +2992,36 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
     if d.get("date") != today():
         d = {"date": today(), "count": 0}
 
+    # سهم هوش مصنوعی سقف دارد. کانال قرار است هشتاد درصد وردپرس و طراحی
+    # سایت باشد. بی‌سقف، خبر هوش مصنوعی جذاب‌تر است و کم‌کم همهٔ کانال را
+    # می‌خورد. آیتمی که امروز بیرون می‌ماند پاک نمی‌شود؛ فردا شانس دارد.
+    if kind == "news":
+        ai_cap = int(s.get("ai_cap_per_day", 1))
+        ai_done = int((d.get("kinds") or {}).get("ai", 0))
+        ai_held = sum(
+            1
+            for r in read_json(READY, {"items": []}).get("items", [])
+            if (r.get("group") or "") == "ai"
+        )
+        ai_left = max(0, ai_cap - ai_done - ai_held)
+        narrowed = []
+        used = 0
+        for x in pool:
+            if (x.get("group") or "") == "ai":
+                if used >= ai_left:
+                    continue
+                used += 1
+            narrowed.append(x)
+        if len(narrowed) != len(pool):
+            log("  ai quota: {} left, held back {}".format(ai_left, len(pool) - len(narrowed)))
+        pool = narrowed
+        if not pool:
+            log("  ai quota full and nothing else to post")
+            return 0
+
     cap = int(s.get("daily_cap", 10))
-    kind_cap = int((s.get("caps") or {}).get(kind) or cap)
+    _caps = s.get("caps") or {}
+    kind_cap = int(_caps[kind]) if kind in _caps else int(cap)
     per_run = int(s.get("max_posts_per_run", 4))
     posted = 0
     store = load_stories()
@@ -3317,6 +3364,8 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
             posted += 1
             posted_kind += 1
             d["kinds"][kind] = posted_kind
+            if (it.get("group") or "") == "ai":
+                d["kinds"]["ai"] = int(d["kinds"].get("ai", 0)) + 1
             if fast:
                 d["fast"] = int(d.get("fast", 0)) + 1
             archive_row(it, label, entry.get("title", ""), entry.get("summary", ""), score, kind)
@@ -3614,15 +3663,14 @@ def auto_run(s, st, seen, extra, role="main"):
     for key, minutes in (
         ("news", int(s.get("news_every_min", 55))),
         ("tools", int(s.get("tools_every_min", 300))),
-        ("offers", int(s.get("offers_every_min", 240))),
     ):
         if is_due(key, minutes):
             due.append((overdue(key, minutes), key))
     if teh.weekday() in (0, 2, 4) and is_due("showcase", 2880):
         due.append((overdue("showcase", 2880), "showcase"))
 
-    # نوبت برابر وقتی هر دو تازه‌اند: خبر اول، بعد ابزار، بعد فرصت، آخر نمایش.
-    order = {"news": 0, "tools": 1, "offers": 2, "showcase": 3}
+    # نوبت برابر وقتی هر دو تازه‌اند: خبر اول، بعد ابزار، آخر نمایش.
+    order = {"news": 0, "tools": 1, "showcase": 3}
     due.sort(key=lambda pair: (-pair[0], order.get(pair[1], 9)))
 
     if due and left() > 240:
@@ -3693,7 +3741,7 @@ def preview_run(s, st, seen, kind="news", limit=1, pick=""):
     kept = []
     blocked_words = load_blocked()
     for x in rows:
-        if blocked_hit(x, blocked_words) or (kind != "security" and iran_product(x)):
+        if blocked_hit(x, blocked_words) or (kind != "security" and persian_product(x)):
             continue
         blob = " ".join(
             [x.get("title") or "", x.get("link") or "", x.get("desc") or ""]

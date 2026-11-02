@@ -1,10 +1,14 @@
 # فهرست منابع
-# هر خط: نام | آدرس | دسته | زبان | وزن
-# دسته: security / news / tools / offers / showcase
+# هر خط: نام | آدرس | دسته | زبان | وزن | گروه
+# دسته: security / news / tools / showcase
 # وزن: ۱ رسمی و دست اول، ۲ خوب، ۳ بازنشر
+# گروه: خالی بگذار مگر این که «ai» باشد. گروه «ai» سهم روزانهٔ جدا دارد
+# و روی هم نمی‌تواند بیشتر از سقفش پست بدهد.
 # خطی که با # شروع شود نادیده گرفته می‌شود
 
 # ---------- امنیت ----------
+# هشدار امنیتی، تنها جایی است که افزونهٔ فارسی هم پوشش داده می‌شود،
+# و آن هم فقط وقتی منبعش معتبر باشد. این پنج منبع معتبرند.
 وردپرس امنیت|https://wordpress.org/news/category/security/feed/|security|en|1
 وردفنس|https://www.wordfence.com/blog/feed/|security|en|1
 پچ‌استک|https://patchstack.com/feed/|security|en|1
@@ -12,6 +16,7 @@
 سوکوری|https://blog.sucuri.net/feed/|security|en|2
 
 # ---------- خبر وردپرس ----------
+# ستون اصلی کانال. خبر رسمی، خبر جامعه، و طراحی سایت.
 وردپرس|https://wordpress.org/news/feed/|news|en|1
 # دفتر کار تیم توسعه این‌جا بود و بیشترین پست بی‌ربط را می‌داد:
 # صورت‌جلسه، گزارش هفتگی، تغییرات تیم بازبینی. شش پست از این منبع
@@ -22,52 +27,32 @@
 وردپرس فارسی|https://fa.wordpress.org/news/feed/|news|fa|2
 تاورن|https://wptavern.com/feed|news|en|2
 پست‌استتوس|https://poststatus.com/feed/|news|en|2
-# میهن وردپرس رقیب است. فیدش خوانده نمی‌شود و نامش در blocked.txt هم بسته است.
+# میهن وردپرس و هر فروشگاه ایرانی دیگر: پوشش داده نمی‌شود. فیدشان
+# خوانده نمی‌شود و کالای فارسی هم از راه قاعدهٔ کالای فارسی رد می‌شود.
 المنتور|https://elementor.com/blog/feed/|news|en|2
-جت‌پک|https://jetpack.com/blog/feed/|news|en|3
-یوست|https://yoast.com/feed/|news|en|3
-رنک‌مث|https://rankmath.com/feed/|news|en|3
 وردپرس دات کام|https://wordpress.com/blog/feed/|news|en|2
-کینستا|https://kinsta.com/blog/feed/|news|en|3
+کینستا|https://kinsta.com/blog/feed/|news|en|2
 اسمشینگ|https://www.smashingmagazine.com/feed/|news|en|3
 سی‌اس‌اس تریکس|https://css-tricks.com/feed/|news|en|3
-تورک|https://torquemag.io/feed/|news|en|3
 دبلیوپی بگینر|https://www.wpbeginner.com/feed/|news|en|3
-وپی مایور|https://wpmayor.com/feed/|news|en|3
 
-# ---------- خبر هوش مصنوعی ----------
-# این‌ها خبرند، نه ابزار. قبلاً در دستهٔ ابزار بودند و مدل درست می‌گفت
-# «این ابزار نیست» و همه را رد می‌کرد؛ نتیجه‌اش این بود که دستهٔ ابزار
-# پر بود و کانال خالی. خبر هوش مصنوعی جای درستش دستهٔ خبر است.
-اوپن‌ای‌آی|https://openai.com/news/rss.xml|news|en|1
-گوگل|https://blog.google/technology/ai/rss/|news|en|1
-دیپ‌مایند|https://deepmind.google/blog/rss.xml|news|en|1
-هاگینگ‌فیس|https://huggingface.co/blog/feed.xml|news|en|2
-تک‌کرانچ|https://techcrunch.com/category/artificial-intelligence/feed/|news|en|2
-دیکودر|https://the-decoder.com/feed/|news|en|2
-مارک‌تک‌پست|https://www.marktechpost.com/feed/|news|en|2
-دِورج|https://www.theverge.com/rss/ai-artificial-intelligence/index.xml|news|en|2
-آرس‌تکنیکا|https://arstechnica.com/ai/feed/|news|en|2
+# ---------- خبر هوش مصنوعی (گروه ai) ----------
+# فقط سه منبع، و همه با گروه ai، تا سهمشان از سقف روزانه رد نشود.
+# بقیه حذف شدند: گوگل و دیپ‌مایند و هاگینگ‌فیس بیشتر بیانیهٔ شرکتی
+# می‌دادند، مارک‌تک‌پست بازنشر بود، وورج و آرس‌تکنیکا هم همان خبر را
+# با تیتر دیگر تکرار می‌کردند.
+دیکودر|https://the-decoder.com/feed/|news|en|2|ai
+تک‌کرانچ|https://techcrunch.com/category/artificial-intelligence/feed/|news|en|2|ai
+اوپن‌ای‌آی|https://openai.com/news/rss.xml|news|en|1|ai
 
 # ---------- ابزار ----------
-# فقط جایی که واقعاً محصول تازه معرفی می‌شود: صفحهٔ محصول، نمایش هکرنیوز،
-# مخزن تازه. وبلاگ سازنده‌ها آموزش می‌نویسد نه خبر، و جای درستش همین
-# دستهٔ ابزار است، وگرنه کانال پر می‌شود از «چطور فلان کار را بکنیم».
-الگانت|https://www.elegantthemes.com/blog/feed|tools|en|3
-پروداکت هانت|https://www.producthunt.com/feed|tools|en|2
+# فقط جایی که واقعاً محصول تازه معرفی می‌شود.
+# هکرنیوز، ردیت و جست‌وجوی گیت‌هاب حذف شدند: مخزن‌های ناشناس و
+# «نمایش هکرنیوز» بیشترش ابزار بازی و آزمایش شخصی بود، نه چیزی که
+# به کار سایت بیاید. یک بار هم مخزنی با نام تصادفی و بی‌توضیح پست شد.
 سایمون ویلیسون|https://simonwillison.net/atom/everything/|tools|en|3
-شو هکرنیوز|https://hn.algolia.com/api/v1/search_by_date?query=show%20hn&tags=story&hitsPerPage=20|tools|en|2
-ردیت ام‌سی‌پی|https://www.reddit.com/r/mcp/new/.rss|tools|en|2
-گیت‌هاب ام‌سی‌پی|https://api.github.com/search/repositories?q=topic:mcp+stars:%3E100&sort=updated&per_page=10|tools|en|3
-گیت‌هاب ایجنت|https://api.github.com/search/repositories?q=topic:ai-agents+stars:%3E200&sort=updated&per_page=10|tools|en|3
-
-# ---------- فرصت رایگان ----------
-ای‌فری|https://aifree.dev/rss.xml|offers|en|1
-پرک|perq:offers|offers|en|1
-# پروداکت هانت قبلاً دو بار با یک آدرس آمده بود: یک بار در ابزار و یک بار
-# در فرصت. آیتم تکراری پست نمی‌شد ولی هر اجرا یک درخواست اضافه می‌رفت و
-# دستهٔ آیتم با ترتیب اجرا تعیین می‌شد. یک بار کافی است.
-هکرنیوز اعتبار رایگان|https://hn.algolia.com/api/v1/search_by_date?query=free%20credits%20api&tags=story&hitsPerPage=20|offers|en|3
+پروداکت هانت|https://www.producthunt.com/feed|tools|en|3
 
 # ---------- نمایشگاه ----------
+# طراحی سایت. این هم بخشی از هشتاد درصد است.
 لندبوک|https://land-book.com/feed|showcase|en|3

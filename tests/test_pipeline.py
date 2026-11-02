@@ -35,7 +35,7 @@ _qsave = radar.QUEUE.read_text(encoding="utf-8") if radar.QUEUE.exists() else "{
 radar.QUEUE.write_text(
     json.dumps({"v": 1, "items": [{
         "id": "m1", "title": "t", "link": "https://example.com/x", "desc": "",
-        "source": "الگانت", "kind": "news", "added": radar.now().isoformat(timespec="seconds"),
+        "source": "وردپرس", "kind": "tools", "added": radar.now().isoformat(timespec="seconds"),
     }]}, ensure_ascii=False),
     encoding="utf-8",
 )
@@ -43,7 +43,7 @@ _was_dry = radar.DRY
 radar.DRY = False
 _q, _ = radar.queue_merge([], {"queue_days": 7})
 radar.DRY = _was_dry
-check("دسته: آیتم فید جابه‌جاشده دنبال فید می‌رود", _q["items"][0]["kind"], "tools")
+check("دسته: آیتم فید جابه‌جاشده دنبال فید می‌رود", _q["items"][0]["kind"], "news")
 radar.QUEUE.write_text(_qsave, encoding="utf-8")
 
 # ---------------------------------------------------------------- نگهبان
@@ -148,38 +148,28 @@ check("کیفیت: تیتر با اسم واقعی قبول می‌شود", ok, 
 ok, why = radar.quality_ok("به گفتهٔ یک شرکت، ابزار تازه‌ای برای ساخت سایت آمده است", vague)
 check("کیفیت: «به گفتهٔ یک شرکت» هم رد می‌شود", ok, False)
 
-# ---------------------------------------------------------------- رقیب
-check("رقیب: نامش در فهرست است", "mihanwp" in radar.load_blocked(), True)
+# ---------------------------------------------------------------- کالای فارسی
+# فهرست رقیب خالی است؛ قاعدهٔ کلی کار می‌کند: هر قالب و افزونهٔ فارسی.
 check(
-    "رقیب: با دامنه گرفته می‌شود",
-    bool(radar.blocked_hit({"link": "https://mihanwp.com/shopvane"})),
+    "کالای فارسی: قالب با دامنهٔ ایرانی گرفته می‌شود",
+    radar.persian_product({"title": "قالب فروشگاهی تازه", "link": "https://shop.example.ir/theme"}),
     True,
 )
 check(
-    "رقیب: نیم‌فاصله با فاصله یکی است",
-    bool(radar.blocked_hit({"title": "قالب تازه از میهن\u200cوردپرس"})),
+    "کالای فارسی: منبع فارسی با حرف کالا گرفته می‌شود",
+    radar.persian_product(
+        {"title": "افزونهٔ فرم تماس منتشر شد", "link": "https://fa.example.com/p/1", "lang": "fa"}
+    ),
     True,
 )
 check(
-    "رقیب: خبر سالم دست‌نخورده می‌ماند",
-    radar.blocked_hit({"title": "قالب تازه برای وردپرس", "link": "https://wptavern.com/x"}),
-    "",
-)
-
-# کالای ایرانی، رقیب است؛ ولی هشدار امنیتی دربارهٔ افزونهٔ خارجی نه.
-check(
-    "کالای ایرانی: قالب با دامنهٔ ایرانی گرفته می‌شود",
-    radar.iran_product({"title": "قالب فروشگاهی تازه", "link": "https://shop.example.ir/theme"}),
-    True,
-)
-check(
-    "کالای ایرانی: قالب خارجی گرفته نمی‌شود",
-    radar.iran_product({"title": "قالب تازه برای وردپرس", "link": "https://wptavern.com/x"}),
+    "کالای فارسی: قالب خارجی گرفته نمی‌شود",
+    radar.persian_product({"title": "قالب تازه برای وردپرس", "link": "https://wptavern.com/x"}),
     False,
 )
 check(
-    "کالای ایرانی: خبر غیرکالایی از دامنهٔ ایرانی رد نمی‌شود",
-    radar.iran_product({"title": "کنفرانس وردپرس ایران برگزار شد", "link": "https://news.example.ir/x"}),
+    "کالای فارسی: خبر غیرکالایی از دامنهٔ ایرانی رد نمی‌شود",
+    radar.persian_product({"title": "کنفرانس وردپرس ایران برگزار شد", "link": "https://news.example.ir/x"}),
     False,
 )
 

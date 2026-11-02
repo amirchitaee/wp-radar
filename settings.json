@@ -1,5 +1,5 @@
 {
- "daily_cap": 11,
+ "daily_cap": 10,
  "publish": {
   "enabled": true,
   "start": "08:00",
@@ -9,10 +9,11 @@
   "max_hold_h": 30,
   "bypass_labels": ["فوری", "هشدار امنیتی"]
  },
+ "ai_cap_per_day": 1,
  "caps": {
-  "news": 4,
-  "tools": 2,
-  "offers": 2,
+  "news": 6,
+  "tools": 1,
+  "offers": 0,
   "security": 2,
   "showcase": 1
  },
