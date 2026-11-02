@@ -22,7 +22,7 @@
 وردپرس فارسی|https://fa.wordpress.org/news/feed/|news|fa|2
 تاورن|https://wptavern.com/feed|news|en|2
 پست‌استتوس|https://poststatus.com/feed/|news|en|2
-میهن وردپرس|https://mihanwp.com/feed/|news|fa|3
+# میهن وردپرس رقیب است. فیدش خوانده نمی‌شود و نامش در blocked.txt هم بسته است.
 المنتور|https://elementor.com/blog/feed/|news|en|2
 جت‌پک|https://jetpack.com/blog/feed/|news|en|3
 یوست|https://yoast.com/feed/|news|en|3

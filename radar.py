@@ -263,6 +263,51 @@ def load_sources(kind):
     return rows
 
 
+# رقیب، خبر نیست. کانال برای مخاطبِ ماست، نه تابلوی اعلانات رقیب. هر آیتمی
+# که نام یا دامنهٔ رقیب در آن باشد، همان لحظهٔ جمع‌آوری کنار می‌رود و به مدل
+# هم نمی‌رسد. فهرست در blocked.txt است تا بدون دست زدن به کد عوض شود.
+BLOCKED = ROOT / "blocked.txt"
+_BLOCK_CACHE = {"mtime": None, "words": []}
+
+
+def _norm_fa(text):
+    """نیم‌فاصله و فاصله را یکی می‌کند تا «میهن‌وردپرس» و «میهن وردپرس» یکی شوند."""
+    return str(text or "").replace("\u200c", " ").replace("\u200f", "").lower()
+
+
+def load_blocked():
+    path = BLOCKED
+    try:
+        mtime = path.stat().st_mtime
+    except OSError:
+        return []
+    if _BLOCK_CACHE["mtime"] == mtime:
+        return _BLOCK_CACHE["words"]
+    words = []
+    for line in path.read_text(encoding="utf-8").splitlines():
+        line = line.strip()
+        if not line or line.startswith("#"):
+            continue
+        words.append(_norm_fa(line).strip())
+    _BLOCK_CACHE["mtime"] = mtime
+    _BLOCK_CACHE["words"] = words
+    return words
+
+
+def blocked_hit(item, blocked=None):
+    """اگر نام یا دامنهٔ رقیب جایی در آیتم باشد، همان واژه را برمی‌گرداند."""
+    words = load_blocked() if blocked is None else blocked
+    if not words:
+        return ""
+    hay = _norm_fa(
+        " ".join(str(item.get(k) or "") for k in ("title", "desc", "link", "source"))
+    )
+    for w in words:
+        if w and w in hay:
+            return w
+    return ""
+
+
 def fetch_json_items(url):
     data = json.loads(http_get(url, headers={"Accept": "application/json"}).decode("utf-8", "replace"))
     out = []
@@ -2625,6 +2670,7 @@ def collect(kind, st, seen, budget_sec=None):
     """
     sources = load_sources(kind)
     rows = []
+    blocked = load_blocked()
     started = time.time()
     budget = float(budget_sec or 180)
     for idx, src in enumerate(sources):
@@ -2634,6 +2680,13 @@ def collect(kind, st, seen, budget_sec=None):
         for it in fetch_source(src, st):
             iid = item_id(it["link"])
             if iid in seen["ids"]:
+                continue
+            hit = blocked_hit(
+                {"title": it["title"], "desc": it["desc"], "link": it["link"], "source": src["name"]},
+                blocked,
+            )
+            if hit:
+                log("  blocked (رقیب):", hit, it["title"][:40])
                 continue
             age = 99
             if it["published"]:
@@ -2816,6 +2869,7 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
     if kind in ("news", "tools"):
         skipped = 0
         kept = []
+        blocked_words = load_blocked()
         for x in pending:
             blob = " ".join([x.get("title", "") or "", x.get("link", "") or ""])
             if NON_NEWS_RE.search(blob) or JUNK_NEWS_RE.search(blob):
@@ -2844,6 +2898,12 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
                     x["channel_skip"] = True
                     skipped += 1
                     continue
+            # رقیب هرگز. این سد اینجا هم هست چون آیتم ممکن است از قبل در
+            # صف مانده باشد، پیش از آن که فهرست رقیب‌ها را ببندیم.
+            if blocked_hit(x, blocked_words):
+                x["channel_skip"] = True
+                skipped += 1
+                continue
             kept.append(x)
         if skipped:
             log("  non-news skipped:", skipped)
@@ -3575,7 +3635,10 @@ def preview_run(s, st, seen, kind="news", limit=1, pick=""):
             if (x.get("kind") or "news") == kind and not x.get("posted") and x.get("id") not in have
         ]
     kept = []
+    blocked_words = load_blocked()
     for x in rows:
+        if blocked_hit(x, blocked_words):
+            continue
         blob = " ".join(
             [x.get("title") or "", x.get("link") or "", x.get("desc") or ""]
         )
