@@ -123,7 +123,7 @@ def rewrite_text(row, kind="news"):
         return ""
     title = title_of(row)
     try:
-        full = radar.fetch_article(row["link"], limit=3200, hint=title)
+        full, _use = radar.fetch_article(row["link"], limit=3200, hint=title)
     except Exception:
         full = ""
     item = {
@@ -172,12 +172,19 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--export")
     ap.add_argument("--ids", default="")
+    ap.add_argument("--delete-ids", default="", help="این شناسه‌ها را مستقیم پاک کن")
     ap.add_argument("--rewrite", action="store_true")
     ap.add_argument("--limit", type=int, default=0)
     ap.add_argument("--dry", action="store_true")
     ap.add_argument("--yes", action="store_true")
     args = ap.parse_args()
     go = args.yes and not args.dry
+
+    if args.delete_ids:
+        ids = [int(x) for x in re.findall(r"\d+", args.delete_ids)]
+        print("پاک کردن مستقیم {} پیام:".format(len(ids)))
+        delete(ids, go)
+        return 0
 
     rows = load_export(args.export) if args.export else []
     if args.ids:
