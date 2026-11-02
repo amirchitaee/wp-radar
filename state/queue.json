@@ -1554,7 +1554,8 @@
    "kind": "news",
    "age_hours": 15.0,
    "published": "2026-10-29T18:30:39-04:00",
-   "added": "2026-10-30T13:33:32+00:00"
+   "added": "2026-10-30T13:33:32+00:00",
+   "channel_skip": true
   },
   {
    "id": "2154461537c8c699",
@@ -1632,7 +1633,8 @@
    "kind": "news",
    "age_hours": 17.5,
    "published": "2026-10-29T20:01:27+00:00",
-   "added": "2026-10-30T13:33:31+00:00"
+   "added": "2026-10-30T13:33:31+00:00",
+   "channel_skip": true
   },
   {
    "id": "4db20898e948fcbb",
@@ -1814,7 +1816,8 @@
    "kind": "news",
    "age_hours": 21.1,
    "published": "2026-10-29T16:24:55+00:00",
-   "added": "2026-10-30T13:33:32+00:00"
+   "added": "2026-10-30T13:33:32+00:00",
+   "channel_skip": true
   },
   {
    "id": "4dcfcc0d194323eb",
@@ -1879,7 +1882,8 @@
    "kind": "news",
    "age_hours": 23.0,
    "published": "2026-10-29T14:35:26+00:00",
-   "added": "2026-10-30T13:33:30+00:00"
+   "added": "2026-10-30T13:33:30+00:00",
+   "channel_skip": true
   },
   {
    "id": "0bc449511ce7ba02",
@@ -1892,7 +1896,8 @@
    "kind": "news",
    "age_hours": 23.4,
    "published": "2026-10-29T14:07:49+00:00",
-   "added": "2026-10-30T13:33:31+00:00"
+   "added": "2026-10-30T13:33:31+00:00",
+   "channel_skip": true
   },
   {
    "id": "811a8ed42b70c1a7",
@@ -1918,7 +1923,8 @@
    "kind": "news",
    "age_hours": 23.8,
    "published": "2026-10-29T09:47:56-04:00",
-   "added": "2026-10-30T13:33:32+00:00"
+   "added": "2026-10-30T13:33:32+00:00",
+   "channel_skip": true
   },
   {
    "id": "f3538b6fb36f4f58",
@@ -1957,7 +1963,8 @@
    "kind": "news",
    "age_hours": 24.2,
    "published": "2026-10-29T09:20:35-04:00",
-   "added": "2026-10-30T13:33:32+00:00"
+   "added": "2026-10-30T13:33:32+00:00",
+   "channel_skip": true
   },
   {
    "id": "d0e2301d55a343cc",
@@ -2009,7 +2016,8 @@
    "kind": "news",
    "age_hours": 27.3,
    "published": "2026-10-29T10:16:34+00:00",
-   "added": "2026-10-30T13:33:31+00:00"
+   "added": "2026-10-30T13:33:31+00:00",
+   "channel_skip": true
   },
   {
    "id": "c285c52d324ad1b7",
@@ -2194,7 +2202,8 @@
    "kind": "news",
    "age_hours": 39.7,
    "published": "2026-10-28T21:48:37+00:00",
-   "added": "2026-10-30T13:33:30+00:00"
+   "added": "2026-10-30T13:33:30+00:00",
+   "channel_skip": true
   },
   {
    "id": "f9d1493b929c42b6",
@@ -2259,7 +2268,8 @@
    "kind": "news",
    "age_hours": 42.2,
    "published": "2026-10-28T19:19:58+00:00",
-   "added": "2026-10-30T13:33:30+00:00"
+   "added": "2026-10-30T13:33:30+00:00",
+   "channel_skip": true
   },
   {
    "id": "f6569f98353aaa46",
@@ -2324,7 +2334,8 @@
    "kind": "news",
    "age_hours": 43.8,
    "published": "2026-10-28T17:46:32+00:00",
-   "added": "2026-10-30T13:33:32+00:00"
+   "added": "2026-10-30T13:33:32+00:00",
+   "channel_skip": true
   },
   {
    "id": "e9cf4dcbcff0f697",
@@ -2454,7 +2465,8 @@
    "kind": "news",
    "age_hours": 64.0,
    "published": "2026-10-27T21:31:14+00:00",
-   "added": "2026-10-30T13:33:32+00:00"
+   "added": "2026-10-30T13:33:32+00:00",
+   "channel_skip": true
   },
   {
    "id": "470ff32953cdb10d",
@@ -4050,7 +4062,8 @@
    "kind": "news",
    "age_hours": 3.5,
    "published": "2026-10-30T16:03:45+00:00",
-   "added": "2026-10-30T19:32:17+00:00"
+   "added": "2026-10-30T19:32:17+00:00",
+   "channel_skip": true
   },
   {
    "id": "3260338873441f10",
@@ -4458,7 +4471,8 @@
    "kind": "news",
    "age_hours": 25.6,
    "published": "2026-10-30T00:00:00+00:00",
-   "added": "2026-10-31T01:33:42+00:00"
+   "added": "2026-10-31T01:33:42+00:00",
+   "channel_skip": true
   },
   {
    "id": "c6b2d3ea79170b2a",
@@ -4744,7 +4758,8 @@
    "kind": "news",
    "age_hours": 3.7,
    "published": "2026-10-30T21:52:03+00:00",
-   "added": "2026-10-31T01:33:42+00:00"
+   "added": "2026-10-31T01:33:42+00:00",
+   "channel_skip": true
   },
   {
    "id": "db4f8cb3fa1c858f",
@@ -6101,7 +6116,8 @@
    "kind": "news",
    "age_hours": 3.1,
    "published": "2026-10-31T09:22:52+00:00",
-   "added": "2026-10-31T12:31:19+00:00"
+   "added": "2026-10-31T12:31:19+00:00",
+   "channel_skip": true
   },
   {
    "id": "a8549863f2545242",
@@ -7013,7 +7029,8 @@
    "age_hours": 1.3,
    "published": "2026-10-31T16:12:55+00:00",
    "added": "2026-10-31T17:31:51+00:00",
-   "full": "Buy One Founder Summit Ticket, Get a Second for Free. Register now. Founder Summit begins Nov. 4, 9:00 a.m. ET. Get your pass savings & deals before it starts. REGISTER HERE. OpenAI’s latest funding round isn’t quite living up to expectations, according to multiple news reports. OpenAI was previously reported to be raising $30 billion at a $1.4 trillion valuation , and then at a $1.25 trillion valuation , ahead of a planned IPO. But The Financial Times reported Friday that the company has subsequently lowered its funding target to $20 billion, with a first close that’s expected to be even lower than that. The round will be led by a group of investors from the United Arab Emirates, the FT said. A subsequent retail offering for wealthy individuals could bring the total funding amount to the $20 billion target. A follow-up story in The Wall Street Journal offered more details, namely that the company has secured $11 billion so far, and that its fundraising efforts had met with a “tepid” response from some large investors. TechCrunch has reached out to OpenAI for comment. The company’s reported funding challenges could be blamed, in part, on bad timing, as Wall Street investors have become wary of heavy AI infrastructure spending , leading to a major sell off of tech stocks. And Anthropic’s planned IPO could be facing challenges , too. Buy One Pass, Get a Second Free Cover more ground at TechCrunch’s ultimate founder bootcamp of the year by bringing your co-founder or partner for free Book before the BOGO deal expires Every weekday and Sunday, you can get the best of TechCrunch’s coverage. TechCrunch Mobility is your destination for transportation news and insight. Startups are the core of TechCrunch, so get our best coverage delivered weekly. Provides movers and shakers with the info they need to start their day. By submitting your email, you agree to our Terms and Privacy Notice ."
+   "full": "Buy One Founder Summit Ticket, Get a Second for Free. Register now. Founder Summit begins Nov. 4, 9:00 a.m. ET. Get your pass savings & deals before it starts. REGISTER HERE. OpenAI’s latest funding round isn’t quite living up to expectations, according to multiple news reports. OpenAI was previously reported to be raising $30 billion at a $1.4 trillion valuation , and then at a $1.25 trillion valuation , ahead of a planned IPO. But The Financial Times reported Friday that the company has subsequently lowered its funding target to $20 billion, with a first close that’s expected to be even lower than that. The round will be led by a group of investors from the United Arab Emirates, the FT said. A subsequent retail offering for wealthy individuals could bring the total funding amount to the $20 billion target. A follow-up story in The Wall Street Journal offered more details, namely that the company has secured $11 billion so far, and that its fundraising efforts had met with a “tepid” response from some large investors. TechCrunch has reached out to OpenAI for comment. The company’s reported funding challenges could be blamed, in part, on bad timing, as Wall Street investors have become wary of heavy AI infrastructure spending , leading to a major sell off of tech stocks. And Anthropic’s planned IPO could be facing challenges , too. Buy One Pass, Get a Second Free Cover more ground at TechCrunch’s ultimate founder bootcamp of the year by bringing your co-founder or partner for free Book before the BOGO deal expires Every weekday and Sunday, you can get the best of TechCrunch’s coverage. TechCrunch Mobility is your destination for transportation news and insight. Startups are the core of TechCrunch, so get our best coverage delivered weekly. Provides movers and shakers with the info they need to start their day. By submitting your email, you agree to our Terms and Privacy Notice .",
+   "channel_skip": true
   },
   {
    "id": "ed0268fa6e325c7b",
@@ -7571,7 +7588,8 @@
    "kind": "news",
    "age_hours": 1.5,
    "published": "2026-10-31T21:17:03+00:00",
-   "added": "2026-10-31T22:45:29+00:00"
+   "added": "2026-10-31T22:45:29+00:00",
+   "channel_skip": true
   },
   {
    "id": "aeb28e30363dfb10",
@@ -11877,7 +11895,8 @@
    "published": "2026-11-02T07:47:12+00:00",
    "added": "2026-11-02T12:01:02+00:00",
    "full": "News Hub News Hub Premium Content Read our exclusive articles Facebook Instagram X Home Open Source/Weights AI Agents Tutorials Voice AI Robotics Newsletter Promote with Us MARKTECHPOST Search AI news... Search Home Open Source/Weights AI Agents Tutorials Voice AI Robotics Newsletter Promote with Us Home Artificial Intelligence AI Infrastructure NVIDIA Releases Auto Ontology: An Open Semantic Layer That Grounds AI Agent... Artificial Intelligence AI Infrastructure Technology AI Shorts Applications Editors Pick For Devs Harness Language Model New Releases Tech News Python Software Engineering Staff Add as a preferred source on Google NVIDIA has released Auto Ontology , an open library under the Apache 2.0 license . NVIDIA Auto Ontology is a semantic layer framework that builds a context layer from enterprise metadata. Agents use that layer to write SQL against certified business definitions. The repository states the problem plainly: a fast revenue answer is worthless if the number is wrong. It is a context layer that sits between an agent and the data warehouse. It tells the agent where data lives and what fields mean. It also says whether to use a field, how to use it, and where it came from. Star on GitHub → Sponsored Here are the five jobs: NVIDIA’s developer page frames the output as a starting ontology. Business experts still test, refine and certify it. The stack has 4 core services. A Next.js 16 frontend handles the web UI and authentication on port 3000. A FastAPI backend with LangChain runs chat, NL-to-SQL and catalog APIs on port 3001. An ingestion worker writes embeddings on port 3002. Postgres with pgvector stores the catalog, the ontology and the vectors. Source databases can be Databricks, Postgres, Snowflake or DuckDB. Models are set through environment “triplets” of endpoint, key and model. Separate roles exist for reasoning, non-reasoning, embedding and reranking. Any OpenAI-compatible endpoint works. The MCP server docs describe 9 read-only tools. ask_question returns the answer, the SQL and the rows as separate fields. Results cap at 100 rows. check_readiness confirms a compiled semantic layer and a live database connection exist. There is no tool for browsing raw schemas. NVIDIA chose that on purpose, so agents reach data through the semantic layer. The underlying OpenAPI spec publishes 87 operations. Sign-in runs through OAuth, and every call carries the signed-in user’s permissions. NVIDIA ships a separate harness, auto-ontology-eval . It runs 2 arms in NeMo Gym: a schema-only LLM control and the ontology-grounded agent. Scoring is deterministic execution match, with no LLM judge. Bundled datasets include BIRD Dev (1,534 questions, 11 databases) and Mini-Dev (500 questions). FDABench-Lite adds 169 questions, and BEAVER defaults to a 100-question sample. The harness repo adds 2 limitations. Optional few-shot exemplars and value anchors go to the ontology arm only. A delta measured with them covers those inputs, not grounding alone. Its tested configuration also routes both arms through a Claude model on NVIDIA’s inference gateway. Local setup is docker compose up -d --build after filling in .env . Kubernetes users get a H",
-   "use_link": "https://github.com/cube-js/cube"
+   "use_link": "https://github.com/cube-js/cube",
+   "held": true
   },
   {
    "id": "b5493c5d9a8b1fef",
@@ -12381,7 +12400,8 @@
    "published": "2026-11-02T16:26:03+00:00",
    "added": "2026-11-02T17:15:32+00:00",
    "full": "Anthropic swings back to an operating loss ahead of its blockbuster IPO. According to Bloomberg, the company posted quarterly revenue of nearly $17 billion , twelve times what it brought in a year earlier. But operating costs of $17.5 billion outpaced that revenue, wiping out the profit Anthropic had reported the previous quarter, according to The Information . The net loss came in at $23.3 billion for the quarter, up from $12.1 billion a year ago. Anthropic pointed to two main drivers behind the cost spike: $5 billion for short-term compute capacity it locked in and $2 billion in employee donation matching. The company has been grappling with a compute crunch since late last year. According to the New York Times, it has since signed dozens of deals with Amazon, Google, SpaceX, chipmakers, and former crypto miners. Anthropic is expected to have access to more than 3.5 gigawatts of power this year and plans to double that next year. All told, the company's updated prospectus shows $895 billion in commitments for compute and data center leases. Those costs add pressure on the IPO, which could raise around $100 billion, the New York Times reports. Up to $3.5 billion of that is expected to come from Japanese investors . Ad Ad Subscribe to THE DECODER for ad-free reading, a weekly AI newsletter, our exclusive \"AI Radar\" frontier report six times a year, full archive access, and access to our comment section.",
-   "use_link": "https://www.nytimes.com/2026/11/02/technology/anthropic-ai-computing-power.html"
+   "use_link": "https://www.nytimes.com/2026/11/02/technology/anthropic-ai-computing-power.html",
+   "channel_skip": true
   },
   {
    "id": "c47f7ae7240d4b54",
@@ -12944,7 +12964,8 @@
    "published": "2026-11-02T18:50:53+00:00",
    "added": "2026-11-02T19:00:52+00:00",
    "full": "WPBeginner » Blog » Showcase » 7 Best WordPress MCP Servers and Plugins in 2026 (We Tested Them All) Connecting Claude or ChatGPT to your WordPress site can save you hours of routine admin work. However, the AI can only do what your WordPress MCP server lets it do, and some servers will permanently delete content without asking you first. I wanted to know which ones you can trust on a real site. So I set up a test store and gave the same six tasks to 7 WordPress MCP servers, including asking the AI to permanently delete a published post. WPVibe came out on top for most people. It finished every task, works from Claude or ChatGPT in your browser on any self-hosted WordPress site, and it was the only server that stopped and asked before deleting that post. In this guide, I’ll share the best WordPress MCP servers I tested, how each one handled risky changes, and which one fits your site. An MCP server is a bridge between your AI app and your WordPress site. It lets the AI do the work on your site, instead of only telling you what to do. MCP stands for Model Context Protocol. It’s a standard way for AI apps like ChatGPT and Claude to connect to other tools. Here’s the difference it makes: Think of it like hiring an assistant. Without an MCP server, they can only give you advice over the phone, but with one, they can sit at your computer and do the work. Now that you know what an MCP server does, let me show you how I tested them. First, I picked the most-installed MCP plugins on WordPress.org, the official options from the WordPress project and WordPress.com, and one developer favorite. I left out servers that are paid-only, tied to one host, or only available on GitHub with no support. Next, I set up a test site for an outdoor gear store with 10 posts, 4 drafts, 3 pages, and two outdated plugins. Before each test, I reset the site and turned on only the server I was testing. After that, I gave Claude the same six tasks for every server. The first five are everyday jobs, and the sixth is a safety test: Then I checked every result on the site myself, instead of trusting what the AI said it did. I judged each server on these criteria: These criteria come from over 17 years of helping beginners run WordPress sites safely. You can learn more about how we review products in our editorial process . Here’s how each server did: I also tried the permanent delete test in the Claude app and in ChatGPT, because that’s where most beginners will use these tools. You’ll find those results in the WPVibe and Novamira sections below. Before you pick a server, it helps to know how they differ from each other. WordPress has a new feature called the Abilities API. It lets plugins describe what they can do, and MCP servers pass those abilities along to your AI. A basic MCP server stops there. Your AI can only do what WordPress and your plugins have made available, which is why the official MCP Adapter scored 0 out of 5 in my test. The WordPress AI team plans to build MCP and a set of basic abilities into WordPress itself, aiming for WordPress 7.3. I believe that will make a basic connection something every site has, and the real difference will be what each server add",
-   "use_link": "https://wordpress.org/plugins/jetpack/"
+   "use_link": "https://wordpress.org/plugins/jetpack/",
+   "held": true
   },
   {
    "id": "80f07d28dc040c89",
@@ -12959,7 +12980,8 @@
    "published": "2026-11-02T17:03:48+00:00",
    "added": "2026-11-02T19:00:49+00:00",
    "full": "Until November 30, connecting ChatGPT or Claude to your WordPress site is free on every Jetpack site. Then ask your AI, in plain words, to write a post, fix your images, change your design or clean up old pages. Tell it to show you first or save a draft, and you check the result before anything goes live. After November 30, our pricing page shows which plans include AI agents. Everything your AI made for you stays on your site. For the full setup guide, read Connect an AI agent to your site with MCP . Copy one into ChatGPT, or click Try it to open ChatGPT with the words already typed. The Jetpack prompt library has 26 more, including: Building a new site? Start with Build a WordPress site with ChatGPT or Claude . If you use Jetpack Backup or Scan, Where to start with Jetpack in ChatGPT has prompts for both. The ChatGPT app on your phone uses the same connection. Fix a typo, answer a comment or add a quick post from wherever you are. You stay in charge. Connect with read only access if you just want answers, and switch off tools you don’t want in Jetpack → Jetpack AI . ChatGPT never gets more than your own WordPress permissions. Whether it asks before each change depends on ChatGPT’s settings. Every change shows in your activity log. Add the WordPress.com connector in Claude , sign in, and use the same prompts. No. It covers connecting ChatGPT, Claude or another AI agent. The editor’s AI Assistant keeps its usual limits. Yes. The WordPress.com plugin for ChatGPT works with WordPress sites running Jetpack and with sites hosted on WordPress.com. MCP (Model Context Protocol) is the open standard ChatGPT and Claude use to connect to other tools. Jetpack uses it to let your AI agent work on your WordPress site. That’s why each Try it prompt starts with “Use the WordPress.com MCP.” Connect ChatGPT or Claude while it’s free. Adam Pickering Senior Product Designer @Automattic | All things AI, accessibility & UX. Learn how Jetpack can help you protect, speed up, and grow your WordPress site. Comments are closed for this article, but we're still here to help! Visit the support forum and we'll be happy to answer any questions. Reblog Subscribe Subscribed Jetpack Join 53,265 other subscribers Sign me up Have a WordPress.com account? Log in now.",
-   "use_link": "https://github.com/Automattic/jetpack"
+   "use_link": "https://github.com/Automattic/jetpack",
+   "held": true
   },
   {
    "id": "10b39fab11628312",
@@ -13161,7 +13183,8 @@
    "kind": "news",
    "age_hours": 41.6,
    "published": "2026-11-01T02:22:10+00:00",
-   "added": "2026-11-02T20:00:52+00:00"
+   "added": "2026-11-02T20:00:52+00:00",
+   "channel_skip": true
   },
   {
    "id": "4005319e1c08779e",
@@ -13178,6 +13201,21 @@
    "full": "Goldman Sachs has cut off most of its employees from advanced AI coding tools like Anthropic's Claude Code and Microsoft's GitHub. Only engineers can still use them, according to Bloomberg , citing internal guidelines from October. Traders and bankers had spent months using the tools to monitor trading flows and create content. The rollback is reportedly causing frustration inside the firm. Back in July, Goldman CIO Marco Argenti praised \"vibe coding\" by non-technical staff in an interview. A trader or someone in asset management would have an idea, build a quick prototype with AI, and then hand it off to an engineer to scale for production. That's no longer the plan, it seems. Why the U-turn? Bloomberg's report cites only a \"variety of factors including productivity and risk management,\" according to Goldman spokesperson Nick Carcaterra. He added that the experimentation phase is over, and the firm is now limiting the tools to the people \"who are best suited to leverage them for the long term.\" Ad Ad Subscribe to THE DECODER for ad-free reading, a weekly AI newsletter, our exclusive \"AI Radar\" frontier report six times a year, full archive access, and access to our comment section.",
    "use_link": "",
    "posted": true
+  },
+  {
+   "id": "60a2f0712c33972b",
+   "title": "Web host Squarespace lays off 19% of its employees",
+   "link": "https://techcrunch.com/2026/11/02/web-host-squarespace-lays-off-19-of-its-employees",
+   "desc": "The website builder said that the job losses are part of a broader restructuring of its organization.",
+   "source": "تک‌کرانچ",
+   "lang": "en",
+   "tier": 2,
+   "kind": "news",
+   "age_hours": 2.6,
+   "published": "2026-11-02T19:25:59+00:00",
+   "added": "2026-11-02T22:00:58+00:00",
+   "full": "Buy One Founder Summit Ticket, Get a Second for Free. Register now. Founder Summit begins Nov. 4, 9:00 a.m. ET. Get your pass savings & deals before it starts. REGISTER HERE. Image Credits: Squarespace Commerce Web host Squarespace lays off 19% of its employees Lucas Ropek 11:25 AM PST · November 2, 2026 Squarespace, the web company that helps customers build and host their own websites, is laying off about one-fifth of its workforce, in a move that will affect hundreds of jobs. Jeff Seedman, a public relations specialist representing Squarespace, confirmed the layoffs to TechCrunch. The Verge initially reported the layoffs. “Squarespace is restructuring its organization and reducing its global workforce by approximately 19%, representing around 300 employees,” said Seedman. “The changes are intended to simplify how we operate, sharpen our priorities and enable the company to move faster as we position Squarespace for its next phase of growth.” Website building has changed immensely over the last few years as a result of the generative AI boom. “Vibe-coding” website builders, which only require simple prompts from users to spin up functional front-end designs, have largely upended the industry, making it possible for users to create sites with significantly less effort. These kinds of sites have become an increasingly central part of the website-building business. Last year, web host rival Wix bought Base44 for $80 million . Similar offerings, like Lovable, have generated significant investor interest; Lovable raised a $400 million Series C round in August that valued the company at $13.3 billion. Google also recently launched Stitch , a feature that allows users to swiftly generate user-interface designs. Squarespace has also begun a big push into AI. In 2024, the company launched an AI tool called Blueprint. The company also recently announced Forma, an upcoming AI native platform, whose waitlist users can join . Squarespace was founded in 2004 and went public in 2021 at a $10 billion valuation. However, the company struggled in the ensuing years to generate enthusiastic public market interest. Squarespace ultimately decided to go private again by way of a $7 billion private equity deal in 2024. An earlier version of this report incorrectly stated that Squarespace had not yet launched AI tools; the story has been updated. When you purchase through links in our articles, we may earn a small commission . This doesn’t affect our editorial independence. Lucas Ropek Senior Writer, TechCrunch November 4 Boston Buy One Pass, Get a Second Free Cover more ground at TechCrunch’s ultimate founder bootcamp of the year by bringing your co-founder or partner for free Book before the BOGO deal expires Anthropic expected to receive high ‘junk’ rating from credit agencies following IPO, FT report says Lucas Ropek Google’s first data center satellite is online and writing poetry Tim Fernholz As search traffic dries up, Reddit announces it’s shifting to a logged-in experience Sarah Perez AI execs may be too out of touch to build for the general public Amanda Silberling VCs will make billions on Anthropic’s IPO, but Amazon is set to make much (much) more Marin",
+   "use_link": ""
   }
  ]
 }
