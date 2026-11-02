@@ -751,6 +751,26 @@ check("انتشار: انبار نگه‌داشته خالی شد",
       radar.read_json(radar.READY, {"items": []})["items"], [])
 check("انتشار: پست در کانال ثبت شد", sent[-1] if sent else None, "<b>متن آزمون</b>")
 
+# ---------------------------------------------------------------- جهت متن
+# نام لاتین حذف نمی‌شود؛ فقط در یک واحد جدا ایزوله می‌شود تا در جملهٔ
+# راست‌به‌چپ جابه‌جا نشود. قبلاً «Goldman» و «Sachs» دو واحد جدا بودند
+# و در نمایش برعکس می‌شدند.
+_bidi_out = radar.bidi("خبر: Goldman Sachs دسترسی به Claude Code را قطع کرد")
+check("جهت: نام دو بخشی یک واحد است", "\u2066Goldman Sachs\u2069" in _bidi_out, True)
+check("جهت: نام محصول جدا ایزوله می‌شود", "\u2066Claude Code\u2069" in _bidi_out, True)
+check("جهت: فارسی دست نمی‌خورد", "دسترسی به" in _bidi_out, True)
+
+# ---------------------------------------------------------------- ربط ساختگی
+# خبر پول و دادگاه، اگر ربطی به سایت نداشته باشد، به کار مخاطب نمی‌آید.
+_goldman = "Goldman Sachs has cut off most of its employees from AI coding tools"
+check("مخاطب: خبر بانک و معامله‌گر رد می‌شود",
+      bool(radar.OFF_AUDIENCE_RE.search(_goldman)) and not radar.SITE_TOPIC_RE.search(_goldman), True)
+_wp = "WordPress plugin maker sues hosting company over trademark"
+check("مخاطب: خبر حقوقی مرتبط با وردپرس رد نمی‌شود",
+      bool(radar.OFF_AUDIENCE_RE.search(_wp)) and not radar.SITE_TOPIC_RE.search(_wp), False)
+check("مخاطب: انتشار مدل تازه رد نمی‌شود",
+      bool(radar.OFF_AUDIENCE_RE.search("Deep Principle releases Hydrogen-1.0")), False)
+
 # ---------------------------------------------------------------- نتیجه
 print("{} آزمون اجرا شد.".format(COUNT))
 if FAILS:

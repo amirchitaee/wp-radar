@@ -64,7 +64,9 @@
 # ---------- فرصت رایگان ----------
 ای‌فری|https://aifree.dev/rss.xml|offers|en|1
 پرک|perq:offers|offers|en|1
-پروداکت هانت فرصت|https://www.producthunt.com/feed|offers|en|2
+# پروداکت هانت قبلاً دو بار با یک آدرس آمده بود: یک بار در ابزار و یک بار
+# در فرصت. آیتم تکراری پست نمی‌شد ولی هر اجرا یک درخواست اضافه می‌رفت و
+# دستهٔ آیتم با ترتیب اجرا تعیین می‌شد. یک بار کافی است.
 هکرنیوز اعتبار رایگان|https://hn.algolia.com/api/v1/search_by_date?query=free%20credits%20api&tags=story&hitsPerPage=20|offers|en|3
 
 # ---------- نمایشگاه ----------
