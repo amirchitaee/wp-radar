@@ -11558,6 +11558,21 @@
    "age_hours": 141.6,
    "published": "2026-10-27T06:40:39-07:00",
    "added": "2026-11-02T11:15:26+00:00"
+  },
+  {
+   "id": "dee9cd0084b60652",
+   "title": "Synup Review: An AI Agent for Local Marketing Across Your Agency’s Clients",
+   "link": "https://wpmayor.com/synup-review",
+   "desc": "After a client site launches, the listings, reviews, and social posts around it still need weekly attention. My Synup review looks at Sydekick, an AI agent that takes requests in plain language and holds drafts for approval. The post \" Synup Review: An AI Agent for Local Marketing Across Your Agency’s Clients \" first appeared on WP Mayor .",
+   "source": "وپی مایور",
+   "lang": "en",
+   "tier": 3,
+   "kind": "news",
+   "age_hours": 1.8,
+   "published": "2026-11-02T10:00:00+00:00",
+   "added": "2026-11-02T11:45:44+00:00",
+   "full": "For a solution that packs in a lot of complex functionality, Synup gives you an intuitive interface and workflow. That experience is a standout facet of Synup, although the entire feature set is useful. If you’re an agency with lots of clients at multiple locations, you’ll want to check Synup out. These ratings are based on the version we tested and what we could verify at the time. If a rating is missing, it’s because we didn’t find enough information to score it appropriately. Pros Synup's tools fit the needs of a typical high-volume agency for local marketing. The usability and UI choices make it undemanding to work with the wealth of functionality available. It's straightforward to set up Playbooks and Skills within a couple of minutes. Cons Legacy and current documentation coexist, so you'll need to check that you're following the correct guides for the product. Table of Contents Running an agency likely gives you plenty of repeat work, which is great for your income, but can tank your efficiency. Changing client listings, handling reviews, managing social media, running reports, and all manner of other tasks are necessary for keeping the working relationship solid. My Synup review introduces a potential solution for you. Synup uses an AI agent to automate much of this repetitive work. This review will look at Synup and how it can help you run better local marketing for your clients. Right off the bat, I’m pleased that Synup includes its full functionality on every plan . For each of the four tiers with available pricing , the difference is in the number of locations, parallel agent chats, agent credits, and environment: If your needs extend beyond these four plans, you can contact the Synup team to discuss the Enterprise tier. Credits pay for all of the Sydekick messages, generations, scrapes, SEO lookups, drafted posts, and other metered actions Sydekick takes. You’ll also spot an “effective rate per location” on the pricing page. This is a helpful way to set your prices per client based on the per-location rate. There’s also no difference in functionality between the shared and dedicated environments . This is similar to hosting, in that you can either isolate your agents or share infrastructure between several other Synup accounts. My recommendation for an agency is to start with Premium . This is because you have multiple location slots and white-labelling. Solo might suit a single-client test, but you’ll typically want to opt for more locations to cover your client base. I should also note that Synup isn’t only an agency-focused tool. For instance, that Solo plan is also ideal for single-location or one-person businesses. The focus for this post is on agency usage, but the functionality can benefit businesses of all sizes. Your agency might suffer from the same problems as many others: lots of repetitive manual work, search accuracy concerns, and a higher cost of setup than you’d like. This is what the Sydekick AI agent is designed to help you with. Any request you make sends it away to think it through, search for a solution, build something, or put a process into action. Your job is to first choose a client and location for Sydek",
+   "use_link": "https://synup.com/kb/agent-config/connect-a-custom-mcp-server"
   }
  ]
 }
