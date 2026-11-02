@@ -12170,6 +12170,21 @@
    "age_hours": 4.3,
    "published": "2026-11-02T06:11:41-05:00",
    "added": "2026-11-02T15:30:38+00:00"
+  },
+  {
+   "id": "b8ddd3b56843cbdb",
+   "title": "What’s !important #20: GTA 6 Scroll Effects, Scrollspies, random()",
+   "link": "https://css-tricks.com/whats-important-20",
+   "desc": "This is the final issue of What’s !important on CSS-Tricks.com. The good news is that it’s coming back in an expanded form as the CSS-Tricks newsletter. I had ya there for a second, didn’t I? Sorry, I couldn’t decide whether to trick or treat, so I went for both. Happy Halloween What’s !important #20: GTA 6 Scroll Effects, Scrollspies, random() originally handwritten and published with love on CSS-Tricks . You should really get the newsletter as well.",
+   "source": "سی‌اس‌اس تریکس",
+   "lang": "en",
+   "tier": 3,
+   "kind": "news",
+   "age_hours": 0.7,
+   "published": "2026-11-02T15:06:07+00:00",
+   "added": "2026-11-02T15:45:46+00:00",
+   "full": "WordPress sites from those who know WordPress best. NVIDIA L4 GPUs. 5-second cold starts. Scale to zero when idle. Good news first? Or bad news first? This is the final issue of What’s !important on CSS-Tricks.com. The good news is that it’s coming back in an expanded form as the CSS-Tricks newsletter . I had ya there for a second, didn’t I? Sorry, I couldn’t decide whether to trick or treat, so I went for both. Happy Halloween! The newsletter officially kicks off on November 10th. That’s after a way-too-long four-year hiatus . What the heck, right? It’s not only high time for it to come back, but for you to get on the list . You’ll get hand-written and hand-curated news, links, and editorials that you can only find there. Join the party with me! So, let’s go out with a big bang for our “final” issue. It’s packed with some stuff that I’ve been holding onto since before the site came back to life earlier this week, but also some new stuff, and I can’t wait to finally get it out to you. GTA 6 scroll effects walkthrough Scooch over Apple, Rockstar has something they’d like to say about fancy scrolling effects (to be fair, they’ve had 13 years to create them). First, check out the GTA 6 website (which oddly doesn’t work in Firefox), then watch Kevin Powell’s GTA 6 scroll effects walkthrough , which is frankly the most fun that you can have while waiting (and waiting) for GTA 6. How to build a scrollspy with modern CSS Mojtaba Seyedi demonstrated how to build a scrollspy with modern CSS . What’s a scrollspy, you ask? Well, if you have a navigation that links to different sections of the page, a scrollspy highlights the section that you’re currently on in the navigation. random() demos explained Brecht De Ruyte showcased and explained some absolutely stunning random() demos . Okay, that was more than a few… Implementing icons on the web in 2026 and beyond Lea Verou explained, in detail, the different ways of implementing icons on the web . Many exciting CSS features of the future are mentioned, including Linked Parameters, ident() , @mixin and @apply , the @property shorthand, and more, so it’s a really deep dive with a lot of intrigue. ::* ? Kilian Valkhof suggested a universal pseudo-selector . I mean, the universal selector ( * ) doesn’t select pseudo -elements, which is why almost every website uses the following CSS snippet, right? *, ::before, ::after { box-sizing: border-box; } But there are way more of them now (e.g., ::backdrop and ::details-content , to name just a couple of common ones in the context of box-sizing: border-box ), so Kilian suggests ::* . New HTML and CSS features that are useful for design systems Declan Chidlow told us which new HTML and CSS features are useful for design systems . My favorites are text-box , sibling-index() , sibling-count() , @scope , and @custom-media , which are very handy even outside of design systems. Make <textarea> s adapt to their content Adam Argyle shared a sweet CSS trick to make <textarea> s adapt to their content (like contenteditable s do naturally): As you can see, there’s a bit of anchor positioning going on there. Is it just me or is anchor positioning the most versatile CSS feature ri",
+   "use_link": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css?ver=4.7.0"
   }
  ]
 }
