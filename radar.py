@@ -2429,18 +2429,23 @@ def publish_ready(s, st, seen, hard_deadline=None):
             continue
         try:
             if row.get("photo"):
-                send_photo(row["photo"], row["text"])
+                res = send_photo(row["photo"], row["text"])
             else:
-                send(row["text"])
+                res = send(row["text"])
         except Exception as exc:
             log("  publish error:", str(exc)[:120])
             keep.append(row)
             break
+        mid = ((res or {}).get("result") or {}).get("message_id")
+        if mid:
+            row["msg_id"] = mid
         q = read_json(QUEUE, {"v": 1, "items": []})
         target = next((x for x in q["items"] if x.get("id") == row.get("id")), None)
         if target:
             target["posted"] = True
             target.pop("held", None)
+            if row.get("msg_id"):
+                target["msg_id"] = row["msg_id"]
         seen["ids"][row.get("id")] = today()
         add_story(store_story, target or row)
         d["count"] = int(d.get("count", 0)) + 1
@@ -3349,14 +3354,20 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
                 if kind == "showcase":
                     pic = og_image(it["link"])
                     if pic:
-                        send_photo(pic, text)
+                        res = send_photo(pic, text)
                     else:
-                        send(text)
+                        res = send(text)
                 else:
-                    send(text)
+                    res = send(text)
             except Exception as exc:
                 log("  telegram error:", exc)
                 break
+            # شناسهٔ پیام را نگه می‌داریم. بدون آن، پاک کردن یا ویرایش همان
+            # پست در کانال ممکن نیست؛ یک بار همین نبودن، تمیز کردن کانال
+            # را غیرممکن کرد.
+            mid = ((res or {}).get("result") or {}).get("message_id")
+            if mid:
+                it["msg_id"] = mid
             seen["ids"][it["id"]] = today()
             it["posted"] = True
             add_story(store, it)
@@ -3409,6 +3420,7 @@ def archive_row(it, label, title, summary, score, kind):
         "title_fa": title,
         "summary_fa": summary,
         "score": score,
+        "msg_id": it.get("msg_id") or 0,
     }
     with ARCHIVE.open("a", encoding="utf-8") as fh:
         fh.write(json.dumps(row, ensure_ascii=False) + "\n")
