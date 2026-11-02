@@ -637,6 +637,26 @@ check(
     "https://github.com/some/hol-guard",
 )
 
+# ---------------------------------------------------------------- یک داستان
+# دو نشریه یک رویداد را با واژه‌های مختلف بازنویسی می‌کنند. نام‌های خاص
+# یکی است، پس داستان یکی است.
+check(
+    "داستان: بازنویسی دو نشریه یکی است",
+    radar.same_story(
+        {"title": "New York Times and other outlets sue web browser Brave over alleged content scraping"},
+        {"title": "The New York Times sues Brave web browser for AI scraping and bypassing paywalls"},
+    ),
+    True,
+)
+check(
+    "داستان: دو خبر جدا از یک شرکت یکی نیست",
+    radar.same_story(
+        {"title": "Google launches Gemini 4 Carbon for long engineering tasks"},
+        {"title": "Google updates Gemini in Workspace with new sidebar"},
+    ),
+    False,
+)
+
 # ---------------------------------------------------------------- نتیجه
 print("{} آزمون اجرا شد.".format(COUNT))
 if FAILS:
