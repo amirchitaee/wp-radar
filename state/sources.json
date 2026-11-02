@@ -219,7 +219,7 @@
   "name": "پروداکت هانت",
   "fails": 0,
   "last_count": 40,
-  "last_ok": "2026-11-02T01:15:28+00:00"
+  "last_ok": "2026-11-02T02:30:48+00:00"
  },
  "https://hn.algolia.com/api/v1/search_by_date?query=show%20hn&tags=story&hitsPerPage=20": {
   "name": "شو هکرنیوز",
@@ -255,18 +255,18 @@
   "name": "ای‌فری",
   "fails": 0,
   "last_count": 40,
-  "last_ok": "2026-11-01T22:15:27+00:00"
+  "last_ok": "2026-11-02T02:30:47+00:00"
  },
  "perq:offers": {
   "name": "پرک",
   "fails": 0,
   "last_count": 26,
-  "last_ok": "2026-11-01T22:15:27+00:00"
+  "last_ok": "2026-11-02T02:30:48+00:00"
  },
  "https://hn.algolia.com/api/v1/search_by_date?query=free%20credits%20api&tags=story&hitsPerPage=20": {
   "name": "هکرنیوز اعتبار رایگان",
   "fails": 0,
   "last_count": 20,
-  "last_ok": "2026-11-01T22:15:28+00:00"
+  "last_ok": "2026-11-02T02:30:50+00:00"
  }
 }

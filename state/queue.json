@@ -10940,6 +10940,36 @@
    "age_hours": 145.4,
    "published": "2026-10-26T23:53:07+00:00",
    "added": "2026-11-02T01:15:28+00:00"
+  },
+  {
+   "id": "04b482c3473defba",
+   "title": "Claim 4,000 Free Kiro Credits for the Kiroween 2026 Hackathon",
+   "link": "https://aifree.dev/news/kiro-kiroween-2026-4000-free-credits-hackathon",
+   "desc": "4,000 free Kiro credits (about $160) to build your Kiroween hackathon app. Open to everyone, ID check required; request by Dec 1, 12 PM PT",
+   "source": "ای‌فری",
+   "lang": "en",
+   "tier": 1,
+   "kind": "offers",
+   "age_hours": 0.2,
+   "published": "2026-11-02T02:19:00+00:00",
+   "added": "2026-11-02T02:30:47+00:00",
+   "full": "Build a hackathon app on 4,000 free Kiro credits, worth about $160 at Kiro's $0.04 add-on rate, with Claude Opus 5.5, Sonnet 5.5, GPT-5.6 Sol, Kimi K3 and more. Kiroween is Kiro's yearly Halloween hackathon on Devpost. Enter solo or in a team of up to 3. Entry is free and open to everyone, not just students. The catch: one code per person, first come, first served, an ID check by Didit, and the credits are meant for your hackathon build. How to claim: 1) Sign up at app.kiro.dev and copy your User ID from the usage dashboard → 2) Join the hackathon on Devpost → 3) Fill the credit form on the Resources tab with your Devpost email, Kiro User ID, a category and one line on what you will build → 4) Pass the Didit ID check (ID photo plus a selfie) that Devpost emails you. Codes arrive within about 48 business hours; log in to Kiro first, then open the link. Deadline: request credits by Dec 1, 2026, 12 PM PT; redeem your code and submit your project by Dec 4 (submissions close 2 PM PT). Credits expire Dec 31. Link: Kiroween 2026 on Devpost You get 4,000 credits for Kiro's premium models, enough for a full build. That is four months of the 1,000 monthly credits on Kiro's Pro plan. You need a Kiro account, a Devpost account, and a government ID for the check. No student status is required. Cursor's Free plan ($0/month) includes Cursor Agent with limited agent requests and limited chat requests, plus limited Grok Chat, image generation and Grok Build. Access Devin for free with unlimited tab completions, unlimited inline edits, and a light agent coding quota. Verified students get the Copilot Student plan at no cost while enrolled - code completions, chat, and agent features, with an allowance of GitHub AI Credits and auto model selection. What students really get free from GitHub Copilot, JetBrains AI, Cursor, Windsurf (now Devin), Antigravity, Zed and Kiro, with limits and how to verify. Which free AI chatbots answer without an account in 2026 (Duck.ai, ChatGPT, Gemini, Perplexity) and which now need a login, with limits from vendor pages. Free hosting for AI apps checked 2026-10-28: Vercel Hobby, Cloudflare Workers, Workers AI, Hugging Face Spaces, Render, Fly.io, Cloud Run. Limits and sources. Copy Report Never miss new offers and news New tools, credits, and AI news are added regularly. Pick how you want to hear about them. Browser notifications Turn on push notifications and get an alert on this device whenever something new is posted. No account needed. Email newsletter A weekly digest of new, changed and expiring free AI offers. Double opt-in, one-click unsubscribe. See the latest issue . Website Subscribe Unsubscribe anytime. Privacy aifree.dev helps everyone access AI through a curated directory of free AI tools, API credits, free tiers, and startup programs for coding, image, voice, video, and students - verified regularly . Each offer includes its access details, free models when available, and expiration information when provided. Limited-time deals stay visible so they are easy to compare. Yes. Providers usually ask students to verify their status with a school email, student ID, or a program like the GitHub Student Pack, and ask startups",
+   "use_link": "https://github.com/aifree-dev/awesome-free-ai-credits"
+  },
+  {
+   "id": "2d10b63aada5a3fd",
+   "title": "ChatGPT: Chat and Work are coming together in one experience",
+   "link": "https://news.ycombinator.com/item?id=50332302",
+   "desc": "Just got an email, guess free lunch is over. --- Hello, In the coming weeks, we’ll start testing a combined experience for Chat and Work tabs in ChatGPT with a small group of users. We’ll use their feedback to improve the experience before bringing it to more people. This will enable you to move from exploring an idea to having ChatGPT carry it through, all in one place. You can bring in your files and plugins and ask ChatGPT to build a website, create a presentation, or do things for you on the web, while reviewing and guiding its work. Codex will remain a separate experience in the ChatGPT d",
+   "source": "هکرنیوز اعتبار رایگان",
+   "lang": "en",
+   "tier": 3,
+   "kind": "offers",
+   "age_hours": 0.2,
+   "published": "2026-11-02T02:16:05+00:00",
+   "added": "2026-11-02T02:30:50+00:00",
+   "full": "Just got an email, guess free lunch is over. --- Hello, In the coming weeks, we’ll start testing a combined experience for Chat and Work tabs in ChatGPT with a small group of users. We’ll use their feedback to improve the experience before bringing it to more people. This will enable you to move from exploring an idea to having ChatGPT carry it through, all in one place. You can bring in your files and plugins and ask ChatGPT to build a website, create a presentation, or do things for you on the web, while reviewing and guiding its work. Codex will remain a separate experience in the ChatGPT desktop app. A shared allowance for ChatGPT and Codex As part of this unified experience, your use of ChatGPT and Codex will draw from the same allowance in the coming weeks. We’re preparing carefully for this transition to help prevent disruption to your workflows. We expect most users won’t need to wait for their usage to reset more often than they do today. Usage will depend on model and task, with more advanced models and complex tasks using more of your allowance. Unlimited Instant is included in your plan and will not draw from your usage. You will be able to see your combined remaining usage and reset times in Settings → Usage. If you use your full allowance, you can wait for it to reset, upgrade your plan, or buy credits to continue using eligible features. The OpenAI team",
+   "use_link": "https://github.com/HackerNews/API"
   }
  ]
 }
