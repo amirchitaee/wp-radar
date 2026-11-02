@@ -3,31 +3,31 @@
   "name": "اوپن‌ای‌آی",
   "fails": 0,
   "last_count": 40,
-  "last_ok": "2026-11-02T17:15:30+00:00"
+  "last_ok": "2026-11-02T20:00:52+00:00"
  },
  "https://blog.google/technology/ai/rss/": {
   "name": "گوگل",
   "fails": 0,
   "last_count": 20,
-  "last_ok": "2026-11-02T17:15:30+00:00"
+  "last_ok": "2026-11-02T20:00:52+00:00"
  },
  "https://deepmind.google/blog/rss.xml": {
   "name": "دیپ‌مایند",
   "fails": 0,
   "last_count": 40,
-  "last_ok": "2026-11-02T17:15:30+00:00"
+  "last_ok": "2026-11-02T20:00:52+00:00"
  },
  "https://huggingface.co/blog/feed.xml": {
   "name": "هاگینگ‌فیس",
   "fails": 0,
   "last_count": 40,
-  "last_ok": "2026-11-02T17:15:30+00:00"
+  "last_ok": "2026-11-02T20:00:52+00:00"
  },
  "https://techcrunch.com/category/artificial-intelligence/feed/": {
   "name": "تک‌کرانچ",
   "fails": 0,
   "last_count": 20,
-  "last_ok": "2026-11-02T17:15:30+00:00"
+  "last_ok": "2026-11-02T20:00:52+00:00"
  },
  "https://venturebeat.com/category/ai/feed/": {
   "name": "ونچربیت",
@@ -39,13 +39,13 @@
   "name": "مارک‌تک‌پست",
   "fails": 0,
   "last_count": 10,
-  "last_ok": "2026-11-02T17:15:32+00:00"
+  "last_ok": "2026-11-02T20:00:54+00:00"
  },
  "https://the-decoder.com/feed/": {
   "name": "دیکودر",
   "fails": 0,
   "last_count": 10,
-  "last_ok": "2026-11-02T17:15:32+00:00"
+  "last_ok": "2026-11-02T20:00:53+00:00"
  },
  "https://simonwillison.net/atom/everything/": {
   "name": "سایمون ویلیسون",
@@ -57,43 +57,43 @@
   "name": "وردپرس",
   "fails": 0,
   "last_count": 10,
-  "last_ok": "2026-11-02T19:00:46+00:00"
+  "last_ok": "2026-11-02T20:00:42+00:00"
  },
  "https://wptavern.com/feed": {
   "name": "دبلیوپی‌تاورن",
   "fails": 0,
   "last_count": 30,
-  "last_ok": "2026-11-02T19:00:48+00:00"
+  "last_ok": "2026-11-02T20:00:43+00:00"
  },
  "https://www.smashingmagazine.com/feed/": {
   "name": "اسمشینگ",
   "fails": 0,
   "last_count": 40,
-  "last_ok": "2026-11-02T19:00:50+00:00"
+  "last_ok": "2026-11-02T20:00:46+00:00"
  },
  "https://css-tricks.com/feed/": {
   "name": "سی‌اس‌اس‌تریکس",
   "fails": 0,
   "last_count": 15,
-  "last_ok": "2026-11-02T19:00:50+00:00"
+  "last_ok": "2026-11-02T20:00:46+00:00"
  },
  "https://torquemag.io/feed/": {
   "name": "تورک",
   "fails": 0,
   "last_count": 10,
-  "last_ok": "2026-11-02T19:00:51+00:00"
+  "last_ok": "2026-11-02T20:00:47+00:00"
  },
  "https://www.wpbeginner.com/feed/": {
   "name": "دبلیوپی‌بگینر",
   "fails": 0,
   "last_count": 3,
-  "last_ok": "2026-11-02T19:00:52+00:00"
+  "last_ok": "2026-11-02T20:00:52+00:00"
  },
  "https://kinsta.com/blog/feed/": {
   "name": "کینستا",
   "fails": 0,
   "last_count": 3,
-  "last_ok": "2026-11-02T19:00:50+00:00"
+  "last_ok": "2026-11-02T20:00:46+00:00"
  },
  "https://wordpress.org/news/category/security/feed/": {
   "name": "وردپرس امنیت",
@@ -141,61 +141,61 @@
   "name": "دولوپر وردپرس",
   "fails": 0,
   "last_count": 10,
-  "last_ok": "2026-11-02T19:00:47+00:00"
+  "last_ok": "2026-11-02T20:00:43+00:00"
  },
  "https://woocommerce.com/blog/feed/": {
   "name": "ووکامرس",
   "fails": 0,
   "last_count": 20,
-  "last_ok": "2026-11-02T19:00:47+00:00"
+  "last_ok": "2026-11-02T20:00:43+00:00"
  },
  "https://fa.wordpress.org/news/feed/": {
   "name": "وردپرس فارسی",
   "fails": 0,
   "last_count": 10,
-  "last_ok": "2026-11-02T19:00:48+00:00"
+  "last_ok": "2026-11-02T20:00:43+00:00"
  },
  "https://mihanwp.com/feed/": {
   "name": "میهن وردپرس",
   "fails": 0,
   "last_count": 10,
-  "last_ok": "2026-11-02T19:00:49+00:00"
+  "last_ok": "2026-11-02T20:00:45+00:00"
  },
  "https://elementor.com/blog/feed/": {
   "name": "المنتور",
   "fails": 0,
   "last_count": 10,
-  "last_ok": "2026-11-02T19:00:49+00:00"
+  "last_ok": "2026-11-02T20:00:45+00:00"
  },
  "https://jetpack.com/blog/feed/": {
   "name": "جت‌پک",
   "fails": 0,
   "last_count": 10,
-  "last_ok": "2026-11-02T19:00:49+00:00"
+  "last_ok": "2026-11-02T20:00:45+00:00"
  },
  "https://yoast.com/feed/": {
   "name": "یوست",
   "fails": 0,
   "last_count": 20,
-  "last_ok": "2026-11-02T19:00:50+00:00"
+  "last_ok": "2026-11-02T20:00:45+00:00"
  },
  "https://rankmath.com/feed/": {
   "name": "رنک‌مث",
   "fails": 0,
   "last_count": 5,
-  "last_ok": "2026-11-02T19:00:50+00:00"
+  "last_ok": "2026-11-02T20:00:45+00:00"
  },
  "https://wordpress.com/blog/feed/": {
   "name": "وردپرس دات کام",
   "fails": 0,
   "last_count": 10,
-  "last_ok": "2026-11-02T19:00:50+00:00"
+  "last_ok": "2026-11-02T20:00:45+00:00"
  },
  "https://wpmayor.com/feed/": {
   "name": "وپی مایور",
   "fails": 0,
   "last_count": 10,
-  "last_ok": "2026-11-02T19:00:52+00:00"
+  "last_ok": "2026-11-02T20:00:52+00:00"
  },
  "https://www.elegantthemes.com/blog/feed": {
   "name": "الگانت",
@@ -207,13 +207,13 @@
   "name": "دِورج",
   "fails": 0,
   "last_count": 10,
-  "last_ok": "2026-11-02T17:15:32+00:00"
+  "last_ok": "2026-11-02T20:00:54+00:00"
  },
  "https://arstechnica.com/ai/feed/": {
   "name": "آرس‌تکنیکا",
   "fails": 0,
   "last_count": 20,
-  "last_ok": "2026-11-02T17:15:32+00:00"
+  "last_ok": "2026-11-02T20:00:54+00:00"
  },
  "https://www.producthunt.com/feed": {
   "name": "پروداکت هانت",
