@@ -1312,6 +1312,30 @@ SYSTEM_PROMPT = """تو نویسندهٔ یک کانال فارسی تخصصی �
 27. نام لاتین شرکت و محصول را ترجمه نکن و حذف نکن؛ خواننده با همان نام می‌شناسدش. فقط جمله را طوری بچین که نام در وسط عبارت فارسی گم نشود. اگر جمله با نام لاتین شروع می‌شود، بعد از نام یک فعل فارسی بیاور تا جمله راه بیفتد.
 28. اصطلاح انگلیسی نام است، نه جمله؛ ترجمه‌اش نکن و برایش معادل فارسی از خودت نساز. همان اصطلاح لاتین را بنویس، و اگر خواننده ممکن است نشناسد، در همان جمله با یک نیم‌جمله معنی‌اش کن.
     نمونه‌ها: عبارت vibe coding یعنی ساختن برنامه با حرف زدن با هوش مصنوعی؛ نه «کدنویسی با حس و حال». عبارت open source همان‌طور می‌ماند؛ نه «منبع باز» و نه «متن‌باز». عبارت open weights هم می‌ماند؛ نه «وزن باز».
+29. نقل‌قول زنجیره‌ای نکن. «او می‌گوید... به گفتهٔ او... او معتقد است...» سه بار در یک پست، خواننده را خسته می‌کند. یک بار بگو کی گفته، بعد خودِ حرف را بزن.
+30. ترکیب اضافه و لقب‌چسبانی نکن. «رائو، مهندس، در مقاله‌ای...» جمله را قلمبه می‌کند. یا اسم را بیاور و برو سر حرف، یا بگو «یک مهندس در مقاله‌ای نوشته...».
+31. یادداشت نظر و تحلیل، خبر نیست. اگر منبع یک مقالهٔ شخصی است و اتفاق تازه‌ای در آن نیفتاده — فقط نظریه یا پیش‌بینی است — score صفر بده. خبر یعنی چیزی منتشر شد، عوض شد، یا خراب شد؛ نه این که کسی فکری کرده.
+
+صدای کانال — این را حفظ کن:
+- مثل کسی بنویس که یک چیز تازه پیدا کرده و می‌خواهد سریع برای دوستش تعریف کند. نه مثل کسی که خبرگزاری می‌خواند.
+- جمله کوتاه. هر جمله یک اطلاع. سه جملهٔ کوتاه بهتر از یک جملهٔ بلند با سه «و» است.
+- با مخاطب حرف بزن: «اگر سایت داری»، «می‌توانی»، «بگیرش». نه «کاربر می‌تواند».
+- عدد و اسم مشخص بده. «سریع‌تر» چیزی نمی‌گوید؛ «چهل درصد سریع‌تر» می‌گوید.
+- اگر چیزی عجیب یا خنده‌دار است، همان لحن را داشته باش. توهین نه، تعارف هم نه.
+- مقدمه ننویس. مستقیم برو سر چیزی که اتفاق افتاده. جملهٔ اول باید خودِ خبر باشد.
+
+نمونه‌های صدا:
+بد: «این افزونه قابلیت بهینه‌سازی تصاویر را فراهم می‌کند و امکان کاهش حجم صفحات را می‌دهد.»
+خوب: «این افزونه عکس‌ها را خودش فشرده می‌کند. صفحه‌ات سبک‌تر می‌شود و سریع‌تر باز می‌شود.»
+
+بد: «گوگل از مدل جدید هوش مصنوعی خود رونمایی کرد که برای کارهای پیچیده طراحی شده است.»
+خوب: «گوگل مدل تازه‌ای ساخته برای کارهای سختی که چند ساعت طول می‌کشند؛ نه سؤال و جواب سریع.»
+
+بد: «صاحبان سایت‌ها باید به‌روزرسانی‌های اصلاحی را اعمال کنند.»
+خوب: «اگر وردپرس داری، امروز وصله‌اش کن.»
+
+بد: «این ابزار امکان تولید محتوای متنی با کیفیت بالا را برای کاربران فراهم می‌آورد.»
+خوب: «با این ابزار متن می‌نویسی، بعد خودت ویرایشش می‌کنی. برای پست‌های کوتاه خوب است، برای مقالهٔ بلند نه.»
 
 این کانال چه چیزی نیست: استخدام، جذب سرمایه، معرفی کنفرانس و رویداد، حاشیه و شایعهٔ جامعهٔ وردپرس، تغییرات داخلی مخزن کد، و سرگرمی. این‌ها score صفر می‌گیرند.
 
@@ -2355,7 +2379,11 @@ def format_post(label, title, summary, details, meta, link, hashtags, when=None,
     inner = []
     if details:
         inner.append(esc(bidi(trim_details(details))))
-    if meta:
+    # متا جای داده است، نه جای صفت. یک بار مدل «open source» را در متا
+    # گذاشت و آخر کادر یک خط تنها و بی‌مصرف افتاد، در حالی که همان
+    # جمله در خلاصه هم بود. متایی که عدد یا قیمت ندارد، داده نیست.
+    meta_ok = bool(meta) and bool(re.search(r"[\d۰-۹]", meta) or len(meta) > 30)
+    if meta_ok:
         inner.append(esc(bidi(meta)))
     if inner:
         parts.append("")
@@ -3483,6 +3511,96 @@ def auto_run(s, st, seen, extra, role="main"):
     return 0
 
 
+def preview_run(s, st, seen, kind="news", limit=1):
+    """یک پست کامل از تازه‌ترین مطلب، فقط برای چت شخصی.
+
+    برای این ساخته شد که لحن و شکل پست را ببینیم و اصلاح کنیم، بی‌آنکه
+    کسی در کانال چیزی ببیند و بی‌آنکه آیتم «دیده‌شده» ثبت شود. اگر همان
+    پست به کانال می‌رفت، پذیرفته می‌شد یا با چه دلیلی رد می‌شد، پایینش
+    نوشته می‌شود.
+    """
+    chat = env_clean("TG_PERSONAL") or env_clean("TG_ADMIN")
+    if not chat:
+        log("preview: no personal chat configured")
+        return 0
+    kind = (kind or "news").strip().lower()
+    rows = dedupe_stories(collect(kind, st, seen, budget_sec=80))
+    kept = []
+    for x in rows:
+        blob = " ".join(
+            [x.get("title") or "", x.get("link") or "", x.get("desc") or ""]
+        )
+        if NON_NEWS_RE.search(blob) or JUNK_NEWS_RE.search(blob) or LIST_REPO_RE.search(blob):
+            continue
+        if kind == "news" and OFF_AUDIENCE_RE.search(blob) and not SITE_TOPIC_RE.search(blob):
+            continue
+        if kind == "tools" and not BUILDER_TOPIC.search(blob):
+            continue
+        kept.append(x)
+    if not kept:
+        send_to(chat, "پیش‌نمایش: آیتم تازه‌ای پیدا نشد. کمی بعد دوباره بزن.", False)
+        return 0
+    kept.sort(key=lambda x: true_age(x))
+    batch = kept[:limit]
+    fetch_full_parallel(batch)
+    try:
+        res = call_models(SYSTEM_PROMPT, build_prompt(batch, kind_hint(kind)), budget=150)
+    except Exception as exc:
+        send_to(chat, "پیش‌نمایش: مدل جواب نداد — " + esc(str(exc)[:200]), False)
+        return 0
+    items = res.get("items", []) if isinstance(res, dict) else []
+    if not items:
+        send_to(chat, "پیش‌نمایش: پاسخ خالی بود.", False)
+        return 0
+    by_id = {x["id"]: x for x in batch}
+    for entry in items[:limit]:
+        it = by_id.get(str(entry.get("id", ""))) or batch[0]
+        for field in ("title", "summary", "meta", "name"):
+            if entry.get(field):
+                entry[field] = fix_phrases(strip_labels(entry[field]))
+        entry["details"] = fix_phrases(clean_details(entry.get("details") or ""))
+        text_all = " ".join(
+            [
+                it.get("desc") or "",
+                it.get("full") or "",
+                entry.get("title") or "",
+                entry.get("summary") or "",
+                entry.get("details") or "",
+            ]
+        )
+        label = classify_label(
+            kind, text_all, entry.get("label", ""), False, entry.get("title", ""), it.get("title", "")
+        )
+        name = valid_name(entry.get("name", ""), it) or auto_name(it)
+        tags = "#" + re.sub(r"\s+", "_", label)
+        body = format_post(
+            label,
+            entry.get("title", ""),
+            entry.get("summary", ""),
+            entry.get("details", ""),
+            entry.get("meta", ""),
+            it.get("link", ""),
+            tags,
+            it.get("published"),
+            name=name,
+            use_link=it.get("use_link", ""),
+        )
+        ok, why = quality_ok(entry.get("title", ""), entry.get("summary", ""))
+        verdict = "اگر می‌رفت، پذیرفته می‌شد" if ok else "اگر می‌رفت، رد می‌شد: " + why
+        head = (
+            "<b>پیش‌نمایش — به کانال نرفت</b>\n"
+            "دسته: {}\nبرچسب: {}\nنمره: {}\n{}\nعنوان منبع: {}".format(
+                KIND_FA.get(kind, kind), label, num(entry.get("score")), verdict, it.get("title", "")
+            )
+        )
+        send_to(chat, head, False)
+        send_to(chat, body)
+        log("--- preview post ---")
+        log(body)
+    log("preview sent:", len(items[:limit]))
+    return 0
+
+
 def compare_run(s, st, seen, limit=2, kind=""):
     """همان آیتم را به هر لایه می‌دهد تا کیفیت را با چشم خودت ببینی.
 
@@ -3768,6 +3886,9 @@ def main():
         # عمداً زودتر برمی‌گردد: مقایسه نباید آیتم‌ها را «دیده‌شده»
         # ثبت کند، وگرنه همان خبر دیگر هیچ‌وقت پست نمی‌شود.
         return compare_run(s, st, seen, cmp_limit, cmp_kind)
+    elif cmd == "preview":
+        # پیش‌نمایش هم چیزی را ثبت نمی‌کند و فقط به چت شخصی می‌رود.
+        return preview_run(s, st, seen, cmp_kind or "news")
     else:
         # اجرای دسته‌ای هم اول پست‌های نگه‌داشته‌شده را خالی می‌کند.
         publish_ready(s, st, seen)
