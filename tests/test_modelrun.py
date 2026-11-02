@@ -96,6 +96,25 @@ check("خط تولید: یک پیام فرستاده شد", len(SENT), 1)
 body = SENT[0] if SENT else ""
 
 check("پست: برچسب فرصت", "#فرصت_رایگان" in body, True)
+
+# ---------------------------------------------------------------- زمان‌بندی
+# با انتشار زمان‌بندی‌شده، پست نوشته می‌شود ولی همان لحظه به کانال نمی‌رود.
+HOLD_ROW = dict(FAKE_ROW)
+HOLD_ROW["id"] = "hold01"
+radar.READY = TMP / "ready.json"
+timed = dict(settings)
+timed["publish"] = {
+    "enabled": True, "start": "00:00", "end": "23:59",
+    "gap_min": 0, "max_ready": 4, "max_hold_h": 30,
+    "bypass_labels": ["فوری", "هشدار امنیتی"],
+}
+radar.collect = lambda kind, st, seen, budget_sec=None: [dict(HOLD_ROW)]
+radar.call_models = fake_model
+radar.DAILY.write_text(json.dumps({"date": radar.today(), "count": 0, "kinds": {}}), encoding="utf-8")
+SENT.clear()
+held = radar.model_run("offers", timed, {}, {"v": 1, "ids": {}}, "", hard_deadline=None)
+check("زمان‌بندی: پست نوشته شد ولی نرفت", (held, len(SENT)), (0, 0))
+radar.collect = lambda kind, st, seen, budget_sec=None: [dict(FAKE_ROW)]
 check("پست: برچسب تکراری ندارد", body.count("#فرصت") == 1, True)
 check("پست: بلوک نقل‌قول دارد", "<blockquote expandable>" in body, True)
 check("پست: برچسب فیلد حذف شد", "نام محصول:" not in body, True)

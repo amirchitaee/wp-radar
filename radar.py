@@ -2749,6 +2749,13 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
         deadline = min(deadline, float(hard_deadline))
     d.setdefault("kinds", {})
     posted_kind = int(d["kinds"].get(kind, 0))
+    # پست‌هایی که نوشته شده‌اند و در نوبت انتشارند هم سهم روز را
+    # می‌خورند؛ وگرنه هر اجرا چهار پست تازه می‌نوشت و انبار پر می‌شد
+    # از پست‌هایی که هیچ‌وقت نوبتشان نمی‌شد.
+    held_by_kind = {}
+    for _row in read_json(READY, {"items": []}).get("items") or []:
+        _k = _row.get("kind") or "news"
+        held_by_kind[_k] = held_by_kind.get(_k, 0) + 1
 
     # سهم این دسته از بودجهٔ امروز، با احترام به سهم بقیه.
     my_limit = daily_room(s, kind, d)
@@ -3028,13 +3035,22 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
             )
             # خارج از پنجرهٔ انتشار، متن نوشته و نگه داشته می‌شود.
             # هشدار امنیتی و خبر فوری منتظر ساعت نمی‌مانند.
-            if not in_publish_window(s) and label not in (publish_cfg(s).get("bypass_labels") or []):
+            # هر پست نوشته می‌شود و بعد با فاصله منتشر می‌شود، نه همه
+            # با هم. قبلاً چهار پست یک اجرا با هم می‌رفتند و صبح کانال
+            # شبیه سیل می‌شد. هشدار امنیتی و خبر فوری منتظر نمی‌مانند.
+            if publish_cfg(s).get("enabled", True) and label not in (
+                publish_cfg(s).get("bypass_labels") or []
+            ):
+                if kind_cap - posted_kind - held_by_kind.get(kind, 0) <= 0 and not fast:
+                    log("  no room left to hold more of", kind)
+                    break
                 if not hold_ready(it, label, text, score, kind):
                     log("  ready store is full, stopping this run")
                     break
+                held_by_kind[kind] = held_by_kind.get(kind, 0) + 1
                 if not DRY:
                     write_json(QUEUE, q)
-                log("  held for the next window:", entry.get("title", "")[:40])
+                log("  held for publishing:", entry.get("title", "")[:40])
                 continue
             try:
                 if kind == "showcase":
