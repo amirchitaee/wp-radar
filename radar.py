@@ -308,6 +308,22 @@ def blocked_hit(item, blocked=None):
     return ""
 
 
+# کالای ایرانی، رقیب است. کانال جای معرفی فروشگاه دیگر نیست. این سد اسم
+# فروشگاه را نمی‌شناسد و به فهرست وابسته نیست: دامنهٔ ایرانی به‌اضافهٔ
+# حرف کالا کافی است. عمداً فقط خبر و ابزار و فرصت را می‌گیرد؛ هشدار
+# امنیتی دربارهٔ افزونهٔ خارجی که کاربر ایرانی هم دارد سر جایش می‌ماند.
+IR_DOMAIN_RE = re.compile(r"\.ir(?::\d+)?(?:/|$)", re.I)
+IRAN_PRODUCT_RE = re.compile(r"(قالب|افزونه|پلاگین|\btheme\b|\bplugin\b)", re.I)
+
+
+def iran_product(item):
+    if not IR_DOMAIN_RE.search(str(item.get("link") or "")):
+        return False
+    return bool(IRAN_PRODUCT_RE.search(
+        str(item.get("title") or "") + " " + str(item.get("desc") or "")
+    ))
+
+
 def fetch_json_items(url):
     data = json.loads(http_get(url, headers={"Accept": "application/json"}).decode("utf-8", "replace"))
     out = []
@@ -2432,6 +2448,18 @@ def publish_ready(s, st, seen, hard_deadline=None):
     return 1 if done else 0
 
 
+def action_links_on():
+    """خط «از این آدرس شروع کن» پیش‌فرض خاموش است.
+
+    تجربهٔ این پروژه: این خط بیشتر از آن که کمک کند، خراب شد. یک بار به
+    صفحهٔ گزارش تخلف وردپرس رسید، یک بار به مخزن گیت‌هاب محصول دیگری،
+    یک بار به صفحهٔ افزونه‌ای که ربطی به خبر نداشت. اعتبار کانال با یک
+    لینک غلط می‌رود و با صد پست درست برنمی‌گردد. پست بدون این خط هم
+    کامل است، چون خط «منبع» بالاخره به خودِ مطلب می‌رسد.
+    """
+    return bool(settings().get("action_links", False))
+
+
 def format_post(label, title, summary, details, meta, link, hashtags, when=None, name="", use_link=""):
     """ساخت متن پست.
 
@@ -2688,6 +2716,9 @@ def collect(kind, st, seen, budget_sec=None):
             if hit:
                 log("  blocked (رقیب):", hit, it["title"][:40])
                 continue
+            if kind != "security" and iran_product(it):
+                log("  blocked (کالای ایرانی):", it["title"][:40])
+                continue
             age = 99
             if it["published"]:
                 age = (now() - it["published"]).total_seconds() / 3600
@@ -2771,6 +2802,21 @@ KIND_TAG = {
     "security": "#امنیت",
 }
 KIND_FA = {"news": "خبر", "tools": "ابزار", "offers": "فرصت", "showcase": "نمایشگاه", "security": "امنیت"}
+
+# برچسب دسته را کورکورانه نچسبان. دستهٔ خبر هم خبر وردپرس دارد هم خبر
+# هوش مصنوعی؛ یک بار خبر انویدیا با برچسب «وردپرس» رفت. مخاطب وردپرسی
+# با دیدن آن برچسب روی خبر انویدیا، به کل کانال شک می‌کند.
+WP_TAG_WORDS = (
+    "wordpress", "woocommerce", "elementor", "gutenberg", "divi",
+    "وردپرس", "ووکامرس", "المنتور", "افزونه", "پلاگین", "قالب",
+)
+
+
+def kind_tag_for(kind, text):
+    if kind != "news":
+        return KIND_TAG.get(kind, "#وردپرس")
+    low = str(text or "").lower()
+    return "#وردپرس" if any(w in low for w in WP_TAG_WORDS) else "#هوش_مصنوعی"
 
 
 def cap_per_source(items, limit=3):
@@ -2900,7 +2946,7 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
                     continue
             # رقیب هرگز. این سد اینجا هم هست چون آیتم ممکن است از قبل در
             # صف مانده باشد، پیش از آن که فهرست رقیب‌ها را ببندیم.
-            if blocked_hit(x, blocked_words):
+            if blocked_hit(x, blocked_words) or iran_product(x):
                 x["channel_skip"] = True
                 skipped += 1
                 continue
@@ -3204,7 +3250,17 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
                 log("  dead link skipped:", it["link"])
                 continue
             label_tag = "#" + re.sub(r"\s+", "_", label)
-            kind_tag = KIND_TAG.get(kind, "#وردپرس")
+            kind_tag = kind_tag_for(
+                kind,
+                " ".join(
+                    [
+                        entry.get("title", ""),
+                        entry.get("summary", ""),
+                        entry.get("details", ""),
+                        it.get("title", ""),
+                    ]
+                ),
+            )
             if label_tag == kind_tag or kind_tag.startswith(label_tag):
                 tags = kind_tag
             elif label_tag.startswith(kind_tag):
@@ -3221,7 +3277,7 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
                 tags,
                 it.get("published"),
                 name=name,
-                use_link=it.get("use_link", ""),
+                use_link=it.get("use_link", "") if (kind == "offers" or action_links_on()) else "",
             )
             # خارج از پنجرهٔ انتشار، متن نوشته و نگه داشته می‌شود.
             # هشدار امنیتی و خبر فوری منتظر ساعت نمی‌مانند.
@@ -3637,7 +3693,7 @@ def preview_run(s, st, seen, kind="news", limit=1, pick=""):
     kept = []
     blocked_words = load_blocked()
     for x in rows:
-        if blocked_hit(x, blocked_words):
+        if blocked_hit(x, blocked_words) or (kind != "security" and iran_product(x)):
             continue
         blob = " ".join(
             [x.get("title") or "", x.get("link") or "", x.get("desc") or ""]
@@ -3707,7 +3763,7 @@ def preview_run(s, st, seen, kind="news", limit=1, pick=""):
             tags,
             it.get("published"),
             name=name,
-            use_link=it.get("use_link", ""),
+            use_link=it.get("use_link", "") if (kind == "offers" or action_links_on()) else "",
         )
         ok, why = quality_ok(entry.get("title", ""), entry.get("summary", ""))
         verdict = "اگر می‌رفت، پذیرفته می‌شد" if ok else "اگر می‌رفت، رد می‌شد: " + why
@@ -3838,7 +3894,7 @@ def compare_run(s, st, seen, limit=2, kind=""):
                 "",
                 None,
                 name=entry.get("name", ""),
-                use_link=it.get("use_link", ""),
+                use_link=it.get("use_link", "") if action_links_on() else "",
             )
             # نمره‌ها را پایین پست می‌گذاریم تا معلوم باشد چرا این
             # پیش‌نویس از سد رد شده و آن یکی نه.

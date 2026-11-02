@@ -98,6 +98,7 @@
   "google"
  ],
  "bidi_isolate": true,
+ "action_links": false,
  "model_budget_sec": 240,
  "model_retries": 1,
  "chunk_size": 3,
