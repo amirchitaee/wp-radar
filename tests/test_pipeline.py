@@ -637,6 +637,18 @@ check(
     ),
     "https://github.com/some/hol-guard",
 )
+# صفحهٔ گزارش تخلف و شکایت، جای محصول نیست. یک بار خط «جزئیات بیشتر»
+# به آدرس گزارش تخلف وردپرس رسید، چون در فوتر صفحه بود.
+check(
+    "لینک: صفحهٔ گزارش تخلف انتخاب نمی‌شود",
+    radar.extract_use_link(
+        "https://example.com/post",
+        '<a href="https://github.com/report/hol-guard">a</a>'
+        '<a href="https://github.com/some/hol-guard">b</a>',
+        "HOL-Guard — ابزار امنیتی",
+    ),
+    "https://github.com/some/hol-guard",
+)
 
 # ---------------------------------------------------------------- یک داستان
 # دو نشریه یک رویداد را با واژه‌های مختلف بازنویسی می‌کنند. نام‌های خاص
