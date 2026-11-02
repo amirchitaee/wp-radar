@@ -9889,7 +9889,9 @@
    "published": "2026-11-01T20:00:01+00:00",
    "added": "2026-11-01T20:00:46+00:00",
    "full": "",
-   "use_link": ""
+   "use_link": "",
+   "digest_sent": true,
+   "channel_skip": true
   },
   {
    "id": "048535ecafd2e5fc",
@@ -9902,7 +9904,9 @@
    "kind": "tools",
    "age_hours": 0.0,
    "published": "2026-11-01T20:00:00+00:00",
-   "added": "2026-11-01T20:00:46+00:00"
+   "added": "2026-11-01T20:00:46+00:00",
+   "digest_sent": true,
+   "channel_skip": true
   },
   {
    "id": "14c3bd56fcff8d51",
@@ -10220,7 +10224,9 @@
    "published": "2026-11-01T20:00:28+00:00",
    "added": "2026-11-01T20:00:47+00:00",
    "full": "You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session. You switched accounts on another tab or window. Reload to refresh your session. Dismiss alert {{ message }} main Branches Tags Go to file Code Open more actions menu Latest commit History 3,196 Commits 3,196 Commits Folders and files Name Name Last commit message Last commit date .agents .agents .asyncdb .asyncdb .claude-plugin .claude-plugin .claude .claude .codex-plugin .codex-plugin .cursor-plugin .cursor-plugin .devin-plugin .devin-plugin .github .github .impeccable/ critique .impeccable/ critique .kimi-plugin .kimi-plugin .superset .superset apps apps assets assets charts/ agent-swarm charts/ agent-swarm claude-mod claude-mod deploy deploy designs designs docs-site docs-site docs docs examples examples experiments experiments misc/ transcripts misc/ transcripts mockups mockups packages packages plugin plugin runbooks runbooks scripts scripts skills/ agent-swarm skills/ agent-swarm specs/ tla specs/ tla src src talks/ 2026-09-21-ai-builders-memory talks/ 2026-09-21-ai-builders-memory templates templates thoughts thoughts tools/ oxlint/ anti-slop tools/ oxlint/ anti-slop vendored-openapi vendored-openapi .codexignore .codexignore .dependency-cruiser.cjs .dependency-cruiser.cjs .dockerignore .dockerignore .editorconfig .editorconfig .env.docker-devin.example .env.docker-devin.example .env.docker.example .env.docker.example .env.example .env.example .gitignore .gitignore .gitleaks.toml .gitleaks.toml .gitleaksignore .gitleaksignore .non-audit-tables .non-audit-tables .text-columns.json .text-columns.json .wts-config.json .wts-config.json .wts-setup.ts .wts-setup.ts AGENTS.md AGENTS.md BUSINESS_USE.md BUSINESS_USE.md CHANGELOG.md CHANGELOG.md CLAUDE.md CLAUDE.md CODE_OF_CONDUCT.md CODE_OF_CONDUCT.md CONTRIBUTING.md CONTRIBUTING.md DEPLOYMENT.md DEPLOYMENT.md DESIGN.md DESIGN.md Dockerfile Dockerfile Dockerfile.ui Dockerfile.ui Dockerfile.worker Dockerfile.worker LICENSE LICENSE LOCAL_TESTING.md LOCAL_TESTING.md MCP.md MCP.md Makefile Makefile README.md README.md REVIEW.md REVIEW.md SECURITY.md SECURITY.md UI.md UI.md api-entrypoint.sh api-entrypoint.sh biome.json biome.json bun.lock bun.lock bunfig.coverage.toml bunfig.coverage.toml bunfig.toml bunfig.toml depot.json depot.json docker-compose.example.yml docker-compose.example.yml docker-compose.local.yml docker-compose.local.yml docker-compose.scripts-only.yml docker-compose.scripts-only.yml docker-entrypoint.sh docker-entrypoint.sh gemini-extension.json gemini-extension.json glama.json glama.json install.sh install.sh konsistent.json konsistent.json openapi.json openapi.json oxlint.config.ts oxlint.config.ts package.json package.json packages.map.json packages.map.json prek.toml prek.toml pyproject.toml pyproject.toml requirements.lock requirements.lock server.json server.json slack-manifest.json slack-manifest.json tsconfig.json tsconfig.json turbo.json turbo.json View all files Repository files navigation Agent Swarm is the open-source, self-hosted AI company operating system built by Desplega Labs . This repo evolves every single day. Watch no",
-   "use_link": "https://github.com/resources/events"
+   "use_link": "https://github.com/resources/events",
+   "digest_sent": true,
+   "channel_skip": true
   },
   {
    "id": "92705331275526a8",
@@ -10233,7 +10239,9 @@
    "kind": "tools",
    "age_hours": 0.0,
    "published": "2026-11-01T20:00:21+00:00",
-   "added": "2026-11-01T20:00:47+00:00"
+   "added": "2026-11-01T20:00:47+00:00",
+   "digest_sent": true,
+   "channel_skip": true
   },
   {
    "id": "2c21e7b3471dc7b9",
@@ -10249,7 +10257,9 @@
    "added": "2026-11-01T20:00:47+00:00",
    "sources_count": 2,
    "full": "You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session. You switched accounts on another tab or window. Reload to refresh your session. Dismiss alert {{ message }} main Branches Tags Go to file Code Open more actions menu Latest commit History 1,944 Commits 1,944 Commits Folders and files Name Name Last commit message Last commit date .agents/ skills .agents/ skills .claude .claude .design-sync .design-sync .github .github build build cmd cmd deploy deploy docs docs internal internal packages/ k8s-ui packages/ k8s-ui pkg pkg scripts scripts testdata testdata web web .air.toml .air.toml .dockerignore .dockerignore .gitignore .gitignore .goreleaser.yaml .goreleaser.yaml .krew.yaml .krew.yaml CLAUDE.md CLAUDE.md CODE_OF_CONDUCT.md CODE_OF_CONDUCT.md CONTRIBUTING.md CONTRIBUTING.md DESIGN.md DESIGN.md DEVELOPMENT.md DEVELOPMENT.md Dockerfile Dockerfile LICENSE LICENSE Makefile Makefile README.md README.md SECURITY.md SECURITY.md glama.json glama.json go.mod go.mod go.sum go.sum install.ps1 install.ps1 install.sh install.sh package-lock.json package-lock.json package.json package.json radar-icon.svg radar-icon.svg radar-logo-cncf.svg radar-logo-cncf.svg server.json server.json View all files Repository files navigation Radar The missing open-source Kubernetes UI, with a built-in MCP server for your AI agent. Single binary. No account required. Free forever. 🌐 radarhq.io · Docs · Benchmarks · Releases Radar shows you what's broken in a Kubernetes cluster, why, and what changed: issues, topology, a timeline of events and resource changes, Helm, GitOps, traffic, audit, and upgrade impact. Your AI agent reads the same cluster data and relationships through Radar's MCP server, and Radar can run an AI investigation for you with the agent CLI you already use. It runs on your laptop as a kubectl plugin or desktop app, or in-cluster with Helm. Install and run in 30 seconds: curl -fsSL https://get.radarhq.io | sh && kubectl radar Or brew install kubectl-radar . Windows, Krew, desktop app and Helm ↓ Then, with Radar running, connect your AI agent (read-only): claude mcp add --transport http radar http://localhost:9280/mcp-readonly Codex, Cursor, GitHub Copilot, other clients, and the desktop app ↓ Nothing to install in your cluster — a single binary on your laptop that talks to the Kubernetes API with your kubeconfig. No agents, no CRDs, no dependencies Fast on big clusters — tested on tens of thousands of pods; watches the cluster through informers and pushes live updates to the browser over SSE Private by design — your cluster data stays on your machine. No account, no agents, no cloud sync. Usage reporting is off unless you opt in, and then sends only anonymous usage counts and coarse cluster facts: Kubernetes version, platform, node-count range, known integrations ( what Radar sends ). An AI agent you connect sends what it reads to its own model provider Airgapped-friendly — runs as a single binary against the Kubernetes API and works in locked-down environments with outbound egress blocked Works everywhere — GKE, EKS, AKS, minikube, kind, k3s, or any conformant cl",
-   "use_link": "https://github.com/SREGym/SREGym"
+   "use_link": "https://github.com/SREGym/SREGym",
+   "digest_sent": true,
+   "channel_skip": true
   },
   {
    "id": "7192cc68cca94cf8",
@@ -10262,7 +10272,9 @@
    "kind": "tools",
    "age_hours": 0.0,
    "published": "2026-11-01T20:00:09+00:00",
-   "added": "2026-11-01T20:00:47+00:00"
+   "added": "2026-11-01T20:00:47+00:00",
+   "digest_sent": true,
+   "channel_skip": true
   },
   {
    "id": "f4071c3ee0aa39e2",
@@ -10275,7 +10287,9 @@
    "kind": "tools",
    "age_hours": 0.0,
    "published": "2026-11-01T20:00:09+00:00",
-   "added": "2026-11-01T20:00:47+00:00"
+   "added": "2026-11-01T20:00:47+00:00",
+   "digest_sent": true,
+   "channel_skip": true
   },
   {
    "id": "729b258f122268b4",
@@ -10289,7 +10303,9 @@
    "age_hours": 0.0,
    "published": "2026-11-01T19:59:17+00:00",
    "added": "2026-11-01T20:00:47+00:00",
-   "sources_count": 2
+   "sources_count": 2,
+   "digest_sent": true,
+   "channel_skip": true
   },
   {
    "id": "b89f6b88b2d18c27",
@@ -10302,7 +10318,9 @@
    "kind": "tools",
    "age_hours": 0.0,
    "published": "2026-11-01T19:59:03+00:00",
-   "added": "2026-11-01T20:00:47+00:00"
+   "added": "2026-11-01T20:00:47+00:00",
+   "digest_sent": true,
+   "channel_skip": true
   },
   {
    "id": "e56e04049b2f97b2",
@@ -10315,7 +10333,9 @@
    "kind": "tools",
    "age_hours": 0.0,
    "published": "2026-11-01T19:59:02+00:00",
-   "added": "2026-11-01T20:00:47+00:00"
+   "added": "2026-11-01T20:00:47+00:00",
+   "digest_sent": true,
+   "channel_skip": true
   },
   {
    "id": "3dc7fea933a57434",
