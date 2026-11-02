@@ -2,6 +2,7 @@
 
 اجرا: python tests/test_pipeline.py
 """
+import json
 import os
 import re
 import sys
@@ -24,6 +25,26 @@ def check(label, got, want):
     if got != want:
         FAILS.append("{} | got={!r} want={!r}".format(label, got, want))
 
+
+# ---------------------------------------------------------------- جابه‌جایی دسته
+# وقتی فیدی از یک دسته به دستهٔ دیگر می‌رود، آیتم‌های قدیمی همان فید هم
+# باید بروند؛ وگرنه یک خبر تا چند روز در دستهٔ ابزار می‌ماند و آن‌جا
+# به‌خاطر «ابزار نبودن» رد می‌شود. این تست باید قبل از هر جای‌گزینی
+# load_sources بیاید.
+_qsave = radar.QUEUE.read_text(encoding="utf-8") if radar.QUEUE.exists() else "{}"
+radar.QUEUE.write_text(
+    json.dumps({"v": 1, "items": [{
+        "id": "m1", "title": "t", "link": "https://example.com/x", "desc": "",
+        "source": "الگانت", "kind": "news", "added": radar.now().isoformat(timespec="seconds"),
+    }]}, ensure_ascii=False),
+    encoding="utf-8",
+)
+_was_dry = radar.DRY
+radar.DRY = False
+_q, _ = radar.queue_merge([], {"queue_days": 7})
+radar.DRY = _was_dry
+check("دسته: آیتم فید جابه‌جاشده دنبال فید می‌رود", _q["items"][0]["kind"], "tools")
+radar.QUEUE.write_text(_qsave, encoding="utf-8")
 
 # ---------------------------------------------------------------- نگهبان
 tmp = Path(tempfile.mkdtemp()) / "last_start.json"
@@ -500,6 +521,80 @@ check(
     "نکته 1\nنکته 2\nنکته 3\nنکته 4 …",
 )
 check("کتیشن: سه خط دست‌نخورده می‌ماند", radar.trim_details("یک\nدو\nسه"), "یک\nدو\nسه")
+
+# ---------------------------------------------------------------- متن مدل
+# صفحهٔ مخزن گیت‌هاب با نوار سایت شروع می‌شود. اگر همان به مدل برسد،
+# مدل هیچ پستی نمی‌نویسد و کانال خالی می‌ماند. این تست همان شکست را
+# می‌گیرد: استخراج باید از بلوک article بخواند.
+GITHUB_PAGE = (
+    "<html><body>"
+    "<p>You signed in with another tab or window. Reload to refresh your session.</p>"
+    "<nav>Branches Tags Go to file Code</nav>"
+    "<article><p>Magic turns plain English into a working full-stack app.</p>"
+    "<p>It runs on your own hardware with zero lock-in.</p></article>"
+    "<footer>Terms Privacy</footer></body></html>"
+)
+
+
+class _FakeResp:
+    def __init__(self, body):
+        self._body = body
+
+    def read(self):
+        return self._body
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, *a):
+        return False
+
+
+_real_get = radar.http_get
+radar.http_get = lambda url, timeout=15: GITHUB_PAGE.encode("utf-8")
+text, use = radar.fetch_article("https://github.com/acme/magic")
+check("متن: نوار سایت به مدل نمی‌رسد", "You signed in" in text, False)
+check("متن: متن اصلی مقاله می‌آید", "full-stack app" in text, True)
+check("متن: صفحهٔ محصول لینک استفاده نمی‌سازد", use, "")
+
+# اگر متن کامل با این حال پوسته بود، توضیح فید جای آن را می‌گیرد.
+row = {"full": "You signed in with another tab or window. " * 20, "desc": "توضیح کوتاه فید."}
+check("متن: پوسته جایش را به توضیح فید می‌دهد", radar.item_text(row), "توضیح کوتاه فید.")
+
+# لینک استفاده نباید از خودش دربیاید. قبلاً اولین لینک خارجی برگردانده
+# می‌شد و پست به پروفایل XFN و ریشهٔ وردپرس رسیده بود.
+check(
+    "لینک: هیچ لینک اختراعی ساخته نمی‌شود",
+    radar.extract_use_link(
+        "https://the-decoder.com/x",
+        '<a href="https://gmpg.org/xfn/11">x</a><a href="https://v0.wordpress.com">y</a>',
+    ),
+    "",
+)
+check(
+    "لینک: صفحهٔ محصول همچنان پیدا می‌شود",
+    radar.extract_use_link(
+        "https://wptavern.com/basin",
+        '<a href="https://wordpress.org/themes/basin/">t</a>',
+    ),
+    "https://wordpress.org/themes/basin/",
+)
+radar.http_get = _real_get
+
+# ---------------------------------------------------------------- بازگویی
+# خلاصه‌ای که فقط تیتر را بلندتر می‌کند بازگویی است؛ خلاصه‌ای که واقعیت
+# تازه می‌آورد نه. تفاوتش در واژه‌های محتوایی است، نه در شمار واژه‌ها.
+ok, why = radar.quality_ok(
+    "Magic با یک جمله، اپ کامل می‌سازد",
+    "Magic جایگزین متن‌باز لاوابل و رپلیت است که با توضیح انگلیسی، اپ کامل با دیتابیس و رابط کاربری می‌سازد.",
+)
+check("بازگویی: خلاصهٔ پرمحتوا رد نمی‌شود", ok, True)
+
+# ---------------------------------------------------------------- موضوع ابزار
+check("موضوع: بازی هکرنیوز ابزار کانال نیست", bool(radar.BUILDER_TOPIC.search(
+    "Show HN: Play Nightmare – the 1991 VHS board game")), False)
+check("موضوع: آموزش دیوی ابزار است", bool(radar.BUILDER_TOPIC.search(
+    "How To Build A Product Grid With Divi 5 CSS Grid Editor")), True)
 
 # ---------------------------------------------------------------- نتیجه
 print("{} آزمون اجرا شد.".format(COUNT))

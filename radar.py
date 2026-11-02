@@ -131,7 +131,7 @@ def http_get(url, timeout=20, headers=None):
     return raw
 
 
-def http_post_json(url, payload, headers=None, timeout=90):
+def http_post_json(url, payload, headers=None, timeout=90, retry_5xx=True):
     body = json.dumps(payload, ensure_ascii=False).encode("utf-8")
     req = urllib.request.Request(url, data=body, method="POST")
     req.add_header("Content-Type", "application/json")
@@ -140,8 +140,24 @@ def http_post_json(url, payload, headers=None, timeout=90):
     req.add_header("User-Agent", "Mozilla/5.0 (compatible; RadarBot/2.0)")
     for k, v in (headers or {}).items():
         req.add_header(k, v)
-    with urllib.request.urlopen(req, timeout=timeout) as resp:
-        return json.loads(resp.read().decode("utf-8", "replace"))
+    try:
+        with urllib.request.urlopen(req, timeout=timeout) as resp:
+            return json.loads(resp.read().decode("utf-8", "replace"))
+    except urllib.error.HTTPError as exc:
+        # خطای ۵۰۰ این سرویس تصادفی است: همان درخواست دقیقاً با همان
+        # پارامترها یک بار ۵۰۰ داد و بار بعد جواب درست. دو تلاش دوباره
+        # ارزان‌تر از خواباندن کل لایه برای ده دقیقه است.
+        if not (retry_5xx and 500 <= exc.code < 600):
+            raise
+        for wait in (2, 5):
+            time.sleep(wait)
+            try:
+                with urllib.request.urlopen(req, timeout=timeout) as resp:
+                    return json.loads(resp.read().decode("utf-8", "replace"))
+            except urllib.error.HTTPError as again:
+                if not (500 <= again.code < 600):
+                    raise
+        raise
 
 
 def link_alive(url):
@@ -746,6 +762,13 @@ def clean_details(text):
             continue
         keys.append(key)
         keep.append(line)
+    # مدل بیشتر وقت‌ها یک پاراگراف بلند می‌نویسد، در حالی که قالب چند خط
+    # کوتاه می‌خواهد. جمله‌ها را جدا می‌کنیم تا بلوک نقل‌قول خوانا شود.
+    # نقطه فقط وقتی مرز جمله است که بعدش فاصله بیاید، پس «۱.۵» نمی‌شکند.
+    if len(keep) == 1 and len(keep[0]) > 140:
+        parts = [p.strip() for p in re.split(r"(?<=[.!؟])\s+", keep[0]) if p.strip()]
+        if len(parts) >= 2:
+            keep = parts[:MAX_DETAIL_LINES]
     return "\n".join(keep)
 
 
@@ -782,6 +805,16 @@ NAME_STOP = {
     "agent", "agents", "model", "models", "proposal", "design", "testing",
     "beta", "alpha", "preview", "weekly", "monthly", "summary", "meeting",
     "updates", "report", "notes", "agenda", "draft", "roadmap", "initiative",
+    # صفت و اسم‌های عمومی که با حرف بزرگ شروع می‌شوند و نام محصول نیستند.
+    # «Chinese AI models are politically complex» نام محصولش «Chinese» شد
+    # و در تیتر پست فارسی چاپ شد.
+    "chinese", "american", "european", "japanese", "korean", "russian",
+    "indian", "german", "french", "british", "italian", "spanish",
+    "canadian", "israeli", "iranian", "global", "world", "study",
+    "researchers", "scientists", "company", "startup", "government",
+    "users", "people", "here", "there", "this", "that", "these", "those",
+    "every", "most", "more", "less", "first", "last", "next", "only",
+    "just", "now", "then", "still", "even", "also", "but", "and",
 }
 NAME_RE = re.compile(r"[A-Z][A-Za-z0-9][A-Za-z0-9.\-]{1,29}")
 
@@ -825,10 +858,19 @@ def quality_ok(title, summary):
         if phrase in s or phrase in (title or ""):
             return False, "عبارت ممنوع"
     # تیتر کوتاه (دو واژه) طبیعتاً در خلاصه تکرار می‌شود و نباید رد شود.
+    # معیار «بازگویی» این است که خلاصه چیز تازه‌ای اضافه نکند، نه این که
+    # واژه‌های تیتر را دوباره به کار ببرد. فارسی ناچار است سوژه را تکرار کند.
+    # واژه‌های کوتاه به حساب نمی‌آیند: «حالا»، «هست»، «کرد» جمله را
+    # بلند می‌کنند ولی اطلاعاتی اضافه نمی‌کنند.
     tt, st = tokens(title), tokens(summary)
-    if len(tt) >= 3 and len(tt & st) / len(tt) > 0.7:
+    fresh = {w for w in (st - tt) if len(w) >= 4}
+    if len(tt) >= 3 and len(tt & st) / len(tt) > 0.7 and len(fresh) < 4:
         return False, "بازگویی تیتر"
-    if len(re.findall(r"[A-Za-z]{3,}", s)) > 3:
+    # نام محصول لاتین است و در متن فارسی تکرار می‌شود. سد باید نسبت را
+    # بسنجد نه تعداد را؛ قبلاً سه کلمهٔ لاتین کافی بود تا پست یک ابزار
+    # هوش مصنوعی رد شود، در حالی که خودِ پرامپت گفته نام لاتین را بنویس.
+    latin = re.findall(r"[A-Za-z]{3,}", s)
+    if len(latin) > 6 and sum(len(w) for w in latin) > 0.25 * len(s):
         return False, "لاتین زیاد"
     return True, ""
 
@@ -1092,6 +1134,11 @@ def call_models(prompt_system, prompt_user, deadline=None, budget=None, only=Non
                             {"role": "user", "content": prompt_user},
                         ],
                         "temperature": 0.35,
+                        # سقف توکن صریح. بدون آن، سقف پیش‌فرض سرویس
+                        # جواب پنج آیتم را نصفه می‌برید و جیسون ناقص
+                        # می‌شد؛ آن هم به‌صورت «مدل هیچ پستی ننوشت»
+                        # دیده می‌شد، نه به‌صورت خطا.
+                        "max_tokens": int(s.get("model_max_tokens", 3000)),
                     },
                     headers={"Authorization": "Bearer " + prov["key"]},
                     timeout=min(ptimeout, left),
@@ -1186,6 +1233,7 @@ SYSTEM_PROMPT = """تو نویسندهٔ یک کانال فارسی تخصصی �
 20. هر جمله باید یک اطلاع تازه بدهد. جمله‌ای که فقط جملهٔ قبلی را باز می‌کند حذف کن. مقدمه‌چینی نزن.
 21. جمع بستن با «های» را درست بکار ببر. ترکیب وصفی با «های» جمع بسته نمی‌شود: «مدل‌های هوش مصنوعی» درست است، «هوش مصنوعی‌های شما» غلط. اسم آخر را جمع کن، نه اول را.
 22. کلمهٔ برچسب را در تیتر تکرار نکن. برچسب «ابزار» با تیتر «ابزار HOL Guard ...» می‌شود «ابزار: ابزار HOL Guard».
+23. اگر پست را نوشتی، score و imp و use باید عدد مثبت باشند. صفر یعنی «رد کن»، و پستی که رد می‌شود title و summary هم ندارد. پست کامل با نمرهٔ صفر در کد دور ریخته می‌شود و فقط کارت هدر رفته. اگر ارزش نوشتن دارد، نمره‌اش را هم بده.
 
 این کانال چه چیزی نیست: استخدام، جذب سرمایه، معرفی کنفرانس و رویداد، حاشیه و شایعهٔ جامعهٔ وردپرس، تغییرات داخلی مخزن کد، و سرگرمی. این‌ها score صفر می‌گیرند.
 
@@ -1247,10 +1295,14 @@ KIND_HINT = {
         "اگر ورودی راهنما و آموزش است، برچسب «آموزش» بده، نه «پلاگین تازه»."
     ),
     "news": (
-        "این دسته خبر است، نه معرفی ابزار. فقط چیزی که برای سازندهٔ سایت فارسی مهم است: "
+        "این دسته خبر است، نه معرفی ابزار. دو نوع خبر قبول است. اول خبر وردپرس و وب: "
         "هستهٔ وردپرس، افزونه‌های پرکاربرد، امنیت، تغییر قیمت، یا سیاست‌های گوگل. "
+        "دوم خبر هوش مصنوعی که به کار سازندهٔ سایت می‌آید: مدل تازه، تغییر قیمت، "
+        "سهمیهٔ رایگان، یا قابلیت تازه‌ای که در ساخت سایت به کار می‌آید. "
+        "خبری که فقط سیاست، پروندهٔ حقوقی، بازار سهام یا حاشیهٔ شرکت‌هاست به کار مخاطب "
+        "نمی‌آید؛ با score صفر ردش کن. "
         "برچسب مجاز: «خبر»، «آپدیت»، «هشدار امنیتی»، «فوری»، «آموزش». ابزار و فرصت در این دسته ممنوع. "
-        "اگر ورودی معرفی یک ابزار تازه است و نه خبر، با score صفر ردش کن. "
+        "اگر ورودی فقط یک صفحهٔ معرفی محصول است و خبری پشتش نیست، با score صفر ردش کن. "
         "اگر ورودی «چطور فلان کار را بکنیم» است، آموزش است نه خبر؛ برچسب «آموزش» بده و "
         "هرگز برچسب امنیتی نده."
     ),
@@ -1260,6 +1312,32 @@ KIND_HINT = {
 def kind_hint(kind):
     hint = KIND_HINT.get(kind)
     return (hint + "\n\n") if hint else ""
+
+
+# متن پوستهٔ سایت، نه متن مطلب. وقتی استخراج شکست می‌خورد همین جمله‌ها
+# به مدل می‌رسند و مدل هم درست جواب می‌دهد: هیچ پستی نمی‌نویسد.
+CHROME_RE = re.compile(
+    r"(you signed in with another tab|go to file|branches\s+tags|"
+    r"open more actions menu|latest commit history|skip to content|"
+    r"toggle navigation|cookie policy|accept all cookies)",
+    re.I,
+)
+
+
+def item_text(it, limit=2400):
+    """متنی که مدل می‌خواند.
+
+    متن کامل همیشه بهتر از توضیح فید نیست. برای صفحهٔ مخزن، متن کامل
+    همان نوار سایت است و مدل از آن چیزی نمی‌فهمد؛ در آن حالت توضیح فید
+    تنها دادهٔ واقعی است. اگر هر دو باشند، هر دو می‌روند.
+    """
+    full = (it.get("full") or "").strip()
+    desc = (it.get("desc") or "").strip()
+    if full and (len(full) < 200 or CHROME_RE.search(full[:400])):
+        full = ""
+    if full and desc and not full.startswith(desc[:40]):
+        return (desc + "\n" + full)[:limit]
+    return (full or desc)[:limit]
 
 
 def build_prompt(items, extra):
@@ -1274,7 +1352,7 @@ def build_prompt(items, extra):
                 "source": it["source"],
                 "lang": it.get("lang", "en"),
                 "title": it["title"],
-                "text": (it.get("full") or it["desc"] or "")[:2400],
+                "text": item_text(it),
                 "published": pub,
                 "sources_count": it.get("sources_count", 1),
                 "plugin": it.get("plugin", {}),
@@ -1302,6 +1380,30 @@ SPONSOR_DOMAINS = {
 }
 TRACKING_RE = re.compile(r"(utm_|gclid=|fbclid=|affiliate|/partner|sponsor)", re.I)
 
+# صفحه‌هایی که خودشان محل گرفتن محصول‌اند. اگر منبع پست یکی از این‌ها
+# باشد، «لینک استفاده» جدا لازم نیست؛ خود لینک منبع همان است.
+PRODUCT_HOSTS = (
+    "producthunt.com", "npmjs.com", "pypi.org", "packagist.org",
+    "apps.apple.com", "play.google.com", "huggingface.co",
+    "addons.mozilla.org", "chrome.google.com",
+)
+
+
+def is_product_link(url):
+    """این آدرس خودش صفحهٔ محصول است، نه مقاله‌ای دربارهٔ محصول."""
+    parts = urllib.parse.urlparse(url or "")
+    host = parts.netloc.lower()
+    path = parts.path.strip("/")
+    segs = [p for p in path.split("/") if p]
+    if "github.com" in host or "gitlab.com" in host:
+        # فقط مخزن، نه فهرست موضوع و نه جست‌وجو.
+        if segs and segs[0] in ("topics", "search", "orgs", "collections", "sponsors"):
+            return False
+        return len(segs) >= 2
+    if any(d in host for d in PRODUCT_HOSTS):
+        return bool(segs)
+    return False
+
 
 def extract_use_link(article_url, raw_html):
     """از متن خام مقاله، لینک مستقیم به ابزار یا صفحهٔ استفاده را استخراج کن.
@@ -1309,6 +1411,11 @@ def extract_use_link(article_url, raw_html):
     مقاله‌های وبلاگ معمولاً لینک محصول را درون خود دارند. این تابع آن را
     از بین همهٔ لینک‌ها پیدا می‌کند و لینک‌های شبکهٔ اجتماعی را دور می‌ریزد.
     """
+    # اگر خودِ صفحه محصول است، لینک استفادهٔ جدا معنا ندارد. هر لینک
+    # دیگری داخل آن بخشی از مستندات یا وابستگی‌هاست؛ یک بار مخزن wrk
+    # به‌عنوان «جایی که ابزار را می‌گیری» پیشنهاد شد.
+    if is_product_link(article_url):
+        return ""
     article_domain = urllib.parse.urlparse(article_url).netloc.lower()
     links = set()
     for m in re.finditer(r'href=["\'](https?://[^"\']+)["\']', raw_html):
@@ -1371,6 +1478,10 @@ def extract_use_link(article_url, raw_html):
             path = urllib.parse.urlparse(link).path.strip("/")
             if domain == "github.com" and path.count("/") < 1:
                 continue
+            # ریشهٔ دامنه هیچ‌وقت صفحهٔ محصول نیست. «v0.wordpress.com»
+            # یک وبلاگ است، نه محصولی که مخاطب برود بگیرد.
+            if not path:
+                continue
             if is_index(link):
                 continue
             if re.search(r"/(reviews?|ratings?|support|feed)/?$", "/" + path, re.I):
@@ -1395,26 +1506,10 @@ def extract_use_link(article_url, raw_html):
             if "wordpress.org" in link:
                 return link
 
-    # ۴. اولین لینک خارجی معقول
-    for link in ranked:
-        link = strip_tracking(link)
-        domain = urllib.parse.urlparse(link).netloc.lower()
-        if domain == article_domain:
-            continue
-        if any(d in domain for d in social):
-            continue
-        # لینک پشتیبان و تبلیغات، لینک استفاده نیست. یک بار همین‌ها
-        # به‌عنوان «جایی که ابزار را می‌گیری» به مخاطب نشان داده شدند.
-        if any(d in domain for d in SPONSOR_DOMAINS):
-            continue
-        if is_index(link):
-            continue
-        if TRACKING_RE.search(link):
-            continue
-        if re.search(r'\.(jpg|jpeg|png|gif|svg|pdf|zip|exe|dmg|tar\.gz)$', link, re.I):
-            continue
-        return link
-
+    # ۴. اگر هیچ‌کدام نبود، هیچ. قبلاً اولین لینک خارجی برگردانده می‌شد و
+    # نتیجه‌اش این بود که یک خبر با «جایی که ابزار را می‌گیری» به پروفایل
+    # XFN و ریشهٔ وردپرس و داکیومنت گیت‌هاب می‌رسید. لینک غلط بدتر از
+    # نبودن لینک است؛ پست بدون خط اقدام هم کامل است.
     return ""
 
 
@@ -1439,9 +1534,23 @@ def fetch_article(url, limit=3200):
         return "", ""
     use_link = extract_use_link(url, raw)
     raw = re.sub(r"(?is)<(script|style|nav|header|footer|aside)[^>]*>.*?</\1>", " ", raw)
-    paras = re.findall(r"(?is)<p[^>]*>(.*?)</p>", raw)
+    # صفحه‌های امروزی متن اصلی را داخل article می‌گذارند و باقی صفحه نوار
+    # بالا و فهرست است. گیت‌هاب هم README را همان‌جا می‌گذارد. قبلاً به‌جای
+    # README متن «You signed in with another tab» به مدل می‌رسید و مدل
+    # هیچ پستی نمی‌نوشت؛ صف پر می‌شد و کانال خالی می‌ماند.
+    body = raw
+    art = re.search(r"(?is)<article[^>]*>(.*?)</article>", raw)
+    if art:
+        body = art.group(1)
+    paras = re.findall(r"(?is)<p[^>]*>(.*?)</p>", body)
     if not paras:
-        paras = re.findall(r"(?is)<div[^>]*>(.*?)</div>", raw)
+        paras = re.findall(r"(?is)<(?:div|li)[^>]*>(.*?)</(?:div|li)>", body)
+    if not paras and body is not raw:
+        # بلوک article خالی بود؛ برگرد به کل صفحه.
+        body = raw
+        paras = re.findall(r"(?is)<p[^>]*>(.*?)</p>", body)
+        if not paras:
+            paras = re.findall(r"(?is)<(?:div|li)[^>]*>(.*?)</(?:div|li)>", body)
     chunks = []
     total = 0
     for p in paras:
@@ -1541,6 +1650,20 @@ JUNK_NEWS_RE = re.compile(r"(wallpaper|screensaver|desktop calendar|calendar of)
 # خود مدل هم نوشت «این یک لیست مرجعی است، نه ابزاری برای اجرا».
 # خط تیره یا زیرخط لازم است تا «awesome new tool» گیر نیفتد.
 LIST_REPO_RE = re.compile(r"awesome[-_]", re.I)
+
+# دستهٔ ابزار از فیدهای عمومی هم پر می‌شود: هکرنیوز، ردیت، گیت‌هاب. آن
+# فیدها هر چیزی را قبول می‌کنند، از بازی ۱۹۹۱ تا داشبورد در نوار مک.
+# آیتمی که هیچ نشانه‌ای از هوش مصنوعی یا ساخت سایت ندارد، حتی به مدل
+# نمی‌رود؛ هم توکن می‌سوزاند، هم دسته را شبیه انبار می‌کند.
+BUILDER_TOPIC = re.compile(
+    r"(\bai\b|artificial intelligence|\bllm\b|\bagents?\b|\bmcp\b|\bgpt\b|"
+    r"wordpress|woocommerce|elementor|\bdivi\b|\bplugins?\b|\bthemes?\b|"
+    r"website|\bweb app\b|frontend|backend|\bcss\b|\bhtml\b|javascript|\bseo\b|"
+    r"hosting|domain name|\bapi\b|developer|coding|coder|\bsdk\b|"
+    r"open.source|self.hosted|"
+    r"هوش مصنوعی|مدل|عامل|وردپرس|افزونه|قالب|سایت|برنامه‌نویس)",
+    re.I,
+)
 
 # مدل خودش می‌گوید که این چیز ابزار نیست. حرفش را قبول می‌کنیم.
 NOT_A_TOOL_SELF_RE = re.compile(
@@ -2141,6 +2264,24 @@ def queue_merge(rows, s):
         q["items"].append(r)
         have.add(r["id"])
         added += 1
+    # دستهٔ آیتم‌های قدیمی با فهرست فعلی منابع هم‌تراز می‌شود. وقتی فیدی
+    # از «ابزار» به «خبر» می‌رود، آیتم‌های همان فید هم باید بروند؛ وگرنه
+    # یک خبر تا چند روز در دستهٔ ابزار می‌ماند و آن‌جا رد می‌شود.
+    kind_of = {}
+    for kind in ("news", "tools", "offers", "security", "showcase"):
+        try:
+            for src in load_sources(kind):
+                kind_of[src["name"]] = kind
+        except Exception:
+            pass
+    moved = 0
+    for x in q["items"]:
+        want = kind_of.get(x.get("source"))
+        if want and x.get("kind") != want:
+            x["kind"] = want
+            moved += 1
+    if moved:
+        log("queue: {} item moved to its feed's current category".format(moved))
     cutoff = now() - timedelta(days=int(s.get("queue_days", 7)))
     kept = []
     for x in q["items"]:
@@ -2210,7 +2351,11 @@ def fetch_full_parallel(chunk, workers=6):
     قبلاً یکی‌یکی خوانده می‌شد: ده آیتم در بدترین حالت صد و پنجاه ثانیه.
     همان چیزی که بودجهٔ اجرا را می‌خورد و به مدل نمی‌رسید.
     """
-    todo = [it for it in chunk if not it.get("full")]
+    todo = [
+        it
+        for it in chunk
+        if not it.get("full") or CHROME_RE.search((it.get("full") or "")[:400])
+    ]
     if not todo:
         return
     with ThreadPoolExecutor(max_workers=min(workers, len(todo))) as pool:
@@ -2221,8 +2366,12 @@ def fetch_full_parallel(chunk, workers=6):
                 text, use_link = fut.result()
             except Exception:
                 text, use_link = "", ""
-            it["full"] = text
-            it["use_link"] = use_link or it.get("use_link", "")
+            # بازخوانی موفق، مقدار قدیمی را باطل می‌کند. قبلاً لینک
+            # استفادهٔ کهنه روی مقدار تازه اولویت داشت و پست به همان
+            # لینک غلط قدیمی می‌رفت.
+            if text:
+                it["full"] = text
+                it["use_link"] = use_link
 
 
 def model_run(kind, s, st, seen, extra, hard_deadline=None):
@@ -2255,6 +2404,15 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
                 continue
             # فهرست پیوند، ابزار نیست.
             if LIST_REPO_RE.search(blob):
+                x["channel_skip"] = True
+                skipped += 1
+                continue
+            # دستهٔ ابزار را فیدهای عمومی هم پر می‌کنند. آیتمی که هیچ
+            # نشانه‌ای از هوش مصنوعی یا ساخت سایت ندارد، ابزار این کانال
+            # نیست. اینجا فقط کنار گذاشته می‌شود، پاک نمی‌شود.
+            if kind == "tools" and not BUILDER_TOPIC.search(
+                blob + " " + (x.get("desc", "") or "")
+            ):
                 x["channel_skip"] = True
                 skipped += 1
                 continue
@@ -2399,6 +2557,23 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
                     entry.get("details", "") or "",
                 ]
             )
+            # برچسب همان چیزی است که مخاطب اول می‌بیند، پس باید قبل از
+            # سدها معلوم باشد. سدها بر اساس برچسب کار می‌کنند، نه بر اساس
+            # دستهٔ فید: یک خبر هوش مصنوعی که از فید «ابزار» آمده، خبر است
+            # و نباید به‌خاطر نداشتن «لینک استفاده» رد شود.
+            label = classify_label(
+                kind,
+                label_text,
+                entry.get("label", ""),
+                title=entry.get("title", ""),
+                source_title=it.get("title", ""),
+            )
+            news_like = kind != "offers" and label in ("خبر", "آپدیت", "هشدار امنیتی", "فوری")
+            # پستی که برچسب خبری ندارد باید مثل محصول سنجیده شود، حتی اگر
+            # برچسبش «آموزش» باشد. وگرنه مدل با عوض کردن برچسب از سد
+            # «قابل استفاده» فرار می‌کند؛ یک ابزار با نمرهٔ کاربرد سه
+            # همین‌طور رد شد.
+            needs_product = kind in ("tools", "offers", "news") and not news_like
             score = final_score(it, entry)
             fast = False
             # سهم این اجرا یا سقف دسته که تمام شد، فقط یک خبر خیلی مهم
@@ -2448,7 +2623,7 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
             if true_age(it) > max_age_gate:
                 log("  too old for a standalone post:", it["title"][:50])
                 continue
-            if kind == "news" and num(entry.get("imp")) < 4:
+            if news_like and num(entry.get("imp")) < 4:
                 rejected.append((it, entry, "اهمیت کم"))
                 continue
             # راهنما خبر نیست. وبلاگ سازنده‌ها هر روز آموزش می‌نویسند و
@@ -2457,7 +2632,10 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
                 it["channel_skip"] = True  # دیگر به مدل نمی‌رود
                 rejected.append((it, entry, "آموزش است نه خبر"))
                 continue
-            if kind in ("tools", "offers") and num(entry.get("use")) < 5:
+            # «قابل استفاده» فقط برای پست‌هایی است که خودشان را ابزار
+            # معرفی می‌کنند. یک خبر هوش مصنوعی که در دستهٔ ابزار آمده،
+            # ابزار نیست و سنجیدنش با این معیار غلط است.
+            if needs_product and num(entry.get("use")) < 5:
                 rejected.append((it, entry, "قابل استفاده نیست"))
                 continue
             # در دستهٔ فرصت، چیزی که رایگان نیست فرصت نیست.
@@ -2484,8 +2662,12 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
                 continue
             # بلوک نقل‌قول نباید خالی یا تشریفاتی باشد.
             det = (entry.get("details") or "").strip()
-            need = 60 if kind in ("tools", "offers") else 30
-            if len(det) < need or len([x for x in det.splitlines() if x.strip()]) < 2:
+            need = 60 if needs_product else 30
+            det_lines = len([x for x in det.splitlines() if x.strip()])
+            # یک بند بلند هم «پوک» نیست. سد باید محتوا را بسنجد نه شکل
+            # شکستن خط را؛ مدل گاهی یک پاراگراف چهارخطی می‌نویسد و قبلاً
+            # فقط به‌خاطر یک‌خطی بودن رد می‌شد.
+            if len(det) < need or (det_lines < 2 and len(det) < 150):
                 log("  hollow blockquote:", entry.get("title", "")[:40])
                 rejected.append((it, entry, "جان مطلب پوک"))
                 continue
@@ -2496,12 +2678,16 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
                 continue
             # نام محصول: اول از مدل، و اگر نداد از تیتر منبع. پست بی‌نام نمی‌رود.
             name = valid_name(entry.get("name", ""), it) or auto_name(it)
-            if kind in ("tools", "offers") and not name:
+            if needs_product and not name:
                 log("  nameless post:", entry.get("title", "")[:40])
                 rejected.append((it, entry, "بی‌نام"))
                 continue
-            # لینک استفاده: برای ابزار و فرصت، بدون لینک استفاده پست بی‌فایده است.
-            if kind in ("tools", "offers") and not it.get("use_link"):
+            # لینک استفاده برای فرصت واجب است: فرصتی که راه گرفتنش را
+            # نگوید بی‌فایده است. برای ابزار واجب نیست؛ خود لینک منبع
+            # جایی برای رفتن است و پست بدون خط اقدام هم کامل می‌شود.
+            # قبلاً این سد هر ابزاری را که صفحهٔ محصول جدا نداشت رد
+            # می‌کرد و کانال خالی می‌ماند.
+            if kind == "offers" and not (it.get("use_link") or is_product_link(it.get("link", ""))):
                 log("  no use link:", entry.get("title", "")[:40])
                 rejected.append((it, entry, "لینک استفاده ندارد"))
                 continue
@@ -2511,13 +2697,6 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
             if not link_alive(it["link"]):
                 log("  dead link skipped:", it["link"])
                 continue
-            label = classify_label(
-                kind,
-                label_text,
-                entry.get("label", ""),
-                title=entry.get("title", ""),
-                source_title=it.get("title", ""),
-            )
             label_tag = "#" + re.sub(r"\s+", "_", label)
             kind_tag = KIND_TAG.get(kind, "#وردپرس")
             if label_tag == kind_tag or kind_tag.startswith(label_tag):

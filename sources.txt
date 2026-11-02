@@ -34,19 +34,25 @@
 دبلیوپی بگینر|https://www.wpbeginner.com/feed/|news|en|3
 وپی مایور|https://wpmayor.com/feed/|news|en|3
 
-# ---------- ابزار و فرصت ----------
-# وبلاگ سازنده‌ها آموزش می‌نویسد نه خبر. جای درستش دستهٔ ابزار است،
-# وگرنه کانال پر می‌شود از «چطور فلان کار را بکنیم» با برچسب خبر.
+# ---------- خبر هوش مصنوعی ----------
+# این‌ها خبرند، نه ابزار. قبلاً در دستهٔ ابزار بودند و مدل درست می‌گفت
+# «این ابزار نیست» و همه را رد می‌کرد؛ نتیجه‌اش این بود که دستهٔ ابزار
+# پر بود و کانال خالی. خبر هوش مصنوعی جای درستش دستهٔ خبر است.
+اوپن‌ای‌آی|https://openai.com/news/rss.xml|news|en|1
+گوگل|https://blog.google/technology/ai/rss/|news|en|1
+دیپ‌مایند|https://deepmind.google/blog/rss.xml|news|en|1
+هاگینگ‌فیس|https://huggingface.co/blog/feed.xml|news|en|2
+تک‌کرانچ|https://techcrunch.com/category/artificial-intelligence/feed/|news|en|2
+دیکودر|https://the-decoder.com/feed/|news|en|2
+مارک‌تک‌پست|https://www.marktechpost.com/feed/|news|en|2
+دِورج|https://www.theverge.com/rss/ai-artificial-intelligence/index.xml|news|en|2
+آرس‌تکنیکا|https://arstechnica.com/ai/feed/|news|en|2
+
+# ---------- ابزار ----------
+# فقط جایی که واقعاً محصول تازه معرفی می‌شود: صفحهٔ محصول، نمایش هکرنیوز،
+# مخزن تازه. وبلاگ سازنده‌ها آموزش می‌نویسد نه خبر، و جای درستش همین
+# دستهٔ ابزار است، وگرنه کانال پر می‌شود از «چطور فلان کار را بکنیم».
 الگانت|https://www.elegantthemes.com/blog/feed|tools|en|3
-اوپن‌ای‌آی|https://openai.com/news/rss.xml|tools|en|1
-گوگل|https://blog.google/technology/ai/rss/|tools|en|1
-دیپ‌مایند|https://deepmind.google/blog/rss.xml|tools|en|1
-هاگینگ‌فیس|https://huggingface.co/blog/feed.xml|tools|en|2
-تک‌کرانچ|https://techcrunch.com/category/artificial-intelligence/feed/|tools|en|2
-دیکودر|https://the-decoder.com/feed/|tools|en|2
-مارک‌تک‌پست|https://www.marktechpost.com/feed/|tools|en|2
-دِورج|https://www.theverge.com/rss/ai-artificial-intelligence/index.xml|tools|en|2
-آرس‌تکنیکا|https://arstechnica.com/ai/feed/|tools|en|2
 پروداکت هانت|https://www.producthunt.com/feed|tools|en|2
 سایمون ویلیسون|https://simonwillison.net/atom/everything/|tools|en|3
 شو هکرنیوز|https://hn.algolia.com/api/v1/search_by_date?query=show%20hn&tags=story&hitsPerPage=20|tools|en|2

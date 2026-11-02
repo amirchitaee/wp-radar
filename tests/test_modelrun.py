@@ -225,6 +225,28 @@ check("دیوی: برچسب امنیتی ندارد", "#هشدار_امنیتی"
 check("دیوی: برچسب آموزش دارد", "#آموزش" in divi_body, True)
 check("دیوی: نام محصول در تیتر هست", "Divi" in (divi_body.split("\n")[0] if divi_body else ""), True)
 
+# همان آیتم با نمرهٔ کاربرد پایین. برچسب آموزش نباید راه فرار از سد
+# «قابل استفاده» باشد؛ وگرنه مدل با عوض کردن برچسب، ابزار ضعیف را رد می‌کند.
+DIVI_WEAK = dict(DIVI_TOOLS)
+DIVI_WEAK["id"] = "divi03"
+DIVI_WEAK["title"] = "How To Build A Pricing Table With Divi 5’s Module Editor"
+DIVI_WEAK["link"] = "https://example.com/divi-pricing"
+radar.collect = lambda kind, st, seen, budget_sec=None: [dict(DIVI_WEAK)]
+
+
+def divi_weak_model(system, user, deadline=None, budget=None):
+    out = divi_tools_model(system, user)
+    out["items"][0]["id"] = "divi03"
+    out["items"][0]["use"] = 3
+    return out
+
+
+radar.call_models = divi_weak_model
+radar.DAILY.write_text(json.dumps({"date": radar.today(), "count": 0, "kinds": {}}), encoding="utf-8")
+SENT.clear()
+got = radar.model_run("tools", settings, {}, {"v": 1, "ids": {}}, "", hard_deadline=None)
+check("دیوی: ابزار کم‌کاربرد با برچسب آموزش رد می‌شود", got, 0)
+
 # بازی تخته‌ای رایگان نباید در کانال وردپرس منتشر شود.
 GAME = dict(FAKE_ROW)
 GAME.update(
