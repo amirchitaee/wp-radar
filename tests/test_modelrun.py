@@ -82,6 +82,10 @@ radar.call_models = fake_model
 settings = dict(radar.settings())
 settings["max_posts_per_run"] = 2
 settings["caps"] = {"news": 4, "tools": 2, "offers": 2, "showcase": 1}
+# آزمون نباید به ساعت واقعی وابسته باشد. اگر پنجرهٔ انتشار باز نباشد،
+# پست نگه داشته می‌شود و هیچ پیامی ساخته نمی‌شود؛ آن وقت آزمون ساعت
+# سه بامداد شکست می‌خورد و ساعت ده صبح سبز می‌شود.
+settings["publish"] = {"enabled": False}
 
 SENT.clear()
 posted = radar.model_run("offers", settings, {}, {"v": 1, "ids": {}}, "", hard_deadline=None)

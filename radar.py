@@ -59,6 +59,7 @@ LAST = STATE / "last_run.json"
 LAST_START = STATE / "last_start.json"
 STORIES = STATE / "stories.json"
 SCHED = STATE / "schedule.json"
+READY = STATE / "ready.json"
 ARCHIVE = ARCH / "items.jsonl"
 
 def env_clean(name):
@@ -695,6 +696,18 @@ DESIGN_WORDS = (
     "site builder", "webflow", "framer", "html", "template", "ui kit",
     "cms", "ecommerce", "shop", "storefront",
 )
+# اولویت کانال، به ترتیب: وردپرس، بعد ابزاری که کاری برای سایت می‌کند،
+# بعد ابزار محتوا. وردپرس بالاتر می‌نشیند چون مخاطب با آن سایت می‌سازد.
+WP_WORDS = (
+    "wordpress", "woocommerce", "elementor", "divi", "gutenberg",
+    "وردپرس", "ووکامرس", "المنتور", "افزونه", "پلاگین", "قالب",
+)
+SITE_WORDS = (
+    "website", "web design", "landing page", "page builder", "seo", "hosting",
+    "site builder", "webflow", "framer", "css", "figma", "ui kit", "template",
+    "cms", "ecommerce", "storefront", "analytics", "contact form", "speed",
+    "schema",
+)
 CONTENT_WORDS = (
     "writing", "copywriting", "blog", "article", "content", "text", "translate",
     "newsletter", "email", "summar", "editing", "editor", "seo content",
@@ -706,7 +719,7 @@ VIDEO_WORDS = (
 
 
 def topic_bonus(item, entry):
-    """اولویت موضوعی: طراحی سایت، بعد محتوا، بعد ویدیو.
+    """اولویت موضوعی: وردپرس، بعد ابزار سایت، بعد محتوا، آخر ویدیو.
 
     برای خبر اعمال نمی‌شود، چون خبر ارزش خودش را دارد.
     """
@@ -721,7 +734,9 @@ def topic_bonus(item, entry):
             str(entry.get("details") or ""),
         ]
     ).lower()
-    if any(w in blob for w in DESIGN_WORDS):
+    if any(w in blob for w in WP_WORDS):
+        return 8.0
+    if any(w in blob for w in SITE_WORDS):
         return 6.0
     if any(w in blob for w in CONTENT_WORDS):
         return 3.0
@@ -1241,7 +1256,7 @@ SYSTEM_PROMPT = """تو نویسندهٔ یک کانال فارسی تخصصی �
 7. کلیشه ممنوع: «در دنیای امروز»، «این ابزار می‌تواند»، «قابلیت»، «امکان»، «لازم به ذکر است». جملهٔ کوتاه و مستقیم بنویس.
 8. مخاطب حرفه‌ای نیست. هر اصطلاح فنی را همان‌جا با یک نیم‌جمله ساده کن. به جای «ای‌پی‌آی» بنویس «سرویسی که برنامه به آن وصل می‌شود». به جای «مدل زبانی» بنویس «هوش مصنوعی‌ای که متن می‌نویسد». خواننده باید بدون دانش قبلی بفهمد چه چیزی گیرش می‌آید.
 9. نام لاتین محصول را در تیتر بیاور، همان‌جا که می‌گویی چه اتفاقی افتاده. نمونه: «هوش مصنوعی AMIR تا آخر نوامبر دو میلیون توکن رایگان می‌دهد». بقیهٔ عبارت‌های لاتین — نام موتور، نسخه، بنچمارک — در details. در هر جمله حداکثر یک عبارت لاتین. بعد از تیتر، جای تکرار نام با ضمیر یا «این ابزار» ادامه بده.
-10. اولویت موضوعی: اول ابزاری که به ساخت و طراحی سایت کمک می‌کند، بعد تولید محتوا، بعد ساخت ویدیو و تصویر. اگر هر سه در یک دسته بودند، اولی را بالاتر بگذار. این یعنی ترتیب، نه حذف.
+10. اولویت موضوعی، به همین ترتیب: اول خبر و آپدیت و افزونهٔ وردپرس؛ بعد ابزاری که مخاطب در ایران واقعاً می‌تواند استفاده کند و کاری برای سایتش می‌کند (ساخت صفحه، سئو، سرعت، فرم، فروشگاه)؛ بعد ابزار تولید محتوا برای همان سایت؛ آخر ابزار ویدیو و تصویر. این یعنی ترتیب، نه حذف. اگر دو مورد هم‌ارزش بودند، آن را بالاتر بگذار که به سایت مربوط است. ابزاری که فقط با کارت بین‌المللی کار می‌کند، در فیلد use نمرهٔ پایین بگیر، ولی پستش را بنویس؛ حذفش نکن.
 
 اول فهمیدن، بعد نوشتن:
 11. قبل از نوشتن، در فیلد why در یک جمله بگو دقیقاً چه اتفاقی افتاده و چه کسی از آن سود می‌برد. اگر نمی‌توانی این یک جمله را از متن منبع دربیاوری، یعنی خبر را نفهمیده‌ای؛ score صفر بده.
@@ -2105,6 +2120,156 @@ FA_NAME = {
 }
 
 
+def publish_cfg(s=None):
+    return ((s or settings()).get("publish") or {})
+
+
+def in_publish_window(s=None, dt=None):
+    """آیا الان وقت انتشار است؟
+
+    کانال برای مخاطب ایرانی است. پست ساعت سه بامداد دیده نمی‌شود؛ فقط
+    صف را شلوغ می‌کند و صبح زیر ده پست دیگر گم می‌شود.
+    """
+    cfg = publish_cfg(s)
+    if not cfg.get("enabled", True):
+        return True
+    moment = (dt or now()).astimezone(TZ)
+    start = str(cfg.get("start", "08:00"))
+    end = str(cfg.get("end", "23:30"))
+    return start <= moment.strftime("%H:%M") <= end
+
+
+def next_window_start(s=None, dt=None):
+    """کی در باز می‌شود؟ برای گفتن به کاربر در گزارش."""
+    cfg = publish_cfg(s)
+    moment = (dt or now()).astimezone(TZ)
+    start = str(cfg.get("start", "08:00"))
+    try:
+        hh, mm = [int(x) for x in start.split(":")]
+    except Exception:
+        hh, mm = 8, 0
+    target = moment.replace(hour=hh, minute=mm, second=0, microsecond=0)
+    if target <= moment:
+        target = target + timedelta(days=1)
+    return target
+
+
+def hold_ready(it, label, text, score, kind):
+    """پست آماده را نگه می‌دارد تا در پنجرهٔ انتشار برود.
+
+    نوشتن متن کار سنگین است و به مدل و وقت نیاز دارد؛ انتشار کار سبک.
+    جدا کردنشان یعنی مدل شب کار می‌کند و کانال صبح پر می‌شود.
+    """
+    cfg = publish_cfg()
+    store = read_json(READY, {"items": []})
+    items = store.get("items") or []
+    if len(items) >= int(cfg.get("max_ready", 8)):
+        return False
+    if any(x.get("id") == it.get("id") for x in items):
+        it["held"] = True
+        return True
+    items.append(
+        {
+            "id": it.get("id"),
+            "at": now().isoformat(timespec="seconds"),
+            "kind": kind,
+            "label": label,
+            "text": text,
+            "score": score,
+            "title": it.get("title", ""),
+            "link": it.get("link", ""),
+            "source": it.get("source", ""),
+            "photo": og_image(it["link"]) if kind == "showcase" else "",
+        }
+    )
+    store["items"] = items
+    if not DRY:
+        write_json(READY, store)
+    it["held"] = True
+    return True
+
+
+def publish_ready(s, st, seen, hard_deadline=None):
+    """یکی از پست‌های آماده را در پنجرهٔ انتشار می‌فرستد.
+
+    هر اجرا حداکثر یک پست، با فاصلهٔ مشخص. صبح که کانال باز می‌شود
+    قوی‌ترین پست اول می‌رود، نه قدیمی‌ترین.
+    """
+    cfg = publish_cfg(s)
+    if not cfg.get("enabled", True) or not in_publish_window(s):
+        return 0
+    store = read_json(READY, {"items": []})
+    items = store.get("items") or []
+    if not items:
+        return 0
+    sch = read_json(SCHED, {})
+    gap = int(cfg.get("gap_min", 70))
+    last = sch.get("last_publish")
+    if last:
+        try:
+            if (now() - datetime.fromisoformat(last)).total_seconds() < gap * 60:
+                return 0
+        except Exception:
+            pass
+    d = read_json(DAILY, {"date": today(), "count": 0})
+    if d.get("date") != today():
+        d = {"date": today(), "count": 0}
+    d.setdefault("kinds", {})
+    store_story = load_stories()
+    items.sort(key=lambda x: (float(x.get("score") or 0), str(x.get("at") or "")), reverse=True)
+    keep = []
+    done = False
+    for row in items:
+        if done:
+            keep.append(row)
+            continue
+        kind = row.get("kind") or "news"
+        if daily_room(s, kind, d) <= 0:
+            keep.append(row)
+            continue
+        held_h = 99.0
+        try:
+            held_h = (now() - datetime.fromisoformat(str(row.get("at")))).total_seconds() / 3600
+        except Exception:
+            pass
+        if held_h > float(cfg.get("max_hold_h", 30)):
+            log("  held post too old, dropped:", str(row.get("title") or "")[:40])
+            continue
+        try:
+            if row.get("photo"):
+                send_photo(row["photo"], row["text"])
+            else:
+                send(row["text"])
+        except Exception as exc:
+            log("  publish error:", str(exc)[:120])
+            keep.append(row)
+            break
+        q = read_json(QUEUE, {"v": 1, "items": []})
+        target = next((x for x in q["items"] if x.get("id") == row.get("id")), None)
+        if target:
+            target["posted"] = True
+            target.pop("held", None)
+        seen["ids"][row.get("id")] = today()
+        add_story(store_story, target or row)
+        d["count"] = int(d.get("count", 0)) + 1
+        d["kinds"][kind] = int(d["kinds"].get(kind, 0)) + 1
+        archive_row(target or row, row.get("label", ""), "", "", row.get("score", 0), kind)
+        if not DRY:
+            write_json(QUEUE, q)
+            write_json(DAILY, d)
+            write_json(SEEN, seen)
+            write_json(STORIES, store_story)
+        fresh = read_json(SCHED, {})
+        fresh["last_publish"] = now().isoformat(timespec="seconds")
+        if not DRY:
+            write_json(SCHED, fresh)
+        log("published from hold:", kind, str(row.get("title") or "")[:40])
+        done = True
+    if not DRY:
+        write_json(READY, {"items": keep})
+    return 1 if done else 0
+
+
 def format_post(label, title, summary, details, meta, link, hashtags, when=None, name="", use_link=""):
     """ساخت متن پست.
 
@@ -2511,7 +2676,14 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
     enrich_plugins(rows)
     log("new items:", len(rows))
     q, added = queue_merge(rows, s)
-    pending = [x for x in q["items"] if x.get("kind") == kind and not x.get("posted") and not x.get("channel_skip")]
+    pending = [
+        x
+        for x in q["items"]
+        if x.get("kind") == kind
+        and not x.get("posted")
+        and not x.get("channel_skip")
+        and not x.get("held")
+    ]
     log("queue for", kind, ":", len(pending))
     if not pending:
         return 0
@@ -2854,6 +3026,16 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
                 name=name,
                 use_link=it.get("use_link", ""),
             )
+            # خارج از پنجرهٔ انتشار، متن نوشته و نگه داشته می‌شود.
+            # هشدار امنیتی و خبر فوری منتظر ساعت نمی‌مانند.
+            if not in_publish_window(s) and label not in (publish_cfg(s).get("bypass_labels") or []):
+                if not hold_ready(it, label, text, score, kind):
+                    log("  ready store is full, stopping this run")
+                    break
+                if not DRY:
+                    write_json(QUEUE, q)
+                log("  held for the next window:", entry.get("title", "")[:40])
+                continue
             try:
                 if kind == "showcase":
                     pic = og_image(it["link"])
@@ -3110,6 +3292,10 @@ def auto_run(s, st, seen, extra, role="main"):
     """
     if not guardian_ready(s, role):
         return 0
+
+    # اول نوبت پست‌های نگه‌داشته‌شده است. اگر داخل پنجرهٔ انتشار باشیم،
+    # یکی از آماده‌ها می‌رود و بعد سراغ جمع‌آوری می‌رویم.
+    publish_ready(s, st, seen)
 
     sch = read_json(SCHED, {})
     started = time.time()
@@ -3503,6 +3689,8 @@ def main():
         # ثبت کند، وگرنه همان خبر دیگر هیچ‌وقت پست نمی‌شود.
         return compare_run(s, st, seen, cmp_limit, cmp_kind)
     else:
+        # اجرای دسته‌ای هم اول پست‌های نگه‌داشته‌شده را خالی می‌کند.
+        publish_ready(s, st, seen)
         model_run(cmd, s, st, seen, extra)
 
     cutoff = (now() - timedelta(days=180)).date().isoformat()

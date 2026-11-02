@@ -8,7 +8,7 @@ import re
 import sys
 import tempfile
 import time
-from datetime import timedelta
+from datetime import datetime, timedelta
 from pathlib import Path
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -711,6 +711,45 @@ check(
     radar.classify_label("security", "آسیب‌پذیری بحرانی Brotli در وردپرس کشف شد.", "", False),
     "هشدار امنیتی",
 )
+
+# ---------------------------------------------------------------- ساعت انتشار
+# کانال برای مخاطب ایرانی است؛ پست ساعت سه بامداد دیده نمی‌شود. متن
+# شب نوشته می‌شود و صبح با فاصله منتشر می‌شود.
+_pub = {"caps": {"news": 4}, "daily_cap": 11, "max_posts_per_run": 4,
+        "publish": {"enabled": True, "start": "08:00", "end": "23:30",
+                    "gap_min": 70, "max_ready": 2, "max_hold_h": 30}}
+check("انتشار: سه بامداد تعطیل است",
+      radar.in_publish_window(_pub, datetime(2026, 11, 3, 3, 0, tzinfo=radar.TZ)), False)
+check("انتشار: ده صبح باز است",
+      radar.in_publish_window(_pub, datetime(2026, 11, 3, 10, 0, tzinfo=radar.TZ)), True)
+check("انتشار: باز شدن بعدی فردا صبح است",
+      radar.next_window_start(_pub, datetime(2026, 11, 3, 23, 45, tzinfo=radar.TZ)).strftime("%m-%d %H:%M"),
+      "11-04 08:00")
+
+_hold_dir = tempfile.mkdtemp()
+radar.READY = Path(_hold_dir) / "ready.json"
+radar.QUEUE = Path(_hold_dir) / "queue.json"
+radar.DAILY = Path(_hold_dir) / "daily.json"
+radar.SCHED = Path(_hold_dir) / "schedule.json"
+radar.STORIES = Path(_hold_dir) / "stories.json"
+radar.og_image = lambda url: ""
+_hold_item = {"id": "hold-1", "title": "خبر آزمون", "link": "https://example.com/x",
+              "kind": "news", "source": "آزمون"}
+radar.write_json(radar.QUEUE, {"v": 1, "items": [dict(_hold_item)]})
+radar.write_json(radar.DAILY, {"date": radar.today(), "count": 0, "kinds": {}})
+check("انتشار: نگه‌داشتن انجام شد",
+      radar.hold_ready(_hold_item, "خبر", "<b>متن آزمون</b>", 80, "news"), True)
+check("انتشار: آیتم علامت نگه‌داشته گرفت", _hold_item.get("held"), True)
+# برای آزمون خودِ انتشار، پنجره‌ای می‌سازیم که همین حالا باز باشد؛
+# وگرنه آزمون به ساعت واقعی وابسته می‌شود.
+_pub_now = dict(_pub)
+_pub_now["publish"] = {"enabled": True, "start": "00:00", "end": "23:59",
+                       "gap_min": 0, "max_ready": 2, "max_hold_h": 30}
+check("انتشار: یک پست از نگه‌داشته رفت",
+      radar.publish_ready(_pub_now, {}, {"v": 1, "ids": {}}), 1)
+check("انتشار: انبار نگه‌داشته خالی شد",
+      radar.read_json(radar.READY, {"items": []})["items"], [])
+check("انتشار: پست در کانال ثبت شد", sent[-1] if sent else None, "<b>متن آزمون</b>")
 
 # ---------------------------------------------------------------- نتیجه
 print("{} آزمون اجرا شد.".format(COUNT))

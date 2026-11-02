@@ -21,6 +21,7 @@
 ووکامرس|https://woocommerce.com/blog/feed/|news|en|1
 وردپرس فارسی|https://fa.wordpress.org/news/feed/|news|fa|2
 تاورن|https://wptavern.com/feed|news|en|2
+پست‌استتوس|https://poststatus.com/feed/|news|en|2
 میهن وردپرس|https://mihanwp.com/feed/|news|fa|3
 المنتور|https://elementor.com/blog/feed/|news|en|2
 جت‌پک|https://jetpack.com/blog/feed/|news|en|3
