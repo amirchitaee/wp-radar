@@ -544,10 +544,25 @@ def load_stories():
     return d
 
 
+CVE_RE = re.compile(r"CVE[-\u2011\u2013 ]?(\d{4})[-\u2011\u2013 ]?(\d{4,7})", re.I)
+
+
+def cve_ids(text):
+    """شناسهٔ CVE را یک‌شکل می‌کند.
+
+    یک CVE می‌تواند ده مقاله داشته باشد و هر مقاله تیتر خودش. ولی شناسه
+    یکی است. یک بار یک CVE بیست و دوم اکتبر اعلام شد، سی‌ام اکتبر یک
+    مقاله‌اش پست شد و دوم نوامبر مقالهٔ دیگرش هم پست شد، چون دو تیتر
+    هیچ واژهٔ مشترکی نداشتند جز نام کتابخانه.
+    """
+    return {"CVE-{}-{}".format(y, n) for y, n in CVE_RE.findall(text or "")}
+
+
 def is_recent_story(store, item):
     """آیا همین داستان قبلاً پست شده؟ بین دسته‌های هم‌خانواده هم چک می‌شود."""
     kind = item.get("kind") or "news"
     probe = {"title": item.get("title", "")}
+    mine = cve_ids(item.get("title", "") + " " + (item.get("desc") or ""))
     current = now()
     for s in store.get("items", []):
         sk = s.get("kind") or "news"
@@ -563,6 +578,10 @@ def is_recent_story(store, item):
             continue
         if (current - ts).days > days:
             continue
+        # شناسهٔ CVE از هر تطبیق واژگانی قوی‌تر است: همان حفره است،
+        # هر چقدر هم تیتر عوض شده باشد.
+        if mine and mine & set(s.get("cves") or []):
+            return True
         if same_story(probe, s):
             return True
     return False
@@ -578,6 +597,7 @@ def add_story(store, item):
             "link": item.get("link", ""),
             "ents": sorted(ents)[:12],
             "vers": sorted(vers)[:6],
+            "cves": sorted(cve_ids(item.get("title", "") + " " + (item.get("desc") or "")))[:4],
         }
     )
     store["items"] = store["items"][-400:]
@@ -1241,6 +1261,12 @@ SYSTEM_PROMPT = """تو نویسندهٔ یک کانال فارسی تخصصی �
 21. جمع بستن با «های» را درست بکار ببر. ترکیب وصفی با «های» جمع بسته نمی‌شود: «مدل‌های هوش مصنوعی» درست است، «هوش مصنوعی‌های شما» غلط. اسم آخر را جمع کن، نه اول را.
 22. کلمهٔ برچسب را در تیتر تکرار نکن. برچسب «ابزار» با تیتر «ابزار HOL Guard ...» می‌شود «ابزار: ابزار HOL Guard».
 23. اگر پست را نوشتی، score و imp و use باید عدد مثبت باشند. صفر یعنی «رد کن»، و پستی که رد می‌شود title و summary هم ندارد. پست کامل با نمرهٔ صفر در کد دور ریخته می‌شود و فقط کارت هدر رفته. اگر ارزش نوشتن دارد، نمره‌اش را هم بده.
+24. جملهٔ مجهول و اداری ممنوع: «طراحی شده است»، «شناسایی شد»، «اعمال کنند»، «می‌باشد»، «صورت گرفت»، «انجام می‌شود». این‌ها ترجمهٔ لفظی‌اند و خواننده را خسته می‌کنند. همان حرف را با فعل ساده و شناسهٔ معلوم بزن.
+    بد: «یک آسیب‌پذیری بحرانی شناسایی شد. صاحبان سایت‌ها باید به‌روزرسانی‌های اصلاحی را اعمال کنند.»
+    خوب: «یک حفرهٔ امنیتی در بروتلی پیدا شده که روی سایت‌های وردپرس هم اثر دارد. اگر وردپرس داری، امروز وصله‌اش کن.»
+    بد: «این مدل برای کارهای پیچیدهٔ مهندسی طراحی شده است.»
+    خوب: «این مدل را برای کارهای سخت مهندسی ساخته‌اند؛ کارهایی که چند ساعت طول می‌کشند.»
+25. اگر جمله‌ای را می‌شود به یک دوست در تلگرام گفت، همان را بنویس. اگر شبیه اطلاعیهٔ شرکتی شد، دوباره بنویسش.
 
 این کانال چه چیزی نیست: استخدام، جذب سرمایه، معرفی کنفرانس و رویداد، حاشیه و شایعهٔ جامعهٔ وردپرس، تغییرات داخلی مخزن کد، و سرگرمی. این‌ها score صفر می‌گیرند.
 
@@ -1651,8 +1677,29 @@ TUTORIAL_HINT = re.compile(
     r"(آموزش|راهنمای|گام‌به‌گام|چطور|guide|tutorial|how to|walkthrough|step by step)", re.I
 )
 UPDATE_HINT = re.compile(
-    r"(به‌روزرسانی|بروزرسانی|آپدیت|release|released|update|updated|version|\d+\.\d+)", re.I
+    r"(به‌روزرسانی|بروزرسانی|آپدیت|patch|patched|hotfix|bump|service pack)", re.I
 )
+# نسخهٔ تازهٔ یک چیز موجود، آپدیت است؛ تولد یک محصول تازه، خبر.
+# قبلاً هر «۱.۰» در متن کافی بود تا پست «آپدیت» شود، حتی وقتی مدل
+# تازه‌ای برای اولین بار منتشر شده بود و کاربر کاری برای به‌روز کردن
+# نداشت.
+RELEASE_VERB = re.compile(
+    r"(منتشر|عرضه|آزاد|در دسترس|release|released|available|shipped|rolled out|out now)", re.I
+)
+
+
+def version_bump(text):
+    """این عدد، نسخهٔ چیزی است یا بخشی از نام محصول؟
+
+    «وردپرس ۷.۱.۴» نسخه است: عدد با فاصله آمده. «Hydrogen-1.0» نام است:
+    عدد به خود نام چسبیده. همین تفاوت، آپدیت را از خبر جدا می‌کند.
+    """
+    for m in re.finditer(r"(?P<pre>.)(?P<ver>[\d۰-۹]+\.[\d۰-۹]+)", str(text or "")):
+        pre = m.group("pre")
+        if pre in "-_./" or (pre.isascii() and pre.isalpha()):
+            continue
+        return True
+    return False
 NEW_HINT = re.compile(r"(تازه|جدید|معرفی|رونمایی|new|launch|introduc|debut|unveil)", re.I)
 WP_HINT = re.compile(
     r"(وردپرس|wordpress|افزونه|plugin|هسته|core|قالب|theme|ووکامرس|woocommerce|المنتور|elementor)",
@@ -1660,7 +1707,8 @@ WP_HINT = re.compile(
 )
 URGENT_HINT = re.compile(
     r"(actively exploited|actively attempt|attempting to exploit|already exploiting|"
-    r"exploited in the wild|under attack|zero-day|بحرانی|در حال سوءاستفاده|فعالانه)",
+    r"exploited in the wild|under attack|zero-day|در حال سوءاستفاده|سوءاستفادهٔ فعال|"
+    r"در حال بهره‌برداری|بهره‌برداری فعال)",
     re.I,
 )
 # «آموزش» یعنی راهنما، نه خبر. تیتری که با «چطور» شروع می‌شود آموزش است.
@@ -1750,6 +1798,14 @@ NON_NEWS_RE = re.compile(
     r"team[- ]update|team[- ]changes|core[- ]team|review[- ]team|"
     r"bi-?weekly[- ](chat|call|meeting|sync)|weekly[- ](chat|sync)|"
     r"what[- ]we[- ]shipped|shipped[- ]this[- ]week|"
+    # صفحهٔ گردآوری ماهانه، خبر نیست: یک صفحه است که ده اتفاق ماه را
+    # فهرست می‌کند. مدل از آن یک تیتر درمی‌آورد که در خود صفحه نیست،
+    # و خبرِ یک ماه پیش تازه به نظر می‌رسد. یک بار «رونمایی از مدل
+    # جمینای» از همین صفحه بیرون آمد و پست شد.
+    r"what[- ]we[- ]announced|the[- ]latest[- ].{0,30}(news|updates).{0,25}(in|of)[- ]"
+    r"(january|february|march|april|may|june|july|august|september|october|november|december)|"
+    r"monthly[- ](roundup|recap|digest)|month[- ]in[- ]review|round[- ]?up:|"
+    r"خلاصهٔ ماه|مرور ماه|این ماه در|"
     r"صورت‌جلسه|خلاصهٔ جلسه|خلاصه جلسه|گزارش هفتگی|گزارش جلسه|"
     r"جلسهٔ هفتگی|یادداشت جلسه|دستور جلسه)",
     re.I,
@@ -1808,7 +1864,7 @@ def classify_label(kind, text, model_label="", urgent=False, title="", source_ti
             and not is_theme_title(title)
         ):
             return "پلاگین تازه"
-        if UPDATE_HINT.search(text):
+        if UPDATE_HINT.search(text) or (version_bump(text) and RELEASE_VERB.search(text)):
             return "آپدیت"
         return "خبر"
 
@@ -1944,11 +2000,23 @@ def send_to(chat, text, preview=True):
         log("--- post ---")
         log(text)
         return {"ok": True, "dry": True}
-    return http_post_json(
-        "https://api.telegram.org/bot{}/sendMessage".format(TG_TOKEN),
-        {"chat_id": chat, "text": text[:4000], "parse_mode": "HTML", "disable_web_page_preview": not preview},
-        timeout=30,
-    )
+    try:
+        return http_post_json(
+            "https://api.telegram.org/bot{}/sendMessage".format(TG_TOKEN),
+            {"chat_id": chat, "text": text[:4000], "parse_mode": "HTML", "disable_web_page_preview": not preview},
+            timeout=30,
+        )
+    except urllib.error.HTTPError:
+        # تلگرام صریح رد کرد. چیزی منتشر نشده، پس ثبت هم نمی‌شود.
+        raise
+    except (urllib.error.URLError, TimeoutError, OSError) as exc:
+        # درخواست رفت ولی جواب برنگشت. تلگرام در این حالت معمولاً پیام را
+        # گرفته است. قبلاً این استثنا بالا می‌رفت، پست ثبت نمی‌شد و اجرای
+        # بعدی همان خبر را دوباره می‌فرستاد: دو هشدار بروتلی با یک لینک،
+        # چهار دقیقه فاصله، و هیچ ردی در آرشیو. حالا «فرستاده‌شده ولی
+        # تأییدنشده» حساب می‌شود تا تکرار نشود.
+        log("  telegram unconfirmed:", str(exc)[:100])
+        return {"ok": True, "unconfirmed": True}
 
 
 def send(text, preview=True):
@@ -2195,13 +2263,19 @@ def security_run(s, st, seen, hard_deadline=None):
             log("  dead link skipped:", it["link"])
             continue
         entry = results.get(it["id"])
+        # «بحرانی» به‌تنهایی فوری نیست. هر آسیب‌پذیری بحرانی، هشدار است نه
+        # خبر فوری؛ فوری یعنی همین حالا در حال سوءاستفاده است. و هشداری
+        # که اصل ماجرایش چند روز پیش منتشر شده، امروز فوری نیست: یک CVE
+        # که گوگل بیست و دوم اکتبر اعلام کرده بود، دوم نوامبر «فوری»
+        # فرستاده شد و خواننده فکر کرد همین امروز کشف شده.
         urgent = bool(
             re.search(
-                r"(actively exploited|actively attempt|attempting to exploit|already exploiting|exploited in the wild|under attack|zero-day|بحرانی)",
+                r"(actively exploited|actively attempt|attempting to exploit|already exploiting|"
+                r"exploited in the wild|under attack|zero-day|در حال سوءاستفاده|بهره‌برداری فعال)",
                 it.get("desc", "") + " " + it.get("title", ""),
                 re.I,
             )
-        )
+        ) and float(it.get("age_hours") or 0) <= float(s.get("urgent_max_age_h", 72))
         sec_text = " ".join(
             [
                 it.get("title", "") or "",
@@ -2523,6 +2597,16 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
     if my_limit <= 0 and fast_used >= fast_per_day:
         log("no room left today for", kind, "- model call skipped")
         return 0
+    # سهم امروز تمام شده ولی مسیر سریع باز است. آن مسیر فقط برای خبر
+    # خیلی تازه است؛ اگر هیچ آیتم تازه‌ای در صف نیست، تماس مدل فقط
+    # توکن می‌سوزاند و ته‌اش «سهم این اجرا تمام شد» چاپ می‌شود. یک بار
+    # چهار تماس مدل کامل رفت و صفر پست داد.
+    if my_limit <= 0:
+        fresh_pool = [x for x in pool if float(x.get("age_hours") or 99) <= fast_age]
+        if not fresh_pool:
+            log("share for", kind, "is used up and nothing is fresh enough for the fast lane")
+            return 0
+        pool = fresh_pool
     rejected = []
 
     step = max(3, int(s.get("chunk_size", 7)))

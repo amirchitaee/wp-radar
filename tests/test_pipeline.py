@@ -190,6 +190,7 @@ sent = []
 radar.send = lambda text: sent.append(text)
 radar.link_alive = lambda link: True
 radar.archive_row = lambda *a, **k: None
+_real_is_recent_story = radar.is_recent_story
 radar.is_recent_story = lambda store, it: False
 radar.load_sources = lambda kind: [{"name": "آزمون", "url": "x", "lang": "en", "tier": 1}]
 radar.call_models = lambda sysp, prompt, **kw: {"items": []}
@@ -655,6 +656,60 @@ check(
         {"title": "Google updates Gemini in Workspace with new sidebar"},
     ),
     False,
+)
+
+# ---------------------------------------------------------------- یک CVE
+# یک حفره با چند مقاله و چند تیتر، هنوز یک حفره است.
+check("CVE: شناسه یک‌شکل می‌شود", radar.cve_ids("CVE‑2026‑111497"), {"CVE-2026-111497"})
+check(
+    "CVE: حفرهٔ تکراری با تیتر تازه رد می‌شود",
+    _real_is_recent_story(
+        {"items": [{"t": radar.now().isoformat(timespec="seconds"),
+                    "title": "WordPress doesn't ship Brotli. It's still exposed",
+                    "kind": "security", "cves": ["CVE-2026-111497"]}]},
+        {"title": "HTTP2Shell: What the Critical Brotli Vulnerability Means",
+         "desc": "یک حفرهٔ بحرانی در بروتلی، شناسه CVE-2026-111497",
+         "kind": "security"},
+    ),
+    True,
+)
+
+# ---------------------------------------------------------------- صفحهٔ گردآوری
+check(
+    "گردآوری ماهانه: صفحهٔ «اخبار ماه» خبر نیست",
+    bool(radar.NON_NEWS_RE.search("The latest AI news we announced in October 2026")),
+    True,
+)
+check(
+    "گردآوری ماهانه: خبر واقعی رد نمی‌شود",
+    bool(radar.NON_NEWS_RE.search("WordPress 6.9 released with new features")),
+    False,
+)
+
+# ---------------------------------------------------------------- برچسب
+# تولد یک محصول تازه خبر است، نه آپدیت. قبلاً هر «۱.۰» در متن کافی بود.
+check(
+    "برچسب: انتشار مدل تازه خبر است نه آپدیت",
+    radar.classify_label(
+        "news",
+        "مدل علمی Hydrogen-1.0 با وزن باز منتشر شد. مجوز MIT دارد.",
+        "",
+        False,
+        "مدل علمی Hydrogen-1.0 منتشر شد",
+    ),
+    "خبر",
+)
+check(
+    "برچسب: نسخهٔ تازهٔ افزونهٔ موجود آپدیت است",
+    radar.classify_label(
+        "news", "افزونهٔ جت‌پک به‌روزرسانی شد و نسخهٔ ۱۲.۴ منتشر شد.", "", False
+    ),
+    "آپدیت",
+)
+check(
+    "برچسب: کلمهٔ بحرانی به‌تنهایی فوری نمی‌سازد",
+    radar.classify_label("security", "آسیب‌پذیری بحرانی Brotli در وردپرس کشف شد.", "", False),
+    "هشدار امنیتی",
 )
 
 # ---------------------------------------------------------------- نتیجه
