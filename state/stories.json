@@ -246,6 +246,21 @@
     "presence"
    ],
    "vers": []
+  },
+  {
+   "t": "2026-11-02T12:05:06+00:00",
+   "title": "What Is LLMS.txt And Does Your Website Need One?",
+   "kind": "tools",
+   "link": "https://www.elegantthemes.com/blog/business/what-is-llms-txt-and-does-your-website-need-one",
+   "ents": [
+    "and",
+    "does",
+    "is",
+    "llms.txt",
+    "need",
+    "website"
+   ],
+   "vers": []
   }
  ]
 }
