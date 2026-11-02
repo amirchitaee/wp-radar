@@ -261,6 +261,35 @@
     "website"
    ],
    "vers": []
+  },
+  {
+   "t": "2026-11-02T15:31:57+00:00",
+   "title": "Get $70 in Free Exa API Credits With Promo Code EXA50API",
+   "kind": "offers",
+   "link": "https://aifree.dev/news/exa-promo-code-exa50api-50-free-api-credits",
+   "ents": [
+    "api",
+    "code",
+    "credits",
+    "exa",
+    "exa50api",
+    "promo"
+   ],
+   "vers": []
+  },
+  {
+   "t": "2026-11-02T15:32:01+00:00",
+   "title": "Claim 4,000 Free Kiro Credits for the Kiroween 2026 Hackathon",
+   "kind": "offers",
+   "link": "https://aifree.dev/news/kiro-kiroween-2026-4000-free-credits-hackathon",
+   "ents": [
+    "claim",
+    "credits",
+    "hackathon",
+    "kiro",
+    "kiroween"
+   ],
+   "vers": []
   }
  ]
 }

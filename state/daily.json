@@ -1,7 +1,8 @@
 {
  "date": "2026-11-02",
- "count": 1,
+ "count": 3,
  "kinds": {
-  "tools": 1
+  "tools": 1,
+  "offers": 2
  }
 }
