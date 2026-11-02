@@ -13076,7 +13076,9 @@
    "kind": "news",
    "age_hours": 1.1,
    "published": "2026-11-02T13:56:02-05:00",
-   "added": "2026-11-02T20:00:54+00:00"
+   "added": "2026-11-02T20:00:54+00:00",
+   "full": "AI Entertainment Gaming Anthropic clamps down on Claude’s AI video game clones Anthropic is steering Claude away from recreating specific titles, but users can still use it to make their own games. Anthropic is steering Claude away from recreating specific titles, but users can still use it to make their own games. Jay Peters Nov 2, 2026, 6:56 PM UTC Link Share Gift Image: Cath Virginia / The Verge Part Of Reverse-engineered games: All the news on video game decomps, recomps, VR and web and 3D ports see all updates Jay Peters is a senior reporter covering technology, gaming, and more. He joined The Verge in 2019 after nearly two years at Techmeme. Anthropic has updated Claude Code’s system prompt to prevent the AI tool from being used to recreate existing video games, as reported by Tom’s Hardware . Retro gaming is currently being overrun with AI-made decompilations, recompilations, and ports , but while Anthropic will still let people use Claude Code to make games, it doesn’t want people to use it for direct clones. Last week, a user on X posted a screenshot allegedly showing two new sentences added to Claude Code’s system prompt: “Do build original games, games in a genre, and games from the user’s own designs and assets. Don’t build a recreation of a specific existing game, even if it is named or called original.” Anthropic’s Addy Osmani, in a reply , didn’t confirm that specific language but did say that the company had updated the prompt in Claude Code on Opus 5.5: We added two sentences to Claude Code’s prompt on Opus 5.5 to steer it away from recreating someone else’s specific game because using Claude to infringe IP is against our usage policy. Original games, genre games, and games built from your own designs and assets are meant to keep working. We’ll continue to iterate to ensure we’re striking the right balance. In the meantime, if Claude turns down something that’s yours, send it my way. We’ve asked Anthropic if it has or will be updating other Claude system prompts as well. Jay Peters AI Anthropic Entertainment Gaming News More in: Reverse-engineered games: All the news on video game decomps, recomps, VR and web and 3D ports Mario 64, but you can *pull him out of the screen* and play with him in your real world. Sean Hollister Oct 27 Retro gaming is being overrun with AI Andrew Webster Oct 23 Someone hacked the Switch 2 by using an old game and AI Jay Peters Oct 22 Most Popular Most Popular New Zelda and GTA represent a games industry that no longer exists HomePod Mini 2 first look: Three things I love and one disappointment Flock keeps ignoring requests to cancel its contracts Xbox’s former COO has ‘serious concerns’ about her abrupt departure The 16GB Raspberry Pi 5 got another ‘unavoidable’ RAM price hike The Verge Daily A free daily digest of the news that matters most. This is the title for the native ad",
+   "use_link": ""
   },
   {
    "id": "f4cbfbb245acacd0",
@@ -13160,6 +13162,22 @@
    "age_hours": 41.6,
    "published": "2026-11-01T02:22:10+00:00",
    "added": "2026-11-02T20:00:52+00:00"
+  },
+  {
+   "id": "4005319e1c08779e",
+   "title": "Goldman Sachs pulls AI coding tools from traders and bankers",
+   "link": "https://the-decoder.com/goldman-sachs-pulls-ai-coding-tools-from-traders-and-bankers",
+   "desc": "Goldman Sachs is pulling AI coding tools like Claude Code and GitHub Copilot from traders and bankers, limiting access to engineers only. As recently as July, CIO Marco Argenti publicly praised \"vibe coding\" by non-technical staff. Now the bank cites \"productivity and risk management\" as the reason for the reversal. The article Goldman Sachs pulls AI coding tools from traders and bankers appeared first on The Decoder .",
+   "source": "دیکودر",
+   "lang": "en",
+   "tier": 2,
+   "kind": "news",
+   "age_hours": 1.0,
+   "published": "2026-11-02T20:00:03+00:00",
+   "added": "2026-11-02T21:00:54+00:00",
+   "full": "Goldman Sachs has cut off most of its employees from advanced AI coding tools like Anthropic's Claude Code and Microsoft's GitHub. Only engineers can still use them, according to Bloomberg , citing internal guidelines from October. Traders and bankers had spent months using the tools to monitor trading flows and create content. The rollback is reportedly causing frustration inside the firm. Back in July, Goldman CIO Marco Argenti praised \"vibe coding\" by non-technical staff in an interview. A trader or someone in asset management would have an idea, build a quick prototype with AI, and then hand it off to an engineer to scale for production. That's no longer the plan, it seems. Why the U-turn? Bloomberg's report cites only a \"variety of factors including productivity and risk management,\" according to Goldman spokesperson Nick Carcaterra. He added that the experimentation phase is over, and the firm is now limiting the tools to the people \"who are best suited to leverage them for the long term.\" Ad Ad Subscribe to THE DECODER for ad-free reading, a weekly AI newsletter, our exclusive \"AI Radar\" frontier report six times a year, full archive access, and access to our comment section.",
+   "use_link": "",
+   "posted": true
   }
  ]
 }
