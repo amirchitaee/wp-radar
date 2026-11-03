@@ -4289,6 +4289,36 @@
    "age_hours": 0.2,
    "published": "2026-11-03T11:47:37+00:00",
    "added": "2026-11-03T12:00:56+00:00"
+  },
+  {
+   "id": "ead87eaf883fa4f3",
+   "title": "Discover Maxima Plugins: A Catalogue of WooCommerce Extensions Built for the Block Checkout",
+   "link": "https://wpmayor.com/discover-maxima-plugins-woocommerce",
+   "desc": "Tired of WooCommerce plugins that break when you switch to the block checkout? Maxima Plugins is a catalogue of 30 premium extensions built for today’s WooCommerce, with a private live demo for every plugin so you can try it before you buy. The post \" Discover Maxima Plugins: A Catalogue of WooCommerce Extensions Built for the Block Checkout \" first appeared on WP Mayor .",
+   "source": "دبلیوپی‌مایر",
+   "lang": "en",
+   "tier": 3,
+   "group": "",
+   "kind": "news",
+   "age_hours": 3.0,
+   "published": "2026-11-03T10:00:00+00:00",
+   "added": "2026-11-03T13:00:54+00:00",
+   "full": "If you’ve moved a WooCommerce store over to the Cart and Checkout blocks, you’ve probably had that moment where a plugin you’ve relied on for years quietly stopped working. The shipping notice vanishes, a custom field never shows up, or a discount message only appears on the old shortcode cart. A lot of WooCommerce extensions were built for the classic checkout, and plenty of them are still catching up. It’s one of the more frustrating WooCommerce challenges store owners run into , because you often don’t find out until something breaks or a customer reports an issue. Maxima Plugins is working on fixing this with WooCommerce extensions that support the Cart and Checkout blocks, as well as High-Performance Order Storage (HPOS), while still working with the classic shortcode pages. Maxima Plugins is a developer of premium WooCommerce extensions, with every plugin in the catalogue built and supported by the same team. Most stores end up with a dozen extensions from as many developers, each with its own settings layout, update process, and support desk. Maxima’s 30 WooCommerce plugins all come from the same team. Shipping rules, discount rules, and quote rules are all shown as one-line summaries, something like “Weight 0 to 5 kg → $4.95”. You can read a whole setup at a glance instead of clicking into each rule to remember what it does. They’ve also kept things light. Scripts and styles only load on the pages that need them, and you won’t find ads or upsell banners cluttering wp-admin. Support comes straight from the developers who build the plugins, with setup help included. This is the bit I like most. Every product page has a “Try live demo” button that spins up your own private WooCommerce store, with sample products and the plugin already set up, and no sign-up involved. You get to poke around the settings and see how things look on the front end, which is far more useful than a video walkthrough or a shared demo that a hundred other people have already broken. Flat rate shipping becomes a problem the moment you’re selling a small candle and a heavy planter from the same store. Table Rate Shipping Rules works out shipping from things like order value, weight, volume, item count, or shipping class, with up to four conditions per rule. What I like here is that customers see the cost before checkout. There’s a Shipping rates block you can drop onto any page, and a cart message along the lines of “add $16.00 more and shipping drops to $4.95”, complete with a progress bar. Engraving, gift wrapping, photo uploads, and paid extras are all things WooCommerce doesn’t really handle out of the box. If you’re new to this side of WooCommerce, our guide to using WooCommerce product options plugins covers the basics. Product Options & Add-ons from Maxima Plugins gives you more than 20 field types on product pages, file uploads included. Conditional logic means a text box only appears once someone ticks “Add engraving”, so the page stays clean for everyone else. Prices can be per item, once per order line, a percentage or per character, and the total on the add to cart button updates as customers make their choices. Pre-Orders & Release Dates lets customers",
+   "use_link": ""
+  },
+  {
+   "id": "dee9cd0084b60652",
+   "title": "Synup Review: An AI Agent for Local Marketing Across Your Agency’s Clients",
+   "link": "https://wpmayor.com/synup-review",
+   "desc": "After a client site launches, the listings, reviews, and social posts around it still need weekly attention. My Synup review looks at Sydekick, an AI agent that takes requests in plain language and holds drafts for approval. The post \" Synup Review: An AI Agent for Local Marketing Across Your Agency’s Clients \" first appeared on WP Mayor .",
+   "source": "دبلیوپی‌مایر",
+   "lang": "en",
+   "tier": 3,
+   "group": "",
+   "kind": "news",
+   "age_hours": 27.0,
+   "published": "2026-11-02T10:00:00+00:00",
+   "added": "2026-11-03T13:00:54+00:00"
   }
  ]
 }
