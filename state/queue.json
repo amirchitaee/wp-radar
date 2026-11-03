@@ -3460,6 +3460,20 @@
    "published": "2026-11-02T23:13:53+00:00",
    "added": "2026-11-03T00:00:52+00:00",
    "channel_skip": true
+  },
+  {
+   "id": "ff138f709a7e7c37",
+   "title": "OpenAI appoints Dan Driscoll as Senior Counselor for National Security Modernization",
+   "link": "https://openai.com/index/dan-driscoll-joins-openai",
+   "desc": "OpenAI appoints Dan Driscoll to advise on responsible AI for national security modernization, cyber resilience, and collaboration with U.S. allies.",
+   "source": "اوپن‌ای‌آی",
+   "lang": "en",
+   "tier": 1,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 25.0,
+   "published": "2026-11-02T00:00:00+00:00",
+   "added": "2026-11-03T01:01:00+00:00"
   }
  ]
 }
