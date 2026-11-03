@@ -904,13 +904,8 @@ def clean_details(text):
             continue
         if not re.search(r"[\u0600-\u06FF]", line):
             continue
-        # خطی که فقط شمارهٔ نسخه است، نکته نیست. «نسخهٔ ۷.۱.۴» و «بتای ۲»
-        # آخر کادر می‌مانند و چیزی به خواننده اضافه نمی‌کنند. اگر بعد از
-        # برداشتن رقم و کلمهٔ نسخه چیزی نماند، خط دور ریخته می‌شود.
-        probe = re.sub(r"[\u200b\u200c\u200e\u200f]", "", line).strip()
-        probe = re.sub(r"[0-9۰-۹.,]+", "", probe)
-        probe = re.sub(r"(?:نسخهٔ?|بتای?|آزمایشی|version|v|rc)\s*", "", probe, flags=re.I)
-        if not probe.strip(" .،:؛-–—"):
+        # خطی که فقط شمارهٔ نسخه است، نکته نیست.
+        if version_only_line(line):
             continue
         # «نسخه ۷.۱.۴» و «نسخهٔ ۷.۱.۴» دو خط جدا نیستند.
         key = AR_MARKS.sub("", line)
@@ -2185,8 +2180,22 @@ def emoji_for(label):
 MAX_DETAIL_LINES = 4
 
 
+def version_only_line(line):
+    """خطی که فقط شمارهٔ نسخه یا «بتا» است، نکته نیست.
+
+    «نسخهٔ ۷.۱.۴» و «بتای ۲» آخر کادر می‌ماندند و چیزی به خواننده
+    اضافه نمی‌کردند. اگر بعد از برداشتن رقم و کلمهٔ نسخه چیزی نماند،
+    خط دور ریخته می‌شود.
+    """
+    probe = re.sub(r"[\u200b\u200c\u200e\u200f]", "", str(line or "")).strip()
+    probe = re.sub(r"[0-9۰-۹.,]+", "", probe)
+    probe = re.sub(r"(?:نسخه[ٔۀ]?|بتای?|آزمایشی|version|v|rc)\s*", "", probe, flags=re.I)
+    return not probe.strip(" .،:؛-–—")
+
+
 def trim_details(text, limit=MAX_DETAIL_LINES):
     lines = [ln.strip() for ln in fix_newlines(text).splitlines() if ln.strip()]
+    lines = [ln for ln in lines if not version_only_line(ln)]
     if len(lines) <= limit:
         return "\n".join(lines)
     return "\n".join(lines[:limit]) + " …"
@@ -2463,6 +2472,12 @@ def format_post(label, title, summary, details, meta, link, hashtags, when=None,
     # متا جای داده است، نه جای صفت. یک بار مدل «open source» را در متا
     # گذاشت و آخر کادر یک خط تنها و بی‌مصرف افتاد، در حالی که همان
     # جمله در خلاصه هم بود. متایی که عدد یا قیمت ندارد، داده نیست.
+    # متای فقط-نسخه، وقتی تیتر خودش همان نسخه را گفته، تکرار است و
+    # آخر کادر یک خط تنها و بی‌مصرف می‌سازد.
+    if meta and version_only_line(meta):
+        digits = re.findall(r"[0-9]+", meta.translate(DIGITS_TO_LATIN))
+        if digits and all(d in title.translate(DIGITS_TO_LATIN) for d in digits):
+            meta = ""
     meta_ok = bool(meta) and bool(re.search(r"[\d۰-۹]", meta) or len(meta) > 30)
     if meta_ok:
         inner.append(esc(bidi(meta)))
