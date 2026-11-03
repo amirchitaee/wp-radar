@@ -327,6 +327,20 @@
     "0.37"
    ],
    "cves": []
+  },
+  {
+   "t": "2026-11-03T05:45:27+00:00",
+   "title": "What’s !important #20: GTA 6 Scroll Effects, Scrollspies, random()",
+   "kind": "news",
+   "link": "https://css-tricks.com/whats-important-20",
+   "ents": [
+    "effects",
+    "gta",
+    "scroll",
+    "scrollspies"
+   ],
+   "vers": [],
+   "cves": []
   }
  ]
 }
