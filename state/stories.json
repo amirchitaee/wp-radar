@@ -316,6 +316,17 @@
    ],
    "vers": [],
    "cves": []
+  },
+  {
+   "t": "2026-11-03T04:30:37+00:00",
+   "title": "llm 0.37",
+   "kind": "tools",
+   "link": "https://simonwillison.net/2026/Nov/2/llm",
+   "ents": [],
+   "vers": [
+    "0.37"
+   ],
+   "cves": []
   }
  ]
 }
