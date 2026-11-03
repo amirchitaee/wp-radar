@@ -4275,6 +4275,20 @@
    "age_hours": 0.3,
    "published": "2026-11-03T10:42:44+00:00",
    "added": "2026-11-03T11:00:57+00:00"
+  },
+  {
+   "id": "42d633464c8d267b",
+   "title": "Huawei tells customers to find their own AI chip memory, effectively outsourcing procurement to the black market",
+   "link": "https://the-decoder.com/huawei-tells-customers-to-find-their-own-ai-chip-memory-effectively-outsourcing-procurement-to-the-black-market",
+   "desc": "Huawei is telling customers to source the high-performance memory for its AI chips on their own, pushing them onto the black market. Smugglers are exploiting a loophole in U.S. export rules by bundling HBM with low-end processors, shipping them through Hong Kong, and separating the chips on site. Prices for smuggled HBM3E memory have surged to around $4,000 per unit in just one year. The article Huawei tells customers to find their own AI chip memory, effectively outsourcing procurement to the black market appeared first on The Decoder .",
+   "source": "دیکودر",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 0.2,
+   "published": "2026-11-03T11:47:37+00:00",
+   "added": "2026-11-03T12:00:56+00:00"
   }
  ]
 }
