@@ -4247,6 +4247,34 @@
    "use_link": "",
    "posted": true,
    "msg_id": 82
+  },
+  {
+   "id": "08b710f1e7801fa8",
+   "title": "Heimstaden is changing residential real estate management with AI",
+   "link": "https://openai.com/index/heimstaden",
+   "desc": "Discover how Heimstaden uses OpenAI’s ChatGPT Enterprise and Codex to transform property management, cut costs, and empower employees across Europe.",
+   "source": "اوپن‌ای‌آی",
+   "lang": "en",
+   "tier": 1,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 3.0,
+   "published": "2026-11-03T08:00:00+00:00",
+   "added": "2026-11-03T11:00:57+00:00"
+  },
+  {
+   "id": "e08e60cdcacef4de",
+   "title": "Bug hunters can now earn up to $172,000 from OpenAI as company ramps up security",
+   "link": "https://the-decoder.com/bug-hunters-can-now-earn-up-to-172000-from-openai-as-company-ramps-up-security",
+   "desc": "OpenAI quadruples bug bounty payouts and launches new internal security sprint. The article Bug hunters can now earn up to $172,000 from OpenAI as company ramps up security appeared first on The Decoder .",
+   "source": "دیکودر",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 0.3,
+   "published": "2026-11-03T10:42:44+00:00",
+   "added": "2026-11-03T11:00:57+00:00"
   }
  ]
 }
