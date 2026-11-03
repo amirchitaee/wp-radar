@@ -2458,7 +2458,8 @@
    "published": "2026-11-03T13:00:11+00:00",
    "added": "2026-11-03T20:00:46+00:00",
    "full": "Imagine your agency manages the WordPress help center for an appointment-booking software company. Customers keep asking support how to reschedule recurring appointments. The instructions already exist, but a search for “move my Friday bookings” doesn’t lead to the guide. The client wants to try AI search. Instead of relying on customers to type the exact words in an article, it could match their question to a guide with a similar meaning. The first version would return links to existing documentation. Choosing a provider raises a harder question. Will the service you recommend today still suit the site next year? You can’t promise that, and the client shouldn’t need that promise before you start. You can keep the original guides in WordPress and build the integration so replacing the search service doesn’t mean rebuilding the help center. This article follows that project from a limited trial to wider use. It explains which parts of the setup need to remain under your control and how hosting can give your team room to adjust no matter what AI tool, trends, or integration you opt for. Here’s one possible scenario. Your developer starts comparing services just as another vendor announces a new search product. The client forwards the announcement: “Should we wait for this?” Meanwhile, support keeps sending the same article link. Before buying anything, your agency can investigate why the current search misses the guide. It’s possible that the help center stores articles in a custom post type that the current search configuration leaves out. Or the article calls recurring appointments “series management,” a phrase customers rarely use. Those problems need different fixes, of course. Developers can check whether WordPress search includes the help-center articles, and an editor can add the wording customers use and clarify which instructions cover the current software version. Recent support tickets give you real questions to test. The support team already knows which guide answers each question, which is helpful. Trying out those questions on the site shows where search fails, without guessing what customers might type. Semantic search is another way to improve this. It uses machine learning to find content with a similar meaning to the query, even when the wording differs. This helps connect phrases like “move my Friday bookings” to other phrases like “reschedule recurring appointments.” The underlying documentation still matters. If two guides describe different versions of the booking software, the search service needs enough information to distinguish them. Your agency can resolve those content problems while the purchasing decision stays open. When you test AI search, you have a cleaner library and a set of questions to compare against. Canceling the search subscription shouldn’t remove a single guide from the client’s WordPress site. Editors continue working in WordPress. The search provider holds an indexed copy of the content that the integration sends it. That distinction matters when you plan a replacement. Your agency needs to rebuild the search index from the original articles, without depending on the outgoing provider to return the ",
-   "use_link": ""
+   "use_link": "",
+   "channel_skip": true
   },
   {
    "id": "62ea04b50b199781",
@@ -2612,7 +2613,8 @@
    "kind": "news",
    "age_hours": 1.3,
    "published": "2026-11-03T20:45:00+00:00",
-   "added": "2026-11-03T22:00:46+00:00"
+   "added": "2026-11-03T22:00:46+00:00",
+   "held": true
   }
  ]
 }
