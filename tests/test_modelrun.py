@@ -388,6 +388,97 @@ check(
     "یک\nدو\nسه",
 )
 
+# ---------------------------------------------------------------- قرارداد تازه
+# رد کردن یک راه دارد: فیلد skip. نمره ابزار رد کردن نیست، فقط ترتیب
+# انتشار را می‌گوید. قبلاً نمرهٔ صفر هم معنی رد داشت و مدل هر بار یکی
+# از دو راه را می‌گرفت؛ نتیجه‌اش رفتار تصادفی بود.
+NEWS_ROW = {
+    "id": "news01",
+    "title": "المنتور سازندهٔ هدر با جملهٔ فارسی اضافه کرد",
+    "link": "https://example.com/elementor",
+    "desc": "المنتور قابلیت ساخت چیدمان هدر با هوش مصنوعی را اضافه کرد. روی سایت‌های موجود با آپدیت معمولی می‌آید.",
+    "full": "المنتور نسخهٔ تازه‌ای داد که سازندهٔ هدر با هوش مصنوعی را اضافه می‌کند. فقط هدر و فوتر را می‌سازد.",
+    "source": "تست",
+    "lang": "fa",
+    "tier": 1,
+    "kind": "news",
+    "age_hours": 2.0,
+    "published": radar.now().isoformat(),
+    "added": radar.now().isoformat(timespec="seconds"),
+    "sources_count": 1,
+}
+
+
+def skip_model(system, user, deadline=None, budget=None):
+    return {
+        "items": [
+            {
+                "id": "news01",
+                "skip": True,
+                "why": "خبر بورس است و به ساخت سایت ربط ندارد",
+                "title": "",
+                "summary": "",
+                "details": "",
+                "meta": "",
+                "label": "خبر",
+                "score": 0,
+                "imp": 0,
+                "use": 0,
+            }
+        ]
+    }
+
+
+radar.collect = lambda kind, st, seen, budget_sec=None: [dict(NEWS_ROW)]
+radar.call_models = skip_model
+radar.DAILY.write_text(json.dumps({"date": radar.today(), "count": 0, "kinds": {}}), encoding="utf-8")
+SENT.clear()
+skipped_run = radar.model_run("news", dict(settings), {}, {"v": 1, "ids": {}}, "", hard_deadline=None)
+check("رد مدل: هیچ پستی نمی‌رود", (skipped_run, len(SENT)), (0, 0))
+check("رد مدل: skip رشته‌ای هم رد است", radar.entry_skipped({"skip": "true"}), True)
+check("رد مدل: بدون skip رد نیست", radar.entry_skipped({}), False)
+
+
+def zero_score_model(system, user, deadline=None, budget=None):
+    return {
+        "items": [
+            {
+                "id": "news01",
+                "skip": False,
+                "label": "آپدیت",
+                "name": "Elementor",
+                "title": "سازندهٔ هدر Elementor حالا با یک جملهٔ فارسی چیدمان می‌سازد",
+                "summary": "المنتور ابزار تازه‌ای دارد که با یک جملهٔ فارسی چیدمان هدر می‌سازد. برای کسی که با قالب آماده کار می‌کند، چیدن دستی بلوک‌ها تمام می‌شود.",
+                "details": "فقط هدر و فوتر را می‌سازد، نه کل صفحه.\nبا آپدیت معمولی می‌آید، ولی قبلش بکاپ بگیر.",
+                "meta": "نسخهٔ ۴.۲",
+                "score": 0,
+                "imp": 6,
+                "use": 8,
+                "why": "المنتور ساخت چیدمان با هوش مصنوعی اضافه کرده و کار دستی را کم می‌کند.",
+            }
+        ]
+    }
+
+
+radar.collect = lambda kind, st, seen, budget_sec=None: [dict(NEWS_ROW)]
+radar.call_models = zero_score_model
+radar.DAILY.write_text(json.dumps({"date": radar.today(), "count": 0, "kinds": {}}), encoding="utf-8")
+SENT.clear()
+zero_run = radar.model_run("news", dict(settings), {}, {"v": 1, "ids": {}}, "", hard_deadline=None)
+check("نمرهٔ صفر: پست را رد نمی‌کند", (zero_run, len(SENT)), (1, 1))
+
+# ---------------------------------------------------------------- ارقام فارسی
+# صاحب کانال ارقام فارسی می‌خواهد. «7.1.4» و «100,000» باید فارسی شوند،
+# ولی «GPT-4o» و «v2.3» نباید، چون رقم داخل نام لاتین است.
+check("ارقام: نسخهٔ لاتین فارسی می‌شود", radar.fa_digits_text("نسخه 7.1.4"), "نسخه ۷.۱.۴")
+check("ارقام: عدد بزرگ فارسی می‌شود", radar.fa_digits_text("100,000 تومان"), "۱۰۰,۰۰۰ تومان")
+check("ارقام: نام لاتین دست نمی‌خورد", radar.fa_digits_text("GPT-4o و v2.3"), "GPT-4o و v2.3")
+check(
+    "قالب پست: ارقام تیتر فارسی می‌شوند",
+    "۷.۱.۴" in radar.format_post("خبر", "نسخهٔ 7.1.4 منتشر شد", "خلاصه", "", "", "https://e.com/a", ""),
+    True,
+)
+
 # ---------------------------------------------------------------- نتیجه
 print("{} آزمون اجرا شد.".format(COUNT))
 if FAILS:
