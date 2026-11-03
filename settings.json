@@ -96,7 +96,7 @@
     "آموزش": "📚",
     "جمع‌بندی": "🗂"
   },
-  "model_timeout": 70,
+  "model_timeout": 120,
   "frugal_providers": [
     "openrouter",
     "google"

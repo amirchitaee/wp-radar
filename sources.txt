@@ -26,7 +26,6 @@
 ووکامرس|https://woocommerce.com/blog/feed/|news|en|1
 وردپرس فارسی|https://fa.wordpress.org/news/feed/|news|fa|2
 تاورن|https://wptavern.com/feed|news|en|2
-پست‌استتوس|https://poststatus.com/feed/|news|en|2
 # میهن وردپرس و هر فروشگاه ایرانی دیگر: پوشش داده نمی‌شود. فیدشان
 # خوانده نمی‌شود و کالای فارسی هم از راه قاعدهٔ کالای فارسی رد می‌شود.
 المنتور|https://elementor.com/blog/feed/|news|en|2
@@ -35,13 +34,12 @@
 اسمشینگ|https://www.smashingmagazine.com/feed/|news|en|3
 سی‌اس‌اس تریکس|https://css-tricks.com/feed/|news|en|3
 دبلیوپی بگینر|https://www.wpbeginner.com/feed/|news|en|3
-# چهار منبع تازه، ۱۶ آبان. دلیلش ساده بود: صف هشتاد و سه درصد هوش مصنوعی
-# شده بود چون سه فید AI روزی پنجاه خبر می‌دادند و فیدهای وردپرس روزی یکی دو تا.
-# این‌ها فیدهای کم‌حجم ولی واقعی وردپرس‌اند.
-تورک|https://torquemag.io/feed/|news|en|2
+# ۱۲ آبان: سه فیدی که ۱۱ آبان اضافه کردم مرده بودند. تورک آخرین پستش
+# سپتامبر ۲۰۲۴ بود، دبلیوپی‌اکسپلورر ۸۳ روز و دبلیوپی‌کیوب ۵۰ روز.
+# پست‌استتوس هم ۱۰۰ روز بود، پس آن هم رفت. به جایش دبلیوپی‌شوت که
+# تازه می‌نویسد. درسش این بود: فید زنده را قبل از اضافه کردن باید دید.
+دبلیوپی‌شوت|https://wpshout.com/feed/|news|en|3
 دبلیوپی‌مایر|https://www.wpmayor.com/feed/|news|en|3
-دبلیوپی‌کیوب|https://www.wpkube.com/feed/|news|en|3
-دبلیوپی‌اکسپلورر|https://www.wpexplorer.com/feed/|news|en|3
 
 # ---------- خبر هوش مصنوعی (گروه ai) ----------
 # فقط سه منبع، و همه با گروه ai، تا سهمشان از سقف روزانه رد نشود.
