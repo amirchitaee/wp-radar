@@ -2409,6 +2409,20 @@
    "added": "2026-11-03T16:00:47+00:00",
    "full": "WordPress 7.2 Beta 4 is ready for download and testing! This beta release is intended for testing and development only. Please do not install, run, or test this version of WordPress on production or mission-critical websites. Instead, use a test environment or local site to explore the new features. WordPress 7.1.4 was released on October 28 which included WordPress 7.2 Beta 3. You can test WordPress 7.2 Beta 4 in any of the following ways: The scheduled final release date for WordPress 7.2 is December 8, 2026 . The full release schedule can be found here . Your help testing Beta and RC versions is vital to making this release as stable and powerful as possible. Thank you to everyone who contributes by testing! For technical details on the issues addressed since Beta 2, see the following links: WordPress 7.2 Beta 4 continues refining the upcoming release with improvements to accessibility, editor reliability, and developer APIs, alongside additional bug fixes and compatibility updates. Recent work includes improved keyboard focus visibility in Windows High Contrast mode, refinements to administration interfaces, and fixes for right-to-left block alignment and custom block spacing. Developers will also benefit from continued improvements to the Abilities API, DataViews extensibility, and REST API behavior. Additional fixes strengthen revision handling, input validation, and compatibility across supported environments. Learn more: Trac #45910 , Trac #66382 , Trac #66427 , Trac #66383 , Trac #66343 , Trac #66329 The new default theme, Ipsum, continues to receive refinements ahead of WordPress 7.2’s final release. Recent updates improve accessibility with clearer keyboard focus indicators, more descriptive screen reader links, and better support for right-to-left languages. Additional improvements refine block patterns, touch target spacing, and color palette compatibility with other default themes. Learn more: Trac #66352 , GitHub #15113 WordPress 7.2 makes managing translation updates easier by displaying individual available updates on the Updates screen. Administrators can now review and selectively install translation updates, bringing language management in line with the familiar plugin and theme update experience. Learn more: Trac #42281 , GitHub #11610 Testing for issues is a critical part of developing any software, and it’s a meaningful way for anyone to contribute – whether or not you have experience. Details on what to test in WordPress 7.2 are available here . If you encounter an issue, please share it in the Alpha/Beta area of the support forums. If you are comfortable submitting a reproducible bug report, you can do so via WordPress Trac . You can also check your issue against this list of known bugs . Curious about testing releases in general and how to get started? Follow along with the testing initiatives in Make Core and join the #core-test channel on Making WordPress Slack . Where did Beta Three go? A surprise along the way Four arrives on cue . Props to @ audrasjb , @ courane01 , @ huzaifaalmesbah for pre-publish review .",
    "use_link": "https://wordpress.org/plugins/wordpress-beta-tester/"
+  },
+  {
+   "id": "33bbd141f2e30f54",
+   "title": "Do More From Your Inbox With Professional Email Plus and Ultra",
+   "link": "https://wordpress.com/blog/2026/11/03/professional-email-plus-ultra",
+   "desc": "More room for your messages, less time on email admin. Meet Plus and Ultra, the new Professional Email plans, and see which fits your business.",
+   "source": "وردپرس دات کام",
+   "lang": "en",
+   "tier": 2,
+   "group": "",
+   "kind": "news",
+   "age_hours": 1.7,
+   "published": "2026-11-03T16:17:43+00:00",
+   "added": "2026-11-03T18:00:53+00:00"
   }
  ]
 }
