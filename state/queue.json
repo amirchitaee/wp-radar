@@ -3474,6 +3474,36 @@
    "age_hours": 25.0,
    "published": "2026-11-02T00:00:00+00:00",
    "added": "2026-11-03T01:01:00+00:00"
+  },
+  {
+   "id": "968f14d53faf7f9a",
+   "title": "Apple may try to increase revenue by doing…something with third-party AI apps",
+   "link": "https://techcrunch.com/2026/11/02/apple-may-try-to-increase-revenue-by-doing-something-with-third-party-ai-apps",
+   "desc": "Apple hinted at ways that it could spur revenue through third-party \"opportunities\" during its Monday night earnings call.",
+   "source": "تک‌کرانچ",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 0.2,
+   "published": "2026-11-03T01:49:52+00:00",
+   "added": "2026-11-03T02:00:57+00:00",
+   "full": "Buy One Founder Summit Ticket, Get a Second for Free. Register now. Founder Summit begins Nov. 4, 9:00 a.m. ET. Get your pass savings & deals before it starts. REGISTER HERE. Image Credits: Mario Tama / Getty Images TC Apple may try to increase revenue by doing…something with third-party AI apps Lucas Ropek 5:49 PM PST · November 2, 2026 Apple’s services business remains at record levels, but it’s facing growing pressure . The central part of that business, Apple’s App Store, has faced regulatory pressure and a slump in mobile gaming, which have hurt services growth . However, on Monday’s earnings call, Apple signaled that it may look to boost services revenue through third-party apps. What does that mean, exactly? Unfortunately, it’s not entirely clear. When discussing how AI could potentially “contribute to revenue growth over time,” Kevan Parekh, Apple’s chief financial officer, said: “On the product side, you know, we feel AI offers a compelling reason for customers to upgrade and switch in order to get the latest capabilities, and we also feel there’s opportunities across third-party apps and partnerships as well as first-party opportunities.” Parekh did not elaborate on what sorts of opportunities might be available via third-party apps. However, Reuters reported Monday that investors are wondering whether Apple could profit by distributing third-party AI agents through the App Store and taking a cut of the revenue they generate. Regulatory and legal changes have cut into App Store commission revenue in some markets, even as Apple’s services business as a whole continues to grow. Third-party estimates in August, for example, suggested the company had seen an 18% drop in U.S. commission revenue, with declines also in Brazil and Japan after those countries introduced new regulations. Apple has traditionally controlled payments within its app marketplace tightly, taking a cut of all App Store transactions. But a lawsuit by Epic Games ultimately forced the company to allow apps to redirect users to outside payment systems. Other legal challenges throughout the world have further hampered the business. During the earnings call, Parekh referenced Apple’s App Store woes and returned to the idea that the company’s service business could expand into new territory. “We’ve also seen some factors that impacted the performance of the App Store, and during the September quarter, the performance on the App Store was similar to the prior year, and we had a record number of paid subscriptions with double-digit growth for third-party apps on the App Store,” Parekh said. “At the same time, we did see some headwinds in mobile gaming that we’ve talked about before, and expect to see those continue into the summer quarter.” Parekh added: “As we move ahead, we expect services growth to to be between 8 to 9% [in the December quarter]. This outlook contemplates our best estimates on sequential headwinds, primarily from third-party licensing and the additional half percentage point of foreign exchange I just mentioned.” TechCrunch has reached out to Apple for more information and will update this story if it responds. When you purchase through links in our artic",
+   "use_link": ""
+  },
+  {
+   "id": "793a736581dc167f",
+   "title": "Y Combinator’s Garry Tan uses AI agents so much, he spends up to $200K a year on tokens",
+   "link": "https://techcrunch.com/2026/11/02/y-combinators-garry-tan-uses-ai-agents-so-much-he-spends-up-to-200k-a-year-on-tokens",
+   "desc": "Y Combinator Garry Tan has jokingly admitted that he's suffered from \"cyber psychosis” and barely sleeps sometimes because he’s so excited to be working with his AI agents. On a new episode of Walter Isaacson’s podcast, The Builders, Tan put a price tag on his passion.",
+   "source": "تک‌کرانچ",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 1.4,
+   "published": "2026-11-03T00:35:52+00:00",
+   "added": "2026-11-03T02:00:57+00:00"
   }
  ]
 }
