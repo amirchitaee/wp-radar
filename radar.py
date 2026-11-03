@@ -904,6 +904,10 @@ def clean_details(text):
             continue
         if not re.search(r"[\u0600-\u06FF]", line):
             continue
+        # خطی که فقط شمارهٔ نسخه است، نکته نیست. «نسخه ۷.۱.۴» آخر کادر
+        # می‌ماند و چیزی به خواننده اضافه نمی‌کند.
+        if re.fullmatch(r"(?:نسخهٔ?|version|v)\s*[0-9۰-۹][0-9۰-۹.]*", line, re.I):
+            continue
         # «نسخه ۷.۱.۴» و «نسخهٔ ۷.۱.۴» دو خط جدا نیستند.
         key = AR_MARKS.sub("", line)
         key = re.sub(r"[\s،.,:؛;!؟?\-–—_]+", " ", key).strip().lower()
@@ -1761,6 +1765,10 @@ URGENT_HINT = re.compile(
     re.I,
 )
 # «آموزش» یعنی راهنما، نه خبر. تیتری که با «چطور» شروع می‌شود آموزش است.
+# نسخهٔ آزمایشی، هشدار امنیتی نیست. متنش از اصلاحیه حرف می‌زند ولی
+# مخاطب قرار نیست امروز کاری بکند، جز این که روی سایت اصلی نصبش نکند.
+BETA_RE = re.compile(r"\b(?:beta|rc\d*|release\s+candidate)\b|بتا|نسخهٔ? آزمایشی", re.I)
+
 TUTORIAL_TITLE = re.compile(
     r"(how to|how-to|tutorial|walkthrough|step by step|step-by-step|a guide to|"
     r"^\s*(?:creating|building|using|understanding|designing|adding|making|"
@@ -1838,7 +1846,22 @@ def relevance_ok(text, source_text):
 # ابزار معرفی می‌کند. یک بار چنین فهرستی با برچسب «آموزش» پست شد و
 # خود مدل هم نوشت «این یک لیست مرجعی است، نه ابزاری برای اجرا».
 # خط تیره یا زیرخط لازم است تا «awesome new tool» گیر نیفتد.
-LIST_REPO_RE = re.compile(r"awesome[-_]", re.I)
+# مقالهٔ فهرستی خبر نیست، حتی اگر تازه باشد. «۷ بهترین افزونهٔ وردپرس»
+# و «بهترین قالب‌های ۲۰۲۶» هیچ اتفاقی را گزارش نمی‌کنند؛ فقط لیست‌اند.
+# سد قبلی فقط «awesome-» را می‌گرفت و یک مقالهٔ «۷ Best» از آن رد شد.
+LIST_REPO_RE = re.compile(
+    r"awesome[-_]"
+    r"|\b(?:top|best)\s+\d+\b"
+    r"|\b\d+\s+(?:best|top|greatest)\b"
+    r"|\b(?:best|top)\s+(?:\w+\s+){0,3}(?:plugins?|themes?|tools?|servers?|hosting|"
+    r"page\s+builders?|wordpress\s+themes?)\b"
+    r"|\bbest\s+practices\b"
+    r"|بهترین‌های"
+    r"|بهترین\s+(?:افزونه|قالب|ابزار|سرور|هاست|پلاگین)"
+    r"|فهرست\s+(?:بهترین|کامل)"
+    r"|راهنمای\s+خرید",
+    re.I,
+)
 
 # دستهٔ ابزار از فیدهای عمومی هم پر می‌شود: هکرنیوز، ردیت، گیت‌هاب. آن
 # فیدها هر چیزی را قبول می‌کنند، از بازی ۱۹۹۱ تا داشبورد در نوار مک.
@@ -1948,7 +1971,10 @@ def classify_label(kind, text, model_label="", urgent=False, title="", source_ti
 
     # راهنما خبر نیست. «How To ...» در تیتر منبع، یا «چطور» در تیتر فارسی.
     tutorial = bool(TUTORIAL_TITLE.search(title) or TUTORIAL_TITLE.search(source_title))
-    advisory = is_advisory(text) and bool(WP_HINT.search(text)) and not tutorial
+    # بتا و آر‌سی هشدار امنیتی نیستند، حتی اگر متنشان از «اصلاحیهٔ امنیتی»
+    # حرف بزند. یک بار «وردپرس ۷.۲ بتای ۲» با برچسب هشدار امنیتی پست شد.
+    beta = bool(BETA_RE.search(title) or BETA_RE.search(source_title))
+    advisory = is_advisory(text) and bool(WP_HINT.search(text)) and not tutorial and not beta
     # «نسخهٔ فارسی» نسخهٔ تازه نیست. برای همین فقط شمارهٔ واقعی یا فعل انتشار شاهد است.
 
     if kind == "news":
@@ -2468,7 +2494,10 @@ SEC_LABEL = "هشدار امنیتی"
 ADV_HIT = re.compile(
     r"(vulnerab\w*|CVE-\d{4}-\d+|security release|\bpatched\b|\bexploit\w*|"
     r"\bXSS\b|\bRCE\b|\bCSRF\b|\bSSRF\b|\bLFI\b|\bRFI\b|\bSQLi\b|SQL injection|"
-    r"\bbackdoor\b|privilege escalation)",
+    r"\bbackdoor\b|privilege escalation|"
+    # فارسی هم لازم است: متن پست را مدل می‌نویسد و کلمهٔ انگلیسی منبع
+    # همیشه در همان جمله نمی‌ماند.
+    r"آسیب[\s\u200c]?پذیری|حفرهٔ? امنیتی|مشکل امنیتی|اصلاحیهٔ? امنیتی|وصلهٔ? امنیتی)",
     re.I,
 )
 ADV_SKIP = re.compile(r"(bug bounty|vulnerability report|weekly report|monthly report|podcast|webinar)", re.I)
@@ -2629,6 +2658,28 @@ def security_run(s, st, seen, hard_deadline=None):
 
 # ---------------------------------------------------------------- main flows
 
+def ai_intake_room():
+    """چند خبر هوش مصنوعی دیگر امروز اجازهٔ ورود به صف دارد.
+
+    سقف انتشار (ai_cap_per_day) فقط جلوی پست شدن را می‌گرفت، نه جلوی
+    وارد شدن. نتیجه این شد که صف هشتاد و سه درصد هوش مصنوعی شد: سه فید
+    AI روزی پنجاه خبر می‌دادند و فیدهای وردپرس روزی یکی دو تا. مدل هم
+    بیشتر وقتش را صرف رد کردن همان‌ها می‌کرد.
+    """
+    cap = int(settings().get("ai_intake_per_day", 10))
+    if cap <= 0:
+        return 0
+    q = read_json(QUEUE, {"items": []})
+    items = q.get("items", []) if isinstance(q, dict) else list(q)
+    today = now().date().isoformat()
+    used = sum(
+        1
+        for x in items
+        if (x.get("group") or "") == "ai" and str(x.get("added") or "")[:10] == today
+    )
+    return max(0, cap - used)
+
+
 def collect(kind, st, seen, budget_sec=None):
     """منابع را می‌خواند و آیتم تازه جمع می‌کند.
 
@@ -2680,6 +2731,21 @@ def collect(kind, st, seen, budget_sec=None):
                     "added": now().isoformat(timespec="seconds"),
                 }
             )
+    # سقف ورودی گروه هوش مصنوعی. بدون این، صف از خبر AI پر می‌شود و
+    # ستون اصلی کانال، یعنی وردپرس، جایی برای آمدن ندارد.
+    if any((r.get("group") or "") == "ai" for r in rows):
+        room = ai_intake_room()
+        kept, dropped = [], 0
+        for r in rows:
+            if (r.get("group") or "") == "ai":
+                if room <= 0:
+                    dropped += 1
+                    continue
+                room -= 1
+            kept.append(r)
+        if dropped:
+            log("ai intake: {} dropped, daily cap reached".format(dropped))
+        rows = kept
     return rows
 
 

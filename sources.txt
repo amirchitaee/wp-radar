@@ -35,6 +35,13 @@
 اسمشینگ|https://www.smashingmagazine.com/feed/|news|en|3
 سی‌اس‌اس تریکس|https://css-tricks.com/feed/|news|en|3
 دبلیوپی بگینر|https://www.wpbeginner.com/feed/|news|en|3
+# چهار منبع تازه، ۱۶ آبان. دلیلش ساده بود: صف هشتاد و سه درصد هوش مصنوعی
+# شده بود چون سه فید AI روزی پنجاه خبر می‌دادند و فیدهای وردپرس روزی یکی دو تا.
+# این‌ها فیدهای کم‌حجم ولی واقعی وردپرس‌اند.
+تورک|https://torquemag.io/feed/|news|en|2
+دبلیوپی‌مایر|https://www.wpmayor.com/feed/|news|en|3
+دبلیوپی‌کیوب|https://www.wpkube.com/feed/|news|en|3
+دبلیوپی‌اکسپلورر|https://www.wpexplorer.com/feed/|news|en|3
 
 # ---------- خبر هوش مصنوعی (گروه ai) ----------
 # فقط سه منبع، و همه با گروه ai، تا سهمشان از سقف روزانه رد نشود.

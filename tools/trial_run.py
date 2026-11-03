@@ -28,11 +28,18 @@ def main():
     ap.add_argument("--hours", type=float, default=72)
     ap.add_argument("--raw", action="store_true", help="خروجی خام مدل هم چاپ شود")
     ap.add_argument("--match", default="", help="فقط آیتم‌هایی که این کلمه در تیتر یا توضیحشان هست")
+    ap.add_argument("--live", action="store_true", help="از فیدها تازه بخوان، نه از صف")
     args = ap.parse_args()
 
     kind = args.kind
-    queue = radar.read_json(radar.QUEUE, {"items": []})
-    rows = queue.get("items", []) if isinstance(queue, dict) else list(queue)
+    if args.live:
+        # خواندن تازه از فیدها. collect چیزی در صف نمی‌نویسد؛ فقط برمی‌گرداند.
+        seen = radar.read_json(radar.SEEN, {"v": 1, "ids": {}})
+        rows = radar.collect(kind, radar.read_json(radar.STATS, {}), seen, budget_sec=120)
+        print("از فیدها: {} آیتم تازه خوانده شد".format(len(rows)))
+    else:
+        queue = radar.read_json(radar.QUEUE, {"items": []})
+        rows = queue.get("items", []) if isinstance(queue, dict) else list(queue)
 
     pool = []
     for it in rows:
@@ -78,7 +85,13 @@ def main():
 
     by_id = {x["id"]: x for x in batch}
     for entry in items:
-        it = by_id.get(str(entry.get("id", ""))) or batch[0]
+        # آیتمی که شناسه‌اش در این دسته نیست دور ریخته می‌شود، نه این که
+        # به آیتم اول بچسبد؛ وگرنه لینک و تیتر یک خبر دیگر نمایش داده می‌شود.
+        it = by_id.get(str(entry.get("id", "")))
+        if not it:
+            print("-" * 70)
+            print("شناسهٔ ناشناس در خروجی مدل: {}".format(entry.get("id")))
+            continue
         print("-" * 70)
         print("منبع: {}".format(it.get("title", "")[:90]))
         print("لینک: {}".format(it.get("link", "")))

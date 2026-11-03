@@ -864,6 +864,39 @@ check("پرامپت: هوش مصنوعی به سازندهٔ سایت محدود
 check("پرامپت: ارقام فارسی خواسته شده", "ارقام فارسی" in radar.SYSTEM_PROMPT, True)
 check("پرامپت: نمونه دربارهٔ ساخت سایت است", "هدر" in radar.SYSTEM_PROMPT, True)
 check("دستهٔ مردهٔ فرصت راهنمای پرامپت ندارد", "offers" in radar.KIND_HINT, False)
+check("پرامپت: مقالهٔ فهرستی صریحاً رد شده", "مقالهٔ فهرستی" in radar.SYSTEM_PROMPT, True)
+# یک بار به‌غلط نوشتم «ابزار کارت‌دار حذف نشود». خواستهٔ صاحب کانال حذف بود.
+check("پرامپت: ابزار کارت‌دار رد می‌شود", "کارت بانکی بین‌المللی" in radar.SYSTEM_PROMPT, True)
+check("پرامپت: دیگر نمی‌گوید کارت‌دار حذف نشود", "حذفش نکن" in radar.SYSTEM_PROMPT, False)
+
+# ---------------------------------------------------------------- سد فهرست
+# سد قبلی فقط «awesome-» را می‌گرفت و یک «۷ Best WordPress MCP Servers»
+# از آن رد شد و در آزمون واقعی پست شد.
+for _t in (
+    "7 Best WordPress MCP Servers and Plugins in 2026 (We Tested Them All)",
+    "Top 10 WooCommerce Themes for 2026",
+    "The 12 best page builders, ranked",
+    "بهترین افزونه‌های وردپرس برای فروشگاه",
+    "راهنمای خرید هاست وردپرس",
+    "فهرست بهترین قالب‌های خبری",
+    "awesome-wordpress",
+):
+    check("سد فهرست: رد می‌شود | " + _t[:40], bool(radar.LIST_REPO_RE.search(_t)), True)
+
+for _t in (
+    "WordPress 7.1.4",
+    "Elementor adds an AI header builder",
+    "WooCommerce 9.4 released with faster checkout",
+    "How to speed up your WordPress site",
+    "یک حفرهٔ امنیتی در ووکامرس وصله شد",
+):
+    check("سد فهرست: دست نمی‌خورد | " + _t[:40], bool(radar.LIST_REPO_RE.search(_t)), False)
+
+# ---------------------------------------------------------------- سقف ورودی AI
+# سقف انتشار جلوی وارد شدن به صف را نمی‌گرفت و صف هشتاد و سه درصد AI شد.
+_ai_room = radar.ai_intake_room()
+check("سقف ورودی AI: عدد برمی‌گرداند", isinstance(_ai_room, int), True)
+check("سقف ورودی AI: منفی نمی‌شود", _ai_room >= 0, True)
 
 # ---------------------------------------------------------------- نتیجه
 print("{} آزمون اجرا شد.".format(COUNT))
