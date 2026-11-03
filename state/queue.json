@@ -3679,6 +3679,48 @@
    "age_hours": 158.1,
    "published": "2026-10-27T06:40:39-07:00",
    "added": "2026-11-03T03:45:26+00:00"
+  },
+  {
+   "id": "6fd6ad7938fa5bc5",
+   "title": "Rewarding defenders with bigger bug bounties",
+   "link": "https://openai.com/index/rewarding-defenders-with-bigger-bug-bounties",
+   "desc": "OpenAI is raising Security Bug Bounty rewards and introducing report quality, loyalty, and priority campaign bonuses for independent security researchers.",
+   "source": "اوپن‌ای‌آی",
+   "lang": "en",
+   "tier": 1,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 10.0,
+   "published": "2026-11-02T18:00:00+00:00",
+   "added": "2026-11-03T04:00:48+00:00"
+  },
+  {
+   "id": "262cfa35f4308cc0",
+   "title": "Preparing our next security sprint to harden OpenAI",
+   "link": "https://openai.com/index/preparing-our-next-security-sprint-to-harden-openai",
+   "desc": "OpenAI is preparing its next internal security sprint with Cathedral Systems to test and strengthen its defenses using AI.",
+   "source": "اوپن‌ای‌آی",
+   "lang": "en",
+   "tier": 1,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 10.0,
+   "published": "2026-11-02T18:00:00+00:00",
+   "added": "2026-11-03T04:00:48+00:00"
+  },
+  {
+   "id": "4ed35bdfdb651ac6",
+   "title": "Google takes Dreambeans to India in bid to bring AI-generated personal stories to the masses",
+   "link": "https://techcrunch.com/2026/11/02/google-takes-dreambeans-to-india-in-bid-to-bring-ai-generated-personal-stories-to-the-masses",
+   "desc": "Google's Dreambeans, its latest AI experiment, now supports 13 Indian languages.",
+   "source": "تک‌کرانچ",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 0.5,
+   "published": "2026-11-03T03:30:00+00:00",
+   "added": "2026-11-03T04:00:48+00:00"
   }
  ]
 }
