@@ -51,7 +51,7 @@
   "name": "سایمون ویلیسون",
   "fails": 0,
   "last_count": 30,
-  "last_ok": "2026-11-03T03:45:26+00:00"
+  "last_ok": "2026-11-03T09:15:27+00:00"
  },
  "https://wordpress.org/news/feed/": {
   "name": "وردپرس",
@@ -219,7 +219,7 @@
   "name": "پروداکت هانت",
   "fails": 0,
   "last_count": 40,
-  "last_ok": "2026-11-03T03:45:26+00:00"
+  "last_ok": "2026-11-03T09:15:27+00:00"
  },
  "https://hn.algolia.com/api/v1/search_by_date?query=show%20hn&tags=story&hitsPerPage=20": {
   "name": "شو هکرنیوز",
