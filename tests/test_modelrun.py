@@ -343,10 +343,23 @@ NO_USE["id"] = "nou01"
 NO_USE["kind"] = "tools"
 NO_USE["use_link"] = ""
 radar.collect = lambda kind, st, seen, budget_sec=None: [dict(NO_USE)]
-radar.call_models = fake_model
+
+
+def no_use_model(system, user, deadline=None, budget=None):
+    # شناسه باید با آیتم دسته یکی باشد، وگرنه آزمون به‌جای سد لینک،
+    # رفتار «شناسهٔ ناشناس» را می‌سنجد.
+    item = fake_model(system, user)["items"][0]
+    item["id"] = "nou01"
+    return {"items": [item]}
+
+
+radar.call_models = no_use_model
 SENT.clear()
 got = radar.model_run("tools", settings, {}, {"v": 1, "ids": {}}, "", hard_deadline=None)
-check("لینک استفاده: ابزار بی‌لینک رد می‌شود", got, 0)
+# خط اقدام و لینک استفاده خاموش است (action_links: false). پس ابزار
+# بی‌لینک استفاده رد نمی‌شود و خود لینک منبع کافی است. آزمون قبلی سبز
+# بود چون شناسهٔ مدل با شناسهٔ آیتم نمی‌خواند، نه چون این سد وجود داشت.
+check("لینک استفاده: با خط اقدام خاموش، ابزار بی‌لینک می‌ماند", got, 1)
 
 # ---------------------------------------------------------------- برچسب تکراری
 # «ابزار: ابزار HOL Guard» دو بار یک کلمه است.

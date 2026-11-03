@@ -88,6 +88,8 @@ def main():
         # آیتمی که شناسه‌اش در این دسته نیست دور ریخته می‌شود، نه این که
         # به آیتم اول بچسبد؛ وگرنه لینک و تیتر یک خبر دیگر نمایش داده می‌شود.
         it = by_id.get(str(entry.get("id", "")))
+        if not it and len(batch) == 1:
+            it = batch[0]
         if not it:
             print("-" * 70)
             print("شناسهٔ ناشناس در خروجی مدل: {}".format(entry.get("id")))

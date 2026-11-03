@@ -3136,7 +3136,14 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
                 break
             it = by_id.get(str(entry.get("id", "")))
             if not it:
-                continue
+                # مدل گاهی شناسه را از خودش می‌سازد و پست از دست می‌رفت.
+                # اگر دسته فقط یک آیتم دارد، همین یکی را بردار؛ برای دستهٔ
+                # چندآیتمی این کار خطرناک است و رد می‌شود.
+                if len(chunk) == 1:
+                    it = chunk[0]
+                else:
+                    log("  unknown id from model:", str(entry.get("id", ""))[:30])
+                    continue
             if entry_skipped(entry):
                 reason = str(entry.get("why") or "").strip()[:90] or "بدون دلیل"
                 log("  model skipped:", it.get("title", "")[:40], "|", reason)
