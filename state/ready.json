@@ -1,3 +1,17 @@
 {
- "items": []
+ "items": [
+  {
+   "id": "e719412cea106996",
+   "at": "2026-11-03T10:02:14+00:00",
+   "kind": "news",
+   "label": "خبر",
+   "text": "<b>📰 خبر: شرکت ⁦Anthropic⁩ جلوی کپی‌برداری از بازی‌ها را در ⁦Claude Code⁩ گرفت</b>\n\nاین ابزار کدنویسی دیگر اجازه نمی‌دهد کسی بازی‌های موجود را شبیه‌سازی یا کپی کند. هدف این کار جلوگیری از نقض حقوق مالکیت معنوی است.\n\n<blockquote expandable>توسعه‌دهندگان دو جمله به ⁦system prompt⁩ (دستورات سیستمی که رفتار هوش مصنوعی را تعیین می‌کند) مدل ⁦Opus 5.5⁩ اضافه کرده‌اند تا جلوی ساخت نسخه‌های تقلبی گرفته شود.\nحتی اگر نام بازی تغییر کند یا اثر به عنوان کار اصلی معرفی شود، این محدودیت فعال می‌شود.\nکاربران هنوز می‌توانند بازی‌های خودشان را با دارایی‌های اختصاصی بسازند.</blockquote>\n\nاطلاعات بیشتر دربارهٔ این موضوع را از <a href=\"https://the-decoder.com/anthropic-cracks-down-on-game-cloning-in-claude-code-after-wave-of-ai-built-knockoffs\">منبع</a> بخوانید.\n\n<i>۱۲ آبان ۱۴۰۵ · ۱۳:۱۸</i>\n\n#خبر #هوش_مصنوعی",
+   "score": 65.4,
+   "title": "Anthropic cracks down on game cloning in Claude Code after wave of AI-built knockoffs",
+   "link": "https://the-decoder.com/anthropic-cracks-down-on-game-cloning-in-claude-code-after-wave-of-ai-built-knockoffs",
+   "source": "دیکودر",
+   "group": "ai",
+   "photo": ""
+  }
+ ]
 }

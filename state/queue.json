@@ -4229,6 +4229,23 @@
    "age_hours": 153.9,
    "published": "2026-10-27T16:21:31-07:00",
    "added": "2026-11-03T09:15:27+00:00"
+  },
+  {
+   "id": "e719412cea106996",
+   "title": "Anthropic cracks down on game cloning in Claude Code after wave of AI-built knockoffs",
+   "link": "https://the-decoder.com/anthropic-cracks-down-on-game-cloning-in-claude-code-after-wave-of-ai-built-knockoffs",
+   "desc": "Anthropic is blocking its coding assistant Claude Code from recreating existing video games. The article Anthropic cracks down on game cloning in Claude Code after wave of AI-built knockoffs appeared first on The Decoder .",
+   "source": "دیکودر",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 0.2,
+   "published": "2026-11-03T09:48:08+00:00",
+   "added": "2026-11-03T10:00:54+00:00",
+   "full": "Anthropic is blocking its coding assistant Claude Code from recreating existing video games. Employee Addy Osmani confirmed on X that two sentences in Claude Code's system prompt for Opus 5.5 now prevent the tool from cloning other people's games. Using Claude to infringe on intellectual property violates the usage policy, Osmani said. The rule has been active for several days and kicks in even when a clone gets renamed or passed off as an original work. Users can still build their own games, genre titles, and projects with custom assets, though some report running into problems with original projects too. The change follows a flood of AI-powered cloning projects. Users have been tapping Opus 5.5 and GPT-6 Astra to crank out hundreds of unofficial browser ports of well-known titles like Halo and GTA Vice City. Tools like Reverse Engineer Anything help by pairing AI agents with reverse engineering to turn native binaries into readable pseudocode. One developer grabbed headlines by recreating parts of Adobe's Creative Cloud apps. Sony's PlayStation 5 also became a target after a jailbreak led to a quick wave of emulators. Ad After images and videos, the intellectual property battle is now spilling into software. Osmani said Anthropic plans to keep tweaking the rules going forward. Ad Subscribe to THE DECODER for ad-free reading, a weekly AI newsletter, our exclusive \"AI Radar\" frontier report six times a year, full archive access, and access to our comment section.",
+   "use_link": "",
+   "held": true
   }
  ]
 }
