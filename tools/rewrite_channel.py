@@ -62,6 +62,15 @@ def rewrite(row):
         full, _use = radar.fetch_article(link, limit=3200, hint=title)
     except Exception:
         full = ""
+    # همان سدهایی که موتور سر راه پست تازه می‌گذارد. بازنویسی پست قدیمی
+    # نباید از این‌ها رد شود؛ یک بار خبر گلدمن ساکس با جملهٔ ساختگی
+    # «برای کسانی که سایت می‌سازند مهم است» از همین راه دوباره پست شد.
+    source_text = " ".join([title, row["text"], full])
+    if kind in ("news", "tools") and radar.OFF_AUDIENCE_RE.search(source_text) \
+            and not radar.SITE_TOPIC_RE.search(source_text):
+        return "", "بیربط به سایت"
+    if kind != "security" and radar.persian_product({"title": title, "link": link}):
+        return "", "کالای فارسی"
     item = {
         "id": "m{}".format(row["id"]),
         "source": "کانال",
@@ -101,6 +110,8 @@ def rewrite(row):
         None,
         name=name,
     )
+    if not radar.relevance_ok(text, source_text):
+        return "", "ربط ساختگی"
     return text, ""
 
 

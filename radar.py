@@ -1947,6 +1947,25 @@ SITE_TOPIC_RE = re.compile(
     re.I,
 )
 
+# مدل وقتی خبر به سایت ربط ندارد، خودش ربط می‌سازد: «ولی این تصمیم برای
+# کسانی که با این ابزارها سایت می‌سازند مهم است». این جمله در منبع نیست.
+# سد قبلی (OFF_AUDIENCE_RE) جلوی رفتن چنین خبری به مدل را می‌گیرد، ولی
+# بازنویسی پست‌های قدیمی از آن سد رد نمی‌شود. پس خودِ متن را هم می‌سنجیم:
+# اگر جملهٔ ربط در پست باشد و منبع حرفی از سایت نزده باشد، ساختگی است.
+SELF_MADE_RELEVANCE = re.compile(
+    r"کسانی\s+که[^.\n]{0,60}(سایت|وب\s*سایت|فروشگاه)[^.\n]{0,25}"
+    r"می[\s\u200c]{0,1}(سازند|سازد)"
+    r"|(این|آن)\s+(تغییر|تصمیم|خبر|موضوع)[^.\n]{0,60}(مهم|به\s*کار)\s*"
+    r"(است|می[\s\u200c]{0,1}آید)",
+)
+
+
+def relevance_ok(text, source_text):
+    """ربط ساختگی را می‌گیرد، نه ربط واقعی."""
+    if not SELF_MADE_RELEVANCE.search(str(text or "")):
+        return True
+    return bool(SITE_TOPIC_RE.search(str(source_text or "")))
+
 # مخزن‌های «awesome» فهرست پیوند جمع می‌کنند، ابزار نمی‌سازند. کانال
 # ابزار معرفی می‌کند. یک بار چنین فهرستی با برچسب «آموزش» پست شد و
 # خود مدل هم نوشت «این یک لیست مرجعی است، نه ابزاری برای اجرا».
@@ -3263,6 +3282,15 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
             if not ok_quality:
                 log("  quality gate:", why, entry.get("title", "")[:40])
                 rejected.append((it, entry, why))
+                continue
+            # ربط ساختگی: جمله‌ای که مدل به خبر می‌چسباند تا آن را به کانال
+            # مربوط کند، در حالی که منبع حرفی از سایت نزده.
+            if not relevance_ok(
+                " ".join([entry.get("summary", ""), entry.get("details", "")]),
+                " ".join([it.get("title", ""), it.get("desc", ""), it.get("full", "")]),
+            ):
+                log("  made-up relevance:", entry.get("title", "")[:40])
+                rejected.append((it, entry, "ربط ساختگی"))
                 continue
             # بلوک نقل‌قول نباید خالی یا تشریفاتی باشد.
             det = (entry.get("details") or "").strip()
