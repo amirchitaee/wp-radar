@@ -1,10 +1,6 @@
 {
  "items": [
   {
-   "t": "2026-10-29T23:55:02+00:00",
-   "title": "WordPress 7.1.4 Patches Unauthenticated Upgrade-Window RCE; Exploitation Attempts Detected After Release"
-  },
-  {
    "t": "2026-10-30T00:06:12+00:00",
    "title": "The agent-ready approaches that are catching on, and what AI agents actually use"
   },

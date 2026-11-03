@@ -3431,6 +3431,35 @@
    "age_hours": 0.8,
    "published": "2026-11-02T22:14:50+00:00",
    "added": "2026-11-02T23:00:54+00:00"
+  },
+  {
+   "id": "de4cf53f9db96311",
+   "title": "Scaling Git at OpenAI",
+   "link": "https://openai.com/index/scaling-git-at-openai",
+   "desc": "How OpenAI built Pando, a Git-compatible backend designed for the scale of development that Codex makes possible.",
+   "source": "اوپن‌ای‌آی",
+   "lang": "en",
+   "tier": 1,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 8.5,
+   "published": "2026-11-02T15:30:00+00:00",
+   "added": "2026-11-03T00:00:52+00:00"
+  },
+  {
+   "id": "b2485c91dd174e28",
+   "title": "Trajectory raises $45M to make AI model training accessible to nontechnical experts",
+   "link": "https://techcrunch.com/2026/11/02/trajectory-raises-45m-to-make-ai-model-training-accessible-to-nontechnical-experts",
+   "desc": "The one-year-old startup is now valued at $300 million.",
+   "source": "تک‌کرانچ",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 0.8,
+   "published": "2026-11-02T23:13:53+00:00",
+   "added": "2026-11-03T00:00:52+00:00",
+   "channel_skip": true
   }
  ]
 }
