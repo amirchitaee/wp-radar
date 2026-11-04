@@ -3226,6 +3226,25 @@ def queue_merge(rows, s):
         if ts >= cutoff:
             kept.append(x)
     q["items"] = kept
+    # سقف انبار. هر دسته بیشتر از این در صف نمی‌ماند و قدیمی‌ترها می‌روند.
+    # سقف در لحظهٔ ورود هم هست، ولی این یکی تضمین است: حتی اگر یک اجرا
+    # چهل آیتم بیاورد، صف از سقف رد نمی‌شود.
+    caps = s.get("backlog_cap") or {}
+    trimmed = 0
+    for kind, cap in caps.items():
+        cap = int(cap or 0)
+        if cap <= 0:
+            continue
+        group = [x for x in kept if (x.get("kind") or "") == kind]
+        if len(group) <= cap:
+            continue
+        group.sort(key=lambda x: (x.get("published") or x.get("added") or ""), reverse=True)
+        drop = {id(x) for x in group[cap:]}
+        kept = [x for x in kept if id(x) not in drop]
+        trimmed += len(drop)
+    if trimmed:
+        q["items"] = kept
+        log("queue: {} old item(s) dropped by the backlog cap".format(trimmed))
     if not DRY:
         write_json(QUEUE, q)
     return q, added

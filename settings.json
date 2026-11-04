@@ -118,7 +118,7 @@
   "model_max_tokens": 3000,
   "ai_intake_per_day": 10,
   "backlog_cap": {
-    "news": 60,
+    "news": 120,
     "tools": 8,
     "showcase": 6,
     "security": 20
