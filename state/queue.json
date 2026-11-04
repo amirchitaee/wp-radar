@@ -2719,6 +2719,52 @@
    "age_hours": 11.6,
    "published": "2026-11-03T12:22:12+00:00",
    "added": "2026-11-04T00:00:59+00:00"
+  },
+  {
+   "id": "7d172e98475e635b",
+   "title": "Exit polls show AI ranked last among voter priorities in the 2026 U.S. midterms",
+   "link": "https://the-decoder.com/exit-polls-show-ai-ranked-last-among-voter-priorities-in-the-2026-u-s-midterms",
+   "desc": "In the 2026 U.S. midterm elections, AI ranked last among campaign issues: only 56 percent of respondents cited AI and data centers as an important factor. According to NBC exit polls, corruption (90 percent) and the cost of living (89 percent) clearly dominated, despite growing public attention to the issue. The article Exit polls show AI ranked last among voter priorities in the 2026 U.S. midterms appeared first on The Decoder .",
+   "source": "دیکودر",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 0.3,
+   "published": "2026-11-04T10:45:54+00:00",
+   "added": "2026-11-04T11:01:07+00:00",
+   "channel_skip": true
+  },
+  {
+   "id": "aac86e978a703974",
+   "title": "Schools that turn off Google's AI will lose search too starting in 2027",
+   "link": "https://the-decoder.com/schools-that-turn-off-googles-ai-will-lose-search-too-starting-in-2027",
+   "desc": "Starting in 2027, Google plans to turn off AI features in its school products by default, letting schools decide what to enable. The catch: schools that block AI entirely on their devices will also lose access to Google Search, since the two systems are now too deeply intertwined to separate. Given Google's grip on the US school market, that \"choice\" doesn't leave schools with much room to maneuver. The article Schools that turn off Google's AI will lose search too starting in 2027 appeared first on The Decoder .",
+   "source": "دیکودر",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 0.9,
+   "published": "2026-11-04T10:06:23+00:00",
+   "added": "2026-11-04T11:01:07+00:00",
+   "full": "Starting in early 2027, Google will give schools an ultimatum: accept AI for students or lose access to Google Search entirely. Gemini, Gemini Notebook, and Google Search will all be off by default for student accounts. Schools can turn each one on individually. But a version of search without AI? That's no longer on the table. The New York Times broke the story first. Google's vice president for education, Chris Phillips, said search and AI have become too tightly fused to pull apart. Google recently flipped AI features on by default inside its learning platform Classroom for schools with Gemini access. That move drew backlash, and the company is now reversing course. Schools that choose to enable search will get two flavors: search with full AI overviews and AI chat, or search with \"Guided Learning,\" a mode designed to steer students toward answers rather than hand them over directly. None of this happens in a vacuum. Google dominates the US school market with Chromebooks, Gmail, and Classroom. Education professor Morgan Polikoff called the move a textbook case of the tech industry shoving AI onto people whether they want it or not. The country's two largest school districts, New York City and Los Angeles, had already pulled back on AI for students in September. Los Angeles specifically wanted to keep using Google Search without AI overviews. Google won't let them. Ad Ad Subscribe to THE DECODER for ad-free reading, a weekly AI newsletter, our exclusive \"AI Radar\" frontier report six times a year, full archive access, and access to our comment section.",
+   "use_link": ""
+  },
+  {
+   "id": "9e54aa65124dcd82",
+   "title": "6 Best Tools to Manage Multiple WordPress Sites (2026)",
+   "link": "https://wpmayor.com/multiple-site-management-tools",
+   "desc": "Managing more than a handful of WordPress sites gets old fast. These are the best multiple site management tools I'd consider in 2026, and what each one really costs. The post \" 6 Best Tools to Manage Multiple WordPress Sites (2026) \" first appeared on WP Mayor .",
+   "source": "دبلیوپی‌مایر",
+   "lang": "en",
+   "tier": 3,
+   "group": "",
+   "kind": "news",
+   "age_hours": 1.0,
+   "published": "2026-11-04T10:00:00+00:00",
+   "added": "2026-11-04T11:01:06+00:00",
+   "channel_skip": true
   }
  ]
 }
