@@ -904,6 +904,32 @@ _ai_room = radar.ai_intake_room()
 check("سقف ورودی AI: عدد برمی‌گرداند", isinstance(_ai_room, int), True)
 check("سقف ورودی AI: منفی نمی‌شود", _ai_room >= 0, True)
 
+# ---------------------------------------------------------------- سقف انبار
+# فید ابزار هر بار چهل آیتم می‌آورد و با سقف یک پست در روز، صد و پنجاه
+# روز صف می‌ساخت. سقف انبار جلوی همین را می‌گیرد.
+_real_count, _real_today = radar.queue_kind_count, radar.added_today
+_rows = [
+    {"id": "a", "published": "2026-11-04T10:00:00", "kind": "tools"},
+    {"id": "b", "published": "2026-11-04T11:00:00", "kind": "tools"},
+    {"id": "c", "published": "2026-11-04T12:00:00", "kind": "tools"},
+]
+radar.queue_kind_count = lambda kind: 8
+radar.added_today = lambda kind: 0
+check("سقف انبار: صف پر است، هیچ‌کدام وارد نمی‌شود",
+      radar.trim_intake("tools", _rows, {"backlog_cap": {"tools": 8}}), [])
+radar.queue_kind_count = lambda kind: 6
+_kept = radar.trim_intake("tools", _rows, {"backlog_cap": {"tools": 8}})
+check("سقف انبار: فقط جای خالی پر می‌شود", len(_kept), 2)
+check("سقف انبار: تازه‌ترها می‌مانند", [x["id"] for x in _kept], ["c", "b"])
+radar.queue_kind_count = lambda kind: 0
+check("سقف روزانه: بیشتر از سهم روز وارد نمی‌شود",
+      len(radar.trim_intake("tools", _rows, {"intake_per_day": {"tools": 1}})), 1)
+radar.added_today = lambda kind: 1
+check("سقف روزانه: سهم مصرف‌شده چیزی اضافه نمی‌کند",
+      radar.trim_intake("tools", _rows, {"intake_per_day": {"tools": 1}}), [])
+check("سقف: بی‌تنظیم دست نمی‌زند", len(radar.trim_intake("tools", _rows, {})), 3)
+radar.queue_kind_count, radar.added_today = _real_count, _real_today
+
 # ---------------------------------------------------------------- خط نسخه
 # «نسخهٔ ۷.۱.۴» و «بتای ۲» آخر کادر می‌ماندند و نکته نبودند.
 check("جزئیات: خط فقط-نسخه حذف می‌شود",

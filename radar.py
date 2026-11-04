@@ -3018,6 +3018,56 @@ def security_run(s, st, seen, hard_deadline=None):
 
 # ---------------------------------------------------------------- main flows
 
+def queue_kind_count(kind):
+    """چند آیتم از این دسته همین حالا در صف است."""
+    q = read_json(QUEUE, {"v": 1, "items": []})
+    items = q.get("items", []) if isinstance(q, dict) else list(q)
+    return sum(1 for x in items if (x.get("kind") or "") == kind)
+
+
+def added_today(kind):
+    """چند آیتم از این دسته امروز وارد صف شده."""
+    q = read_json(QUEUE, {"v": 1, "items": []})
+    items = q.get("items", []) if isinstance(q, dict) else list(q)
+    today = now().date().isoformat()
+    return sum(
+        1 for x in items if (x.get("kind") or "") == kind and str(x.get("added") or "")[:10] == today
+    )
+
+
+def trim_intake(kind, rows, s):
+    """سقف ورود به صف: هم روزانه، هم انبار.
+
+    بدون این، فید ابزار هر بار چهل آیتم می‌آورد و دستهٔ ابزار با سقف
+    یک پست در روز، صد و پنجاه روز صف می‌سازد. سقف انبار جلوی همین را
+    می‌گیرد: تا وقتی هشت ابزار در صف است، ابزار تازه وارد نمی‌شود.
+    """
+    if not rows:
+        return rows
+    backlog = int((s.get("backlog_cap") or {}).get(kind, 0) or 0)
+    daily = int((s.get("intake_per_day") or {}).get(kind, 0) or 0)
+    room = len(rows)
+    if backlog > 0:
+        room = min(room, max(0, backlog - queue_kind_count(kind)))
+    if daily > 0:
+        room = min(room, max(0, daily - added_today(kind)))
+    if room >= len(rows):
+        return rows
+    ordered = sorted(rows, key=lambda r: r.get("published") or "", reverse=True)
+    kept = ordered[:room]
+    log(
+        "intake {}: {} dropped, backlog {}/{} daily {}/{}".format(
+            kind,
+            len(rows) - len(kept),
+            queue_kind_count(kind),
+            backlog or "-",
+            added_today(kind),
+            daily or "-",
+        )
+    )
+    return kept
+
+
 def ai_intake_room():
     """چند خبر هوش مصنوعی دیگر امروز اجازهٔ ورود به صف دارد.
 
@@ -3111,6 +3161,9 @@ def collect(kind, st, seen, budget_sec=None, watch=True):
         if dropped:
             log("ai intake: {} dropped, daily cap reached".format(dropped))
         rows = kept
+    # سقف ورود. پیش از رصد نسخه، چون آپدیت افزونه آیتم کمیاب است و
+    # نباید قربانی سقف انبار شود.
+    rows = trim_intake(kind, rows, settings())
     # نسخهٔ تازهٔ افزونه‌های پرنصب. این تنها منبعی است که خبر آپدیت را
     # همان روزِ انتشار می‌آورد؛ فیدهای خودشان دیر یا هرگز نمی‌آورند.
     # همه در دستهٔ خبر می‌آیند و برچسب امنیتی را خود متن تعیین می‌کند.
