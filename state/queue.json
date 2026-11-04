@@ -121,21 +121,6 @@
    "added": "2026-11-04T00:00:59+00:00"
   },
   {
-   "id": "1b0a15e297db6da4",
-   "title": "Fedora Linux 45",
-   "link": "https://www.producthunt.com/products/fedora-linux-45",
-   "desc": "GNOME 51: Wayland fixes, oo7 keys, and modern toolchains. Discussion | Link",
-   "source": "پروداکت هانت",
-   "lang": "en",
-   "tier": 3,
-   "group": "",
-   "kind": "tools",
-   "age_hours": 10.4,
-   "published": "2026-11-03T17:04:14-08:00",
-   "added": "2026-11-04T11:30:38+00:00",
-   "channel_skip": true
-  },
-  {
    "id": "38644115ef6ab2e1",
    "title": "AI agents take over at SETI's Allen Telescope Array, scanning for extraterrestrial intelligence",
    "link": "https://the-decoder.com/ai-agents-take-over-at-setis-allen-telescope-array-scanning-for-extraterrestrial-intelligence",
@@ -150,22 +135,6 @@
    "added": "2026-11-04T00:00:59+00:00"
   },
   {
-   "id": "9b0f1b3870f8f7bf",
-   "title": "Qwen 3.8 27B on my laptop can interpret model weights, too",
-   "link": "https://simonwillison.net/2026/Nov/3/qwen-can-interpret-model-weights",
-   "desc": "Yesterday's hot paper was Sparks of Weight-Space Programming: LLMs can natively read & write neural network weights by Rikiya Takehi, Jayden Teoh, Alex Zhang, and Omar Khattab. The paper (OK, the authors classify is as a \"blog post\", but it's paper-shaped) found that frontier models, in particular GPT-6 Astra, can both interpret and modify the raw weights of a machine learning model - literally a text description of the model containing a bunch of floating point numbers. I've been playing with one of the examples from the paper and I'm delighted to share that Qwen 3.8 27B running on my laptop ",
-   "source": "سایمون ویلیسون",
-   "lang": "en",
-   "tier": 3,
-   "group": "",
-   "kind": "tools",
-   "age_hours": 3.0,
-   "published": "2026-11-03T16:29:48+00:00",
-   "added": "2026-11-03T19:30:51+00:00",
-   "full": "Yesterday’s hot paper was Sparks of Weight-Space Programming: LLMs can natively read & write neural network weights by Rikiya Takehi, Jayden Teoh, Alex Zhang, and Omar Khattab. The paper (OK, the authors classify is as a “blog post”, but it’s paper-shaped) found that frontier models, in particular GPT-6 Astra, can both interpret and modify the raw weights of a machine learning model—literally a text description of the model containing a bunch of floating point numbers. I’ve been playing with one of the examples from the paper and I’m delighted to share that Qwen 3.8 27B running on my laptop can do this as well! Here’s the highlight from their abstract, describing impressive capabilities for GPT-6 Astra and coining the term Weight-Space Programming for when LLMs analyze and modify model weights: Just by looking at the raw weights, GPT-6 Astra can tell what a network was trained to do . And without any environment feedback, it has no trouble writing, from scratch, small game-playing networks that outplay networks trained with PPO for 100 million steps. Likewise, asked to make Qwen3.5-0.8B better at math without gradients, Astra identifies an issue in its weights causing reasoning loops that Qwen’s own model card warns about, and fixes this by natively editing 0.016% of the weights . With the same sampling settings, this weight correction raises MATH-500 from 7.9% to 48.1% and generalizes out of the box to instruction following, raising IFEval by 3x. All of this is possible without allowing Astra to write training loops. It uses its reasoning to figure out what each part of a neural network computes, or should compute, and changes the weights accordingly. We call this Weight-Space Programming . The paper combines two topics that I think deserve to be treated separately. The first is what models can do with raw weights without running tools or executing code. The second explores how well models, once armed with code, can run operations to update and improve other models. spaCy author Matthew Honnibal called the paper misleading for conflating the two, and Sean Goedecke deconstructed the Qwen3.5-0.8B update example as taking the same steps that a human ML researcher would use. I’m going to focus on the no-tools question, which I think is the more interesting of the two. The paper presents the first question as Can LLMs understand model behaviors from weights? They trained four neural networks to play simplified 10x10 grid versions of four classic computer games—Breakout, Pong, Pac-Man, and Freeway (I had to look that one up , it’s an Atari 2600 game from 1981). Then they fed those weights (as floating point numbers) to an LLM along with the following question: The weights below belong to one policy network that was trained with reinforcement learning to play a game on this grid. Which game was it trained on? Work from the weights. You have no tools: no code execution, no calculator, nothing to run. This is a single response. The GitHub repository that accompanies the paper is RikiyaT/lm_understand-logs . The exp1_which_game folder contains the prompts they used, with weights for the four games: I checked and, aside from the weights, each prompt is",
-   "use_link": "https://huggingface.co/Qwen/Qwen3.5-0.8B/blob/main/README.md#L856"
-  },
-  {
    "id": "33bbd141f2e30f54",
    "title": "Do More From Your Inbox With Professional Email Plus and Ultra",
    "link": "https://wordpress.com/blog/2026/11/03/professional-email-plus-ultra",
@@ -178,21 +147,6 @@
    "age_hours": 1.7,
    "published": "2026-11-03T16:17:43+00:00",
    "added": "2026-11-03T18:00:53+00:00"
-  },
-  {
-   "id": "c6f12641e3d36430",
-   "title": "TellPip",
-   "link": "https://www.producthunt.com/products/tellpip",
-   "desc": "A little bird that whispers what to say in your calls Discussion | Link",
-   "source": "پروداکت هانت",
-   "lang": "en",
-   "tier": 3,
-   "group": "",
-   "kind": "tools",
-   "age_hours": 12.3,
-   "published": "2026-11-03T15:13:42-08:00",
-   "added": "2026-11-04T11:30:38+00:00",
-   "channel_skip": true
   },
   {
    "id": "4f6a289f54e38567",
@@ -565,6 +519,21 @@
    "added": "2026-11-04T16:00:49+00:00",
    "full": "NVIDIA L4 GPUs. 5-second cold starts. Scale to zero when idle. I know there’s a lot of AI fatigue out there. I feel it, too. Most of that though is more about the noise surrounding both sides of the hype spectrum. What’s covered way less is context for where it fits best in a development workflow and what sorts of practical uses it might have to benefit — not destroy — our work. That’s why I’m stoked to check out Smashing’s AI conference on December 1. We all know Smashing. The good folks over there check the hype luggage at the door and give these sorts of landscape-changing things careful and thoughtful consideration. All their events, not to mention their articles , are that way and always have been. The best, really. And what makes those events the best is bringing in the best-of-the-best people to share what they’ve learned about it. In this case we’re talking about a live online event specifically about AI in design systems from some of my personal favorite people, like Brad Frost , Christine Vallaure , Vitaly Friedman , and TJ Pitre . We’re talking about people who know their craft and the experience to show (not just tell) how it translates to what we do for work, whether you’re a designer, front-ender, or even a stakeholder in the design process. So, please join me in checking it out. Cost is €50. They’re actually giving us here at CSS-Tricks a special discount using code AITRICKSCSS when you register for the event . Even better, they gave me two free tickets I’ll give to the first two commenters on this post. Just make sure you use your real email address when signing in to comment!",
    "use_link": ""
+  },
+  {
+   "id": "6c37fee853f792d5",
+   "title": "A New Workspace for Building with WordPress",
+   "link": "https://wordpress.com/blog/2026/11/04/wordpress-studio-workspace",
+   "desc": "In WordPress Studio, a website starts as a conversation. You describe what you want, and an AI agent builds a first version for you. To change something, just tell the agent what you’d like instead. If you’ve used an agentic coding tool recently, the latest version of WordPress Studio will …",
+   "source": "وردپرس دات کام",
+   "lang": "en",
+   "tier": 2,
+   "group": "",
+   "kind": "news",
+   "age_hours": 1.5,
+   "published": "2026-11-04T16:33:17+00:00",
+   "added": "2026-11-04T18:00:51+00:00",
+   "held": true
   }
  ]
 }
