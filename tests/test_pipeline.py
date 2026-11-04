@@ -974,6 +974,13 @@ check("اولویت: سقف ورود جای وردپرس را به هوش مصن
       [x["id"] for x in radar.trim_intake("news", _wp_rows, {"backlog_cap": {"news": 1}})],
       ["wp1"])
 radar.queue_kind_count, radar.added_today = _rc2, _rt2
+# بعد از قانون «وردپرس اول»، قسمت هفتگی پادکست تاورن سر صف می‌نشست.
+check("اولویت: پادکست خبر نیست",
+      bool(radar.PODCAST_RE.search("https://wptavern.com/podcast/240-martin-schmidt")), True)
+check("اولویت: تیتر شماره‌دار پادکست هم گرفته می‌شود",
+      bool(radar.PODCAST_RE.search("#240 – Martin Schmidt on Partnerships")), True)
+check("اولویت: خبر عادی با قاعدهٔ پادکست گرفته نمی‌شود",
+      bool(radar.PODCAST_RE.search("WordPress 7.2 beta 4 is out")), False)
 
 # ---------------------------------------------------------------- خط نسخه
 # «نسخهٔ ۷.۱.۴» و «بتای ۲» آخر کادر می‌ماندند و نکته نبودند.

@@ -2239,6 +2239,13 @@ NON_NEWS_RE = re.compile(
     re.I,
 )
 
+# پادکست و وبینار خبر نیست. تاورن هر هفته یک قسمت منتشر می‌کند و بعد از
+# قانون «وردپرس اول» سر صف می‌نشست، در حالی که هیچ اتفاق تازه‌ای را
+# گزارش نمی‌کند. آدرس هم بررسی می‌شود، چون تیتر همیشه واژه را ندارد.
+PODCAST_RE = re.compile(
+    r"/podcasts?/|\bpodcasts?\b|\bwebinars?\b|^#\d+\s*[\u2010-\u2015-]", re.I
+)
+
 # برچسب مجاز هر دسته. مدل اجازه ندارد از این فهرست بیرون بزند.
 LABELS = {
     "news": ("خبر", "آپدیت", "هشدار امنیتی", "فوری", "پلاگین تازه", "آموزش"),
@@ -3494,6 +3501,13 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
                 x["channel_skip"] = True
                 skipped += 1
                 continue
+            # پادکست و وبینار اتفاق تازه‌ای را گزارش نمی‌کنند. بعد از
+            # قانون «وردپرس اول» اینها بالای صف می‌نشستند و جای خبر
+            # واقعی را می‌گرفتند.
+            if kind == "news" and PODCAST_RE.search(blob):
+                x["channel_skip"] = True
+                skipped += 1
+                continue
             # دستهٔ ابزار را فیدهای عمومی هم پر می‌کنند. آیتمی که هیچ
             # نشانه‌ای از هوش مصنوعی یا ساخت سایت ندارد، ابزار این کانال
             # نیست. اینجا فقط کنار گذاشته می‌شود، پاک نمی‌شود.
@@ -4347,6 +4361,8 @@ def preview_run(s, st, seen, kind="news", limit=1, pick=""):
             [x.get("title") or "", x.get("link") or "", x.get("desc") or ""]
         )
         if NON_NEWS_RE.search(blob) or JUNK_NEWS_RE.search(blob) or LIST_REPO_RE.search(blob):
+            continue
+        if kind == "news" and PODCAST_RE.search(blob):
             continue
         if kind == "news" and OFF_AUDIENCE_RE.search(blob) and not SITE_TOPIC_RE.search(blob):
             continue
