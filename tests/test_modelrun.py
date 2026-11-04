@@ -342,6 +342,10 @@ NO_USE = dict(FAKE_ROW)
 NO_USE["id"] = "nou01"
 NO_USE["kind"] = "tools"
 NO_USE["use_link"] = ""
+# سبد ابزار حالا محصول بی‌ربط را رد می‌کند؛ این آیتم باید به سایت یا
+# تولید محتوا مربوط باشد تا سناریو به سد درست برسد، نه به سد سبد.
+NO_USE["title"] = "Cloudflare Workers AI for WordPress content sites"
+NO_USE["desc"] = "free AI writing quota for your website"
 radar.collect = lambda kind, st, seen, budget_sec=None: [dict(NO_USE)]
 
 

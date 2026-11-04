@@ -420,6 +420,42 @@ radar.load_sources, radar.fetch_source = _prev_load, _prev_fetch
 check("سد سن: آیتم بی‌تاریخ با تاریخ ورود سنجیده می‌شود",
       radar.queue_age({"added": radar.now().isoformat()}) < 1, True)
 
+# ---------------------------------------------------------------- سد سبد ابزار
+# پروداکت هانت پر از محصول بی‌ربط است: سیستم‌عامل، ابزار مک، بازار مالی.
+# رد کردنشان کار مدل نیست؛ سد همان‌جا که آیتم وارد می‌شود گذاشته می‌شود.
+check("ابزار: ابزار ویدیو قبول است",
+      radar.tool_fit({"title": "Rungle", "desc": "turn clips into share-ready Reels"}), True)
+check("ابزار: ابزار تولید متن قبول است",
+      radar.tool_fit({"title": "Jasper", "desc": "AI content writer for teams"}), True)
+check("ابزار: ابزار وردپرسی قبول است",
+      radar.tool_fit({"title": "Elementor", "desc": "page builder for WordPress"}), True)
+check("ابزار: ابزار MCP قبول است",
+      radar.tool_fit({"title": "MCP server for WooCommerce", "desc": ""}), True)
+check("ابزار: سیستم‌عامل رد می‌شود",
+      radar.tool_fit({"title": "Fedora Linux 45", "desc": "GNOME 51 fixes"}), False)
+check("ابزار: محصول بی‌توضیح رد می‌شود",
+      radar.tool_fit({"title": "PasteGuard for Mac", "desc": ""}), False)
+# واژهٔ blog در متن یک مقاله، نشانهٔ ابزار وبلاگ‌نویسی نیست.
+check("ابزار: مقالهٔ وبلاگی رد می‌شود",
+      radar.tool_fit({"title": "Qwen weights", "desc": "the authors call it a blog post"}), False)
+
+_prev_load2, _prev_fetch2 = radar.load_sources, radar.fetch_source
+_tbox = Path(tempfile.mkdtemp())
+radar.QUEUE = _tbox / "queue.json"
+radar.write_json(radar.QUEUE, {"v": 1, "items": []})
+radar.load_sources = lambda kind: [{"name": "پروداکت هانت", "url": "u", "lang": "en", "tier": 1}]
+radar.fetch_source = lambda src, st: [
+    {"title": "Rungle", "desc": "clips into Reels", "link": "https://t.com/a",
+     "published": radar.now()},
+    {"title": "Fedora Linux 45", "desc": "GNOME fixes", "link": "https://t.com/b",
+     "published": radar.now()},
+]
+_rows2 = radar.collect("tools", {}, {"v": 1, "ids": {}}, budget_sec=5, watch=False)
+check("ابزار: محصول بی‌ربط وارد صف نمی‌شود",
+      [r["link"] for r in _rows2], ["https://t.com/a"])
+radar.load_sources, radar.fetch_source = _prev_load2, _prev_fetch2
+radar.QUEUE = _qreal
+
 # همان سد در ادغام صف هم هست: آیتم کهنه‌ای که از قبل مانده بیرون می‌رود.
 _qbox2 = Path(tempfile.mkdtemp())
 radar.QUEUE = _qbox2 / "queue.json"

@@ -1712,7 +1712,11 @@ SYSTEM_PROMPT = load_system_prompt()
 KIND_HINT = {
     "news": "این دسته خبر و آپدیت است، نه معرفی ابزار.",
     "tools": (
-        "این دسته ابزار است؛ چیزی که مخاطب امروز باز می‌کند و به کار سایتش می‌آید. "
+        "این دسته ابزار است. سه چیز پذیرفته است، به همین ترتیب: "
+        "ابزاری که مستقیم برای ساختن یا ادارهٔ سایت است: سازندهٔ سایت، افزونه، قالب، هاست، سئو، فروشگاه. "
+        "ایجنت یا ابزار هوش مصنوعی که در کار سایت به کار می‌آید، از جمله ابزارهای MCP. "
+        "ابزار تولید محتوا با هوش مصنوعی برای متن، تصویر، ویدیو و صدا؛ چون مخاطب برای سایتش محتوا می‌خواهد. "
+        "سیستم‌عامل، ابزار مک و موبایل، بازار مالی، سخت‌افزار، و محصولی که فقط اسم دارد و توضیح ندارد پست نمی‌شود. "
         "اگر پلن رایگان دارد، در details بگو چطور شروع کند."
     ),
     "security": "این دسته هشدار امنیتی است؛ فقط آسیب‌پذیری واقعی در وردپرس، افزونه یا قالب.",
@@ -2168,6 +2172,42 @@ SITE_TOPIC_RE = re.compile(
     r"وردپرس|ووکامرس|المنتور|افزونه|پلاگین|قالب|سایت)",
     re.I,
 )
+
+# سبد ابزار پروداکت هانت پر از محصول بی‌ربط است: سیستم‌عامل، ابزار مک،
+# بازار مالی، سخت‌افزار. رد کردنشان کار مدل نیست؛ سد همان‌جا که آیتم
+# وارد می‌شود گذاشته می‌شود. سه چیز پذیرفته است: ساختن و ادارهٔ سایت،
+# ایجنت و ابزار هوش مصنوعی، و تولید محتوا (متن، تصویر، ویدیو، صدا).
+TOOL_AGENT_RE = re.compile(
+    r"\bagents?\b|\bmcp\b|model context protocol|\bapi\b|\bchatbots?\b|"
+    r"\bcopilot\b|\bautomation\b|\bworkflow\b|\bno-?code\b|\bprompts?\b",
+    re.I,
+)
+TOOL_CONTENT_RE = re.compile(
+    r"\bvideos?\b|\bimages?\b|\bphotos?\b|\bpictures?\b|\bcopywrit\w*|"
+    r"\bwriting\b|\bwriter\b|\breels?\b|\bshorts?\b|\bavatars?\b|\bvoice\b|"
+    r"\baudio\b|\bspeech\b|\bpodcasts?\b|\bgraphics?\b|\bthumbnails?\b|"
+    r"\bcaptions?\b|\bsubtitles?\b|\btranscri\w+|"
+    r"\bcontent (?:writer|generator|creation|studio|engine)\b|"
+    r"\bblogging\b|\bbloggers?\b",
+    re.I,
+)
+
+
+def tool_fit(item):
+    """آیا این ابزار به کار مخاطبِ سایت‌ساز می‌آید؟
+
+    سه دسته قبول است، به همین ترتیب: ساختن و ادارهٔ سایت، ایجنت و ابزار
+    هوش مصنوعی، و تولید محتوا. آیتمی که هیچ نشانه‌ای ندارد رد می‌شود؛
+    سیستم‌عامل و ابزار سخت‌افزاری نمونهٔ آن است.
+    """
+    blob = " ".join(str(item.get(k) or "") for k in ("title", "desc"))
+    if not blob.strip():
+        return False
+    return bool(
+        SITE_TOPIC_RE.search(blob)
+        or TOOL_AGENT_RE.search(blob)
+        or TOOL_CONTENT_RE.search(blob)
+    )
 
 # کانال برای مخاطب وردپرسی است، نه برای دنبال‌کنندهٔ خبر هوش مصنوعی.
 # ترتیب صف و ترتیب فرستادن به مدل باید همین را نشان بدهد. فید عمومی
@@ -3312,6 +3352,7 @@ def collect(kind, st, seen, budget_sec=None, watch=True):
     # رد کند؛ اگر کهنه وارد صف شود، فقط جای خبر تازه را می‌گیرد.
     gate = max_age_for(kind)
     stale = 0
+    off_topic = 0
     for idx, src in enumerate(sources):
         if time.time() - started > budget:
             log("collect: budget reached, {} of {} sources skipped".format(len(sources) - idx, len(sources)))
@@ -3343,6 +3384,11 @@ def collect(kind, st, seen, budget_sec=None, watch=True):
             if age > gate:
                 stale += 1
                 continue
+            # سبد ابزار: محصول بی‌ربط وارد صف نمی‌شود. اگر وارد شود، مدل
+            # باید هر بار ردش کند و جای ابزار واقعی را می‌گیرد.
+            if kind == "tools" and not tool_fit(it):
+                off_topic += 1
+                continue
             rows.append(
                 {
                     "id": iid,
@@ -3361,6 +3407,8 @@ def collect(kind, st, seen, budget_sec=None, watch=True):
             )
     if stale:
         log("collect {}: {} old item(s) dropped, gate {}h".format(kind, stale, int(gate)))
+    if off_topic:
+        log("collect {}: {} off-topic item(s) dropped".format(kind, off_topic))
     # سقف ورودی گروه هوش مصنوعی. بدون این، صف از خبر AI پر می‌شود و
     # ستون اصلی کانال، یعنی وردپرس، جایی برای آمدن ندارد.
     if any((r.get("group") or "") == "ai" for r in rows):
@@ -3446,6 +3494,7 @@ def queue_merge(rows, s):
     gates = {k: max_age_for(k, s) for k in ("news", "tools", "offers", "showcase", "security")}
     kept = []
     stale = 0
+    off_topic = 0
     for x in q["items"]:
         k = x.get("kind") or "news"
         # آپدیت افزونه آیتم کمیاب است و در پاک‌سازی هم مستثنی می‌شود.
@@ -3455,10 +3504,17 @@ def queue_merge(rows, s):
         if queue_age(x) > gates.get(k, 48.0):
             stale += 1
             continue
+        # همان سد سبد ابزار، این بار روی آیتم‌هایی که از قبل در صف مانده‌اند.
+        if k == "tools" and not tool_fit(x):
+            off_topic += 1
+            continue
         kept.append(x)
-    if stale:
+    if stale or off_topic:
         q["items"] = kept
+    if stale:
         log("queue: {} old item(s) dropped by the age gate".format(stale))
+    if off_topic:
+        log("queue: {} off-topic tool(s) dropped".format(off_topic))
     # سقف انبار. هر دسته بیشتر از این در صف نمی‌ماند و قدیمی‌ترها می‌روند.
     # سقف در لحظهٔ ورود هم هست، ولی این یکی تضمین است: حتی اگر یک اجرا
     # چهل آیتم بیاورد، صف از سقف رد نمی‌شود.
