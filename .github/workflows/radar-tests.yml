@@ -5,9 +5,11 @@ on:
   push:
     paths:
       - "radar.py"
+      - "prompt.txt"
       - "settings.json"
       - "sources.txt"
       - "tests/**"
+      - "tools/**"
       - ".github/workflows/radar-tests.yml"
   workflow_dispatch:
 
@@ -25,6 +27,8 @@ jobs:
           python-version: "3.12"
       - name: syntax
         run: python -m py_compile radar.py
+      - name: audit
+        run: python tools/audit.py
       - name: dedupe
         run: python tests/test_dedupe.py
       - name: pipeline
