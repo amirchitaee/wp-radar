@@ -2614,7 +2614,8 @@
    "age_hours": 1.3,
    "published": "2026-11-03T20:45:00+00:00",
    "added": "2026-11-03T22:00:46+00:00",
-   "held": true
+   "posted": true,
+   "msg_id": 85
   },
   {
    "id": "993e48dc4504c6f5",
