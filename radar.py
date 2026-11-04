@@ -1033,6 +1033,35 @@ def true_age(item):
     return float(item.get("age_hours", 99) or 99)
 
 
+def queue_age(item):
+    """سن برای سد صف. اگر تاریخ انتشار نبود، تاریخ ورود به صف.
+
+    فیدهایی که تاریخ نمی‌دهند نباید کل آیتم‌هایشان با سن نودونه حساب
+    شود؛ آن‌ها تازه وارد شده‌اند، نه کهنه.
+    """
+    if item.get("published"):
+        return true_age(item)
+    try:
+        added = datetime.fromisoformat(str(item.get("added")))
+        return max(0.0, (now() - added).total_seconds() / 3600.0)
+    except Exception:
+        return true_age(item)
+
+
+def max_age_for(kind, s=None):
+    """سقف سن ورود به صف. همان عددی که مرحلهٔ مدل هم می‌سنجد.
+
+    خبر کهنه نباید وارد صف شود. قبلاً سد سنی فقط سر وقت مدل اعمال
+    می‌شد: صف پر می‌شد از خبر یک‌هفته‌ای، مدل ردش می‌کرد، و صف فقط
+    شلوغ می‌شد. یک بار نسخهٔ ۷.۱.۴ وردپرس شش روز بعد از دو پستی که
+    کانال دربارهٔ همان نسخه داده بود دوباره در صف نشست.
+    """
+    s = s if isinstance(s, dict) else settings()
+    if kind == "security":
+        return float(s.get("security_max_age_h", 24) or 24)
+    return 96.0 if kind in ("tools", "offers") else 48.0
+
+
 def code_score(item, source_count):
     """امتیاز بخش کد: تازگی، اعتبار منبع، تأیید چندمنبعی.
 
@@ -3246,6 +3275,10 @@ def collect(kind, st, seen, budget_sec=None, watch=True):
     blocked = load_blocked()
     started = time.time()
     budget = float(budget_sec or 180)
+    # سد سن، همان‌جا که آیتم وارد می‌شود. کار مدل نیست که خبر کهنه را
+    # رد کند؛ اگر کهنه وارد صف شود، فقط جای خبر تازه را می‌گیرد.
+    gate = max_age_for(kind)
+    stale = 0
     for idx, src in enumerate(sources):
         if time.time() - started > budget:
             log("collect: budget reached, {} of {} sources skipped".format(len(sources) - idx, len(sources)))
@@ -3269,10 +3302,13 @@ def collect(kind, st, seen, budget_sec=None, watch=True):
             if kind != "security" and persian_product(it):
                 log("  blocked (کالای فارسی):", it["title"][:40])
                 continue
-            age = 99
+            # فیدی که تاریخ نمی‌دهد تازه حساب می‌شود، نه کهنه. با عدد
+            # بزرگ، کل آیتم‌های چنین فیدی بی‌صدا حذف می‌شد.
+            age = 0.0
             if it["published"]:
                 age = (now() - it["published"]).total_seconds() / 3600
-            if age > 168:
+            if age > gate:
+                stale += 1
                 continue
             rows.append(
                 {
@@ -3290,6 +3326,8 @@ def collect(kind, st, seen, budget_sec=None, watch=True):
                     "added": now().isoformat(timespec="seconds"),
                 }
             )
+    if stale:
+        log("collect {}: {} old item(s) dropped, gate {}h".format(kind, stale, int(gate)))
     # سقف ورودی گروه هوش مصنوعی. بدون این، صف از خبر AI پر می‌شود و
     # ستون اصلی کانال، یعنی وردپرس، جایی برای آمدن ندارد.
     if any((r.get("group") or "") == "ai" for r in rows):
@@ -3370,6 +3408,24 @@ def queue_merge(rows, s):
         if ts >= cutoff:
             kept.append(x)
     q["items"] = kept
+    # سد سن. آیتمی که از این سن گذشته هرگز پست نمی‌شود؛ ماندنش در صف
+    # فقط جای آیتم تازه را می‌گیرد و آمار صف را دروغ می‌کند.
+    gates = {k: max_age_for(k, s) for k in ("news", "tools", "offers", "showcase", "security")}
+    kept = []
+    stale = 0
+    for x in q["items"]:
+        k = x.get("kind") or "news"
+        # آپدیت افزونه آیتم کمیاب است و در پاک‌سازی هم مستثنی می‌شود.
+        if x.get("plugin_update"):
+            kept.append(x)
+            continue
+        if queue_age(x) > gates.get(k, 48.0):
+            stale += 1
+            continue
+        kept.append(x)
+    if stale:
+        q["items"] = kept
+        log("queue: {} old item(s) dropped by the age gate".format(stale))
     # سقف انبار. هر دسته بیشتر از این در صف نمی‌ماند و قدیمی‌ترها می‌روند.
     # سقف در لحظهٔ ورود هم هست، ولی این یکی تضمین است: حتی اگر یک اجرا
     # چهل آیتم بیاورد، صف از سقف رد نمی‌شود.
@@ -3617,7 +3673,7 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
             log("  already posted skipped:", before_n - len(pending))
     # سن واقعی، نه سن لحظهٔ جمع‌آوری. آیتمی که سه روز در صف مانده نباید
     # به‌عنوان خبر تازه پست شود، و نباید توکن مدل هم برایش بسوزد.
-    max_age_gate = 96 if kind in ("tools", "offers") else 48
+    max_age_gate = max_age_for(kind, s)
     fresh = [x for x in pending if true_age(x) <= max_age_gate]
     if len(fresh) < len(pending):
         log("  dropped stale:", len(pending) - len(fresh), "of", len(pending))

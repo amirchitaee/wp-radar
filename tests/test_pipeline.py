@@ -391,6 +391,48 @@ rows = radar.collect("news", {}, {"v": 1, "ids": {}}, budget_sec=0.12, watch=Fal
 check("جمع‌آوری: با بودجهٔ کم همهٔ منابع خوانده نمی‌شوند", len(fetched) < 6, True)
 check("جمع‌آوری: دست‌کم یک منبع خوانده می‌شود", len(fetched) >= 1, True)
 
+# ---------------------------------------------------------------- سد سن در ورود
+# خبر کهنه نباید وارد صف شود. سد سن سر ورود اعمال می‌شود، نه سر وقت مدل.
+# یک بار نسخهٔ ۷.۱.۴ وردپرس شش روز بعد از دو پست کانال دوباره در صف نشست.
+check("سد سن: خبر ۴۸ ساعت", radar.max_age_for("news"), 48.0)
+check("سد سن: ابزار ۹۶ ساعت", radar.max_age_for("tools"), 96.0)
+check("سد سن: امنیت ۲۴ ساعت", radar.max_age_for("security"), 24.0)
+_prev_load, _prev_fetch = radar.load_sources, radar.fetch_source
+radar.load_sources = lambda kind: [{"name": "s", "url": "u", "lang": "en", "tier": 1}]
+radar.fetch_source = lambda src, st: [
+    {"title": "WordPress 7.1.4", "desc": "", "link": "https://e.com/old",
+     "published": radar.now() - timedelta(hours=70)},
+    {"title": "WooCommerce 10.3 released", "desc": "", "link": "https://e.com/new",
+     "published": radar.now() - timedelta(hours=2)},
+]
+_rows = radar.collect("news", {}, {"v": 1, "ids": {}}, budget_sec=5, watch=False)
+check("سد سن: خبر هفتادساعته وارد صف نمی‌شود",
+      [r["link"] for r in _rows], ["https://e.com/new"])
+radar.load_sources, radar.fetch_source = _prev_load, _prev_fetch
+check("سد سن: آیتم بی‌تاریخ با تاریخ ورود سنجیده می‌شود",
+      radar.queue_age({"added": radar.now().isoformat()}) < 1, True)
+
+# همان سد در ادغام صف هم هست: آیتم کهنه‌ای که از قبل مانده بیرون می‌رود.
+_qsave2 = radar.QUEUE.read_text(encoding="utf-8")
+radar.QUEUE.write_text(
+    json.dumps({"v": 1, "items": [
+        {"id": "o1", "title": "t", "link": "l1", "source": "وردپرس", "kind": "news",
+         "published": (radar.now() - timedelta(hours=70)).isoformat(),
+         "added": radar.now().isoformat()},
+        {"id": "f1", "title": "t2", "link": "l2", "source": "وردپرس", "kind": "news",
+         "published": (radar.now() - timedelta(hours=2)).isoformat(),
+         "added": radar.now().isoformat()},
+    ]}, ensure_ascii=False),
+    encoding="utf-8",
+)
+_was_dry2 = radar.DRY
+radar.DRY = False
+_q2, _ = radar.queue_merge([], {"queue_days": 7})
+radar.DRY = _was_dry2
+check("سد سن: آیتم کهنه در ادغام صف بیرون می‌رود",
+      [x["id"] for x in _q2["items"]], ["f1"])
+radar.QUEUE.write_text(_qsave2, encoding="utf-8")
+
 # ---------------------------------------------------------------- باگ‌های ۱۰ آبان
 # «WooCommerce» کلمهٔ RCE را در خود دارد. نباید هشدار امنیتی بسازد.
 check("هشدار: WooCommerce آسیب‌پذیری نیست", radar.is_advisory("activate WooCommerce and add products"), False)
