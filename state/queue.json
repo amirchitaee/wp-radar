@@ -195,20 +195,6 @@
    "channel_skip": true
   },
   {
-   "id": "75f36a1d626dc08e",
-   "title": "Hashference",
-   "link": "https://www.producthunt.com/products/hashference",
-   "desc": "Fund 45+ top AI models using your idle CPU/GPU compute Discussion | Link",
-   "source": "پروداکت هانت",
-   "lang": "en",
-   "tier": 3,
-   "group": "",
-   "kind": "tools",
-   "age_hours": 12.4,
-   "published": "2026-11-03T15:09:16-08:00",
-   "added": "2026-11-04T11:30:38+00:00"
-  },
-  {
    "id": "4f6a289f54e38567",
    "title": "OpenAI hires ex-Army Secretary, gaining bipartisan reach just as midterms loom",
    "link": "https://the-decoder.com/openai-hires-ex-army-secretary-gaining-bipartisan-reach-just-as-midterms-loom",
@@ -238,20 +224,6 @@
    "added": "2026-11-03T15:00:52+00:00",
    "full": "NVIDIA L4 GPUs. 5-second cold starts. Scale to zero when idle. The title sounds a bit strange, right? Why re-implement an existing feature, that’s completely useless! I have two reasons for that. The first reason is to be able to adjust the :nth-child() arguments on the fly. Let’s suppose you have the following: div:nth-child(5n + 8) { background: red; } And you decide to update the 5 or the 8 . The only way is to manually rewrite the selector, which isn’t ideal. We cannot have something like the below where you can change the variables as you want: .container { --A: 5; --B: 8; } .container > div:nth-child(var(--A)*n + var(--B)) { background: red; } With my implementation, you will be able to do it! The second reason is to have fun and play with some new features. You will probably never need to rely on a dynamic :nth-child() selector, but I am sure you will learn one or two useful tricks along the way. We will rely on the same code structure in all the examples: a container with a bunch of <div> elements inside it. <div class=\"container\"> <div></div> <div></div> <div></div> <!-- ... --> </div> And the container controls the variables of :nth-child() : .container { --A: ; --B: ; } .container > div { /* based on the values of --A and --B change the background value */ background: ??; } I am not saying that this structure is mandatory for the implementation. I just considered a simple one to keep things easy to follow. :nth-child(B) Let’s start with the simplest case, a selector that selects only one element: div:nth-child(5) { } I don’t think I need to explain what this selector does. The 5 is nothing but the index of the selected element. So, if B is equal to the index of the element, that element is selected. We can translate this into the following CSS code: .container { --B: 5; } .container div { background: if(style(sibling-index() = --B): red); } Is this a valid CSS code?! Yes, it’s valid, and it works! I am using the new if() syntax that allows me to define a condition within style() . If that condition is true, the background color is set to red. Otherwise, nothing happens. We can also have an if/else : .container { --B: 5; } .container div { background: if(style(sibling-index() = --B): red; else: lightblue); } CodePen Embed Fallback The if() syntax is not that complex. In our case, we only have one condition, so you can see it as follows: .container div { background: if(style( condition ): <color_if_condition_true>; else: <color_if_condition_false>); } The tricky part is how to define the condition within style() . I wrote a small post explaining this part, so do yourself a favor and go read it before we continue: “The Hidden Trick of Style Queries and if() .” It’s a quick reading with crucial details that helps you better understand how if() works. From there, you will notice that our condition can be written several ways that are all valid: .container div { background: if(style(sibling-index() = --B): red); background: if(style(sibling-index() = var(--B)): red); background: if(style(var(--B) = sibling-index()): red); background: if(style(--B = sibling-index()): red); } We have our first implementation! You can easily apply it to any",
    "use_link": ""
-  },
-  {
-   "id": "621c22c8bca5343d",
-   "title": "Freeport Markets",
-   "link": "https://www.producthunt.com/products/freeport-markets",
-   "desc": "Our proprietary AI finds the top onchain wallets to copy Discussion | Link",
-   "source": "پروداکت هانت",
-   "lang": "en",
-   "tier": 3,
-   "group": "",
-   "kind": "tools",
-   "age_hours": 13.6,
-   "published": "2026-11-03T13:56:35-08:00",
-   "added": "2026-11-04T11:30:38+00:00"
   },
   {
    "id": "da1f33efac8c7d3a",
@@ -329,34 +301,6 @@
    "age_hours": 0.2,
    "published": "2026-11-03T11:47:37+00:00",
    "added": "2026-11-03T12:00:56+00:00"
-  },
-  {
-   "id": "613fbd1be09e4e96",
-   "title": "Hindsight Models and Inference API",
-   "link": "https://www.producthunt.com/products/vectorize",
-   "desc": "Small, fast models for reranking, embeddings and decisions Discussion | Link",
-   "source": "پروداکت هانت",
-   "lang": "en",
-   "tier": 3,
-   "group": "",
-   "kind": "tools",
-   "age_hours": 16.0,
-   "published": "2026-11-03T11:30:48-08:00",
-   "added": "2026-11-04T11:30:38+00:00"
-  },
-  {
-   "id": "f6603ecfa258c52b",
-   "title": "PasteGuard for Mac",
-   "link": "https://www.producthunt.com/products/pasteguard-2",
-   "desc": "Keep secrets and personal data out of AI chats Discussion | Link",
-   "source": "پروداکت هانت",
-   "lang": "en",
-   "tier": 3,
-   "group": "",
-   "kind": "tools",
-   "age_hours": 16.8,
-   "published": "2026-11-03T10:42:44-08:00",
-   "added": "2026-11-04T11:30:38+00:00"
   },
   {
    "id": "e08e60cdcacef4de",
@@ -578,36 +522,6 @@
    "held": true
   },
   {
-   "id": "cd1861305522a9a9",
-   "title": "Is AI Making WordPress Irrelevant?",
-   "link": "https://thewpminute.com/is-ai-making-wordpress-irrelevant",
-   "desc": "What happens when AI can build a website in minutes and WordPress is no longer the obvious choice? In this episode of The WP Minute, Matt Medeiros talks with Nathan Tyler, co-founder of Simply Schedule Appointments, about why he moved...",
-   "source": "دبلیوپی مینت",
-   "lang": "en",
-   "tier": 2,
-   "group": "",
-   "kind": "news",
-   "age_hours": 48.3,
-   "published": "2026-11-02T12:45:00+00:00",
-   "added": "2026-11-04T13:00:54+00:00"
-  },
-  {
-   "id": "dee9cd0084b60652",
-   "title": "Synup Review: An AI Agent for Local Marketing Across Your Agency’s Clients",
-   "link": "https://wpmayor.com/synup-review",
-   "desc": "After a client site launches, the listings, reviews, and social posts around it still need weekly attention. My Synup review looks at Sydekick, an AI agent that takes requests in plain language and holds drafts for approval. The post \" Synup Review: An AI Agent for Local Marketing Across Your Agency’s Clients \" first appeared on WP Mayor .",
-   "source": "دبلیوپی‌مایر",
-   "lang": "en",
-   "tier": 3,
-   "group": "",
-   "kind": "news",
-   "age_hours": 27.0,
-   "published": "2026-11-02T10:00:00+00:00",
-   "added": "2026-11-03T13:00:54+00:00",
-   "full": "Running an agency likely gives you plenty of repeat work, which is great for your income, but can tank your efficiency. Changing client listings, handling reviews, managing social media, running reports, and all manner of other tasks are necessary for keeping the working relationship solid. My Synup review introduces a potential solution for you. Synup uses an AI agent to automate much of this repetitive work. This review will look at Synup and how it can help you run better local marketing for your clients. Right off the bat, I’m pleased that Synup includes its full functionality on every plan . For each of the four tiers with available pricing , the difference is in the number of locations, parallel agent chats, agent credits, and environment: If your needs extend beyond these four plans, you can contact the Synup team to discuss the Enterprise tier. Credits pay for all of the Sydekick messages, generations, scrapes, SEO lookups, drafted posts, and other metered actions Sydekick takes. You’ll also spot an “effective rate per location” on the pricing page. This is a helpful way to set your prices per client based on the per-location rate. There’s also no difference in functionality between the shared and dedicated environments . This is similar to hosting, in that you can either isolate your agents or share infrastructure between several other Synup accounts. My recommendation for an agency is to start with Premium . This is because you have multiple location slots and white-labelling. Solo might suit a single-client test, but you’ll typically want to opt for more locations to cover your client base. I should also note that Synup isn’t only an agency-focused tool. For instance, that Solo plan is also ideal for single-location or one-person businesses. The focus for this post is on agency usage, but the functionality can benefit businesses of all sizes. Your agency might suffer from the same problems as many others: lots of repetitive manual work, search accuracy concerns, and a higher cost of setup than you’d like. This is what the Sydekick AI agent is designed to help you with. Any request you make sends it away to think it through, search for a solution, build something, or put a process into action. Your job is to first choose a client and location for Sydekick to act on. From there, it works with either a Skill or a Playbook. They are the instructions that determine what actions Sydekick takes and how they’re implemented: A built-in memory at the location, client, or agency level lets you store insights that then affect future actions. Using the combination of tools, Skills, and Playbooks, you could issue one instruction that changes the phone numbers for each business location. Sydekick can also publish social content. You could even enlist Sydekick to respond to customer reviews. Depending on the functionality you use, there are various ways to control the approval of content . For instance, drafted posts appear in the Approvals Inbox, while Skills and Playbooks have toggle switches to set whether Sydekick seeks approval before carrying out tasks. You can also set agent autonomy (more on that shortly). The audit logs ( Agent > Audit lo",
-   "use_link": ""
-  },
-  {
    "id": "b05b73640b576f99",
    "title": "Voy Design | Designing for a 100 Years for Healthy Living",
    "link": "https://land-book.com/websites/102130-voy-design-designing-for-a-100-years-for-healthy-living",
@@ -620,20 +534,6 @@
    "age_hours": 34.7,
    "published": "2026-11-02T09:51:00+00:00",
    "added": "2026-11-03T20:30:46+00:00"
-  },
-  {
-   "id": "4af67cc692abf13a",
-   "title": "WordPress 7.1.4",
-   "link": "https://wordpress.org/news/2026/10/wordpress-7-1-4",
-   "desc": "This security release features fixes for multiple issues. Because this is a security release, it is recommended that you update your sites immediately. You can download WordPress 7.1.4 from WordPress.org, or visit your WordPress Dashboard, click “Updates”, and then click “Update Now”. If you have sites that support automatic background updates, the update process will […]",
-   "source": "وردپرس",
-   "lang": "en",
-   "tier": 1,
-   "group": "",
-   "kind": "news",
-   "age_hours": 164.8,
-   "published": "2026-10-28T17:13:02+00:00",
-   "added": "2026-11-04T14:00:48+00:00"
   },
   {
    "id": "7fd9d0fa0fc70999",
@@ -649,35 +549,6 @@
    "published": "2026-11-04T13:00:00+00:00",
    "added": "2026-11-04T14:00:49+00:00",
    "channel_skip": true
-  },
-  {
-   "id": "cbd8445c9de86b7d",
-   "title": "A Spark Of Color In November’s Gray (2026 Wallpapers Edition)",
-   "link": "https://smashingmagazine.com/2026/10/desktop-wallpaper-calendars-november-2026",
-   "desc": "Let’s kick of November with a new collection of desktop wallpapers! Designed by creatives from across the globe, the wallpapers come in a variety of screen resolutions and can be downloaded for free. Enjoy!",
-   "source": "اسمشینگ",
-   "lang": "en",
-   "tier": 3,
-   "group": "",
-   "kind": "news",
-   "age_hours": 102.0,
-   "published": "2026-10-31T08:00:00+00:00",
-   "added": "2026-11-04T14:00:50+00:00",
-   "channel_skip": true
-  },
-  {
-   "id": "4a8fa29522844c57",
-   "title": "WordPress MCP: What It Is and How to Set It Up (2026)",
-   "link": "https://wpshout.com/wordpress-mcp",
-   "desc": "What is WordPress MCP, which of its routes fits your site and AI app, what does each cost, and how do you set one up with a read-only token?",
-   "source": "دبلیوپی‌شوت",
-   "lang": "en",
-   "tier": 3,
-   "group": "",
-   "kind": "news",
-   "age_hours": 149.0,
-   "published": "2026-10-29T09:00:00+00:00",
-   "added": "2026-11-04T14:00:55+00:00"
   },
   {
    "id": "84ecd190588d2ef1",
