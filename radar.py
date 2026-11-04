@@ -2499,7 +2499,10 @@ def version_only_line(line):
     اضافه نمی‌کردند. اگر بعد از برداشتن رقم و کلمهٔ نسخه چیزی نماند،
     خط دور ریخته می‌شود.
     """
-    probe = re.sub(r"[\u200b\u200c\u200e\u200f]", "", str(line or "")).strip()
+    probe = re.sub(r"[\u200b\u200c\u200e\u200f\u2066\u2067\u2068\u2069]", "", str(line or "")).strip()
+    # شناسهٔ CVE هم اگر تنها خط باشد نکته نیست؛ بالاتر در متن آمده و
+    # تکرارش فقط کادر را شلوغ می‌کند.
+    probe = re.sub(r"cve[-\u2010-\u2015\s]*[0-9۰-۹]{4}[-\u2010-\u2015\s]*[0-9۰-۹]+", " ", probe, flags=re.I)
     probe = re.sub(r"[0-9۰-۹.,]+", "", probe)
     probe = re.sub(r"(?:نسخه[ٔۀ]?|بتای?|آزمایشی|version|v|rc)\s*", "", probe, flags=re.I)
     return not probe.strip(" .،:؛-–—")
@@ -3085,6 +3088,50 @@ def trim_intake(kind, rows, s):
         )
     )
     return kept
+
+
+def prune_queue(s=None, apply=True):
+    """صف را به سقف‌ها برمی‌گرداند: ابزار و نمایشگاه تا سقف، خبر کهنه بیرون.
+
+    این کار عمداً داخل خود موتور است، نه یک اسکریپت بیرونی. پاک کردن
+    دستی صف یک بار همزمان با ذخیرهٔ اجرا شد، وضعیت عقب افتاد و همان
+    دو خبر دوباره پست شدند. حالا خود موتور روزی یک بار تمیزش می‌کند.
+    """
+    s = s or settings()
+    caps = s.get("backlog_cap") or {}
+    keep_h = float(s.get("news_keep_h", 72))
+    q = read_json(QUEUE, {"v": 1, "items": []})
+    items = q.get("items", []) if isinstance(q, dict) else list(q)
+    before = len(items)
+    kept = []
+
+    for kind in ("tools", "showcase"):
+        group = [x for x in items if (x.get("kind") or "") == kind]
+        cap = int(caps.get(kind, 0) or 0)
+        if cap <= 0:
+            kept.extend(group)
+            continue
+        group.sort(key=lambda x: (x.get("published") or x.get("added") or ""), reverse=True)
+        kept.extend(group[:cap])
+
+    for x in items:
+        kind = x.get("kind") or ""
+        if kind in ("tools", "showcase"):
+            continue
+        if x.get("plugin_update"):
+            kept.append(x)
+            continue
+        try:
+            age = (now() - datetime.fromisoformat(str(x.get("published") or ""))).total_seconds() / 3600
+        except Exception:
+            age = 0.0
+        if age <= keep_h:
+            kept.append(x)
+
+    kept.sort(key=lambda x: (x.get("published") or x.get("added") or ""), reverse=True)
+    if apply and len(kept) != before and not DRY:
+        write_json(QUEUE, {"v": 1, "items": kept})
+    return before, len(kept)
 
 
 def ai_intake_room():
@@ -4129,6 +4176,15 @@ def auto_run(s, st, seen, extra, role="main"):
         sch.update(fresh)
         if not DRY:
             write_json(SCHED, fresh)
+
+    # تمیزکاری روزانهٔ صف. روزی یک بار، قبل از هر چیز دیگر. دستی پاک
+    # کردن صف با ذخیرهٔ اجرا تصادم می‌کرد و همان پست دوباره می‌رفت.
+    today = now().date().isoformat()
+    if sch.get("pruned_day") != today:
+        before, after = prune_queue(s)
+        if before != after:
+            log("queue prune: {} -> {}".format(before, after))
+        mark("pruned_day", today)
 
     teh = now().astimezone(TZ)
 
