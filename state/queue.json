@@ -647,7 +647,8 @@
    "kind": "news",
    "age_hours": 1.0,
    "published": "2026-11-04T13:00:00+00:00",
-   "added": "2026-11-04T14:00:49+00:00"
+   "added": "2026-11-04T14:00:49+00:00",
+   "channel_skip": true
   },
   {
    "id": "cbd8445c9de86b7d",
