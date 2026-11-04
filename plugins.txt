@@ -1,0 +1,37 @@
+# افزونه‌هایی که نسخه‌شان رصد می‌شود.
+# هر خط: نامک در مخزن وردپرس | نام نمایشی | کمینهٔ نصب
+# نام نمایشی همان چیزی است که در تیتر می‌آید. کوتاه باشد.
+# کمینهٔ نصب خالی یعنی بی‌شرط.
+# برای عوض کردن فهرست، همین فایل را ویرایش کن؛ کد دست نمی‌خورد.
+#
+# قاعدهٔ انتخاب: افزونه‌ای که هم نصب جهانی بالایی دارد و هم در ایران
+# روی سایت‌های واقعی زیاد دیده می‌شود. همه از مخزن رسمی وردپرس خوانده
+# می‌شوند؛ افزونهٔ پولی که در مخزن نیست، رصد نمی‌شود.
+#
+# عمداً هیچ افزونهٔ ساخت ایران اینجا نیست. قاعدهٔ کالای فارسی می‌گوید
+# محصول فارسی پوشش داده نمی‌شود، و افزودنشان با آن قاعده در تناقض بود.
+
+elementor | Elementor | 1000000
+woocommerce | WooCommerce | 1000000
+wordpress-seo | Yoast SEO | 1000000
+seo-by-rank-math | Rank Math | 500000
+wordfence | Wordfence | 1000000
+really-simple-ssl | Really Simple Security | 500000
+litespeed-cache | LiteSpeed Cache | 1000000
+wpforms-lite | WPForms | 1000000
+contact-form-7 | Contact Form 7 | 1000000
+advanced-custom-fields | ACF | 500000
+all-in-one-wp-migration | All-in-One WP Migration | 500000
+classic-editor | Classic Editor | 1000000
+
+# ۱۳ آبان: ده افزونهٔ پرنصب دیگر که روی سایت‌های ایرانی هم زیادند.
+wp-mail-smtp | WP Mail SMTP | 1000000
+updraftplus | UpdraftPlus | 1000000
+redirection | Redirection | 500000
+wp-super-cache | WP Super Cache | 500000
+autoptimize | Autoptimize | 500000
+wp-smushit | Smush | 500000
+polylang | Polylang | 500000
+sucuri-scanner | Sucuri Security | 300000
+wp-statistics | WP Statistics | 300000
+kadence-blocks | Kadence Blocks | 300000

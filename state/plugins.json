@@ -1,0 +1,53 @@
+{
+ "v": 1,
+ "seen": {
+  "elementor": {
+   "version": "4.3.6",
+   "at": "2026-11-03T14:20:15+00:00"
+  },
+  "woocommerce": {
+   "version": "11.2.1",
+   "at": "2026-11-03T14:20:17+00:00"
+  },
+  "wordpress-seo": {
+   "version": "28.8",
+   "at": "2026-11-03T14:20:18+00:00"
+  },
+  "seo-by-rank-math": {
+   "version": "1.0.281",
+   "at": "2026-11-03T14:20:19+00:00"
+  },
+  "wordfence": {
+   "version": "9.0.2",
+   "at": "2026-11-03T14:20:20+00:00"
+  },
+  "really-simple-ssl": {
+   "version": "9.8.4",
+   "at": "2026-11-03T14:20:22+00:00"
+  },
+  "litespeed-cache": {
+   "version": "7.9.2",
+   "at": "2026-11-03T14:20:23+00:00"
+  },
+  "wpforms-lite": {
+   "version": "2.0.3.1",
+   "at": "2026-11-03T14:20:24+00:00"
+  },
+  "contact-form-7": {
+   "version": "6.2.4.1",
+   "at": "2026-11-03T14:20:25+00:00"
+  },
+  "advanced-custom-fields": {
+   "version": "6.8.11",
+   "at": "2026-11-03T14:20:26+00:00"
+  },
+  "all-in-one-wp-migration": {
+   "version": "7.113",
+   "at": "2026-11-03T14:20:28+00:00"
+  },
+  "classic-editor": {
+   "version": "1.7.0",
+   "at": "2026-11-03T14:20:29+00:00"
+  }
+ }
+}

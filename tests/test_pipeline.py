@@ -15,6 +15,12 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 import radar  # noqa: E402
 
+# نسخهٔ اصلی این دو تابع را نگه می‌داریم. آزمون‌های بعدی جایشان نسخهٔ
+# ساختگی می‌گذارند تا شبکه نخوانند؛ ولی آزمون فهرست فایل باید فایل
+# واقعی را ببیند.
+REAL_LOAD_SOURCES = radar.load_sources
+REAL_LOAD_PLUGIN_WATCH = radar.load_plugin_watch
+
 FAILS = []
 COUNT = 0
 
@@ -381,7 +387,7 @@ def slow_fetch(src, st):
 
 
 radar.fetch_source = slow_fetch
-rows = radar.collect("news", {}, {"v": 1, "ids": {}}, budget_sec=0.12)
+rows = radar.collect("news", {}, {"v": 1, "ids": {}}, budget_sec=0.12, watch=False)
 check("جمع‌آوری: با بودجهٔ کم همهٔ منابع خوانده نمی‌شوند", len(fetched) < 6, True)
 check("جمع‌آوری: دست‌کم یک منبع خوانده می‌شود", len(fetched) >= 1, True)
 
@@ -926,6 +932,99 @@ check("برچسب: نسخهٔ امنیتی هشدار می‌گیرد",
 check("برچسب: بتا هشدار امنیتی نمی‌گیرد",
       radar.classify_label("news", _sec_text, "", False, "وردپرس ۷.۲ بتای ۲", "WordPress 7.2 Beta 2"),
       "آپدیت")
+
+# ---------------------------------------------------------------- رصد نسخهٔ افزونه
+# مخزن وردپرس تنها منبعی است که آپدیت امنیتی را همان روز می‌آورد.
+_CH = (
+    "<h4>4.3.6 &#8211; 2026-11-02</h4>\n<ul>\n"
+    "<li>Fix: Improved code security enforcement in navigation links</li>\n"
+    "<li>Fix: Atomic styles trigger unnecessary background operations</li>\n"
+    "</ul>\n<h4>4.3.5 &#8211; 2026-10-13</h4>\n<ul>\n<li>Fix: Old thing</li>\n</ul>\n"
+)
+_head, _lines = radar.changelog_block(_CH, "4.3.6")
+check("رصد نسخه: بلوک همان نسخه جدا می‌شود", len(_lines), 2)
+check("رصد نسخه: عنوان بلوک تاریخ دارد", "4.3.6" in _head, True)
+check("رصد نسخه: تقویت امنیت، آسیب‌پذیری نیست",
+      bool(radar.VULN_RE.search(" ".join(_lines))), False)
+check("رصد نسخه: تقویت امنیت شناخته می‌شود",
+      bool(radar.HARDEN_RE.search(" ".join(_lines))), True)
+check("رصد نسخه: آسیب‌پذیری واقعی شناخته می‌شود",
+      bool(radar.VULN_RE.search("Fixed an XSS vulnerability in the form widget")), True)
+check("رصد نسخه: نسخهٔ ناشناخته به بالاترین بلوک می‌افتد",
+      len(radar.changelog_block(_CH, "9.9.9")[1]), 2)
+check("رصد نسخه: فهرست خالی خطا نمی‌دهد", radar.changelog_block("", "1.0"), ("", []))
+
+# اولین بار نسخه ثبت می‌شود و پستی نمی‌رود. بار دوم که نسخه عوض شود،
+# یک آیتم ساخته می‌شود.
+radar.load_plugin_watch = lambda: [{"slug": "elementor", "name": "Elementor", "min_installs": 0}]
+radar.plugin_feed = lambda slug: {
+    "name": "Elementor Website Builder", "version": "4.3.6", "installs": 10000000,
+    "updated": "2026-11-02", "changelog": _CH,
+}
+radar.read_json = lambda path, default=None: (
+    {"v": 1, "seen": {"elementor": {"version": "4.3.5"}}} if str(path).endswith("plugins.json") else default
+)
+_rows = radar.plugin_watch("news", {"v": 1, "ids": {}}, commit=False)
+check("رصد نسخه: نسخهٔ تازه یک آیتم می‌سازد", len(_rows), 1)
+check("رصد نسخه: آیتم در دستهٔ خبر می‌آید", _rows[0]["kind"] if _rows else "", "news")
+check("رصد نسخه: نام نمایشی در تیتر است",
+      _rows[0]["title"] if _rows else "", "Elementor 4.3.6")
+check("رصد نسخه: نسخهٔ قبلی همراه آیتم است",
+      _rows[0]["plugin_update"]["prev"] if _rows else "", "4.3.5")
+check("رصد نسخه: تغییرها به مدل می‌رسند",
+      len(_rows[0]["plugin_update"]["changes"]) if _rows else 0, 2)
+check("رصد نسخه: متن مدل خط‌به‌خط است",
+      "\n- " in radar.item_text(_rows[0]) if _rows else False, True)
+
+radar.read_json = lambda path, default=None: (
+    {"v": 1, "seen": {"elementor": {"version": "4.3.6"}}} if str(path).endswith("plugins.json") else default
+)
+check("رصد نسخه: نسخهٔ تکراری آیتم نمی‌سازد",
+      radar.plugin_watch("news", {"v": 1, "ids": {}}, commit=False), [])
+
+radar.read_json = lambda path, default=None: (
+    {"v": 1, "seen": {}} if str(path).endswith("plugins.json") else default
+)
+check("رصد نسخه: اولین بار پست نمی‌سازد",
+      radar.plugin_watch("news", {"v": 1, "ids": {}}, commit=False), [])
+
+# ---------------------------------------------------------------- تیتر و برچسب
+check("تیتر: برچسب ترکیبی یکجا برداشته می‌شود",
+      radar.strip_lead_label("آپدیت امنیتی Elementor ۴.۳.۶ منتشر شد", "هشدار امنیتی"),
+      "Elementor ۴.۳.۶ منتشر شد")
+check("تیتر: «ابزار جدید گوگل» شکسته نمی‌شود",
+      radar.strip_lead_label("ابزار جدید گوگل برای ساخت سایت", "ابزار"),
+      "ابزار جدید گوگل برای ساخت سایت")
+check("تیتر: برچسب تکراری با دونقطه برداشته می‌شود",
+      radar.strip_lead_label("خبر: ووکامرس ۱۱.۲ آمد", "خبر"), "ووکامرس ۱۱.۲ آمد")
+check("تیتر: تیتری که برچسب ندارد دست نمی‌خورد",
+      radar.strip_lead_label("ووکامرس ۱۱.۲ آمد", "خبر"), "ووکامرس ۱۱.۲ آمد")
+
+# خطی که با لاتین شروع شود، در تلگرام به چپ می‌چسبد و خواندنش سخت می‌شود.
+check("جهت: خط با لاتین شروع نمی‌شود",
+      radar.rtl_guard("Elementor ۴.۳.۶ آمد")[0], "\u200f")
+check("جهت: خط فارسی دست نمی‌خورد",
+      radar.rtl_guard("المنتور ۴.۳.۶ آمد")[0], "ا")
+check("جهت: خط دوم هم جدا سنجیده می‌شود",
+      radar.rtl_guard("یک خط\nElementor آمد").count("\u200f"), 1)
+
+# ---------------------------------------------------------------- فیلتر واژه
+# فید امنیتی عمومی بدون فیلتر، خبر آسیب‌پذیری هر محصول دیگری را هم می‌آورد.
+_sec = {s["name"]: s for s in REAL_LOAD_SOURCES("security")}
+check("فیلتر واژه: فید عمومی واژهٔ اجباری دارد",
+      _sec.get("بلپینگ کامپیوتر", {}).get("must"), "wordpress")
+check("فیلتر واژه: فید تخصصی واژهٔ اجباری ندارد",
+      _sec.get("وردفنس", {}).get("must", ""), "")
+check("فیلتر واژه: منابع بدون فیلد هم خوانده می‌شوند",
+      len(REAL_LOAD_SOURCES("news")) > 10, True)
+
+# ---------------------------------------------------------------- فهرست افزونه
+_watch = REAL_LOAD_PLUGIN_WATCH()
+check("فهرست افزونه: بیست‌و‌دو افزونه زیر نظر است", len(_watch), 22)
+check("فهرست افزونه: نامک تکراری نیست",
+      len({c["slug"] for c in _watch}), len(_watch))
+check("فهرست افزونه: کمینهٔ نصب عدد است",
+      all(isinstance(c["min_installs"], int) for c in _watch), True)
 
 # ---------------------------------------------------------------- نتیجه
 print("{} آزمون اجرا شد.".format(COUNT))

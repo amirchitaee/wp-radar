@@ -60,6 +60,7 @@ LAST_START = STATE / "last_start.json"
 STORIES = STATE / "stories.json"
 SCHED = STATE / "schedule.json"
 READY = STATE / "ready.json"
+PLUGIN_STATE = STATE / "plugins.json"
 ARCHIVE = ARCH / "items.jsonl"
 
 def env_clean(name):
@@ -259,9 +260,21 @@ def load_sources(kind):
         lang = p[3] if len(p) > 3 else "en"
         tier = int(p[4]) if len(p) > 4 and p[4].isdigit() else 2
         group = p[5].lower() if len(p) > 5 else ""
+        # فیلتر واژه: فید عمومی فقط آیتمی را می‌دهد که این واژه در تیتر یا
+        # خلاصه‌اش باشد. برای فیدهای امنیتی عمومی لازم است، وگرنه خبر
+        # آسیب‌پذیری یک فریم‌ورک دیگر هم وارد صف می‌شود.
+        must = p[6].strip().lower() if len(p) > 6 else ""
         if k == kind:
             rows.append(
-                {"name": name, "url": url, "kind": k, "lang": lang, "tier": tier, "group": group}
+                {
+                    "name": name,
+                    "url": url,
+                    "kind": k,
+                    "lang": lang,
+                    "tier": tier,
+                    "group": group,
+                    "must": must,
+                }
             )
     return rows
 
@@ -735,6 +748,257 @@ def plugin_info(slug):
         }
     except Exception:
         return {}
+
+
+# ---------------------------------------------------------------- plugin watch
+
+# فیدهای رسمی المنتور و ووکامرس یا مرده‌اند یا دیر می‌رسند. یک بار نسخهٔ
+# ۴.۳.۶ المنتور منتشر شد و کانال هیچ خبری نداشت، چون منبعی نداشتیم که
+# آن را ببیند. مخزن وردپرس منبع دست اول است: نسخه، تاریخ و فهرست تغییرات
+# را همان لحظهٔ انتشار دارد. اینجا فقط نسخه عوض شده را می‌گیریم؛ هر
+# اجرا یک درخواست کوچک برای هر افزونه.
+PLUGINS_FILE = ROOT / "plugins.txt"
+PLUGIN_API = (
+    "https://api.wordpress.org/plugins/info/1.2/?action=plugin_information"
+    "&request[slug]={slug}&request[fields][sections]=changelog"
+)
+# یک تغییر امنیتی، هشدار امنیتی است نه خبر عادی. همین تفاوت، دستهٔ پست را
+# تعیین می‌کند تا آپدیت امنیتی از صف خبر جا نماند.
+# دو چیز مختلف که در فهرست تغییرات شبیه هم‌اند و یکی نیستند.
+# «آسیب‌پذیری» یعنی حفره‌ای باز بوده و باید امروز ببندی: هشدار امنیتی.
+# «تقویت امنیت» یعنی کد سخت‌تر شده و حفره‌ای گزارش نشده: آپدیت.
+# یک بار آپدیت المنتور که فقط security enforcement بود، هشدار امنیتی شد.
+VULN_RE = re.compile(
+    r"(vulnerab\w*|CVE-\d{4}-\d+|exploit\w*|\bXSS\b|\bCSRF\b|\bSQLi\b|SQL injection|"
+    r"\bRCE\b|\bSSRF\b|\bLFI\b|\bRFI\b|backdoor|privilege escalation|"
+    r"unauthori[sz]ed (?:access|upload|delete)|(?:auth\w*|authorization) bypass|"
+    r"arbitrary file|remote code|directory traversal|"
+    r"آسیب[\s\u200c]?پذیری|حفرهٔ? امنیتی|بهره[\s\u200c]?برداری|اختیار غیرمجاز)",
+    re.I,
+)
+HARDEN_RE = re.compile(
+    r"(security enforcement|security hardening|harden\w*|sanitiz\w*|escaping|"
+    r"security improvement|security enhancement|security fix|"
+    r"تقویت امنیت|سخت[\s\u200c]?تر|اصلاح امنیتی|امنیت کد)",
+    re.I,
+)
+
+
+def load_plugin_watch():
+    """فهرست افزونه‌هایی که نسخه‌شان رصد می‌شود.
+
+    هر خط: نامک | نام نمایشی | کمینهٔ نصب. فایل جدا است تا بدون دست زدن
+    به کد عوض شود.
+    """
+    rows = []
+    path = PLUGINS_FILE
+    if not path.exists():
+        return rows
+    for line in path.read_text(encoding="utf-8").splitlines():
+        line = line.strip()
+        if not line or line.startswith("#"):
+            continue
+        p = [x.strip() for x in line.split("|")]
+        slug = p[0].lower()
+        if not re.fullmatch(r"[a-z0-9\-]{2,60}", slug):
+            continue
+        rows.append(
+            {
+                "slug": slug,
+                "name": p[1] if len(p) > 1 and p[1] else "",
+                "min_installs": int(p[2]) if len(p) > 2 and p[2].isdigit() else 0,
+            }
+        )
+    return rows
+
+
+def plugin_feed(slug):
+    """اطلاعات افزونه به‌همراه فهرست تغییرات، مستقیم از مخزن وردپرس."""
+    if not slug:
+        return {}
+    try:
+        data = json.loads(
+            http_get(
+                PLUGIN_API.format(slug=slug),
+                timeout=15,
+                headers={"Accept": "application/json"},
+            ).decode("utf-8", "replace")
+        )
+    except Exception as exc:
+        log("  plugin feed failed:", slug, str(exc)[:60])
+        return {}
+    if not isinstance(data, dict) or data.get("error"):
+        return {}
+    sections = data.get("sections") or {}
+    return {
+        "name": clean_text(data.get("name", "")),
+        "version": str(data.get("version") or "").strip(),
+        "installs": int(data.get("active_installs") or 0),
+        "updated": (data.get("last_updated") or "")[:10],
+        "changelog": sections.get("changelog") or "",
+    }
+
+
+def changelog_block(changelog, version):
+    """بخشِ همین نسخه از فهرست تغییرات را جدا می‌کند.
+
+    ساختار مخزن وردپرس ساده است: عنوان نسخه در یک تیتر، بعد فهرست
+    تغییرها. اگر نسخهٔ فعلی پیدا نشد، بالاترین بلوک را برمی‌داریم؛ آن هم
+    نسخهٔ تازه است.
+    """
+    text = str(changelog or "")
+    heads = [
+        (m.start(), m.end(), clean_text(m.group(1)))
+        for m in re.finditer(r"<h4[^>]*>(.*?)</h4>", text, re.S | re.I)
+    ]
+    if not heads:
+        return "", []
+    blocks = []
+    for i, (start, end, head) in enumerate(heads):
+        stop = heads[i + 1][0] if i + 1 < len(heads) else len(text)
+        m = re.search(r"[\d۰-۹]+(?:\.[\d۰-۹]+)+", head)
+        blocks.append((head, m.group(0) if m else "", text[end:stop]))
+    pick = None
+    for head, ver, body in blocks:
+        if ver and ver == str(version).strip():
+            pick = (head, body)
+            break
+    if pick is None:
+        pick = (blocks[0][0], blocks[0][2])
+    lines = []
+    for li in re.findall(r"<li[^>]*>(.*?)</li>", pick[1], re.S | re.I):
+        t = clean_text(li)
+        if t and t not in lines:
+            lines.append(t)
+    return pick[0], lines[:9]
+
+
+def plugin_watch(kind, seen=None, commit=True):
+    """نسخهٔ تازهٔ افزونه‌های پرنصب را به آیتم خبری تبدیل می‌کند.
+
+    فقط وقتی نسخه عوض شده باشد آیتم ساخته می‌شود. اولین بار نسخهٔ فعلی
+    ثبت می‌شود و پستی نمی‌رود؛ وگرنه اولین اجرا برای هر افزونه یک پست
+    می‌ساخت که خبر تازه‌ای هم نداشت.
+    """
+    watch = load_plugin_watch()
+    if not watch:
+        return []
+    state = read_json(PLUGIN_STATE, {"v": 1, "seen": {}})
+    seen_map = dict(state.get("seen") or {})
+    known = (seen or {}).get("ids") or {}
+    rows, touched = [], {}
+    for cfg in watch:
+        info = plugin_feed(cfg["slug"])
+        if not info or not info.get("version"):
+            continue
+        if cfg["min_installs"] and info.get("installs", 0) < cfg["min_installs"]:
+            continue
+        version = info["version"]
+        prev = str((seen_map.get(cfg["slug"]) or {}).get("version") or "")
+        if not prev:
+            touched[cfg["slug"]] = {"version": version, "at": now().isoformat(timespec="seconds")}
+            log("  plugin baseline:", cfg["slug"], version)
+            continue
+        if prev == version:
+            continue
+        head, lines = changelog_block(info.get("changelog"), version)
+        if not lines:
+            # فهرست تغییرات خالی است یا هنوز منتشر نشده. یک بار دیگر
+            # امتحان می‌کنیم؛ بعد از سه تلاش نسخه را ثبت می‌کنیم تا هر
+            # اجرا بی‌خود درخواست نفرستیم.
+            tries = int((seen_map.get(cfg["slug"]) or {}).get("tries") or 0) + 1
+            if tries >= 3:
+                touched[cfg["slug"]] = {"version": version, "at": now().isoformat(timespec="seconds")}
+            else:
+                touched[cfg["slug"]] = {
+                    "version": prev,
+                    "at": (seen_map.get(cfg["slug"]) or {}).get("at") or "",
+                    "tries": tries,
+                }
+            log("  plugin changelog empty:", cfg["slug"], version, "try", tries)
+            continue
+        joined = " ".join(lines)
+        vuln = bool(VULN_RE.search(joined))
+        hardening = bool(HARDEN_RE.search(joined))
+        link = "https://wordpress.org/plugins/{}/".format(cfg["slug"])
+        iid = item_id(link)
+        if iid in known:
+            touched[cfg["slug"]] = {"version": version, "at": now().isoformat(timespec="seconds")}
+            continue
+        name = cfg["name"] or info.get("name") or cfg["slug"]
+        rows.append(
+            {
+                "id": iid,
+                "title": "{} {}".format(name, version),
+                "link": link,
+                "desc": "نسخهٔ {} از {} منتشر شد. تغییرات این نسخه: {}".format(
+                    version, name, " | ".join(lines)
+                ),
+                "source": "آپدیت افزونه",
+                "lang": "en",
+                "tier": 1,
+                "group": "wp",
+                "kind": "news",
+                "age_hours": 0.0,
+                "published": now().isoformat(timespec="seconds"),
+                "added": now().isoformat(timespec="seconds"),
+                "plugin": {
+                    "name": name,
+                    "version": version,
+                    "prev": prev,
+                    "installs": info.get("installs", 0),
+                    "updated": info.get("updated", ""),
+                },
+                "plugin_update": {
+                    "name": name,
+                    "slug": cfg["slug"],
+                    "version": version,
+                    "prev": prev,
+                    "date": head,
+                    "changes": lines,
+                    "vuln": vuln,
+                    "hardening": hardening,
+                },
+            }
+        )
+        touched[cfg["slug"]] = {"version": version, "at": now().isoformat(timespec="seconds")}
+        log("  plugin update:", cfg["slug"], prev, "->", version, "lines", len(lines))
+    if touched and commit:
+        merged = dict(seen_map)
+        merged.update(touched)
+        write_json(PLUGIN_STATE, {"v": 1, "seen": merged})
+    return rows
+
+
+def plugins_report():
+    """وضعیت رصد نسخه. چیزی نمی‌نویسد؛ فقط می‌گوید چه چیزی ثبت شده."""
+    watch = load_plugin_watch()
+    state = read_json(PLUGIN_STATE, {"v": 1, "seen": {}})
+    seen_map = state.get("seen") or {}
+    print("watching {} plugins".format(len(watch)))
+    for cfg in watch:
+        info = plugin_feed(cfg["slug"])
+        if not info:
+            print("  {:<26} FAILED".format(cfg["slug"]))
+            continue
+        prev = str((seen_map.get(cfg["slug"]) or {}).get("version") or "")
+        if not prev:
+            mark = "NO BASE"
+        elif prev == info["version"]:
+            mark = "SAME"
+        else:
+            mark = "NEW"
+        print(
+            "  {:<26} now {:<10} base {:<10} {:<8} installs {}".format(
+                cfg["slug"], info["version"], prev or "-", mark, info["installs"]
+            )
+        )
+        if mark == "NEW":
+            head, lines = changelog_block(info["changelog"], info["version"])
+            print("      head: " + (head or "-"))
+            for ln in lines:
+                print("      - " + ln[:150])
+    return 0
 
 
 # ---------------------------------------------------------------- score
@@ -1409,6 +1673,14 @@ def item_text(it, limit=2400):
     """
     full = (it.get("full") or "").strip()
     desc = (it.get("desc") or "").strip()
+    # آپدیت افزونه: فهرست تغییرات، تنها دادهٔ واقعی است و باید خط‌به‌خط
+    # خوانده شود، نه به‌صورت یک پاراگراف چسبیده.
+    upd = it.get("plugin_update") or {}
+    if upd.get("changes"):
+        head = "نسخهٔ {} از {} منتشر شد (نسخهٔ قبلی {}). تغییرات این نسخه:".format(
+            upd.get("version", ""), upd.get("name", ""), upd.get("prev", "")
+        )
+        return (head + "\n" + "\n".join("- " + str(c) for c in upd["changes"]))[:limit]
     if full and (len(full) < 200 or CHROME_RE.search(full[:400])):
         full = ""
     if full and desc and not full.startswith(desc[:40]):
@@ -1432,6 +1704,7 @@ def build_prompt(items, extra):
                 "published": pub,
                 "sources_count": it.get("sources_count", 1),
                 "plugin": it.get("plugin", {}),
+                "update": it.get("plugin_update", {}),
             }
         )
     return extra + "\n\nخبرهای ورودی:\n" + json.dumps(payload, ensure_ascii=False)
@@ -2114,16 +2387,36 @@ LATIN_RUN = re.compile(
 )
 
 
+RTL_MARK = "\u200f"
+
+
+def rtl_guard(text):
+    """خطی که با لاتین یا رقم شروع شود، جهت پاراگراف را چپ می‌کند.
+
+    تلگرام ایزولهٔ لاتین را برای تعیین جهت پاراگراف نادیده می‌گیرد. یک
+    بار خط اول پست با نام لاتین شروع شد و کل خط به چپ چسبید: «Elementor
+    ۴.۳.۶ …» سمت چپ نشست و خواندنش سخت شد. علامت راست‌به‌چپ ابتدای
+    خط، اولین کاراکتر قوی پاراگراف را فارسی می‌کند.
+    """
+    out = []
+    for line in str(text or "").split("\n"):
+        head = line.lstrip()
+        if head and head[0].isascii() and head[0].isalnum():
+            line = RTL_MARK + line
+        out.append(line)
+    return "\n".join(out)
+
+
 def bidi(text):
     text = str(text or "")
     if not text:
         return text
     try:
         if not settings().get("bidi_isolate", True):
-            return text
+            return rtl_guard(text)
     except Exception:
         pass
-    return LATIN_RUN.sub(lambda m: LRI + m.group(0) + PDI, text)
+    return LATIN_RUN.sub(lambda m: LRI + m.group(0) + PDI, rtl_guard(text))
 
 
 def send_to(chat, text, preview=True):
@@ -2434,6 +2727,45 @@ def fa_digits_text(text):
     return re.sub(r"\S+", lambda m: one(m.group(0)), str(text or ""))
 
 
+# برچسبی که مدل در تیتر تکرار می‌کند. ترکیب‌ها اول می‌آیند تا «آپدیت
+# امنیتی» یکجا برداشته شود، نه اینکه فقط «آپدیت» برود و «امنیتی» در
+# تیتر بماند. یک بار تیتر «آپدیت امنیتی المنتور» به «امنیتی المنتور»
+# تبدیل شد.
+LEAD_COMPOUND = (
+    "هشدار امنیتی", "آپدیت امنیتی", "به‌روزرسانی امنیتی", "اصلاحیهٔ امنیتی",
+    "پلاگین تازه", "افزونهٔ تازه", "خبر فوری", "آپدیت فوری", "هشدار فوری",
+)
+LEAD_SINGLE = ("هشدار", "آپدیت", "به‌روزرسانی", "خبر", "ابزار", "آموزش", "فرصت", "نمایشگاه", "فوری")
+# اگر بعد از برچسب یکی از این کلمه‌ها بیاید، برچسب بخشی از معناست نه تکرار
+# آن: «ابزار جدید گوگل» با حذف «ابزار» می‌شود «جدید گوگل» و بی‌معنا.
+LABEL_STOP = ("جدید", "تازه", "بهتر", "رایگان", "بزرگ", "امنیتی", "فوری", "رسمی", "مهم")
+
+
+def strip_lead_label(title, label):
+    """برچسبی که مدل در ابتدای تیتر گذاشته را برمی‌دارد، بدون شکستن جمله."""
+    title = (title or "").strip()
+    if not title:
+        return title
+    for cand in tuple(LEAD_COMPOUND) + ((label or ""),) + LEAD_SINGLE:
+        cand = (cand or "").strip()
+        if not cand or not title.startswith(cand):
+            continue
+        rest = title[len(cand):]
+        if not rest.strip():
+            return ""
+        if rest[0] in ":،-–—":
+            return rest.lstrip(" :،-–—").strip()
+        if rest[0] != " ":
+            continue
+        if " " in cand:
+            return rest.strip()
+        nxt = rest.split()[0]
+        if nxt in LABEL_STOP:
+            continue
+        return rest.strip()
+    return title
+
+
 def format_post(label, title, summary, details, meta, link, hashtags, when=None, name="", use_link=""):
     """ساخت متن پست.
 
@@ -2456,8 +2788,7 @@ def format_post(label, title, summary, details, meta, link, hashtags, when=None,
             title = "{} — {}".format(name, title)
     if title:
         # برچسب را در تیتر تکرار نکن. یک بار شد «ابزار: ابزار HOL Guard».
-        if title.startswith(label + " "):
-            title = title[len(label):].strip()
+        title = strip_lead_label(title, label)
         # اگر خود تیتر دونقطه داشته باشد، خط دو دونقطه می‌گیرد:
         # «ابزار: HOL Guard: آنتی‌ویروس...». اولی می‌ماند، دومی خط تیره.
         if ":" in title:
@@ -2516,7 +2847,12 @@ ADV_HIT = re.compile(
     r"\bbackdoor\b|privilege escalation|"
     # فارسی هم لازم است: متن پست را مدل می‌نویسد و کلمهٔ انگلیسی منبع
     # همیشه در همان جمله نمی‌ماند.
-    r"آسیب[\s\u200c]?پذیری|حفرهٔ? امنیتی|مشکل امنیتی|اصلاحیهٔ? امنیتی|وصلهٔ? امنیتی)",
+    r"آسیب[\s\u200c]?پذیری|حفرهٔ? امنیتی|مشکل امنیتی|اصلاحیهٔ? امنیتی|وصلهٔ? امنیتی|"
+    # مدل معمولاً نمی‌نویسد «اصلاحیهٔ امنیتی»؛ می‌نویسد «اصلاح امنیتی».
+    # یک بار آپدیت امنیتی المنتور با برچسب «آپدیت» پست شد و در صف
+    # امنیتی نیفتاد.
+    r"اصلاح امنیتی|آپدیت امنیتی|به[\s\u200c]?روزرسانی امنیتی|باگ امنیتی|"
+    r"مسئلهٔ? امنیتی)",
     re.I,
 )
 ADV_SKIP = re.compile(r"(bug bounty|vulnerability report|weekly report|monthly report|podcast|webinar)", re.I)
@@ -2540,7 +2876,12 @@ def security_run(s, st, seen, hard_deadline=None):
         if time.time() - started > fetch_budget:
             log("security: fetch budget reached, {} sources skipped".format(len(sources) - idx))
             break
+        must = src.get("must") or ""
         for it in fetch_source(src, st):
+            if must:
+                hay = ((it.get("title") or "") + " " + (it.get("desc") or "")).lower()
+                if must not in hay:
+                    continue
             iid = item_id(it["link"])
             if iid in seen["ids"]:
                 continue
@@ -2699,7 +3040,7 @@ def ai_intake_room():
     return max(0, cap - used)
 
 
-def collect(kind, st, seen, budget_sec=None):
+def collect(kind, st, seen, budget_sec=None, watch=True):
     """منابع را می‌خواند و آیتم تازه جمع می‌کند.
 
     یک منبع کند نباید کل اجرا را بخورد. اگر وقت تمام شد، بقیهٔ منابع
@@ -2715,7 +3056,12 @@ def collect(kind, st, seen, budget_sec=None):
         if time.time() - started > budget:
             log("collect: budget reached, {} of {} sources skipped".format(len(sources) - idx, len(sources)))
             break
+        must = src.get("must") or ""
         for it in fetch_source(src, st):
+            if must:
+                hay = ((it.get("title") or "") + " " + (it.get("desc") or "")).lower()
+                if must not in hay:
+                    continue
             iid = item_id(it["link"])
             if iid in seen["ids"]:
                 continue
@@ -2765,6 +3111,18 @@ def collect(kind, st, seen, budget_sec=None):
         if dropped:
             log("ai intake: {} dropped, daily cap reached".format(dropped))
         rows = kept
+    # نسخهٔ تازهٔ افزونه‌های پرنصب. این تنها منبعی است که خبر آپدیت را
+    # همان روزِ انتشار می‌آورد؛ فیدهای خودشان دیر یا هرگز نمی‌آورند.
+    # همه در دستهٔ خبر می‌آیند و برچسب امنیتی را خود متن تعیین می‌کند.
+    if watch and kind == "news":
+        try:
+            extra_rows = plugin_watch(kind, seen)
+        except Exception as exc:
+            log("plugin watch failed:", str(exc)[:80])
+            extra_rows = []
+        if extra_rows:
+            log("plugin watch:", len(extra_rows), "new version(s)")
+            rows.extend(extra_rows)
     return rows
 
 
@@ -3188,6 +3546,15 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
                 title=entry.get("title", ""),
                 source_title=it.get("title", ""),
             )
+            # آپدیت نسخه، هشدار امنیتی نیست؛ مگر خود فهرست تغییرات از
+            # آسیب‌پذیری یا اکسپلویت اسم برده باشد. «تقویت امنیت» یعنی
+            # سخت‌تر شدن کد، نه حفره‌ای که باز بوده. یک بار آپدیت
+            # المنتور که فقط «security enforcement» بود با برچسب
+            # هشدار امنیتی رفت.
+            upd = it.get("plugin_update") or {}
+            if upd and not upd.get("vuln") and label in ("هشدار امنیتی", "فوری"):
+                log("  update is hardening, not a vulnerability:", it["title"][:40])
+                label = "آپدیت"
             news_like = kind != "offers" and label in ("خبر", "آپدیت", "هشدار امنیتی", "فوری")
             # پستی که برچسب خبری ندارد باید مثل محصول سنجیده شود، حتی اگر
             # برچسبش «آموزش» باشد. وگرنه مدل با عوض کردن برچسب از سد
@@ -3761,7 +4128,7 @@ def preview_run(s, st, seen, kind="news", limit=1, pick=""):
         log("preview: no personal chat configured")
         return 0
     kind = (kind or "news").strip().lower()
-    rows = dedupe_stories(collect(kind, st, seen, budget_sec=80))
+    rows = dedupe_stories(collect(kind, st, seen, budget_sec=80, watch=False))
     # اگر مطلب مشخصی خواسته شده و در جمع‌آوری تازه نبود، صف را هم نگاه
     # کن. جمع‌آوری بودجه دارد و ممکن است همان منبع در این اجرا خوانده
     # نشود؛ ولی آیتم قبلاً در صف نشسته است.
@@ -3893,7 +4260,7 @@ def compare_run(s, st, seen, limit=2, kind=""):
     def pool(k):
         # همان پنجرهٔ تازگی که در اجرای واقعی هست، وگرنه خبر کهنه هم
         # وارد مقایسه می‌شود و نتیجه گمراه‌کننده است.
-        rows = dedupe_stories(collect(k, st, seen, budget_sec=60))
+        rows = dedupe_stories(collect(k, st, seen, budget_sec=60, watch=False))
         rows = [x for x in rows if keep(x)]
         fresh = [x for x in rows if true_age(x) <= 48]
         return fresh or rows
@@ -4134,6 +4501,8 @@ def main():
         return whoami_run()
     if cmd == "selftest":
         return selftest_run()
+    if cmd == "plugins":
+        return plugins_report()
     STATE.mkdir(parents=True, exist_ok=True)
     ARCH.mkdir(parents=True, exist_ok=True)
     s = settings()

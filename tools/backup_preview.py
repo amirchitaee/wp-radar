@@ -32,7 +32,7 @@ def main():
         return 1
 
     seen = radar.read_json(radar.SEEN, {"v": 1, "ids": {}})
-    rows = radar.collect(args.kind, radar.read_json(radar.STATS, {}), seen, budget_sec=120)
+    rows = radar.collect(args.kind, radar.read_json(radar.STATS, {}), seen, budget_sec=120, watch=False)
     print("از فیدها: {} آیتم".format(len(rows)))
 
     rows = radar.dedupe_stories(rows)

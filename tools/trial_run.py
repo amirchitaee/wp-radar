@@ -35,7 +35,7 @@ def main():
     if args.live:
         # خواندن تازه از فیدها. collect چیزی در صف نمی‌نویسد؛ فقط برمی‌گرداند.
         seen = radar.read_json(radar.SEEN, {"v": 1, "ids": {}})
-        rows = radar.collect(kind, radar.read_json(radar.STATS, {}), seen, budget_sec=120)
+        rows = radar.collect(kind, radar.read_json(radar.STATS, {}), seen, budget_sec=120, watch=False)
         print("از فیدها: {} آیتم تازه خوانده شد".format(len(rows)))
     else:
         queue = radar.read_json(radar.QUEUE, {"items": []})
