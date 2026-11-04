@@ -446,20 +446,6 @@
    "channel_skip": true
   },
   {
-   "id": "855688c450b204aa",
-   "title": "Anthropic warns that it’s very close to RSI capability, aka self-building AI",
-   "link": "https://techcrunch.com/2026/11/02/anthropic-warns-that-its-very-close-to-rsi-capability-aka-self-building-ai",
-   "desc": "RSI is the point at which AI grows so good at training itself that it spawns a dramatic acceleration of AI capabilities. To the AI doomers, RSI represents the cataclysm from which there is no return.",
-   "source": "تک‌کرانچ",
-   "lang": "en",
-   "tier": 2,
-   "group": "ai",
-   "kind": "news",
-   "age_hours": 0.8,
-   "published": "2026-11-02T22:14:50+00:00",
-   "added": "2026-11-02T23:00:54+00:00"
-  },
-  {
    "id": "b05b73640b576f99",
    "title": "Voy Design | Designing for a 100 Years for Healthy Living",
    "link": "https://land-book.com/websites/102130-voy-design-designing-for-a-100-years-for-healthy-living",
@@ -563,6 +549,36 @@
    "full": "WooCommerce is the open-source ecommerce platform for WordPress. Our core platform is free, flexible, and amplified by a global community. The freedom of open-source means you retain full ownership of your store’s content and data forever. Whether you’re launching a business, taking brick-and-mortar retail online, or developing sites for clients, use WooCommerce for a store that powerfully blends content and commerce. Built-in tools and popular integrations help you efficiently manage your business operations. Many services are free to add with a single click via the optional Setup Wizard . WooCommerce means business. Keep tabs on the performance metrics most important to you with a powerful and flexible central dashboard built into WooCommerce. Expand your audience across marketing and social channels with Google Ads , HubSpot , Mailchimp , and Facebook integrations. You can always check out the in-dashboard Marketing Hub for fresh ideas and tips to help you succeed. Enhance store functionality with hundreds of free and paid extensions from the WooCommerce Marketplace . Our developers vet each new extension and regularly review existing extensions to maintain Marketplace quality standards. We are actively looking for products that help store builders create successful stores . Manage your store from anywhere with the free WooCommerce mobile app (Android and iOS). Spoiler alert: Keep an ear out for the slightly addictive “cha-ching” notification sound each time you make a new sale! With WooCommerce , your data belongs to you. Always. If you opt to share usage data with us, you can feel confident knowing that it’s anonymized and kept secure. Choose to opt-out at any time without impacting your store. Unlike hosted ecommerce solutions, WooCommerce store data is future-proof; you’re free to export all your content and take your site to any platform you choose. No restrictions. Developers can use WooCommerce to create, customize, and scale a store to meet a client’s exact specifications, making enhancements through extensions or custom solutions. The core platform is tested rigorously and often, supported by a dedicated development team working across time zones. Comprehensive documentation is updated with each release, empowering you to build exactly the store required. WooCommerce has a large, passionate community dedicated to helping merchants succeed – and it’s growing fast. There are WooCommerce Meetups in locations around the world that you can attend for free and even get involved in running. These events are a great way to learn from others, share your expertise, and connect with like-minded folks. WooCommerce also has a regular presence at WordCamps across the globe – we’d love to meet you. WooCommerce is developed and supported by Automattic, the creators of WordPress.com and Jetpack. We also have hundreds of independent contributors, and there’s always room for more. Head to the WooCommerce GitHub Repository to find out how you can pitch in. WooCommerce is translated into multiple languages, including Danish, Ukrainian, and Persian. Help localize WooCommerce even further by adding your locale – visit translate.wordpress.org . You can c",
    "use_link": "",
    "held": true
+  },
+  {
+   "id": "1d83ea98ce0c30cf",
+   "title": "datasette-llm 0.1a10",
+   "link": "https://simonwillison.net/2026/Nov/4/datasette-llm",
+   "desc": "Release: datasette-llm 0.1a10 Fixes a bug that affected my agent.datasette.io demo site, where the set of available LLM models was not correctly restricted to just those in the configuration. Tags: datasette , llm",
+   "source": "سایمون ویلیسون",
+   "lang": "en",
+   "tier": 3,
+   "group": "",
+   "kind": "tools",
+   "age_hours": 6.8,
+   "published": "2026-11-04T15:26:02+00:00",
+   "added": "2026-11-04T22:15:27+00:00"
+  },
+  {
+   "id": "42f4810ce57263f7",
+   "title": "datasette-apps 0.3a0",
+   "link": "https://simonwillison.net/2026/Nov/4/datasette-apps",
+   "desc": "Release: datasette-apps 0.3a0 Datasette Apps adds support for hosting and editing custom HTML applications inside of Datasette. These can be created by hand, but it's easier to create them using LLMs via Datasette Agent . This release improves that integration: Apps can now be tagged in Datasette Agent chat messages by typing # , which autocompletes from the apps the user has permission to view. New app_add_stored_queries() and app_remove_stored_queries() tools let the agent manage which stored queries an app is allowed to call. Granting a write query requires approval from the user first. app",
+   "source": "سایمون ویلیسون",
+   "lang": "en",
+   "tier": 3,
+   "group": "",
+   "kind": "tools",
+   "age_hours": 21.8,
+   "published": "2026-11-04T00:29:36+00:00",
+   "added": "2026-11-04T22:15:27+00:00",
+   "full": "Datasette Apps adds support for hosting and editing custom HTML applications inside of Datasette. These can be created by hand, but it's easier to create them using LLMs via Datasette Agent . This release improves that integration: This is a beat by Simon Willison, posted on 4th November 2026 . Sponsor me for $10/month and get a curated email digest of the month's most important LLM developments.",
+   "use_link": "https://github.com/datasette/datasette-apps/releases/tag/0.3a0"
   }
  ]
 }
