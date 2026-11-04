@@ -3103,6 +3103,10 @@ def prune_queue(s=None, apply=True):
     q = read_json(QUEUE, {"v": 1, "items": []})
     items = q.get("items", []) if isinstance(q, dict) else list(q)
     before = len(items)
+    # آیتمی که پست شده دیگر در صف نمی‌ماند. ماندنش یعنی خطر پست دوباره.
+    seen_ids = read_json(SEEN, {"v": 1, "ids": {}}).get("ids") or {}
+    if seen_ids:
+        items = [x for x in items if x.get("id") not in seen_ids]
     kept = []
 
     for kind in ("tools", "showcase"):
@@ -3480,6 +3484,14 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
             pending = kept
         if not pending:
             return 0
+    # آیتمی که یک بار پست شده نباید دوباره به مدل برود. یک بار صف عقب
+    # افتاد و همان آپدیت لایت‌اسپید دو بار در کانال رفت.
+    posted_ids = (seen or {}).get("ids") or {}
+    if posted_ids:
+        before_n = len(pending)
+        pending = [x for x in pending if x.get("id") not in posted_ids]
+        if len(pending) < before_n:
+            log("  already posted skipped:", before_n - len(pending))
     # سن واقعی، نه سن لحظهٔ جمع‌آوری. آیتمی که سه روز در صف مانده نباید
     # به‌عنوان خبر تازه پست شود، و نباید توکن مدل هم برایش بسوزد.
     max_age_gate = 96 if kind in ("tools", "offers") else 48
