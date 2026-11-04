@@ -533,7 +533,8 @@
    "age_hours": 1.5,
    "published": "2026-11-04T16:33:17+00:00",
    "added": "2026-11-04T18:00:51+00:00",
-   "held": true
+   "posted": true,
+   "msg_id": 95
   }
  ]
 }
