@@ -948,6 +948,33 @@ check("سقف روزانه: سهم مصرف‌شده چیزی اضافه نمی�
 check("سقف: بی‌تنظیم دست نمی‌زند", len(radar.trim_intake("tools", _rows, {})), 3)
 radar.queue_kind_count, radar.added_today = _real_count, _real_today
 
+# ---------------------------------------------------------------- وردپرس اول
+# فید عمومی هوش مصنوعی روزی چهل آیتم می‌دهد. اگر تنها معیار تازه‌بودن
+# باشد، صف و سبد مدل را پر می‌کند و خبر وردپرسی به نوبت نمی‌رسد.
+check("اولویت: خبر وردپرس رتبهٔ صفر",
+      radar.wp_first({"title": "WordPress 7.2 beta is out"}), 0)
+check("اولویت: خبر هوش مصنوعی که وردپرس دارد هم رتبهٔ صفر",
+      radar.wp_first({"title": "OpenAI tool now writes WordPress plugins", "group": "ai"}), 0)
+check("اولویت: هوش مصنوعی عمومی رتبهٔ دو",
+      radar.wp_first({"title": "Anthropic warns it is close to RSI", "group": "ai"}), 2)
+check("اولویت: فید وردپرسی بی‌کلیدواژه رتبهٔ یک",
+      radar.wp_first({"title": "Modern CSS is getting complex", "source": "سی‌اس‌اس‌تریکس"}), 1)
+_wp_rows = [
+    {"id": "ai1", "title": "Nvidia cuts China business", "group": "ai",
+     "published": "2026-11-04T12:00:00", "kind": "news"},
+    {"id": "wp1", "title": "WooCommerce 10.2 released",
+     "published": "2026-11-04T08:00:00", "kind": "news"},
+]
+check("اولویت: چیدمان، وردپرس را جلو می‌آورد",
+      [x["id"] for x in radar.wp_first_sort(_wp_rows)], ["wp1", "ai1"])
+_rc2, _rt2 = radar.queue_kind_count, radar.added_today
+radar.queue_kind_count = lambda kind: 0
+radar.added_today = lambda kind: 0
+check("اولویت: سقف ورود جای وردپرس را به هوش مصنوعی نمی‌دهد",
+      [x["id"] for x in radar.trim_intake("news", _wp_rows, {"backlog_cap": {"news": 1}})],
+      ["wp1"])
+radar.queue_kind_count, radar.added_today = _rc2, _rt2
+
 # ---------------------------------------------------------------- خط نسخه
 # «نسخهٔ ۷.۱.۴» و «بتای ۲» آخر کادر می‌ماندند و نکته نبودند.
 check("جزئیات: خط فقط-نسخه حذف می‌شود",

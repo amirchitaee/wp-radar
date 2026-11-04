@@ -2114,6 +2114,32 @@ SITE_TOPIC_RE = re.compile(
     re.I,
 )
 
+# کانال برای مخاطب وردپرسی است، نه برای دنبال‌کنندهٔ خبر هوش مصنوعی.
+# ترتیب صف و ترتیب فرستادن به مدل باید همین را نشان بدهد. فید عمومی
+# روزی چهل آیتم می‌دهد و اگر فقط تازه‌بودن معیار باشد، ته صف را پر
+# می‌کند و خبر وردپرسی هیچ‌وقت به نوبت نمی‌رسد. سه رتبه کافی است:
+#   ۰ وردپرس و ساخت سایت، از هر منبعی، حتی خبر هوش مصنوعی
+#   ۱ فید وردپرسی که کلیدواژه ندارد (طراحی، استایل، هاست)
+#   ۲ هوش مصنوعی عمومی که هیچ نشانی از وردپرس و ساخت سایت ندارد
+WP_RANK_WP = 0
+WP_RANK_NEAR = 1
+WP_RANK_AI = 2
+
+
+def wp_first(item):
+    blob = " ".join(str(item.get(k) or "") for k in ("title", "desc", "link", "source"))
+    if SITE_TOPIC_RE.search(blob):
+        return WP_RANK_WP
+    if (item.get("group") or "") != "ai":
+        return WP_RANK_NEAR
+    return WP_RANK_AI
+
+
+def wp_first_sort(rows):
+    """مرتب‌سازی پایدار: وردپرس اول، ترتیب قبلی داخل هر رتبه حفظ می‌شود."""
+    return sorted(rows, key=wp_first)
+
+
 # مدل وقتی خبر به سایت ربط ندارد، خودش ربط می‌سازد: «ولی این تصمیم برای
 # کسانی که با این ابزارها سایت می‌سازند مهم است». این جمله در منبع نیست.
 # سد قبلی (OFF_AUDIENCE_RE) جلوی رفتن چنین خبری به مدل را می‌گیرد، ولی
@@ -3076,15 +3102,20 @@ def trim_intake(kind, rows, s):
     if room >= len(rows):
         return rows
     ordered = sorted(rows, key=lambda r: r.get("published") or "", reverse=True)
+    # تازه‌ترین اول، ولی موضوع مقدم بر تازه‌بودن است. سقف ورود نباید
+    # جای خبر وردپرسی را به خبر عمومی هوش مصنوعی بدهد.
+    ordered = wp_first_sort(ordered)
     kept = ordered[:room]
     log(
-        "intake {}: {} dropped, backlog {}/{} daily {}/{}".format(
+        "intake {}: {} dropped, backlog {}/{} daily {}/{} wp {}/{}".format(
             kind,
             len(rows) - len(kept),
             queue_kind_count(kind),
             backlog or "-",
             added_today(kind),
             daily or "-",
+            sum(1 for x in kept if wp_first(x) == WP_RANK_WP),
+            len(kept),
         )
     )
     return kept
@@ -3116,6 +3147,7 @@ def prune_queue(s=None, apply=True):
             kept.extend(group)
             continue
         group.sort(key=lambda x: (x.get("published") or x.get("added") or ""), reverse=True)
+        group = wp_first_sort(group)
         kept.extend(group[:cap])
 
     for x in items:
@@ -3309,6 +3341,9 @@ def queue_merge(rows, s):
         if len(group) <= cap:
             continue
         group.sort(key=lambda x: (x.get("published") or x.get("added") or ""), reverse=True)
+        # وقتی سقف انبار پر است، آن‌چه بیرون می‌رود باید خبر عمومی باشد،
+        # نه خبر وردپرسی. اولویت موضوع بر تازگی مقدم است.
+        group = wp_first_sort(group)
         drop = {id(x) for x in group[cap:]}
         kept = [x for x in kept if id(x) not in drop]
         trimmed += len(drop)
@@ -3437,6 +3472,10 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
         return 0
 
     pending.sort(key=lambda x: code_score(x, x.get("sources_count", 1)), reverse=True)
+    # امتیاز داخل هر رتبه تصمیم می‌گیرد، ولی موضوع اولویت دارد: خبر
+    # وردپرسی قبل از خبر عمومی هوش مصنوعی به مدل می‌رود، حتی اگر امتیازش
+    # کمتر باشد. مدل فقط چیزی را می‌بیند که به او داده شود.
+    pending = wp_first_sort(pending)
     # صورت‌جلسه و گزارش هفتگی خبر نیست. قبل از سوزاندن توکن مدل کنار می‌رود.
     # آدرس هم بررسی می‌شود، چون تیتر ممکن است ترجمه شده باشد و کلمهٔ
     # اصلی را نگه نداشته باشد.
