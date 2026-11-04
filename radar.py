@@ -1190,6 +1190,9 @@ def clean_details(text):
         # خطی که فقط شمارهٔ نسخه است، نکته نیست.
         if version_only_line(line):
             continue
+        # خطی که فقط یک عدد و یک اسم لاتین است، نکته نیست.
+        if meta_fragment(line):
+            continue
         # «نسخه ۷.۱.۴» و «نسخهٔ ۷.۱.۴» دو خط جدا نیستند.
         key = AR_MARKS.sub("", line)
         key = re.sub(r"[\s،.,:؛;!؟?\-–—_]+", " ", key).strip().lower()
@@ -2243,7 +2246,9 @@ NON_NEWS_RE = re.compile(
 # قانون «وردپرس اول» سر صف می‌نشست، در حالی که هیچ اتفاق تازه‌ای را
 # گزارش نمی‌کند. آدرس هم بررسی می‌شود، چون تیتر همیشه واژه را ندارد.
 PODCAST_RE = re.compile(
-    r"/podcasts?/|\bpodcasts?\b|\bwebinars?\b|^#\d+\s*[\u2010-\u2015-]", re.I
+    r"/podcasts?/|\bpodcasts?\b|\bwebinars?\b|^#\d+\s*[\u2010-\u2015-]|"
+    r"\b(?:on|in) this episode\b|\bthis episode of\b|\bepisode\s+\d+\b",
+    re.I,
 )
 
 # برچسب مجاز هر دسته. مدل اجازه ندارد از این فهرست بیرون بزند.
@@ -2547,6 +2552,33 @@ def trim_details(text, limit=MAX_DETAIL_LINES):
     if len(lines) <= limit:
         return "\n".join(lines)
     return "\n".join(lines[:limit]) + " …"
+
+
+# حرف‌هایی که با هم جمله نمی‌سازند. اگر تنها فارسیِ یک خط همین‌ها باشند،
+# خط داده نیست؛ یک عدد است با یک اسم لاتین چسبیده به آن.
+META_STOP = frozenset(
+    ("به", "از", "تا", "با", "در", "و", "یا", "بر", "که", "را", "هم", "است", "شد", "این", "آن")
+)
+
+
+def meta_fragment(text):
+    """خطی مثل «PageSpeed ۷۰ به ۹۹» داده نیست.
+
+    از یک مقالهٔ تحلیلی برداشته شد و نه می‌گفت کدام سایت، نه چرا. آخر
+    کادر یک خط تنها و بی‌معنی می‌سازد و بدتر از خالی بودن است، چون
+    شکل داده دارد. متای نسخه (فقط رقم) و متای فارسی دست نمی‌خورد.
+    """
+    s = re.sub(r"[\u200b\u200c\u200e\u200f\u2066\u2067\u2068\u2069]", "", str(text or ""))
+    if not re.search(r"[A-Za-z]", s):
+        return False
+    # ارقام فارسی هم در بازهٔ حروف عربی‌اند. اگر جدا نشوند، خودشان
+    # «کلمهٔ فارسی» حساب می‌شوند و خط هرگز دور نمی‌رود.
+    fa_words = [
+        w
+        for w in re.findall(r"[\u0600-\u06FF\u200c]+", s)
+        if len(w) > 1 and not re.fullmatch(r"[۰-۹]+", w)
+    ]
+    return not [w for w in fa_words if w not in META_STOP]
 
 
 def fix_newlines(text):
@@ -2865,6 +2897,10 @@ def format_post(label, title, summary, details, meta, link, hashtags, when=None,
         if digits and all(d in title.translate(DIGITS_TO_LATIN) for d in digits):
             meta = ""
     meta_ok = bool(meta) and bool(re.search(r"[\d۰-۹]", meta) or len(meta) > 30)
+    # عدد داشتن کافی نیست. «PageSpeed ۷۰ به ۹۹» هم عدد دارد، ولی نمی‌گوید
+    # کدام سایت و چرا. خطی که فقط یک عدد و یک اسم لاتین است دور می‌رود.
+    if meta_ok and meta_fragment(meta):
+        meta_ok = False
     if meta_ok:
         inner.append(esc(bidi(meta)))
     if inner:
@@ -3536,8 +3572,10 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
                 continue
             # پادکست و وبینار اتفاق تازه‌ای را گزارش نمی‌کنند. بعد از
             # قانون «وردپرس اول» اینها بالای صف می‌نشستند و جای خبر
-            # واقعی را می‌گرفتند.
-            if kind == "news" and PODCAST_RE.search(blob):
+            # واقعی را می‌گرفتند. خلاصه هم بررسی می‌شود، چون بعضی سایت‌ها
+            # قسمت پادکست را زیر تیتر خبری منتشر می‌کنند و تیتر هیچ
+            # نشانی از پادکست ندارد.
+            if kind == "news" and PODCAST_RE.search(blob + " " + (x.get("desc") or "")):
                 x["channel_skip"] = True
                 skipped += 1
                 continue
