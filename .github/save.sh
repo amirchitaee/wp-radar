@@ -22,7 +22,13 @@ git commit -m "radar: $(date -u +%Y-%m-%dT%H:%MZ)" || {
 }
 
 for i in 1 2 3 4 5; do
-  git pull --rebase --autostash origin main >/dev/null 2>&1 || true
+  # ریبس بهترین حالت است. ولی اگر کسی همزمان همان فایل وضعیت را عوض
+  # کرده باشد، ریبس وسط کار می‌ماند و هر پنج تلاش شکست می‌خورد. یک بار
+  # واقعی همین شد: صف دستی پاک شد و ذخیرهٔ اجرا زمین خورد.
+  if ! git pull --rebase --autostash origin main >/dev/null 2>&1; then
+    git rebase --abort >/dev/null 2>&1 || true
+    git pull --no-rebase --no-edit -X ours origin main >/dev/null 2>&1 || true
+  fi
   if git push origin HEAD:main >/dev/null 2>&1; then
     git fetch origin main >/dev/null 2>&1 || true
     if [ "$(git rev-parse HEAD)" = "$(git rev-parse origin/main 2>/dev/null)" ] && [ -z "$(git status --porcelain)" ]; then
