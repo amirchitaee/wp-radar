@@ -460,22 +460,6 @@
    "added": "2026-11-02T23:00:54+00:00"
   },
   {
-   "id": "d5a213f9d47ee44e",
-   "title": "7 Best WordPress MCP Servers and Plugins in 2026 (We Tested Them All)",
-   "link": "https://www.wpbeginner.com/showcase/best-wordpress-mcp-servers",
-   "desc": "Connecting Claude or ChatGPT to your WordPress site can save you hours of routine admin work. However, the AI can only do what your WordPress MCP server lets it do, and some servers will permanently delete content without asking you first. I wanted to know…",
-   "source": "دبلیوپی بگینر",
-   "lang": "en",
-   "tier": 3,
-   "kind": "news",
-   "age_hours": 0.2,
-   "published": "2026-11-02T18:50:53+00:00",
-   "added": "2026-11-02T19:00:52+00:00",
-   "full": "WPBeginner » Blog » Showcase » 7 Best WordPress MCP Servers and Plugins in 2026 (We Tested Them All) Connecting Claude or ChatGPT to your WordPress site can save you hours of routine admin work. However, the AI can only do what your WordPress MCP server lets it do, and some servers will permanently delete content without asking you first. I wanted to know which ones you can trust on a real site. So I set up a test store and gave the same six tasks to 7 WordPress MCP servers, including asking the AI to permanently delete a published post. WPVibe came out on top for most people. It finished every task, works from Claude or ChatGPT in your browser on any self-hosted WordPress site, and it was the only server that stopped and asked before deleting that post. In this guide, I’ll share the best WordPress MCP servers I tested, how each one handled risky changes, and which one fits your site. An MCP server is a bridge between your AI app and your WordPress site. It lets the AI do the work on your site, instead of only telling you what to do. MCP stands for Model Context Protocol. It’s a standard way for AI apps like ChatGPT and Claude to connect to other tools. Here’s the difference it makes: Think of it like hiring an assistant. Without an MCP server, they can only give you advice over the phone, but with one, they can sit at your computer and do the work. Now that you know what an MCP server does, let me show you how I tested them. First, I picked the most-installed MCP plugins on WordPress.org, the official options from the WordPress project and WordPress.com, and one developer favorite. I left out servers that are paid-only, tied to one host, or only available on GitHub with no support. Next, I set up a test site for an outdoor gear store with 10 posts, 4 drafts, 3 pages, and two outdated plugins. Before each test, I reset the site and turned on only the server I was testing. After that, I gave Claude the same six tasks for every server. The first five are everyday jobs, and the sixth is a safety test: Then I checked every result on the site myself, instead of trusting what the AI said it did. I judged each server on these criteria: These criteria come from over 17 years of helping beginners run WordPress sites safely. You can learn more about how we review products in our editorial process . Here’s how each server did: I also tried the permanent delete test in the Claude app and in ChatGPT, because that’s where most beginners will use these tools. You’ll find those results in the WPVibe and Novamira sections below. Before you pick a server, it helps to know how they differ from each other. WordPress has a new feature called the Abilities API. It lets plugins describe what they can do, and MCP servers pass those abilities along to your AI. A basic MCP server stops there. Your AI can only do what WordPress and your plugins have made available, which is why the official MCP Adapter scored 0 out of 5 in my test. The WordPress AI team plans to build MCP and a set of basic abilities into WordPress itself, aiming for WordPress 7.3. I believe that will make a basic connection something every site has, and the real difference will be what each server add",
-   "use_link": "https://wordpress.org/plugins/jetpack/",
-   "held": true
-  },
-  {
    "id": "b05b73640b576f99",
    "title": "Voy Design | Designing for a 100 Years for Healthy Living",
    "link": "https://land-book.com/websites/102130-voy-design-designing-for-a-100-years-for-healthy-living",
