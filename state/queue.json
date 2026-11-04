@@ -284,7 +284,8 @@
    "published": "2026-11-03T12:45:00+00:00",
    "added": "2026-11-04T13:00:54+00:00",
    "full": "AI is changing how WordPress agencies build websites, find clients, and deliver services. But does faster development actually make for a better agency? On this episode of Agency Action, Matt Medeiros joins Kurt von Ahnen to unpack how the agency business is evolving in the age of AI. From vibe coding and custom development to client relationships, recurring revenue, and the risks of taking on projects outside your expertise, the conversation gets into what it really takes to build a sustainable agency. Kurt explains why client relationships and problem-solving still matter more than the tools you use, why established WordPress products can be a safer foundation than building everything from scratch, and how recurring services can turn one-off website projects into long-term client relationships. Plus, Kurt shares how he used AI to rebuild a website, ditch Elementor, and improve its Google PageSpeed score from the low 70s to 99 after moving to a different host. The pair also discuss connecting AI to WordPress, managing multiple projects without losing the human touch, and the tools making their way into real agency workflows. AI might make building websites faster. But building a successful agency is still about much more than the website. Get your favorite 5 minutes of WordPress news for busy professionals every week — 100% Free! Join the WP Minute Newsletter below 👇",
-   "use_link": ""
+   "use_link": "",
+   "held": true
   },
   {
    "id": "a0651322c06002f9",
@@ -618,6 +619,63 @@
    "age_hours": 34.7,
    "published": "2026-11-02T09:51:00+00:00",
    "added": "2026-11-03T20:30:46+00:00"
+  },
+  {
+   "id": "4af67cc692abf13a",
+   "title": "WordPress 7.1.4",
+   "link": "https://wordpress.org/news/2026/10/wordpress-7-1-4",
+   "desc": "This security release features fixes for multiple issues. Because this is a security release, it is recommended that you update your sites immediately. You can download WordPress 7.1.4 from WordPress.org, or visit your WordPress Dashboard, click “Updates”, and then click “Update Now”. If you have sites that support automatic background updates, the update process will […]",
+   "source": "وردپرس",
+   "lang": "en",
+   "tier": 1,
+   "group": "",
+   "kind": "news",
+   "age_hours": 164.8,
+   "published": "2026-10-28T17:13:02+00:00",
+   "added": "2026-11-04T14:00:48+00:00"
+  },
+  {
+   "id": "7fd9d0fa0fc70999",
+   "title": "#240 – Martin Schmidt on Building Partnerships Between WordPress Product Makers and Hosting Companies",
+   "link": "https://wptavern.com/podcast/240-martin-schmidt-on-building-partnerships-between-wordpress-product-makers-and-hosting-companies",
+   "desc": "The conversation focused on Martin Schmidt’s expertise in connecting WordPress plugin companies with web hosting providers. We discussed was how plugin creators frequently lack marketing strategies after product development. We also explored why partnering with hosts gives access to large customer bases and effective marketing channels. Martin also had advice on starting with smaller hosts, pitching clear value propositions, and preparing for outreach.",
+   "source": "تاورن",
+   "lang": "en",
+   "tier": 2,
+   "group": "",
+   "kind": "news",
+   "age_hours": 1.0,
+   "published": "2026-11-04T13:00:00+00:00",
+   "added": "2026-11-04T14:00:49+00:00"
+  },
+  {
+   "id": "cbd8445c9de86b7d",
+   "title": "A Spark Of Color In November’s Gray (2026 Wallpapers Edition)",
+   "link": "https://smashingmagazine.com/2026/10/desktop-wallpaper-calendars-november-2026",
+   "desc": "Let’s kick of November with a new collection of desktop wallpapers! Designed by creatives from across the globe, the wallpapers come in a variety of screen resolutions and can be downloaded for free. Enjoy!",
+   "source": "اسمشینگ",
+   "lang": "en",
+   "tier": 3,
+   "group": "",
+   "kind": "news",
+   "age_hours": 102.0,
+   "published": "2026-10-31T08:00:00+00:00",
+   "added": "2026-11-04T14:00:50+00:00",
+   "channel_skip": true
+  },
+  {
+   "id": "4a8fa29522844c57",
+   "title": "WordPress MCP: What It Is and How to Set It Up (2026)",
+   "link": "https://wpshout.com/wordpress-mcp",
+   "desc": "What is WordPress MCP, which of its routes fits your site and AI app, what does each cost, and how do you set one up with a read-only token?",
+   "source": "دبلیوپی‌شوت",
+   "lang": "en",
+   "tier": 3,
+   "group": "",
+   "kind": "news",
+   "age_hours": 149.0,
+   "published": "2026-10-29T09:00:00+00:00",
+   "added": "2026-11-04T14:00:55+00:00"
   }
  ]
 }
