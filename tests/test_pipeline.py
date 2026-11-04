@@ -728,6 +728,24 @@ check(
     ),
     False,
 )
+# سیزدهم آبان یک اطلاعیهٔ CISA دربارهٔ وردپرس دو بار پست شد، سه ثانیه
+# فاصله. دو تیتر واژه‌هایشان یکی نبود، ولی مرجعشان یکی بود.
+check(
+    "داستان: دو تیتر با مرجع CISA یکی است",
+    radar.same_story(
+        {"title": "CISA flags WordPress RCE flaw as actively exploited in attacks"},
+        {"title": "CISA Confirms Hackers Exploiting WordPress Core Flaw During Software Upgrades"},
+    ),
+    True,
+)
+check(
+    "داستان: دو CVE مختلف یکی نیست",
+    radar.same_story(
+        {"title": "CVE-2026-1111 hits LiteSpeed Cache"},
+        {"title": "CVE-2026-2222 hits Rank Math"},
+    ),
+    False,
+)
 
 # ---------------------------------------------------------------- یک CVE
 # یک حفره با چند مقاله و چند تیتر، هنوز یک حفره است.

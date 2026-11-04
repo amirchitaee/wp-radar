@@ -536,6 +536,18 @@ def story_sig(title):
     return words, ents, vers
 
 
+ADVISORY_REFS = ("cisa", "nvd", "kev")
+CVE_RE = re.compile(r"cve-\d{4}-\d{4,}", re.I)
+
+
+def _advisory_refs(title):
+    """مرجع‌هایی که دو تیتر را به یک اطلاعیه وصل می‌کند."""
+    low = str(title or "").lower()
+    refs = {w for w in ADVISORY_REFS if re.search(r"\b" + w + r"\b", low)}
+    refs |= {m.group(0) for m in CVE_RE.finditer(low)}
+    return refs
+
+
 def same_story(a, b):
     """دو آیتم یک داستان‌اند؟ واژه + نام خاص + شمارهٔ نسخه.
 
@@ -585,6 +597,13 @@ def same_story(a, b):
     # یکی است. شکایت نیویورک‌تایمز از بریو دو بار پست شد چون تشابه
     # واژگانی‌اش چهل و یک درصد بود و از آستانهٔ قبلی جا می‌ماند.
     if len((ea & eb) - GENERIC_ENTS) >= 2 and len(wa & wb) >= 4:
+        return True
+
+    # ۷. مرجع امنیتی مشترک. «سیسا» یا یک شمارهٔ CVE در هر دو تیتر یعنی
+    # همان اطلاعیه و دو نشریه فقط بازنویسی‌اش کرده‌اند. سیزدهم آبان یک
+    # خبر CISA دربارهٔ وردپرس دو بار پست شد، سه ثانیه فاصله، چون
+    # واژه‌های دو تیتر یکی نبود.
+    if (_advisory_refs(a.get("title", "")) & _advisory_refs(b.get("title", ""))) and len(wa & wb) >= 3:
         return True
 
     return False
