@@ -2246,9 +2246,7 @@ NON_NEWS_RE = re.compile(
 # قانون «وردپرس اول» سر صف می‌نشست، در حالی که هیچ اتفاق تازه‌ای را
 # گزارش نمی‌کند. آدرس هم بررسی می‌شود، چون تیتر همیشه واژه را ندارد.
 PODCAST_RE = re.compile(
-    r"/podcasts?/|\bpodcasts?\b|\bwebinars?\b|^#\d+\s*[\u2010-\u2015-]|"
-    r"\b(?:on|in) this episode\b|\bthis episode of\b|\bepisode\s+\d+\b",
-    re.I,
+    r"/podcasts?/|\bpodcasts?\b|\bwebinars?\b|^#\d+\s*[\u2010-\u2015-]", re.I
 )
 
 # برچسب مجاز هر دسته. مدل اجازه ندارد از این فهرست بیرون بزند.
@@ -3572,10 +3570,10 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
                 continue
             # پادکست و وبینار اتفاق تازه‌ای را گزارش نمی‌کنند. بعد از
             # قانون «وردپرس اول» اینها بالای صف می‌نشستند و جای خبر
-            # واقعی را می‌گرفتند. خلاصه هم بررسی می‌شود، چون بعضی سایت‌ها
-            # قسمت پادکست را زیر تیتر خبری منتشر می‌کنند و تیتر هیچ
-            # نشانی از پادکست ندارد.
-            if kind == "news" and PODCAST_RE.search(blob + " " + (x.get("desc") or "")):
+            # واقعی را می‌گرفتند. فقط تیتر و آدرس بررسی می‌شود، نه خلاصه:
+            # مقاله‌ای که در خلاصه‌اش «این قسمت» دارد ممکن است خبر
+            # واقعی داشته باشد و نباید دور ریخته شود.
+            if kind == "news" and PODCAST_RE.search(blob):
                 x["channel_skip"] = True
                 skipped += 1
                 continue

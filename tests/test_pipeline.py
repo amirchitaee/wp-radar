@@ -981,11 +981,11 @@ check("اولویت: تیتر شماره‌دار پادکست هم گرفته �
       bool(radar.PODCAST_RE.search("#240 – Martin Schmidt on Partnerships")), True)
 check("اولویت: خبر عادی با قاعدهٔ پادکست گرفته نمی‌شود",
       bool(radar.PODCAST_RE.search("WordPress 7.2 beta 4 is out")), False)
-# بعضی سایت‌ها قسمت پادکست را زیر تیتر خبری منتشر می‌کنند. تیتر و آدرس
-# هیچ نشانی ندارند و فقط خلاصه لو می‌دهد.
-check("اولویت: خلاصهٔ «در این قسمت» هم پادکست است",
+# مقاله‌ای که در خلاصه‌اش «این قسمت» دارد ممکن است خبر واقعی باشد.
+# سد پادکست فقط تیتر و آدرس را می‌بیند، نه خلاصه را.
+check("اولویت: خلاصهٔ «در این قسمت» به تنهایی خبر را حذف نمی‌کند",
       bool(radar.PODCAST_RE.search(
-          "On this episode of Agency Action, Matt Medeiros joins Kurt von Ahnen")), True)
+          "On this episode of Agency Action, Matt Medeiros joins Kurt von Ahnen")), False)
 
 # ---------------------------------------------------------------- کف روزانهٔ AI
 # با قانون «وردپرس اول»، خبر گروه ai ته صف می‌رفت و با برش ده‌تایی سبد
