@@ -3456,6 +3456,39 @@ def fetch_full_parallel(chunk, workers=6):
                 it["use_link"] = use_link
 
 
+def ai_floor_promote(rows, s, d):
+    """کف روزانهٔ هوش مصنوعی: حداقل یک پست در روز، حتی با قانون وردپرس اول.
+
+    قانون «وردپرس اول» خبر گروه ai را ته صف می‌برد. با سقف ده آیتم در
+    سبد، ممکن بود هیچ آیتم ai به مدل نرسد و سهم هوش مصنوعی برای همیشه
+    صفر بماند. این تابع بهترین آیتم گروه ai را بعد از اولین آیتم
+    وردپرسی می‌آورد: کانال با وردپرس شروع می‌شود، ولی سهم هوش مصنوعی
+    هم دیده می‌شود. اگر امروز سهمش پر شده باشد، دست نمی‌زند.
+    """
+    floor = int(s.get("ai_floor_per_day", 0) or 0)
+    if floor <= 0 or not rows:
+        return rows
+    done = int((d.get("kinds") or {}).get("ai", 0))
+    held = sum(
+        1
+        for r in read_json(READY, {"items": []}).get("items", [])
+        if (r.get("group") or "") == "ai"
+    )
+    if done + held >= floor:
+        return rows
+    best = None
+    for x in rows:
+        if (x.get("group") or "") == "ai":
+            best = x
+            break
+    if best is None:
+        return rows
+    rest = [x for x in rows if x is not best]
+    at = 1 if rest and wp_first(rest[0]) == WP_RANK_WP else 0
+    log("  ai floor: promoted", (best.get("title") or "")[:50])
+    return rest[:at] + [best] + rest[at:]
+
+
 def model_run(kind, s, st, seen, extra, hard_deadline=None):
     # جمع‌آوری نباید بیشتر از یک‌سوم وقت را ببرد، وگرنه به مدل نمی‌رسیم
     # و همان چیزی می‌شود که یک بار دیدیم: «بودجهٔ مدل تمام شد، صفر ثانیه مانده».
@@ -3556,11 +3589,19 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
     # سقف هر منبع در یک اجرا. دو آموزش از یک وبلاگ پشت سر هم، اسپم است.
     psc = s.get("per_source_cap", 3)
     per_source = int(psc.get(kind, psc.get("default", 3))) if isinstance(psc, dict) else int(psc)
-    pool = cap_per_source(fresh, per_source)[: int(s.get("max_items_per_call", 25))]
+    capped = cap_per_source(fresh, per_source)
 
     d = read_json(DAILY, {"date": today(), "count": 0})
     if d.get("date") != today():
         d = {"date": today(), "count": 0}
+
+    # سهم هوش مصنوعی هم سقف دارد هم کف. کف باید قبل از برش سبد اعمال
+    # شود، وگرنه آیتم گروه ai ته صف می‌ماند و با برش ده‌تایی هیچ‌وقت به
+    # چشم مدل نمی‌رسد.
+    if kind == "news":
+        capped = ai_floor_promote(capped, s, d)
+
+    pool = capped[: int(s.get("max_items_per_call", 25))]
 
     # سهم هوش مصنوعی سقف دارد. کانال قرار است هشتاد درصد وردپرس و طراحی
     # سایت باشد. بی‌سقف، خبر هوش مصنوعی جذاب‌تر است و کم‌کم همهٔ کانال را

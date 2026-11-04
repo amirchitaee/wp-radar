@@ -13,6 +13,7 @@
     ]
   },
   "ai_cap_per_day": 1,
+  "ai_floor_per_day": 1,
   "caps": {
     "news": 6,
     "tools": 1,

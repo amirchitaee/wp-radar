@@ -982,6 +982,35 @@ check("اولویت: تیتر شماره‌دار پادکست هم گرفته �
 check("اولویت: خبر عادی با قاعدهٔ پادکست گرفته نمی‌شود",
       bool(radar.PODCAST_RE.search("WordPress 7.2 beta 4 is out")), False)
 
+# ---------------------------------------------------------------- کف روزانهٔ AI
+# با قانون «وردپرس اول»، خبر گروه ai ته صف می‌رفت و با برش ده‌تایی سبد
+# هیچ‌وقت به مدل نمی‌رسید. کف، آیتم را بعد از اولین وردپرس می‌آورد.
+_real_read_json = radar.read_json
+radar.read_json = lambda path, default=None: (
+    {"items": []} if path == radar.READY else default
+)
+_floor_rows = [
+    {"id": "wp1", "title": "WordPress 7.2 beta is out", "kind": "news",
+     "published": "2026-11-04T08:00:00"},
+    {"id": "wp2", "title": "WooCommerce 10.2 released", "kind": "news",
+     "published": "2026-11-04T07:00:00"},
+    {"id": "ai1", "title": "Nvidia cuts China business", "group": "ai",
+     "kind": "news", "published": "2026-11-04T12:00:00"},
+]
+check("کف AI: آیتم هوش مصنوعی بعد از اولین وردپرس می‌آید",
+      [x["id"] for x in radar.ai_floor_promote(_floor_rows, {"ai_floor_per_day": 1}, {"kinds": {}})],
+      ["wp1", "ai1", "wp2"])
+check("کف AI: سهم امروز رفته، دست نمی‌زند",
+      [x["id"] for x in radar.ai_floor_promote(_floor_rows, {"ai_floor_per_day": 1}, {"kinds": {"ai": 1}})],
+      ["wp1", "wp2", "ai1"])
+check("کف AI: بی‌تنظیم دست نمی‌زند",
+      [x["id"] for x in radar.ai_floor_promote(_floor_rows, {}, {"kinds": {}})],
+      ["wp1", "wp2", "ai1"])
+check("کف AI: آیتم گروه ai در سبد نیست، خطا نمی‌دهد",
+      [x["id"] for x in radar.ai_floor_promote(_floor_rows[:2], {"ai_floor_per_day": 1}, {"kinds": {}})],
+      ["wp1", "wp2"])
+radar.read_json = _real_read_json
+
 # ---------------------------------------------------------------- خط نسخه
 # «نسخهٔ ۷.۱.۴» و «بتای ۲» آخر کادر می‌ماندند و نکته نبودند.
 check("جزئیات: خط فقط-نسخه حذف می‌شود",
