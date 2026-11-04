@@ -347,6 +347,24 @@
     "7.2"
    ],
    "cves": []
+  },
+  {
+   "t": "2026-11-04T07:00:43+00:00",
+   "title": "Discover Maxima Plugins: A Catalogue of WooCommerce Extensions Built for the Block Checkout",
+   "kind": "news",
+   "link": "https://wpmayor.com/discover-maxima-plugins-woocommerce",
+   "ents": [
+    "block",
+    "catalogue",
+    "checkout",
+    "discover",
+    "extensions",
+    "maxima",
+    "plugins",
+    "woocommerce"
+   ],
+   "vers": [],
+   "cves": []
   }
  ]
 }
