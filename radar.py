@@ -1059,6 +1059,10 @@ def max_age_for(kind, s=None):
     s = s if isinstance(s, dict) else settings()
     if kind == "security":
         return float(s.get("security_max_age_h", 24) or 24)
+    if kind == "showcase":
+        # نمایشگاه الهام طراحی است، نه خبر. عمرش با سقف انبارش هم‌تراز
+        # است: شش آیتم، روزی یکی، یعنی شش روز.
+        return float(s.get("showcase_max_age_h", 168) or 168)
     return 96.0 if kind in ("tools", "offers") else 48.0
 
 
@@ -2606,6 +2610,11 @@ def meta_fragment(text):
         for w in re.findall(r"[\u0600-\u06FF\u200c]+", s)
         if len(w) > 1 and not re.fullmatch(r"[۰-۹]+", w)
     ]
+    # خطی که هیچ فارسی ندارد، نام محصول و نسخه است؛ متای آپدیت افزونه
+    # همین است و باید بماند. سخت‌گیری فقط وقتی است که فارسی دارد و آن
+    # فارسی چیزِ معناداری نمی‌گوید.
+    if not fa_words:
+        return False
     return not [w for w in fa_words if w not in META_STOP]
 
 

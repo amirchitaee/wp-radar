@@ -117,10 +117,10 @@
   "tools_every_min": 300,
   "offers_every_min": 240,
   "model_max_tokens": 3000,
-  "ai_intake_per_day": 10,
+  "ai_intake_per_day": 3,
   "backlog_cap": {
     "news": 120,
-    "tools": 8,
+    "tools": 4,
     "showcase": 6,
     "security": 20
   },
@@ -129,5 +129,6 @@
     "tools": 3,
     "showcase": 2
   },
-  "news_keep_h": 72
+  "news_keep_h": 48,
+  "showcase_max_age_h": 168
 }

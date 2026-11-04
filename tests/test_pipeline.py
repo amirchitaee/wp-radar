@@ -397,6 +397,9 @@ check("جمع‌آوری: دست‌کم یک منبع خوانده می‌شود
 check("سد سن: خبر ۴۸ ساعت", radar.max_age_for("news"), 48.0)
 check("سد سن: ابزار ۹۶ ساعت", radar.max_age_for("tools"), 96.0)
 check("سد سن: امنیت ۲۴ ساعت", radar.max_age_for("security"), 24.0)
+# نمایشگاه الهام طراحی است و با سقف انبار شش‌تایی و انتشار روزی یکی،
+# شش روز عمر لازم دارد.
+check("سد سن: نمایشگاه ۱۶۸ ساعت", radar.max_age_for("showcase"), 168.0)
 _prev_load, _prev_fetch = radar.load_sources, radar.fetch_source
 radar.load_sources = lambda kind: [{"name": "s", "url": "u", "lang": "en", "tier": 1}]
 radar.fetch_source = lambda src, st: [
@@ -1085,6 +1088,11 @@ check("جزئیات: همان خط با علامت ایزوله هم حذف می
       radar.meta_fragment("\u2066PageSpeed\u2069 ۷۰ به ۹۹"), True)
 check("جزئیات: متای نسخه دست نمی‌خورد",
       radar.meta_fragment("از ۴.۳.۵ به ۴.۳.۶"), False)
+# متای آپدیت افزونه اسم محصول و نسخه است و فارسی ندارد. سد نباید بخوردش.
+check("جزئیات: متای آپدیت افزونه با نام محصول می‌ماند",
+      radar.meta_fragment("LiteSpeed Cache 7.9.3"), False)
+check("جزئیات: متای نسخهٔ المنتور می‌ماند",
+      radar.meta_fragment("Elementor 4.3.6"), False)
 check("جزئیات: متای قیمت دست نمی‌خورد",
       radar.meta_fragment("قیمت ۴۹ دلار در ماه"), False)
 check("جزئیات: خط ترکیبی فارسی و لاتین دست نمی‌خورد",
