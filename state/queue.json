@@ -678,6 +678,22 @@
    "age_hours": 149.0,
    "published": "2026-10-29T09:00:00+00:00",
    "added": "2026-11-04T14:00:55+00:00"
+  },
+  {
+   "id": "84ecd190588d2ef1",
+   "title": "Smashing AI Conference",
+   "link": "https://css-tricks.com/smashing-ai-conference",
+   "desc": "The AI 2027 Conference is a live online day for designers and engineers on where AI stands today, what to expect in 2027, and where teams are getting it right. Smashing AI Conference originally handwritten and published with love on CSS-Tricks . You should really get the newsletter as well.",
+   "source": "سی‌اس‌اس تریکس",
+   "lang": "en",
+   "tier": 3,
+   "group": "",
+   "kind": "news",
+   "age_hours": 1.0,
+   "published": "2026-11-04T15:02:51+00:00",
+   "added": "2026-11-04T16:00:49+00:00",
+   "full": "NVIDIA L4 GPUs. 5-second cold starts. Scale to zero when idle. I know there’s a lot of AI fatigue out there. I feel it, too. Most of that though is more about the noise surrounding both sides of the hype spectrum. What’s covered way less is context for where it fits best in a development workflow and what sorts of practical uses it might have to benefit — not destroy — our work. That’s why I’m stoked to check out Smashing’s AI conference on December 1. We all know Smashing. The good folks over there check the hype luggage at the door and give these sorts of landscape-changing things careful and thoughtful consideration. All their events, not to mention their articles , are that way and always have been. The best, really. And what makes those events the best is bringing in the best-of-the-best people to share what they’ve learned about it. In this case we’re talking about a live online event specifically about AI in design systems from some of my personal favorite people, like Brad Frost , Christine Vallaure , Vitaly Friedman , and TJ Pitre . We’re talking about people who know their craft and the experience to show (not just tell) how it translates to what we do for work, whether you’re a designer, front-ender, or even a stakeholder in the design process. So, please join me in checking it out. Cost is €50. They’re actually giving us here at CSS-Tricks a special discount using code AITRICKSCSS when you register for the event . Even better, they gave me two free tickets I’ll give to the first two commenters on this post. Just make sure you use your real email address when signing in to comment!",
+   "use_link": ""
   }
  ]
 }
