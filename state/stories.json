@@ -337,6 +337,55 @@
    ],
    "vers": [],
    "cves": []
+  },
+  {
+   "t": "2026-11-04T13:22:45+00:00",
+   "title": "LiteSpeed Cache 7.9.3",
+   "kind": "news",
+   "link": "https://wordpress.org/plugins/litespeed-cache/",
+   "ents": [
+    "cache",
+    "litespeed"
+   ],
+   "vers": [
+    "7.9.3"
+   ],
+   "cves": []
+  },
+  {
+   "t": "2026-11-04T13:25:55+00:00",
+   "title": "CISA flags WordPress RCE flaw as actively exploited in attacks",
+   "kind": "news",
+   "link": "https://www.bleepingcomputer.com/news/security/cisa-flags-wordpress-rce-flaw-as-actively-exploited-in-attacks",
+   "ents": [
+    "cisa",
+    "rce",
+    "wordpress"
+   ],
+   "vers": [],
+   "cves": []
+  },
+  {
+   "t": "2026-11-04T13:25:57+00:00",
+   "title": "CISA Confirms Hackers Exploiting WordPress Core Flaw During Software Upgrades",
+   "kind": "news",
+   "link": "https://thehackernews.com/2026/11/cisa-confirms-hackers-exploiting.html",
+   "ents": [
+    "cisa",
+    "confirms",
+    "core",
+    "during",
+    "exploiting",
+    "flaw",
+    "hackers",
+    "software",
+    "upgrades",
+    "wordpress"
+   ],
+   "vers": [],
+   "cves": [
+    "CVE-2026-119977"
+   ]
   }
  ]
 }
