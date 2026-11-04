@@ -3141,6 +3141,80 @@
    "age_hours": 166.2,
    "published": "2026-10-28T06:18:07-07:00",
    "added": "2026-11-04T11:30:38+00:00"
+  },
+  {
+   "id": "2cf375fa6a2ad4b0",
+   "title": "LiteSpeed Cache 7.9.3",
+   "link": "https://wordpress.org/plugins/litespeed-cache/",
+   "desc": "نسخهٔ 7.9.3 از LiteSpeed Cache منتشر شد. تغییرات این نسخه: Object Cache Fixed repeated database queries when Memcached rejects oversized alloptions values. (Peter Wells #1076) | Core Moved uninstall handling to uninstall.php to avoid unnecessary option reads on normal requests. (Contributolo PR#1078) | Purge Added the litespeed_purged action for public purge tag additions. (Contributolo PR#1072) | Page Optimize Prioritized the front page in CCSS, UCSS, VPI and OptiMax queues and corrected queue capacity handling. (Faisal Ahammad PR#1064) | Guest Mode Fixed PHP 8.5 deprecation warnings in CIDR checks. (deltafactory PR#1080) | Conf Fixed WooCommerce option warnings with shared multisite settings. (lhero-org #1077, dassels43) | Page Optimize Kept CSS/JS optimization on pages with a very large inline style or script block that previously exceeded the PCRE limit and skipped optimization. (ventio, PR#1081) | Crawler Limited automatic HTTP fallback to connection failures during the Server IP HTTPS test. (unsetfocus #1074) | Core Fixed constant rewrites of the shared static folder .htaccess on subdirectory multisite. (#869638)",
+   "source": "آپدیت افزونه",
+   "lang": "en",
+   "tier": 1,
+   "group": "wp",
+   "kind": "news",
+   "age_hours": 0.0,
+   "published": "2026-11-04T13:00:58+00:00",
+   "added": "2026-11-04T13:00:58+00:00",
+   "plugin": {
+    "name": "LiteSpeed Cache",
+    "version": "7.9.3",
+    "prev": "7.9.2",
+    "installs": 7000000,
+    "updated": "2026-11-03"
+   },
+   "plugin_update": {
+    "name": "LiteSpeed Cache",
+    "slug": "litespeed-cache",
+    "version": "7.9.3",
+    "prev": "7.9.2",
+    "date": "7.9.3 – Nov 3 2026",
+    "changes": [
+     "Object Cache Fixed repeated database queries when Memcached rejects oversized alloptions values. (Peter Wells #1076)",
+     "Core Moved uninstall handling to uninstall.php to avoid unnecessary option reads on normal requests. (Contributolo PR#1078)",
+     "Purge Added the litespeed_purged action for public purge tag additions. (Contributolo PR#1072)",
+     "Page Optimize Prioritized the front page in CCSS, UCSS, VPI and OptiMax queues and corrected queue capacity handling. (Faisal Ahammad PR#1064)",
+     "Guest Mode Fixed PHP 8.5 deprecation warnings in CIDR checks. (deltafactory PR#1080)",
+     "Conf Fixed WooCommerce option warnings with shared multisite settings. (lhero-org #1077, dassels43)",
+     "Page Optimize Kept CSS/JS optimization on pages with a very large inline style or script block that previously exceeded the PCRE limit and skipped optimization. (ventio, PR#1081)",
+     "Crawler Limited automatic HTTP fallback to connection failures during the Server IP HTTPS test. (unsetfocus #1074)",
+     "Core Fixed constant rewrites of the shared static folder .htaccess on subdirectory multisite. (#869638)"
+    ],
+    "vuln": false,
+    "hardening": false
+   },
+   "full": "LiteSpeed Cache for WordPress (LSCWP) is an all-in-one site acceleration plugin, featuring an exclusive server-level cache and a collection of optimization features. LSCWP supports WordPress Multisite and is compatible with most popular plugins, including WooCommerce, bbPress, and Yoast SEO. LiteSpeed Cache for WordPress is compatible with ClassicPress. General Features may be used by anyone with any web server (LiteSpeed, Apache, NGINX, etc.). LiteSpeed Exclusive Features require one of the following: OpenLiteSpeed, commercial LiteSpeed products, LiteSpeed-powered hosting, or QUIC.cloud CDN. Why? + This service is not provided by the LSCache plugin, nor is it guaranteed to be installed by your service provider. However, the plugin is compatible with the service if it is in use on your site. * Feature not available in OpenLiteSpeed The vast majority of plugins and themes are compatible with LSCache. Our API is available for those that are not. Use the API to customize smart purging, customize cache rules, create cache varies, and make WP nonce cacheable, among other things. This plugin includes some suggested text that you can add to your site’s Privacy Policy via the Guide in the WordPress Privacy settings. For your own information: LiteSpeed Cache for WordPress potentially stores a duplicate copy of every web page on display on your site. The pages are stored locally on the system where LiteSpeed server software is installed and are not transferred to or accessed by LiteSpeed employees in any way, except as necessary in providing routine technical support if you request it. All cache files are temporary, and may easily be purged before their natural expiration, if necessary, via a Purge All command. It is up to individual site administrators to come up with their own cache expiration rules. In addition to caching, our WordPress plugin has online features provided by QUIC.cloud for Image Optimization and Page Optimization services. When one of these optimizations is requested, data is transmitted to a remote QUIC.cloud server, processed, and then transmitted back for use on your site. QUIC.cloud keeps copies of that data for up to 7 days and then permanently deletes it. Similarly, the WordPress plugin has a Reporting feature whereby a site owner can transmit an environment report to LiteSpeed so that we may better provide technical support. None of these features collects any visitor data. Only server and site data are involved. QUIC.cloud CDN, if enabled, uses LSCache technology to access your site, and serve your content from remote global nodes. Your data is not accessed by QUIC.cloud employees in any way, except as necessary in providing maintenance or technical support. Please see the QUIC.cloud Privacy Policy for our complete Privacy/GDPR statement. Plugin Benchmarks Admin – Dashboard Admin – Image Optimization Admin – Crawler Admin Settings – Cache Admin Settings – Page Optimization Admin Settings – CDN Admin Settings – DB Optimizer Admin Settings – Toolbox Cache Miss Example Cache Hit Example Show all 11 screenshots Installation View detailed documentation . This plugin communicates with your LiteSpeed Web Server and its built-in pag",
+   "use_link": "https://github.com/litespeedtech/lscache_wp",
+   "held": true
+  },
+  {
+   "id": "dc406490928899ea",
+   "title": "Is AI Helping or Hurting WordPress Agencies?",
+   "link": "https://thewpminute.com/is-ai-helping-or-hurting-wordpress-agencies",
+   "desc": "AI is changing how WordPress agencies build websites, find clients, and deliver services. But does faster development actually make for a better agency? On this episode of Agency Action, Matt Medeiros joins Kurt von Ahnen to unpack how the agency...",
+   "source": "دبلیوپی مینت",
+   "lang": "en",
+   "tier": 2,
+   "group": "",
+   "kind": "news",
+   "age_hours": 24.3,
+   "published": "2026-11-03T12:45:00+00:00",
+   "added": "2026-11-04T13:00:54+00:00",
+   "full": "AI is changing how WordPress agencies build websites, find clients, and deliver services. But does faster development actually make for a better agency? On this episode of Agency Action, Matt Medeiros joins Kurt von Ahnen to unpack how the agency business is evolving in the age of AI. From vibe coding and custom development to client relationships, recurring revenue, and the risks of taking on projects outside your expertise, the conversation gets into what it really takes to build a sustainable agency. Kurt explains why client relationships and problem-solving still matter more than the tools you use, why established WordPress products can be a safer foundation than building everything from scratch, and how recurring services can turn one-off website projects into long-term client relationships. Plus, Kurt shares how he used AI to rebuild a website, ditch Elementor, and improve its Google PageSpeed score from the low 70s to 99 after moving to a different host. The pair also discuss connecting AI to WordPress, managing multiple projects without losing the human touch, and the tools making their way into real agency workflows. AI might make building websites faster. But building a successful agency is still about much more than the website. Get your favorite 5 minutes of WordPress news for busy professionals every week — 100% Free! Join the WP Minute Newsletter below 👇",
+   "use_link": ""
+  },
+  {
+   "id": "cd1861305522a9a9",
+   "title": "Is AI Making WordPress Irrelevant?",
+   "link": "https://thewpminute.com/is-ai-making-wordpress-irrelevant",
+   "desc": "What happens when AI can build a website in minutes and WordPress is no longer the obvious choice? In this episode of The WP Minute, Matt Medeiros talks with Nathan Tyler, co-founder of Simply Schedule Appointments, about why he moved...",
+   "source": "دبلیوپی مینت",
+   "lang": "en",
+   "tier": 2,
+   "group": "",
+   "kind": "news",
+   "age_hours": 48.3,
+   "published": "2026-11-02T12:45:00+00:00",
+   "added": "2026-11-04T13:00:54+00:00"
   }
  ]
 }
