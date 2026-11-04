@@ -519,6 +519,50 @@
    "added": "2026-11-04T18:00:51+00:00",
    "posted": true,
    "msg_id": 95
+  },
+  {
+   "id": "abee0c5b836f36e8",
+   "title": "WooCommerce 11.2.2",
+   "link": "https://wordpress.org/plugins/woocommerce/",
+   "desc": "نسخهٔ 11.2.2 از WooCommerce منتشر شد. تغییرات این نسخه: Fix – Ensure PayPal Standard shipping updates correctly update shipping and tax amounts #70653 | Fix – Improve handling of unexpected payment settings profile data. #70642 | Fix – Improve validation of the column mapping used by the product CSV importer. #70646 | Fix – Keep custom default attribute values intact when a global attribute term slug is renamed. #70641 | Fix – Require a logged-in admin browser session for the Jetpack connection endpoints used during onboarding. #70656 | Fix – Restrict REST API key authentication to REST API requests. #70649 | Fix – Start each Store API checkout request with its own order and payment data. #70637 | Fix – Stop checkout from continuing to payment when the order could not be saved, and reject phone numbers over 100 characters. #70639 | Fix – Use a chosen shipping method only when its rate was calculated for the cart. #70648",
+   "source": "آپدیت افزونه",
+   "lang": "en",
+   "tier": 1,
+   "group": "wp",
+   "kind": "news",
+   "age_hours": 0.0,
+   "published": "2026-11-04T22:00:56+00:00",
+   "added": "2026-11-04T22:00:56+00:00",
+   "plugin": {
+    "name": "WooCommerce",
+    "version": "11.2.2",
+    "prev": "11.2.1",
+    "installs": 7000000,
+    "updated": "2026-11-04"
+   },
+   "plugin_update": {
+    "name": "WooCommerce",
+    "slug": "woocommerce",
+    "version": "11.2.2",
+    "prev": "11.2.1",
+    "date": "11.2.2 2026-11-04",
+    "changes": [
+     "Fix – Ensure PayPal Standard shipping updates correctly update shipping and tax amounts #70653",
+     "Fix – Improve handling of unexpected payment settings profile data. #70642",
+     "Fix – Improve validation of the column mapping used by the product CSV importer. #70646",
+     "Fix – Keep custom default attribute values intact when a global attribute term slug is renamed. #70641",
+     "Fix – Require a logged-in admin browser session for the Jetpack connection endpoints used during onboarding. #70656",
+     "Fix – Restrict REST API key authentication to REST API requests. #70649",
+     "Fix – Start each Store API checkout request with its own order and payment data. #70637",
+     "Fix – Stop checkout from continuing to payment when the order could not be saved, and reject phone numbers over 100 characters. #70639",
+     "Fix – Use a chosen shipping method only when its rate was calculated for the cart. #70648"
+    ],
+    "vuln": false,
+    "hardening": false
+   },
+   "full": "WooCommerce is the open-source ecommerce platform for WordPress. Our core platform is free, flexible, and amplified by a global community. The freedom of open-source means you retain full ownership of your store’s content and data forever. Whether you’re launching a business, taking brick-and-mortar retail online, or developing sites for clients, use WooCommerce for a store that powerfully blends content and commerce. Built-in tools and popular integrations help you efficiently manage your business operations. Many services are free to add with a single click via the optional Setup Wizard . WooCommerce means business. Keep tabs on the performance metrics most important to you with a powerful and flexible central dashboard built into WooCommerce. Expand your audience across marketing and social channels with Google Ads , HubSpot , Mailchimp , and Facebook integrations. You can always check out the in-dashboard Marketing Hub for fresh ideas and tips to help you succeed. Enhance store functionality with hundreds of free and paid extensions from the WooCommerce Marketplace . Our developers vet each new extension and regularly review existing extensions to maintain Marketplace quality standards. We are actively looking for products that help store builders create successful stores . Manage your store from anywhere with the free WooCommerce mobile app (Android and iOS). Spoiler alert: Keep an ear out for the slightly addictive “cha-ching” notification sound each time you make a new sale! With WooCommerce , your data belongs to you. Always. If you opt to share usage data with us, you can feel confident knowing that it’s anonymized and kept secure. Choose to opt-out at any time without impacting your store. Unlike hosted ecommerce solutions, WooCommerce store data is future-proof; you’re free to export all your content and take your site to any platform you choose. No restrictions. Developers can use WooCommerce to create, customize, and scale a store to meet a client’s exact specifications, making enhancements through extensions or custom solutions. The core platform is tested rigorously and often, supported by a dedicated development team working across time zones. Comprehensive documentation is updated with each release, empowering you to build exactly the store required. WooCommerce has a large, passionate community dedicated to helping merchants succeed – and it’s growing fast. There are WooCommerce Meetups in locations around the world that you can attend for free and even get involved in running. These events are a great way to learn from others, share your expertise, and connect with like-minded folks. WooCommerce also has a regular presence at WordCamps across the globe – we’d love to meet you. WooCommerce is developed and supported by Automattic, the creators of WordPress.com and Jetpack. We also have hundreds of independent contributors, and there’s always room for more. Head to the WooCommerce GitHub Repository to find out how you can pitch in. WooCommerce is translated into multiple languages, including Danish, Ukrainian, and Persian. Help localize WooCommerce even further by adding your locale – visit translate.wordpress.org . You can c",
+   "use_link": "",
+   "held": true
   }
  ]
 }
