@@ -386,6 +386,22 @@
    "cves": [
     "CVE-2026-119977"
    ]
+  },
+  {
+   "t": "2026-11-04T14:45:28+00:00",
+   "title": "Is AI Helping or Hurting WordPress Agencies?",
+   "kind": "news",
+   "link": "https://thewpminute.com/is-ai-helping-or-hurting-wordpress-agencies",
+   "ents": [
+    "agencies",
+    "ai",
+    "helping",
+    "hurting",
+    "is",
+    "wordpress"
+   ],
+   "vers": [],
+   "cves": []
   }
  ]
 }
