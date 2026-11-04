@@ -333,6 +333,20 @@
    ],
    "vers": [],
    "cves": []
+  },
+  {
+   "t": "2026-11-04T05:45:26+00:00",
+   "title": "WordPress 7.2 Beta 4",
+   "kind": "news",
+   "link": "https://wordpress.org/news/2026/11/wordpress-7-2-beta-4",
+   "ents": [
+    "beta",
+    "wordpress"
+   ],
+   "vers": [
+    "7.2"
+   ],
+   "cves": []
   }
  ]
 }
