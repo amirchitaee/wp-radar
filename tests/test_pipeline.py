@@ -37,20 +37,25 @@ def check(label, got, want):
 # باید بروند؛ وگرنه یک خبر تا چند روز در دستهٔ ابزار می‌ماند و آن‌جا
 # به‌خاطر «ابزار نبودن» رد می‌شود. این تست باید قبل از هر جای‌گزینی
 # load_sources بیاید.
-_qsave = radar.QUEUE.read_text(encoding="utf-8") if radar.QUEUE.exists() else "{}"
-radar.QUEUE.write_text(
-    json.dumps({"v": 1, "items": [{
+# صف واقعی دست نمی‌خورد. تست روی یک فایل موقت می‌نویسد؛ اگر وسط کار
+# خطایی رخ دهد، صف تولیدی سالم می‌ماند.
+_qbox = Path(tempfile.mkdtemp())
+_qreal = radar.QUEUE
+radar.QUEUE = _qbox / "queue.json"
+radar.write_json(
+    radar.QUEUE,
+    {"v": 1, "items": [{
         "id": "m1", "title": "t", "link": "https://example.com/x", "desc": "",
         "source": "وردپرس", "kind": "tools", "added": radar.now().isoformat(timespec="seconds"),
-    }]}, ensure_ascii=False),
-    encoding="utf-8",
+    }]},
 )
 _was_dry = radar.DRY
 radar.DRY = False
 _q, _ = radar.queue_merge([], {"queue_days": 7})
 radar.DRY = _was_dry
 check("دسته: آیتم فید جابه‌جاشده دنبال فید می‌رود", _q["items"][0]["kind"], "news")
-radar.QUEUE.write_text(_qsave, encoding="utf-8")
+radar.QUEUE = _qreal
+check("تست: صف واقعی جای خودش برگشت", radar.QUEUE, _qreal)
 
 # ---------------------------------------------------------------- نگهبان
 tmp = Path(tempfile.mkdtemp()) / "last_start.json"
@@ -250,7 +255,7 @@ radar.send = lambda text: sent.append(text)
 radar.link_alive = lambda link: True
 radar.archive_row = lambda *a, **k: None
 _real_is_recent_story = radar.is_recent_story
-radar.is_recent_story = lambda store, it: False
+radar.is_recent_story = lambda store, it, ignore_id="": False
 radar.load_sources = lambda kind: [{"name": "آزمون", "url": "x", "lang": "en", "tier": 1}]
 radar.call_models = lambda sysp, prompt, **kw: {"items": []}
 
@@ -416,17 +421,18 @@ check("سد سن: آیتم بی‌تاریخ با تاریخ ورود سنجید
       radar.queue_age({"added": radar.now().isoformat()}) < 1, True)
 
 # همان سد در ادغام صف هم هست: آیتم کهنه‌ای که از قبل مانده بیرون می‌رود.
-_qsave2 = radar.QUEUE.read_text(encoding="utf-8")
-radar.QUEUE.write_text(
-    json.dumps({"v": 1, "items": [
+_qbox2 = Path(tempfile.mkdtemp())
+radar.QUEUE = _qbox2 / "queue.json"
+radar.write_json(
+    radar.QUEUE,
+    {"v": 1, "items": [
         {"id": "o1", "title": "t", "link": "l1", "source": "وردپرس", "kind": "news",
          "published": (radar.now() - timedelta(hours=70)).isoformat(),
          "added": radar.now().isoformat()},
         {"id": "f1", "title": "t2", "link": "l2", "source": "وردپرس", "kind": "news",
          "published": (radar.now() - timedelta(hours=2)).isoformat(),
          "added": radar.now().isoformat()},
-    ]}, ensure_ascii=False),
-    encoding="utf-8",
+    ]},
 )
 _was_dry2 = radar.DRY
 radar.DRY = False
@@ -434,7 +440,7 @@ _q2, _ = radar.queue_merge([], {"queue_days": 7})
 radar.DRY = _was_dry2
 check("سد سن: آیتم کهنه در ادغام صف بیرون می‌رود",
       [x["id"] for x in _q2["items"]], ["f1"])
-radar.QUEUE.write_text(_qsave2, encoding="utf-8")
+radar.QUEUE = _qreal
 
 # ---------------------------------------------------------------- باگ‌های ۱۰ آبان
 # «WooCommerce» کلمهٔ RCE را در خود دارد. نباید هشدار امنیتی بسازد.
@@ -885,6 +891,50 @@ check("انتشار: انبار نگه‌داشته خالی شد",
       radar.read_json(radar.READY, {"items": []})["items"], [])
 check("انتشار: پست در کانال ثبت شد", sent[-1] if sent else None, "<b>متن آزمون</b>")
 
+# ---------------------------------------------------------------- سوراخ تکرار
+# پستی که نگه داشته می‌شود هم باید در انبار داستان‌ها ثبت شود، وگرنه اجرای
+# بعد همان خبر را دوباره می‌سازد و دو نسخه در صف نگه‌داری می‌نشیند.
+# بخش‌های بالاتر این تابع را با یک بدل خنثی کرده‌اند تا آزمون‌هایشان به
+# انبار داستان وابسته نباشد؛ این‌جا نسخهٔ واقعی لازم است.
+_stub_recent = radar.is_recent_story
+radar.is_recent_story = _real_is_recent_story
+
+_st_one = {"items": []}
+radar.add_story(_st_one, {"id": "s1", "title": "WordPress 7.2 released", "kind": "news"})
+radar.add_story(_st_one, {"id": "s1", "title": "WordPress 7.2 released", "kind": "news"})
+check("داستان: همان شناسه دو بار ثبت نمی‌شود", len(_st_one["items"]), 1)
+check("داستان: شناسه در رکورد می‌ماند", _st_one["items"][0].get("id"), "s1")
+
+_st_two = {"items": [{"t": radar.now().isoformat(timespec="seconds"), "id": "s2",
+                      "title": "WordPress 7.2 released", "kind": "news"}]}
+check("داستان: رکورد خودِ پست تکراری حساب نمی‌شود",
+      radar.is_recent_story(_st_two, {"id": "s2", "title": "WordPress 7.2 released",
+                                      "kind": "news"}, ignore_id="s2"), False)
+check("داستان: نسخهٔ دیگر همان خبر گرفته می‌شود",
+      radar.is_recent_story(_st_two, {"id": "other", "title": "WordPress 7.2 released",
+                                      "kind": "news"}, ignore_id="other"), True)
+
+# نسخهٔ دومی که در صف نگه‌داری مانده باید همان‌جا بیفتد، نه در کانال.
+radar.write_json(radar.STORIES, {"items": [{
+    "t": radar.now().isoformat(timespec="seconds"), "id": "dup-a",
+    "title": "CISA flags WordPress RCE flaw as actively exploited in attacks",
+    "kind": "news", "ents": [], "vers": [], "cves": [],
+}]})
+radar.write_json(radar.READY, {"items": [{
+    "id": "dup-b", "at": radar.now().isoformat(timespec="seconds"), "kind": "news",
+    "label": "خبر", "text": "<b>نسخهٔ تکراری</b>", "score": 90,
+    "title": "CISA Confirms Hackers Exploiting WordPress Core Flaw During So",
+    "link": "https://example.com/dup", "source": "آزمون", "group": "", "photo": "",
+}]})
+_before_dup = len(sent)
+check("انتشار: نسخهٔ تکراری در صف نگه‌داری پست نمی‌شود",
+      radar.publish_ready(_pub_now, {}, {"v": 1, "ids": {}}), 0)
+check("انتشار: نسخهٔ تکراری از انبار حذف شد",
+      radar.read_json(radar.READY, {"items": []})["items"], [])
+check("انتشار: هیچ پیام تازه‌ای برای تکراری نرفت", len(sent), _before_dup)
+
+radar.is_recent_story = _stub_recent
+
 # ---------------------------------------------------------------- جهت متن
 # نام لاتین حذف نمی‌شود؛ فقط در یک واحد جدا ایزوله می‌شود تا در جملهٔ
 # راست‌به‌چپ جابه‌جا نشود. قبلاً «Goldman» و «Sachs» دو واحد جدا بودند
@@ -937,6 +987,15 @@ check("پرامپت: مقالهٔ فهرستی صریحاً رد شده", "مق�
 # یک بار به‌غلط نوشتم «ابزار کارت‌دار حذف نشود». خواستهٔ صاحب کانال حذف بود.
 check("پرامپت: ابزار کارت‌دار رد می‌شود", "کارت بانکی بین‌المللی" in radar.SYSTEM_PROMPT, True)
 check("پرامپت: دیگر نمی‌گوید کارت‌دار حذف نشود", "حذفش نکن" in radar.SYSTEM_PROMPT, False)
+# نمایشگاه قاعدهٔ خودش را داشت نداشت؛ مدل همه را با قاعدهٔ خبر می‌سنجید و
+# هیچ پست نمایشگاهی نمی‌نوشت، یا برعکس صفحهٔ فروش یک خدمت را پست می‌کرد.
+check("پرامپت: قاعدهٔ نمایشگاه هست", "قاعدهٔ هفتم" in radar.SYSTEM_PROMPT, True)
+check("پرامپت: تبلیغ درمان در نمایشگاه رد می‌شود",
+      "تبلیغ درمان و پزشکی" in radar.SYSTEM_PROMPT, True)
+check("پرامپت: نمایشگاه با قاعدهٔ اول سنجیده نمی‌شود",
+      "با قاعدهٔ هفتم سنجیده می‌شود" in radar.SYSTEM_PROMPT, True)
+check("راهنمای نمایشگاه با قاعدهٔ پرامپت هم‌خوان است",
+      "درس‌گرفتنی" in radar.KIND_HINT["showcase"], True)
 
 # ---------------------------------------------------------------- سد فهرست
 # سد قبلی فقط «awesome-» را می‌گرفت و یک «۷ Best WordPress MCP Servers»

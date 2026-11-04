@@ -665,13 +665,20 @@ def cve_ids(text):
     return {"CVE-{}-{}".format(y, n) for y, n in CVE_RE.findall(text or "")}
 
 
-def is_recent_story(store, item):
-    """آیا همین داستان قبلاً پست شده؟ بین دسته‌های هم‌خانواده هم چک می‌شود."""
+def is_recent_story(store, item, ignore_id=""):
+    """آیا همین داستان قبلاً پست شده؟ بین دسته‌های هم‌خانواده هم چک می‌شود.
+
+    ignore_id یعنی رکورد خودِ همین پست را نادیده بگیر. پست نگه‌داشته‌شده
+    موقع نگه‌داری در انبار ثبت می‌شود، پس بدون این استثنا خودش را تکراری
+    می‌بیند و هرگز منتشر نمی‌شود.
+    """
     kind = item.get("kind") or "news"
     probe = {"title": item.get("title", "")}
     mine = cve_ids(item.get("title", "") + " " + (item.get("desc") or ""))
     current = now()
     for s in store.get("items", []):
+        if ignore_id and str(s.get("id") or "") == str(ignore_id):
+            continue
         sk = s.get("kind") or "news"
         if sk == kind:
             days = STORY_WINDOW.get(kind, 7)
@@ -695,10 +702,19 @@ def is_recent_story(store, item):
 
 
 def add_story(store, item):
+    """داستان را ثبت می‌کند. با همان شناسه دو بار ثبت نمی‌شود.
+
+    پست نگه‌داشته‌شده موقع نگه‌داری ثبت می‌شود و بعد موقع انتشار دوباره
+    از همین تابع می‌گذرد؛ بدون این سد، هر پست دو رکورد می‌ساخت.
+    """
+    iid = str(item.get("id") or "")
+    if iid and any(str(x.get("id") or "") == iid for x in store.get("items", [])):
+        return
     words, ents, vers = story_sig(item.get("title", ""))
     store["items"].append(
         {
             "t": now().isoformat(timespec="seconds"),
+            "id": iid,
             "title": item.get("title", ""),
             "kind": item.get("kind") or "news",
             "link": item.get("link", ""),
@@ -1700,7 +1716,10 @@ KIND_HINT = {
         "اگر پلن رایگان دارد، در details بگو چطور شروع کند."
     ),
     "security": "این دسته هشدار امنیتی است؛ فقط آسیب‌پذیری واقعی در وردپرس، افزونه یا قالب.",
-    "showcase": "این دسته نمایشگاه است؛ معرفی سایت یا پروژه‌ای که با این ابزارها ساخته شده.",
+    "showcase": (
+        "این دسته نمایشگاه است؛ سایتی که کسی ساخته و ساختش درس‌گرفتنی است. "
+        "صفحهٔ فروش خدمت یا محصول این‌جا جایی ندارد."
+    ),
 }
 
 
@@ -2782,6 +2801,11 @@ def publish_ready(s, st, seen, hard_deadline=None):
             pass
         if held_h > float(cfg.get("max_hold_h", 30)):
             log("  held post too old, dropped:", str(row.get("title") or "")[:40])
+            continue
+        # دو نسخه از یک داستان در صف نگه‌داری ممکن است بنشیند؛ دومی این‌جا
+        # می‌افتد. رکورد خودِ همین پست نادیده گرفته می‌شود.
+        if is_recent_story(store_story, row, ignore_id=row.get("id")):
+            log("  duplicate story in hold, dropped:", str(row.get("title") or "")[:40])
             continue
         try:
             if row.get("photo"):
@@ -4082,8 +4106,14 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
                     log("  ready store is full, stopping this run")
                     break
                 held_by_kind[kind] = held_by_kind.get(kind, 0) + 1
+                # پست نگه‌داشته‌شده هم داستانش همین‌جا ثبت می‌شود. قبلاً
+                # فقط پست منتشرشده ثبت می‌شد؛ پس اجرای بعد همان خبر را
+                # دوباره می‌ساخت و دو نسخه در صف نگه‌داری می‌نشست و هر دو
+                # منتشر می‌شد.
+                add_story(store, it)
                 if not DRY:
                     write_json(QUEUE, q)
+                    write_json(STORIES, store)
                 log("  held for publishing:", entry.get("title", "")[:40])
                 continue
             try:
