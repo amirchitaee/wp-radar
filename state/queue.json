@@ -445,36 +445,6 @@
    "added": "2026-11-03T20:30:46+00:00"
   },
   {
-   "id": "08b710f1e7801fa8",
-   "title": "Heimstaden is changing residential real estate management with AI",
-   "link": "https://openai.com/index/heimstaden",
-   "desc": "Discover how Heimstaden uses OpenAI’s ChatGPT Enterprise and Codex to transform property management, cut costs, and empower employees across Europe.",
-   "source": "اوپن‌ای‌آی",
-   "lang": "en",
-   "tier": 1,
-   "group": "ai",
-   "kind": "news",
-   "age_hours": 3.0,
-   "published": "2026-11-03T08:00:00+00:00",
-   "added": "2026-11-03T11:00:57+00:00"
-  },
-  {
-   "id": "0947affcb4cc06db",
-   "title": "Apple Watch’s AI features for rewinding and recapping conversations begin beta testing",
-   "link": "https://techcrunch.com/2026/11/02/apple-watchs-ai-features-for-rewinding-and-recapping-conversations-begin-beta-testing",
-   "desc": "Now in beta: Apple's new Audio Intelligence features can help you remember what someone said or take notes on conversations.",
-   "source": "تک‌کرانچ",
-   "lang": "en",
-   "tier": 2,
-   "group": "ai",
-   "kind": "news",
-   "age_hours": 0.7,
-   "published": "2026-11-03T07:20:00+00:00",
-   "added": "2026-11-03T08:00:57+00:00",
-   "full": "Buy One Founder Summit Ticket, Get a Second for Free. Register now. Founder Summit begins Nov. 4, 9:00 a.m. ET. Get your pass savings & deals before it starts. REGISTER HERE. Image Credits: Apple AI Apple Watch’s AI features for rewinding and recapping conversations begin beta testing Sarah Perez 11:20 PM PST · November 2, 2026 Apple’s AI-powered “Audio Intelligence” technology for the Apple Watch is now rolling out into beta testing, initially for developers in the iOS 27.3 update, after first being announced at the company’s Surprise and Shine hardware event in September. The technology includes a set of four opt-in AI features that allow Apple Watch Series 12 wearers to detect important sounds, identify songs, catch up on conversations, and take notes. The sound recognition feature will help deaf and hard-of-hearing users identify important sounds like sirens, alarms, or doorbells from their watch, while the song recognition feature taps into Apple’s Shazam app to detect music playing in the background and identify the song name and artist. However, the more potentially controversial features are those that listen to human conversations: Live Rewind and Siri Recaps. Given the backlash to AI recording devices, like Meta’s AI glasses and other AI wearables, Apple has attempted to carve out a space where the features can be useful to Apple Watch owners, while still respecting the privacy of those around them. With Live Rewind, the idea is to let you go back in time to see what someone just said, in case you missed it. For instance, if someone was giving you verbal directions or reading a long list of specials at a restaurant, you could double-press on the Watch’s digital crown to see what was said in the last 15 seconds as a text snippet displayed on the watch face. You can either view this snippet and then do nothing, and it will disappear permanently. Or you can save it to the standalone Siri app that shipped with iOS 27 for later access, which might be helpful if you’re trying to remember someone’s name or take a quick note from a fast-paced presentation. Apple says that users will also be able to tap an “Ask Siri” option that appears below the text snippet if they have questions about something that was said — like a technical term they don’t understand, or perhaps some sauce option the waiter mentioned that they’re unfamiliar with, among other things. When you double-press the digital crown, an audible chime appears and an animation displays on the watch. This is meant to signal to people through the combination of the gesture, sound, and the visual display that you’ve recorded something that was said. These snippets will be deleted automatically after 30 seconds if you don’t save them. The other option, Siri Recaps, takes this ambient listening technology even further by allowing Apple Watch owners to take high-level notes of their conversations. Importantly, Apple says it’s not identifying speakers, saving the raw audio, or providing word-for-word transcriptions. Instead, the feature summarizes a conversation with a short sentence and some bullet points that identify key points. For instance, depending on the topic, the bullet points m",
-   "use_link": ""
-  },
-  {
    "id": "b05b73640b576f99",
    "title": "Voy Design | Designing for a 100 Years for Healthy Living",
    "link": "https://land-book.com/websites/102130-voy-design-designing-for-a-100-years-for-healthy-living",
