@@ -121,7 +121,8 @@
    "published": "2026-11-04T10:06:23+00:00",
    "added": "2026-11-04T11:01:07+00:00",
    "full": "Starting in early 2027, Google will give schools an ultimatum: accept AI for students or lose access to Google Search entirely. Gemini, Gemini Notebook, and Google Search will all be off by default for student accounts. Schools can turn each one on individually. But a version of search without AI? That's no longer on the table. The New York Times broke the story first. Google's vice president for education, Chris Phillips, said search and AI have become too tightly fused to pull apart. Google recently flipped AI features on by default inside its learning platform Classroom for schools with Gemini access. That move drew backlash, and the company is now reversing course. Schools that choose to enable search will get two flavors: search with full AI overviews and AI chat, or search with \"Guided Learning,\" a mode designed to steer students toward answers rather than hand them over directly. None of this happens in a vacuum. Google dominates the US school market with Chromebooks, Gmail, and Classroom. Education professor Morgan Polikoff called the move a textbook case of the tech industry shoving AI onto people whether they want it or not. The country's two largest school districts, New York City and Los Angeles, had already pulled back on AI for students in September. Los Angeles specifically wanted to keep using Google Search without AI overviews. Google won't let them. Ad Ad Subscribe to THE DECODER for ad-free reading, a weekly AI newsletter, our exclusive \"AI Radar\" frontier report six times a year, full archive access, and access to our comment section.",
-   "use_link": ""
+   "use_link": "",
+   "reject_hits": 1
   },
   {
    "id": "9e54aa65124dcd82",
@@ -154,36 +155,6 @@
    "full": "Datasette Apps adds support for hosting and editing custom HTML applications inside of Datasette. These can be created by hand, but it's easier to create them using LLMs via Datasette Agent . This release improves that integration: This is a beat by Simon Willison, posted on 4th November 2026 . Sponsor me for $10/month and get a curated email digest of the month's most important LLM developments.",
    "use_link": "https://github.com/datasette/datasette-apps/releases/tag/0.3a0",
    "reject_hits": 2
-  },
-  {
-   "id": "993e48dc4504c6f5",
-   "title": "Anthropic is working on a system to prove AI models’ identity",
-   "link": "https://techcrunch.com/2026/11/03/anthropic-is-working-on-a-system-to-prove-ai-models-identity",
-   "desc": "Called FlashProve, the system would let anyone check that an AI response really came from the model it claims to be from.",
-   "source": "تک‌کرانچ",
-   "lang": "en",
-   "tier": 2,
-   "group": "ai",
-   "kind": "news",
-   "age_hours": 1.3,
-   "published": "2026-11-03T22:41:03+00:00",
-   "added": "2026-11-04T00:00:59+00:00",
-   "full": "Buy One Founder Summit Ticket, Get a Second for Free. Register now. Founder Summit begins Nov. 4, 9:00 a.m. ET. Get your pass savings & deals before it starts. REGISTER HERE. Image Credits: Samuel Boivin/NurPhoto / Getty Images AI Anthropic is working on a system to prove AI models’ identity Russell Brandom 2:41 PM PST · November 3, 2026 Anthropic is working on an open source system to verify which AI model produced a given output, according to a blog post published Tuesday. The system, called FlashProve , is built to provide what researchers call “provable inference” — a cryptographic proof, essentially a mathematical guarantee, that a given output came from a specific model. It’s meant to let users confirm that the answer they received really came from the model they think they’re using. Similar to cryptographic email signatures that let recipients confirm a message really came from its claimed sender, FlashProve would be robust against impostors attempting to disguise one model as another, even when the impostor is the lab that built and runs the model. In particular, the researchers note that the system could be used to prevent an AI company from secretly swapping in a cheaper model to cut costs, or a more expensive model to inflate its performance results. FlashProve could also be used to verify claims by third parties that a specific task was done by an advanced model. “A developer might claim that their software library was scanned for vulnerabilities by a frontier cybersecurity model, or a company might claim that its business plan was given the go-ahead by an appropriate model,” the researchers write. “How can a user verify these claims?” To work, the system requires AI labs to publish a “fingerprint” of each model they release that can later be matched to specific outputs and verified cryptographically. Crucially, the fingerprints don’t reveal a model’s weights, the internal numbers that define how it behaves and which closed-model makers like Anthropic and OpenAI keep private. That means labs could publish the fingerprints without giving up their most valuable asset, enabling the system to work with commercial models, too. The system is also designed to be lightweight, so verification could be performed on a local device. As part of the announcement, researchers released a detailed technical specification and working code for various elements of the system, which is publicly available under an open source license on GitHub . Research in the system is ongoing, and there are no plans to deploy it at Anthropic or any other lab. “This research post is meant to share intermediate progress, and not a completed research agenda,” researchers explain in the announcement post. “We are sharing this explicitly with the goal that others look at what we have done, take it, and improve it.” When you purchase through links in our articles, we may earn a small commission . This doesn’t affect our editorial independence. Russell Brandom AI Editor November 4 Boston Buy One Pass, Get a Second Free Cover more ground at TechCrunch’s ultimate founder bootcamp of the year by bringing your co-founder or partner for free Book before the BOGO deal expires An",
-   "use_link": "https://github.com/anthropics/FlashProve/"
-  },
-  {
-   "id": "97ea381abb97d463",
-   "title": "Data centers are turning to old jet engines as the wait for power grows",
-   "link": "https://techcrunch.com/2026/11/03/data-centers-are-turning-to-old-jet-engines-as-the-wait-for-power-grows",
-   "desc": "The years-long wait for access to the grid and new turbines is causing data center builders to turn to an unusual, less-efficient and less environmentally friendly solution: once-discarded jet engines.",
-   "source": "تک‌کرانچ",
-   "lang": "en",
-   "tier": 2,
-   "group": "ai",
-   "kind": "news",
-   "age_hours": 1.7,
-   "published": "2026-11-03T22:19:53+00:00",
-   "added": "2026-11-04T00:00:59+00:00"
   },
   {
    "id": "5b1f44331260f97f",
