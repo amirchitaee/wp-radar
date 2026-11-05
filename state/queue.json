@@ -334,7 +334,10 @@
    "kind": "news",
    "age_hours": 5.3,
    "published": "2026-11-04T18:41:03+00:00",
-   "added": "2026-11-05T00:00:59+00:00"
+   "added": "2026-11-05T00:00:59+00:00",
+   "full": "OpenAI is buying Pierre Computer Company, Inc., the startup behind Code Storage and several open-source tools. Pierre's libraries already power OpenAI's coding agent Codex. \"Trees\" handles fast project file navigation, \"Diffs\" displays code changes and lets users fix bugs right in the diff view, and \"Highlights\" is a real-time syntax highlighter that works as developers type or an AI agent generates code. Code Storage stores code and tracks history through Git. OpenAI says the acquisition is about making Git workflows work better when developers and AI agents are writing code side by side. As agents handle more tasks in parallel, the tooling around Git has to keep up. OpenAI already runs Pando , its own version control backend built for both developers and agents. Pierre's open-source projects will stay open source. The deal still needs regulatory approval. Subscribe to THE DECODER for ad-free reading, a weekly AI newsletter, our exclusive \"AI Radar\" frontier report six times a year, full archive access, and access to our comment section.",
+   "use_link": "https://openai.com/index/scaling-git-at-openai/",
+   "reject_hits": 1
   },
   {
    "id": "d344f29d9cd7dbaa",
@@ -491,6 +494,23 @@
    "use_link": "https://wordpress.org/plugins/infinite-uploads/",
    "posted": true,
    "msg_id": 101
+  },
+  {
+   "id": "2737b03841a6a889",
+   "title": "Dive into the Ipsum WordPress theme, and how to extend it",
+   "link": "https://kinsta.com/blog/ipsum-wordpress-theme",
+   "desc": "With WordPress 7.2 launching in December, a new default theme is on the way. Marking a departure from tradition, it drops the usual calendar-year naming scheme ...",
+   "source": "کینستا",
+   "lang": "en",
+   "tier": 2,
+   "group": "",
+   "kind": "news",
+   "age_hours": 8.2,
+   "published": "2026-11-05T13:00:40+00:00",
+   "added": "2026-11-05T21:15:33+00:00",
+   "full": "With WordPress 7.2 launching in December, a new default theme is on the way. Marking a departure from tradition, it drops the usual calendar-year naming scheme in favor of a more meaningful name. Dubbed Ipsum , this new addition is a minimalist, lightweight, and modular block theme built for Full Site Editing (FSE) and strictly aligned with modern Block Editor standards. As the name suggests, Ipsum streamlines the blogging experience and works out of the box the moment you start writing. Its design is understated in every detail, from subtle dotted underlines to the bundled typography and a curated set of style variations , focused on accessibility and readability. Don’t let its minimalist nature fool you, though. Ipsum provides the ideal blank canvas to bring your creative vision as a blogger to life. Let’s dive into the latest default theme and explore how to get the most out of it using native WordPress features. Ipsum features a minimalist design with a strong focus on readability. The new default theme defines six shades of gray with high-contrast combinations alongside a single accent color. The default background ( #fcfcfc ) and body text ( #000000bf ) achieve a contrast ratio (CR) of 10.26:1, easily earning a WCAG AAA rating. Ipsum supports native WordPress keyboard navigation, displaying a “Skip to content” link on every page. This allows users navigating with the Tab key to jump straight to the main content without having to cycle through header navigation links. The theme also highlights focused links with its accent color, letting keyboard users quickly identify the active element. Typography plays a major role in making Ipsum easy on the eyes, offering five preset font sizes and supporting fluid typography . Links are distinguished only by a subtle dotted underline. While aligned with the theme’s minimalist aesthetic, this might make them hard to spot depending on the page’s color conditions. That said, links remain easy to identify during keyboard navigation thanks to the accent-colored focus outline. Now, let’s take a closer look at Ipsum’s specific features. Ipsum includes a built-in set of templates that delegate page layouts to internal patterns. As an example, here is the markup of the page.html template: <!-- wp:pattern {\"slug\":\"ipsum/hidden-page\"} /--> This single line of code calls the hidden pattern hidden-page.php , which controls the layout and sets the required metadata: /** * Title: Pages * Slug: ipsum/hidden-page * Template Types: page * Inserter: no * * @package Ipsum * @since Ipsum 1.0 */ The theme registers custom template variants, such as index-sidebar and archive-sidebar , directly via PHP so you can select them in the Site Editor. As of now, roughly 60 patterns are available to help you build and format your content. While some of these patterns are reserved (hidden) for the theme’s core templates, the majority are fully accessible for you to use in your pages. An interesting technical detail for developers is how patterns implement the Block Bindings API . For example, the archive-full.php pattern uses bindings as follows: <!-- wp:paragraph { \"metadata\":{ \"bindings\":{ \"content\":{ \"source\":\"ipsum/comments-ct",
+   "use_link": "https://developer.wordpress.org/news/2026/10/whats-new-for-developers-october-2026/#meet-ipsum-the-new-default-theme",
+   "channel_skip": true
   }
  ]
 }
