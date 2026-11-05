@@ -153,7 +153,7 @@
    "added": "2026-11-04T22:15:27+00:00",
    "full": "Datasette Apps adds support for hosting and editing custom HTML applications inside of Datasette. These can be created by hand, but it's easier to create them using LLMs via Datasette Agent . This release improves that integration: This is a beat by Simon Willison, posted on 4th November 2026 . Sponsor me for $10/month and get a curated email digest of the month's most important LLM developments.",
    "use_link": "https://github.com/datasette/datasette-apps/releases/tag/0.3a0",
-   "reject_hits": 1
+   "reject_hits": 2
   },
   {
    "id": "993e48dc4504c6f5",
