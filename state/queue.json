@@ -201,20 +201,6 @@
    "channel_skip": true
   },
   {
-   "id": "e658516312f227f9",
-   "title": "OpenAI says GPT-6 Astra designed a hardware device from scratch in under a week",
-   "link": "https://the-decoder.com/openai-says-gpt-6-astra-designed-a-hardware-device-from-scratch-in-under-a-week",
-   "desc": "OpenAI's hardware team used GPT-6 Astra to design a device for the Codex coding agent in under a week, handling everything from the enclosure to the circuit board to the firmware. Several revision rounds were needed before production because the model didn't always account for manufacturing tolerances. A newer internal model scores significantly higher on OpenAI's engineering benchmark, though the company isn't sharing details. The article OpenAI says GPT-6 Astra designed a hardware device from scratch in under a week appeared first on The Decoder .",
-   "source": "دیکودر",
-   "lang": "en",
-   "tier": 2,
-   "group": "ai",
-   "kind": "news",
-   "age_hours": 3.8,
-   "published": "2026-11-03T20:15:45+00:00",
-   "added": "2026-11-04T00:00:59+00:00"
-  },
-  {
    "id": "62ea04b50b199781",
    "title": "Intercom | A complete system for human and AI customer service",
    "link": "https://land-book.com/websites/102060-intercom-a-complete-system-for-human-and-ai-customer-service",
@@ -226,7 +212,10 @@
    "kind": "showcase",
    "age_hours": 11.9,
    "published": "2026-11-03T08:34:00+00:00",
-   "added": "2026-11-03T20:30:46+00:00"
+   "added": "2026-11-03T20:30:46+00:00",
+   "full": "Go from design to website with Framer, the web builder for designers",
+   "use_link": "",
+   "reject_hits": 1
   },
   {
    "id": "c8e6a5fac1b9ca02",
