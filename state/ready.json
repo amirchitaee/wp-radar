@@ -12,6 +12,19 @@
    "source": "آپدیت افزونه",
    "group": "wp",
    "photo": ""
+  },
+  {
+   "id": "0436dfb29a58fb31",
+   "at": "2026-11-05T00:01:39+00:00",
+   "kind": "news",
+   "label": "خبر",
+   "text": "<b>📰 خبر: ⁦ChatGPT⁩ — چت‌جی‌پی‌تی با مدل تازه، گیف می‌سازد</b>\n\nحالا می‌شود در چت‌جی‌پی‌تی با یک پرامپت متنی یا یک عکس، گیف ساخت و سرعت و فریم‌هایش را تنظیم کرد. برای کسی که محتوای سایت می‌سازد، یعنی انیمیشن کوتاه بدون نرم‌افزار جدا.\n\n<blockquote expandable>مدل تازه ⁦Images⁩ ۲.۶ است و برای همه کاربران چت‌جی‌پی‌تی و ⁦Codex⁩ روی وب، دسکتاپ و موبایل می‌آید.\nسازگاری تصویر بین فریم‌ها خوب است، پس شخصیت یا سوژه در طول گیف ثابت می‌ماند.\nاپن‌ای‌آی می‌گوید کاربران حالا هفته‌ای چهار میلیارد تصویر می‌سازند.\nمدل ⁦Images⁩ ۲.۶</blockquote>\n\nاطلاعات بیشتر دربارهٔ این موضوع را از <a href=\"https://the-decoder.com/chatgpt-can-now-turn-text-prompts-and-photos-into-animated-gifs-with-openais-images-2-6-model\">منبع</a> بخوانید.\n\n<i>۱۳ آبان ۱۴۰۵ · ۲۳:۱۴</i>\n\n#خبر #هوش_مصنوعی",
+   "score": 68.7,
+   "title": "ChatGPT can now turn text prompts and photos into animated GIFs with OpenAI's Images 2.6 model",
+   "link": "https://the-decoder.com/chatgpt-can-now-turn-text-prompts-and-photos-into-animated-gifs-with-openais-images-2-6-model",
+   "source": "دیکودر",
+   "group": "ai",
+   "photo": ""
   }
  ]
 }
