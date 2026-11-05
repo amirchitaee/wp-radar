@@ -1166,6 +1166,77 @@ check("کف AI: آیتم گروه ai در سبد نیست، خطا نمی‌ده
       ["wp1", "wp2"])
 radar.read_json = _real_read_json
 
+# ------------------------------------------------------------ جای خالی هوش مصنوعی
+# سهم پایه تا ساعت مقرر ثابت است. بعد از آن، هر جای خالیِ خبر به هوش
+# مصنوعی می‌رسد، ولی هرگز کمتر از سهم پایه و بیشتر از سقف مطلق.
+_ai_s = {
+    "ai_cap_per_day": 1,
+    "ai_fill": {"enabled": True, "after": "18:00", "max": 3, "per_run": 1,
+                "max_age_h": 24},
+    "caps": {"news": 6},
+    "daily_cap": 11,
+}
+_ai_day = datetime(2026, 11, 5, 15, 0, tzinfo=radar.TZ)
+_ai_eve = datetime(2026, 11, 5, 19, 0, tzinfo=radar.TZ)
+check("جای خالی: قبل از ساعت مقرر همان سهم پایه است",
+      radar.ai_allowance(_ai_s, {"kinds": {"news": 1}}, 0, _ai_day), 1)
+check("جای خالی: بعد از ساعت مقرر جاهای خالی پر می‌شوند",
+      radar.ai_allowance(_ai_s, {"kinds": {"news": 1}}, 0, _ai_eve), 3)
+check("جای خالی: از سقف مطلق بیشتر نمی‌شود",
+      radar.ai_allowance(_ai_s, {"kinds": {}}, 0, _ai_eve), 3)
+check("جای خالی: اگر خبر پر باشد سهم پایه می‌ماند",
+      radar.ai_allowance(_ai_s, {"kinds": {"news": 6}}, 0, _ai_eve), 1)
+check("جای خالی: پست در نوبت هم جا می‌گیرد",
+      radar.ai_allowance(_ai_s, {"kinds": {"news": 5}}, 1, _ai_eve), 1)
+check("جای خالی: خاموش یعنی همان سهم قبلی",
+      radar.ai_allowance(
+          {"ai_cap_per_day": 1, "ai_fill": {"enabled": False}, "caps": {"news": 6}},
+          {"kinds": {}}, 0, _ai_eve), 1)
+
+_ai_rows = [
+    {"id": "wp1", "title": "WordPress 7.2 is out", "kind": "news", "group": "",
+     "published": (radar.now() - timedelta(hours=2)).isoformat()},
+    {"id": "ai_new", "title": "Fresh AI story", "kind": "news", "group": "ai",
+     "published": (radar.now() - timedelta(hours=3)).isoformat()},
+    {"id": "ai_old", "title": "Old AI story", "kind": "news", "group": "ai",
+     "published": (radar.now() - timedelta(hours=40)).isoformat()},
+]
+_out_eve, _info_eve = radar.ai_narrow(_ai_rows, _ai_s, {"kinds": {"ai": 1}}, [], _ai_eve)
+check("جای خالی: خبر کهنه جای خالی را نمی‌گیرد",
+      [x["id"] for x in _out_eve], ["wp1", "ai_new"])
+_out_day, _info_day = radar.ai_narrow(_ai_rows, _ai_s, {"kinds": {"ai": 1}}, [], _ai_day)
+check("جای خالی: قبل از ساعت مقرر هوش مصنوعی اضافه نمی‌شود",
+      [x["id"] for x in _out_day], ["wp1"])
+
+# جای خالی چکه‌ای پر می‌شود. سه پست در یک اجرا هم کانال را می‌بندد و
+# هم پست سوم را از پنجرهٔ انتشار بیرون می‌برد.
+_ai_rows2 = _ai_rows + [
+    {"id": "ai_new2", "title": "Another fresh AI story", "kind": "news", "group": "ai",
+     "published": (radar.now() - timedelta(hours=4)).isoformat()},
+]
+_out_2, _info_2 = radar.ai_narrow(_ai_rows2, _ai_s, {"kinds": {"ai": 1}}, [], _ai_eve)
+check("جای خالی: در هر اجرا فقط یکی اضافه می‌شود",
+      [x["id"] for x in _out_2], ["wp1", "ai_new"])
+check("جای خالی: سقف روزانهٔ جای خالی هم‌چنان سه است", _info_2["left"], 2)
+
+# ---------------------------------------------------------------- رد ماندگار
+# بدون این، هر اجرا همان سؤال از مدل پرسیده می‌شد و جواب قبلی جایی
+# نوشته نمی‌شد. سه خبر ساعت‌به‌ساعت رد می‌شدند و در سبد می‌ماندند.
+_it_rej = {"id": "r1", "title": "Smashing AI Conference", "kind": "news"}
+check("رد ماندگار: بار اول کنار نمی‌رود",
+      radar.bump_reject(_it_rej, {"reject_max": 2}), False)
+check("رد ماندگار: شمارنده روی آیتم می‌نشیند", _it_rej.get("reject_hits"), 1)
+check("رد ماندگار: بار دوم دیگر شانس ندارد",
+      radar.bump_reject(_it_rej, {"reject_max": 2}), True)
+check("رد ماندگار: آیتم ردشده به مدل نمی‌رود",
+      radar.pool_open(_it_rej, "news", 2), False)
+check("رد ماندگار: آیتم تازه هنوز شانس دارد",
+      radar.pool_open({"id": "r2", "kind": "news"}, "news", 2), True)
+check("رد ماندگار: بی‌تنظیم آستانه دو است",
+      radar.bump_reject({"id": "r3"}, {}), False)
+check("رد ماندگار: آستانهٔ یک یعنی همان بار اول",
+      radar.pool_open({"id": "r4", "kind": "news", "reject_hits": 1}, "news", 1), False)
+
 # ---------------------------------------------------------------- خط نسخه
 # «نسخهٔ ۷.۱.۴» و «بتای ۲» آخر کادر می‌ماندند و نکته نبودند.
 check("جزئیات: خط فقط-نسخه حذف می‌شود",

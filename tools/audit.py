@@ -93,6 +93,31 @@ def main():
     check("سقف هوش مصنوعی از ورودش بیشتر نیست",
           int(s.get("ai_cap_per_day", 0)) <= int(s.get("ai_intake_per_day", 0)),
           "{} <= {}".format(s.get("ai_cap_per_day"), s.get("ai_intake_per_day")))
+    fill = s.get("ai_fill") or {}
+    if fill.get("enabled", True):
+        check("سقف جای خالی از سهم پایه کمتر نیست",
+              int(fill.get("max", 0)) >= int(s.get("ai_cap_per_day", 0)),
+              "{} >= {}".format(fill.get("max"), s.get("ai_cap_per_day")))
+        check("سقف جای خالی از ورود هوش مصنوعی بیشتر نیست",
+              int(fill.get("max", 0)) <= int(s.get("ai_intake_per_day", 0)),
+              "{} <= {}".format(fill.get("max"), s.get("ai_intake_per_day")))
+        pub = s.get("publish") or {}
+        after = str(fill.get("after", "18:00"))
+        start = str(pub.get("start", "08:00"))
+        end = str(pub.get("end", "23:30"))
+        check("ساعت جای خالی داخل پنجرهٔ انتشار است",
+              start <= after < end, "{} <= {} < {}".format(start, after, end))
+    check("آستانهٔ رد دست‌کم دو است",
+          int(s.get("reject_max", 0) or 0) >= 2, s.get("reject_max"))
+    chunk = int(s.get("chunk_size", 3))
+    check("اندازهٔ دسته از سبد بیشتر نیست",
+          chunk <= int(s.get("max_items_per_call", 0)),
+          "{} <= {}".format(chunk, s.get("max_items_per_call")))
+    # بار هر تماس مدل: پرامپت + متن هر آیتم + خروجی. اگر این از توان
+    # لایه‌های رایگان بگذرد، مدل جواب نیمه‌کاره می‌دهد.
+    load = len(p) + chunk * 2400 + int(s.get("model_max_tokens", 3000))
+    check("بار هر تماس مدل در حد توانش است", load < 20000,
+          "{} نویسه ≈ {} توکن".format(load, load // 3))
     check("نگه‌داری خبر با سد سن خبر یکی است",
           float(s.get("news_keep_h", 0)) == radar.max_age_for("news", s),
           s.get("news_keep_h"))
@@ -122,7 +147,8 @@ def main():
     need = [k for k in active if k != "security"]
     check("راهنمای دسته برای دسته‌های فعال هست",
           all(k in radar.KIND_HINT for k in need), "، ".join(need))
-    for fn in ("tool_fit", "max_age_for", "ai_floor_promote", "is_recent_story", "add_story"):
+    for fn in ("tool_fit", "max_age_for", "ai_floor_promote", "is_recent_story", "add_story",
+               "ai_allowance", "ai_narrow", "bump_reject", "pool_open"):
         check("تابع {} هست".format(fn), hasattr(radar, fn))
     check("is_recent_story استثنای شناسه دارد",
           "ignore_id" in inspect.signature(radar.is_recent_story).parameters)

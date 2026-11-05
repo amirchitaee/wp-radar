@@ -3607,6 +3607,88 @@ def daily_room(s, kind, d):
     return max(0, min(kind_cap - posted_kind, room))
 
 
+def ai_allowance(s, d, news_held=0, at=None):
+    """سهم هوش مصنوعی امروز، با پر کردن جای خالیِ وردپرس.
+
+    سهم پایه تا ساعت مقرر ثابت است. بعد از آن، هر جایی که خبر وردپرسی
+    پر نکرده باشد به هوش مصنوعی می‌رسد، ولی هرگز از سهم پایه کمتر و از
+    سقف مطلق بیشتر نمی‌شود.
+
+    چرا ساعت دارد؟ اگر «جای خالی» را صبح حساب کنیم، ساعت نه شش جا خالی
+    به نظر می‌رسد و هوش مصنوعی همه را پر می‌کند؛ بعدازظهر خبر وردپرسی
+    می‌آید و جا ندارد. ساعت، جای خالی را از خیال به واقعیت تبدیل می‌کند.
+    """
+    base = int(s.get("ai_cap_per_day", 1))
+    fill = s.get("ai_fill") or {}
+    if not fill.get("enabled", True):
+        return base
+    moment = (at or now()).astimezone(TZ)
+    if moment.strftime("%H:%M") < str(fill.get("after", "18:00")):
+        return base
+    caps = s.get("caps") or {}
+    news_cap = int(caps.get("news", s.get("daily_cap", 10)) or 0)
+    news_done = int((d.get("kinds") or {}).get("news", 0))
+    room = news_cap - news_done - int(news_held or 0)
+    return max(base, min(int(fill.get("max", 3)), room))
+
+
+def ai_narrow(pool, s, d, ready_items=None, at=None):
+    """سبد خبر را به سهم هوش مصنوعی امروز محدود می‌کند.
+
+    جای خالی سخت‌گیرتر از سهم پایه است: خبری که یک روز عمر دارد نباید
+    جای خبر امروز را بگیرد. سهم پایه سن ندارد، چون آن یک پست تضمینی
+    روز است.
+    """
+    ready_items = ready_items or []
+    base = int(s.get("ai_cap_per_day", 1))
+    ai_done = int((d.get("kinds") or {}).get("ai", 0))
+    ai_held = sum(1 for r in ready_items if (r.get("group") or "") == "ai")
+    held_news = sum(1 for r in ready_items if (r.get("kind") or "news") == "news")
+    allowed = ai_allowance(s, d, held_news, at)
+    base_left = max(0, base - ai_done - ai_held)
+    ai_left = max(0, allowed - ai_done - ai_held)
+    fill_age = float((s.get("ai_fill") or {}).get("max_age_h", 24) or 24)
+    # جای خالی چکه‌ای پر می‌شود، نه یک‌جا. سه پست هوش مصنوعی در یک اجرا
+    # هم کانال را شبیه سیل می‌کند و هم پست سوم را از پنجرهٔ انتشار بیرون
+    # می‌برد و صبح روز بعد کهنه منتشر می‌شود.
+    fill_per_run = max(1, int((s.get("ai_fill") or {}).get("per_run", 1) or 1))
+    cap_now = min(ai_left, base_left + fill_per_run)
+    out = []
+    used = 0
+    for x in pool:
+        if (x.get("group") or "") == "ai":
+            if used >= cap_now:
+                continue
+            if used >= base_left and true_age(x) > fill_age:
+                continue
+            used += 1
+        out.append(x)
+    return out, {"allowed": allowed, "left": ai_left, "base_left": base_left}
+
+
+def bump_reject(it, s):
+    """یک رد مدل را روی آیتم ثبت می‌کند و می‌گوید دیگر بس است یا نه.
+
+    بدون این، سیستم هر اجرا همان سؤال را از مدل می‌پرسید و جواب قبلی
+    را یادش نمی‌ماند. سه خبر یک ساعت‌به‌ساعت رد می‌شدند و هیچ‌جا
+    نوشته نمی‌شد.
+    """
+    hits = int(it.get("reject_hits", 0) or 0) + 1
+    it["reject_hits"] = hits
+    return hits >= max(1, int(s.get("reject_max", 2) or 2))
+
+
+def pool_open(x, kind, reject_max):
+    """آیا این آیتم هنوز ارزش دیدن مدل را دارد؟"""
+    return (
+        x.get("kind") == kind
+        and not x.get("posted")
+        and not x.get("channel_skip")
+        and not x.get("held")
+        and int(x.get("reject_hits") or 0) < reject_max
+    )
+
+
 def fetch_full_parallel(chunk, workers=6):
     """متن کامل همهٔ آیتم‌های یک chunk را هم‌زمان می‌آورد.
 
@@ -3679,14 +3761,8 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
     enrich_plugins(rows)
     log("new items:", len(rows))
     q, added = queue_merge(rows, s)
-    pending = [
-        x
-        for x in q["items"]
-        if x.get("kind") == kind
-        and not x.get("posted")
-        and not x.get("channel_skip")
-        and not x.get("held")
-    ]
+    reject_max = max(1, int(s.get("reject_max", 2) or 2))
+    pending = [x for x in q["items"] if pool_open(x, kind, reject_max)]
     log("queue for", kind, ":", len(pending))
     if not pending:
         return 0
@@ -3788,26 +3864,18 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
     # سهم هوش مصنوعی سقف دارد. کانال قرار است هشتاد درصد وردپرس و طراحی
     # سایت باشد. بی‌سقف، خبر هوش مصنوعی جذاب‌تر است و کم‌کم همهٔ کانال را
     # می‌خورد. آیتمی که امروز بیرون می‌ماند پاک نمی‌شود؛ فردا شانس دارد.
+    # بعد از ساعت مقرر، اگر خبر وردپرسی جاهایش را پر نکرده باشد،
+    # هوش مصنوعی جای خالی را می‌گیرد؛ ولی هیچ‌وقت سهم پایه را نمی‌خورد.
+    ready_items = read_json(READY, {"items": []}).get("items") or []
     if kind == "news":
-        ai_cap = int(s.get("ai_cap_per_day", 1))
-        ai_done = int((d.get("kinds") or {}).get("ai", 0))
-        ai_held = sum(
-            1
-            for r in read_json(READY, {"items": []}).get("items", [])
-            if (r.get("group") or "") == "ai"
-        )
-        ai_left = max(0, ai_cap - ai_done - ai_held)
-        narrowed = []
-        used = 0
-        for x in pool:
-            if (x.get("group") or "") == "ai":
-                if used >= ai_left:
-                    continue
-                used += 1
-            narrowed.append(x)
-        if len(narrowed) != len(pool):
-            log("  ai quota: {} left, held back {}".format(ai_left, len(pool) - len(narrowed)))
-        pool = narrowed
+        before_narrow = len(pool)
+        pool, ai_info = ai_narrow(pool, s, d, ready_items)
+        if len(pool) != before_narrow:
+            log(
+                "  ai quota: {} left of {} allowed, held back {}".format(
+                    ai_info["left"], ai_info["allowed"], before_narrow - len(pool)
+                )
+            )
         if not pool:
             log("  ai quota full and nothing else to post")
             return 0
@@ -3828,7 +3896,7 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
     # می‌خورند؛ وگرنه هر اجرا چهار پست تازه می‌نوشت و انبار پر می‌شد
     # از پست‌هایی که هیچ‌وقت نوبتشان نمی‌شد.
     held_by_kind = {}
-    for _row in read_json(READY, {"items": []}).get("items") or []:
+    for _row in ready_items:
         _k = _row.get("kind") or "news"
         held_by_kind[_k] = held_by_kind.get(_k, 0) + 1
 
@@ -3930,7 +3998,19 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
                     continue
             if entry_skipped(entry):
                 reason = str(entry.get("why") or "").strip()[:90] or "بدون دلیل"
-                log("  model skipped:", it.get("title", "")[:40], "|", reason)
+                done_for_good = bump_reject(it, s)
+                log(
+                    "  model skipped:",
+                    it.get("title", "")[:40],
+                    "|",
+                    reason,
+                    "| hit",
+                    int(it.get("reject_hits") or 0),
+                    "of",
+                    reject_max,
+                )
+                if done_for_good:
+                    log("  no more chances, out of the pool:", it.get("title", "")[:40])
                 rejected.append((it, entry, "رد مدل: " + reason))
                 continue
             # برچسب‌هایی که مدل خودش می‌گذارد حذف می‌شوند تا پست فرم پرکردنی نباشد.

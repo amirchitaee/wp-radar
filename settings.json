@@ -14,6 +14,14 @@
   },
   "ai_cap_per_day": 1,
   "ai_floor_per_day": 1,
+  "ai_fill": {
+    "enabled": true,
+    "after": "18:00",
+    "max": 3,
+    "per_run": 1,
+    "max_age_h": 24
+  },
+  "reject_max": 2,
   "caps": {
     "news": 6,
     "tools": 2,
