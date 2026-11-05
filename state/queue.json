@@ -359,22 +359,6 @@
    "added": "2026-11-03T11:00:57+00:00"
   },
   {
-   "id": "89375f5d51547fea",
-   "title": "Modern CSS Might Make Your Front-End More Complex",
-   "link": "https://smashingmagazine.com/2026/11/modern-css-might-make-your-front-end-more-complex",
-   "desc": "Replacing JavaScript with a modern CSS feature can simplify a piece of code while making the wider application harder to reason about. Gabriel Shoyombo explores what happens when logic is split between CSS and JavaScript, sharing practical guidance to help you keep complexity in check during migration.",
-   "source": "اسمشینگ",
-   "lang": "en",
-   "tier": 3,
-   "group": "",
-   "kind": "news",
-   "age_hours": 4.0,
-   "published": "2026-11-03T10:00:00+00:00",
-   "added": "2026-11-03T14:00:54+00:00",
-   "full": "About The Author Gabriel is a front-end developer and technical writer. He specializes in HTML, CSS, JavaScript, React, Vue, TailwindCSS, and BootStrap, with a track record of … More about Gabriel ↬ Weekly tips on front-end & UX . Trusted by 182,000+ folks. How To Measure UX and Design Impact with Vitaly Friedman Celebrating 10 million developers Design Patterns For AI Interfaces with Vitaly Friedman Make Your Design System Work, for Humans and Robots with Javier Cuello Design Patterns For AI Interfaces, 30 lessons + UX training Replacing JavaScript with a modern CSS feature can simplify a piece of code while making the wider application harder to reason about. Gabriel Shoyombo explores what happens when logic is split between CSS and JavaScript, sharing practical guidance to help you keep complexity in check during migration. Have you ever replaced fifty lines of JavaScript with a few lines of CSS, merged the PR, and felt like you just did the codebase a favor? You replace ResizeObserver with a container query, the diff is mostly red, and everyone approves it before lunch. This was what it looked like before you made the change: See the Pen [demo (before PR) [forked]](https://codepen.io/smashingmag/pen/XJMxVJq) by Shoyombo Gabriel Ayomide . Then, a week later, a card on the dashboard has vanished. A heading has grown on tablets for no reason anyone can explain. The spacing inside a comment is off. See the Pen [demo (after PR) [forked]](https://codepen.io/smashingmag/pen/gbmBopp) by Shoyombo Gabriel Ayomide . None of these bugs are in the few lines you wrote. All of them arrived with those few lines of CSS. In my last article on how CSS is growing smarter , I left a few questions hanging at the end, including: What happens when logic is split between CSS and JavaScript, and how do we debug conditional styles without a clear view of what triggered them? This article is my attempt to answer these two questions. I think it’s worth saying clearly that I am not saying modern CSS is bad. What I am saying is that: A CSS feature can simplify a piece of code while making the wider application harder to reason about if you don’t understand how it relates to existing code, be it CSS or JavaScript. Think of a new CSS feature as a new tenant moving into a shared apartment. The tenant may be quiet and tidy, but they still share a kitchen with everyone who already lives there. In that case, CSS is now roommates with JavaScript, the component’s layout, the CSS Cascade, and the browser’s rendering engine. The apartment’s stability depends less on the tenant and more on how they get along with one another. That gives us two different things to measure, and a diff only shows the first one: I am not the only one thinking about this. In April 2026, Igor Roztropiński published an essay titled “Modern Frontend Complexity: essential or accidental?” asking: The essay landed on r/programming, where the thread has drawn 80-plus comments and the replies pull in two directions. One of the most upvoted comments, from a user named Kwantuum, pushes back on the whole genre: Another commenter, kayinfire, takes the other side, arguing that “there are tons of scenarios where a ",
-   "use_link": ""
-  },
-  {
    "id": "62ea04b50b199781",
    "title": "Intercom | A complete system for human and AI customer service",
    "link": "https://land-book.com/websites/102060-intercom-a-complete-system-for-human-and-ai-customer-service",
