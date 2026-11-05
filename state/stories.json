@@ -30,18 +30,6 @@
    "vers": []
   },
   {
-   "t": "2026-11-01T13:50:19+00:00",
-   "title": "WP Feature Notifications weekly update: 2026-10-30",
-   "kind": "news",
-   "link": "https://make.wordpress.org/core/2026/11/01/wp-feature-notifications-weekly-update-2026-10-30",
-   "ents": [
-    "feature",
-    "notifications",
-    "wp"
-   ],
-   "vers": []
-  },
-  {
    "t": "2026-11-01T14:46:41+00:00",
    "title": "Presence API meeting summary: October 26, 2026",
    "kind": "news",

@@ -75,7 +75,7 @@
    "added": "2026-11-04T16:00:49+00:00",
    "full": "NVIDIA L4 GPUs. 5-second cold starts. Scale to zero when idle. I know there’s a lot of AI fatigue out there. I feel it, too. Most of that though is more about the noise surrounding both sides of the hype spectrum. What’s covered way less is context for where it fits best in a development workflow and what sorts of practical uses it might have to benefit — not destroy — our work. That’s why I’m stoked to check out Smashing’s AI conference on December 1. We all know Smashing. The good folks over there check the hype luggage at the door and give these sorts of landscape-changing things careful and thoughtful consideration. All their events, not to mention their articles , are that way and always have been. The best, really. And what makes those events the best is bringing in the best-of-the-best people to share what they’ve learned about it. In this case we’re talking about a live online event specifically about AI in design systems from some of my personal favorite people, like Brad Frost , Christine Vallaure , Vitaly Friedman , and TJ Pitre . We’re talking about people who know their craft and the experience to show (not just tell) how it translates to what we do for work, whether you’re a designer, front-ender, or even a stakeholder in the design process. So, please join me in checking it out. Cost is €50. They’re actually giving us here at CSS-Tricks a special discount using code AITRICKSCSS when you register for the event . Even better, they gave me two free tickets I’ll give to the first two commenters on this post. Just make sure you use your real email address when signing in to comment!",
    "use_link": "",
-   "reject_hits": 1
+   "reject_hits": 2
   },
   {
    "id": "7fd9d0fa0fc70999",
@@ -255,7 +255,7 @@
    "age_hours": 1.7,
    "published": "2026-11-03T16:17:43+00:00",
    "added": "2026-11-03T18:00:53+00:00",
-   "reject_hits": 1
+   "reject_hits": 2
   },
   {
    "id": "4f6a289f54e38567",
@@ -480,6 +480,23 @@
    "use_link": "",
    "posted": true,
    "msg_id": 99
+  },
+  {
+   "id": "cabaa2ef3d0727d1",
+   "title": "Making Immersive LLM Chat Experiences More Accessible",
+   "link": "https://smashingmagazine.com/2026/11/making-immersive-llm-chat-experiences-more-accessible",
+   "desc": "As LLM chat patterns become more widespread, making them accessible is essential to ensuring everyone can access the information, tools, and opportunities they offer. Drawing on his work improving these interfaces, Eric Bailey shares practical ways to make chat-based experiences on the web more accessible and usable for people who rely on assistive technology.",
+   "source": "اسمشینگ",
+   "lang": "en",
+   "tier": 3,
+   "group": "",
+   "kind": "news",
+   "age_hours": 1.0,
+   "published": "2026-11-05T13:00:00+00:00",
+   "added": "2026-11-05T14:00:50+00:00",
+   "full": "About The Author Eric is a Boston-based designer who helps create straightforward solutions that address a person’s practical, physical, cognitive, and emotional needs. More about Eric ↬ Weekly tips on front-end & UX . Trusted by 182,000+ folks. Design Patterns For AI Interfaces with Vitaly Friedman Designing For Complex UI Masterclass with Vitaly Friedman Meet AI 2027 Conference, December 1, 2026. Building Modern HTML Emails with Rémi Parmentier As LLM chat patterns become more widespread, making them accessible is essential to ensuring everyone can access the information, tools, and opportunities they offer. Drawing on his work improving these interfaces, Eric Bailey shares practical ways to make chat-based experiences on the web more accessible and usable for people who rely on assistive technology. I have had the privilege of helping to improve the accessibility of multiple immersive LLM chat experiences in the course of my career. Now I want to share this knowledge with you. Accessibility is a core part of a functional digital experience. As the LLM chat pattern continues to spread like wildfire across the web, we risk excluding people if these experiences are not built with accessibility as a core consideration. It is also worth re-mentioning what “exclusion” means here : It’s the loss of knowledge, the loss of opportunity, the loss of utility, the loss of employability, the loss of entertainment, and more. “Immersive LLM chat experience” is a catch-all term for full-screen experiences like Claude , ChatGPT , GitHub Copilot , Gemini , America.gov , Glean , and other similar websites and web apps: The majority of what this post covers applies to both web apps and native apps . This is because these experiences are typically built using web technologies, then placed in a native wrapper via frameworks such as Electron or Tauri . Immersive LLM chat experiences are not patterns such as a pop-up chat, inline text generation utilities, or summarization tools. These simpler applications of LLM technology will have different considerations and expectations. Instead, this is a starting point for making those other experiences accessible. There is nothing special about chat-based UIs when viewed via the lens of the Web Content Accessibility Guidelines . They are interactive experiences, built using web technologies. The losses I’ve described — and the legal liability associated with them — are access barriers in the same way any other web content can be an access barrier. I would also like to mention the social model of disability here: the idea that exclusion can be created by the built environment. For example, consider an elevated entryway that uses a gently sloping ramp in place of stairs. Built environments also extend to digital experiences , and the social model also applies here. The main activities undertaken to operate an LLM chat are already well-established: It is how we facilitate — or fail to facilitate — those interactions that’s the salient bit. Before we get into the technical aspects, we must consider the overwhelming visual bias that permeates software creation . We live in a highly visual culture, so our outputs unconsciously r",
+   "use_link": "",
+   "reject_hits": 1
   }
  ]
 }
