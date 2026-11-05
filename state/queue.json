@@ -503,7 +503,8 @@
    "added": "2026-11-05T00:00:59+00:00",
    "full": "ChatGPT can now create animated GIFs. The update is based on OpenAI's new Images 2.6 model and is rolling out to all ChatGPT and Codex users on web, desktop, and mobile apps, The Verge reports. Users can generate a GIF from a text prompt or uploaded photo, then adjust animation speed or edit individual frames. As an example, OpenAI showed how the prompt \"Can you make a gif of a cat dancing?\" produces several slight variations of a character that are strung together flipbook-style into a GIF. The model's image consistency appears strong enough to keep the character recognizable across frames, while earlier models would likely have altered its look too much from one frame to the next for the trick to work. Beyond GIFs, Images 2.6 is also meant to speed up image generation overall. For developers, OpenAI is also releasing the API models GPT-Image-2.6 \"Flare\" for efficient and \"Sunburst\" for higher-quality image generation. Both model variants were first introduced with Image 2.5 . OpeneAI says users now generate well over four billion images per week via ChatGPT and the API, one billion more than in September. Ad Ad Subscribe to THE DECODER for ad-free reading, a weekly AI newsletter, our exclusive \"AI Radar\" frontier report six times a year, full archive access, and access to our comment section.",
    "use_link": "https://openai.com/index/introducing-chatgpt-images-2-5/",
-   "held": true
+   "posted": true,
+   "msg_id": 97
   },
   {
    "id": "5b5716463f41e123",
