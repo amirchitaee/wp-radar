@@ -229,35 +229,6 @@
    "added": "2026-11-04T00:00:59+00:00"
   },
   {
-   "id": "38644115ef6ab2e1",
-   "title": "AI agents take over at SETI's Allen Telescope Array, scanning for extraterrestrial intelligence",
-   "link": "https://the-decoder.com/ai-agents-take-over-at-setis-allen-telescope-array-scanning-for-extraterrestrial-intelligence",
-   "desc": "The SETI Institute and Breakthrough Listen are now using AI agents at the Allen Telescope Array to control the telescope and analyze incoming radio signals. Tasks that used to take weeks can now wrap up in hours, and the team says the system detected a pulsar in the Crab Nebula in real time for the first time. The article AI agents take over at SETI's Allen Telescope Array, scanning for extraterrestrial intelligence appeared first on The Decoder .",
-   "source": "دیکودر",
-   "lang": "en",
-   "tier": 2,
-   "group": "ai",
-   "kind": "news",
-   "age_hours": 7.2,
-   "published": "2026-11-03T16:51:18+00:00",
-   "added": "2026-11-04T00:00:59+00:00"
-  },
-  {
-   "id": "33bbd141f2e30f54",
-   "title": "Do More From Your Inbox With Professional Email Plus and Ultra",
-   "link": "https://wordpress.com/blog/2026/11/03/professional-email-plus-ultra",
-   "desc": "More room for your messages, less time on email admin. Meet Plus and Ultra, the new Professional Email plans, and see which fits your business.",
-   "source": "وردپرس دات کام",
-   "lang": "en",
-   "tier": 2,
-   "group": "",
-   "kind": "news",
-   "age_hours": 1.7,
-   "published": "2026-11-03T16:17:43+00:00",
-   "added": "2026-11-03T18:00:53+00:00",
-   "reject_hits": 2
-  },
-  {
    "id": "62ea04b50b199781",
    "title": "Intercom | A complete system for human and AI customer service",
    "link": "https://land-book.com/websites/102060-intercom-a-complete-system-for-human-and-ai-customer-service",
@@ -503,7 +474,7 @@
    "added": "2026-11-05T15:00:49+00:00",
    "full": "NVIDIA L4 GPUs. 5-second cold starts. Scale to zero when idle. CSS can now make choices about type that used to sit outside a reset . text-wrap: pretty can prevent a stranded word, container query units can scale a heading to the column it occupies, and text-box can trim the half-leading built into a line box. Some of these features are experimental and browser support is uneven, so they need guardrails rather than blind inclusion. I’ve put together tidy-typography.css , which gathers the useful parts into a default stylesheet: rendering and fallback rules, fluid sizing, vertical rhythm, wrapping, hyphenation, and OpenType detail. Use it whole, or take the declaration that solves the particular irritation in front of you. I’ll walk you through all the details in this article and give you the full code at the end. Rendering and fallback sanity html { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; font-synthesis: none; -moz-text-size-adjust: none; -webkit-text-size-adjust: none; text-size-adjust: none; } body { font-size-adjust: from-font; } font-synthesis: none stops a browser from inventing bold or italic when the family lacks that face. The smoothing and text-rendering declarations are rendering hints, mainly for WebKit; results still vary by platform. text-size-adjust disables mobile font inflation that can make a deliberately sized layout jump on rotation. font-size-adjust: from-font uses font metrics to reduce the apparent size change while a fallback swaps for a webfont. (As with other snippets in this article, this ⁠ :root block is a partial excerpt the final stylesheet combines it with additional custom properties defined later on.) Fluid typography Viewport-based fluid type does not know how wide its element is. A heading in a narrow sidebar can therefore scale as though it fills the viewport. .article-container { container-type: inline-size; } :root { --step-0: clamp(1rem, 0.9rem + 1cqi, 1.125rem); --step-3: clamp(2rem, 1.6rem + 3cqi, 2.75rem); } container-type: inline-size makes the wrapper a container query , so its children can use cqi : a unit based on the container rather than the viewport. Replacing vw in clamp() lets the same heading scale appropriately in an article column or a 300px sidebar without component-specific media queries. Vertical rhythm: trim the half-leading :heading, p, blockquote, figcaption, li { text-box-trim: trim-both; text-box-edge: cap alphabetic; /* shorthand: text-box: trim-both cap alphabetic; */ } line-height includes space above the cap-height and below the baseline: half-leading. It becomes obvious when text must align tightly with another element. text-box-trim removes it, while text-box-edge measures from capital-letter caps to the alphabetic baseline. This is a metrics-aware alternative to font-specific negative-margin nudges. @supports selector(:heading) { :heading { text-box: trim-both cap alphabetic; } } Selectors Level 5 proposes :heading , matching h1 to h6 and [role=\"heading\"] . It has not landed in browsers, so keep it behind an @supports selector() check. Balanced headlines, orphan-free paragraphs :heading, blockquote, figcaption { text-wrap: balance; } p, li, dd",
    "use_link": "",
-   "reject_hits": 1
+   "reject_hits": 2
   },
   {
    "id": "f0011f18e4ecff58",
@@ -520,7 +491,24 @@
    "added": "2026-11-05T15:00:54+00:00",
    "full": "Today, I’m extremely excited to share that Drip and Sleeknote are joining the Awesome Motive network, and they’re now part of the WPBeginner family of products . Drip is an email marketing and automation platform designed for small businesses, from content creators to online stores. More than 6,000 brands use Drip to turn first-time visitors into subscribers, buyers, and repeat customers. On the other hand, Sleeknote is a conversion optimization tool that turns your website visitors into subscribers and customers with popups, slide-ins, sticky bars, and more. Together, Sleeknote and Drip help you drive more conversions by reaching customers wherever they engage with your brand, whether that’s on your website, in their email inbox, or through SMS. Drip gives small businesses and ecommerce store owners everything they need to grow sales with email, without the high costs. It works with WooCommerce, Shopify, and BigCommerce. That means your store data flows straight into your email marketing tool, so you can personalize your messages based on what your customers actually do and buy. We’ve been using Drip to power the email marketing on WPBeginner and our product brands for many years, so I’ve seen firsthand how much revenue a good email setup can bring in. Sleeknote helps you get more email signups and sales from the traffic you already have. You can control exactly who sees each campaign and when. For example, you can target visitors based on the pages they view, where they came from, whether they’re new or returning, and what’s in their cart, so every message feels relevant instead of random. Sleeknote is free for all users on Drip as part of the Drip forms. Let’s take a detailed look. Drip comes with a drag-and-drop visual workflow builder. You can use it to create anything from a single automated email to a complex multi-step campaign. You don’t have to start from scratch, either. You can choose from Drip’s extensive ready-made workflow templates and install them on your account with a single click. You can easily customize each workflow by adding decisions, delays, and goals to guide subscribers along the right path. You can even split-test different paths to see which ones generate more revenue. Drip comes with a free MCP connector on every plan. It lets you connect AI assistants like Claude or ChatGPT directly to your Drip account. Simply put, you can ask your AI which campaign made the most money last month or have it draft and schedule your next campaign. Some messages work better as a text than an email, like a flash sale that ends tonight or a cart a shopper left a few minutes ago. Drip now has built-in SMS marketing for stores in the United States (other countries coming soon). You can run your email and text campaigns from the same account, using the same customer data and segments. You can send one-off text campaigns to any segment, or add SMS steps to your workflows. For example, your abandoned cart workflow can send a reminder email first, then follow up with a text if the shopper still hasn’t checked out. The SMS builder counts your characters as you type, lets you personalize each message, and adds the required opt-out language",
    "use_link": "https://wordpress.org/plugins/drip/",
-   "reject_hits": 1
+   "reject_hits": 2
+  },
+  {
+   "id": "6ff37e53b465a342",
+   "title": "Infinite Uploads 3.5 Adds a Free Plan, Media Cleanup, and Secure File Downloads",
+   "link": "https://wpmayor.com/infinite-uploads-free-plan-media-cleanup",
+   "desc": "Infinite Uploads now lets agencies test WordPress media offload on a client site for free, with no credit card and no time limit. It also adds Media Cleanup, which shows you which files look unused or duplicated before you delete anything, along with signed links that protect the files you sell through WooCommerce and Easy Digital Downloads. The post \" Infinite Uploads 3.5 Adds a Free Plan, Media Cleanup, and Secure File Downloads \" first appeared on WP Mayor .",
+   "source": "دبلیوپی‌مایر",
+   "lang": "en",
+   "tier": 3,
+   "group": "",
+   "kind": "news",
+   "age_hours": 0.7,
+   "published": "2026-11-05T16:32:37+00:00",
+   "added": "2026-11-05T17:15:38+00:00",
+   "full": "If you’ve ever wanted to try WordPress media offload on a client site without getting a credit card out, Infinite Uploads 3.5 now lets you do that. It also brings WordPress media cleanup, so you can see which files nothing seems to be using, along with protection for the files you sell through WooCommerce and Easy Digital Downloads. Our own media library at WP Mayor has over 25,000 files in it, so I know how quickly these things get out of hand. I’d imagine plenty of your client sites are the same, with old logos and campaign graphics that nobody wants to touch in case something breaks. Here’s what’s new and what it means if you’re looking after sites for clients. The new Free Infinite Uploads plan gives you 10 GB of cloud storage and 20 GB of CDN bandwidth a month, shared across all the sites on your account. You don’t need a credit card and there’s no time limit, so you can leave it running on a client site for as long as it stays within those allowances. I also like how they’ve dealt with the limits. If a Free site runs out of storage, new uploads pause and you get a message explaining why. A sync that wouldn’t fit won’t start at all, so you’re not left with half a library in the cloud. When a site outgrows the plan, you can upgrade and your files stay where they are. Just keep in mind that a Free site that stops checking in for 90 days gets archived and its files deleted, although you’ll get two warning emails first. You’ll need a Business plan for Media Cleanup, image optimization and protected downloads. If you’d like to try those before paying, I’d go straight for the 7-day trial on a Business plan, because upgrading from Free starts your billing right away. Our Infinite Uploads review has more on how offloading works. Media Cleanup scans your library and marks each file as In use, Possibly unused or Unknown. You’ll see Unknown when the scan can’t rule something out, like a PDF you’ve linked to from an email. It checks a lot more than post content, too. The scan looks through Elementor, Beaver Builder, Divi, Bricks and Oxygen layouts, WooCommerce products and categories, ACF fields, widgets and theme settings, and then loads your public pages the way a visitor would. You can hover over any file to see what’s using it before you make a decision. I’d start with the Possibly unused list sorted by size, since that puts your biggest files at the top. Possible duplicates get grouped together too, so you can compare all those copies of the same team photo side by side and check whether they match byte for byte. If you’re doing this for a client, the CSV export gives you a list to send over for sign-off. Media Cleanup won’t delete anything for you, so you’ll still remove files yourself from Media > Library once you’re sure. It’s included with Business plans and only administrators can use it. Once you’ve switched it on in the Infinite Uploads settings, you’ll find it under Media > Media Cleanup , so you can clean up your library in the same plugin you use for its folders, sorting and search . If you sell digital products and keep the files in the cloud, this one’s worth knowing about. Until now, all it took was one customer sharing a file’s UR",
+   "use_link": "https://wordpress.org/plugins/infinite-uploads/",
+   "held": true
   }
  ]
 }
