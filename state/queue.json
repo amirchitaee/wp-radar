@@ -337,7 +337,7 @@
    "added": "2026-11-05T00:00:59+00:00",
    "full": "OpenAI is buying Pierre Computer Company, Inc., the startup behind Code Storage and several open-source tools. Pierre's libraries already power OpenAI's coding agent Codex. \"Trees\" handles fast project file navigation, \"Diffs\" displays code changes and lets users fix bugs right in the diff view, and \"Highlights\" is a real-time syntax highlighter that works as developers type or an AI agent generates code. Code Storage stores code and tracks history through Git. OpenAI says the acquisition is about making Git workflows work better when developers and AI agents are writing code side by side. As agents handle more tasks in parallel, the tooling around Git has to keep up. OpenAI already runs Pando , its own version control backend built for both developers and agents. Pierre's open-source projects will stay open source. The deal still needs regulatory approval. Subscribe to THE DECODER for ad-free reading, a weekly AI newsletter, our exclusive \"AI Radar\" frontier report six times a year, full archive access, and access to our comment section.",
    "use_link": "https://openai.com/index/scaling-git-at-openai/",
-   "reject_hits": 1
+   "reject_hits": 2
   },
   {
    "id": "d344f29d9cd7dbaa",
