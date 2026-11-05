@@ -345,20 +345,6 @@
    "added": "2026-11-03T12:00:56+00:00"
   },
   {
-   "id": "e08e60cdcacef4de",
-   "title": "Bug hunters can now earn up to $172,000 from OpenAI as company ramps up security",
-   "link": "https://the-decoder.com/bug-hunters-can-now-earn-up-to-172000-from-openai-as-company-ramps-up-security",
-   "desc": "OpenAI quadruples bug bounty payouts and launches new internal security sprint. The article Bug hunters can now earn up to $172,000 from OpenAI as company ramps up security appeared first on The Decoder .",
-   "source": "دیکودر",
-   "lang": "en",
-   "tier": 2,
-   "group": "ai",
-   "kind": "news",
-   "age_hours": 0.3,
-   "published": "2026-11-03T10:42:44+00:00",
-   "added": "2026-11-03T11:00:57+00:00"
-  },
-  {
    "id": "62ea04b50b199781",
    "title": "Intercom | A complete system for human and AI customer service",
    "link": "https://land-book.com/websites/102060-intercom-a-complete-system-for-human-and-ai-customer-service",
@@ -487,6 +473,23 @@
    "age_hours": 5.3,
    "published": "2026-11-04T18:41:03+00:00",
    "added": "2026-11-05T00:00:59+00:00"
+  },
+  {
+   "id": "d344f29d9cd7dbaa",
+   "title": "PCrisk Trust Badge Review: A Verifiable Security Badge for WordPress",
+   "link": "https://wpmayor.com/pcrisk-trust-badge-review",
+   "desc": "High-reputation websites need to display trust credentials. My PCrisk Trust Badge review covers a solution that helps you achieve this with ease through displaying a dynamic (and customizable) badge. The post \" PCrisk Trust Badge Review: A Verifiable Security Badge for WordPress \" first appeared on WP Mayor .",
+   "source": "دبلیوپی‌مایر",
+   "lang": "en",
+   "tier": 3,
+   "group": "",
+   "kind": "news",
+   "age_hours": 1.0,
+   "published": "2026-11-05T10:00:00+00:00",
+   "added": "2026-11-05T11:00:59+00:00",
+   "full": "Any website that relies on trust to facilitate sales needs to showcase that wherever customers show up. I’ve got a PCrisk Trust Badge review today that gives you a near-perfect solution! It makes regular scans of your site for malware and other malicious intent, then displays a badge if all is well. However, if something comes up in the scan, the badge will hide again until you resolve it. The premise is simple, but this review will help you decide whether its application is also straightforward. Spoiler alert: I think it’s an easy decision to make! I’ll start with the three premium plans and give you the lowdown on the free version after. Note that the prices here are for month-by-month billing and annual plans come with two months free usage: As for the free version, PCrisk will scan one site, once per month, then sends you the results complete with a trust score and summary. None of the premium functionality is available in the free version. I’m going to talk more about the use cases shortly. However, in short, the Solo plan is ideal for a single store. If you run an agency, Pro would suit you. The Business plan would also work for an agency with a larger portfolio, or if you know that portfolio will grow in the future. PCrisk Trust Badge is also available as a Shopify app and as a script snippet for any other website platform, but the focus is (of course) on the WordPress plugin for this review. WordPress security plugins do a huge service to millions of sites. In my opinion, they’re likely the hardest working plugins you’ll install. However, the public never sees any of this. In some cases, the website will display a static seal or badge to indicate that the site has security. PCrisk Trust Badge displays a dynamic badge. This links to a public report that shows details such as the scan date, a trust score, and the engines it used. If a scan fails, the badge won’t show. The scan itself covers a few areas: Malware, phishing feeds, obfuscated scripts, SSL validity, and more. However, your current WordPress security plugin still has a vital part to play as PCrisk Trust Badge only detects and reports on issues. Agency owners will love the peace of mind this gives to clients. In fact, anyone who runs multiple sites will find value in the plugin. So will WooCommerce stores, small businesses or lead-generation websites. Anywhere customers need to know your site is safe to pass their data through will find benefits in PCrisk Trust Badge. The core of PCrisk Trust Badge is its scanning: daily for premium plans and monthly for the free plan. Scans run on PCrisk’s servers, so there’s no load on your site. There’s no impact on page speeds for the free version as the plugin adds nothing to public pages. It’s worth noting that PCrisk Trust Badge aims to respect data privacy. It’s a ‘cookie-free’ solution, although it does load an external script and contacts PCrisk servers. However, you have to explicitly approve those connections with WordPress. Visitors won’t see a different experience than usual, but requests do send an IP address and the page URL to PCrisk. The dynamic badge is a unique element. Once a scan takes place, a ‘clean’ result means the ba",
+   "use_link": "https://wordpress.org/plugins/pcrisk-trust-badge/",
+   "held": true
   }
  ]
 }

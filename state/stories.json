@@ -393,6 +393,22 @@
     "2.6"
    ],
    "cves": []
+  },
+  {
+   "t": "2026-11-05T11:01:24+00:00",
+   "id": "d344f29d9cd7dbaa",
+   "title": "PCrisk Trust Badge Review: A Verifiable Security Badge for WordPress",
+   "kind": "news",
+   "link": "https://wpmayor.com/pcrisk-trust-badge-review",
+   "ents": [
+    "badge",
+    "pcrisk",
+    "trust",
+    "verifiable",
+    "wordpress"
+   ],
+   "vers": [],
+   "cves": []
   }
  ]
 }
