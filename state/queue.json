@@ -74,7 +74,8 @@
    "published": "2026-11-04T15:02:51+00:00",
    "added": "2026-11-04T16:00:49+00:00",
    "full": "NVIDIA L4 GPUs. 5-second cold starts. Scale to zero when idle. I know there’s a lot of AI fatigue out there. I feel it, too. Most of that though is more about the noise surrounding both sides of the hype spectrum. What’s covered way less is context for where it fits best in a development workflow and what sorts of practical uses it might have to benefit — not destroy — our work. That’s why I’m stoked to check out Smashing’s AI conference on December 1. We all know Smashing. The good folks over there check the hype luggage at the door and give these sorts of landscape-changing things careful and thoughtful consideration. All their events, not to mention their articles , are that way and always have been. The best, really. And what makes those events the best is bringing in the best-of-the-best people to share what they’ve learned about it. In this case we’re talking about a live online event specifically about AI in design systems from some of my personal favorite people, like Brad Frost , Christine Vallaure , Vitaly Friedman , and TJ Pitre . We’re talking about people who know their craft and the experience to show (not just tell) how it translates to what we do for work, whether you’re a designer, front-ender, or even a stakeholder in the design process. So, please join me in checking it out. Cost is €50. They’re actually giving us here at CSS-Tricks a special discount using code AITRICKSCSS when you register for the event . Even better, they gave me two free tickets I’ll give to the first two commenters on this post. Just make sure you use your real email address when signing in to comment!",
-   "use_link": ""
+   "use_link": "",
+   "reject_hits": 1
   },
   {
    "id": "7fd9d0fa0fc70999",
@@ -252,7 +253,8 @@
    "kind": "news",
    "age_hours": 1.7,
    "published": "2026-11-03T16:17:43+00:00",
-   "added": "2026-11-03T18:00:53+00:00"
+   "added": "2026-11-03T18:00:53+00:00",
+   "reject_hits": 1
   },
   {
    "id": "4f6a289f54e38567",
@@ -284,51 +286,6 @@
    "added": "2026-11-03T15:00:52+00:00",
    "full": "NVIDIA L4 GPUs. 5-second cold starts. Scale to zero when idle. The title sounds a bit strange, right? Why re-implement an existing feature, that’s completely useless! I have two reasons for that. The first reason is to be able to adjust the :nth-child() arguments on the fly. Let’s suppose you have the following: div:nth-child(5n + 8) { background: red; } And you decide to update the 5 or the 8 . The only way is to manually rewrite the selector, which isn’t ideal. We cannot have something like the below where you can change the variables as you want: .container { --A: 5; --B: 8; } .container > div:nth-child(var(--A)*n + var(--B)) { background: red; } With my implementation, you will be able to do it! The second reason is to have fun and play with some new features. You will probably never need to rely on a dynamic :nth-child() selector, but I am sure you will learn one or two useful tricks along the way. We will rely on the same code structure in all the examples: a container with a bunch of <div> elements inside it. <div class=\"container\"> <div></div> <div></div> <div></div> <!-- ... --> </div> And the container controls the variables of :nth-child() : .container { --A: ; --B: ; } .container > div { /* based on the values of --A and --B change the background value */ background: ??; } I am not saying that this structure is mandatory for the implementation. I just considered a simple one to keep things easy to follow. :nth-child(B) Let’s start with the simplest case, a selector that selects only one element: div:nth-child(5) { } I don’t think I need to explain what this selector does. The 5 is nothing but the index of the selected element. So, if B is equal to the index of the element, that element is selected. We can translate this into the following CSS code: .container { --B: 5; } .container div { background: if(style(sibling-index() = --B): red); } Is this a valid CSS code?! Yes, it’s valid, and it works! I am using the new if() syntax that allows me to define a condition within style() . If that condition is true, the background color is set to red. Otherwise, nothing happens. We can also have an if/else : .container { --B: 5; } .container div { background: if(style(sibling-index() = --B): red; else: lightblue); } CodePen Embed Fallback The if() syntax is not that complex. In our case, we only have one condition, so you can see it as follows: .container div { background: if(style( condition ): <color_if_condition_true>; else: <color_if_condition_false>); } The tricky part is how to define the condition within style() . I wrote a small post explaining this part, so do yourself a favor and go read it before we continue: “The Hidden Trick of Style Queries and if() .” It’s a quick reading with crucial details that helps you better understand how if() works. From there, you will notice that our condition can be written several ways that are all valid: .container div { background: if(style(sibling-index() = --B): red); background: if(style(sibling-index() = var(--B)): red); background: if(style(var(--B) = sibling-index()): red); background: if(style(--B = sibling-index()): red); } We have our first implementation! You can easily apply it to any",
    "use_link": ""
-  },
-  {
-   "id": "da1f33efac8c7d3a",
-   "title": "How to implement AI search in WordPress and stay in control",
-   "link": "https://kinsta.com/blog/implement-ai-search-in-wordpress",
-   "desc": "Imagine your agency manages the WordPress help center for an appointment-booking software company. Customers keep asking support how to reschedule recurring appointments. The instructions already exist, ...",
-   "source": "کینستا",
-   "lang": "en",
-   "tier": 2,
-   "group": "",
-   "kind": "news",
-   "age_hours": 7.0,
-   "published": "2026-11-03T13:00:11+00:00",
-   "added": "2026-11-03T20:00:46+00:00",
-   "full": "Imagine your agency manages the WordPress help center for an appointment-booking software company. Customers keep asking support how to reschedule recurring appointments. The instructions already exist, but a search for “move my Friday bookings” doesn’t lead to the guide. The client wants to try AI search. Instead of relying on customers to type the exact words in an article, it could match their question to a guide with a similar meaning. The first version would return links to existing documentation. Choosing a provider raises a harder question. Will the service you recommend today still suit the site next year? You can’t promise that, and the client shouldn’t need that promise before you start. You can keep the original guides in WordPress and build the integration so replacing the search service doesn’t mean rebuilding the help center. This article follows that project from a limited trial to wider use. It explains which parts of the setup need to remain under your control and how hosting can give your team room to adjust no matter what AI tool, trends, or integration you opt for. Here’s one possible scenario. Your developer starts comparing services just as another vendor announces a new search product. The client forwards the announcement: “Should we wait for this?” Meanwhile, support keeps sending the same article link. Before buying anything, your agency can investigate why the current search misses the guide. It’s possible that the help center stores articles in a custom post type that the current search configuration leaves out. Or the article calls recurring appointments “series management,” a phrase customers rarely use. Those problems need different fixes, of course. Developers can check whether WordPress search includes the help-center articles, and an editor can add the wording customers use and clarify which instructions cover the current software version. Recent support tickets give you real questions to test. The support team already knows which guide answers each question, which is helpful. Trying out those questions on the site shows where search fails, without guessing what customers might type. Semantic search is another way to improve this. It uses machine learning to find content with a similar meaning to the query, even when the wording differs. This helps connect phrases like “move my Friday bookings” to other phrases like “reschedule recurring appointments.” The underlying documentation still matters. If two guides describe different versions of the booking software, the search service needs enough information to distinguish them. Your agency can resolve those content problems while the purchasing decision stays open. When you test AI search, you have a cleaner library and a set of questions to compare against. Canceling the search subscription shouldn’t remove a single guide from the client’s WordPress site. Editors continue working in WordPress. The search provider holds an indexed copy of the content that the integration sends it. That distinction matters when you plan a replacement. Your agency needs to rebuild the search index from the original articles, without depending on the outgoing provider to return the ",
-   "use_link": "",
-   "channel_skip": true
-  },
-  {
-   "id": "a0651322c06002f9",
-   "title": "Anthropic's Message Threads cut time to first token by 35 percent for long conversations",
-   "link": "https://the-decoder.com/anthropics-message-threads-cut-time-to-first-token-by-35-percent-for-long-conversations",
-   "desc": "Anthropic released Message Threads for the Messages API. Instead of resending the entire conversation with every turn, agents now only transmit what's changed. For requests between 500,000 and one million tokens, time to first token drops by about 35 percent. The article Anthropic's Message Threads cut time to first token by 35 percent for long conversations appeared first on The Decoder .",
-   "source": "دیکودر",
-   "lang": "en",
-   "tier": 2,
-   "group": "ai",
-   "kind": "news",
-   "age_hours": 1.4,
-   "published": "2026-11-03T12:35:49+00:00",
-   "added": "2026-11-03T14:00:59+00:00"
-  },
-  {
-   "id": "688c80b444250efd",
-   "title": "Nvidia pushes cloud customers to cut back on China business",
-   "link": "https://the-decoder.com/nvidia-pushes-cloud-customers-to-cut-back-on-china-business",
-   "desc": "Nvidia has told some cloud customers to take on less business from Chinese companies. The article Nvidia pushes cloud customers to cut back on China business appeared first on The Decoder .",
-   "source": "دیکودر",
-   "lang": "en",
-   "tier": 2,
-   "group": "ai",
-   "kind": "news",
-   "age_hours": 11.6,
-   "published": "2026-11-03T12:22:12+00:00",
-   "added": "2026-11-04T00:00:59+00:00"
   },
   {
    "id": "62ea04b50b199781",
@@ -477,6 +434,50 @@
    "use_link": "https://wordpress.org/plugins/pcrisk-trust-badge/",
    "posted": true,
    "msg_id": 98
+  },
+  {
+   "id": "3243b55215f3f099",
+   "title": "WPForms 2.0.4",
+   "link": "https://wordpress.org/plugins/wpforms-lite/",
+   "desc": "نسخهٔ 2.0.4 از WPForms منتشر شد. تغییرات این نسخه: Added: Trial period option for Stripe subscriptions to delay the first payment by a set number of days. | Added: Typing an approval such as “yes” in the AI Form Generator chat now applies the generated form, the same as clicking the Use This Form button. | Added: The Locations column in the Forms list now includes pages where a form is embedded with the WPForms Elementor widget. | Added: The Email field no longer suggests a correction when a visitor enters an email address with a valid domain extension. | Added: Single Line Text and Paragraph Text fields can now require a minimum number of characters or words through the Limit Length option. | Added: Cloudflare Turnstile can now start the verification when a visitor first interacts with the form instead of on page load. | Changed: Updated DOMPurify library to 3.4.17. | Changed: Updated jQuery Validation library to 1.22.1. | Fixed: A PHP notice appeared on Elementor pages with debug mode enabled when the WPForms widget had no form to display.",
+   "source": "آپدیت افزونه",
+   "lang": "en",
+   "tier": 1,
+   "group": "wp",
+   "kind": "news",
+   "age_hours": 0.0,
+   "published": "2026-11-05T13:01:10+00:00",
+   "added": "2026-11-05T13:01:10+00:00",
+   "plugin": {
+    "name": "WPForms",
+    "version": "2.0.4",
+    "prev": "2.0.3.1",
+    "installs": 5000000,
+    "updated": "2026-11-05"
+   },
+   "plugin_update": {
+    "name": "WPForms",
+    "slug": "wpforms-lite",
+    "version": "2.0.4",
+    "prev": "2.0.3.1",
+    "date": "2.0.4",
+    "changes": [
+     "Added: Trial period option for Stripe subscriptions to delay the first payment by a set number of days.",
+     "Added: Typing an approval such as “yes” in the AI Form Generator chat now applies the generated form, the same as clicking the Use This Form button.",
+     "Added: The Locations column in the Forms list now includes pages where a form is embedded with the WPForms Elementor widget.",
+     "Added: The Email field no longer suggests a correction when a visitor enters an email address with a valid domain extension.",
+     "Added: Single Line Text and Paragraph Text fields can now require a minimum number of characters or words through the Limit Length option.",
+     "Added: Cloudflare Turnstile can now start the verification when a visitor first interacts with the form instead of on page load.",
+     "Changed: Updated DOMPurify library to 3.4.17.",
+     "Changed: Updated jQuery Validation library to 1.22.1.",
+     "Fixed: A PHP notice appeared on Elementor pages with debug mode enabled when the WPForms widget had no form to display."
+    ],
+    "vuln": false,
+    "hardening": false
+   },
+   "full": "WPForms is an AI drag & drop WordPress form builder that’s EASY and POWERFUL. Create contact forms, feedback forms, subscription forms, payment forms (including Stripe, Square & PayPal), and other types of forms for your site in minutes with just a few clicks! At WPForms, user experience is our #1 priority. Our pre-built form templates and workflows make WPForms the most beginner-friendly contact form plugin on the market. You don’t have to hire a developer. Create a form in less than 5 minutes with our drag & drop form builder, using a template or just asking AI to get a head start. WPForms Pro This plugin is the Lite version of WPForms Pro, which comes with email subscription forms, multi-page contact forms, file uploads, conditional logic, and extra payment integrations. Click here to purchase the best premium WordPress contact form plugin now! Create custom contact forms in minutes with our easy-to-use drag and drop online form builder or just ask AI to build it for you. But don’t just take our word for it. See what WordPress experts are saying: WPForms is by far the easiest form plugin to use . My clients love WPForms and it’s one of the few plugins they can use without any training. As a developer I appreciate how fast, modern, clean and extensible it is. Bill Erickson – Expert WordPress Consultant WPForms comes with 2100+ pre-built form templates . Whether you’re looking to create a simple contact form, marketing form, request a quote form, donation form, payment order form, registration form, survey form, quiz form, Stripe payment form, or a subscription form, we have a form template already prepared and ready to use. WPForms contact forms are 100% responsive and mobile-friendly. We optimized every query on the frontend and the backend to ensure that it’s one of the fastest WordPress contact form plugins. You can embed your contact form on any page with an optimized title and description, so WPForms is one of the most SEO friendly contact form plugins too. With star ratings, file uploads, repeater fields, survey fields, and multi-page contact forms, you can easily build the right custom form for your site’s needs. Plus, integrate your contact forms with an email marketing service in just a few steps and collect payments with Stripe, PayPal, and Square for bookings and orders without the need for a dedicated eCommerce plugin. See what one business owner has to say about their WPForms contact form: As a business owner, time is my most valuable asset. WPForms allows me to create smart contact forms with just a few clicks. With their pre-built form templates and the drag & drop builder, I can create a new form that works in less than 2 minutes without writing a single line of code. Well worth the investment. David Henzel – Co-founder of MaxCDN Create custom survey forms like Survey Monkey. Our WordPress survey plugin addon comes with smart survey fields including Likert scale, star ratings, and NPS. Embed your surveys and polls anywhere in WordPress. Use our survey reporting tools to customize graphs, export them for presentations, and display aggregate results. You can also share poll results instantly when collecting votes. Aside from b",
+   "use_link": "",
+   "held": true
   }
  ]
 }
