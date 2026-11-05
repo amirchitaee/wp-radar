@@ -399,6 +399,18 @@
     "2.0.4"
    ],
    "cves": []
+  },
+  {
+   "t": "2026-11-05T16:09:31+00:00",
+   "id": "a02d33f8d9c3a2d1",
+   "title": "From reading to acting: WebMCP and the agent-ready web",
+   "kind": "news",
+   "link": "https://elementor.com/blog/webmcp-agent-ready",
+   "ents": [
+    "webmcp"
+   ],
+   "vers": [],
+   "cves": []
   }
  ]
 }
