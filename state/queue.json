@@ -159,21 +159,6 @@
    "channel_skip": true
   },
   {
-   "id": "7d172e98475e635b",
-   "title": "Exit polls show AI ranked last among voter priorities in the 2026 U.S. midterms",
-   "link": "https://the-decoder.com/exit-polls-show-ai-ranked-last-among-voter-priorities-in-the-2026-u-s-midterms",
-   "desc": "In the 2026 U.S. midterm elections, AI ranked last among campaign issues: only 56 percent of respondents cited AI and data centers as an important factor. According to NBC exit polls, corruption (90 percent) and the cost of living (89 percent) clearly dominated, despite growing public attention to the issue. The article Exit polls show AI ranked last among voter priorities in the 2026 U.S. midterms appeared first on The Decoder .",
-   "source": "دیکودر",
-   "lang": "en",
-   "tier": 2,
-   "group": "ai",
-   "kind": "news",
-   "age_hours": 0.3,
-   "published": "2026-11-04T10:45:54+00:00",
-   "added": "2026-11-04T11:01:07+00:00",
-   "channel_skip": true
-  },
-  {
    "id": "42f4810ce57263f7",
    "title": "datasette-apps 0.3a0",
    "link": "https://simonwillison.net/2026/Nov/4/datasette-apps",
@@ -340,6 +325,21 @@
    "age_hours": 6.3,
    "published": "2026-11-05T17:56:41+00:00",
    "added": "2026-11-06T00:15:41+00:00"
+  },
+  {
+   "id": "23828ce4394755a6",
+   "title": "Letterpress-1",
+   "link": "https://www.producthunt.com/products/letterpress-1",
+   "desc": "One script install to automate growth for your website Discussion | Link",
+   "source": "پروداکت هانت",
+   "lang": "en",
+   "tier": 3,
+   "group": "",
+   "kind": "tools",
+   "age_hours": 3.8,
+   "published": "2026-11-05T23:15:25-08:00",
+   "added": "2026-11-06T11:00:47+00:00",
+   "reject_hits": 1
   }
  ]
 }
