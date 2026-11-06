@@ -76,40 +76,6 @@
    "channel_skip": true
   },
   {
-   "id": "5b5716463f41e123",
-   "title": "Anthropic's text watermark is easy to bypass on several older Claude models",
-   "link": "https://the-decoder.com/anthropics-text-watermark-is-easy-to-bypass-on-several-older-claude-models",
-   "desc": "Anthropic is rolling out text watermarks to four more Claude models ahead of the EU AI Act's December deadline. But on older models like Claude Opus 4.6 and Sonnet 4.6, API users can disable the watermark by changing a single sampling parameter. Anthropic's response to the loophole? A compliance warning. The article Anthropic's text watermark is easy to bypass on several older Claude models appeared first on The Decoder .",
-   "source": "دیکودر",
-   "lang": "en",
-   "tier": 2,
-   "group": "ai",
-   "kind": "news",
-   "age_hours": 5.0,
-   "published": "2026-11-04T19:03:55+00:00",
-   "added": "2026-11-05T00:00:59+00:00",
-   "full": "Update, November 4, 2026: Anthropic emailed API customers again about a second round of watermark retrofits. Starting November 16, 2026, Claude Opus 4.6, Claude Opus 4.5, Claude Sonnet 4.5, and Claude Haiku 4.5 will all get text watermarking. On Amazon Bedrock, the rollout may take a few extra days. Claude Opus 4.6 was originally part of the first wave and should have gotten the watermark on November 3. Anthropic explicitly confirms the delay to November 16 but gives no reason. The other three first-wave models, Claude Mythos 5, Claude Opus 4.7, and Claude Sonnet 4.6, don't show up in the new email so their rollout likely went ahead on November 3 as planned. Ad Claude Opus 4.5, Claude Sonnet 4.5, and Claude Haiku 4.5 are three models that weren't part of the previous announcement. All four models in this wave share the same sampling restriction: the watermark only applies when temperature , top_p , and top_k are set to their defaults. In the first wave, that limit only hit two of four models (Opus 4.6 and Sonnet 4.6). Ad Original article, October 31, 2026: Anthropic is expanding its text watermark to four more Claude models, but API users can dodge the mark on two of them by tweaking a single sampling parameter. Ad In an email to API customers, Anthropic said it will watermark Claude Mythos 5, Claude Opus 4.7, Claude Opus 4.6, and Claude Sonnet 4.6. Newer models like Claude Opus 5.5 already carry the mark, and the rollout on Amazon Bedrock may take a few extra days. Anthropic calls the watermark an \"imperceptible pattern in word choice\" that doesn't change meaning, quality, or readability. The company says it adds no extra characters or tokens, doesn't affect pricing or request and response formats, and barely slows output speed. Anthropic also says the watermark \"contains no information about the user, their organization, or their conversations with Claude.\" Ad On Claude Opus 4.6 and Claude Sonnet 4.6, Anthropic says the watermark kicks in only when developers leave the three sampling parameters at their default values. Those parameters, temperature , top_p , and top_k , control how much randomness the model uses when picking words. A minor tweak to any one of them is enough to dodge the watermark. Anthropic warns in its email that \"If you rely on the watermark for your own compliance, keep these settings at their defaults.\" Ad The email doesn't mention that caveat for Claude Mythos 5 or Claude Opus 4.7, which suggests the watermark applies to those models regardless of sampling settings. But the loophole on the older models is still notable, since Opus 4.6 remains Anthropic's best writing model , ahead of even Opus 5.5. Anthropic has a detection API in private preview for verifying the watermark and offers more details on its content labeling information page . Anthropic points to the EU AI Act's December deadline as the reason it's watermarking older models now. Every model released after Aug. 2, 2026, shipped with the watermark on day one, while older models are getting it in stages. Since the watermark is embedded at the model level, it works on every platform that hosts these models, including Amazon Web Services, Google Cloud, and Micr",
-   "use_link": "",
-   "reject_hits": 2
-  },
-  {
-   "id": "0265afc2f651e829",
-   "title": "OpenAI acquires Pierre Computer Company to make Git keep up with AI coding agents",
-   "link": "https://the-decoder.com/openai-acquires-pierre-computer-company-to-make-git-keep-up-with-ai-coding-agents",
-   "desc": "OpenAI is buying Pierre Computer Company, the startup whose libraries already power the coding agent Codex. Combined with OpenAI's recently launched Git backend Pando, the deal shows the company is building out its infrastructure for developers and AI agents working side by side. The article OpenAI acquires Pierre Computer Company to make Git keep up with AI coding agents appeared first on The Decoder .",
-   "source": "دیکودر",
-   "lang": "en",
-   "tier": 2,
-   "group": "ai",
-   "kind": "news",
-   "age_hours": 5.3,
-   "published": "2026-11-04T18:41:03+00:00",
-   "added": "2026-11-05T00:00:59+00:00",
-   "full": "OpenAI is buying Pierre Computer Company, Inc., the startup behind Code Storage and several open-source tools. Pierre's libraries already power OpenAI's coding agent Codex. \"Trees\" handles fast project file navigation, \"Diffs\" displays code changes and lets users fix bugs right in the diff view, and \"Highlights\" is a real-time syntax highlighter that works as developers type or an AI agent generates code. Code Storage stores code and tracks history through Git. OpenAI says the acquisition is about making Git workflows work better when developers and AI agents are writing code side by side. As agents handle more tasks in parallel, the tooling around Git has to keep up. OpenAI already runs Pando , its own version control backend built for both developers and agents. Pierre's open-source projects will stay open source. The deal still needs regulatory approval. Subscribe to THE DECODER for ad-free reading, a weekly AI newsletter, our exclusive \"AI Radar\" frontier report six times a year, full archive access, and access to our comment section.",
-   "use_link": "https://openai.com/index/scaling-git-at-openai/",
-   "reject_hits": 2
-  },
-  {
    "id": "1d83ea98ce0c30cf",
    "title": "datasette-llm 0.1a10",
    "link": "https://simonwillison.net/2026/Nov/4/datasette-llm",
@@ -328,6 +294,23 @@
    "full": "About The Author Paul is a leader in conversion rate optimisation and user experience design thinking. He has over 25 years experience working with clients such as Doctors … More about Paul ↬ Weekly tips on front-end & UX . Trusted by 182,000+ folks. You might have already read my name every now and then here at Smashing Magazine. I’m Paul Boag. I’ve written three books with Smashing and 77 articles (yes, I counted), and I sit on Smashing’s advisory board. So when Vitaly and the Smashing team offered me this slot in your inbox, I didn’t take it lightly. I want to tell you about something I’m launching in January with Smashing as my partner , and why I think it matters right now. Every year I talk to hundreds of people working in digital. Some work in-house, some run agencies, and some freelance. And the same thing comes up again and again. The hardest part of the job usually isn’t the design work. It’s everything around it . The stakeholder who redesigns things in the review meeting. The business case sitting in someone’s inbox. The project that has been “about to start” since last spring. And now, the senior manager who has read that AI can do user research in an afternoon. What makes it harder is that a lot of us deal with all this on our own . Many are a team of one, or a team of a few. Their colleagues are great, but they work in the same organization with the same blind spots. Nobody down the corridor has dealt with this before. What’s missing is an outside view . Someone who has dealt with the same awful stakeholder and can tell you how they handled it. Most of us rarely get that conversation, and the job is changing faster than ever. There’s very little established best practice for working with AI yet. Everyone is figuring it out at once, mostly alone. UX Insiders is a small, paid community for people doing UX inside organizations . Designers, researchers, UX leads, and anyone championing UX where they work, whatever their job title. For in-house UX teams. Founder rate for as long as you stay. Launches Jan 5, 2027. For freelancers and agency owners. With the Smashing price until the end of November. I run every call myself, and I’m in Slack most days. But the best advice usually comes from other members . I’ve seen that first-hand running Agency Academy, my community for agency owners, every week since July 2024. That’s deliberate. It means people can talk openly about their organization without wondering who’s listening. And it keeps out agencies and freelancers who’d join just to sell you their services. So you apply first . It takes about a minute, and I only check that you work in-house. If you do, the answer is almost always yes. The first 25 members get founder pricing : £49 a month billed annually (£588 a year) + VAT, or £59 a month + VAT paid monthly. You keep that rate for as long as you stay. Your employer can pay by invoice too, so it can often come out of a training budget. Nobody is charged until we launch on Tue, 5 January 2027 . If fewer than 15 people have joined by Friday 11 December , it doesn’t go ahead and nobody pays a penny. Apply for a founder spot → UX Insiders is just for in-house people. But if you run an age",
    "use_link": "",
    "reject_hits": 2
+  },
+  {
+   "id": "2c2f6c870eaa9bd5",
+   "title": "RSS Club: CSS-Tricks Redesign Preview",
+   "link": "https://css-tricks.com/css-tricks-redesign-preview",
+   "desc": "Hey you wonderful RSS subscribers! We just soft-pushed a site redesign and wanted to give ya'll the first heads-up. A full write-up is coming but here are the high-level details. RSS Club: CSS-Tricks Redesign Preview originally handwritten and published with love on CSS-Tricks . You should really get the newsletter as well.",
+   "source": "سی‌اس‌اس تریکس",
+   "lang": "en",
+   "tier": 3,
+   "group": "",
+   "kind": "news",
+   "age_hours": 0.4,
+   "published": "2026-11-06T18:52:59+00:00",
+   "added": "2026-11-06T19:15:32+00:00",
+   "full": "NVIDIA L4 GPUs. 5-second cold starts. Scale to zero when idle. Hey you wonderful RSS subscribers! We just soft-pushed a site redesign and wanted to give ya’ll the first heads-up. A full write-up is coming Monday but here are the high-level details: The full write-up will dig deeper into these, plus provide a side-by-side comparison with the previous design. Watch for it Monday! I hope you have a great weekend.",
+   "use_link": "",
+   "reject_hits": 1
   }
  ]
 }
