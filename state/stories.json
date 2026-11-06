@@ -432,6 +432,24 @@
     "3.5"
    ],
    "cves": []
+  },
+  {
+   "t": "2026-11-06T02:16:07+00:00",
+   "id": "aa07334bae8fa26d",
+   "title": "Google's Gemini Omni 1.2 Flash stretches AI video clips to 15 seconds and cuts pricing by 30 percent",
+   "kind": "news",
+   "link": "https://the-decoder.com/googles-gemini-omni-1-2-flash-stretches-ai-video-clips-to-15-seconds-and-cuts-pricing-by-30-percent",
+   "ents": [
+    "ai",
+    "flash",
+    "gemini",
+    "google",
+    "omni"
+   ],
+   "vers": [
+    "1.2"
+   ],
+   "cves": []
   }
  ]
 }
