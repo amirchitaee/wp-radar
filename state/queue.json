@@ -144,21 +144,6 @@
    "reject_hits": 2
   },
   {
-   "id": "7fd9d0fa0fc70999",
-   "title": "#240 – Martin Schmidt on Building Partnerships Between WordPress Product Makers and Hosting Companies",
-   "link": "https://wptavern.com/podcast/240-martin-schmidt-on-building-partnerships-between-wordpress-product-makers-and-hosting-companies",
-   "desc": "The conversation focused on Martin Schmidt’s expertise in connecting WordPress plugin companies with web hosting providers. We discussed was how plugin creators frequently lack marketing strategies after product development. We also explored why partnering with hosts gives access to large customer bases and effective marketing channels. Martin also had advice on starting with smaller hosts, pitching clear value propositions, and preparing for outreach.",
-   "source": "تاورن",
-   "lang": "en",
-   "tier": 2,
-   "group": "",
-   "kind": "news",
-   "age_hours": 1.0,
-   "published": "2026-11-04T13:00:00+00:00",
-   "added": "2026-11-04T14:00:49+00:00",
-   "channel_skip": true
-  },
-  {
    "id": "42f4810ce57263f7",
    "title": "datasette-apps 0.3a0",
    "link": "https://simonwillison.net/2026/Nov/4/datasette-apps",
@@ -356,7 +341,7 @@
    "added": "2026-11-06T12:15:32+00:00",
    "full": "About The Author Paul is a leader in conversion rate optimisation and user experience design thinking. He has over 25 years experience working with clients such as Doctors … More about Paul ↬ Weekly tips on front-end & UX . Trusted by 182,000+ folks. You might have already read my name every now and then here at Smashing Magazine. I’m Paul Boag. I’ve written three books with Smashing and 77 articles (yes, I counted), and I sit on Smashing’s advisory board. So when Vitaly and the Smashing team offered me this slot in your inbox, I didn’t take it lightly. I want to tell you about something I’m launching in January with Smashing as my partner , and why I think it matters right now. Every year I talk to hundreds of people working in digital. Some work in-house, some run agencies, and some freelance. And the same thing comes up again and again. The hardest part of the job usually isn’t the design work. It’s everything around it . The stakeholder who redesigns things in the review meeting. The business case sitting in someone’s inbox. The project that has been “about to start” since last spring. And now, the senior manager who has read that AI can do user research in an afternoon. What makes it harder is that a lot of us deal with all this on our own . Many are a team of one, or a team of a few. Their colleagues are great, but they work in the same organization with the same blind spots. Nobody down the corridor has dealt with this before. What’s missing is an outside view . Someone who has dealt with the same awful stakeholder and can tell you how they handled it. Most of us rarely get that conversation, and the job is changing faster than ever. There’s very little established best practice for working with AI yet. Everyone is figuring it out at once, mostly alone. UX Insiders is a small, paid community for people doing UX inside organizations . Designers, researchers, UX leads, and anyone championing UX where they work, whatever their job title. For in-house UX teams. Founder rate for as long as you stay. Launches Jan 5, 2027. For freelancers and agency owners. With the Smashing price until the end of November. I run every call myself, and I’m in Slack most days. But the best advice usually comes from other members . I’ve seen that first-hand running Agency Academy, my community for agency owners, every week since July 2024. That’s deliberate. It means people can talk openly about their organization without wondering who’s listening. And it keeps out agencies and freelancers who’d join just to sell you their services. So you apply first . It takes about a minute, and I only check that you work in-house. If you do, the answer is almost always yes. The first 25 members get founder pricing : £49 a month billed annually (£588 a year) + VAT, or £59 a month + VAT paid monthly. You keep that rate for as long as you stay. Your employer can pay by invoice too, so it can often come out of a training budget. Nobody is charged until we launch on Tue, 5 January 2027 . If fewer than 15 people have joined by Friday 11 December , it doesn’t go ahead and nobody pays a penny. Apply for a founder spot → UX Insiders is just for in-house people. But if you run an age",
    "use_link": "",
-   "reject_hits": 1
+   "reject_hits": 2
   }
  ]
 }
