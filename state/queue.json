@@ -127,23 +127,6 @@
    "reject_hits": 2
   },
   {
-   "id": "84ecd190588d2ef1",
-   "title": "Smashing AI Conference",
-   "link": "https://css-tricks.com/smashing-ai-conference",
-   "desc": "The AI 2027 Conference is a live online day for designers and engineers on where AI stands today, what to expect in 2027, and where teams are getting it right. Smashing AI Conference originally handwritten and published with love on CSS-Tricks . You should really get the newsletter as well.",
-   "source": "سی‌اس‌اس تریکس",
-   "lang": "en",
-   "tier": 3,
-   "group": "",
-   "kind": "news",
-   "age_hours": 1.0,
-   "published": "2026-11-04T15:02:51+00:00",
-   "added": "2026-11-04T16:00:49+00:00",
-   "full": "NVIDIA L4 GPUs. 5-second cold starts. Scale to zero when idle. I know there’s a lot of AI fatigue out there. I feel it, too. Most of that though is more about the noise surrounding both sides of the hype spectrum. What’s covered way less is context for where it fits best in a development workflow and what sorts of practical uses it might have to benefit — not destroy — our work. That’s why I’m stoked to check out Smashing’s AI conference on December 1. We all know Smashing. The good folks over there check the hype luggage at the door and give these sorts of landscape-changing things careful and thoughtful consideration. All their events, not to mention their articles , are that way and always have been. The best, really. And what makes those events the best is bringing in the best-of-the-best people to share what they’ve learned about it. In this case we’re talking about a live online event specifically about AI in design systems from some of my personal favorite people, like Brad Frost , Christine Vallaure , Vitaly Friedman , and TJ Pitre . We’re talking about people who know their craft and the experience to show (not just tell) how it translates to what we do for work, whether you’re a designer, front-ender, or even a stakeholder in the design process. So, please join me in checking it out. Cost is €50. They’re actually giving us here at CSS-Tricks a special discount using code AITRICKSCSS when you register for the event . Even better, they gave me two free tickets I’ll give to the first two commenters on this post. Just make sure you use your real email address when signing in to comment!",
-   "use_link": "",
-   "reject_hits": 2
-  },
-  {
    "id": "42f4810ce57263f7",
    "title": "datasette-apps 0.3a0",
    "link": "https://simonwillison.net/2026/Nov/4/datasette-apps",
@@ -309,7 +292,10 @@
    "kind": "news",
    "age_hours": 6.3,
    "published": "2026-11-05T17:56:41+00:00",
-   "added": "2026-11-06T00:15:41+00:00"
+   "added": "2026-11-06T00:15:41+00:00",
+   "full": "Baidu's AI development is still alive, but most of the work is on you. The Chinese company has released ERNIE-5.5-Flash-Base , an open foundation model that ships deliberately without fine-tuning or post-training. Developers are expected to decide for themselves where to take the model. A post-trained version is supposed to follow. ERNIE 5.5 uses a mixture-of-experts architecture with 280 billion parameters, 14 billion of which are active per input. The model was pre-trained on 33.5 trillion tokens with a training context of up to 128,000 tokens, though it's designed to support a context of up to one million tokens during fine-tuning and inference. In benchmarks for reasoning, code, and long-context tasks, the model competes with similarly sized open foundation models like DeepSeek V4 Flash or MiMo V2.5, according to Baidu. The weights are available on Hugging Face in FP8 and BF16. Ad Ad Subscribe to THE DECODER for ad-free reading, a weekly AI newsletter, our exclusive \"AI Radar\" frontier report six times a year, full archive access, and access to our comment section.",
+   "use_link": "https://huggingface.co/baidu/ERNIE-5.5-Flash-Base",
+   "reject_hits": 1
   },
   {
    "id": "23828ce4394755a6",
