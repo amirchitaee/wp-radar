@@ -121,7 +121,10 @@
    "kind": "tools",
    "age_hours": 6.8,
    "published": "2026-11-04T15:26:02+00:00",
-   "added": "2026-11-04T22:15:27+00:00"
+   "added": "2026-11-04T22:15:27+00:00",
+   "full": "Fixes a bug that affected my agent.datasette.io demo site, where the set of available LLM models was not correctly restricted to just those in the configuration. This is a beat by Simon Willison, posted on 4th November 2026 . Sponsor me for $10/month and get a curated email digest of the month's most important LLM developments.",
+   "use_link": "https://github.com/datasette/datasette-llm/pull/11",
+   "reject_hits": 1
   },
   {
    "id": "84ecd190588d2ef1",
