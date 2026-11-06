@@ -320,6 +320,51 @@
    "age_hours": 34.7,
    "published": "2026-11-02T09:51:00+00:00",
    "added": "2026-11-03T20:30:46+00:00"
+  },
+  {
+   "id": "c2e3f368d27dc141",
+   "title": "OpenAIs GPT-6 Cyber can both break into systems and propose how to fix them",
+   "link": "https://the-decoder.com/openais-gpt-6-cyber-can-both-break-into-systems-and-propose-how-to-fix-them",
+   "desc": "With GPT-6 Cyber, OpenAI is introducing an AI model built to find security vulnerabilities in software, develop exploits, and suggest patches. According to OpenAI, it has already found 81 previously unknown vulnerabilities in Firefox and developed 948 working exploits in the Linux kernel, significantly more than its predecessor. The article OpenAIs GPT-6 Cyber can both break into systems and propose how to fix them appeared first on The Decoder .",
+   "source": "دیکودر",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 3.7,
+   "published": "2026-11-05T20:36:25+00:00",
+   "added": "2026-11-06T00:15:41+00:00",
+   "full": "OpenAI has introduced GPT-6 Cyber, an AI model trained specifically to hunt for security vulnerabilities in software. OpenAI says the model can find flaws, build working exploits, and suggest patches. It's also supposed to stay within its assigned boundaries, something some OpenAI models have struggled with in recent months . The firm says it trained GPT-6 Cyber to respect its operational guardrails, using, among other things, a honeypot inspired by the Hugging Face incident . Without any special safety instructions, GPT-6 Cyber avoided boundary violations in 99.93 percent of cases, up from 94.49 percent for its predecessor. With safety instructions enabled, the model stayed within bounds in 100 percent of tests. Overall, OpenAI rates GPT-6 Cyber as \"Critical\" in the cybersecurity category of its own Preparedness Framework , the same rating it gave to GPT-6 Astra, the \"base\" model . Ad On ExploitGym, a benchmark that tests whether a model can exploit a given vulnerability in a remote system, GPT-6 Cyber scores 48.5 percent according to OpenAI, compared to 32.1 percent for its predecessor GPT-5.6 Cyber. On a new test for finding vulnerabilities in web apps without access to source code, OpenAI reports a hit rate of 40.3 percent, versus 32.0 percent for GPT-6 Astra, the standard model without cyber training. Ad Full results are available in the system card . All benchmark numbers come from OpenAI itself. No independent testing of the model has been published so far. GPT-6 Cyber has already produced results in real-world security research, according to OpenAI. In a targeted campaign, the model found 81 previously unknown severe vulnerabilities in Firefox , even though the browser had already been tested with earlier AI models. The model also showed that 30 already-known issues were more severe than previously thought. Mozilla accepted the reports and has already shipped fixes. Ad In the Linux kernel, GPT-6 Cyber reproduced 1,724 security vulnerabilities and developed working exploits for 948 of them, more than five times the 166 that GPT-5.6 Sol managed under the same conditions, according to OpenAI. 304 critical findings were reported to Linux maintainers along with suggested fixes, the company says. For the Linux kernel campaign , OpenAI built a dedicated automated system of scout and analyst agents. They first scanned roughly 5,034 security-relevant locations in the kernel, about seven percent of the total codebase, then filtered those down to 2,308 candidates and confirmed 1,724 vulnerabilities in isolated virtual machines. From there, the system developed the 948 working exploits that OpenAI had already reported. The entire run cost $1,213,430 in compute, according to OpenAI, which works out to $1,279 per exploit. For comparison, programs like Pwn2Own and TyphoonPWN have historically paid between $20,000 and $70,000 per comparable finding as a bounty. Ad The agents used at least ten novel attack techniques that were previously unknown even to external kernel security experts, OpenAI says. In OpenAI's telling, the models replicated known attack patterns but also found their own approaches. How much weight that claim carries depends on how na",
+   "use_link": "https://openai.com/index/introducing-gpt-6-cyber/",
+   "reject_hits": 1
+  },
+  {
+   "id": "aa07334bae8fa26d",
+   "title": "Google's Gemini Omni 1.2 Flash stretches AI video clips to 15 seconds and cuts pricing by 30 percent",
+   "link": "https://the-decoder.com/googles-gemini-omni-1-2-flash-stretches-ai-video-clips-to-15-seconds-and-cuts-pricing-by-30-percent",
+   "desc": "Google Deepmind is making Gemini Omni 1.2 Flash generally available. The video-generation model now creates clips up to 15 seconds long, can be edited step by step via conversation, and costs just $0.07 per second at 720p, 30 percent less than its predecessor. Users who draft in low resolution and upscale only the final result can save even more. The article Google's Gemini Omni 1.2 Flash stretches AI video clips to 15 seconds and cuts pricing by 30 percent appeared first on The Decoder .",
+   "source": "دیکودر",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 5.2,
+   "published": "2026-11-05T19:05:31+00:00",
+   "added": "2026-11-06T00:15:41+00:00"
+  },
+  {
+   "id": "4ed48f2ce2fe5daa",
+   "title": "Baidu releases ERNIE 5.5 Flash Base with 280 billion parameters as an open-source foundation model",
+   "link": "https://the-decoder.com/baidu-releases-ernie-5-5-flash-base-with-280-billion-parameters-as-an-open-source-foundation-model",
+   "desc": "Baidu releases ERNIE 5.5 Flash Base: a 280-billion-parameter MoE model pre-trained on 33.5 trillion tokens, shipped deliberately without fine-tuning, so developers can take it wherever they want. The article Baidu releases ERNIE 5.5 Flash Base with 280 billion parameters as an open-source foundation model appeared first on The Decoder .",
+   "source": "دیکودر",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 6.3,
+   "published": "2026-11-05T17:56:41+00:00",
+   "added": "2026-11-06T00:15:41+00:00"
   }
  ]
 }
