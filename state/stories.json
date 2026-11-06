@@ -74,62 +74,6 @@
    "vers": []
   },
   {
-   "t": "2026-11-02T20:01:10+00:00",
-   "title": "The latest AI news we announced in October 2026",
-   "kind": "news",
-   "link": "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-october-2026",
-   "ents": [
-    "ai",
-    "october",
-    "the"
-   ],
-   "vers": []
-  },
-  {
-   "t": "2026-11-02T20:01:34+00:00",
-   "title": "New York Times and other outlets sue web browser Brave over alleged content scraping",
-   "kind": "news",
-   "link": "https://techcrunch.com/2026/11/02/new-york-times-and-other-outlets-sue-web-browser-brave-over-alleged-content-scraping",
-   "ents": [
-    "brave",
-    "times",
-    "york"
-   ],
-   "vers": []
-  },
-  {
-   "t": "2026-11-02T20:01:38+00:00",
-   "title": "The New York Times sues Brave web browser for AI scraping and bypassing paywalls",
-   "kind": "news",
-   "link": "https://www.theverge.com/tech/1024588/brave-lawsuit-ai-scraping-new-york-times",
-   "ents": [
-    "ai",
-    "brave",
-    "the",
-    "times",
-    "york"
-   ],
-   "vers": []
-  },
-  {
-   "t": "2026-11-02T20:02:02+00:00",
-   "title": "Deep Principle Releases Hydrogen-1.0: A 753B Open-Weight Model for Scientific Discovery",
-   "kind": "news",
-   "link": "https://www.marktechpost.com/2026/11/02/deep-principle-hydrogen-1-0-open-weight-scientific-model",
-   "ents": [
-    "deep",
-    "discovery",
-    "hydrogen-1.0",
-    "model",
-    "open-weight",
-    "principle",
-    "scientific"
-   ],
-   "vers": [
-    "1.0"
-   ]
-  },
-  {
    "t": "2026-11-02T21:02:13+00:00",
    "title": "Goldman Sachs pulls AI coding tools from traders and bankers",
    "kind": "news",
