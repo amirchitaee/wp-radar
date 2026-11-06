@@ -74,19 +74,6 @@
    "vers": []
   },
   {
-   "t": "2026-11-02T16:07:50+00:00",
-   "title": "HTTP2Shell: What the Critical Brotli Vulnerability Means for WordPress Sites",
-   "kind": "news",
-   "link": "https://www.wordfence.com/blog/2026/11/http2shell-wordpress-brotli",
-   "ents": [
-    "brotli",
-    "http2shell",
-    "means",
-    "wordpress"
-   ],
-   "vers": []
-  },
-  {
    "t": "2026-11-02T20:01:10+00:00",
    "title": "The latest AI news we announced in October 2026",
    "kind": "news",

@@ -295,7 +295,7 @@
    "added": "2026-11-06T00:15:41+00:00",
    "full": "Baidu's AI development is still alive, but most of the work is on you. The Chinese company has released ERNIE-5.5-Flash-Base , an open foundation model that ships deliberately without fine-tuning or post-training. Developers are expected to decide for themselves where to take the model. A post-trained version is supposed to follow. ERNIE 5.5 uses a mixture-of-experts architecture with 280 billion parameters, 14 billion of which are active per input. The model was pre-trained on 33.5 trillion tokens with a training context of up to 128,000 tokens, though it's designed to support a context of up to one million tokens during fine-tuning and inference. In benchmarks for reasoning, code, and long-context tasks, the model competes with similarly sized open foundation models like DeepSeek V4 Flash or MiMo V2.5, according to Baidu. The weights are available on Hugging Face in FP8 and BF16. Ad Ad Subscribe to THE DECODER for ad-free reading, a weekly AI newsletter, our exclusive \"AI Radar\" frontier report six times a year, full archive access, and access to our comment section.",
    "use_link": "https://huggingface.co/baidu/ERNIE-5.5-Flash-Base",
-   "reject_hits": 1
+   "reject_hits": 2
   },
   {
    "id": "23828ce4394755a6",
