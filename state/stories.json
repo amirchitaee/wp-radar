@@ -85,34 +85,6 @@
    "cves": []
   },
   {
-   "t": "2026-11-03T05:45:27+00:00",
-   "title": "What’s !important #20: GTA 6 Scroll Effects, Scrollspies, random()",
-   "kind": "news",
-   "link": "https://css-tricks.com/whats-important-20",
-   "ents": [
-    "effects",
-    "gta",
-    "scroll",
-    "scrollspies"
-   ],
-   "vers": [],
-   "cves": []
-  },
-  {
-   "t": "2026-11-03T10:15:27+00:00",
-   "title": "Anthropic cracks down on game cloning in Claude Code after wave of AI-built knockoffs",
-   "kind": "news",
-   "link": "https://the-decoder.com/anthropic-cracks-down-on-game-cloning-in-claude-code-after-wave-of-ai-built-knockoffs",
-   "ents": [
-    "ai-built",
-    "anthropic",
-    "claude",
-    "code"
-   ],
-   "vers": [],
-   "cves": []
-  },
-  {
    "t": "2026-11-03T14:15:28+00:00",
    "title": "Free WPVibe Alternative: Easy MCP AI vs WPVibe (Pricing, Limits, Reviews)",
    "kind": "news",
