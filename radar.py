@@ -2172,6 +2172,16 @@ OFF_AUDIENCE_RE = re.compile(
     r"معامله‌گر|بانکدار|بورس|سهام|شکایت|دادگاه|دادگستری|کنگره|مجلس|انتخابات)",
     re.I,
 )
+# محتوای زبالهٔ فیدهای بازنشر. یک فید تجمیعی تازه، صف را پر کرد از
+# پروکسی و بازی و اپ استور؛ هیچ‌کدام به ساخت سایت ربط نداشت و فقط
+# توکن مدل و جای خبر واقعی را می‌خورد.
+JUNK_TOPIC_RE = re.compile(
+    r"(proxy (services?|lists?|ips?|servers?)|rotate (proxy|ip)|"
+    r"vpn (service|server|app|provider)|(games?|apps?) like|flight simulator|"
+    r"car racing|vr apps?|app store stuck|casino|betting|forex|"
+    r"پروکسی|وی\u200cپی\u200cان|شرط\u200cبندی|کازینو)",
+    re.I,
+)
 SITE_TOPIC_RE = re.compile(
     r"(wordpress|woocommerce|elementor|\bplugins?\b|\bthemes?\b|\bwebsite\b|"
     r"\bweb design\b|\bseo\b|\bhosting\b|\bcms\b|"
@@ -3932,6 +3942,11 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
                 wide = blob + " " + (x.get("desc", "") or "")
                 if OFF_AUDIENCE_RE.search(wide) and not SITE_TOPIC_RE.search(wide):
                     mark_skip(x, "خارج از مخاطب")
+                    skipped += 1
+                    continue
+                # زبالهٔ فیدهای بازنشر: پروکسی، بازی موبایل، اپ استور.
+                if JUNK_TOPIC_RE.search(wide):
+                    mark_skip(x, "محتوای زباله")
                     skipped += 1
                     continue
             # رقیب هرگز. این سد اینجا هم هست چون آیتم ممکن است از قبل در

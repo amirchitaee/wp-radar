@@ -1242,6 +1242,17 @@ check("آموزش: how to وسط جمله خبر را نمی‌کشد",
       False)
 check("آموزش: how to در ابتدای تیتر آموزش است",
       bool(radar.TUTORIAL_TITLE.search("How to build a WordPress theme")), True)
+# سد زباله: فید تجمیعی صف را پر کرد از پروکسی و بازی موبایل.
+for _t in ("How to Rotate Proxy IP Addresses for Web Scraping",
+           "5 Apps Like FullDive VR for Exploring Virtual Reality",
+           "4 Games Like CSR 3 for Players Who Love Racing",
+           "PC App Store Stuck on Screen? Startup Settings"):
+    check("سد زباله: رد می‌شود | " + _t[:30], bool(radar.JUNK_TOPIC_RE.search(_t)), True)
+for _t in ("WordPress 7.1.4 Patches 22 Vulnerabilities",
+           "Best WordPress MCP Plugins in 2026",
+           "WooCommerce 9.4 released with faster checkout"):
+    check("سد زباله: دست نمی‌خورد | " + _t[:30], bool(radar.JUNK_TOPIC_RE.search(_t)), False)
+
 check("آموزش: Making دیگر آموزش حساب نمی‌شود",
       bool(radar.TUTORIAL_TITLE.search("Making Immersive Chat Experiences More Accessible")),
       False)
