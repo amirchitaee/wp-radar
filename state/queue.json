@@ -341,6 +341,20 @@
    "full": "A Google Research AI can detect signs of high blood pressure using a regular smartwatch, with no blood pressure cuff needed for calibration. The AI relies on two sensors already built into modern watches—a pulse sensor and a motion sensor—according to a Google blog post . The study was published in Nature . A neural network learned from nearly 500,000 hours of sensor data by comparing short segments and figuring out which ones belonged to the same person, picking up typical pulse and heartbeat patterns without any diagnoses to guide it. The system then averages these patterns over several days and calculates a probability for high blood pressure. Google's health model SensorFM also learns from smartwatch data. In a study of 196 people across five US research sites, the watch spotted hypertension about as well as a traditional cuff, identifying 65.8 percent of those with high blood pressure compared to 55.3 percent for the standard in-office measurement. Ad Google says the findings have been folded into the blood pressure trends feature in the Google Health app, but the method is still a research project and doesn't replace a diagnosis. The goal is to nudge people toward getting checked. More than half of people with high blood pressure don't know they have it, according to Google. Ad Subscribe to THE DECODER for ad-free reading, a weekly AI newsletter, our exclusive \"AI Radar\" frontier report six times a year, full archive access, and access to our comment section.",
    "use_link": "",
    "reject_hits": 2
+  },
+  {
+   "id": "a0bd13772d4cdcb1",
+   "title": "Awesome Motive Acquires Drip and Sleeknote, Plans Further Product Integrations",
+   "link": "https://wp-content.co/awesome-motive-acquires-drip-and-sleeknote",
+   "desc": "Awesome Motive has acquired Drip, an email marketing and automation platform, and Sleeknote, a conversion optimization tool. Mogens Møller, CEO of Drip, and Patrick Moog, CTO of Sleeknote, will continue leading both businesses alongside their existing leadership team. The vision and future roadmap Syed Balkhi, in his X announcement, described his approach to acquisitions, saying […]",
+   "source": "دبلیوپی کانتننت",
+   "lang": "en",
+   "tier": 3,
+   "group": "",
+   "kind": "news",
+   "age_hours": 0.6,
+   "published": "2026-11-07T19:39:50+00:00",
+   "added": "2026-11-07T20:15:35+00:00"
   }
  ]
 }
