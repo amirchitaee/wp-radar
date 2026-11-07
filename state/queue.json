@@ -68,23 +68,6 @@
    "reject_hits": 0
   },
   {
-   "id": "4ed48f2ce2fe5daa",
-   "title": "Baidu releases ERNIE 5.5 Flash Base with 280 billion parameters as an open-source foundation model",
-   "link": "https://the-decoder.com/baidu-releases-ernie-5-5-flash-base-with-280-billion-parameters-as-an-open-source-foundation-model",
-   "desc": "Baidu releases ERNIE 5.5 Flash Base: a 280-billion-parameter MoE model pre-trained on 33.5 trillion tokens, shipped deliberately without fine-tuning, so developers can take it wherever they want. The article Baidu releases ERNIE 5.5 Flash Base with 280 billion parameters as an open-source foundation model appeared first on The Decoder .",
-   "source": "دیکودر",
-   "lang": "en",
-   "tier": 2,
-   "group": "ai",
-   "kind": "news",
-   "age_hours": 6.3,
-   "published": "2026-11-05T17:56:41+00:00",
-   "added": "2026-11-06T00:15:41+00:00",
-   "full": "Baidu's AI development is still alive, but most of the work is on you. The Chinese company has released ERNIE-5.5-Flash-Base , an open foundation model that ships deliberately without fine-tuning or post-training. Developers are expected to decide for themselves where to take the model. A post-trained version is supposed to follow. ERNIE 5.5 uses a mixture-of-experts architecture with 280 billion parameters, 14 billion of which are active per input. The model was pre-trained on 33.5 trillion tokens with a training context of up to 128,000 tokens, though it's designed to support a context of up to one million tokens during fine-tuning and inference. In benchmarks for reasoning, code, and long-context tasks, the model competes with similarly sized open foundation models like DeepSeek V4 Flash or MiMo V2.5, according to Baidu. The weights are available on Hugging Face in FP8 and BF16. Ad Ad Subscribe to THE DECODER for ad-free reading, a weekly AI newsletter, our exclusive \"AI Radar\" frontier report six times a year, full archive access, and access to our comment section.",
-   "use_link": "https://huggingface.co/baidu/ERNIE-5.5-Flash-Base",
-   "reject_hits": 2
-  },
-  {
    "id": "42f4810ce57263f7",
    "title": "datasette-apps 0.3a0",
    "link": "https://simonwillison.net/2026/Nov/4/datasette-apps",
@@ -354,7 +337,10 @@
    "kind": "news",
    "age_hours": 5.4,
    "published": "2026-11-07T09:54:09+00:00",
-   "added": "2026-11-07T15:15:38+00:00"
+   "added": "2026-11-07T15:15:38+00:00",
+   "full": "A Google Research AI can detect signs of high blood pressure using a regular smartwatch, with no blood pressure cuff needed for calibration. The AI relies on two sensors already built into modern watches—a pulse sensor and a motion sensor—according to a Google blog post . The study was published in Nature . A neural network learned from nearly 500,000 hours of sensor data by comparing short segments and figuring out which ones belonged to the same person, picking up typical pulse and heartbeat patterns without any diagnoses to guide it. The system then averages these patterns over several days and calculates a probability for high blood pressure. Google's health model SensorFM also learns from smartwatch data. In a study of 196 people across five US research sites, the watch spotted hypertension about as well as a traditional cuff, identifying 65.8 percent of those with high blood pressure compared to 55.3 percent for the standard in-office measurement. Ad Google says the findings have been folded into the blood pressure trends feature in the Google Health app, but the method is still a research project and doesn't replace a diagnosis. The goal is to nudge people toward getting checked. More than half of people with high blood pressure don't know they have it, according to Google. Ad Subscribe to THE DECODER for ad-free reading, a weekly AI newsletter, our exclusive \"AI Radar\" frontier report six times a year, full archive access, and access to our comment section.",
+   "use_link": "",
+   "reject_hits": 1
   }
  ]
 }
