@@ -3473,7 +3473,28 @@ def collect(kind, st, seen, budget_sec=None, watch=True):
     if any((r.get("group") or "") == "ai" for r in rows):
         # روز خشک: این اجرا هیچ آیتم وردپرسی نداشت. آن روز سهم ورود
         # هوش مصنوعی دو برابر می‌شود تا سبد برای پلن بی خالی نماند.
-        dry_day = not any((r.get("group") or "") != "ai" for r in rows)
+        # روز خشک یعنی در صف هیچ آیتم زندهٔ غیرهوش‌مصنوعی نیست. قبلاً فقط
+        # همین دستهٔ تازه نگاه می‌شد؛ یک آموزش که بعداً کنار می‌رفت کافی
+        # بود تا سهم باز نشود و همهٔ خبرهای هوش مصنوعی از سد ورود رد شوند.
+        _q = read_json(QUEUE, {"v": 1, "items": []})
+        _items = _q.get("items", []) if isinstance(_q, dict) else list(_q)
+        _rmax = max(1, int(settings().get("reject_max", 2) or 2))
+        _bw = load_blocked()
+        _live_wp = any(
+            (x.get("kind") or "") == kind
+            and (x.get("group") or "") != "ai"
+            and not x.get("posted")
+            and not skip_active(x)
+            and int(x.get("reject_hits") or 0) < _rmax
+            # آیتمی که سدها ردش می‌کنند خبر زنده حساب نمی‌شود. یک آیتم
+            # زبالهٔ نیمه‌سوخته کافی بود تا سهم هوش مصنوعی باز نشود.
+            and not skip_reason(x, kind, _bw)
+            and not TUTORIAL_TITLE.search(x.get("title") or "")
+            for x in _items
+        )
+        # فقط صف معیار است. یک آموزش در همین دستهٔ تازه نباید روز را
+        # «پر» حساب کند، وگرنه سهم باز نمی‌شود.
+        dry_day = not _live_wp
         room = ai_intake_room(dry_day=dry_day)
         if dry_day:
             log("ai intake: dry day, room {}".format(room))
@@ -3815,6 +3836,33 @@ def pool_open(x, kind, reject_max):
         and not x.get("held")
         and int(x.get("reject_hits") or 0) < reject_max
     )
+
+
+def skip_reason(x, kind, blocked_words):
+    """دلیل کنار گذاشتن آیتم پیش از مدل، یا رشتهٔ خالی.
+
+    یک جا نوشته شده تا هم سد پیش از مدل و هم تشخیص «روز خشک» از یک
+    قانون استفاده کنند؛ وگرنه یک آیتم زبالهٔ نیمه‌سوخته کافی بود تا
+    سهم هوش مصنوعی هرگز باز نشود.
+    """
+    blob = " ".join([x.get("title", "") or "", x.get("link", "") or ""])
+    wide = blob + " " + (x.get("desc", "") or "")
+    if NON_NEWS_RE.search(blob) or JUNK_NEWS_RE.search(blob):
+        return "صورت‌جلسه یا گزارش"
+    if LIST_REPO_RE.search(blob):
+        return "فهرست پیوند"
+    if kind == "news" and PODCAST_RE.search(blob + " " + (x.get("source") or "")):
+        return "پادکست یا وبینار"
+    if kind == "tools" and not BUILDER_TOPIC.search(wide):
+        return "بی‌ربط به ابزار سایت"
+    if kind == "news":
+        if OFF_AUDIENCE_RE.search(wide) and not SITE_TOPIC_RE.search(wide):
+            return "خارج از مخاطب"
+        if JUNK_TOPIC_RE.search(wide):
+            return "محتوای زباله"
+    if blocked_hit(x, blocked_words) or persian_product(x):
+        return "رقیب یا کالای فارسی"
+    return ""
 
 
 def fetch_full_parallel(chunk, workers=6):
@@ -4270,7 +4318,8 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
             if true_age(it) > max_age_gate:
                 log("  too old for a standalone post:", it["title"][:50])
                 continue
-            if news_like and num(entry.get("imp")) < 4:
+            # در جای خالی، سد اهمیت پایین‌تر است؛ وگرنه کانال خالی می‌ماند.
+            if news_like and num(entry.get("imp")) < (2 if fill_mode else 4):
                 rejected.append((it, entry, "اهمیت کم"))
                 continue
             # راهنما خبر نیست. وبلاگ سازنده‌ها هر روز آموزش می‌نویسند و
