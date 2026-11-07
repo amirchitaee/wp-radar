@@ -222,8 +222,12 @@ radar.call_models = divi_model
 radar.DAILY.write_text(json.dumps({"date": radar.today(), "count": 0, "kinds": {}}), encoding="utf-8")
 SENT.clear()
 got = radar.model_run("news", settings, {}, {"v": 1, "ids": {}}, "", hard_deadline=None)
-check("دیوی: آموزش در دستهٔ خبر منتشر نمی‌شود", got, 0)
-check("دیوی: هیچ پیام امنیتی ساخته نشد", len(SENT), 0)
+# از ۱۶ آبان: اگر در دستهٔ خبر هیچ خبر وردپرسی نباشد، جای خالی با
+# آموزش پر می‌شود تا کانال خالی نماند. برچسب باید آموزش باشد، نه امنیتی.
+check("دیوی: در جای خالی آموزش منتشر می‌شود", got, 1)
+_divi_news = SENT[0] if SENT else ""
+check("دیوی: برچسب امنیتی ندارد (خبر)", "#هشدار_امنیتی" in _divi_news, False)
+check("دیوی: برچسب آموزش دارد (خبر)", "#آموزش" in _divi_news, True)
 
 # همان آیتم در دستهٔ ابزار، برچسب آموزش می‌گیرد و نام محصول هم دارد.
 DIVI_TOOLS = dict(DIVI)

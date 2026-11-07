@@ -3900,6 +3900,19 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
     # وردپرسی قبل از خبر عمومی هوش مصنوعی به مدل می‌رود، حتی اگر امتیازش
     # کمتر باشد. مدل فقط چیزی را می‌بیند که به او داده شود.
     pending = wp_first_sort(pending)
+    # حالت جای خالی: هیچ خبر تازهٔ وردپرسی در سبد نیست و فقط آموزش یا
+    # خبر هوش مصنوعی مانده. آن وقت یک آموزش کاربردی بهتر از سکوت است،
+    # ولی سقفش یک پست در هر اجراست تا کانال پر از «چطور فلان کار را
+    # بکنیم» نشود.
+    fill_mode = False
+    if kind == "news":
+        real_news = [
+            x
+            for x in pending
+            if (x.get("group") or "") != "ai"
+            and not TUTORIAL_TITLE.search(x.get("title") or "")
+        ]
+        fill_mode = not real_news
     # صورت‌جلسه و گزارش هفتگی خبر نیست. قبل از سوزاندن توکن مدل کنار می‌رود.
     # آدرس هم بررسی می‌شود، چون تیتر ممکن است ترجمه شده باشد و کلمهٔ
     # اصلی را نگه نداشته باشد.
@@ -4013,10 +4026,20 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
             log("  ai quota full and nothing else to post")
             return 0
 
+    # جای خالی: وقتی در سبد هیچ خبر وردپرسی نیست، مدل باید بداند این
+    # نوبت پر کردن جا است. بدون این، خبر مدل یا ابزار هوش مصنوعی را با
+    # معیار «کاربرد مستقیم در سایت» رد می‌کند و جای خالی خالی می‌ماند.
+    fill_note = ""
+    if kind == "news" and fill_mode:
+        fill_note = str(s.get("ai_fill_hint") or "")
+
     cap = int(s.get("daily_cap", 10))
     _caps = s.get("caps") or {}
     kind_cap = int(_caps[kind]) if kind in _caps else int(cap)
     per_run = int(s.get("max_posts_per_run", 4))
+    # جای خالی چکه‌ای پر می‌شود: یک پست در هر اجرا، نه چهار تا.
+    if kind == "news" and fill_mode:
+        per_run = 1
     posted = 0
     store = load_stories()
     failures = 0
@@ -4089,7 +4112,7 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
             fetch_full_parallel(chunk)
             filled = sum(1 for x in chunk if x.get("full"))
             log("  full text: {}/{}".format(filled, len(chunk)))
-            result = call_models(SYSTEM_PROMPT, build_prompt(chunk, kind_hint(kind) + extra), deadline)
+            result = call_models(SYSTEM_PROMPT, build_prompt(chunk, kind_hint(kind) + extra + fill_note), deadline)
         except OutOfTime as exc:
             # وقت تمام شد، نه خطا. صف سالم می‌ماند و اجرای بعدی ادامه می‌دهد.
             # عمداً هشدار نمی‌فرستد؛ همین هشدار بود که کانال را پر کرده بود.
@@ -4252,7 +4275,7 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
                 continue
             # راهنما خبر نیست. وبلاگ سازنده‌ها هر روز آموزش می‌نویسند و
             # کانال پر می‌شد از «چطور فلان کار را بکنیم».
-            if kind == "news" and TUTORIAL_TITLE.search(it.get("title", "")):
+            if kind == "news" and TUTORIAL_TITLE.search(it.get("title", "")) and not fill_mode:
                 mark_skip(it, "آموزش است نه خبر")
                 rejected.append((it, entry, "آموزش است نه خبر"))
                 continue
