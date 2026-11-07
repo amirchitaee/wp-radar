@@ -85,25 +85,6 @@
    "reject_hits": 2
   },
   {
-   "id": "bbf9751fd85b1fad",
-   "title": "Taming Typography: Building a Modern CSS Reset",
-   "link": "https://css-tricks.com/taming-typography-modern-css-reset",
-   "desc": "Stu created tidy-typography.css: a style reset for taming typography with modern CSS features for everything from fluid typography and vertical rhythm, to hyphens and variable fonts. Taming Typography: Building a Modern CSS Reset originally handwritten and published with love on CSS-Tricks . You should really get the newsletter as well.",
-   "source": "سی‌اس‌اس تریکس",
-   "lang": "en",
-   "tier": 3,
-   "group": "",
-   "kind": "news",
-   "age_hours": 0.1,
-   "published": "2026-11-05T14:55:31+00:00",
-   "added": "2026-11-05T15:00:49+00:00",
-   "full": "NVIDIA L4 GPUs. 5-second cold starts. Scale to zero when idle. CSS can now make choices about type that used to sit outside a reset . text-wrap: pretty can prevent a stranded word, container query units can scale a heading to the column it occupies, and text-box can trim the half-leading built into a line box. Some of these features are experimental and browser support is uneven, so they need guardrails rather than blind inclusion. I’ve put together tidy-typography.css , which gathers the useful parts into a default stylesheet: rendering and fallback rules, fluid sizing, vertical rhythm, wrapping, hyphenation, and OpenType detail. Use it whole, or take the declaration that solves the particular irritation in front of you. I’ll walk you through all the details in this article and give you the full code at the end. Rendering and fallback sanity html { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; font-synthesis: none; -moz-text-size-adjust: none; -webkit-text-size-adjust: none; text-size-adjust: none; } body { font-size-adjust: from-font; } font-synthesis: none stops a browser from inventing bold or italic when the family lacks that face. The smoothing and text-rendering declarations are rendering hints, mainly for WebKit; results still vary by platform. text-size-adjust disables mobile font inflation that can make a deliberately sized layout jump on rotation. font-size-adjust: from-font uses font metrics to reduce the apparent size change while a fallback swaps for a webfont. (As with other snippets in this article, this ⁠ :root block is a partial excerpt the final stylesheet combines it with additional custom properties defined later on.) Fluid typography Viewport-based fluid type does not know how wide its element is. A heading in a narrow sidebar can therefore scale as though it fills the viewport. .article-container { container-type: inline-size; } :root { --step-0: clamp(1rem, 0.9rem + 1cqi, 1.125rem); --step-3: clamp(2rem, 1.6rem + 3cqi, 2.75rem); } container-type: inline-size makes the wrapper a container query , so its children can use cqi : a unit based on the container rather than the viewport. Replacing vw in clamp() lets the same heading scale appropriately in an article column or a 300px sidebar without component-specific media queries. Vertical rhythm: trim the half-leading :heading, p, blockquote, figcaption, li { text-box-trim: trim-both; text-box-edge: cap alphabetic; /* shorthand: text-box: trim-both cap alphabetic; */ } line-height includes space above the cap-height and below the baseline: half-leading. It becomes obvious when text must align tightly with another element. text-box-trim removes it, while text-box-edge measures from capital-letter caps to the alphabetic baseline. This is a metrics-aware alternative to font-specific negative-margin nudges. @supports selector(:heading) { :heading { text-box: trim-both cap alphabetic; } } Selectors Level 5 proposes :heading , matching h1 to h6 and [role=\"heading\"] . It has not landed in browsers, so keep it behind an @supports selector() check. Balanced headlines, orphan-free paragraphs :heading, blockquote, figcaption { text-wrap: balance; } p, li, dd",
-   "use_link": "",
-   "reject_hits": 2,
-   "digest_sent": true,
-   "channel_skip": true
-  },
-  {
    "id": "42f4810ce57263f7",
    "title": "datasette-apps 0.3a0",
    "link": "https://simonwillison.net/2026/Nov/4/datasette-apps",
@@ -325,6 +306,51 @@
    "channel_skip": true,
    "skip_why": "محتوای زباله",
    "skip_until": "2026-11-08T02:15:37+00:00"
+  },
+  {
+   "id": "3e407aae56c89ae9",
+   "title": "State propaganda in some Chinese AI models is only \"a thin layer\" that fine-tuning can strip away",
+   "link": "https://the-decoder.com/state-propaganda-in-some-chinese-ai-models-is-only-a-thin-layer-that-fine-tuning-can-strip-away",
+   "desc": "Nous Research retrained Alibaba's Qwen3.8-27B to produce Arete-27B, largely stripping out its pro-Chinese bias. The propaganda rate dropped from 22 percent to less than one percent, while general capabilities remained intact in tests. The method relied on 53 million tokens of supervised fine-tuning. The political bias is \"applied late, it is applied thin,\" the team writes. The article State propaganda in some Chinese AI models is only \"a thin layer\" that fine-tuning can strip away appeared first on The Decoder .",
+   "source": "دیکودر",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 2.7,
+   "published": "2026-11-07T12:32:45+00:00",
+   "added": "2026-11-07T15:15:38+00:00",
+   "full": "Nous Research fine-tuned Alibaba's Qwen3.8-27B on 53 million tokens to strip out Chinese state propaganda. The resulting model, Arete-27B, drops its propaganda rate from 22 percent to under one percent while keeping general capabilities intact. Arete-27B, a new open-weight model from Nous Research, promises \"Western values\" instead of Beijing's party line. The US startup, best known for its open-source agent Hermes , fine-tuned Alibaba's Qwen3.8-27B to get there. According to Nous , Chinese open-weight models rank among the strongest available but carry state-mandated behavior baked into their weights. With Qwen3.8-27B, the team observed refusals, evasive answers, and responses aligned with the Chinese Communist Party. Ad Nous built its own test with 803 prompts across seven categories, including free speech, state ideology, education, privacy and surveillance, democracy, and the environment. For each prompt, the team defined two to four facts drawn from a dated source article: laws, news reports, or research papers. Ironically, the politically right-leaning Grok 4.7 from Elon Musk's xAI serves as the judge model, checking whether a response mentions, omits, or contradicts those facts. Ad A response counts as propaganda when it reproduces Beijing's official narrative instead of the facts, endorses it, or presents it as an equally valid perspective. The judge must cite the specific wording and doesn't know which model wrote the answer. Unmodified Qwen3.8-27B scored 2.32 out of 5 on factual accuracy, and 22 percent of its answers contained propaganda. Western models like Mistral Large 4 or Gemma 4 31B came in below one percent, while GLM-5.3 and DeepSeek V4.1 Flash landed at 15 and 16 percent. Nous chose Inkling from Thinking Machines Lab as its teacher model because an open model wouldn't break terms of service that ban distillation. Nvidia's Nemotron 3 Ultra was also on the shortlist, but Nous says there were signs of irregularities on China-related topics. The team suspects the bias carried over from training on Chinese open-weight models and reports similar contamination in its own projects. Thinking Machines itself used models including the Chinese Kimi K2.5 for Inkling's synthetic training data. Ad Nous trained Qwen3.8-27B with supervised fine-tuning on about 53 million tokens over two epochs, without reinforcement learning or preference optimization. The team says it removed overlaps between training and test prompts beforehand. Arete-27B scores 2.98 on factual accuracy, and the share of propagandistic answers drops to 0.9 percent. The biggest shift showed up in the free speech category, where the fact score jumped from 0.89 to 2.44 and the propaganda rate fell from 60 to one percent. With reasoning mode turned on, Arete reaches 3.07, though that number is based on only two of five runs so far. Ad General capabilities don't suffer, according to Nous. On the company's internal Hermes Bench, Arete-27B hits 65.60 percent compared to 65.77 percent for the base model. On Terminal-Bench 2.1, the score rises from 67 to 70 percent, but Nous doesn't call that a real gain because the test setups differed. Ad The team concludes \"that the bias layer",
+   "use_link": "",
+   "held": true
+  },
+  {
+   "id": "3142451701d5f0f6",
+   "title": "Nine AI agents tried autonomous research on open questions from US national labs and none passed the experts' bar",
+   "link": "https://the-decoder.com/nine-ai-agents-tried-autonomous-research-on-open-questions-from-us-national-labs-and-none-passed-the-experts-bar",
+   "desc": "The \"Into the Unknown\" benchmark tasks nine AI agents with tackling open research questions from U.S. national laboratories. None of the 135 submissions meets all requirements. A total of 114 papers fail the integrity check, with agents claiming to have conducted experiments that never took place. GPT-6 Astra performs best but still doesn't meet the experts' standards. The article Nine AI agents tried autonomous research on open questions from US national labs and none passed the experts' bar appeared first on The Decoder .",
+   "source": "دیکودر",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 4.0,
+   "published": "2026-11-07T11:13:42+00:00",
+   "added": "2026-11-07T15:15:38+00:00"
+  },
+  {
+   "id": "4392e68dfcfa99ba",
+   "title": "Google's AI detects high blood pressure from a regular smartwatch without a cuff",
+   "link": "https://the-decoder.com/googles-ai-detects-high-blood-pressure-from-a-regular-smartwatch-without-a-cuff",
+   "desc": "Google Research built an AI that spots signs of high blood pressure using only the pulse and motion sensors in a standard smartwatch, no cuff needed. In a 196-person study, its 65.8 percent detection rate beat the traditional in-office measurement. The method is already live in the Google Health app, though it doesn't replace a formal diagnosis. The article Google's AI detects high blood pressure from a regular smartwatch without a cuff appeared first on The Decoder .",
+   "source": "دیکودر",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 5.4,
+   "published": "2026-11-07T09:54:09+00:00",
+   "added": "2026-11-07T15:15:38+00:00"
   }
  ]
 }

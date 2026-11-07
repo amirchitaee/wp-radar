@@ -1,3 +1,17 @@
 {
- "items": []
+ "items": [
+  {
+   "id": "3e407aae56c89ae9",
+   "at": "2026-11-07T15:15:54+00:00",
+   "kind": "news",
+   "label": "خبر",
+   "text": "<b>📰 خبر: مدل ⁦open source⁩ جدیدی که سوگیری سیاسی مدل‌های چینی را حذف می‌کند</b>\n\n‏⁦Nous Research⁩ با آموزش دوباره روی مدل ⁦Qwen3.8-27B⁩ شرکت علی‌بابا، مدل جدیدی به نام ⁦Arete-27B⁩ ساخته که نرخ تبلیغات سیاسی را از ۲۲ درصد به زیر یک درصد رسانده. برای کسی که با هوش مصنوعی متن تولید می‌کند، یعنی خروجی خنثی‌تر و قابل اتکاتری می‌گیرد.\n\n<blockquote expandable>این کار با ۵۳ میلیون توکن آموزش نظارت‌شده انجام شده و توانایی‌های عمومی مدل دست‌نخورده مانده.\nمدل اصلی در آزمون‌های ⁦Nous⁩ نرخ تبلیغات ۲۲ درصد داشت؛ مدل‌های غربی مثل ⁦Mistral Large⁩ ۴ زیر یک درصد بودند.\nوزن‌های ⁦Arete-27B⁩ باز است و می‌شود روی سخت‌افزار خودت اجرایش کنی.</blockquote>\n\nاطلاعات بیشتر دربارهٔ این موضوع را از <a href=\"https://the-decoder.com/state-propaganda-in-some-chinese-ai-models-is-only-a-thin-layer-that-fine-tuning-can-strip-away\">منبع</a> بخوانید.\n\n<i>۱۶ آبان ۱۴۰۵ · ۱۶:۰۲</i>\n\n#خبر #هوش_مصنوعی",
+   "score": 60.9,
+   "title": "State propaganda in some Chinese AI models is only \"a thin layer\" that fine-tuning can strip away",
+   "link": "https://the-decoder.com/state-propaganda-in-some-chinese-ai-models-is-only-a-thin-layer-that-fine-tuning-can-strip-away",
+   "source": "دیکودر",
+   "group": "ai",
+   "photo": ""
+  }
+ ]
 }
