@@ -2888,7 +2888,16 @@ def publish_ready(s, st, seen, hard_deadline=None):
         d["kinds"][kind] = int(d["kinds"].get(kind, 0)) + 1
         if (row.get("group") or (target or {}).get("group") or "") == "ai":
             d["kinds"]["ai"] = int(d["kinds"].get("ai", 0)) + 1
-        archive_row(target or row, row.get("label", ""), "", "", row.get("score", 0), kind)
+        # تیتر و خلاصهٔ فارسی از خود رکورد نگه‌داری خوانده می‌شود. قبلاً
+        # رشتهٔ خالی ثبت می‌شد و آرشیو کانال بی‌عنوان می‌ماند.
+        archive_row(
+            target or row,
+            row.get("label", ""),
+            row.get("title", ""),
+            row.get("summary", ""),
+            row.get("score", 0),
+            kind,
+        )
         if not DRY:
             write_json(QUEUE, q)
             write_json(DAILY, d)
