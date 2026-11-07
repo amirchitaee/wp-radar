@@ -309,7 +309,7 @@
    "added": "2026-11-07T00:15:42+00:00",
    "full": "AI chip design firm Ricursive Intelligence has trained an open language model. Ripple-65B Preview was pretrained on 12 trillion tokens and, according to the company, achieved a score of 80.52 on the TerminalBench 2.1 coding benchmark, the best result among open US models. Ripple partly uses Terminus 2 and partly OpenCode as its harness. Other benchmark results show that Ripple does not match the also newly released Inkling 2 Small , but Ripple is likely easier to deploy on users' own hardware. According to Ricursive, total development and training costs amounted to just $32 million, covering all research and development expenses. The model uses a dense Transformer architecture with 65 billion parameters instead of the more common mixture-of-experts approach and is optimized for Nvidia hardware. Ripple-65B Preview is available on Hugging Face under the Apache 2.0 license. Subscribe to THE DECODER for ad-free reading, a weekly AI newsletter, our exclusive \"AI Radar\" frontier report six times a year, full archive access, and access to our comment section.",
    "use_link": "http://huggingface.co/ricursiveAI/Ripple-65B-Preview",
-   "reject_hits": 1
+   "reject_hits": 2
   },
   {
    "id": "7bae1c47fa7b5295",
