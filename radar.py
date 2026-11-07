@@ -2119,11 +2119,17 @@ URGENT_HINT = re.compile(
 # مخاطب قرار نیست امروز کاری بکند، جز این که روی سایت اصلی نصبش نکند.
 BETA_RE = re.compile(r"\b(?:beta|rc\d*|release\s+candidate)\b|بتا|نسخهٔ? آزمایشی", re.I)
 
+# «آموزش» فقط وقتی آموزش است که تیتر با آن شروع شود یا واژهٔ صریح آموزش
+# باشد. قبلاً «how to» هر جای جمله کافی بود و دو خبر واقعی را برای همیشه
+# کنار گذاشت: «... and propose how to fix them» و «Making ... Accessible».
+# کلمهٔ Making هم از فهرست شروع‌ها برداشته شد، چون هر تیتری می‌تواند با
+# آن شروع شود و خبر باشد.
 TUTORIAL_TITLE = re.compile(
-    r"(how to|how-to|tutorial|walkthrough|step by step|step-by-step|a guide to|"
-    r"^\s*(?:creating|building|using|understanding|designing|adding|making|"
+    r"^\s*(?:how[ -]to|tutorial|walkthrough|step[ -]by[ -]step|a guide to|"
+    r"creating|building|using|understanding|designing|adding|"
     r"setting up|getting started)\b|"
-    r"آموزش|راهنمای|گام‌به‌گام|چطور)",
+    r"\b(?:tutorial|walkthrough|step[ -]by[ -]step)\b|"
+    r"آموزش|راهنمای گام‌به‌گام|چطور",
     re.I,
 )
 # شمارهٔ نسخه یعنی به‌روزرسانی چیزی که از قبل بوده، نه محصول تازه.
@@ -3217,6 +3223,30 @@ def queue_kind_count(kind):
     return sum(1 for x in items if (x.get("kind") or "") == kind)
 
 
+def queue_kind_live(kind, s=None):
+    """چند آیتم این دسته هنوز شانس پست شدن دارد.
+
+    سقف انبار باید آیتم زنده را بشمارد، نه هر چیزی که در صف نشسته.
+    آیتم سوخته (به سقف رد رسیده) و آیتم کنارگذاشته فقط جا اشغال
+    می‌کردند: سبد نمایشگاه با شش آیتم مرده پر بود و آیتم تازهٔ گالری
+    هرگز اجازهٔ ورود نمی‌گرفت.
+    """
+    s = s or settings()
+    rmax = max(1, int(s.get("reject_max", 2) or 2))
+    q = read_json(QUEUE, {"v": 1, "items": []})
+    items = q.get("items", []) if isinstance(q, dict) else list(q)
+    live = 0
+    for x in items:
+        if (x.get("kind") or "") != kind:
+            continue
+        if x.get("posted") or skip_active(x):
+            continue
+        if int(x.get("reject_hits") or 0) >= rmax:
+            continue
+        live += 1
+    return live
+
+
 def added_today(kind):
     """چند آیتم از این دسته امروز وارد صف شده."""
     q = read_json(QUEUE, {"v": 1, "items": []})
@@ -3240,7 +3270,7 @@ def trim_intake(kind, rows, s):
     daily = int((s.get("intake_per_day") or {}).get(kind, 0) or 0)
     room = len(rows)
     if backlog > 0:
-        room = min(room, max(0, backlog - queue_kind_count(kind)))
+        room = min(room, max(0, backlog - queue_kind_live(kind, s)))
     if daily > 0:
         room = min(room, max(0, daily - added_today(kind)))
     if room >= len(rows):
@@ -3254,7 +3284,7 @@ def trim_intake(kind, rows, s):
         "intake {}: {} dropped, backlog {}/{} daily {}/{} wp {}/{}".format(
             kind,
             len(rows) - len(kept),
-            queue_kind_count(kind),
+            queue_kind_live(kind, s),
             backlog or "-",
             added_today(kind),
             daily or "-",
@@ -3290,6 +3320,18 @@ def prune_queue(s=None, apply=True):
         if cap <= 0:
             kept.extend(group)
             continue
+        # آیتم سوخته یا کنارگذاشته دیگر هرگز پست نمی‌شود؛ ماندنش فقط
+        # جای آیتم تازه را می‌گیرد. سبد نمایشگاه با شش آیتم مرده پر شده
+        # بود و آیتم گالری تازه اجازهٔ ورود نداشت. یک روز نگه داشته
+        # می‌شود تا رد شدنش قابل بررسی بماند.
+        rmax = max(1, int(s.get("reject_max", 2) or 2))
+        alive = []
+        for x in group:
+            dead = int(x.get("reject_hits") or 0) >= rmax or skip_active(x)
+            if dead and queue_age(x) > 24:
+                continue
+            alive.append(x)
+        group = alive
         group.sort(key=lambda x: (x.get("published") or x.get("added") or ""), reverse=True)
         group = wp_first_sort(group)
         kept.extend(group[:cap])
@@ -3314,15 +3356,22 @@ def prune_queue(s=None, apply=True):
     return before, len(kept)
 
 
-def ai_intake_room():
+def ai_intake_room(dry_day=False):
     """چند خبر هوش مصنوعی دیگر امروز اجازهٔ ورود به صف دارد.
 
     سقف انتشار (ai_cap_per_day) فقط جلوی پست شدن را می‌گرفت، نه جلوی
     وارد شدن. نتیجه این شد که صف هشتاد و سه درصد هوش مصنوعی شد: سه فید
     AI روزی پنجاه خبر می‌دادند و فیدهای وردپرس روزی یکی دو تا. مدل هم
     بیشتر وقتش را صرف رد کردن همان‌ها می‌کرد.
+
+    روز خشک یعنی اجرایی که هیچ آیتم وردپرسی نداشت. آن روز سقف ورود
+    دو برابر می‌شود تا پلن بی (پر کردن جای خالی) واقعاً چیزی برای
+    انتخاب داشته باشد؛ وگرنه سهم باز می‌شود ولی سبد خالی است.
     """
-    cap = int(settings().get("ai_intake_per_day", 10))
+    s = settings()
+    cap = int(s.get("ai_intake_per_day", 10))
+    if dry_day:
+        cap = max(cap, int(s.get("ai_intake_dry_day", cap * 2) or cap * 2))
     if cap <= 0:
         return 0
     q = read_json(QUEUE, {"items": []})
@@ -3412,7 +3461,12 @@ def collect(kind, st, seen, budget_sec=None, watch=True):
     # سقف ورودی گروه هوش مصنوعی. بدون این، صف از خبر AI پر می‌شود و
     # ستون اصلی کانال، یعنی وردپرس، جایی برای آمدن ندارد.
     if any((r.get("group") or "") == "ai" for r in rows):
-        room = ai_intake_room()
+        # روز خشک: این اجرا هیچ آیتم وردپرسی نداشت. آن روز سهم ورود
+        # هوش مصنوعی دو برابر می‌شود تا سبد برای پلن بی خالی نماند.
+        dry_day = not any((r.get("group") or "") != "ai" for r in rows)
+        room = ai_intake_room(dry_day=dry_day)
+        if dry_day:
+            log("ai intake: dry day, room {}".format(room))
         kept, dropped = [], 0
         for r in rows:
             if (r.get("group") or "") == "ai":
@@ -3607,23 +3661,46 @@ def daily_room(s, kind, d):
     return max(0, min(kind_cap - posted_kind, room))
 
 
-def ai_allowance(s, d, news_held=0, at=None):
+def in_publish_window(s, at=None):
+    """آیا همین حالا داخل پنجرهٔ انتشار هستیم؟
+
+    بیرون از پنجره، پست نوشته می‌شود ولی تا صبح نگه داشته می‌شود؛
+    نوشتنش فقط سهمیهٔ مدل را می‌سوزاند.
+    """
+    pub = s.get("publish") or {}
+    if not pub.get("enabled", True):
+        return True
+    moment = (at or now()).astimezone(TZ)
+    start = str(pub.get("start", "00:00"))
+    end = str(pub.get("end", "23:59"))
+    hhmm = moment.strftime("%H:%M")
+    if start <= end:
+        return start <= hhmm <= end
+    return hhmm >= start or hhmm <= end
+
+
+def ai_allowance(s, d, news_held=0, at=None, wp_left=None):
     """سهم هوش مصنوعی امروز، با پر کردن جای خالیِ وردپرس.
 
-    سهم پایه تا ساعت مقرر ثابت است. بعد از آن، هر جایی که خبر وردپرسی
-    پر نکرده باشد به هوش مصنوعی می‌رسد، ولی هرگز از سهم پایه کمتر و از
-    سقف مطلق بیشتر نمی‌شود.
+    سهم پایه ثابت است. دو حالت جای خالی را باز می‌کند: گذشتن از ساعت
+    مقرر، یا خالی بودن کامل سبد وردپرس. حالت دوم همان پلن بی است:
+    وقتی هیچ خبر وردپرسی نمانده، کانال نباید ساکت بماند.
 
-    چرا ساعت دارد؟ اگر «جای خالی» را صبح حساب کنیم، ساعت نه شش جا خالی
-    به نظر می‌رسد و هوش مصنوعی همه را پر می‌کند؛ بعدازظهر خبر وردپرسی
-    می‌آید و جا ندارد. ساعت، جای خالی را از خیال به واقعیت تبدیل می‌کند.
+    چرا ساعت هم مانده؟ اگر فقط «خالی بودن سبد» معیار بود، صبح که صف
+    تازه است و خبر وردپرسی هنوز نرسیده، هوش مصنوعی همهٔ جاها را می‌گرفت
+    و خبر وردپرسی بعدازظهر جا نداشت. ساعت، جای خالی را از خیال به
+    واقعیت تبدیل می‌کند.
     """
     base = int(s.get("ai_cap_per_day", 1))
     fill = s.get("ai_fill") or {}
     if not fill.get("enabled", True):
         return base
     moment = (at or now()).astimezone(TZ)
-    if moment.strftime("%H:%M") < str(fill.get("after", "18:00")):
+    if not in_publish_window(s, moment):
+        return base
+    late = moment.strftime("%H:%M") >= str(fill.get("after", "18:00"))
+    dry = bool(fill.get("when_wp_empty", True)) and wp_left is not None and int(wp_left) <= 0
+    if not (late or dry):
         return base
     caps = s.get("caps") or {}
     news_cap = int(caps.get("news", s.get("daily_cap", 10)) or 0)
@@ -3644,7 +3721,11 @@ def ai_narrow(pool, s, d, ready_items=None, at=None):
     ai_done = int((d.get("kinds") or {}).get("ai", 0))
     ai_held = sum(1 for r in ready_items if (r.get("group") or "") == "ai")
     held_news = sum(1 for r in ready_items if (r.get("kind") or "news") == "news")
-    allowed = ai_allowance(s, d, held_news, at)
+    # پلن بی: اگر در سبد هیچ خبر وردپرسی نمانده، جای خالی باز می‌شود.
+    # این عدد از خود سبد می‌آید، نه از ساعت؛ پس فقط وقتی فعال می‌شود
+    # که واقعاً چیزی برای وردپرس نباشد.
+    wp_left = sum(1 for x in pool if (x.get("group") or "") != "ai")
+    allowed = ai_allowance(s, d, held_news, at, wp_left=wp_left)
     base_left = max(0, base - ai_done - ai_held)
     ai_left = max(0, allowed - ai_done - ai_held)
     fill_age = float((s.get("ai_fill") or {}).get("max_age_h", 24) or 24)
@@ -3678,12 +3759,49 @@ def bump_reject(it, s):
     return hits >= max(1, int(s.get("reject_max", 2) or 2))
 
 
+def mark_skip(it, why="", hours=None):
+    """کنار گذاشتن موقت، نه برای همیشه.
+
+    پرچم دائمی یک بار چهار خبر وردپرسی را برای همیشه از گردش انداخت،
+    حتی بعد از این که قانونش عوض شد. حالا هر کنار گذاشتن تاریخ انقضا
+    دارد و آیتم بعد از آن دوباره دیده می‌شود.
+    """
+    it["channel_skip"] = True
+    it["skip_why"] = str(why or "")[:80]
+    try:
+        span = float(hours if hours is not None else settings().get("skip_hours", 12))
+    except Exception:
+        span = 12.0
+    it["skip_until"] = (now() + timedelta(hours=span)).isoformat(timespec="seconds")
+    return it
+
+
+def skip_active(x):
+    """آیا این آیتم همین حالا کنار گذاشته شده است؟
+
+    پرچم بدون تاریخ (از نسخهٔ قبل) منقضی حساب می‌شود تا صف از آیتم‌های
+    مرده پاک شود. پرچم «برای همیشه» فقط برای آیتمی است که در جمع‌بندی
+    رفته و نباید دوباره پست شود.
+    """
+    if not x.get("channel_skip"):
+        return False
+    if x.get("skip_permanent"):
+        return True
+    until = x.get("skip_until")
+    if not until:
+        return False
+    try:
+        return now() < datetime.fromisoformat(str(until))
+    except Exception:
+        return False
+
+
 def pool_open(x, kind, reject_max):
     """آیا این آیتم هنوز ارزش دیدن مدل را دارد؟"""
     return (
         x.get("kind") == kind
         and not x.get("posted")
-        and not x.get("channel_skip")
+        and not skip_active(x)
         and not x.get("held")
         and int(x.get("reject_hits") or 0) < reject_max
     )
@@ -3782,12 +3900,12 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
         for x in pending:
             blob = " ".join([x.get("title", "") or "", x.get("link", "") or ""])
             if NON_NEWS_RE.search(blob) or JUNK_NEWS_RE.search(blob):
-                x["channel_skip"] = True
+                mark_skip(x, "صورت‌جلسه یا گزارش")
                 skipped += 1
                 continue
             # فهرست پیوند، ابزار نیست.
             if LIST_REPO_RE.search(blob):
-                x["channel_skip"] = True
+                mark_skip(x, "فهرست پیوند")
                 skipped += 1
                 continue
             # پادکست و وبینار اتفاق تازه‌ای را گزارش نمی‌کنند. بعد از
@@ -3796,7 +3914,7 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
             # می‌شود، نه متن. مقاله‌ای که حالت خبری دارد و فقط داخلش
             # از یک گفتگو حرف زده، خبر است و نباید دور ریخته شود.
             if kind == "news" and PODCAST_RE.search(blob + " " + (x.get("source") or "")):
-                x["channel_skip"] = True
+                mark_skip(x, "پادکست یا وبینار")
                 skipped += 1
                 continue
             # دستهٔ ابزار را فیدهای عمومی هم پر می‌کنند. آیتمی که هیچ
@@ -3805,7 +3923,7 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
             if kind == "tools" and not BUILDER_TOPIC.search(
                 blob + " " + (x.get("desc", "") or "")
             ):
-                x["channel_skip"] = True
+                mark_skip(x, "بی‌ربط به ابزار سایت")
                 skipped += 1
                 continue
             # خبر پول، دادگاه، یا سیاست داخلی شرکت‌ها. اگر هیچ نشانی از
@@ -3813,13 +3931,13 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
             if kind == "news":
                 wide = blob + " " + (x.get("desc", "") or "")
                 if OFF_AUDIENCE_RE.search(wide) and not SITE_TOPIC_RE.search(wide):
-                    x["channel_skip"] = True
+                    mark_skip(x, "خارج از مخاطب")
                     skipped += 1
                     continue
             # رقیب هرگز. این سد اینجا هم هست چون آیتم ممکن است از قبل در
             # صف مانده باشد، پیش از آن که فهرست رقیب‌ها را ببندیم.
             if blocked_hit(x, blocked_words) or persian_product(x):
-                x["channel_skip"] = True
+                mark_skip(x, "رقیب یا کالای فارسی")
                 skipped += 1
                 continue
             kept.append(x)
@@ -4120,7 +4238,7 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
             # راهنما خبر نیست. وبلاگ سازنده‌ها هر روز آموزش می‌نویسند و
             # کانال پر می‌شد از «چطور فلان کار را بکنیم».
             if kind == "news" and TUTORIAL_TITLE.search(it.get("title", "")):
-                it["channel_skip"] = True  # دیگر به مدل نمی‌رود
+                mark_skip(it, "آموزش است نه خبر")
                 rejected.append((it, entry, "آموزش است نه خبر"))
                 continue
             # «قابل استفاده» فقط برای پست‌هایی است که خودشان را ابزار
@@ -4136,11 +4254,11 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
             # فرصت باید به کار مخاطب بیاید، نه هر چیز رایگانی در اینترنت.
             if kind == "offers":
                 if OFFER_JUNK.search(it.get("title", "") + " " + it.get("desc", "")):
-                    it["channel_skip"] = True  # دیگر به مدل نمی‌رود
+                    mark_skip(it, "به کار کانال نمی‌آید")
                     rejected.append((it, entry, "به کار کانال نمی‌آید"))
                     continue
                 if not OFFER_TOPIC.search(label_text):
-                    it["channel_skip"] = True
+                    mark_skip(it, "موضوع ربطی ندارد")
                     rejected.append((it, entry, "موضوع ربطی ندارد"))
                     continue
                 if num(entry.get("use")) < 7:
@@ -4436,7 +4554,10 @@ def digest_run(s, hours=24, top_n=10, mark=True):
     if mark and not DRY:
         for it in top:
             it["digest_sent"] = True
+            # در جمع‌بندی رفته و نباید دوباره پست شود؛ این تنها پرچم
+            # دائمی است و تاریخ انقضا ندارد.
             it["channel_skip"] = True
+            it["skip_permanent"] = True
         write_json(QUEUE, q)
     log("digest items:", len(top))
     return len(top)

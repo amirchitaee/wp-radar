@@ -109,6 +109,14 @@ def main():
               start <= after < end, "{} <= {} < {}".format(start, after, end))
     check("آستانهٔ رد دست‌کم دو است",
           int(s.get("reject_max", 0) or 0) >= 2, s.get("reject_max"))
+    check("کنارگذاری موقت است، نه دائمی",
+          float(s.get("skip_hours", 0) or 0) > 0, s.get("skip_hours"))
+    check("سقف ورود روز خشک از سقف عادی کمتر نیست",
+          int(s.get("ai_intake_dry_day", 0) or 0) >= int(s.get("ai_intake_per_day", 0)),
+          "{} >= {}".format(s.get("ai_intake_dry_day"), s.get("ai_intake_per_day")))
+    check("پلن بی در جای خالی روشن است",
+          bool((s.get("ai_fill") or {}).get("when_wp_empty", False)),
+          (s.get("ai_fill") or {}).get("when_wp_empty"))
     chunk = int(s.get("chunk_size", 3))
     check("اندازهٔ دسته از سبد بیشتر نیست",
           chunk <= int(s.get("max_items_per_call", 0)),
@@ -148,7 +156,8 @@ def main():
     check("راهنمای دسته برای دسته‌های فعال هست",
           all(k in radar.KIND_HINT for k in need), "، ".join(need))
     for fn in ("tool_fit", "max_age_for", "ai_floor_promote", "is_recent_story", "add_story",
-               "ai_allowance", "ai_narrow", "bump_reject", "pool_open"):
+               "ai_allowance", "ai_narrow", "bump_reject", "pool_open",
+               "mark_skip", "skip_active", "in_publish_window", "queue_kind_live"):
         check("تابع {} هست".format(fn), hasattr(radar, fn))
     check("is_recent_story استثنای شناسه دارد",
           "ignore_id" in inspect.signature(radar.is_recent_story).parameters)

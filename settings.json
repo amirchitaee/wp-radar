@@ -1,142 +1,145 @@
 {
-  "daily_cap": 11,
-  "publish": {
-    "enabled": true,
-    "start": "08:00",
-    "end": "23:30",
-    "gap_min": 70,
-    "max_ready": 8,
-    "max_hold_h": 30,
-    "bypass_labels": [
-      "فوری",
-      "هشدار امنیتی"
-    ]
-  },
-  "ai_cap_per_day": 1,
-  "ai_floor_per_day": 1,
-  "ai_fill": {
-    "enabled": true,
-    "after": "18:00",
-    "max": 3,
-    "per_run": 1,
-    "max_age_h": 24
-  },
-  "reject_max": 2,
-  "caps": {
-    "news": 6,
-    "tools": 2,
-    "offers": 0,
-    "security": 2,
-    "showcase": 1
-  },
-  "fast_lane": {
-    "score": 85,
-    "max_age_h": 3,
-    "per_day": 2
-  },
-  "queue_days": 7,
-  "max_items_per_call": 10,
-  "max_posts_per_run": 4,
-  "per_source_cap": {
-    "news": 1,
-    "security": 2,
-    "tools": 1,
-    "offers": 2,
-    "showcase": 1,
-    "default": 2
-  },
-  "providers": [
-    {
-      "name": "amd",
-      "base": "https://developer.amd.com.cn/radeon/api/v1",
-      "key": "API_KEY",
-      "models": [
-        "DeepSeek-V4-Flash",
-        "Gemma-4-31B-IT",
-        "Qwen3.8-27B"
-      ]
-    },
-    {
-      "name": "groq",
-      "base": "https://api.groq.com/openai/v1",
-      "key": "GROQ_KEY",
-      "models": [
-        "openai/gpt-oss-120b",
-        "qwen/qwen3.8-27b"
-      ]
-    },
-    {
-      "name": "openrouter",
-      "base": "https://openrouter.ai/api/v1",
-      "key": "OPENROUTER_KEY",
-      "models": [
-        "nvidia/nemotron-3-ultra-550b-a55b:free",
-        "google/gemma-4-31b-it:free",
-        "thinkingmachines/inkling:free"
-      ]
-    },
-    {
-      "name": "google",
-      "type": "gemini",
-      "base": "https://generativelanguage.googleapis.com/v1beta/openai",
-      "key": "GEMINI_KEY",
-      "models": [
-        "gemini-3.8-flash-lite",
-        "gemini-3.8-flash",
-        "gemma-4-31b-it"
-      ],
-      "timeout": 45
-    }
-  ],
-  "models": [
+ "daily_cap": 11,
+ "publish": {
+  "enabled": true,
+  "start": "08:00",
+  "end": "23:30",
+  "gap_min": 70,
+  "max_ready": 8,
+  "max_hold_h": 30,
+  "bypass_labels": [
+   "فوری",
+   "هشدار امنیتی"
+  ]
+ },
+ "ai_cap_per_day": 1,
+ "ai_floor_per_day": 1,
+ "ai_fill": {
+  "enabled": true,
+  "after": "18:00",
+  "max": 3,
+  "per_run": 1,
+  "max_age_h": 24,
+  "when_wp_empty": true
+ },
+ "reject_max": 2,
+ "skip_hours": 12,
+ "caps": {
+  "news": 6,
+  "tools": 2,
+  "offers": 0,
+  "security": 2,
+  "showcase": 1
+ },
+ "fast_lane": {
+  "score": 85,
+  "max_age_h": 3,
+  "per_day": 2
+ },
+ "queue_days": 7,
+ "max_items_per_call": 10,
+ "max_posts_per_run": 4,
+ "per_source_cap": {
+  "news": 1,
+  "security": 2,
+  "tools": 1,
+  "offers": 2,
+  "showcase": 1,
+  "default": 2
+ },
+ "providers": [
+  {
+   "name": "amd",
+   "base": "https://developer.amd.com.cn/radeon/api/v1",
+   "key": "API_KEY",
+   "models": [
+    "DeepSeek-V4-Flash",
     "Gemma-4-31B-IT",
-    "Qwen3.8-27B",
-    "Qwen3.8-Flash-Next"
-  ],
-  "emoji": {
-    "هشدار امنیتی": "🚨",
-    "فوری": "🚨🚨🚨",
-    "خبر": "📰",
-    "ابزار": "🛠",
-    "فرصت": "🎁",
-    "آپدیت": "🔄",
-    "پلاگین تازه": "🧩",
-    "نمایشگاه": "🖼",
-    "آموزش": "📚",
-    "جمع‌بندی": "🗂"
+    "Qwen3.8-27B"
+   ]
   },
-  "model_timeout": 120,
-  "frugal_providers": [
-    "openrouter",
-    "google"
-  ],
-  "bidi_isolate": true,
-  "action_links": false,
-  "model_budget_sec": 240,
-  "model_retries": 1,
-  "chunk_size": 3,
-  "run_budget_sec": 450,
-  "auto_budget_sec": 720,
-  "guard_min_gap_min": 5,
-  "backup_min_gap_min": 20,
-  "security_max_age_h": 24,
-  "security_every_min": 60,
-  "news_every_min": 55,
-  "tools_every_min": 300,
-  "offers_every_min": 240,
-  "model_max_tokens": 3000,
-  "ai_intake_per_day": 3,
-  "backlog_cap": {
-    "news": 120,
-    "tools": 4,
-    "showcase": 6,
-    "security": 20
+  {
+   "name": "groq",
+   "base": "https://api.groq.com/openai/v1",
+   "key": "GROQ_KEY",
+   "models": [
+    "openai/gpt-oss-120b",
+    "qwen/qwen3.8-27b"
+   ]
   },
-  "intake_per_day": {
-    "news": 30,
-    "tools": 3,
-    "showcase": 2
+  {
+   "name": "openrouter",
+   "base": "https://openrouter.ai/api/v1",
+   "key": "OPENROUTER_KEY",
+   "models": [
+    "nvidia/nemotron-3-ultra-550b-a55b:free",
+    "google/gemma-4-31b-it:free",
+    "thinkingmachines/inkling:free"
+   ]
   },
-  "news_keep_h": 48,
-  "showcase_max_age_h": 168
+  {
+   "name": "google",
+   "type": "gemini",
+   "base": "https://generativelanguage.googleapis.com/v1beta/openai",
+   "key": "GEMINI_KEY",
+   "models": [
+    "gemini-3.8-flash-lite",
+    "gemini-3.8-flash",
+    "gemma-4-31b-it"
+   ],
+   "timeout": 45
+  }
+ ],
+ "models": [
+  "Gemma-4-31B-IT",
+  "Qwen3.8-27B",
+  "Qwen3.8-Flash-Next"
+ ],
+ "emoji": {
+  "هشدار امنیتی": "🚨",
+  "فوری": "🚨🚨🚨",
+  "خبر": "📰",
+  "ابزار": "🛠",
+  "فرصت": "🎁",
+  "آپدیت": "🔄",
+  "پلاگین تازه": "🧩",
+  "نمایشگاه": "🖼",
+  "آموزش": "📚",
+  "جمع‌بندی": "🗂"
+ },
+ "model_timeout": 120,
+ "frugal_providers": [
+  "openrouter",
+  "google"
+ ],
+ "bidi_isolate": true,
+ "action_links": false,
+ "model_budget_sec": 240,
+ "model_retries": 1,
+ "chunk_size": 3,
+ "run_budget_sec": 450,
+ "auto_budget_sec": 720,
+ "guard_min_gap_min": 5,
+ "backup_min_gap_min": 20,
+ "security_max_age_h": 24,
+ "security_every_min": 60,
+ "news_every_min": 55,
+ "tools_every_min": 300,
+ "offers_every_min": 240,
+ "model_max_tokens": 3000,
+ "ai_intake_per_day": 3,
+ "backlog_cap": {
+  "news": 120,
+  "tools": 4,
+  "showcase": 6,
+  "security": 20
+ },
+ "intake_per_day": {
+  "news": 30,
+  "tools": 3,
+  "showcase": 2
+ },
+ "news_keep_h": 48,
+ "showcase_max_age_h": 168,
+ "ai_intake_dry_day": 6
 }

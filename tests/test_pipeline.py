@@ -1071,28 +1071,44 @@ check("سقف ورودی AI: منفی نمی‌شود", _ai_room >= 0, True)
 # ---------------------------------------------------------------- سقف انبار
 # فید ابزار هر بار چهل آیتم می‌آورد و با سقف یک پست در روز، صد و پنجاه
 # روز صف می‌ساخت. سقف انبار جلوی همین را می‌گیرد.
-_real_count, _real_today = radar.queue_kind_count, radar.added_today
+_real_count, _real_today = radar.queue_kind_live, radar.added_today
 _rows = [
     {"id": "a", "published": "2026-11-04T10:00:00", "kind": "tools"},
     {"id": "b", "published": "2026-11-04T11:00:00", "kind": "tools"},
     {"id": "c", "published": "2026-11-04T12:00:00", "kind": "tools"},
 ]
-radar.queue_kind_count = lambda kind: 8
+radar.queue_kind_live = lambda kind, s=None: 8
 radar.added_today = lambda kind: 0
 check("سقف انبار: صف پر است، هیچ‌کدام وارد نمی‌شود",
       radar.trim_intake("tools", _rows, {"backlog_cap": {"tools": 8}}), [])
-radar.queue_kind_count = lambda kind: 6
+radar.queue_kind_live = lambda kind, s=None: 6
 _kept = radar.trim_intake("tools", _rows, {"backlog_cap": {"tools": 8}})
 check("سقف انبار: فقط جای خالی پر می‌شود", len(_kept), 2)
 check("سقف انبار: تازه‌ترها می‌مانند", [x["id"] for x in _kept], ["c", "b"])
-radar.queue_kind_count = lambda kind: 0
+radar.queue_kind_live = lambda kind, s=None: 0
 check("سقف روزانه: بیشتر از سهم روز وارد نمی‌شود",
       len(radar.trim_intake("tools", _rows, {"intake_per_day": {"tools": 1}})), 1)
 radar.added_today = lambda kind: 1
 check("سقف روزانه: سهم مصرف‌شده چیزی اضافه نمی‌کند",
       radar.trim_intake("tools", _rows, {"intake_per_day": {"tools": 1}}), [])
 check("سقف: بی‌تنظیم دست نمی‌زند", len(radar.trim_intake("tools", _rows, {})), 3)
-radar.queue_kind_count, radar.added_today = _real_count, _real_today
+radar.queue_kind_live, radar.added_today = _real_count, _real_today
+
+# آیتم سوخته یا کنارگذاشته نباید سقف انبار را پر کند. صف نمایشگاه با
+# شش آیتم مرده پر بود و آیتم تازهٔ گالری هرگز اجازهٔ ورود نمی‌گرفت.
+_lbox = Path(tempfile.mkdtemp()) / "queue.json"
+radar.QUEUE = _lbox
+_lbox.write_text(json.dumps({"v": 1, "items": [
+    {"id": "x1", "kind": "showcase", "reject_hits": 2},
+    {"id": "x2", "kind": "showcase", "channel_skip": True, "skip_permanent": True},
+    {"id": "x3", "kind": "showcase"},
+    {"id": "x4", "kind": "news"},
+]}), encoding="utf-8")
+check("سقف انبار: آیتم سوخته شمرده نمی‌شود",
+      radar.queue_kind_live("showcase", {"reject_max": 2}), 1)
+check("سقف انبار: کل آیتم‌های دسته شمرده می‌شود",
+      radar.queue_kind_count("showcase"), 3)
+radar.QUEUE = _qreal
 
 # ---------------------------------------------------------------- وردپرس اول
 # فید عمومی هوش مصنوعی روزی چهل آیتم می‌دهد. اگر تنها معیار تازه‌بودن
@@ -1114,7 +1130,7 @@ _wp_rows = [
 check("اولویت: چیدمان، وردپرس را جلو می‌آورد",
       [x["id"] for x in radar.wp_first_sort(_wp_rows)], ["wp1", "ai1"])
 _rc2, _rt2 = radar.queue_kind_count, radar.added_today
-radar.queue_kind_count = lambda kind: 0
+radar.queue_kind_live = lambda kind, s=None: 0
 radar.added_today = lambda kind: 0
 check("اولویت: سقف ورود جای وردپرس را به هوش مصنوعی نمی‌دهد",
       [x["id"] for x in radar.trim_intake("news", _wp_rows, {"backlog_cap": {"news": 1}})],
@@ -1192,6 +1208,43 @@ check("جای خالی: خاموش یعنی همان سهم قبلی",
       radar.ai_allowance(
           {"ai_cap_per_day": 1, "ai_fill": {"enabled": False}, "caps": {"news": 6}},
           {"kinds": {}}, 0, _ai_eve), 1)
+
+
+# ------------------------------------------------------------ پلن بی
+# اگر سبد وردپرس خالی باشد، سهم هوش مصنوعی باز می‌شود؛ ولی بیرون از
+# پنجرهٔ انتشار نه، چون پست فقط تا صبح در انبار می‌ماند.
+_ai_win = dict(_ai_s)
+_ai_win["publish"] = {"enabled": True, "start": "08:00", "end": "23:30"}
+_ai_night = datetime(2026, 11, 5, 2, 0, tzinfo=radar.TZ)
+check("پلن بی: سبد وردپرس خالی است، سهم باز می‌شود",
+      radar.ai_allowance(_ai_s, {"kinds": {"news": 1}}, 0, _ai_day, wp_left=0), 3)
+check("پلن بی: وردپرس در سبد هست، سهم پایه می‌ماند",
+      radar.ai_allowance(_ai_s, {"kinds": {"news": 1}}, 0, _ai_day, wp_left=2), 1)
+check("پلن بی: بیرون پنجرهٔ انتشار باز نمی‌شود",
+      radar.ai_allowance(_ai_win, {"kinds": {"news": 1}}, 0, _ai_night, wp_left=0), 1)
+
+# ------------------------------------------------------------ کنارگذاری موقت
+# پرچم دائمی یک بار چهار خبر وردپرسی را برای همیشه از گردش انداخت.
+check("کنارگذاری: پرچم کهنهٔ بی‌تاریخ منقضی حساب می‌شود",
+      radar.skip_active({"channel_skip": True}), False)
+check("کنارگذاری: پرچم دائمی جمع‌بندی می‌ماند",
+      radar.skip_active({"channel_skip": True, "skip_permanent": True}), True)
+_it_skip = {"id": "skip1", "title": "آزمون"}
+radar.mark_skip(_it_skip, "آزمون", 12)
+check("کنارگذاری: پرچم تازه فعال است", radar.skip_active(_it_skip), True)
+_it_skip["skip_until"] = (radar.now() - timedelta(hours=1)).isoformat()
+check("کنارگذاری: بعد از انقضا آزاد می‌شود", radar.skip_active(_it_skip), False)
+
+# ------------------------------------------------------------ قانون آموزش
+# «how to» وسط جمله و کلمهٔ Making دو خبر واقعی را کشته بود.
+check("آموزش: how to وسط جمله خبر را نمی‌کشد",
+      bool(radar.TUTORIAL_TITLE.search("GPT-6 can break into systems and propose how to fix them")),
+      False)
+check("آموزش: how to در ابتدای تیتر آموزش است",
+      bool(radar.TUTORIAL_TITLE.search("How to build a WordPress theme")), True)
+check("آموزش: Making دیگر آموزش حساب نمی‌شود",
+      bool(radar.TUTORIAL_TITLE.search("Making Immersive Chat Experiences More Accessible")),
+      False)
 
 _ai_rows = [
     {"id": "wp1", "title": "WordPress 7.2 is out", "kind": "news", "group": "",
