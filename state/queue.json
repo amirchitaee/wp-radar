@@ -148,7 +148,7 @@
    "age_hours": 8.9,
    "published": "2026-11-06T20:05:08-08:00",
    "added": "2026-11-07T13:00:49+00:00",
-   "reject_hits": 1
+   "reject_hits": 2
   },
   {
    "id": "5cecc12e376b047e",
@@ -163,7 +163,7 @@
    "age_hours": 14.7,
    "published": "2026-11-06T22:15:59+00:00",
    "added": "2026-11-07T13:00:49+00:00",
-   "reject_hits": 1
+   "reject_hits": 2
   },
   {
    "id": "aa68e07f28d579ee",
