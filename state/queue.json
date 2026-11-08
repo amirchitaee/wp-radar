@@ -272,7 +272,7 @@
    "added": "2026-11-08T00:15:40+00:00",
    "full": "Thinking Machines' Inkling 2 Small swears in its internal chain of thought. Researchers at Vals AI read the model's thinking logs from 2,655 runs across 13 benchmarks and found \"fuck\" or variations in 50 runs, totaling 316 instances. 241 came from just two runs that spiraled out of control. In one, tasked with calculating an asteroid's trajectory, the model produced a single 500,000-character response, roughly novel-length, repeating the same sentences with 158 expletives. ProgramBench was hit hardest, with 20 of 200 runs affected. Inkling 2 Small typically swears about its own mistakes, apparent breakthroughs, or when it gives up. One run read: \"FUCK. SUBMIT. DONE. IT'S NOT WORKING. NOTHING WORKS.\" The profanity doesn't work as a warning signal, though. While 46 of 48 scored runs with swearing failed, about 75 percent of all scored runs fail anyway, and 96 percent of failed runs contained no expletives. Users typically don't see these thinking steps, or only with a filter. Subscribe to THE DECODER for ad-free reading, a weekly AI newsletter, our exclusive \"AI Radar\" frontier report six times a year, full archive access, and access to our comment section.",
    "use_link": "",
-   "reject_hits": 1
+   "reject_hits": 2
   },
   {
    "id": "575c2dec8f26ca76",
