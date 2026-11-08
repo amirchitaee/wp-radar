@@ -1,17 +1,3 @@
 {
- "items": [
-  {
-   "id": "f3600c82b54ebf75",
-   "at": "2026-11-08T10:17:24+00:00",
-   "kind": "news",
-   "label": "خبر",
-   "text": "<b>📰 خبر: ایجنت‌های کدنویسی هوش مصنوعی هنوز در ۷۵ درصد کارها اشتباه می‌کنند</b>\n\nتست‌های جدید نشان می‌دهد حتی پیشرفته‌ترین مدل‌ها نمی‌توانند تغییرات واقعی یک وب‌اپلیکیشن را بدون غلط انجام دهند. اگر برای تغییر کد سایتت روی این ابزارها حساب می‌کنی، حتماً خروجی را دستی چک کن.\n\n<blockquote expandable>مدل ⁦GPT-6 Astra⁩ که بهترین عملکرد را داشته، فقط در ۲۶.۴ درصد موارد کار را کاملاً درست انجام داده است.\nدر اکثر مواقع بخش بزرگی از کار انجام می‌شود اما یک جزئیات کوچک باقی می‌ماند که باعث خرابی می‌شود.\nاین تست‌ها روی درخواست‌های واقعی کاربران انجام شده، نه سوالات تئوری.</blockquote>\n\nاطلاعات بیشتر دربارهٔ این موضوع را از <a href=\"https://the-decoder.com/ai-coding-agents-still-need-human-cleanup-on-nearly-three-out-of-four-tasks-in-a-real-world-test\">منبع</a> بخوانید.\n\n<i>۱۷ آبان ۱۴۰۵ · ۱۳:۲۰</i>\n\n#خبر #هوش_مصنوعی",
-   "score": 63.3,
-   "title": "AI coding agents still need human cleanup on nearly three out of four tasks in a real-world test",
-   "link": "https://the-decoder.com/ai-coding-agents-still-need-human-cleanup-on-nearly-three-out-of-four-tasks-in-a-real-world-test",
-   "source": "دیکودر",
-   "group": "ai",
-   "photo": ""
-  }
- ]
+ "items": []
 }
