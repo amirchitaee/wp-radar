@@ -85,22 +85,6 @@
    "cves": []
   },
   {
-   "t": "2026-11-04T14:45:28+00:00",
-   "title": "Is AI Helping or Hurting WordPress Agencies?",
-   "kind": "news",
-   "link": "https://thewpminute.com/is-ai-helping-or-hurting-wordpress-agencies",
-   "ents": [
-    "agencies",
-    "ai",
-    "helping",
-    "hurting",
-    "is",
-    "wordpress"
-   ],
-   "vers": [],
-   "cves": []
-  },
-  {
    "t": "2026-11-04T18:01:33+00:00",
    "id": "6c37fee853f792d5",
    "title": "A New Workspace for Building with WordPress",
@@ -281,6 +265,26 @@
    "link": "https://the-decoder.com/ai-coding-agents-still-need-human-cleanup-on-nearly-three-out-of-four-tasks-in-a-real-world-test",
    "ents": [
     "ai"
+   ],
+   "vers": [],
+   "cves": []
+  },
+  {
+   "t": "2026-11-08T15:16:38+00:00",
+   "id": "a0bd13772d4cdcb1",
+   "title": "Awesome Motive Acquires Drip and Sleeknote, Plans Further Product Integrations",
+   "kind": "news",
+   "link": "https://wp-content.co/awesome-motive-acquires-drip-and-sleeknote",
+   "ents": [
+    "acquires",
+    "awesome",
+    "drip",
+    "further",
+    "integrations",
+    "motive",
+    "plans",
+    "product",
+    "sleeknote"
    ],
    "vers": [],
    "cves": []
