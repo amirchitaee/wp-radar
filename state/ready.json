@@ -1,3 +1,17 @@
 {
- "items": []
+ "items": [
+  {
+   "id": "575c2dec8f26ca76",
+   "at": "2026-11-08T04:16:20+00:00",
+   "kind": "news",
+   "label": "خبر",
+   "text": "<b>📰 خبر: مدل‌های ⁦open weights⁩ در شناسایی حفره‌های امنیتی به ⁦GPT-6⁩ رسیدند</b>\n\nمدل ⁦DeepSeek V4.1 Flash⁩ حالا می‌تواند با هزینه‌ای بسیار کمتر، حفره‌های امنیتی شبکه‌ها و سایت‌ها را پیدا کند. برای صاحب سایت یعنی ابزارهای رایگان و ارزان برای تست نفوذ و بستن حفره‌ها قدرتمندتر شده‌اند.\n\n<blockquote expandable>این مدل در بنچمارک ⁦Vals AI⁩ توانسته ۷۲.۸ درصد اهداف حمله را به طور خودکار اجرا کند.\nهزینه هر بار اجرای این مدل حدود ۳ دلار است، در حالی که مدل‌های بسته مثل ⁦GPT-6⁩ حدود ۲۲ دلار هزینه دارند.\nاین مدل‌ها می‌توانند به شرکت‌ها کمک کنند تا قبل از هکرها، نقاط ضعف سایت خود را پیدا و ⁦fix⁩ کنند.</blockquote>\n\nاطلاعات بیشتر دربارهٔ این موضوع را از <a href=\"https://the-decoder.com/the-gap-between-open-and-closed-ai-models-in-cyber-capabilities-keeps-shrinking\">منبع</a> بخوانید.\n\n<i>۱۶ آبان ۱۴۰۵ · ۱۹:۰۵</i>\n\n#خبر #هوش_مصنوعی",
+   "score": 61.2,
+   "title": "The gap between open and closed AI models in cyber capabilities keeps shrinking",
+   "link": "https://the-decoder.com/the-gap-between-open-and-closed-ai-models-in-cyber-capabilities-keeps-shrinking",
+   "source": "دیکودر",
+   "group": "ai",
+   "photo": ""
+  }
+ ]
 }

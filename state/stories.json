@@ -356,6 +356,19 @@
    ],
    "vers": [],
    "cves": []
+  },
+  {
+   "t": "2026-11-08T04:16:20+00:00",
+   "id": "575c2dec8f26ca76",
+   "title": "The gap between open and closed AI models in cyber capabilities keeps shrinking",
+   "kind": "news",
+   "link": "https://the-decoder.com/the-gap-between-open-and-closed-ai-models-in-cyber-capabilities-keeps-shrinking",
+   "ents": [
+    "ai",
+    "the"
+   ],
+   "vers": [],
+   "cves": []
   }
  ]
 }
