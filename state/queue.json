@@ -267,6 +267,23 @@
    "age_hours": 62.9,
    "published": "2026-11-05T06:05:15-08:00",
    "added": "2026-11-08T05:00:45+00:00"
+  },
+  {
+   "id": "f3600c82b54ebf75",
+   "title": "AI coding agents still need human cleanup on nearly three out of four tasks in a real-world test",
+   "link": "https://the-decoder.com/ai-coding-agents-still-need-human-cleanup-on-nearly-three-out-of-four-tasks-in-a-real-world-test",
+   "desc": "Alibaba's new coding-agent benchmark, Co-Design Bench, tests AI agents on real user requests that already tripped them up in practice. Even GPT-6 Astra, the top performer, fully solves only 26.4 percent of tasks. On older benchmarks, the same models score above 99 percent. The article AI coding agents still need human cleanup on nearly three out of four tasks in a real-world test appeared first on The Decoder .",
+   "source": "دیکودر",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 0.4,
+   "published": "2026-11-08T09:50:59+00:00",
+   "added": "2026-11-08T10:15:39+00:00",
+   "full": "AI coding agents still need human cleanup on nearly three out of four tasks in a real-world test Jonathan Kemper View the LinkedIn Profile of Jonathan Kemper Nov 8, 2026 ChatGPT-5.6 prompted by THE DECODER Researchers from Alibaba and several Asian universities built a coding-agent benchmark from real user change requests. Even the best model fully completes only about one in four tasks, putting the near-perfect scores of older tests into perspective. The team developed Co-Design Bench , a new test for coding agents. The agents must rework existing web apps based on user requests, sometimes using images, audio recordings, videos, or documents as input. According to the paper , GPT-6 Astra , the best of the ten models tested, meets about 70 percent of a task's requirements on average. But the result is fully correct in only 26.4 percent of tasks. In most cases the agent handles the bulk of the work but leaves at least one detail unfinished, so anyone using these tools almost always has to clean up by hand. The authors justify the new test by pointing to the saturation of existing benchmarks. When models can run, check, and fix their own code, they hit scores above 99 percent on those tests, and differences between models can barely be measured. Co-Design Bench draws on real requests from actual coding sessions instead. The researchers favored cases where users had to rephrase their request multiple times or roll back changes, so the test contains mainly tasks that already gave AI agents trouble in practice. They range from small tweaks, like pulling an amount from a receipt and updating every dependent total, to full-scale project overhauls. Grading is strict to match. One AI judge tests the finished app in a browser, then a second re-checks every positive verdict and looks for mock-ups or hardcoded results. Points go only to features that actually work in the app. Behind GPT-6 Astra, Claude Opus 5 and Qwen3.8-Max take the next spots, while Grok 4.6 lands in last place. On larger overhauls, the much smaller Qwen3.8-27B climbs to second, but the authors do not derive a general advantage of the model from that result. Performance drops across all models as a task combines more types of changes, including layout, design, interaction, and content. But these intertwined requirements are the norm in real projects Extra compute does little to fix this weakness. GLM-5.2 burns through nearly six times as many tokens as GPT-6 Astra on smaller changes and still scores significantly worse. In a separate test, the researchers ran the same models in different harnesses, the programs through which an agent reads, writes, and executes code. Qwen3.8-27B scored 75 or just 56 percent on larger overhauls depending on the environment. Which of two models came out ahead also depended on the environment. Leaderboards that list only the model therefore only tell part of the story. The authors recommend always reporting model and working environment together. For companies picking a coding agent, that means testing both components as a pair. The new benchmark does have limits. It evaluates one fixed request per task; follow-up questions or mid-task corrections from us",
+   "use_link": "",
+   "held": true
   }
  ]
 }

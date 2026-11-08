@@ -85,38 +85,6 @@
    "cves": []
   },
   {
-   "t": "2026-11-04T05:45:26+00:00",
-   "title": "WordPress 7.2 Beta 4",
-   "kind": "news",
-   "link": "https://wordpress.org/news/2026/11/wordpress-7-2-beta-4",
-   "ents": [
-    "beta",
-    "wordpress"
-   ],
-   "vers": [
-    "7.2"
-   ],
-   "cves": []
-  },
-  {
-   "t": "2026-11-04T07:00:43+00:00",
-   "title": "Discover Maxima Plugins: A Catalogue of WooCommerce Extensions Built for the Block Checkout",
-   "kind": "news",
-   "link": "https://wpmayor.com/discover-maxima-plugins-woocommerce",
-   "ents": [
-    "block",
-    "catalogue",
-    "checkout",
-    "discover",
-    "extensions",
-    "maxima",
-    "plugins",
-    "woocommerce"
-   ],
-   "vers": [],
-   "cves": []
-  },
-  {
    "t": "2026-11-04T13:22:45+00:00",
    "title": "LiteSpeed Cache 7.9.3",
    "kind": "news",
@@ -350,6 +318,18 @@
    "ents": [
     "ai",
     "the"
+   ],
+   "vers": [],
+   "cves": []
+  },
+  {
+   "t": "2026-11-08T10:17:24+00:00",
+   "id": "f3600c82b54ebf75",
+   "title": "AI coding agents still need human cleanup on nearly three out of four tasks in a real-world test",
+   "kind": "news",
+   "link": "https://the-decoder.com/ai-coding-agents-still-need-human-cleanup-on-nearly-three-out-of-four-tasks-in-a-real-world-test",
+   "ents": [
+    "ai"
    ],
    "vers": [],
    "cves": []
