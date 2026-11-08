@@ -920,8 +920,16 @@ _hold_item = {"id": "hold-1", "title": "خبر آزمون", "link": "https://exa
 radar.write_json(radar.QUEUE, {"v": 1, "items": [dict(_hold_item)]})
 radar.write_json(radar.DAILY, {"date": radar.today(), "count": 0, "kinds": {}})
 check("انتشار: نگه‌داشتن انجام شد",
-      radar.hold_ready(_hold_item, "خبر", "<b>متن آزمون</b>", 80, "news"), True)
+      radar.hold_ready(_hold_item, "خبر", "<b>متن آزمون</b>", 80, "news",
+                       "تیتر فارسی آزمون", "خلاصهٔ فارسی آزمون"), True)
 check("انتشار: آیتم علامت نگه‌داشته گرفت", _hold_item.get("held"), True)
+# آرشیو کانال بی‌عنوان فارسی می‌ماند اگر رکورد نگه‌داری تیتر فارسی را
+# همراه خود نبرد. تیتر آیتم انگلیسی است؛ تیتر پست فارسی.
+_held_row = (radar.read_json(radar.READY, {"items": []})["items"] or [{}])[0]
+check("انتشار: تیتر فارسی در رکورد نگه‌داری هست",
+      _held_row.get("title"), "تیتر فارسی آزمون")
+check("انتشار: خلاصهٔ فارسی در رکورد نگه‌داری هست",
+      _held_row.get("summary"), "خلاصهٔ فارسی آزمون")
 # برای آزمون خودِ انتشار، پنجره‌ای می‌سازیم که همین حالا باز باشد؛
 # وگرنه آزمون به ساعت واقعی وابسته می‌شود.
 _pub_now = dict(_pub)
@@ -1242,6 +1250,29 @@ check("آموزش: how to وسط جمله خبر را نمی‌کشد",
       False)
 check("آموزش: how to در ابتدای تیتر آموزش است",
       bool(radar.TUTORIAL_TITLE.search("How to build a WordPress theme")), True)
+# ------------------------------------------------ فهرست پیوند و نام شرکت
+# «awesome» هم نشانهٔ فهرست است و هم بخشی از نام یک شرکت. نسخهٔ پیشین
+# خبر خرید شرکت دراپ را فهرست حساب کرد و برای همیشه کنار گذاشت.
+_aw = {"title": "Awesome Motive Acquires Drip and Sleeknote, Plans Further Product Integrations",
+       "link": "https://wp-content.co/awesome-motive-acquires-drip-and-sleeknote", "desc": ""}
+check("فهرست: نام شرکت خبر را نمی‌کشد", radar.skip_reason(_aw, "news", set()), "")
+for _t, _l in (("Awesome-REA: مجموعه ابزارها", "https://github.com/reacher-z/Awesome-REA"),
+               ("awesome-mcp-servers", "https://github.com/x/awesome-mcp-servers")):
+    check("فهرست: مجموعهٔ واقعی هنوز رد می‌شود | " + _t[:22],
+          radar.skip_reason({"title": _t, "link": _l, "desc": ""}, "news", set()),
+          "فهرست پیوند")
+
+# ------------------------------------------------ زباله در متن، نه در تیتر
+# کلمهٔ «betting» در بدنهٔ مقاله دربارهٔ استارتاپ‌ها، دو خبر واقعی را
+# زباله حساب کرد. سد فقط تیتر و نشانی را می‌بیند.
+_bd = {"title": "The inventor of the bitter lesson has a bitter lesson for LLMs",
+       "link": "https://the-decoder.com/the-inventor-of-the-bitter-lesson",
+       "desc": "A growing wave of startups is already betting on exactly this gap."}
+check("زباله: متن مقاله خبر را نمی‌کشد", radar.skip_reason(_bd, "news", set()), "")
+_bd2 = {"title": "Best Sports Betting Sites 2026", "link": "https://example.com/x", "desc": ""}
+check("زباله: شرط‌بندی در تیتر هنوز رد می‌شود",
+      radar.skip_reason(_bd2, "news", set()), "محتوای زباله")
+
 # سد زباله: فید تجمیعی صف را پر کرد از پروکسی و بازی موبایل.
 for _t in ("How to Rotate Proxy IP Addresses for Web Scraping",
            "5 Apps Like FullDive VR for Exploring Virtual Reality",

@@ -2178,7 +2178,8 @@ OFF_AUDIENCE_RE = re.compile(
 JUNK_TOPIC_RE = re.compile(
     r"(proxy (services?|lists?|ips?|servers?)|rotate (proxy|ip)|"
     r"vpn (service|server|app|provider)|(games?|apps?) like|flight simulator|"
-    r"car racing|vr apps?|app store stuck|casino|betting|forex|"
+    r"car racing|vr apps?|app store stuck|casino|sports betting|"
+    r"betting (?:sites?|odds|apps?|bonus|tips)|forex|"
     r"پروکسی|وی\u200cپی\u200cان|شرط\u200cبندی|کازینو)",
     re.I,
 )
@@ -2278,7 +2279,11 @@ def relevance_ok(text, source_text):
 # و «بهترین قالب‌های ۲۰۲۶» هیچ اتفاقی را گزارش نمی‌کنند؛ فقط لیست‌اند.
 # سد قبلی فقط «awesome-» را می‌گرفت و یک مقالهٔ «۷ Best» از آن رد شد.
 LIST_REPO_RE = re.compile(
-    r"awesome[-_]"
+    # «awesome» نشانهٔ فهرست است، مگر نام شرکت باشد. نسخهٔ پیشین هر
+    # نشانی‌ای را که این کلمه در آن بود می‌گرفت و خبر خرید شرکت دراپ
+    # توسط Awesome Motive را فهرست حساب کرد؛ یک خبر وردپرسی واقعی که
+    # هر دوازده ساعت یک بار بی‌گناه کنار می‌رفت.
+    r"awesome[-_](?!motive\b)"
     r"|\b(?:top|best)\s+\d+\b"
     r"|\b\d+\s+(?:best|top|greatest)\b"
     r"|\b(?:best|top)\s+(?:\w+\s+){0,3}(?:plugins?|themes?|tools?|servers?|hosting|"
@@ -2776,11 +2781,15 @@ def next_window_start(s=None, dt=None):
     return target
 
 
-def hold_ready(it, label, text, score, kind):
+def hold_ready(it, label, text, score, kind, title="", summary=""):
     """پست آماده را نگه می‌دارد تا در پنجرهٔ انتشار برود.
 
     نوشتن متن کار سنگین است و به مدل و وقت نیاز دارد؛ انتشار کار سبک.
     جدا کردنشان یعنی مدل شب کار می‌کند و کانال صبح پر می‌شود.
+
+    تیتر و خلاصهٔ فارسی همین‌جا همراه پست نگه داشته می‌شود. قبلاً فقط
+    تیتر انگلیسی آیتم ذخیره می‌شد و آرشیو کانال، رکورد بی‌عنوان فارسی
+    می‌گرفت.
     """
     cfg = publish_cfg()
     store = read_json(READY, {"items": []})
@@ -2798,7 +2807,8 @@ def hold_ready(it, label, text, score, kind):
             "label": label,
             "text": text,
             "score": score,
-            "title": it.get("title", ""),
+            "title": title or it.get("title", ""),
+            "summary": summary,
             "link": it.get("link", ""),
             "source": it.get("source", ""),
             "group": it.get("group", ""),
@@ -3867,9 +3877,14 @@ def skip_reason(x, kind, blocked_words):
     if kind == "news":
         if OFF_AUDIENCE_RE.search(wide) and not SITE_TOPIC_RE.search(wide):
             return "خارج از مخاطب"
-        if JUNK_TOPIC_RE.search(wide):
+        # زباله فقط در تیتر و نشانی بررسی می‌شود، نه در متن کامل. کلمهٔ
+        # «betting» در بدنهٔ یک مقاله دربارهٔ استارتاپ‌ها، دو خبر واقعی
+        # را زباله حساب کرد و از گردش انداخت.
+        if JUNK_TOPIC_RE.search(blob):
             return "محتوای زباله"
-    if blocked_hit(x, blocked_words) or persian_product(x):
+    # رقیب هرگز. هشدار امنیتی از این سد رد می‌شود، چون خبر آسیب‌پذیری
+    # ممکن است دربارهٔ یک کالای فارسی هم باشد و باید برود.
+    if kind != "security" and (blocked_hit(x, blocked_words) or persian_product(x)):
         return "رقیب یا کالای فارسی"
     return ""
 
@@ -3978,51 +3993,12 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
         kept = []
         blocked_words = load_blocked()
         for x in pending:
-            blob = " ".join([x.get("title", "") or "", x.get("link", "") or ""])
-            if NON_NEWS_RE.search(blob) or JUNK_NEWS_RE.search(blob):
-                mark_skip(x, "صورت‌جلسه یا گزارش")
-                skipped += 1
-                continue
-            # فهرست پیوند، ابزار نیست.
-            if LIST_REPO_RE.search(blob):
-                mark_skip(x, "فهرست پیوند")
-                skipped += 1
-                continue
-            # پادکست و وبینار اتفاق تازه‌ای را گزارش نمی‌کنند. بعد از
-            # قانون «وردپرس اول» اینها بالای صف می‌نشستند و جای خبر
-            # واقعی را می‌گرفتند. فقط نام منبع، تیتر و آدرس بررسی
-            # می‌شود، نه متن. مقاله‌ای که حالت خبری دارد و فقط داخلش
-            # از یک گفتگو حرف زده، خبر است و نباید دور ریخته شود.
-            if kind == "news" and PODCAST_RE.search(blob + " " + (x.get("source") or "")):
-                mark_skip(x, "پادکست یا وبینار")
-                skipped += 1
-                continue
-            # دستهٔ ابزار را فیدهای عمومی هم پر می‌کنند. آیتمی که هیچ
-            # نشانه‌ای از هوش مصنوعی یا ساخت سایت ندارد، ابزار این کانال
-            # نیست. اینجا فقط کنار گذاشته می‌شود، پاک نمی‌شود.
-            if kind == "tools" and not BUILDER_TOPIC.search(
-                blob + " " + (x.get("desc", "") or "")
-            ):
-                mark_skip(x, "بی‌ربط به ابزار سایت")
-                skipped += 1
-                continue
-            # خبر پول، دادگاه، یا سیاست داخلی شرکت‌ها. اگر هیچ نشانی از
-            # وردپرس و ساخت سایت نداشته باشد، مخاطب کاری با آن ندارد.
-            if kind == "news":
-                wide = blob + " " + (x.get("desc", "") or "")
-                if OFF_AUDIENCE_RE.search(wide) and not SITE_TOPIC_RE.search(wide):
-                    mark_skip(x, "خارج از مخاطب")
-                    skipped += 1
-                    continue
-                # زبالهٔ فیدهای بازنشر: پروکسی، بازی موبایل، اپ استور.
-                if JUNK_TOPIC_RE.search(wide):
-                    mark_skip(x, "محتوای زباله")
-                    skipped += 1
-                    continue
-            # رقیب هرگز. این سد اینجا هم هست چون آیتم ممکن است از قبل در
-            # صف مانده باشد، پیش از آن که فهرست رقیب‌ها را ببندیم.
-            if blocked_hit(x, blocked_words) or persian_product(x):
-                mark_skip(x, "رقیب یا کالای فارسی")
+            # یک قانون، یک جا. نسخهٔ قبلی همین سدها را دوباره و دستی
+            # این‌جا نوشته بود؛ هر اصلاح باید دو جا انجام می‌شد و دیر یا
+            # زود دو نسخه از هم جدا می‌شدند.
+            why = skip_reason(x, kind, blocked_words)
+            if why:
+                mark_skip(x, why)
                 skipped += 1
                 continue
             kept.append(x)
@@ -4452,7 +4428,15 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
                 if kind_cap - posted_kind - held_by_kind.get(kind, 0) <= 0 and not fast:
                     log("  no room left to hold more of", kind)
                     break
-                if not hold_ready(it, label, text, score, kind):
+                if not hold_ready(
+                    it,
+                    label,
+                    text,
+                    score,
+                    kind,
+                    entry.get("title", ""),
+                    entry.get("summary", ""),
+                ):
                     log("  ready store is full, stopping this run")
                     break
                 held_by_kind[kind] = held_by_kind.get(kind, 0) + 1
@@ -4882,18 +4866,10 @@ def preview_run(s, st, seen, kind="news", limit=1, pick=""):
     kept = []
     blocked_words = load_blocked()
     for x in rows:
-        if blocked_hit(x, blocked_words) or (kind != "security" and persian_product(x)):
-            continue
-        blob = " ".join(
-            [x.get("title") or "", x.get("link") or "", x.get("desc") or ""]
-        )
-        if NON_NEWS_RE.search(blob) or JUNK_NEWS_RE.search(blob) or LIST_REPO_RE.search(blob):
-            continue
-        if kind == "news" and PODCAST_RE.search(blob):
-            continue
-        if kind == "news" and OFF_AUDIENCE_RE.search(blob) and not SITE_TOPIC_RE.search(blob):
-            continue
-        if kind == "tools" and not BUILDER_TOPIC.search(blob):
+        # پیش‌نمایش باید همان چیزی را نشان دهد که موتور واقعاً می‌بیند.
+        # نسخهٔ قبلی همین قانون‌ها را دوباره و کمی متفاوت نوشته بود؛
+        # هر اصلاح باید سه جا انجام می‌شد.
+        if skip_reason(x, kind, blocked_words):
             continue
         kept.append(x)
     # با --pick می‌شود یک خبر مشخص را برای آزمون لحن انتخاب کرد، نه
