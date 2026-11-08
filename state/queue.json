@@ -107,23 +107,6 @@
    "reject_hits": 2
   },
   {
-   "id": "7bae1c47fa7b5295",
-   "title": "Perplexity now has its own always-on AI agent",
-   "link": "https://the-decoder.com/perplexity-now-has-its-own-always-on-ai-agent",
-   "desc": "Perplexity is launching \"Teammates,\" always-on agents that work through ongoing projects on their own virtual machines. The feature requires the Max plan at $200 per month, well above similar offerings from OpenAI or Anthropic. The market for always-on agents is getting crowded. The article Perplexity now has its own always-on AI agent appeared first on The Decoder .",
-   "source": "دیکودر",
-   "lang": "en",
-   "tier": 2,
-   "group": "ai",
-   "kind": "news",
-   "age_hours": 7.5,
-   "published": "2026-11-06T16:47:28+00:00",
-   "added": "2026-11-07T00:15:42+00:00",
-   "full": "Perplexity now has its own AI agent that runs around the clock and handles work tasks on its own. While Perplexity Computer executes one-off assignments, the new Teammates stay active and work through ongoing projects independently. Each Teammate runs on its own virtual machine with a desktop and browser. Users track progress through dedicated threads in the Perplexity app and can interact with the agents via Slack. Perplexity joins SpaceX, Meta, OpenAI, and Anthropic, which already offer similar agents through Grok Bots, Muse , Dots , and Duet . Teammates require the Max plan at $200 per month. Dots start at $100, and Duet is available from $20. In practice, the cheaper options will likely hit their usage limits fast. Just days ago, high agent consumption forced SpaceX to impose stricter usage caps on Grok Bots . Perplexity's annualized revenue topped $750 million as of August. Subscribe to THE DECODER for ad-free reading, a weekly AI newsletter, our exclusive \"AI Radar\" frontier report six times a year, full archive access, and access to our comment section.",
-   "use_link": "",
-   "reject_hits": 2
-  },
-  {
    "id": "6b2b8cc622f47f26",
    "title": "Anthropic pushes ahead with pre-Thanksgiving IPO despite tech selloff, accepts lower valuation",
    "link": "https://the-decoder.com/anthropic-pushes-ahead-with-pre-thanksgiving-ipo-despite-tech-selloff-accepts-lower-valuation",
