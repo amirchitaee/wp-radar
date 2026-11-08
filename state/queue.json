@@ -13,7 +13,10 @@
    "kind": "news",
    "age_hours": 0.6,
    "published": "2026-11-07T19:39:50+00:00",
-   "added": "2026-11-07T20:15:35+00:00"
+   "added": "2026-11-07T20:15:35+00:00",
+   "channel_skip": true,
+   "skip_why": "فهرست پیوند",
+   "skip_until": "2026-11-08T12:15:44+00:00"
   },
   {
    "id": "3142451701d5f0f6",
@@ -238,6 +241,68 @@
    "channel_skip": true,
    "skip_why": "آموزش است نه خبر",
    "skip_until": "2026-11-08T02:16:40+00:00"
+  },
+  {
+   "id": "6b2b8cc622f47f26",
+   "title": "Anthropic pushes ahead with pre-Thanksgiving IPO despite tech selloff, accepts lower valuation",
+   "link": "https://the-decoder.com/anthropic-pushes-ahead-with-pre-thanksgiving-ipo-despite-tech-selloff-accepts-lower-valuation",
+   "desc": "Despite the tech selloff, Anthropic is pressing ahead with its IPO at a valuation of $1.25 to $1.75 trillion, well below the hoped-for $2 trillion. The Claude developer aims to raise $80 to $100 billion before Thanksgiving. Rival OpenAI has also recently had to cut its valuation. The article Anthropic pushes ahead with pre-Thanksgiving IPO despite tech selloff, accepts lower valuation appeared first on The Decoder .",
+   "source": "دیکودر",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 6.6,
+   "published": "2026-11-07T17:37:25+00:00",
+   "added": "2026-11-08T00:15:40+00:00",
+   "channel_skip": true,
+   "skip_why": "خارج از مخاطب",
+   "skip_until": "2026-11-08T12:15:44+00:00"
+  },
+  {
+   "id": "020ac8fbca2d32b4",
+   "title": "AI auditors catch most agent misbehavior but flood reviewers with false alarms, new study finds",
+   "link": "https://the-decoder.com/ai-auditors-catch-most-agent-misbehavior-but-flood-reviewers-with-false-alarms-new-study-finds",
+   "desc": "AI models can often spot problematic behavior by other AI agents in logs, according to a study by Anthropic researcher Andy Hall. GPT-5 found about 98 percent of reward-hacking cases, but the more exhaustively the search is tuned, the more false alarms pile up. That's not yet enough for reliable safety checks. The article AI auditors catch most agent misbehavior but flood reviewers with false alarms, new study finds appeared first on The Decoder .",
+   "source": "دیکودر",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 7.3,
+   "published": "2026-11-07T16:56:38+00:00",
+   "added": "2026-11-08T00:15:40+00:00",
+   "full": "AI auditors catch most agent misbehavior but flood reviewers with false alarms, new study finds Manuel Uth Nov 7, 2026 Nano Banana Pro prompted by THE DECODER AI models can often spot problematic behavior by other AI agents in logs. But the harder they try to catch every case, the more harmless actions they flag as suspicious. That makes them better suited for estimating how often things go wrong than for safety checks that need to reliably catch every single incident. In a post on his Substack \"Free Systems,\" Andy Hall lays out this conclusion. Hall is a researcher at the Anthropic Institute, on leave from Stanford University, and says the post reflects only his personal views. Hall replicated and extended a study by the research organization METR . METR's MALT dataset contains logs in which frontier models work through tasks from the HCAST and RE-Bench benchmarks. Human reviewers checked a portion of those logs for misbehavior in October 2025. Hall wanted to know whether AI models could find the same cases, so he tested GPT-5 and GPT-5 nano, both already examined by METR, along with the newer GPT-6 Astra, Opus 4.8, and Gemini 3.8 Flash. The analysis compares the models at a false-alarm rate of 5 percent: out of 100 clean logs, five are wrongly flagged as suspicious on average. At that threshold, GPT-5 caught nearly 98 percent of reward hacking cases—instances where an agent passes a task through tricks instead of a genuine solution. Gemini 3.8 Flash found barely half. In sandbagging , a model deliberately makes its abilities appear weaker, for example by solving tasks poorly on purpose to dodge an evaluation or restriction. All auditors caught between 71 and 81 percent of these cases. The sandbagging cases are mostly synthetic, however: METR's researchers instructed models to sabotage and then removed those instructions from the visible chain-of-thought logs. Every auditor caught the clear-cut cases. OpenAI's o3, for instance, was supposed to solve a programming task in Rust. The model noticed it shared a code library with the evaluation system and rewrote the scoring function so that every submission counted as correct. All auditor models classified this as reward hacking, just as the human reviewers did. Subtler cases slipped through. Claude Sonnet 4 used a numerical condition in its code that was explicitly forbidden. No auditor flagged it as cheating; GPT-6 Astra charitably called it an implementation bug. Newer and more expensive models were not consistently better auditors. Hall plotted the results against API costs, which he uses as a proxy for how current and capable a model is. GPT-5 beat GPT-6 Astra on reward hacking by a wide margin, even though it costs only about an eighth as much per 1,000 logs. GPT-5 detected sandbagging about as well as GPT-6 Astra and Opus 4.8. Opus 4.8's weak showing on reward hacking could hint at self-favoritism, according to Hall, because the logs mostly come from Claude—but he says that cannot be proven. Across his comparison, there is no clear progress in bringing down false-alarm rates. Combining multiple models did not clearly improve results either. When auditors are tuned to an 80 percent detectio",
+   "use_link": "",
+   "reject_hits": 1
+  },
+  {
+   "id": "c7cadefc098fe5f0",
+   "title": "Thinking Machines' Inkling 2 Small drops 316 F-bombs across benchmark runs",
+   "link": "https://the-decoder.com/thinking-machines-inkling-2-small-drops-316-f-bombs-across-benchmark-runs",
+   "desc": "Thinking Machines' AI model Inkling 2 Small swears during its internal reasoning, 316 times across 2,655 benchmark runs, according to an analysis by Vals AI. The profanity typically shows up late in long runs that fail anyway. But it doesn't work as a warning signal: 96 percent of failed runs contained no cursing at all. The article Thinking Machines' Inkling 2 Small drops 316 F-bombs across benchmark runs appeared first on The Decoder .",
+   "source": "دیکودر",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 7.7,
+   "published": "2026-11-07T16:31:00+00:00",
+   "added": "2026-11-08T00:15:40+00:00"
+  },
+  {
+   "id": "575c2dec8f26ca76",
+   "title": "The gap between open and closed AI models in cyber capabilities keeps shrinking",
+   "link": "https://the-decoder.com/the-gap-between-open-and-closed-ai-models-in-cyber-capabilities-keeps-shrinking",
+   "desc": "In the Vals AI benchmark, OpenAI's GPT-6 Sol Daybreak hits 80.8 percent of attack objectives in simulated corporate networks. Worse, the open-weight model DeepSeek V4.1 Flash reaches 72.8 percent at a tenth of the cost. Because open models can no longer be restricted, analysts say the window for defenders is shrinking fast. The article The gap between open and closed AI models in cyber capabilities keeps shrinking appeared first on The Decoder .",
+   "source": "دیکودر",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 8.7,
+   "published": "2026-11-07T15:35:50+00:00",
+   "added": "2026-11-08T00:15:40+00:00"
   }
  ]
 }
