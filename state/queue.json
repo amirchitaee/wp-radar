@@ -291,6 +291,50 @@
    "use_link": "",
    "posted": true,
    "msg_id": 105
+  },
+  {
+   "id": "5cecc12e376b047e",
+   "title": "Beyond code generation: A developer’s guide to agentic engineering",
+   "link": "https://github.blog/ai-and-ml/github-copilot/beyond-code-generation-a-developers-guide-to-agentic-engineering",
+   "desc": "Writing code got faster. The work around it didn't. See how you can plan, write code, review changes, and investigate production issues with GitHub Copilot, and what work still needs your judgment.",
+   "source": "گیت‌هاب بلاگ",
+   "lang": "en",
+   "tier": 3,
+   "group": "",
+   "kind": "tools",
+   "age_hours": 30.7,
+   "published": "2026-11-06T22:15:59+00:00",
+   "added": "2026-11-08T05:00:45+00:00",
+   "reject_hits": 1
+  },
+  {
+   "id": "23828ce4394755a6",
+   "title": "Letterpress-1",
+   "link": "https://www.producthunt.com/products/letterpress-1",
+   "desc": "One script install to automate growth for your website Discussion | Link",
+   "source": "پروداکت هانت",
+   "lang": "en",
+   "tier": 3,
+   "group": "",
+   "kind": "tools",
+   "age_hours": 45.8,
+   "published": "2026-11-05T23:15:25-08:00",
+   "added": "2026-11-08T05:00:45+00:00",
+   "reject_hits": 1
+  },
+  {
+   "id": "2fa2a5eab3a78099",
+   "title": "Rankfender v3.0",
+   "link": "https://www.producthunt.com/products/rankfender",
+   "desc": "The SEO/GEO operating system, built for people and AI agents Discussion | Link",
+   "source": "پروداکت هانت",
+   "lang": "en",
+   "tier": 3,
+   "group": "",
+   "kind": "tools",
+   "age_hours": 62.9,
+   "published": "2026-11-05T06:05:15-08:00",
+   "added": "2026-11-08T05:00:45+00:00"
   }
  ]
 }
