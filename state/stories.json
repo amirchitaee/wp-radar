@@ -85,20 +85,6 @@
    "cves": []
   },
   {
-   "t": "2026-11-04T18:01:33+00:00",
-   "id": "6c37fee853f792d5",
-   "title": "A New Workspace for Building with WordPress",
-   "kind": "news",
-   "link": "https://wordpress.com/blog/2026/11/04/wordpress-studio-workspace",
-   "ents": [
-    "building",
-    "wordpress",
-    "workspace"
-   ],
-   "vers": [],
-   "cves": []
-  },
-  {
    "t": "2026-11-04T22:01:07+00:00",
    "id": "abee0c5b836f36e8",
    "title": "WooCommerce 11.2.2",

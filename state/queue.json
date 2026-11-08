@@ -220,6 +220,37 @@
    "full": "The inventor of the bitter lesson has a bitter lesson for LLM enthusiasts. Other researchers agree. In a recent post, Turing Award winner Richard Sutton says raw compute alone isn't enough for intelligence. AI science needs clever new methods and is \"far from finished.\" His post sparked wide discussion in the AI community on X , a sign that Sutton struck a nerve. In his famous 2019 essay \"The Bitter Lesson,\" Sutton argued that general methods scaling with compute beat sophisticated human-engineered approaches eventually. What matters are ideas that grow with compute rather than rely on human assumptions. Ad Sutton's position isn't new. In earlier statements , he criticized the limits of simply scaling large language models. He called synthetic data a \"big mistake\" because the real world is infinitely complex and any simulation of it is only \"microscopic.\" Human expertise as a bottleneck prevents true scaling. Ad Instead, he called for agents with world models that continuously learn from their own experience. The world is massively more complex than what internet text can capture, and today's language models don't keep learning after training, Sutton argues. What's needed is continuous learning without destroying old knowledge. AI researcher Jerry Tworek, who like many others left OpenAI, one of the major AI companies, to explore new AI approaches, puts Sutton's latest statement in context. The bitter lesson still holds, but the more compute goes into model training, the more the algorithm matters, Tworek writes. Ad Some algorithms scale, others hit dead ends, and many dimensions of scaling remain completely unexplored. The temporary success of transformer scaling, combined with a misreading of the bitter lesson, \"has reward-hacked the brains of a whole generation of scientists.\" AI researcher Jayden Teoh adds another angle. He says he has repeatedly seen the bitter lesson hold back academic research, with promising ideas dismissed for straying too far from its spirit. Teoh argues that this is not Sutton’s fault but a misreading of his original message. Ad Teoh also argues that ideas that seemed, in hindsight, not to follow the bitter lesson were often replaced by cleaner, more general approaches. That did not make those ideas wrong, he says; they were often what enabled progress at the time. He wants the research community to stop dismissing such work as soon as it appears. “An idea doesn’t necessarily have to survive scaling forever to be an important contribution to AI progress,” Teoh writes. Ad The tension between Sutton's call for new learning methods and Tworek's criticism of blind transformer scaling shows up in a growing wave of startups. In the latest Frontier Radar #5 , we tracked 45 new AI labs betting on exactly these gaps. Tworek himself runs Core Automation , one of those labs, searching for learning algorithms beyond pretraining and reinforcement learning. What unites these founders, including Sutton with Oak Lab , is that they believe in much more capable AI but doubt today's recipe alone will get there. Prominent industry leaders see things very differently. OpenAI CEO Sam Altman considers large language model scaling far fro",
    "use_link": "",
    "reject_hits": 2
+  },
+  {
+   "id": "9d79402d656bf7a9",
+   "title": "Funnelra - Webflow HTML website template",
+   "link": "https://land-book.com/websites/102539-funnelra-webflow-html-website-template",
+   "desc": "",
+   "source": "لندبوک",
+   "lang": "en",
+   "tier": 3,
+   "group": "",
+   "kind": "showcase",
+   "age_hours": 59.8,
+   "published": "2026-11-06T08:45:00+00:00",
+   "added": "2026-11-08T20:30:40+00:00",
+   "full": "Webflow template for coaches, consultants, creators, and SaaS businesses. Webflow template for coaches, consultants, creators, and SaaS businesses.",
+   "use_link": "",
+   "reject_hits": 1
+  },
+  {
+   "id": "410b4925da231f9c",
+   "title": "Relume — AI Website Builder for Marketing Websites",
+   "link": "https://land-book.com/websites/102061-relume-ai-website-builder-for-marketing-websites",
+   "desc": "",
+   "source": "لندبوک",
+   "lang": "en",
+   "tier": 3,
+   "group": "",
+   "kind": "showcase",
+   "age_hours": 84.9,
+   "published": "2026-11-05T07:36:00+00:00",
+   "added": "2026-11-08T20:30:40+00:00"
   }
  ]
 }
