@@ -164,6 +164,37 @@
    "age_hours": 10.4,
    "published": "2026-11-08T13:49:21+00:00",
    "added": "2026-11-09T00:15:40+00:00"
+  },
+  {
+   "id": "6ccfadcd06d297d1",
+   "title": "Agent Clan",
+   "link": "https://www.producthunt.com/products/agent-clan",
+   "desc": "Command your Claude Code and Codex agents with gestures Discussion | Link",
+   "source": "پروداکت هانت",
+   "lang": "en",
+   "tier": 3,
+   "group": "",
+   "kind": "tools",
+   "age_hours": 32.6,
+   "published": "2026-11-07T09:52:26-08:00",
+   "added": "2026-11-09T02:30:37+00:00",
+   "sources_count": 2,
+   "reject_hits": 1
+  },
+  {
+   "id": "2fa2a5eab3a78099",
+   "title": "Rankfender v3.0",
+   "link": "https://www.producthunt.com/products/rankfender",
+   "desc": "The SEO/GEO operating system, built for people and AI agents Discussion | Link",
+   "source": "پروداکت هانت هوش مصنوعی",
+   "lang": "en",
+   "tier": 3,
+   "group": "",
+   "kind": "tools",
+   "age_hours": 84.4,
+   "published": "2026-11-05T06:05:15-08:00",
+   "added": "2026-11-09T02:30:37+00:00",
+   "reject_hits": 1
   }
  ]
 }
