@@ -152,21 +152,6 @@
    "reject_hits": 2
   },
   {
-   "id": "2fa2a5eab3a78099",
-   "title": "Rankfender v3.0",
-   "link": "https://www.producthunt.com/products/rankfender",
-   "desc": "The SEO/GEO operating system, built for people and AI agents Discussion | Link",
-   "source": "پروداکت هانت هوش مصنوعی",
-   "lang": "en",
-   "tier": 3,
-   "group": "",
-   "kind": "tools",
-   "age_hours": 84.4,
-   "published": "2026-11-05T06:05:15-08:00",
-   "added": "2026-11-09T02:30:37+00:00",
-   "reject_hits": 2
-  },
-  {
    "id": "d6275048f0a81206",
    "title": "Polylang 3.9.2",
    "link": "https://wordpress.org/plugins/polylang/",
@@ -288,6 +273,50 @@
    "use_link": "",
    "posted": true,
    "msg_id": 111
+  },
+  {
+   "id": "892d4b2fd053c6ff",
+   "title": "Elementor 4.4.0",
+   "link": "https://wordpress.org/plugins/elementor/",
+   "desc": "نسخهٔ 4.4.0 از Elementor منتشر شد. تغییرات این نسخه: New: Introducing Agent Ready to help prepare websites for AI agents with readiness scoring, content discovery tools, and bot access controls | New: Introducing the SVG Icon Library with Font Awesome 7 support | New: Introducing the List element for creating customizable lists with nested items and custom markers | New: Introducing the Google Maps element for displaying locations with customizable address and zoom settings | Tweak: Added WebMCP support to forms created through Elementor MCP, allowing compatible AI agents to discover and interact with them | Tweak: Extended Elementor MCP support to additional legacy widgets, including Counter, Progress Bar, Social Icons, Image Gallery, and Image Carousel | Tweak: Added support for renaming elements in the Structure panel through Elementor MCP | Tweak: Added support for viewing and enabling or disabling Elementor experiments through Elementor MCP | Tweak: Added support for clearing Elementor cache through Elementor MCP",
+   "source": "آپدیت افزونه",
+   "lang": "en",
+   "tier": 1,
+   "group": "wp",
+   "kind": "news",
+   "age_hours": 0.0,
+   "published": "2026-11-09T14:15:41+00:00",
+   "added": "2026-11-09T14:15:41+00:00",
+   "plugin": {
+    "name": "Elementor",
+    "version": "4.4.0",
+    "prev": "4.3.6",
+    "installs": 10000000,
+    "updated": "2026-11-09"
+   },
+   "plugin_update": {
+    "name": "Elementor",
+    "slug": "elementor",
+    "version": "4.4.0",
+    "prev": "4.3.6",
+    "date": "4.4.0 – 2026-11-09",
+    "changes": [
+     "New: Introducing Agent Ready to help prepare websites for AI agents with readiness scoring, content discovery tools, and bot access controls",
+     "New: Introducing the SVG Icon Library with Font Awesome 7 support",
+     "New: Introducing the List element for creating customizable lists with nested items and custom markers",
+     "New: Introducing the Google Maps element for displaying locations with customizable address and zoom settings",
+     "Tweak: Added WebMCP support to forms created through Elementor MCP, allowing compatible AI agents to discover and interact with them",
+     "Tweak: Extended Elementor MCP support to additional legacy widgets, including Counter, Progress Bar, Social Icons, Image Gallery, and Image Carousel",
+     "Tweak: Added support for renaming elements in the Structure panel through Elementor MCP",
+     "Tweak: Added support for viewing and enabling or disabling Elementor experiments through Elementor MCP",
+     "Tweak: Added support for clearing Elementor cache through Elementor MCP"
+    ],
+    "vuln": false,
+    "hardening": false
+   },
+   "full": "Elementor, the leading WordPress website creation platform, empowers you to build professional, pixel-perfect websites seamlessly with its no-code, drag-and-drop Atomic Editor. Supporting the full website lifecycle, Elementor lets you build, optimize, and manage your website with extended capabilities such as agentic AI creation, native MCP connection, image optimization, transactional email delivery, accessibility tools, performance boosters, and more. Elementor is now in version 4, with a new generation of performance-first atomic building blocks that put you in control of every part of your site. Define your global design systems and reusable components once, and they apply everywhere instantly – turning hours or even days of work into single clicks. NEW! Connect your favorite AI tools, including Claude, Codex, and Cursor, directly to your Elementor sites. The Elementor MCP acts as a new execution layer, turning plain-language prompts into real, fully editable Elementor structures, layouts, and design systems while keeping you in complete control. Unlock all Pro features with Elementor Pro . Need fast and secure cloud hosting for your Elementor site? Try out Elementor Host Powered by Google Cloud & Cloudflare. 4.9/5 TrustPilot score. Access a suite of free widgets and tools built to support your website creation process: High-performing websites : Website performance affects your visitors’ experience and search result ranking. Elementor, in partnership with Google Chrome, continuously improves performance without compromising design. Create unparalleled websites while saving time, money and resources with Elementor Pro ’s full website builder. Get access to 100+ professional widgets, features, and tools. Editor Pro design widgets: Editor Pro theme widgets: Build and customize all the key parts of your website including headers, footers, 404 page, global archives, and more. Editor Pro WooCommerce widgets: Design and customize a complete online shopping experience across your entire website. Build professional websites with Elementor Pro Elementor places a strong backed by industry certifications such as ISO/IEC 27001, ISO/IEC 27017, ISO/IEC 27018, ISO/IEC 27701, and SOC 2 Type II. These certifications reflect our commitment to robust security measures and recognized industry standards. We encourage ethical security research through our Bug Bounty program . We work with leading bug bounty services so researchers can report vulnerabilities in our service backed by a triage team available 24/7/365. For more information: Trust Center . Elementor offers accessibility tools and enhancements to help you provide a better experience for all users. Including HTML5 semantics, full keyboard navigation menus, ongoing improvements of features and widget. Elementor supports multiple languages, typographies, and RTL, with editor translations in over 63 languages . It’s compatible with WPML, Polylang, TranslatePress, Weglot, and more. To contribute, add a new language via translate.wordpress.org . See our guide on how to translate and localize the plugin . To improve the user experience, Elementor may use the following 3rd party services if the required fea",
+   "use_link": "https://github.com/elementor/elementor",
+   "held": true
   }
  ]
 }
