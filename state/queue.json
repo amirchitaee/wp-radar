@@ -238,7 +238,10 @@
    "kind": "news",
    "age_hours": 0.6,
    "published": "2026-11-09T11:38:43+00:00",
-   "added": "2026-11-09T12:15:38+00:00"
+   "added": "2026-11-09T12:15:38+00:00",
+   "channel_skip": true,
+   "skip_why": "خارج از مخاطب",
+   "skip_until": "2026-11-10T01:15:38+00:00"
   },
   {
    "id": "2382673acb375df8",
@@ -253,6 +256,37 @@
    "age_hours": 8.5,
    "published": "2026-11-09T04:32:33+00:00",
    "added": "2026-11-09T13:00:48+00:00"
+  },
+  {
+   "id": "ff55535ca88b9a53",
+   "title": "Google ships four TPU variants in one year as it ramps up competition with Nvidia",
+   "link": "https://the-decoder.com/google-ships-four-tpu-variants-in-one-year-as-it-ramps-up-competition-with-nvidia",
+   "desc": "Google is expanding its TPU 8 family with two specialized variants: the TPU 8tx keeps sensitive data encrypted even during processing, while the TPU 8i Max doubles compute power and memory by placing two chips on a single package. With nearly 100 external customers now on board, Google is increasingly positioning its in-house chips as an alternative to Nvidia's GPUs. The article Google ships four TPU variants in one year as it ramps up competition with Nvidia appeared first on The Decoder .",
+   "source": "دیکودر",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 0.3,
+   "published": "2026-11-09T12:59:02+00:00",
+   "added": "2026-11-09T13:15:37+00:00"
+  },
+  {
+   "id": "b4f19b33e97a3209",
+   "title": "WordPress Publishing Without WordPress? Meet Quill",
+   "link": "https://thewpminute.com/wordpress-publishing-without-wordpress-meet-quill",
+   "desc": "What if you could manage your WordPress content without ever opening the WordPress dashboard? In this episode of The WP Minute, Eric Karkovack talks with Chris Poteet, the developer behind Quill, a native macOS app built to make writing and...",
+   "source": "دبلیوپی مینت",
+   "lang": "en",
+   "tier": 2,
+   "group": "",
+   "kind": "news",
+   "age_hours": 0.5,
+   "published": "2026-11-09T12:45:00+00:00",
+   "added": "2026-11-09T13:15:33+00:00",
+   "full": "What if you could manage your WordPress content without ever opening the WordPress dashboard? In this episode of The WP Minute , Eric Karkovack talks with Chris Poteet, the developer behind Quill, a native macOS app built to make writing and managing WordPress content simpler. Chris shares how his background in IT consulting, user experience, and AI-assisted development inspired him to build a different kind of publishing experience. Quill offers a focused writing environment for posts, pages, drafts, and media, while preserving compatibility with Gutenberg and blocks from plugins. Chris also demonstrates how its AI features can evaluate writing , suggest improvements, and better reflect a writer’s personal style instead of producing generic AI content. The conversation explores the role of AI in software development, the challenge of building a product that feels powerful without becoming overwhelming, and what it might take to bring Quill to Windows or WordPress.com in the future. Could a native desktop app be a better way to publish with WordPress? Chris explains what he’s building and why. Get your favorite 5 minutes of WordPress news for busy professionals every week — 100% Free! Join the WP Minute Newsletter below 👇",
+   "use_link": "",
+   "held": true
   }
  ]
 }

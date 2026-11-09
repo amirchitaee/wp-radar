@@ -85,20 +85,6 @@
    "cves": []
   },
   {
-   "t": "2026-11-05T13:01:58+00:00",
-   "id": "3243b55215f3f099",
-   "title": "WPForms 2.0.4",
-   "kind": "news",
-   "link": "https://wordpress.org/plugins/wpforms-lite/",
-   "ents": [
-    "wpforms"
-   ],
-   "vers": [
-    "2.0.4"
-   ],
-   "cves": []
-  },
-  {
    "t": "2026-11-05T16:09:31+00:00",
    "id": "a02d33f8d9c3a2d1",
    "title": "From reading to acting: WebMCP and the agent-ready web",
@@ -271,6 +257,22 @@
     "live",
     "manage",
     "royally",
+    "wordpress"
+   ],
+   "vers": [],
+   "cves": []
+  },
+  {
+   "t": "2026-11-09T13:16:04+00:00",
+   "id": "b4f19b33e97a3209",
+   "title": "WordPress Publishing Without WordPress? Meet Quill",
+   "kind": "news",
+   "link": "https://thewpminute.com/wordpress-publishing-without-wordpress-meet-quill",
+   "ents": [
+    "meet",
+    "publishing",
+    "quill",
+    "without",
     "wordpress"
    ],
    "vers": [],
