@@ -199,6 +199,47 @@
    "published": "2026-11-05T06:05:15-08:00",
    "added": "2026-11-09T02:30:37+00:00",
    "reject_hits": 2
+  },
+  {
+   "id": "d6275048f0a81206",
+   "title": "Polylang 3.9.2",
+   "link": "https://wordpress.org/plugins/polylang/",
+   "desc": "نسخهٔ 3.9.2 از Polylang منتشر شد. تغییرات این نسخه: Security: Fix exposure of some private posts metadata to non-authorized users. Reported by Oly Hossen via Patchstack. | Allow using language code in the select layout of the language switcher, via the API #2044 | Fix a possible fatal error in the wizard #2045 | Fix a fatal error when a language is corrupted in DB #2046 | Fix 404 on pages created right after setting up languages with the Wizard #2039 | Fix no nav menu displayed before a language location is applied #2040",
+   "source": "آپدیت افزونه",
+   "lang": "en",
+   "tier": 1,
+   "group": "wp",
+   "kind": "news",
+   "age_hours": 0.0,
+   "published": "2026-11-09T09:15:44+00:00",
+   "added": "2026-11-09T09:15:44+00:00",
+   "plugin": {
+    "name": "Polylang",
+    "version": "3.9.2",
+    "prev": "3.9.1",
+    "installs": 900000,
+    "updated": "2026-11-09"
+   },
+   "plugin_update": {
+    "name": "Polylang",
+    "slug": "polylang",
+    "version": "3.9.2",
+    "prev": "3.9.1",
+    "date": "3.9.2 (2026-11-09)",
+    "changes": [
+     "Security: Fix exposure of some private posts metadata to non-authorized users. Reported by Oly Hossen via Patchstack.",
+     "Allow using language code in the select layout of the language switcher, via the API #2044",
+     "Fix a possible fatal error in the wizard #2045",
+     "Fix a fatal error when a language is corrupted in DB #2046",
+     "Fix 404 on pages created right after setting up languages with the Wizard #2039",
+     "Fix no nav menu displayed before a language location is applied #2040"
+    ],
+    "vuln": false,
+    "hardening": false
+   },
+   "full": "With Polylang fully integrated to WordPress and using only its built-in core features (taxonomies), keep steady performances on your site and create a multilingual site featuring from just one extra language to 10 or more depending on your needs. There is no limit in the number of languages added and WordPress’ language packs are automatically downloaded when ready. Depending on the type of site you have built or are planning to build, a combination of plugins from the list below might be of interest. All plugins include a wizard allowing to setup them in just a few clicks. Polylang and Polylang Pro share the same core providing features such as: Helps optimizing the time spent translating your site with some very useful extra features such as: Add-on for the compatibility with WooCommerce which provides features such as: Thanks a lot to all translators who help translating Polylang . Thanks a lot to Alex Lopez for the design of the logo. Wherever third party code has been used, credit has been given in the code’s comments. The Polylang languages admin panel The Strings translations admin panel Multilingual media library The Edit Post screen with the Languages metabox Blocks This plugin provides 2 blocks.",
+   "use_link": "",
+   "held": true
   }
  ]
 }
