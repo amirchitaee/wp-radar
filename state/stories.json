@@ -85,27 +85,6 @@
    "cves": []
   },
   {
-   "t": "2026-11-05T17:16:06+00:00",
-   "id": "6ff37e53b465a342",
-   "title": "Infinite Uploads 3.5 Adds a Free Plan, Media Cleanup, and Secure File Downloads",
-   "kind": "news",
-   "link": "https://wpmayor.com/infinite-uploads-free-plan-media-cleanup",
-   "ents": [
-    "cleanup",
-    "downloads",
-    "file",
-    "infinite",
-    "media",
-    "plan",
-    "secure",
-    "uploads"
-   ],
-   "vers": [
-    "3.5"
-   ],
-   "cves": []
-  },
-  {
    "t": "2026-11-06T02:16:07+00:00",
    "id": "aa07334bae8fa26d",
    "title": "Google's Gemini Omni 1.2 Flash stretches AI video clips to 15 seconds and cuts pricing by 30 percent",

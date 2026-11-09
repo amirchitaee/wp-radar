@@ -377,6 +377,22 @@
    "full": "More than 50 educational institutions have joined WordPress Credits , giving students worldwide a way to earn academic recognition for contributing to WordPress. The program had two participating institutions in September 2025 and four the following month. By June 2026, that number had reached 27, before passing 50 this October. The program launched with the University of Pisa and was announced at WordCamp Europe 2025. Since then, it has expanded through partnerships that connect students with experienced contributors and practical projects. The WordPress Credits dashboard recorded participating institutions across 17 countries as of October 19, including Bangladesh, Costa Rica, Spain, Bolivia, and Indonesia. Each institution can adapt the program to its academic requirements, allowing students to contribute as part of their studies. Students work with mentors on projects that reflect their interests and areas of study. They might translate WordPress, improve documentation, create learning materials, or contribute to development and testing. Alongside that work, they practice collaborating with others and responding to feedback, then present their contributions at the end of the program. By October 19, the dashboard recorded 364 graduates and student contributions across 18 WordPress teams. That work supports the software and resources people use throughout the WordPress community. Local contributors have helped establish these partnerships by introducing WordPress Credits to nearby schools and adapting it to local languages and educational settings. Mentors guide students through their first contributions, while sponsors provide support and resources. Educators help make that participation part of students’ academic work. Thank you to the students, educators, mentors, and supporters whose involvement has brought the program to more than 50 institutions. Institutions can include WordPress Credits in an existing course, offer it as an internship, or incorporate it into a final project. The program is available at no cost to partner institutions, with flexible formats to suit their students and curriculum. To get started, read how to launch a WordPress Credits program and register your institution’s interest through the program page .",
    "use_link": "https://wordpress.org/education/credits/",
    "reject_hits": 1
+  },
+  {
+   "id": "3f5320e13125c0fa",
+   "title": "We went looking: What Woo has done about security since June",
+   "link": "https://woocommerce.com/posts/woo-latest-security",
+   "desc": "Why so many WooCommerce security updates? Well, we went looking. Here’s what we found, what we changed, and what you can do now to take action.",
+   "source": "ووکامرس",
+   "lang": "en",
+   "tier": 1,
+   "group": "",
+   "kind": "news",
+   "age_hours": 1.2,
+   "published": "2026-11-09T16:46:09+00:00",
+   "added": "2026-11-09T18:00:52+00:00",
+   "full": "By Tautvidas Sipavicius • Nov 2, 2026",
+   "use_link": "https://make.wordpress.org/security/2026/08/28/the-core-security-initiative/"
   }
  ]
 }
