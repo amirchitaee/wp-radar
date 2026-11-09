@@ -239,7 +239,8 @@
    },
    "full": "With Polylang fully integrated to WordPress and using only its built-in core features (taxonomies), keep steady performances on your site and create a multilingual site featuring from just one extra language to 10 or more depending on your needs. There is no limit in the number of languages added and WordPress’ language packs are automatically downloaded when ready. Depending on the type of site you have built or are planning to build, a combination of plugins from the list below might be of interest. All plugins include a wizard allowing to setup them in just a few clicks. Polylang and Polylang Pro share the same core providing features such as: Helps optimizing the time spent translating your site with some very useful extra features such as: Add-on for the compatibility with WooCommerce which provides features such as: Thanks a lot to all translators who help translating Polylang . Thanks a lot to Alex Lopez for the design of the logo. Wherever third party code has been used, credit has been given in the code’s comments. The Polylang languages admin panel The Strings translations admin panel Multilingual media library The Edit Post screen with the Languages metabox Blocks This plugin provides 2 blocks.",
    "use_link": "",
-   "held": true
+   "posted": true,
+   "msg_id": 109
   }
  ]
 }
