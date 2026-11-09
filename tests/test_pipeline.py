@@ -1496,3 +1496,10 @@ if FAILS:
         print("  -", f)
     sys.exit(1)
 print("همه سبز.")
+
+# تاریخ میلادی وسط پست فارسی غلط است.
+check("تاریخ: میلادی شمسی می‌شود", radar.fix_dates("۹ نوامبر ۲۰۲۶"), "۱۸ آبان ۱۴۰۵")
+
+# نام با حرف علامت‌دار وسط کلمه شکسته می‌شد.
+_bidi_acc = radar.bidi("سایت La Coignardière آرشیو است")
+check("جهت: نام علامت‌دار یک واحد است", "\u2066La Coignardière\u2069" in _bidi_acc, True)

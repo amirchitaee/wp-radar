@@ -2535,6 +2535,40 @@ def to_jalali(gy, gm, gd):
     return jy, jm, jd
 
 
+GREG_MONTHS = {
+    "ژانویه": 1, "فوریه": 2, "مارس": 3, "آوریل": 4, "مه": 5, "ژوئن": 6,
+    "ژوئیه": 7, "اوت": 8, "سپتامبر": 9, "اکتبر": 10, "نوامبر": 11, "دسامبر": 12,
+    "january": 1, "february": 2, "march": 3, "april": 4, "may": 5, "june": 6,
+    "july": 7, "august": 8, "september": 9, "october": 10, "november": 11, "december": 12,
+}
+GREG_DATE_RE = re.compile(r"([0-9۰-۹]{1,2})\s+([A-Za-zآ-ی]+)\s+([0-9۰-۹]{4})")
+
+
+def fix_dates(text):
+    """تاریخ میلادی در متن فارسی غلط است؛ همان روز را شمسی می‌نویسد.
+
+    مدل تاریخ انتشار منبع را برمی‌دارد و همان‌طور می‌گذارد: «۹ نوامبر
+    ۲۰۲۶» وسط یک پست فارسی. عدد و ماه جابه‌جا نمی‌شوند، فقط تقویم عوض
+    می‌شود.
+    """
+    def repl(m):
+        try:
+            day = int(m.group(1).translate(DIGITS_TO_LATIN))
+            month = GREG_MONTHS.get(m.group(2).lower())
+            year = int(m.group(3).translate(DIGITS_TO_LATIN))
+        except Exception:
+            return m.group(0)
+        if not month or not (1 <= day <= 31) or not (1900 <= year <= 2200):
+            return m.group(0)
+        try:
+            jy, jm, jd = to_jalali(year, month, day)
+        except Exception:
+            return m.group(0)
+        return "{} {} {}".format(fa_num(jd), FA_MONTHS[jm - 1], fa_num(jy))
+
+    return GREG_DATE_RE.sub(repl, str(text or ""))
+
+
 def stamp(when=None):
     dt = when or now()
     if isinstance(dt, str):
@@ -2565,9 +2599,11 @@ LRI = "\u2066"
 PDI = "\u2069"
 # نام‌های چندبخشی باید یک واحد باشند. قبلاً «Goldman» و «Sachs» جدا
 # ایزوله می‌شدند و در جملهٔ راست‌به‌چپ جابه‌جا می‌شدند: «Sachs Goldman».
+# حروف لاتین با علامت روی حرف هم بخشی از همان کلمه‌اند. الگوی قبلی
+# فقط A-Za-z بود و «Coignardière» را وسط کلمه می‌شکست.
 LATIN_RUN = re.compile(
-    r"[A-Za-z][A-Za-z0-9\.\-_/+#'’&]*"
-    r"(?:[ \t]+[A-Za-z0-9][A-Za-z0-9\.\-_/+#'’&]*)*"
+    r"[A-Za-zÀ-ÖØ-öø-ÿ][A-Za-z0-9À-ÖØ-öø-ÿ\.\-_/+#'’&]*"
+    r"(?:[ \t]+[A-Za-z0-9À-ÖØ-öø-ÿ][A-Za-z0-9À-ÖØ-öø-ÿ\.\-_/+#'’&]*)*"
 )
 
 
@@ -3034,10 +3070,10 @@ def format_post(label, title, summary, details, meta, link, hashtags, when=None,
         head = "{} {}: {}".format(tag, label, title).strip()
     else:
         head = "{} {}".format(tag, label).strip()
-    parts = ["<b>{}</b>".format(esc(bidi(head))), "", esc(bidi(fix_newlines(summary)))]
+    parts = ["<b>{}</b>".format(esc(bidi(head))), "", esc(bidi(fix_dates(fix_newlines(summary))))]
     inner = []
     if details:
-        inner.append(esc(bidi(trim_details(details))))
+        inner.append(esc(bidi(fix_dates(trim_details(details)))))
     # متا جای داده است، نه جای صفت. یک بار مدل «open source» را در متا
     # گذاشت و آخر کادر یک خط تنها و بی‌مصرف افتاد، در حالی که همان
     # جمله در خلاصه هم بود. متایی که عدد یا قیمت ندارد، داده نیست.
