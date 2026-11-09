@@ -5,20 +5,16 @@
  "showcase": "2026-11-07T00:00:00+00:00",
  "digest_day": "2026-11-08",
  "offers": "2026-11-02T19:46:15+00:00",
- "last_provider": "groq",
+ "last_provider": "amd",
  "prov_health": {
   "google": {
    "until": "2026-11-02T21:49:49+00:00",
    "fails": 2
-  },
-  "amd": {
-   "until": "2026-11-09T15:47:56+00:00",
-   "fails": 1
   }
  },
  "report_week": "2026-46",
- "last_publish": "2026-11-09T14:45:30+00:00",
+ "last_publish": "2026-11-09T16:00:50+00:00",
  "pruned_day": "2026-11-09",
  "showcase_try": "2026-11-09T15:45:37+00:00",
- "news_try": "2026-11-09T15:15:43+00:00"
+ "news_try": "2026-11-09T16:01:24+00:00"
 }
