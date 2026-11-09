@@ -286,7 +286,8 @@
    "added": "2026-11-09T13:15:33+00:00",
    "full": "What if you could manage your WordPress content without ever opening the WordPress dashboard? In this episode of The WP Minute , Eric Karkovack talks with Chris Poteet, the developer behind Quill, a native macOS app built to make writing and managing WordPress content simpler. Chris shares how his background in IT consulting, user experience, and AI-assisted development inspired him to build a different kind of publishing experience. Quill offers a focused writing environment for posts, pages, drafts, and media, while preserving compatibility with Gutenberg and blocks from plugins. Chris also demonstrates how its AI features can evaluate writing , suggest improvements, and better reflect a writer’s personal style instead of producing generic AI content. The conversation explores the role of AI in software development, the challenge of building a product that feels powerful without becoming overwhelming, and what it might take to bring Quill to Windows or WordPress.com in the future. Could a native desktop app be a better way to publish with WordPress? Chris explains what he’s building and why. Get your favorite 5 minutes of WordPress news for busy professionals every week — 100% Free! Join the WP Minute Newsletter below 👇",
    "use_link": "",
-   "held": true
+   "posted": true,
+   "msg_id": 111
   }
  ]
 }
