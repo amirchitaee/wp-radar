@@ -239,6 +239,20 @@
    "age_hours": 0.6,
    "published": "2026-11-09T11:38:43+00:00",
    "added": "2026-11-09T12:15:38+00:00"
+  },
+  {
+   "id": "2382673acb375df8",
+   "title": "The Web Is More Than Enough, by Paul Ford",
+   "link": "https://simonwillison.net/2026/Nov/9/hn-50421091",
+   "desc": "My comment on The Web Is More Than Enough, by Paul Ford — Hacker News. OK, this comment convinced me to give that a shot. Here's a thing I made in Three.js this morning - a Nudibranch themed Faberge Egg: https://static.simonwillison.net/static/2026/Hidden-Reef-Egg... (77KB) I just asked Claude (Opus 5.5 Medium running in regular Claude Chat) to port that to Vanilla JS, in the same thread where it had built it, and got this: https://static.simonwillison.net/static/2026/Hidden-Reef-Egg... (98KB) They aren't identical - you can see what Claude said about that in the transcript (I don't fully unde",
+   "source": "سایمون ویلیسون",
+   "lang": "en",
+   "tier": 3,
+   "group": "",
+   "kind": "tools",
+   "age_hours": 8.5,
+   "published": "2026-11-09T04:32:33+00:00",
+   "added": "2026-11-09T13:00:48+00:00"
   }
  ]
 }
