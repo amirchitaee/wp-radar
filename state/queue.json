@@ -53,23 +53,6 @@
    "reject_hits": 2
   },
   {
-   "id": "c7cadefc098fe5f0",
-   "title": "Thinking Machines' Inkling 2 Small drops 316 F-bombs across benchmark runs",
-   "link": "https://the-decoder.com/thinking-machines-inkling-2-small-drops-316-f-bombs-across-benchmark-runs",
-   "desc": "Thinking Machines' AI model Inkling 2 Small swears during its internal reasoning, 316 times across 2,655 benchmark runs, according to an analysis by Vals AI. The profanity typically shows up late in long runs that fail anyway. But it doesn't work as a warning signal: 96 percent of failed runs contained no cursing at all. The article Thinking Machines' Inkling 2 Small drops 316 F-bombs across benchmark runs appeared first on The Decoder .",
-   "source": "دیکودر",
-   "lang": "en",
-   "tier": 2,
-   "group": "ai",
-   "kind": "news",
-   "age_hours": 7.7,
-   "published": "2026-11-07T16:31:00+00:00",
-   "added": "2026-11-08T00:15:40+00:00",
-   "full": "Thinking Machines' Inkling 2 Small swears in its internal chain of thought. Researchers at Vals AI read the model's thinking logs from 2,655 runs across 13 benchmarks and found \"fuck\" or variations in 50 runs, totaling 316 instances. 241 came from just two runs that spiraled out of control. In one, tasked with calculating an asteroid's trajectory, the model produced a single 500,000-character response, roughly novel-length, repeating the same sentences with 158 expletives. ProgramBench was hit hardest, with 20 of 200 runs affected. Inkling 2 Small typically swears about its own mistakes, apparent breakthroughs, or when it gives up. One run read: \"FUCK. SUBMIT. DONE. IT'S NOT WORKING. NOTHING WORKS.\" The profanity doesn't work as a warning signal, though. While 46 of 48 scored runs with swearing failed, about 75 percent of all scored runs fail anyway, and 96 percent of failed runs contained no expletives. Users typically don't see these thinking steps, or only with a filter. Subscribe to THE DECODER for ad-free reading, a weekly AI newsletter, our exclusive \"AI Radar\" frontier report six times a year, full archive access, and access to our comment section.",
-   "use_link": "",
-   "reject_hits": 2
-  },
-  {
    "id": "410b4925da231f9c",
    "title": "Relume — AI Website Builder for Marketing Websites",
    "link": "https://land-book.com/websites/102061-relume-ai-website-builder-for-marketing-websites",
@@ -351,7 +334,7 @@
    "added": "2026-11-09T16:00:55+00:00",
    "full": "NVIDIA L4 GPUs. 5-second cold starts. Scale to zero when idle. I’ve been bashing on updating this site’s design for the last couple of weeks. It’s high time things get a fresh coat of paint, right? The last version of CSS-Tricks was pushed five years ago . That’s ancient in web (and dog) years. It’s not like the site has simply sat all that time. We pushed lots of changes and shipped new features, particularly since 2024 , but we never really got the paint brushes out of storage. Now, before there’s a chorus of “things don’t look thaaaat different” I want to say I’m rarely a fan of complete re-builds and tend to lean into iterative releases. And the new v20 theme is what I’d call an iterative rollup that’s worthy of a version bump. Let’s go over the most notable updates to see why. Excavating Ghosts First and foremost, some of the biggest changes are what you don’t see. As you might imagine, this site has carried over plenty of pieces across 19 years. I decided to excavate the theme and definitely found some ghosts to bust. For example, the global compiled JavaScript file retained some scripts that just weren’t being used anymore. Things like handling embedded versions of the newsletter from before we began self-hosting the posts. There were relics that catered specifically to the Flexbox Guide for handling toggles back before we had proper HTML <details> . There was a jQuery lazy-loader thing that is well-covered by WordPress core now. We had some scripts for serving third-party ads that are no longer needed now that we’re self-hosting ads. Things like that. The overall JavaScript was nicely trimmed from 151.6 KB (55.3 KB gzipped) to 133.8 KB (48.1 KB). I also decided to formally retire the CSS-Tricks Forum. We put it in “archive mode” back in, like, 2018. None of those discussions are particularly valuable for today as they were over 10 years ago, so I deactivated the bbPress plugin that powered it and cleared out the database… and wow, that carved a whopping 400 MB from the ol’ database, not to mention it allowed me to drop several custom templates from the theme. There were more ghosts busted along the way and, to be sure, there are still some lurking around. But it’s way less scary poking around the theme directory now, and further cleanup should be a lot easier from here on out. Modern Dev Tooling Yeah, yeah, raise your hand if you’re still running Gulp. We are 🙋‍♂️. That’s not a bad thing in and of itself, but keeping it in a fixed state for all this time is not the greatest. I think we’re sporting a more modern workflow than before, even if there’s still room to grow. A smattering of the related commits: For years, I endured the same errors every time I fired up a new terminal. Those are gone and things run super cleanly, not to mention quickly. Very happy here. Security Pass Oof, this is everyone’s favorite job, right?! Aside from being able to spot and fix a few unescaped custom field calls here and there, I decided to ask Claude to help me with a holistic audit. I prompted it to review recent WordPress security release notes and identify areas where the theme could be hardened to comply with what WordPress is doing. Whoa, you used ",
    "use_link": "",
-   "reject_hits": 1
+   "reject_hits": 2
   },
   {
    "id": "632168d89bb7e70d",
@@ -366,6 +349,68 @@
    "age_hours": 28.7,
    "published": "2026-11-08T11:50:24+00:00",
    "added": "2026-11-09T16:30:45+00:00"
+  },
+  {
+   "id": "46af0b7ab7e2127e",
+   "title": "Wordfence 9.1.0",
+   "link": "https://wordpress.org/plugins/wordfence/",
+   "desc": "نسخهٔ 9.1.0 از Wordfence منتشر شد. تغییرات این نسخه: Improvement: Added security news widget to the WordPress and Wordfence dashboards | Improvement: Increased frequency of WAF rule update checks | Improvement: Added Live Traffic logging for application password and REST API authentication failures | Improvement: Added controls for the WAF attack alert threshold and counting window | Improvement: Improved attack data synchronization to reduce overhead and avoid cache issues | Improvement: Improved SQL injection parsing and detection for malformed input | Improvement: Improved malware scanning handling of uploads | Improvement: Improved WAF execution and configuration handling in unexpected hosting configurations or unreliable network environments | Improvement: Updated GeoIP database",
+   "source": "آپدیت افزونه",
+   "lang": "en",
+   "tier": 1,
+   "group": "wp",
+   "kind": "news",
+   "age_hours": 0.0,
+   "published": "2026-11-09T16:45:40+00:00",
+   "added": "2026-11-09T16:45:40+00:00",
+   "plugin": {
+    "name": "Wordfence",
+    "version": "9.1.0",
+    "prev": "9.0.2",
+    "installs": 5000000,
+    "updated": "2026-11-09"
+   },
+   "plugin_update": {
+    "name": "Wordfence",
+    "slug": "wordfence",
+    "version": "9.1.0",
+    "prev": "9.0.2",
+    "date": "9.1.0 – November 9, 2026",
+    "changes": [
+     "Improvement: Added security news widget to the WordPress and Wordfence dashboards",
+     "Improvement: Increased frequency of WAF rule update checks",
+     "Improvement: Added Live Traffic logging for application password and REST API authentication failures",
+     "Improvement: Added controls for the WAF attack alert threshold and counting window",
+     "Improvement: Improved attack data synchronization to reduce overhead and avoid cache issues",
+     "Improvement: Improved SQL injection parsing and detection for malformed input",
+     "Improvement: Improved malware scanning handling of uploads",
+     "Improvement: Improved WAF execution and configuration handling in unexpected hosting configurations or unreliable network environments",
+     "Improvement: Updated GeoIP database"
+    ],
+    "vuln": true,
+    "hardening": false
+   },
+   "full": "WordPress security requires a team of dedicated analysts researching the latest malware variants and WordPress exploits, turning them into firewall rules and malware signatures, and releasing those to customers in real-time. Choose the right protection for you: Wordfence Free, Premium, Care or Response Wordfence is widely acknowledged as the number one WordPress security research team in the World. Our plugin provides a comprehensive suite of security features, and our team’s research is what powers our plugin and provides the level of security that we are known for. At Wordfence, WordPress security isn’t a division of our business – WordPress security is all we do. We employ a global 24-hour dedicated incident response team that provides our priority customers with a 1 hour response time for any security incident. The sun never sets on our global security team and we run a sophisticated threat intelligence platform to aggregate, analyze and produce ground breaking security research on the newest security threats. Wordfence Security includes an endpoint firewall, malware scanner, robust login security features, live traffic views, and more. Our Threat Defense Feed arms Wordfence with the newest firewall rules, malware signatures, and malicious IP addresses it needs to keep your website safe. Rounded out by passkeys, 2FA, and a suite of additional features, Wordfence is the most comprehensive WordPress security solution available. The dashboard gives you an overview of your site’s security including notifications, attack statistics and Wordfence feature status. The firewall protects your site from common types of attacks and known security vulnerabilities. The Wordfence Security Scanner lets you know if your site has been compromised and alerts you to other security issues that need to be addressed. Wordfence is highly configurable, with a deep set of options available for each feature. High level scan options are shown above. Brute Force Protection features protect you from password guessing attacks. Block attackers by IP, Country, IP range, Hostname, Browser or Referrer. The Wordfence Live Traffic view shows you real-time activity on your site including bot traffic and exploit attempts. Take login security to the next level with Two-Factor Authentication. Logging in is easy with Wordfence 2FA. Installation Secure your website using the following steps to install Wordfence: To install Wordfence on WordPress Multi-Site installations: Visit our website to access our official documentation which includes security feature descriptions, common solutions and comprehensive help. The WordPress security plugin provides the best protection available for your website. Powered by the constantly updated Threat Defense Feed, Wordfence Firewall stops you from getting hacked. Wordfence Scan leverages the same proprietary feed, alerting you quickly about security issues or if your site is compromised. The Live Traffic view gives you real-time visibility into traffic and hack attempts on your website. A deep set of additional tools round out the most comprehensive WordPress security solution available. We offer a Premium API key that gives you real-time update",
+   "use_link": "",
+   "msg_id": 116,
+   "posted": true
+  },
+  {
+   "id": "ff253002efe45b4d",
+   "title": "WordPress Credits Welcomes More Than 50 Institutions",
+   "link": "https://wordpress.org/news/2026/11/wp-credits-reaches-50",
+   "desc": "More than 50 educational institutions have joined WordPress Credits, giving students worldwide a way to earn academic recognition for contributing to WordPress. The program had two participating institutions in September 2025 and four the following month. By June 2026, that number had reached 27, before passing 50 this October. The program launched with the University […]",
+   "source": "وردپرس",
+   "lang": "en",
+   "tier": 1,
+   "group": "",
+   "kind": "news",
+   "age_hours": 0.7,
+   "published": "2026-11-09T16:01:18+00:00",
+   "added": "2026-11-09T16:45:29+00:00",
+   "full": "More than 50 educational institutions have joined WordPress Credits , giving students worldwide a way to earn academic recognition for contributing to WordPress. The program had two participating institutions in September 2025 and four the following month. By June 2026, that number had reached 27, before passing 50 this October. The program launched with the University of Pisa and was announced at WordCamp Europe 2025. Since then, it has expanded through partnerships that connect students with experienced contributors and practical projects. The WordPress Credits dashboard recorded participating institutions across 17 countries as of October 19, including Bangladesh, Costa Rica, Spain, Bolivia, and Indonesia. Each institution can adapt the program to its academic requirements, allowing students to contribute as part of their studies. Students work with mentors on projects that reflect their interests and areas of study. They might translate WordPress, improve documentation, create learning materials, or contribute to development and testing. Alongside that work, they practice collaborating with others and responding to feedback, then present their contributions at the end of the program. By October 19, the dashboard recorded 364 graduates and student contributions across 18 WordPress teams. That work supports the software and resources people use throughout the WordPress community. Local contributors have helped establish these partnerships by introducing WordPress Credits to nearby schools and adapting it to local languages and educational settings. Mentors guide students through their first contributions, while sponsors provide support and resources. Educators help make that participation part of students’ academic work. Thank you to the students, educators, mentors, and supporters whose involvement has brought the program to more than 50 institutions. Institutions can include WordPress Credits in an existing course, offer it as an internship, or incorporate it into a final project. The program is available at no cost to partner institutions, with flexible formats to suit their students and curriculum. To get started, read how to launch a WordPress Credits program and register your institution’s interest through the program page .",
+   "use_link": "https://wordpress.org/education/credits/",
+   "reject_hits": 1
   }
  ]
 }
