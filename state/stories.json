@@ -85,22 +85,6 @@
    "cves": []
   },
   {
-   "t": "2026-11-05T11:01:24+00:00",
-   "id": "d344f29d9cd7dbaa",
-   "title": "PCrisk Trust Badge Review: A Verifiable Security Badge for WordPress",
-   "kind": "news",
-   "link": "https://wpmayor.com/pcrisk-trust-badge-review",
-   "ents": [
-    "badge",
-    "pcrisk",
-    "trust",
-    "verifiable",
-    "wordpress"
-   ],
-   "vers": [],
-   "cves": []
-  },
-  {
    "t": "2026-11-05T13:01:58+00:00",
    "id": "3243b55215f3f099",
    "title": "WPForms 2.0.4",
@@ -271,6 +255,25 @@
    "vers": [
     "3.9.2"
    ],
+   "cves": []
+  },
+  {
+   "t": "2026-11-09T11:16:54+00:00",
+   "id": "fdf4d663191603b5",
+   "title": "Royally Goes Live: One AI Connection for Every WordPress Site You Manage",
+   "kind": "news",
+   "link": "https://wpmayor.com/announcing-royally",
+   "ents": [
+    "ai",
+    "connection",
+    "every",
+    "goes",
+    "live",
+    "manage",
+    "royally",
+    "wordpress"
+   ],
+   "vers": [],
    "cves": []
   }
  ]

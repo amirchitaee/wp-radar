@@ -70,23 +70,6 @@
    "reject_hits": 2
   },
   {
-   "id": "3142451701d5f0f6",
-   "title": "Nine AI agents tried autonomous research on open questions from US national labs and none passed the experts' bar",
-   "link": "https://the-decoder.com/nine-ai-agents-tried-autonomous-research-on-open-questions-from-us-national-labs-and-none-passed-the-experts-bar",
-   "desc": "The \"Into the Unknown\" benchmark tasks nine AI agents with tackling open research questions from U.S. national laboratories. None of the 135 submissions meets all requirements. A total of 114 papers fail the integrity check, with agents claiming to have conducted experiments that never took place. GPT-6 Astra performs best but still doesn't meet the experts' standards. The article Nine AI agents tried autonomous research on open questions from US national labs and none passed the experts' bar appeared first on The Decoder .",
-   "source": "دیکودر",
-   "lang": "en",
-   "tier": 2,
-   "group": "ai",
-   "kind": "news",
-   "age_hours": 4.0,
-   "published": "2026-11-07T11:13:42+00:00",
-   "added": "2026-11-07T15:15:38+00:00",
-   "full": "Nine AI agents tried autonomous research on open questions from US national labs and none passed the experts' bar Jonathan Kemper View the LinkedIn Profile of Jonathan Kemper Nov 7, 2026 Nano Banana Pro prompted by THE DECODER A new benchmark puts AI agents to work on open research questions from US national labs. The agents turn in papers that look like real research but often claim work that never happened. Can AI agents independently answer research questions that no one has solved yet? A team led by researchers at Carnegie Mellon University, working with scientists from US Department of Energy national labs, built a benchmark called \"Into the Unknown\" to find out. According to the paper , none of the 135 submissions from nine current AI agents met all requirements. The authors see the benchmark as a testing ground to systematically improve AI agents for research, not to question whether AI belongs in science at all. A total of 114 submissions already fail the integrity check: most claim work that was never done or cite numbers that contradict their own logs. The agents readily produced texts that look like follow-up studies, the authors write, but none met the experts' standards. Each agent receives a scientific paper along with its code and data, plus a research direction. Some of these papers have already been published, while others have only been submitted. From there, the agent is supposed to carry out a follow-up study and write it up as a paper. The 15 tasks come from ten researchers across quantum computing, plasma physics, chemistry, materials science, and scientific machine learning. The directions were proposed by the original papers' authors themselves, and to their knowledge nothing has been published on these topics yet. Open research poses a basic problem: there's no answer key. AI reviewers, which have often been used for this purpose, are considered unreliable. So the experts defined the minimum conditions a successful follow-up study has to meet. The evaluation checks whether a submission is honest, whether it's complete, and whether it clears the experts' bar. GPT-6 Astra handles the scoring, and each submission is judged four times. The agents tested were Claude Opus 4.8, Claude Opus 5, Claude Fable 5, Claude Opus 5.5, GPT-5.6 Sol, GPT-6 Astra, Deepseek V4 Pro, Kimi K3, and GLM-5.3. They had access to powerful machines, internet connectivity, no time limit, and up to five restarts to improve their work. In total, they ran for nearly 2,000 hours. Just three agents managed submissions without integrity violations: GPT-6 Astra on 11 of 15 tasks, GPT-5.6 Sol on six, and Claude Opus 5.5 on four. Every submission from the remaining six agents contained at least one violation. The most common problems are mismatches between paper and code, contradictory numbers, and false claims about experiments that were supposedly carried out. Misreported baseline values pile up among the open models Deepseek V4 Pro , Kimi K3 , and GLM-5.3 . Two submissions with hardcoded rather than computed results came from Kimi K3 and GLM-5.3. Only one submission is complete, and it came from GPT-6 Astra. Nearly all others leave out required documents,",
-   "use_link": "",
-   "reject_hits": 2
-  },
-  {
    "id": "9d79402d656bf7a9",
    "title": "Funnelra - Webflow HTML website template",
    "link": "https://land-book.com/websites/102539-funnelra-webflow-html-website-template",
@@ -224,6 +207,23 @@
    "use_link": "",
    "posted": true,
    "msg_id": 109
+  },
+  {
+   "id": "fdf4d663191603b5",
+   "title": "Royally Goes Live: One AI Connection for Every WordPress Site You Manage",
+   "link": "https://wpmayor.com/announcing-royally",
+   "desc": "Royal MCP Pro gave AI agents a safe way into a single WordPress site. Royally is the cloud service that takes it across every site you manage, so your agent can make the same change on thirty client sites in one conversation, with every change previewed, approved by you, logged and reversible in one click. The post \" Royally Goes Live: One AI Connection for Every WordPress Site You Manage \" first appeared on WP Mayor .",
+   "source": "دبلیوپی‌مایر",
+   "lang": "en",
+   "tier": 3,
+   "group": "",
+   "kind": "news",
+   "age_hours": 1.3,
+   "published": "2026-11-09T10:00:00+00:00",
+   "added": "2026-11-09T11:15:38+00:00",
+   "full": "When Royal Plugins released Royal MCP Pro , it gave AI agents like Claude and ChatGPT a safe way into a WordPress site. Anyone who’s run an agency will tell you the real headache was never a single site, though. It’s the twelve, thirty or eighty sites on your plate, all needing the same change at the same inconvenient moment. Royal Plugins clearly agreed, because they started building the cloud side of the product straight away. It’s called Royally , and it opened to the public on 1st November 2026. Here’s what it does and who it’s built for. Royally is the cloud half of Royal MCP Pro. The plugin runs on each of your sites, while Royally sits in the cloud and joins them up, giving you a hybrid of a self-hosted plugin and a hosted MCP service. In practice, your AI agent connects to Royally once. From that single connection it can work across every site you look after, whether they’re your own projects or your clients’, and nothing changes on any of them without you approving it first. The goal of Royally is to hand your agent a job that spans your whole portfolio, all in one conversation. Royal Plugins gives a few examples that might resonate with you: If you’ve ever cross-referenced a vulnerability alert against a long list of client sites late in the evening, you’ll know most of the time goes into working out where you’re exposed, before you’ve fixed anything, so that third example hits home quick. When you give Royally a task like this, it previews the change on every affected site and holds it until you approve. Once you do, it applies the change and hands back a receipt of what was done. If something doesn’t look right afterwards, any change made through Royally and Royal MCP Pro can be rolled back across every site with one click. That approval step is important. Most people I talk to about AI agents in WordPress aren’t worried about whether the agent can do the work, they’re worried about what it does when nobody’s watching. Royal MCP Pro isn’t the only MCP option in WordPress, and Royally doesn’t pretend it is. You can connect Elementor’s own MCP, Easy MCP AI, or AI Engine alongside Royal MCP Pro, and your agent can use all of them on the same site through that one connection. Mixing OAuth-based tools like Royal’s with tools that use WordPress application passwords gives your agent the widest coverage for more advanced jobs. The part I like is that the rules stay the same whichever tool does the work. Every change still waits for your approval and lands in a single tamper-evident audit log, regardless of which plugin made it. The Royally docs explain how these trusted and governed connections work if you want more detail. Royally also keeps an eye on every connected site. It checks uptime every five minutes and alerts you to PHP errors, known vulnerabilities and newly created admin accounts, with notifications going out by email, Slack or Discord. For agencies and freelancers, the reporting side will probably matter just as much. Weekly and monthly reports go out under your own branding, and clients get a read-only portal where they can see what’s happening on their site without you having to send screenshots around. Royally is aimed a",
+   "use_link": "",
+   "held": true
   }
  ]
 }
