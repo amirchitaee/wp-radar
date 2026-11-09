@@ -299,6 +299,23 @@
    ],
    "vers": [],
    "cves": []
+  },
+  {
+   "t": "2026-11-09T23:15:52+00:00",
+   "id": "c14f3dc722258b07",
+   "title": "What’s Coming in WordPress 7.2? (Features and Screenshots)",
+   "kind": "news",
+   "link": "https://www.wpbeginner.com/news/whats-coming-in-wordpress-7-2-features-screenshots",
+   "ents": [
+    "coming",
+    "features",
+    "screenshots",
+    "wordpress"
+   ],
+   "vers": [
+    "7.2"
+   ],
+   "cves": []
   }
  ]
 }
