@@ -133,6 +133,37 @@
    "age_hours": 84.9,
    "published": "2026-11-05T07:36:00+00:00",
    "added": "2026-11-08T20:30:40+00:00"
+  },
+  {
+   "id": "b5e076245ed35d32",
+   "title": "Andrej Karpathy built a curated video platform in a weekend using Claude and 20 years of Hacker News",
+   "link": "https://the-decoder.com/andrej-karpathy-built-a-curated-video-platform-in-a-weekend-using-claude-and-20-years-of-hacker-news",
+   "desc": "OpenAI co-founder Andrej Karpathy used Claude's Opus 5.5 to filter 43 million Hacker News comments into 6,454 curated videos. The result beats YouTube's own recommendations, he says. The article Andrej Karpathy built a curated video platform in a weekend using Claude and 20 years of Hacker News appeared first on The Decoder .",
+   "source": "دیکودر",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 9.9,
+   "published": "2026-11-08T14:23:00+00:00",
+   "added": "2026-11-09T00:15:40+00:00",
+   "full": "Andrej Karpathy, OpenAI co-founder and current Anthropic AI researcher, built HackerTube over a weekend using Claude's Opus 5.5 model. Claude filtered 43 million comments from 20 years of Hacker News and distilled them into 6,454 videos that keep getting recommended there . The result is a \"significantly better viewing experience\" than YouTube's own recommendations, Karpathy writes on X . The site needs no login, shows a single mid-video frame instead of optimized thumbnails, and stores state locally in the browser. Right after, Karpathy built TristanTube , \"one-shotted with Claude Code in 3 minutes,\" with 47,000 videos drawn from a YouTube channel list by Tristan Hume. Karpathy says he let Claude Code handle nearly all the work, from data analysis to server setup. His only manual steps were a Google Cloud API key, a rented server, and buying the domain. Projects that used to take weeks can now be done in a few hours, Karpathy says. Subscribe to THE DECODER for ad-free reading, a weekly AI newsletter, our exclusive \"AI Radar\" frontier report six times a year, full archive access, and access to our comment section.",
+   "use_link": "",
+   "held": true
+  },
+  {
+   "id": "df8052273099b604",
+   "title": "The brain-as-computer metaphor shaped modern AI but may be misleading the consciousness debate",
+   "link": "https://the-decoder.com/the-brain-as-computer-metaphor-shaped-modern-ai-but-may-be-misleading-the-consciousness-debate",
+   "desc": "Consciousness researchers Anil Seth, Ned Block, and Giulio Tononi argue in a Nature commentary that today's AI systems aren't conscious and won't become so on silicon hardware. They consider the assumption that consciousness depends on computation alone \"fatally flawed\" and warn against granting rights to AI systems. The article The brain-as-computer metaphor shaped modern AI but may be misleading the consciousness debate appeared first on The Decoder .",
+   "source": "دیکودر",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 10.4,
+   "published": "2026-11-08T13:49:21+00:00",
+   "added": "2026-11-09T00:15:40+00:00"
   }
  ]
 }
