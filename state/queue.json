@@ -87,23 +87,6 @@
    "reject_hits": 2
   },
   {
-   "id": "4392e68dfcfa99ba",
-   "title": "Google's AI detects high blood pressure from a regular smartwatch without a cuff",
-   "link": "https://the-decoder.com/googles-ai-detects-high-blood-pressure-from-a-regular-smartwatch-without-a-cuff",
-   "desc": "Google Research built an AI that spots signs of high blood pressure using only the pulse and motion sensors in a standard smartwatch, no cuff needed. In a 196-person study, its 65.8 percent detection rate beat the traditional in-office measurement. The method is already live in the Google Health app, though it doesn't replace a formal diagnosis. The article Google's AI detects high blood pressure from a regular smartwatch without a cuff appeared first on The Decoder .",
-   "source": "دیکودر",
-   "lang": "en",
-   "tier": 2,
-   "group": "ai",
-   "kind": "news",
-   "age_hours": 5.4,
-   "published": "2026-11-07T09:54:09+00:00",
-   "added": "2026-11-07T15:15:38+00:00",
-   "full": "A Google Research AI can detect signs of high blood pressure using a regular smartwatch, with no blood pressure cuff needed for calibration. The AI relies on two sensors already built into modern watches—a pulse sensor and a motion sensor—according to a Google blog post . The study was published in Nature . A neural network learned from nearly 500,000 hours of sensor data by comparing short segments and figuring out which ones belonged to the same person, picking up typical pulse and heartbeat patterns without any diagnoses to guide it. The system then averages these patterns over several days and calculates a probability for high blood pressure. Google's health model SensorFM also learns from smartwatch data. In a study of 196 people across five US research sites, the watch spotted hypertension about as well as a traditional cuff, identifying 65.8 percent of those with high blood pressure compared to 55.3 percent for the standard in-office measurement. Ad Google says the findings have been folded into the blood pressure trends feature in the Google Health app, but the method is still a research project and doesn't replace a diagnosis. The goal is to nudge people toward getting checked. More than half of people with high blood pressure don't know they have it, according to Google. Ad Subscribe to THE DECODER for ad-free reading, a weekly AI newsletter, our exclusive \"AI Radar\" frontier report six times a year, full archive access, and access to our comment section.",
-   "use_link": "",
-   "reject_hits": 2
-  },
-  {
    "id": "9d79402d656bf7a9",
    "title": "Funnelra - Webflow HTML website template",
    "link": "https://land-book.com/websites/102539-funnelra-webflow-html-website-template",
