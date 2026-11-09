@@ -99,3 +99,6 @@
 # سایتی که طراحی‌اش قابل یاد گرفتن باشد.
 مینیمال گالری|https://minimal.gallery/feed/|showcase|en|3
 ساز لندینگ‌پیج|https://saaslandingpage.com/rss|showcase|en|3
+# ۱۸ آبان: گالری تک‌صفحه‌ای. آیتم‌هایش سایت واقعی است، نه قالب فروشی.
+# تست: ۱۰ آیتم، ۷ تازه در هفته.
+وان‌پیج‌لاو|https://onepagelove.com/feed|showcase|en|3

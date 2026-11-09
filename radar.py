@@ -956,7 +956,12 @@ def plugin_watch(kind, seen=None, commit=True):
         vuln = bool(VULN_RE.search(joined))
         hardening = bool(HARDEN_RE.search(joined))
         link = "https://wordpress.org/plugins/{}/".format(cfg["slug"])
-        iid = item_id(link)
+        # شناسه باید نسخه را در خود داشته باشد. قبلاً فقط نشانی صفحهٔ
+        # افزونه بود؛ پس اولین آپدیت هر افزونه که پست می‌شد، همهٔ
+        # نسخه‌های بعدی همان افزونه «تکراری» حساب می‌شدند و برای همیشه
+        # ساکت می‌ماندند. آپدیت امنیتی هم همین‌طور گم می‌شد.
+        # نسخه با پارامتر می‌آید، نه با #، چون norm_link قطعه را می‌اندازد.
+        iid = item_id("{}?v={}".format(link, version))
         if iid in known:
             touched[cfg["slug"]] = {"version": version, "at": now().isoformat(timespec="seconds")}
             continue
@@ -1721,8 +1726,9 @@ KIND_HINT = {
     ),
     "security": "این دسته هشدار امنیتی است؛ فقط آسیب‌پذیری واقعی در وردپرس، افزونه یا قالب.",
     "showcase": (
-        "این دسته نمایشگاه است؛ سایتی که کسی ساخته و ساختش درس‌گرفتنی است. "
-        "صفحهٔ فروش خدمت یا محصول این‌جا جایی ندارد."
+        "این دسته نمایشگاه است؛ سایتی با طراحی دیدنی یا ایدهٔ تازه که ارزش نگاه کردن دارد. "
+        "لازم نیست با وردپرس ساخته شده باشد؛ سایت ساخته‌شده با ابزار هوش مصنوعی هم پذیرفته است. "
+        "قالب آمادهٔ فروشی و صفحهٔ فروش خدمت این‌جا جایی ندارد."
     ),
 }
 
@@ -1730,6 +1736,15 @@ KIND_HINT = {
 def kind_hint(kind):
     hint = KIND_HINT.get(kind)
     return (hint + "\n\n") if hint else ""
+
+
+# نمایشگاه: قالب فروشی، «سایت ساخته‌شده» نیست. فید لندبوک پر است از
+# «Webflow HTML website template» و همین‌ها سبد را پر می‌کردند. مدل
+# هر بار ردشان می‌کرد، سبد خالی می‌شد و نوبت نمایشگاه بی‌پست می‌سوخت.
+SHOWCASE_TEMPLATE_RE = re.compile(
+    r"(website template|webflow template|\btemplate\b|\bui kit\b|\btheme\b)",
+    re.I,
+)
 
 
 # متن پوستهٔ سایت، نه متن مطلب. وقتی استخراج شکست می‌خورد همین جمله‌ها
@@ -3308,6 +3323,11 @@ def trim_intake(kind, rows, s):
     # تازه‌ترین اول، ولی موضوع مقدم بر تازه‌بودن است. سقف ورود نباید
     # جای خبر وردپرسی را به خبر عمومی هوش مصنوعی بدهد.
     ordered = wp_first_sort(ordered)
+    if kind == "showcase":
+        # نمایشگاه چند منبع دارد و یکی چند برابر پرکارتر است. بدون سهم
+        # منبع، همان یکی همهٔ جای خالی را می‌گرفت و بقیه هرگز به چشم
+        # مدل نمی‌رسیدند.
+        ordered = cap_per_source(ordered, 1)
     kept = ordered[:room]
     log(
         "intake {}: {} dropped, backlog {}/{} daily {}/{} wp {}/{}".format(
@@ -3467,6 +3487,9 @@ def collect(kind, st, seen, budget_sec=None, watch=True):
             if kind == "tools" and not tool_fit(it):
                 off_topic += 1
                 continue
+            if kind == "showcase" and SHOWCASE_TEMPLATE_RE.search(it["title"] or ""):
+                off_topic += 1
+                continue
             rows.append(
                 {
                     "id": iid,
@@ -3610,6 +3633,11 @@ def queue_merge(rows, s):
             continue
         # همان سد سبد ابزار، این بار روی آیتم‌هایی که از قبل در صف مانده‌اند.
         if k == "tools" and not tool_fit(x):
+            off_topic += 1
+            continue
+        # قالب آماده‌ای که پیش از این اصلاح وارد صف شده هم بیرون می‌رود؛
+        # وگرنه هر بار به مدل می‌رود، رد می‌شود و جای سایت واقعی را می‌گیرد.
+        if k == "showcase" and SHOWCASE_TEMPLATE_RE.search(x.get("title") or ""):
             off_topic += 1
             continue
         kept.append(x)
@@ -4733,12 +4761,23 @@ def auto_run(s, st, seen, extra, role="main"):
     def left():
         return budget - (time.time() - started)
 
+    # تلاش بی‌پست، نوبت را نمی‌سوزاند. اگر مدل همهٔ آیتم‌ها را رد کرد،
+    # دسته نباید دو روز منتظر بماند؛ فقط کمی صبر می‌کند و آیتم بعدی را
+    # امتحان می‌کند. نمایشگاه یک بار این‌طور سوخت: تنها کاندیدش قالب
+    # وب‌فلو بود، رد شد، و نوبتش تا ۴۸ ساعت بعد بسته شد.
+    retry_min = int(s.get("retry_after_min", 30))
+
     def is_due(key, minutes):
         ts = sch.get(key)
         if not ts:
             return True
         try:
-            return (now() - datetime.fromisoformat(ts)).total_seconds() >= minutes * 60
+            if (now() - datetime.fromisoformat(ts)).total_seconds() < minutes * 60:
+                return False
+            tried = sch.get(key + "_try")
+            if tried and (now() - datetime.fromisoformat(tried)).total_seconds() < retry_min * 60:
+                return False
+            return True
         except Exception:
             return True
 
@@ -4800,9 +4839,15 @@ def auto_run(s, st, seen, extra, role="main"):
 
     if due and left() > 240:
         key = due[0][1]
-        model_run(key, s, st, seen, extra, hard_deadline=hard)
-        mark(key)
-        ran.append(key)
+        made = model_run(key, s, st, seen, extra, hard_deadline=hard)
+        if made:
+            mark(key)
+            ran.append(key)
+        else:
+            # نوبت نسوخته. پستی درنیامد، پس فقط چند دقیقه صبر می‌کنیم
+            # تا آیتم بعدی شانس بیاورد؛ علامت موفقیت زده نمی‌شود.
+            mark(key + "_try")
+            log("no post from", key, "- retry in", retry_min, "min")
     elif due:
         log("skipped", due[0][1], "| left", int(left()), "s")
 
