@@ -352,6 +352,20 @@
    "full": "NVIDIA L4 GPUs. 5-second cold starts. Scale to zero when idle. I’ve been bashing on updating this site’s design for the last couple of weeks. It’s high time things get a fresh coat of paint, right? The last version of CSS-Tricks was pushed five years ago . That’s ancient in web (and dog) years. It’s not like the site has simply sat all that time. We pushed lots of changes and shipped new features, particularly since 2024 , but we never really got the paint brushes out of storage. Now, before there’s a chorus of “things don’t look thaaaat different” I want to say I’m rarely a fan of complete re-builds and tend to lean into iterative releases. And the new v20 theme is what I’d call an iterative rollup that’s worthy of a version bump. Let’s go over the most notable updates to see why. Excavating Ghosts First and foremost, some of the biggest changes are what you don’t see. As you might imagine, this site has carried over plenty of pieces across 19 years. I decided to excavate the theme and definitely found some ghosts to bust. For example, the global compiled JavaScript file retained some scripts that just weren’t being used anymore. Things like handling embedded versions of the newsletter from before we began self-hosting the posts. There were relics that catered specifically to the Flexbox Guide for handling toggles back before we had proper HTML <details> . There was a jQuery lazy-loader thing that is well-covered by WordPress core now. We had some scripts for serving third-party ads that are no longer needed now that we’re self-hosting ads. Things like that. The overall JavaScript was nicely trimmed from 151.6 KB (55.3 KB gzipped) to 133.8 KB (48.1 KB). I also decided to formally retire the CSS-Tricks Forum. We put it in “archive mode” back in, like, 2018. None of those discussions are particularly valuable for today as they were over 10 years ago, so I deactivated the bbPress plugin that powered it and cleared out the database… and wow, that carved a whopping 400 MB from the ol’ database, not to mention it allowed me to drop several custom templates from the theme. There were more ghosts busted along the way and, to be sure, there are still some lurking around. But it’s way less scary poking around the theme directory now, and further cleanup should be a lot easier from here on out. Modern Dev Tooling Yeah, yeah, raise your hand if you’re still running Gulp. We are 🙋‍♂️. That’s not a bad thing in and of itself, but keeping it in a fixed state for all this time is not the greatest. I think we’re sporting a more modern workflow than before, even if there’s still room to grow. A smattering of the related commits: For years, I endured the same errors every time I fired up a new terminal. Those are gone and things run super cleanly, not to mention quickly. Very happy here. Security Pass Oof, this is everyone’s favorite job, right?! Aside from being able to spot and fix a few unescaped custom field calls here and there, I decided to ask Claude to help me with a holistic audit. I prompted it to review recent WordPress security release notes and identify areas where the theme could be hardened to comply with what WordPress is doing. Whoa, you used ",
    "use_link": "",
    "reject_hits": 1
+  },
+  {
+   "id": "632168d89bb7e70d",
+   "title": "Website Inspiration: Oluwatobi Salawu",
+   "link": "https://onepagelove.com/oluwatobi-salawu",
+   "desc": "Oluwatobi Salawu is a full-stack engineer who built a portfolio to look and feel like his 10 year old self when he first started coding. Its centered single-column layout mixes playful handwritten annotations, doodles, a yellow news ticker and playful interactions such as “Boring mode,” a light switch and an interactive drawing wall. Full Review",
+   "source": "وان‌پیج‌لاو",
+   "lang": "en",
+   "tier": 3,
+   "group": "",
+   "kind": "showcase",
+   "age_hours": 28.7,
+   "published": "2026-11-08T11:50:24+00:00",
+   "added": "2026-11-09T16:30:45+00:00"
   }
  ]
 }
