@@ -70,23 +70,6 @@
    "reject_hits": 2
   },
   {
-   "id": "9d79402d656bf7a9",
-   "title": "Funnelra - Webflow HTML website template",
-   "link": "https://land-book.com/websites/102539-funnelra-webflow-html-website-template",
-   "desc": "",
-   "source": "لندبوک",
-   "lang": "en",
-   "tier": 3,
-   "group": "",
-   "kind": "showcase",
-   "age_hours": 59.8,
-   "published": "2026-11-06T08:45:00+00:00",
-   "added": "2026-11-08T20:30:40+00:00",
-   "full": "Webflow template for coaches, consultants, creators, and SaaS businesses. Webflow template for coaches, consultants, creators, and SaaS businesses.",
-   "use_link": "",
-   "reject_hits": 1
-  },
-  {
    "id": "410b4925da231f9c",
    "title": "Relume — AI Website Builder for Marketing Websites",
    "link": "https://land-book.com/websites/102061-relume-ai-website-builder-for-marketing-websites",
@@ -98,7 +81,9 @@
    "kind": "showcase",
    "age_hours": 84.9,
    "published": "2026-11-05T07:36:00+00:00",
-   "added": "2026-11-08T20:30:40+00:00"
+   "added": "2026-11-08T20:30:40+00:00",
+   "full": "Principal Product Designer at https://chroniclehq.com/",
+   "use_link": ""
   },
   {
    "id": "b5e076245ed35d32",
@@ -318,6 +303,22 @@
    "use_link": "https://github.com/elementor/elementor",
    "posted": true,
    "msg_id": 113
+  },
+  {
+   "id": "f86d5f8581cb62a0",
+   "title": "Website Inspiration: La Coignardière",
+   "link": "https://onepagelove.com/la-coignardiere",
+   "desc": "La Coignardière houses René Coignard’s music archive, preserving and providing access to his musical organ recordings and compositions. The stark monochrome interface uses bold typography, thin horizontal rules and utilitarian play controls, giving it the appearance of a functional digital index. Full Review",
+   "source": "وان‌پیج‌لاو",
+   "lang": "en",
+   "tier": 3,
+   "group": "",
+   "kind": "showcase",
+   "age_hours": 3.2,
+   "published": "2026-11-09T11:48:45+00:00",
+   "added": "2026-11-09T15:00:54+00:00",
+   "full": "La Coignardière houses René Coignard’s music archive, preserving and providing access to his musical organ recordings and compositions. The stark monochrome interface uses bold typography, thin horizontal rules and utilitarian play controls, giving it the appearance of a functional digital index. Visit Website Tech HTML Typefaces Helvetica Category Music Related , Personal Style Brutalism , Minimal , Narrow Layout Color Monochrome Features Services List Audio Integration Composer Directory Library Media Player Minimalism Music Player Musician Published 9 Nov 2026 Report an issue Sections on this page Services List Similar websites Kelvin Event Music Related Voice Tag Gods Landing Page Music Related Service HEDROOM™ Music Related Bob Moll Music Related Plastic App Landing Page Music Related Spatial Event Music Related View all websites → Website categories Portfolio Landing Page Digital Product Launching Soon App Service Our favorite websites, every two weeks Join thousands of designers reading the Love Letter. Unsubscribe anytime",
+   "use_link": ""
   }
  ]
 }
