@@ -235,7 +235,8 @@
    "added": "2026-11-10T00:00:58+00:00",
    "full": "Meta has introduced Muse Ember, its smallest and most efficient AI model to date. It's designed for the routine tasks AI agents handle all day: calling tools, handling small coding tasks, routing requests, extracting data, and processing long documents. Meta says Muse Ember delivers more intelligence per dollar at every reasoning level than Claude Haiku 5.5 or GPT-6 Luna. It costs about $0.14 per task in the Artificial Analysis test , while the larger Muse Spark 1.3 costs $2.39 for a nearly identical score of 36 versus 37. Muse Ember leads in most of Meta's own tests, but Haiku outperforms it on real coding tasks in FrontierCode 2.0-AA, scoring 34.9 percent to Muse Ember's 27.2 percent. The model handles text, images, audio, and video and can process up to one million tokens at once. It's available now through the Meta Model API and Muse Code at $0.10 per million input tokens and $0.50 per million output tokens. Subscribe to THE DECODER for ad-free reading, a weekly AI newsletter, our exclusive \"AI Radar\" frontier report six times a year, full archive access, and access to our comment section.",
    "use_link": "",
-   "held": true
+   "posted": true,
+   "msg_id": 120
   },
   {
    "id": "87e16f3cabbe9de1",

@@ -1,7 +1,8 @@
 {
  "date": "2026-11-10",
- "count": 3,
+ "count": 4,
  "kinds": {
-  "news": 3
+  "news": 4,
+  "ai": 1
  }
 }
