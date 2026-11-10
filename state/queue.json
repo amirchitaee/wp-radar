@@ -365,6 +365,20 @@
    "added": "2026-11-10T17:30:39+00:00",
    "full": "WordPress 7.2 Beta 5 is ready for download and testing! This beta release is intended for testing and development only. Please do not install, run, or test this version of WordPress on production or mission-critical websites. Instead, use a test environment or local site to explore the new features. You can test WordPress 7.2 Beta 5 in any of the following ways: The scheduled final release date for WordPress 7.2 is December 8, 2026 . The full release schedule can be found here . Your help testing Beta and RC versions is vital to making this release as stable and powerful as possible. Thank you to everyone who contributes by testing! For technical details on the issues addressed since Beta 4, see the following links: WordPress 7.2 Beta 5 continues refining the upcoming release with additional security, accessibility, and compatibility improvements. Recent changes include email notifications when application passwords are created, improved keyboard navigation in the WordPress admin toolbar, and accessibility refinements to Visual History. Additional fixes strengthen permissions for Notes reactions, improve compatibility with MP3 uploads, and address automatic update behavior in Git worktree installations. Learn more: Trac #63927 , Trac #66331 , Trac #65122 , Trac #66447 , Trac #46544 , Trac #66460 The new default theme, Ipsum, receives another round of improvements in WordPress 7.2 Beta 5. Accessibility enhancements include improved keyboard focus indicators and view transitions that respect reduced-motion preferences. Additional refinements to block styles and patterns provide greater design flexibility, while optimized stylesheets and other under-the-hood improvements help prepare the theme for its final release. Learn more: Trac #66631 , GitHub #198 , GitHub #187 , GitHub #180 WordPress 7.2 aims to fully support PHP 8.6, which is scheduled to be released on November 19, 2026. The WordPress project has a long history of being compatible with new versions of PHP as soon as possible, and this release is no different. As of the Beta 5 release, all known compatibility issues with PHP 8.6 have been resolved. While all of the known issues in WordPress have been addressed, you will need to verify that all of your plugins and themes are also compatible with PHP 8.6 prior to upgrading. Keep an eye on the Making WordPress Core blog in the coming days for more detailed information about what to look for. WordPress continues to encourage all users to run the latest and greatest versions of PHP. Testing for issues is a critical part of developing any software, and it’s a meaningful way for anyone to contribute – whether or not you have experience. Details on what to test in WordPress 7.2 are available here . If you encounter an issue, please share it in the Alpha/Beta area of the support forums. If you are comfortable submitting a reproducible bug report, you can do so via WordPress Trac . You can also check your issue against this list of known bugs . Curious about testing releases in general and how to get started? Follow along with the testing initiatives in Make Core and join the #core-test channel on Making WordPress Slack . One last beta blooms Rele",
    "use_link": "https://wordpress.org/plugins/wordpress-beta-tester/"
+  },
+  {
+   "id": "1c6539be4d4d0556",
+   "title": "Can AI modernize legacy WordPress sites without breaking them?",
+   "link": "https://kinsta.com/blog/ai-wordpress-modernization",
+   "desc": "A WordPress website can look fine to visitors while running years-old plugins, carrying unnecessary database overhead, or hiding compatibility problems that surface only under specific conditions. ...",
+   "source": "کینستا",
+   "lang": "en",
+   "tier": 2,
+   "group": "",
+   "kind": "news",
+   "age_hours": 6.3,
+   "published": "2026-11-10T12:45:09+00:00",
+   "added": "2026-11-10T19:00:53+00:00"
   }
  ]
 }
