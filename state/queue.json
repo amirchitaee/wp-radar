@@ -201,7 +201,7 @@
    "added": "2026-11-10T00:00:58+00:00",
    "channel_skip": true,
    "skip_why": "خارج از مخاطب",
-   "skip_until": "2026-11-10T12:00:59+00:00"
+   "skip_until": "2026-11-11T00:15:44+00:00"
   },
   {
    "id": "1c08c141aa01274e",
@@ -425,7 +425,8 @@
    "published": "2026-11-10T10:00:00+00:00",
    "added": "2026-11-10T11:30:42+00:00",
    "full": "If you purchase through a link on our site, we may earn a commission . News aggregation sites ask a lot of whatever you build them on. They pull in hundreds or thousands of items from outside feeds, the content refreshes constantly, and visitors judge the result on two things: how fast it loads and how current it feels. WordPress is great at one half of that job. It fetches feeds, organizes content, deduplicates items, and runs imports on a schedule without breaking a sweat. Where it struggles is the front end, where a long and frequently-updating stream rendered through a full theme starts to feel slow. There is a clean way around this, and it has become a lot more practical in the last couple of years. Keep WordPress as your backend and hand the front end to Astro . You get the half of WordPress that does the real work, and a front end built from the ground up for speed. In this guide you will see how the two fit together, how to connect them, and how to solve the one problem that trips everyone up the first time, which is showing fresh content on a site that is mostly static. A news aggregator is one of the strongest candidates for a headless setup, and a better fit than a typical blog. It is worth being honest about when headless WordPress makes sense and when it is overkill, because the answer here lands firmly on the “yes” side. Start with the front end: it is read-only . Visitors don’t log in, comment, or fill out a form on the aggregated stream. The entire value of the site is fetching, organizing, and presenting other people’s content quickly, so serving it as fast static or cached HTML costs you nothing. WordPress is genuinely good at the fetching and organizing. There is a mature plugin ecosystem for pulling RSS and Atom feeds, deduplicating them, mapping fields, handling images, and scheduling the imports. That is real work you do not want to rebuild from scratch in a custom app. Astro, meanwhile, is built for exactly this kind of content-heavy, mostly-static site. It ships zero JavaScript by default , renders to fast static HTML, and lets you add interactivity only on the pages that need it. For a wall of feed items, that default is precisely what you want. On the WordPress side, the import engine is what matters. WP RSS Aggregator is the most established option, and the feature that makes it work cleanly in a headless build is Feed to Post . Feed to Post imports each feed item as a real WordPress post, or any custom post type you choose, with the content, featured image, taxonomies, and author filled in. Regular posts and custom post types are exposed through the WordPress REST API and through WPGraphQL automatically. So once your feeds are importing as posts, Astro can read them with no extra work on the WordPress side. The lightweight feed items that the free version stores are a different story. They are built for on-site display and are not exposed through the REST API by default. You can register them for REST yourself with a small filter, but importing as posts avoids the detour and gives you richer data to render. It is also worth comparing a few RSS aggregator plugins before you commit, since your choice of import engine",
-   "use_link": ""
+   "use_link": "",
+   "reject_hits": 1
   }
  ]
 }
