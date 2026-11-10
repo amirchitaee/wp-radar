@@ -332,6 +332,22 @@
    "age_hours": 1.9,
    "published": "2026-11-10T14:07:47+00:00",
    "added": "2026-11-10T16:01:06+00:00"
+  },
+  {
+   "id": "8d158b6adbec29b3",
+   "title": "CSS Optimization: Is Using Declarations Just Once (UDJO) Still Effective Today?",
+   "link": "https://css-tricks.com/css-using-declarations-just-once",
+   "desc": "Is the technique inspired by the DRY principle by identifying and reducing (if not eliminating) CSS declaration repetition still a relevant optimization strategy? CSS Optimization: Is Using Declarations Just Once (UDJO) Still Effective Today? originally handwritten and published with love on CSS-Tricks . You should really get the newsletter as well.",
+   "source": "سی‌اس‌اس تریکس",
+   "lang": "en",
+   "tier": 3,
+   "group": "",
+   "kind": "news",
+   "age_hours": 0.1,
+   "published": "2026-11-10T16:42:18+00:00",
+   "added": "2026-11-10T16:45:37+00:00",
+   "full": "NVIDIA L4 GPUs. 5-second cold starts. Scale to zero when idle. CSS optimization is a deceptive topic. On the one hand, it feels like something simple that we should already have all the tooling for — especially when it comes to minification. On the other hand, the idea that we already exploited “everything” there is around CSS optimization may be considered naive. Such a claim looks hard to defend for a language that evolves almost daily. In this article, I’d like to pick a technique that’s at least 18 years old — UDJO , or “using declarations just once.” Aware of an older source? Please comment! The technique is inspired by the principle of DRY , “don’t repeat yourself” , in that it works by identifying and reducing (if not eliminating) declaration repetition. So, if there’s something like display: flex and it appears two or more times, it gets reconciled in one rule: .example { display: flex; } .sample { display: flex; } …becomes: .example, .sample { display: flex; } The outcome of the technique depends on how intelligently the deduplication is done and how long the selectors are. Intelligence determines if UDJO leads to an actual maintainability advantage — can the change of a declaration really be done to all the selectors attached? And the selector length influences how big file size savings are. If you’re interested, my article on “DRY CSS” describes the mechanics in more detail. The question here is: Is UDJO still effective and still relevant today? Better Deduplicating Through Tooling When we try to answer this question, however, we end up with a problem: When sites are complex and their style sheet declarations have not been de-duplicated before, UDJO can require a lot of work. To save some time, I built tooling for this work. While it didn’t seem like it would immediately be as comprehensive as manually going through and testing style sheets, it seemed realistic enough that a tool could catch some repetition. Skipping ahead, I created CSS Dedup not only to identify repetition, but also to deduplicate what could safely be optimized (CSS Dedup has some documentation on this but in essence, deduplication affects selector locations, which is part of how the cascade works ). This, then, gives us some data: Is There Anything to Deduplicate in Modern CSS? For the first batch, I arbitrarily picked 20 websites to analyze. I then used CSS Dedup to check what the file size changes would be if we deduplicated what seemed provably safe, and also what seemed probably safe, but only if it led to file size savings. I picked those two options to provide the “natural” result of deduplication, but also the one site owners may be most interested in to reduce repetition but also decrease transfer size. After all, UDJO as a CSS optimization technique can improve both maintainability and performance. Important note: These values cannot be used to tell CSS quality —they depend on selector length and also on verifying if deduplication, in the respective case, actually leads to better maintainability. Also note that this leaves out changes after compression—this was not part of the experiment but would be fair to test, too. What can we tell from this? For th",
+   "use_link": ""
   }
  ]
 }
