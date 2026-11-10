@@ -408,6 +408,81 @@
    "digest_sent": true,
    "channel_skip": true,
    "skip_permanent": true
+  },
+  {
+   "id": "d052336faa0a6d5d",
+   "title": "Wordfence 9.1.1",
+   "link": "https://wordpress.org/plugins/wordfence/",
+   "desc": "نسخهٔ 9.1.1 از Wordfence منتشر شد. تغییرات این نسخه: Improvement: Updated bundled cacert.pem",
+   "source": "آپدیت افزونه",
+   "lang": "en",
+   "tier": 1,
+   "group": "wp",
+   "kind": "news",
+   "age_hours": 0.0,
+   "published": "2026-11-10T19:45:44+00:00",
+   "added": "2026-11-10T19:45:44+00:00",
+   "plugin": {
+    "name": "Wordfence",
+    "version": "9.1.1",
+    "prev": "9.1.0",
+    "installs": 5000000,
+    "updated": "2026-11-10"
+   },
+   "plugin_update": {
+    "name": "Wordfence",
+    "slug": "wordfence",
+    "version": "9.1.1",
+    "prev": "9.1.0",
+    "date": "9.1.1 – November 10, 2026",
+    "changes": [
+     "Improvement: Updated bundled cacert.pem"
+    ],
+    "vuln": false,
+    "hardening": false
+   }
+  },
+  {
+   "id": "75611a00ad611de2",
+   "title": "Nvidia's model GR00T 2 watches humans on video, then imagines itself as the robot",
+   "link": "https://the-decoder.com/nvidias-model-gr00t-2-watches-humans-on-video-then-imagines-itself-as-the-robot",
+   "desc": "Nvidia's new AI model GR00T 2 is designed to teach robots new tasks without laborious teleoperation. Instead, the system transfers human hand movements from videos to robotic arms, trained on about 400,000 hours of video footage. Success rates still vary widely, though, ranging from 10 to 80 percent depending on the task. The article Nvidia's model GR00T 2 watches humans on video, then imagines itself as the robot appeared first on The Decoder .",
+   "source": "دیکودر",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 1.1,
+   "published": "2026-11-10T18:41:52+00:00",
+   "added": "2026-11-10T19:45:42+00:00"
+  },
+  {
+   "id": "053da60fa0cfa4af",
+   "title": "Gemini 4 Carbon arrives just in time to feel like yesterday's news in the fastest model cycle yet",
+   "link": "https://the-decoder.com/gemini-4-carbon-arrives-just-in-time-to-feel-like-yesterdays-news-in-the-fastest-model-cycle-yet",
+   "desc": "Google is making Gemini 4 Carbon generally available after a two-week testing phase. The model ranks first in several benchmarks, in some cases ahead of Anthropic's new Fable 5.2, at less than half the per-task cost. Google is also previewing coordinated agent teams through the \"/swarm\" feature, which split up complex tasks in real time. The article Gemini 4 Carbon arrives just in time to feel like yesterday's news in the fastest model cycle yet appeared first on The Decoder .",
+   "source": "دیکودر",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 1.4,
+   "published": "2026-11-10T18:19:13+00:00",
+   "added": "2026-11-10T19:45:42+00:00"
+  },
+  {
+   "id": "8ab9bda3b9d181f1",
+   "title": "Google DeepMind's Gemini Robotics 2.5 scores 96 percent sorting metal parts in a Mercedes-Benz assembly pilot",
+   "link": "https://the-decoder.com/google-deepminds-gemini-robotics-2-5-scores-96-percent-sorting-metal-parts-in-a-mercedes-benz-assembly-pilot",
+   "desc": "Google Deepmind introduced Gemini Robotics 2.5, a new control model for robots, and tested it with Apptronik on active Mercedes-Benz production lines in Hungary and Germany. The humanoid robot Apollo 2 sorted metal parts there with a reported success rate of 96 percent. The article Google DeepMind's Gemini Robotics 2.5 scores 96 percent sorting metal parts in a Mercedes-Benz assembly pilot appeared first on The Decoder .",
+   "source": "دیکودر",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 2.6,
+   "published": "2026-11-10T17:11:10+00:00",
+   "added": "2026-11-10T19:45:42+00:00"
   }
  ]
 }
