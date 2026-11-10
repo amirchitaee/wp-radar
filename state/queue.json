@@ -278,7 +278,23 @@
    "kind": "tools",
    "age_hours": 34.7,
    "published": "2026-11-08T05:34:07-08:00",
-   "added": "2026-11-10T00:15:32+00:00"
+   "added": "2026-11-10T00:15:32+00:00",
+   "reject_hits": 1
+  },
+  {
+   "id": "ac841c16ab1a0f7b",
+   "title": "llm-anthropic 0.31",
+   "link": "https://simonwillison.net/2026/Nov/9/llm-anthropic",
+   "desc": "Release: llm-anthropic 0.31 Anthropic released Fable 5.2 and Mythos 5.2 today. I've added them to llm-anthropic , so you can now run prompts through Fable 5.2 like this: uv tool install llm llm install llm-anthropic llm keys set anthropic # paste key here llm -m claude-fable-5.2 \"Generate an SVG of a pelican riding a bicycle\" I ran pelicans at all five reasoning levels - low , medium , high , xhigh , and max . You can see them all here - here's the best result I got, from xhigh : max failed to return an image at all, running out of tokens after spending 128,000 thinking about them . That's the",
+   "source": "سایمون ویلیسون",
+   "lang": "en",
+   "tier": 3,
+   "group": "",
+   "kind": "tools",
+   "age_hours": 1.0,
+   "published": "2026-11-09T23:58:46+00:00",
+   "added": "2026-11-10T01:00:46+00:00",
+   "reject_hits": 1
   }
  ]
 }
