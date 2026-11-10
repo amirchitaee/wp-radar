@@ -55,6 +55,20 @@
    "source": "وان‌پیج‌لاو",
    "group": "",
    "photo": "https://assets.onepagelove.com/cdn-cgi/image/width=1200,height=628,fit=cover,gravity=top,format=jpg,quality=85/wp-content/uploads/2026/11/opl-screenshot-la-coignardiere-1793986315636-desktop.jpg"
+  },
+  {
+   "id": "87e16f3cabbe9de1",
+   "at": "2026-11-10T05:02:27+00:00",
+   "kind": "news",
+   "label": "خبر",
+   "text": "<b>📰 خبر: مدل تصویر جدید ⁦Bytedance⁩ تا ۱۰۰ بار ویرایش را بدون جابه‌جایی پیکسل حفظ می‌کند</b>\n\n‏⁦Bytedance⁩ مدل تصویر ⁦Seedream⁩ ۵.۵ را معرفی کرده که برای کار حرفه‌ای ساخته شده. مهم‌ترین ویژگی‌اش ویرایش پایدار تا ۱۰۰ مرحله است؛ یعنی بخش‌هایی از تصویر که دست نمی‌خورد، پیکسل‌به‌پیکسل همان می‌ماند و رنگش عوض نمی‌شود. برای کسی که بنر یا تصویر محصول سایت می‌سازد، یعنی دیگر لازم نیست هر بار از اول طراحی کند.\n\n<blockquote expandable>تصاویر را با پس‌زمینه شفاف (⁦RGBA⁩) می‌سازد؛ یعنی المنت آماده را مستقیم می‌شود روی سایت گذاشت، بدون برش دستی.\nبه گفته ⁦Bytedance⁩ در بازتولید متن‌های ریز و واقع‌گرایی پوست از ⁦GPT Image⁩ ۲.۵ ⁦Sunburst⁩ جلوتر است.\nدسترسی تدریجی از طریق ⁦Jimeng⁩، ⁦Doubao⁩ و ⁦Volcengine Ark⁩ شروع شده و نسخه ⁦Pro⁩ هم در برنامه است.</blockquote>\n\nاطلاعات بیشتر دربارهٔ این موضوع را از <a href=\"https://the-decoder.com/bytedances-seedream-5-5-promises-pixel-stable-image-editing-across-100-rounds-without-color-drift\">منبع</a> بخوانید.\n\n<i>۱۸ آبان ۱۴۰۵ · ۲۲:۲۰</i>\n\n#خبر #هوش_مصنوعی",
+   "score": 57.7,
+   "title": "مدل تصویر جدید Bytedance تا ۱۰۰ بار ویرایش را بدون جابه‌جایی پیکسل حفظ می‌کند",
+   "summary": "Bytedance مدل تصویر Seedream 5.5 را معرفی کرده که برای کار حرفه‌ای ساخته شده. مهم‌ترین ویژگی‌اش ویرایش پایدار تا ۱۰۰ مرحله است؛ یعنی بخش‌هایی از تصویر که دست نمی‌خورد، پیکسل‌به‌پیکسل همان می‌ماند و رنگش عوض نمی‌شود. برای کسی که بنر یا تصویر محصول سایت می‌سازد، یعنی دیگر لازم نیست هر بار از اول طراحی کند.",
+   "link": "https://the-decoder.com/bytedances-seedream-5-5-promises-pixel-stable-image-editing-across-100-rounds-without-color-drift",
+   "source": "دیکودر",
+   "group": "ai",
+   "photo": ""
   }
  ]
 }

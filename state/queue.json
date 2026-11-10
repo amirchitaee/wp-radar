@@ -248,7 +248,10 @@
    "kind": "news",
    "age_hours": 5.2,
    "published": "2026-11-09T18:50:01+00:00",
-   "added": "2026-11-10T00:00:58+00:00"
+   "added": "2026-11-10T00:00:58+00:00",
+   "full": "Bytedance Seed introduces Seedream 5.5, a new image generation model built for professional production workflows. According to Bytedance, one improvement is stable multi-round editing across up to 100 rounds, with unchanged image areas preserved at the pixel level and no color shifts. The new Flux model also stood out here recently . Seedream 5.5 also generates native RGBA images with transparent backgrounds, letting generated elements serve directly as design assets without manual cutouts. Bytedance says the model renders light, materials, and skin textures more realistically and reproduces dense small text more accurately. Bytedance claims Seedream 5.5 leads models like GPT Image 2.5 Sunburst in text structure and realism. The model is gradually rolling out via Jimeng, Doubao, Doubao Work, and Volcengine Ark. A Pro version is planned. Ad Ad Subscribe to THE DECODER for ad-free reading, a weekly AI newsletter, our exclusive \"AI Radar\" frontier report six times a year, full archive access, and access to our comment section.",
+   "use_link": "",
+   "held": true
   },
   {
    "id": "6ee1dee33e4bfc63",
