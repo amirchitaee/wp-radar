@@ -140,23 +140,6 @@
    "skip_until": "2026-11-10T12:15:32+00:00"
   },
   {
-   "id": "df8052273099b604",
-   "title": "The brain-as-computer metaphor shaped modern AI but may be misleading the consciousness debate",
-   "link": "https://the-decoder.com/the-brain-as-computer-metaphor-shaped-modern-ai-but-may-be-misleading-the-consciousness-debate",
-   "desc": "Consciousness researchers Anil Seth, Ned Block, and Giulio Tononi argue in a Nature commentary that today's AI systems aren't conscious and won't become so on silicon hardware. They consider the assumption that consciousness depends on computation alone \"fatally flawed\" and warn against granting rights to AI systems. The article The brain-as-computer metaphor shaped modern AI but may be misleading the consciousness debate appeared first on The Decoder .",
-   "source": "دیکودر",
-   "lang": "en",
-   "tier": 2,
-   "group": "ai",
-   "kind": "news",
-   "age_hours": 10.4,
-   "published": "2026-11-08T13:49:21+00:00",
-   "added": "2026-11-09T00:15:40+00:00",
-   "full": "The brain-as-computer metaphor shaped modern AI but may be misleading the consciousness debate Manuel Uth Nov 8, 2026 Three leading consciousness researchers argue today's AI isn't conscious and probably can't be on silicon hardware. They reject the idea that running the right computations is enough for consciousness, challenging a central assumption in the debate. Anil Seth, Ned Block, and Giulio Tononi have spent decades researching consciousness from the perspectives of experimental neuroscience, theoretical neurobiology, and philosophy of mind. Their commentary responds to voices like biologist Richard Dawkins and AI pioneer Geoffrey Hinton , who consider AI systems possibly already conscious. In their commentary for Nature , the authors also point to a study Anthropic published this year. The company reported internal processing patterns in Claude that resemble properties of consciously accessible information processing. Anthropic doesn't see this as evidence of subjective experience. To understand the scope of the commentary, it helps to look at the report \"Consciousness in Artificial Intelligence\" by Patrick Butlin, Robert Long, and 17 other experts, including AI researcher Yoshua Bengio. The team drew on leading neuroscientific theories about how consciousness arises in the human brain and derived a kind of checklist with 14 indicators. The more of these an AI system meets, the stronger the case that it could be conscious. The researchers then evaluated several current systems, including large language models like GPT-4. The report concludes that none of the systems examined is a strong candidate for consciousness. On that point, it aligns with Seth, Block, and Tononi. For language models, Butlin and colleagues found only weak signs that the models meet the indicators of one of the most prominent consciousness theories at all. At the same time, the report sees no obvious technical barriers to building future AI systems that meet more indicators . Whether such systems would actually be conscious remains open. The authors specifically softened an earlier, stronger formulation on this point. There's also a foundational assumption. The team assumed that consciousness depends solely on the type of information processing, not on whether it happens in nerve cells or computer chips. Experts call this computational functionalism. The authors adopted this assumption explicitly \"for pragmatic reasons\" because it's what makes it possible to examine AI systems for consciousness in the first place. The report itself acknowledged that its indicators would no longer be reliable if consciousness is tied to properties of living organisms. It cited Anil Seth, among others, as a proponent of that opposing view. That's where the Nature commentary picks up. The authors argue that consciousness is what disappears during dreamless sleep or general anesthesia and returns when you wake up or dream. Drawing on philosopher Thomas Nagel, they describe it this way: \"Conscious experiences feel like something.\" Intelligence, by contrast, means carrying out functions. One doesn't follow from the other. Their evidence is the human cerebellum. It contains nearly four-f",
-   "use_link": "",
-   "reject_hits": 2
-  },
-  {
    "id": "632168d89bb7e70d",
    "title": "Website Inspiration: Oluwatobi Salawu",
    "link": "https://onepagelove.com/oluwatobi-salawu",
