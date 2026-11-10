@@ -353,7 +353,7 @@
    },
    "full": "Contact Form 7 is a plugin designed to be a practical tool for all WordPress users who embrace the philosophy of free and open source software. It employs sophisticatedly modularized architecture and its original Schema-Woven Validation technology. You can find docs , FAQ and more detailed information about Contact Form 7 on contactform7.com . When you cannot find the answer to your question on the FAQ or in any of the documentation, check the support forum on WordPress.org. If you cannot locate any topics that pertain to your particular issue, post a new topic for it. It is hard to continue to maintain this plugin without support from users like you. There are several ways for you to contribute to the project : testing, coding, translating it into your local languages, helping other users, financial donations, etc, etc. We equally welcome you regardless of the way you contribute. See Plugin privacy notices . screenshot-1.png Blocks This plugin provides 1 block. You will find Contact menu in your WordPress admin screen. For basic usage, have a look at the plugin’s website . Do you have questions or issues with Contact Form 7? Use these support channels appropriately.",
    "use_link": "",
-   "reject_hits": 1
+   "reject_hits": 2
   }
  ]
 }
