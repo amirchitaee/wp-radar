@@ -331,6 +331,23 @@
    ],
    "vers": [],
    "cves": []
+  },
+  {
+   "t": "2026-11-10T02:01:17+00:00",
+   "id": "5e6608cb9710b15d",
+   "title": "Your Content, Your Terms: New AI Controls and SEO Tools",
+   "kind": "news",
+   "link": "https://wordpress.com/blog/2026/11/10/seo-tools-search-ai",
+   "ents": [
+    "ai",
+    "content",
+    "controls",
+    "seo",
+    "terms",
+    "tools"
+   ],
+   "vers": [],
+   "cves": []
   }
  ]
 }

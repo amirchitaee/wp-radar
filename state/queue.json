@@ -118,7 +118,7 @@
    "added": "2026-11-09T12:15:38+00:00",
    "channel_skip": true,
    "skip_why": "خارج از مخاطب",
-   "skip_until": "2026-11-10T01:15:38+00:00"
+   "skip_until": "2026-11-10T14:01:08+00:00"
   },
   {
    "id": "2382673acb375df8",
@@ -297,6 +297,21 @@
    "reject_hits": 1,
    "full": "Anthropic released Fable 5.2 and Mythos 5.2 today. I've added them to llm-anthropic , so you can now run prompts through Fable 5.2 like this: uv tool install llm llm install llm-anthropic llm keys set anthropic # paste key here llm -m claude-fable-5.2 \"Generate an SVG of a pelican riding a bicycle\" I ran pelicans at all five reasoning levels - low , medium , high , xhigh , and max . You can see them all here - here's the best result I got, from xhigh : max failed to return an image at all, running out of tokens after spending 128,000 thinking about them . That's the same bug that I saw with Opus 5.5 - but it's new for the Fable series, both Fable 5 and Fable 5.1 returned max effort pelicans just fine. This is a beat by Simon Willison, posted on 9th November 2026 . Sponsor me for $10/month and get a curated email digest of the month's most important LLM developments.",
    "use_link": "https://www.anthropic.com/claude-fable-and-mythos-5-2"
+  },
+  {
+   "id": "5e6608cb9710b15d",
+   "title": "Your Content, Your Terms: New AI Controls and SEO Tools",
+   "link": "https://wordpress.com/blog/2026/11/10/seo-tools-search-ai",
+   "desc": "Your WordPress.com SEO settings are now together in Jetpack → SEO. See how to manage AI crawler preferences, site details, and missing titles or descriptions.",
+   "source": "وردپرس دات کام",
+   "lang": "en",
+   "tier": 2,
+   "group": "",
+   "kind": "news",
+   "age_hours": 1.4,
+   "published": "2026-11-10T00:38:53+00:00",
+   "added": "2026-11-10T02:00:51+00:00",
+   "held": true
   }
  ]
 }
