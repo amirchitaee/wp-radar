@@ -345,6 +345,24 @@
     "5.5"
    ],
    "cves": []
+  },
+  {
+   "t": "2026-11-10T10:46:38+00:00",
+   "id": "0fc56ecc6e9fba83",
+   "title": "Self-Hosted vs Hosted WordPress MCP: Privacy, Security and the Multi-Site Trade-off",
+   "kind": "news",
+   "link": "https://wpshout.com/self-hosted-vs-hosted-wordpress-mcp",
+   "ents": [
+    "hosted",
+    "mcp",
+    "multi-site",
+    "privacy",
+    "self-hosted",
+    "trade-off",
+    "wordpress"
+   ],
+   "vers": [],
+   "cves": []
   }
  ]
 }
