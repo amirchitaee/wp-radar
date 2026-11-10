@@ -99,19 +99,19 @@
   "name": "وردپرس امنیت",
   "fails": 0,
   "last_count": 10,
-  "last_ok": "2026-11-10T19:45:48+00:00"
+  "last_ok": "2026-11-10T21:00:49+00:00"
  },
  "https://www.wordfence.com/blog/feed/": {
   "name": "وردفنس",
   "fails": 0,
   "last_count": 10,
-  "last_ok": "2026-11-10T19:45:50+00:00"
+  "last_ok": "2026-11-10T21:00:51+00:00"
  },
  "https://patchstack.com/feed/": {
   "name": "پچ‌استک",
   "fails": 0,
   "last_count": 20,
-  "last_ok": "2026-11-10T19:45:50+00:00"
+  "last_ok": "2026-11-10T21:00:51+00:00"
  },
  "https://wpscan.com/feed/": {
   "name": "دبلیوپی‌اسکن",
@@ -123,7 +123,7 @@
   "name": "سوکوری",
   "fails": 0,
   "last_count": 11,
-  "last_ok": "2026-11-10T19:45:50+00:00"
+  "last_ok": "2026-11-10T21:01:13+00:00"
  },
  "https://make.wordpress.org/core/feed/": {
   "name": "هسته وردپرس",
@@ -309,13 +309,13 @@
   "name": "بلپینگ کامپیوتر",
   "fails": 0,
   "last_count": 15,
-  "last_ok": "2026-11-10T19:45:50+00:00"
+  "last_ok": "2026-11-10T21:01:13+00:00"
  },
  "https://feeds.feedburner.com/TheHackersNews": {
   "name": "هکرنیوز",
   "fails": 0,
   "last_count": 40,
-  "last_ok": "2026-11-10T19:45:51+00:00"
+  "last_ok": "2026-11-10T21:01:14+00:00"
  },
  "https://github.blog/feed/": {
   "name": "گیت‌هاب بلاگ",
