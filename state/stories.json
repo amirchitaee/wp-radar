@@ -85,26 +85,6 @@
    "cves": []
   },
   {
-   "t": "2026-11-06T17:46:20+00:00",
-   "id": "9fe769e3c933c11e",
-   "title": "Installing the Fix for an Exploited WordPress Flaw Can Expose Some Sites One Last Time",
-   "kind": "news",
-   "link": "https://thehackernews.com/2026/11/installing-fix-for-exploited-wordpress.html",
-   "ents": [
-    "can",
-    "exploited",
-    "expose",
-    "fix",
-    "flaw",
-    "installing",
-    "last",
-    "time",
-    "wordpress"
-   ],
-   "vers": [],
-   "cves": []
-  },
-  {
    "t": "2026-11-07T15:15:54+00:00",
    "id": "3e407aae56c89ae9",
    "title": "State propaganda in some Chinese AI models is only \"a thin layer\" that fine-tuning can strip away",
