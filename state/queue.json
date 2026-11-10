@@ -389,6 +389,59 @@
    "use_link": "",
    "reject_hits": 1,
    "held": true
+  },
+  {
+   "id": "b21095d32174c13c",
+   "title": "Rank Math 1.0.282",
+   "link": "https://wordpress.org/plugins/seo-by-rank-math/",
+   "desc": "نسخهٔ 1.0.282 از Rank Math منتشر شد. تغییرات این نسخه: Added [HUGE!] Rank Math Assistant to the Help & Support page with improved safeguards . The assistant helps connected users get instant answers to support questions directly from the plugin. | Improved internal code for better performance and stability. | Fixed Reject and Undo options in the Fix with AI tool , as they were not restoring the original content or the selected suggestion correctly.",
+   "source": "آپدیت افزونه",
+   "lang": "en",
+   "tier": 1,
+   "group": "wp",
+   "kind": "news",
+   "age_hours": 0.0,
+   "published": "2026-11-10T11:30:46+00:00",
+   "added": "2026-11-10T11:30:46+00:00",
+   "plugin": {
+    "name": "Rank Math",
+    "version": "1.0.282",
+    "prev": "1.0.281",
+    "installs": 4000000,
+    "updated": "2026-11-10"
+   },
+   "plugin_update": {
+    "name": "Rank Math",
+    "slug": "seo-by-rank-math",
+    "version": "1.0.282",
+    "prev": "1.0.281",
+    "date": "1.0.282 [Nov 10, 2026]",
+    "changes": [
+     "Added [HUGE!] Rank Math Assistant to the Help & Support page with improved safeguards . The assistant helps connected users get instant answers to support questions directly from the plugin.",
+     "Improved internal code for better performance and stability.",
+     "Fixed Reject and Undo options in the Fix with AI tool , as they were not restoring the original content or the selected suggestion correctly."
+    ],
+    "vuln": false,
+    "hardening": false
+   },
+   "full": "Rank Math SEO helps you stay ahead of competitors with AI-powered SEO tools built for today’s search engines and AI assistants. The plugin brings powerful AI SEO tools right into WordPress . It helps you optimize content, include Schema Markup, add smart internal links, target the right keywords, run SEO checks, and more. Over 4 million WordPress websites trust Rank Math to grow their organic traffic faster. If you know you could be doing more for your website’s SEO but don’t have the time, Rank Math SEO is exactly what you need . Features | Why Choose Rank Math? | Compare | Screenshots | Benefits ➜ AI Visibility score to monitor your brand’s visibility ➜ Track how ChatGPT and Gemini mention your brand ➜ Monitor your brand’s sentiment across AI responses ➜ See how you compare against your competitors in AI Search ➜ Access complete transcripts of AI responses ➜ Check your brand’s AI Visibility across different countries Learn more about AI Visibility ➜ ➜ View every internal and external link on your site from one dashboard ➜ Update hundreds of links at once instead of editing pages one by one ➜ Get smart link suggestions as you write, right inside the editor ➜ Monitor broken links, redirects, and overall link health ➜ Automatically link keyword variations to the right pages ➜ Get related post suggestions that keep readers on your site longer ➜ Find pages nobody links to and reconnect them to the rest of your site ➜ Export your link data for reports or audits Learn more about AI Link Genius ➜ Get Started with Content AI for FREE and enjoy: ➜ 40+ AI Tools Built for SEO ➜ Use AI SEO to write high-quality content ➜ Fix SEO Issues in One Click ➜ Generate AI Image Alt Text Instantly ➜ Get Instant SEO Help with RankBot ➜ Full Control via Role Manager Learn more about Content AI ➜ See the features only Rank Math offers, and find out why it’s the right SEO plugin for you . ✔ Intuitive Setup Wizard that configures Rank Math automatically for your site ✔ 16+ Schema types to add rich results in a few clicks ✔ Optimize post for unlimited focus keywords (5 by default, unlimited with this filter ) ✔ Content AI to help you write SEO-friendly content ✔ Google Search Console integration ✔ Google Analytics Integration ✔ LSI keyword suggestions to attract more traffic ✔ XML Sitemap with custom post type support ✔ Detailed content analysis with actionable SEO recommendations ✔ 30+ SEO tests with 1-click ✔ Module based system, enable only what you need ✔ SEO optimized breadcrumbs with theme support ✔ Smart Redirection manager to create redirects at scale ✔ Built-in 404 monitor to catch and fix broken links ✔ Internal link suggestions ✔ Role Manager to control what each team member can access ✔ Automatic ALT Text and Title tags for every image ✔ WordPress Multisite support ✔ Fastest SEO plugin with barely any impact on site speed ✔ WooCommerce SEO with automatic Schema and meta tags ✔ Elementor SEO with native integration ✔ Divi SEO with native integration ✔ Local SEO tools to help nearby customers find your business ✔ Google AMP SEO with SEO data added automatically to AMP pages ✔ bbPress & BuddyPress SEO support with Q&A Schema ✔ 1-Click Import from Yoast ✔ 1-Clic",
+   "use_link": "https://github.com/rankmath/content-analyzer"
+  },
+  {
+   "id": "af35e190c9506adc",
+   "title": "How to Build a Fast News Aggregation Site With Astro and WordPress",
+   "link": "https://wpmayor.com/astro-wordpress-news-aggregator",
+   "desc": "Keep WordPress as a headless backend and let Astro render the front end to build a news aggregation site that loads fast and stays current. The post \" How to Build a Fast News Aggregation Site With Astro and WordPress \" first appeared on WP Mayor .",
+   "source": "دبلیوپی‌مایر",
+   "lang": "en",
+   "tier": 3,
+   "group": "",
+   "kind": "news",
+   "age_hours": 1.5,
+   "published": "2026-11-10T10:00:00+00:00",
+   "added": "2026-11-10T11:30:42+00:00",
+   "full": "If you purchase through a link on our site, we may earn a commission . News aggregation sites ask a lot of whatever you build them on. They pull in hundreds or thousands of items from outside feeds, the content refreshes constantly, and visitors judge the result on two things: how fast it loads and how current it feels. WordPress is great at one half of that job. It fetches feeds, organizes content, deduplicates items, and runs imports on a schedule without breaking a sweat. Where it struggles is the front end, where a long and frequently-updating stream rendered through a full theme starts to feel slow. There is a clean way around this, and it has become a lot more practical in the last couple of years. Keep WordPress as your backend and hand the front end to Astro . You get the half of WordPress that does the real work, and a front end built from the ground up for speed. In this guide you will see how the two fit together, how to connect them, and how to solve the one problem that trips everyone up the first time, which is showing fresh content on a site that is mostly static. A news aggregator is one of the strongest candidates for a headless setup, and a better fit than a typical blog. It is worth being honest about when headless WordPress makes sense and when it is overkill, because the answer here lands firmly on the “yes” side. Start with the front end: it is read-only . Visitors don’t log in, comment, or fill out a form on the aggregated stream. The entire value of the site is fetching, organizing, and presenting other people’s content quickly, so serving it as fast static or cached HTML costs you nothing. WordPress is genuinely good at the fetching and organizing. There is a mature plugin ecosystem for pulling RSS and Atom feeds, deduplicating them, mapping fields, handling images, and scheduling the imports. That is real work you do not want to rebuild from scratch in a custom app. Astro, meanwhile, is built for exactly this kind of content-heavy, mostly-static site. It ships zero JavaScript by default , renders to fast static HTML, and lets you add interactivity only on the pages that need it. For a wall of feed items, that default is precisely what you want. On the WordPress side, the import engine is what matters. WP RSS Aggregator is the most established option, and the feature that makes it work cleanly in a headless build is Feed to Post . Feed to Post imports each feed item as a real WordPress post, or any custom post type you choose, with the content, featured image, taxonomies, and author filled in. Regular posts and custom post types are exposed through the WordPress REST API and through WPGraphQL automatically. So once your feeds are importing as posts, Astro can read them with no extra work on the WordPress side. The lightweight feed items that the free version stores are a different story. They are built for on-site display and are not exposed through the REST API by default. You can register them for REST yourself with a small filter, but importing as posts avoids the detour and gives you richer data to render. It is also worth comparing a few RSS aggregator plugins before you commit, since your choice of import engine",
+   "use_link": ""
   }
  ]
 }
