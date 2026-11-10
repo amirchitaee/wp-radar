@@ -2903,7 +2903,15 @@ def publish_ready(s, st, seen, hard_deadline=None):
     items.sort(key=lambda x: (float(x.get("score") or 0), str(x.get("at") or "")), reverse=True)
     keep = []
     done = False
+    # شناسهٔ هر پستی که به کانال رفته، در seen است. این فهرست تنها مرجع
+    # «رفته یا نرفته» است. یک بار دو اجرا همزمان روی هم نوشتند و رکورد
+    # یک پست نمایشگاه دوباره در انبار نشست؛ نگهبان داستان آن را ندید،
+    # چون رکورد خودِ همان پست را نادیده می‌گرفت. نتیجه: یک پست دو بار.
+    posted_ids = set((seen.get("ids") or {}).keys())
     for row in items:
+        if row.get("id") in posted_ids:
+            log("  already published, dropped:", str(row.get("title") or "")[:40])
+            continue
         if done:
             keep.append(row)
             continue
@@ -2966,9 +2974,17 @@ def publish_ready(s, st, seen, hard_deadline=None):
             write_json(STORIES, store_story)
         fresh = read_json(SCHED, {})
         fresh["last_publish"] = now().isoformat(timespec="seconds")
+        # نوبتی که پستش از انبار رفت هم باید بسته شود. قبلاً فقط مسیر
+        # ساختِ پست نوبت را علامت می‌زد؛ پستی که از انبار منتشر می‌شد
+        # نوبتش را باز می‌گذاشت. نمایشگاه همین‌طور تا ابد «سررسید» ماند
+        # و هر اجرا دوباره سراغش رفت.
+        if kind in ("news", "tools", "showcase"):
+            fresh[kind] = now().isoformat(timespec="seconds")
+            fresh.pop(kind + "_try", None)
         if not DRY:
             write_json(SCHED, fresh)
         log("published from hold:", kind, str(row.get("title") or "")[:40])
+        posted_ids.add(row.get("id"))
         done = True
     if not DRY:
         write_json(READY, {"items": keep})
@@ -3642,6 +3658,13 @@ def queue_merge(rows, s):
             moved += 1
     if moved:
         log("queue: {} item moved to its feed's current category".format(moved))
+    # آیتمی که پستش رفته نباید در صف بماند. یک بار رکورد پست‌شده در صف
+    # ماند و اجرای بعدی دوباره نوشت و فرستاد؛ همان پست تکراری نمایشگاه.
+    seen_ids = (read_json(SEEN, {"v": 1, "ids": {}}).get("ids") or {})
+    before = len(q["items"])
+    q["items"] = [x for x in q["items"] if x.get("id") not in seen_ids]
+    if before != len(q["items"]):
+        log("queue: {} already published item(s) dropped".format(before - len(q["items"])))
     cutoff = now() - timedelta(days=int(s.get("queue_days", 7)))
     kept = []
     for x in q["items"]:
@@ -4027,6 +4050,8 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
     q, added = queue_merge(rows, s)
     reject_max = max(1, int(s.get("reject_max", 2) or 2))
     pending = [x for x in q["items"] if pool_open(x, kind, reject_max)]
+    # صف ممکن است رکورد پست‌شده را هنوز داشته باشد؛ به مدل نمی‌رود.
+    pending = [x for x in pending if x.get("id") not in (seen.get("ids") or {})]
     log("queue for", kind, ":", len(pending))
     if not pending:
         return 0
@@ -4492,6 +4517,11 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
                 if kind_cap - posted_kind - held_by_kind.get(kind, 0) <= 0 and not fast:
                     log("  no room left to hold more of", kind)
                     break
+                if it.get("id") in (seen.get("ids") or {}):
+                    # این پست قبلاً به کانال رفته. دوباره نوشتن و نگه‌داشتنش
+                    # فقط نسخهٔ دوم برای یک خبر می‌سازد.
+                    log("  already published, not held again:", str(entry.get("title") or "")[:40])
+                    continue
                 if not hold_ready(
                     it,
                     label,

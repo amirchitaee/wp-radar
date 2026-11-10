@@ -985,6 +985,33 @@ check("انتشار: هیچ پیام تازه‌ای برای تکراری نر�
 
 radar.is_recent_story = _stub_recent
 
+# ---------------------------------------------------------------- پست رفته
+# رکورد یک پست ممکن است دوباره در انبار بنشیند (دو اجرای همزمان روی هم
+# نوشتند). شناسهٔ پست‌شده در seen است و همان مرجع کافی است. یک بار نبود
+# همین سد، پست نمایشگاه دو بار در کانال آمد.
+radar.write_json(radar.READY, {"items": [{
+    "id": "gone-1", "at": radar.now().isoformat(timespec="seconds"), "kind": "showcase",
+    "label": "نمایشگاه", "text": "<b>پست رفته</b>", "score": 90,
+    "title": "سایت آزمون", "link": "https://example.com/gone", "source": "آزمون",
+    "group": "", "photo": "",
+}]})
+_before_gone = len(sent)
+check("انتشار: پست رفته دوباره نمی‌رود",
+      radar.publish_ready(_pub_now, {}, {"v": 1, "ids": {"gone-1": radar.today()}}), 0)
+check("انتشار: پیام تازه‌ای برای پست رفته نرفت", len(sent), _before_gone)
+
+# نوبت دسته‌ای که پستش از انبار رفت باید بسته شود، وگرنه تا ابد سررسید
+# می‌ماند و هر اجرا دوباره سراغش می‌رود.
+radar.write_json(radar.READY, {"items": [{
+    "id": "slot-1", "at": radar.now().isoformat(timespec="seconds"), "kind": "showcase",
+    "label": "نمایشگاه", "text": "<b>پست نوبت</b>", "score": 90,
+    "title": "سایت آزمون دو", "link": "https://example.com/slot", "source": "آزمون",
+    "group": "", "photo": "",
+}]})
+check("انتشار: پست نوبت رفت", radar.publish_ready(_pub_now, {}, {"v": 1, "ids": {}}), 1)
+check("انتشار: نوبت نمایشگاه بسته شد",
+      bool(radar.read_json(radar.SCHED, {}).get("showcase")), True)
+
 # ---------------------------------------------------------------- جهت متن
 # نام لاتین حذف نمی‌شود؛ فقط در یک واحد جدا ایزوله می‌شود تا در جملهٔ
 # راست‌به‌چپ جابه‌جا نشود. قبلاً «Goldman» و «Sachs» دو واحد جدا بودند
