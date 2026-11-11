@@ -281,25 +281,6 @@
    "skip_permanent": true
   },
   {
-   "id": "48b53c6a7cafa53f",
-   "title": "Claude Fable 5.2 and Mythos 5.2 cement Anthropic's AI lead just before its IPO",
-   "link": "https://the-decoder.com/claude-fable-5-2-and-mythos-5-2-cement-anthropics-ai-lead-just-before-its-ipo",
-   "desc": "Anthropic is releasing Claude Fable 5.2 and Mythos 5.2, its most powerful models to date, in two versions: one freely available and one reserved for verified organizations. The models solve open physics problems, show stronger cybersecurity capabilities, design functioning operating systems, and write more than 90 percent of the changes merged into Anthropic's core code, according to the company. Anthropic says it has deliberately curbed any capabilities that would let the AI accelerate its own development. The article Claude Fable 5.2 and Mythos 5.2 cement Anthropic's AI lead just before its ",
-   "source": "دیکودر",
-   "lang": "en",
-   "tier": 2,
-   "group": "ai",
-   "kind": "news",
-   "age_hours": 2.8,
-   "published": "2026-11-09T21:15:23+00:00",
-   "added": "2026-11-10T00:00:58+00:00",
-   "channel_skip": true,
-   "skip_why": "خارج از مخاطب",
-   "skip_until": "2026-11-11T00:15:44+00:00",
-   "digest_sent": true,
-   "skip_permanent": true
-  },
-  {
    "id": "2382673acb375df8",
    "title": "The Web Is More Than Enough, by Paul Ford",
    "link": "https://simonwillison.net/2026/Nov/9/hn-50421091",
