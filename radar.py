@@ -4967,23 +4967,30 @@ def health_run(s=None, notify=True, always=False):
             soon = (t["name"], days)
 
     providers = s.get("providers") or []
-    dead, nokey = [], []
-    for p in providers:
+    # فقط لایه‌ای که کلید و آدرس دارد در زنجیره هست. لایهٔ بی‌کلید
+    # اصلاً صدا زده نمی‌شود، پس خرابی حساب نمی‌شود؛ وگرنه هر روز یک
+    # هشدار دروغ می‌آمد.
+    usable = [
+        p
+        for p in providers
+        if env_clean(p.get("key", "")) and str(p.get("base") or "").strip()
+    ]
+    keyless = [
+        p.get("name", "?")
+        for p in providers
+        if not (env_clean(p.get("key", "")) and str(p.get("base") or "").strip())
+    ]
+    dead = []
+    for p in usable:
         ok, why = ping_provider(p)
-        if ok:
-            continue
-        if why == "کلید یا آدرس خالی":
-            nokey.append(p.get("name", "?"))
-        else:
+        if not ok:
             dead.append("{} ({})".format(p.get("name", "?"), why))
-    # «کلید نداریم» با «سرویس خوابیده» یکی نیست. اولی تنظیمات است،
-    # دومی خرابی بیرونی؛ و راه حلشان فرق دارد.
-    if dead:
-        problems.append("لایه‌های مدل جواب ندادند: " + "، ".join(dead))
-    if nokey:
-        problems.append("لایه‌های مدل کلید ندارند: " + "، ".join(nokey))
-    if not providers:
-        problems.append("هیچ لایهٔ مدلی در تنظیمات نیست")
+    if not usable:
+        problems.append("هیچ لایهٔ مدلی کلید و آدرس ندارد")
+    elif dead and len(dead) == len(usable):
+        problems.append("همهٔ لایه‌های مدل خوابیده‌اند: " + "، ".join(dead))
+    elif dead:
+        problems.append("بعضی لایه‌های مدل جواب ندادند: " + "، ".join(dead))
 
     # چرخه: اگر تریگر خوابیده باشد، همین‌جا معلوم می‌شود.
     last = read_json(LAST, {})
@@ -5002,7 +5009,9 @@ def health_run(s=None, notify=True, always=False):
         body = "\n".join("• " + esc(x) for x in problems)
     else:
         head = "<b>بازبینی سلامت — همه سالم</b>"
-        body = "هر {} لایهٔ مدل جواب داد.".format(len(providers))
+        body = "هر {} لایهٔ مدل جواب داد.".format(len(usable))
+        if keyless:
+            body += "\nبی‌کلید و کنارگذاشته: " + "، ".join(esc(k) for k in keyless)
         if soon and soon[1] < 90:
             body += "\nنزدیک‌ترین انقضا: {}، {} روز دیگر.".format(esc(soon[0]), soon[1])
 

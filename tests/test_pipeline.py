@@ -1665,26 +1665,41 @@ check("سلامت: لایهٔ بی‌کلید جدا گزارش می‌شود",
 _real_targets = radar.load_health_targets
 _real_ping = radar.ping_provider
 _now_d = radar.now().date()
+# کلید از محیط خوانده می‌شود، نه از خود فایل تنظیمات. یک کلید ساختگی
+# در محیط می‌گذاریم تا لایه «قابل استفاده» حساب شود.
+os.environ["HEALTH_TEST_KEY"] = "test-value"
+_HK = {"providers": [{"name": "a", "base": "https://x.test/v1", "key": "HEALTH_TEST_KEY"}]}
 # ایراد: توکن پنج روز دیگر منقضی می‌شود.
 radar.load_health_targets = lambda: [
     {"name": "توکن آزمون", "date": _now_d + timedelta(days=5), "note": "آزمون"}
 ]
 radar.ping_provider = lambda p: (True, "زنده")
 check("سلامت: انقضای نزدیک ایراد حساب می‌شود",
-      radar.health_run({"providers": [{"name": "a", "base": "x", "key": "K"}]},
-                       notify=False) >= 1, True)
+      radar.health_run(_HK, notify=False) >= 1, True)
 # سالم: توکن دور است و لایه جواب می‌دهد.
 radar.load_health_targets = lambda: [
     {"name": "توکن آزمون", "date": _now_d + timedelta(days=200), "note": "آزمون"}
 ]
 check("سلامت: همه سالم، ایراد صفر",
-      radar.health_run({"providers": [{"name": "a", "base": "x", "key": "K"}]},
-                       notify=False), 0)
+      radar.health_run(_HK, notify=False), 0)
 # لایهٔ خراب باید ایراد بسازد.
 radar.ping_provider = lambda p: (False, "کد ۴۰۱")
 check("سلامت: لایهٔ خراب ایراد می‌سازد",
-      radar.health_run({"providers": [{"name": "a", "base": "x", "key": "K"}]},
-                       notify=False) >= 1, True)
+      radar.health_run(_HK, notify=False) >= 1, True)
+# لایهٔ بی‌کلید خرابی نیست؛ فقط کنار گذاشته می‌شود. ولی اگر تنها لایه
+# باشد، آن‌وقت خرابی است، چون هیچ مدلی نمی‌ماند.
+radar.ping_provider = lambda p: (True, "زنده")
+check("سلامت: لایهٔ بی‌کلید کنار گذاشته می‌شود، نه خرابی",
+      radar.health_run(
+          {"providers": [
+              {"name": "a", "base": "https://x.test/v1", "key": "HEALTH_TEST_KEY"},
+              {"name": "b", "base": "https://x.test/v1", "key": "NO_SUCH_ENV"},
+          ]},
+          notify=False), 0)
+check("سلامت: اگر تنها لایه بی‌کلید باشد، خرابی است",
+      radar.health_run(
+          {"providers": [{"name": "b", "base": "https://x.test/v1", "key": "NO_SUCH_ENV"}]},
+          notify=False) >= 1, True)
 radar.load_health_targets = _real_targets
 radar.ping_provider = _real_ping
 
