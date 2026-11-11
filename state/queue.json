@@ -532,6 +532,24 @@
    "digest_sent": true,
    "channel_skip": true,
    "skip_permanent": true
+  },
+  {
+   "id": "610d4f600f70d625",
+   "title": "WordPress 7.2’s New /random/ Endpoint Draws Criticism From The Community",
+   "link": "https://wp-content.co/wordpress-7-2s-new-random-endpoint-draws-criticism-from-the-community",
+   "site": "",
+   "desc": "WordPress 7.2 is set to introduce a new /random/ endpoint that will redirect visitors to a randomly selected published post. Enabled by default, the feature will also support random discovery within categories, tags, author archives, and eligible custom post types. Admins will be able to customize the random URL base, control which post types are […]",
+   "source": "دبلیوپی کانتننت",
+   "lang": "en",
+   "tier": 3,
+   "group": "",
+   "kind": "news",
+   "age_hours": 0.1,
+   "published": "2026-11-11T19:55:32+00:00",
+   "added": "2026-11-11T20:00:50+00:00",
+   "full": "WordPress 7.2 is set to introduce a new /random/ endpoint that will redirect visitors to a randomly selected published post. Enabled by default, the feature will also support random discovery within categories, tags, author archives, and eligible custom post types. Admins will be able to customize the random URL base, control which post types are included, or disable the feature entirely. The addition has received largely negative feedback from the community, with several contributors questioning the decision to include the feature in WordPress core and enable it by default. Some have argued that it would be better suited to a plugin, while others have raised concerns about its suitability for different types of WordPress sites. Aaron Jorbin, who announced the feature, has defended its inclusion, arguing that it would help people discover content. The development of the feature can be traced to a Trac ticket opened by Anne McCarthy 10 months ago, which proposed adding support for random content redirects to WordPress core. The ticket noted that similar functionality was already available through plugins and custom code and suggested discussing a minimal implementation using existing query and rewrite APIs. McCarthy also highlighted an earlier request from Matt Mullenweg to consider the feature for WordPress 7.0, based on his Random Redirect plugin. The discussion also raised questions about whether the feature met WordPress’ 80% rule, which states that core should provide features that at least 80% of users will appreciate and use. Core Committer John Billion questioned the decision to include the functionality in core rather than develop it as a featured canonical plugin, “ If this feature is disabled by default and requires a plugin be active to enable it, it doesn’t seem to fit ​the 80% rule. What’s the benefit of this feature being in core as opposed to resurrecting the Random Redirect plugin and making it a featured canonical pluign? “ Responding to the question, Anne McCarthy clarified that Matt had specifically requested its inclusion in core, “Hey folks. As noted in the issue description, Matt requested this in Core. That’s the root of why this is being added and why it’s not being pursued as a canonical plugin. It was explicitly asked by him (multiple times).” Jorbin explained how the endpoint would work and outlined the options available to site owners. He described the feature as being built on WordPress’ existing rewrite, WP, and WP_Query APIs, and noted that the random URL base could be customized through a new option on the permalink settings page. A new randomable argument in register_post_type() determines which post types are eligible. By default, post types that are publicly queryable and have has_archive enabled qualify, while built-in post types such as pages and attachments are excluded. Jorbin also explained that random selections run through the main query, meaning existing pre_get_posts callbacks that modify archive queries will also apply to random redirects. Site owners can use wp_is_random_content_query() to target these requests specifically. Addressing the option to disable the feature, he wrote, “If you have a le",
+   "use_link": "https://make.wordpress.org/core/2026/11/05/your-content-is-going-to-get-more-random/",
+   "held": true
   }
  ]
 }
