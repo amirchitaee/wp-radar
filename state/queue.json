@@ -487,7 +487,41 @@
    "kind": "news",
    "age_hours": 1.8,
    "published": "2026-11-11T10:00:00+00:00",
-   "added": "2026-11-11T11:45:34+00:00"
+   "added": "2026-11-11T11:45:34+00:00",
+   "channel_skip": true,
+   "skip_why": "فهرست پیوند",
+   "skip_until": "2026-11-12T00:30:50+00:00"
+  },
+  {
+   "id": "308e3a536b38d92d",
+   "title": "Enterprise sales push OpenAI's quarterly revenue to $10 billion, though it still trails Anthropic",
+   "link": "https://the-decoder.com/enterprise-sales-push-openais-quarterly-revenue-to-10-billion-though-it-still-trails-anthropic",
+   "desc": "OpenAI grew its quarterly revenue 50 percent to $10 billion but is still burning more cash than it brings in. Adjusted operating losses climbed to $10.9 billion, while rival Anthropic operates far more efficiently on $17 billion in revenue. To close the gap, OpenAI is now fueling a price war for enterprise customers. The article Enterprise sales push OpenAI's quarterly revenue to $10 billion, though it still trails Anthropic appeared first on The Decoder .",
+   "source": "دیکودر",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 0.3,
+   "published": "2026-11-11T12:12:47+00:00",
+   "added": "2026-11-11T12:30:48+00:00",
+   "full": "OpenAI posts a massive Q3 revenue jump, driven by new AI models and enterprise customers. But operating losses keep growing, while rival Anthropic operates far more efficiently ahead of its IPO. According to reports from the Wall Street Journal and The Information , OpenAI grew its revenue by about 50 percent quarter over quarter in Q3 to $10 billion. In Q2, revenue had grown by just 17 to 18 percent . A year earlier, the company brought in $3.9 billion. Despite tripling revenue within a year, adjusted operating losses rose slightly in Q3 from $10.1 billion to $10.9 billion. That figure doesn't include stock-based compensation, which climbed to $2.6 billion. The adjusted operating margin did improve, going from negative 150 percent in Q2 to negative 109 percent. A year earlier it was negative 97 percent. Ad That puts OpenAI behind industry leader Anthropic, which plans its IPO next week. The Claude developer already overtook OpenAI on revenue in Q2 and even posted a small operating profit at the time. In Q3, Anthropic grew revenue 47 percent to $17 billion, while its operating loss including stock compensation came to just $567 million. Ad The efficiency gap comes down to business models. Anthropic focuses heavily on enterprise customers and successful tools like Claude Code and the Claude Cowork agent. OpenAI, by contrast, funds broad research into robotics and runs an expensive consumer business. To catch up in the enterprise market, OpenAI reshuffled its priorities earlier this year. The company discontinued projects like a video app, put more resources into its coding tool Codex , and hired Dali Rajic as its new head of sales. At the same time, OpenAI cut prices on new models. Ad Third-party data showed companies seeking cheaper alternatives to Claude, which boosted API sales. OpenAI president Greg Brockman called it an incredible revenue turning point and pointed to major customers like JPMorgan Chase. The enterprise business doubled in Q3 and now accounts for the bulk of revenue, Brockman said. The consumer side is growing too. ChatGPT now has 1.2 billion weekly active users, with 100 million paying subscribers after 22 million new sign-ups. On top of that, the new ChatGPT ad product hit an annualized revenue run rate of $1 billion in August. Ad Both competitors are feeling the recent tech sell-off in the financial markets. OpenAI is targeting an IPO next year and is currently raising fresh capital at a $1.25 trillion valuation , but has so far raised less than half of the planned $30 billion. Anthropic also had to cut its IPO valuation target significantly. Ad Subscribe to THE DECODER for ad-free reading, a weekly AI newsletter, our exclusive \"AI Radar\" frontier report six times a year, full archive access, and access to our comment section.",
+   "use_link": "",
+   "reject_hits": 1
+  },
+  {
+   "id": "3059651df1a92528",
+   "title": "UK regulator threatens universities with sanctions unless they adopt AI-proof exam formats",
+   "link": "https://the-decoder.com/uk-regulator-threatens-universities-with-sanctions-unless-they-adopt-ai-proof-exam-formats",
+   "desc": "England's higher education regulator, the Office for Students, says AI has made it \"nearly impossible\" to fairly assess student coursework. An investigation found that students are having ChatGPT write entire papers undetected, without being able to recall basic content afterward. To save the credibility of degrees, universities now have to return to traditional exams or face sanctions. The article UK regulator threatens universities with sanctions unless they adopt AI-proof exam formats appeared first on The Decoder .",
+   "source": "دیکودر",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 0.6,
+   "published": "2026-11-11T11:54:46+00:00",
+   "added": "2026-11-11T12:30:48+00:00"
   }
  ]
 }
