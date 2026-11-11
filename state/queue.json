@@ -35,7 +35,10 @@
    },
    "full": "WordPress security requires a team of dedicated analysts researching the latest malware variants and WordPress exploits, turning them into firewall rules and malware signatures, and releasing those to customers in real-time. Choose the right protection for you: Wordfence Free, Premium, Care or Response Wordfence is widely acknowledged as the number one WordPress security research team in the World. Our plugin provides a comprehensive suite of security features, and our team’s research is what powers our plugin and provides the level of security that we are known for. At Wordfence, WordPress security isn’t a division of our business – WordPress security is all we do. We employ a global 24-hour dedicated incident response team that provides our priority customers with a 1 hour response time for any security incident. The sun never sets on our global security team and we run a sophisticated threat intelligence platform to aggregate, analyze and produce ground breaking security research on the newest security threats. Wordfence Security includes an endpoint firewall, malware scanner, robust login security features, live traffic views, and more. Our Threat Defense Feed arms Wordfence with the newest firewall rules, malware signatures, and malicious IP addresses it needs to keep your website safe. Rounded out by passkeys, 2FA, and a suite of additional features, Wordfence is the most comprehensive WordPress security solution available. The dashboard gives you an overview of your site’s security including notifications, attack statistics and Wordfence feature status. The firewall protects your site from common types of attacks and known security vulnerabilities. The Wordfence Security Scanner lets you know if your site has been compromised and alerts you to other security issues that need to be addressed. Wordfence is highly configurable, with a deep set of options available for each feature. High level scan options are shown above. Brute Force Protection features protect you from password guessing attacks. Block attackers by IP, Country, IP range, Hostname, Browser or Referrer. The Wordfence Live Traffic view shows you real-time activity on your site including bot traffic and exploit attempts. Take login security to the next level with Two-Factor Authentication. Logging in is easy with Wordfence 2FA. Installation Secure your website using the following steps to install Wordfence: To install Wordfence on WordPress Multi-Site installations: Visit our website to access our official documentation which includes security feature descriptions, common solutions and comprehensive help. The WordPress security plugin provides the best protection available for your website. Powered by the constantly updated Threat Defense Feed, Wordfence Firewall stops you from getting hacked. Wordfence Scan leverages the same proprietary feed, alerting you quickly about security issues or if your site is compromised. The Live Traffic view gives you real-time visibility into traffic and hack attempts on your website. A deep set of additional tools round out the most comprehensive WordPress security solution available. We offer a Premium API key that gives you real-time update",
    "use_link": "",
-   "reject_hits": 2
+   "reject_hits": 2,
+   "digest_sent": true,
+   "channel_skip": true,
+   "skip_permanent": true
   },
   {
    "id": "caab762fbeec767d",
@@ -342,7 +345,9 @@
    "added": "2026-11-11T00:15:40+00:00",
    "channel_skip": true,
    "skip_why": "صورت‌جلسه یا گزارش",
-   "skip_until": "2026-11-12T06:01:09+00:00"
+   "skip_until": "2026-11-12T06:01:09+00:00",
+   "digest_sent": true,
+   "skip_permanent": true
   },
   {
    "id": "5ebdd6214ba967db",
@@ -392,7 +397,9 @@
    "added": "2026-11-11T11:45:34+00:00",
    "channel_skip": true,
    "skip_why": "فهرست پیوند",
-   "skip_until": "2026-11-12T00:30:50+00:00"
+   "skip_until": "2026-11-12T00:30:50+00:00",
+   "digest_sent": true,
+   "skip_permanent": true
   },
   {
    "id": "308e3a536b38d92d",
@@ -409,7 +416,10 @@
    "added": "2026-11-11T12:30:48+00:00",
    "full": "OpenAI posts a massive Q3 revenue jump, driven by new AI models and enterprise customers. But operating losses keep growing, while rival Anthropic operates far more efficiently ahead of its IPO. According to reports from the Wall Street Journal and The Information , OpenAI grew its revenue by about 50 percent quarter over quarter in Q3 to $10 billion. In Q2, revenue had grown by just 17 to 18 percent . A year earlier, the company brought in $3.9 billion. Despite tripling revenue within a year, adjusted operating losses rose slightly in Q3 from $10.1 billion to $10.9 billion. That figure doesn't include stock-based compensation, which climbed to $2.6 billion. The adjusted operating margin did improve, going from negative 150 percent in Q2 to negative 109 percent. A year earlier it was negative 97 percent. Ad That puts OpenAI behind industry leader Anthropic, which plans its IPO next week. The Claude developer already overtook OpenAI on revenue in Q2 and even posted a small operating profit at the time. In Q3, Anthropic grew revenue 47 percent to $17 billion, while its operating loss including stock compensation came to just $567 million. Ad The efficiency gap comes down to business models. Anthropic focuses heavily on enterprise customers and successful tools like Claude Code and the Claude Cowork agent. OpenAI, by contrast, funds broad research into robotics and runs an expensive consumer business. To catch up in the enterprise market, OpenAI reshuffled its priorities earlier this year. The company discontinued projects like a video app, put more resources into its coding tool Codex , and hired Dali Rajic as its new head of sales. At the same time, OpenAI cut prices on new models. Ad Third-party data showed companies seeking cheaper alternatives to Claude, which boosted API sales. OpenAI president Greg Brockman called it an incredible revenue turning point and pointed to major customers like JPMorgan Chase. The enterprise business doubled in Q3 and now accounts for the bulk of revenue, Brockman said. The consumer side is growing too. ChatGPT now has 1.2 billion weekly active users, with 100 million paying subscribers after 22 million new sign-ups. On top of that, the new ChatGPT ad product hit an annualized revenue run rate of $1 billion in August. Ad Both competitors are feeling the recent tech sell-off in the financial markets. OpenAI is targeting an IPO next year and is currently raising fresh capital at a $1.25 trillion valuation , but has so far raised less than half of the planned $30 billion. Anthropic also had to cut its IPO valuation target significantly. Ad Subscribe to THE DECODER for ad-free reading, a weekly AI newsletter, our exclusive \"AI Radar\" frontier report six times a year, full archive access, and access to our comment section.",
    "use_link": "",
-   "reject_hits": 1
+   "reject_hits": 1,
+   "digest_sent": true,
+   "channel_skip": true,
+   "skip_permanent": true
   },
   {
    "id": "3059651df1a92528",
@@ -423,7 +433,10 @@
    "kind": "news",
    "age_hours": 0.6,
    "published": "2026-11-11T11:54:46+00:00",
-   "added": "2026-11-11T12:30:48+00:00"
+   "added": "2026-11-11T12:30:48+00:00",
+   "digest_sent": true,
+   "channel_skip": true,
+   "skip_permanent": true
   },
   {
    "id": "a947672393e4b87c",
@@ -438,7 +451,10 @@
    "age_hours": 9.3,
    "published": "2026-11-10T19:26:18-08:00",
    "added": "2026-11-11T12:45:27+00:00",
-   "reject_hits": 2
+   "reject_hits": 2,
+   "digest_sent": true,
+   "channel_skip": true,
+   "skip_permanent": true
   },
   {
    "id": "45ad1d8519ac17ea",
@@ -455,7 +471,9 @@
    "added": "2026-11-11T13:15:30+00:00",
    "channel_skip": true,
    "skip_why": "پادکست یا وبینار",
-   "skip_until": "2026-11-12T01:15:43+00:00"
+   "skip_until": "2026-11-12T01:15:43+00:00",
+   "digest_sent": true,
+   "skip_permanent": true
   },
   {
    "id": "b9dfe8b7dfb1ccad",
@@ -472,7 +490,10 @@
    "added": "2026-11-11T14:00:53+00:00",
    "full": "Next year, WordCamp Asia 2027 heads to Penang, Malaysia. From April 9 to 11, the WordPress community will gather at the Penang Waterfront Convention Centre for three days of contribution, learning, and connection. Tickets are on sale and sponsorship applications are open, so now is the time to make your plans. In 2026, WordCamp Asia brought 2,627 attendees to Mumbai, India. More than 1,500 participants joined Contributor Day, where table leads guided work on more than 20 contribution tables. The conference days that followed covered topics ranging from AI and developer workflows to enterprise WordPress and journalism on the open web, and closed with a panel featuring WordPress Executive Director Mary Hubbard , Peter Wilson , and Sergey Biryukov . WordPress is not a company. It is a shared commitment to keeping the web open. Mary Hubbard, Executive Director, WordPress The mix of hands-on work and big-picture conversation is what sets a WordCamp apart. You learn from the people who build, scale, and maintain WordPress every day, trade ideas in the hallway between sessions, and head home with new collaborators and fresh energy for the work ahead. Penang offers a memorable setting for WC Asia. George Town, a short drive from the venue, is a UNESCO World Heritage Site, and National Geographic named Penang one of the best places in the world to travel to in 2027. The island is famous for its food, from internationally-recognized street food to fine dining, and it is one of Malaysia’s leading destinations for tourism. If you can, give yourself a day or two on either side of the conference to explore. A regular ticket costs only USD $35, thanks to our sponsors. It covers both conference days, lunch and refreshments, and the after party. Tickets are released in batches, so buying early secures your place and helps organizers plan for everyone who is coming. Contributor Day on April 9 has its own registration, which opens January 27, 2027. It is limited to 600 participants. Join Asia’s Largest WordPress Gathering April 9 – 11, 2027 | Penang Waterfront Convention Centre (PWCC), Penang, Malaysia None of this happens without sponsors. Their support keeps ticket prices low, backs the volunteers and contributors who make the event run, and helps WordCamp Asia stay true to the values of the WordPress project. In return, sponsors meet an engaged, international audience of developers, agencies, business owners, and creators. Five packages are available, from a Small Business table to a Platinum booth, so there is a fit for local companies and global brands alike. Every sponsor also gets access to the Career Corner, a dedicated space for meeting and hiring WordPress professionals. Packages are confirmed on a first-come, first-served basis, so reach out early if your company wants to be involved. WordCamp Asia is organized by and for the community. Volunteers, organizers, speakers, sponsors, and attendees each shape what the event becomes, whether they are contributing for the first time or reconnecting with collaborators they have known for years. However you choose to take part, your presence matters. Buy a ticket, bring a colleague, sponsor the event, or shar",
    "use_link": "https://wordpress.org/news/category/wordcamp/",
-   "reject_hits": 2
+   "reject_hits": 2,
+   "digest_sent": true,
+   "channel_skip": true,
+   "skip_permanent": true
   },
   {
    "id": "281df356d71debbc",
@@ -489,7 +510,10 @@
    "added": "2026-11-11T14:01:11+00:00",
    "full": "American data brokers sell so-called RL environments to Chinese AI labs, helping them save compute during model development. A ChinaTalk investigation identifies at least nine companies involved. American data firms like Mercor, Surge AI, AfterQuery, and Turing are selling roughly half a billion dollars' worth of training data to Chinese AI labs, according to an investigation by ChinaTalk . Some of that data takes the form of reinforcement learning environments, which are simulated worlds where AI models are trained on specific tasks like coding, financial analysis, or office work. Chinese labs deliberately buy the same products previously sold to Anthropic or OpenAI, the report says. That way, they already know the data works and can skip costly in-house development and wasted training runs. Because Chinese chips suffer from acute memory bottlenecks, those savings are particularly valuable for labs there. Ad There is also the issue of distillation. Chinese labs use powerful US models like GPT or Claude as \"teachers,\" using their outputs as training examples. Combined with purchased RL environments, this creates a two-pronged advantage that lets Chinese labs close the gap with less compute of their own. Ad The authors identified at least nine US data firms selling to Chinese customers. AfterQuery reportedly draws a significant share of its annual recurring revenue from Chinese customers. ChinaTalk points to Forbes reports of about $100 million in ARR but could not independently verify the sales. Surge AI openly advertises on its website that its products are \"built by the same experts behind our frontier-lab work.\" The deals also run through offshore structures. ByteDance maintains procurement offices in Singapore and San Jose. Ad These business relationships came to light through a combination of anonymous sources and sloppy operational security among subcontractors, according to ChinaTalk. The US data firms outsource much of the actual RL environment creation and data curation to low-paid workers in developing countries, especially India. Those subcontractors then sometimes post client names on LinkedIn or in résumés, even though they are supposed to use only code names. Export controls barely apply because RL environments remain largely unregulated. Domains with dual-use potential pose particular risks: Coding environments improve software development but can also sharpen offensive cyber capabilities. Biology environments could improve gene synthesis capabilities and potentially enhance bioweapons-relevant applications. The ChinaTalk authors argue that the Bureau of Industry and Security should subject these dual-use environments to existing export controls. Ad At the same time, the authors stress that these relationships are not apocalyptic. By piggybacking on US work, Chinese labs still trail their US peers by at least a few months as a structural matter. Sensitive environments in areas like biology, chemistry, cybersecurity, chip design, and investment banking are increasingly being built in-house at American frontier companies, the authors say. Ad Subscribe to THE DECODER for ad-free reading, a weekly AI newsletter, our exclusive \"AI R",
    "use_link": "",
-   "reject_hits": 2
+   "reject_hits": 2,
+   "digest_sent": true,
+   "channel_skip": true,
+   "skip_permanent": true
   },
   {
    "id": "7171fc0535188e20",
@@ -504,7 +528,10 @@
    "kind": "news",
    "age_hours": 2.8,
    "published": "2026-11-11T15:12:53+00:00",
-   "added": "2026-11-11T18:01:02+00:00"
+   "added": "2026-11-11T18:01:02+00:00",
+   "digest_sent": true,
+   "channel_skip": true,
+   "skip_permanent": true
   }
  ]
 }
