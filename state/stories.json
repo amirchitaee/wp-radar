@@ -372,6 +372,20 @@
    ],
    "vers": [],
    "cves": []
+  },
+  {
+   "t": "2026-11-11T05:47:48+00:00",
+   "id": "9198dc1328a39d8d",
+   "title": "OpenAI turns ChatGPT into a business directory with AI agents that handle customer questions",
+   "kind": "news",
+   "link": "https://the-decoder.com/openai-turns-chatgpt-into-a-business-directory-with-ai-agents-that-handle-customer-questions",
+   "ents": [
+    "ai",
+    "chatgpt",
+    "openai"
+   ],
+   "vers": [],
+   "cves": []
   }
  ]
 }
