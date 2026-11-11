@@ -554,6 +554,74 @@
    "full": "Apps built with the AI assistant Grok are almost always open to anyone with the link, according to a security firm. The exposed data includes patient records and confidential documents from Grok maker SpaceXSI itself. Security firm Claroc found more than 35,000 Grok-built apps that could be accessed without login, according to a recent report. In SpaceXSI's \"Build\" mode (the company was formerly xAI), users describe an app in a chat and Grok writes the code. An app only goes public when its creator clicks \"Publish,\" which gives it its own address on grok.me. Out of 37,571 apps Claroc checked that were still online, 35,578 were open to anyone. That's 94.7 percent, according to the report . Claroc points to the publish dialog as the cause. On the paid account the firm used for testing, \"Anyone with the link\" was already preselected. The addresses were also easy to find. Each app gets its own subdomain, so its name shows up in commercial passive DNS databases after the first visit. Those databases can be searched by pattern. Ad 24 of the accessible apps came from SpaceXSI and X employees. Among them was a confidential onboarding plan for a new enterprise sales team member that included internal system addresses and 19 chat channels. Claroc also found a publicly accessible sales territory map with 594 strategic accounts and pipeline data, plus eight X ad proposals. One of those proposals targeted a U.S. federal agency and was marked as confidential. Campaign reports and dashboards with ad spending were also exposed. Ad Most of the open apps were games, landing pages, or calculators, Claroc says. But about one in ten contained sensitive material, internal business data, or personal information. The firm classifies roughly two percent as especially bad. The researchers estimate that 650 to 800 apps contained private data. Confirmed cases included an ICU briefing with a patient's lab values, a list of more than 3,500 employees at a hospital group, and a fire department shift schedule. The source code of a timesheet app contained 18 accounts with plaintext passwords. Beyond SpaceXSI and X, Claroc identified 30 affected organizations, six of them Fortune 500 companies. The firm is withholding the names. Ad Two of Claroc's own test apps turned up another problem. A contact list app ended up with a database that had no login, so anonymous visitors could add entries. For a sales team customer list, Grok added Google and X sign-in on its own. In that test app, though, Grok's code added every authenticated user to the team first and only checked membership afterward. An outside Google account could then read, edit, and delete records. Claroc says it ran write and delete tests only on its own apps. Grok does offer the right settings. When set to \"Only you,\" the test app blocked outside access. It just isn't the default. In a test with ChatGPT, a newly built app defaulted to \"Only me\" when shared. That app's address can also show up in DNS data, but it leads to an app only the owner can open. Ad SpaceXSI responded to the disclosure only by saying that apps are private until their creator shares them, that publishing takes multiple steps including a legal not",
    "use_link": "",
    "reject_hits": 1
+  },
+  {
+   "id": "e9a337da15cce837",
+   "title": "WP Mail SMTP 4.10.4",
+   "link": "https://wordpress.org/plugins/wp-mail-smtp/",
+   "desc": "نسخهٔ 4.10.4 از WP Mail SMTP منتشر شد. تغییرات این نسخه: Changed: Improved the Setup Wizard. | Changed: Updated the upgrade flow from WP Mail SMTP Lite to Pro.",
+   "source": "آپدیت افزونه",
+   "lang": "en",
+   "tier": 1,
+   "group": "wp",
+   "kind": "news",
+   "age_hours": 0.0,
+   "published": "2026-11-11T14:01:13+00:00",
+   "added": "2026-11-11T14:01:13+00:00",
+   "plugin": {
+    "name": "WP Mail SMTP",
+    "version": "4.10.4",
+    "prev": "4.10.3",
+    "installs": 4000000,
+    "updated": "2026-11-11"
+   },
+   "plugin_update": {
+    "name": "WP Mail SMTP",
+    "slug": "wp-mail-smtp",
+    "version": "4.10.4",
+    "prev": "4.10.3",
+    "date": "4.10.4 – 2026-11-11",
+    "changes": [
+     "Changed: Improved the Setup Wizard.",
+     "Changed: Updated the upgrade flow from WP Mail SMTP Lite to Pro."
+    ],
+    "vuln": false,
+    "hardening": false
+   },
+   "full": "Is your WordPress site not sending emails? You’re not alone. 4+ million websites use WP Mail SMTP to send emails reliably. Our goal is to make email deliverability easy so that your emails reach the inbox. WP Mail SMTP fixes your email deliverability issues by reconfiguring WordPress to use a proper SMTP provider when sending emails. Best of all, our easy-to-use Setup Wizard and detailed documentation guide you through the process. WP Mail SMTP is free and has everything you need to reliably send your WordPress emails! WP Mail SMTP Pro adds even more powerful features like email logging, advanced email reporting and stats, backup connections, email alerts, smart conditional routing, and much more. SMTP (Simple Mail Transfer Protocol) is an industry-standard for sending emails. Proper SMTP configuration helps increase email deliverability by adding authentication to the emails sent from your site. Popular email clients like Gmail, Yahoo, Office 365, and Zoho are in a constant battle with email spammers, so they check whether emails are originating from a genuine sender. If the proper authentication isn’t there, emails either go in the SPAM folder or, worse, disappear. This is a problem for a lot of WordPress sites. By default, WordPress uses the PHP mail function to send emails generated by WordPress or any contact form plugin like WPForms . But most WordPress hosting companies don’t have their servers properly configured for sending PHP emails. This is why WordPress emails aren’t delivered. WP Mail SMTP plugin easily resolves email delivery problems by changing the way your WordPress site sends email. We reconfigure the wp_mail() function to use proper SMTP host credentials or an SMTP mail provider. With our built-in SMTP mail provider integrations (recommended), emails are sent using the provider’s direct API. This works even if your web host is blocking SMTP ports. This helps you fix common WordPress not sending email issues. WP Mail SMTP plugin includes many different SMTP mailers: For most options, you can specify the “from name” and “email address” for outgoing emails too. If you don’t know which mailer to choose, see our Complete Guide to WP Mail SMTP Mailers . SendLayer is our recommended transactional email service. Its affordable pricing and super fast setup make it a great choice for sending emails from WordPress. It also has open and click tracking and email logs. SendLayer is reliable, fast, and easy to set up. You can send hundreds of emails for free when you sign up for a trial. Read our SendLayer documentation for more details. SMTP.com is a recommended transactional email service. With over 22 years of email delivery expertise, SMTP.com has a reputation as a reliable sender. You can start sending emails in minutes and benefit from 50,000 free emails in your first 30 days. Read our SMTP.com documentation for more details. Brevo is a recommended transactional email service. It serves 80,000+ companies worldwide. Brevo is reliable, fast, and gives you 300 free emails per day. Read our Brevo documentation for more details. WP Mail SMTP Pro is a separate paid plugin. Everything in this section is only available in Pro and isn’t par",
+   "use_link": "",
+   "held": true
+  },
+  {
+   "id": "b9dfe8b7dfb1ccad",
+   "title": "WordCamp Asia 2027 Is Coming to Penang",
+   "link": "https://wordpress.org/news/2026/11/wc-asia-2027-penang",
+   "desc": "Next year, WordCamp Asia 2027 heads to Penang, Malaysia. From April 9 to 11, the WordPress community will gather at the Penang Waterfront Convention Centre for three days of contribution, learning, and connection. Tickets are on sale and sponsorship applications are open, so now is the time to make your plans. In 2026, WordCamp Asia […]",
+   "source": "وردپرس",
+   "lang": "en",
+   "tier": 1,
+   "group": "",
+   "kind": "news",
+   "age_hours": 0.0,
+   "published": "2026-11-11T14:00:00+00:00",
+   "added": "2026-11-11T14:00:53+00:00",
+   "full": "Next year, WordCamp Asia 2027 heads to Penang, Malaysia. From April 9 to 11, the WordPress community will gather at the Penang Waterfront Convention Centre for three days of contribution, learning, and connection. Tickets are on sale and sponsorship applications are open, so now is the time to make your plans. In 2026, WordCamp Asia brought 2,627 attendees to Mumbai, India. More than 1,500 participants joined Contributor Day, where table leads guided work on more than 20 contribution tables. The conference days that followed covered topics ranging from AI and developer workflows to enterprise WordPress and journalism on the open web, and closed with a panel featuring WordPress Executive Director Mary Hubbard , Peter Wilson , and Sergey Biryukov . WordPress is not a company. It is a shared commitment to keeping the web open. Mary Hubbard, Executive Director, WordPress The mix of hands-on work and big-picture conversation is what sets a WordCamp apart. You learn from the people who build, scale, and maintain WordPress every day, trade ideas in the hallway between sessions, and head home with new collaborators and fresh energy for the work ahead. Penang offers a memorable setting for WC Asia. George Town, a short drive from the venue, is a UNESCO World Heritage Site, and National Geographic named Penang one of the best places in the world to travel to in 2027. The island is famous for its food, from internationally-recognized street food to fine dining, and it is one of Malaysia’s leading destinations for tourism. If you can, give yourself a day or two on either side of the conference to explore. A regular ticket costs only USD $35, thanks to our sponsors. It covers both conference days, lunch and refreshments, and the after party. Tickets are released in batches, so buying early secures your place and helps organizers plan for everyone who is coming. Contributor Day on April 9 has its own registration, which opens January 27, 2027. It is limited to 600 participants. Join Asia’s Largest WordPress Gathering April 9 – 11, 2027 | Penang Waterfront Convention Centre (PWCC), Penang, Malaysia None of this happens without sponsors. Their support keeps ticket prices low, backs the volunteers and contributors who make the event run, and helps WordCamp Asia stay true to the values of the WordPress project. In return, sponsors meet an engaged, international audience of developers, agencies, business owners, and creators. Five packages are available, from a Small Business table to a Platinum booth, so there is a fit for local companies and global brands alike. Every sponsor also gets access to the Career Corner, a dedicated space for meeting and hiring WordPress professionals. Packages are confirmed on a first-come, first-served basis, so reach out early if your company wants to be involved. WordCamp Asia is organized by and for the community. Volunteers, organizers, speakers, sponsors, and attendees each shape what the event becomes, whether they are contributing for the first time or reconnecting with collaborators they have known for years. However you choose to take part, your presence matters. Buy a ticket, bring a colleague, sponsor the event, or shar",
+   "use_link": "https://wordpress.org/news/category/wordcamp/",
+   "reject_hits": 1
+  },
+  {
+   "id": "281df356d71debbc",
+   "title": "US data brokers are selling half a billion dollars in RL training environments to Chinese AI labs",
+   "link": "https://the-decoder.com/us-data-brokers-are-selling-half-a-billion-dollars-in-rl-training-environments-to-chinese-ai-labs",
+   "desc": "US data brokers like Mercor, Surge AI, and AfterQuery are selling roughly half a billion dollars' worth of AI training data to Chinese labs, according to a ChinaTalk investigation. That includes the same RL environments previously built for OpenAI or Anthropic. At least nine firms are involved, and export controls barely apply. The article US data brokers are selling half a billion dollars in RL training environments to Chinese AI labs appeared first on The Decoder .",
+   "source": "دیکودر",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 0.2,
+   "published": "2026-11-11T13:51:11+00:00",
+   "added": "2026-11-11T14:01:11+00:00"
   }
  ]
 }
