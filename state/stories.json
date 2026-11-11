@@ -402,6 +402,26 @@
     "4.10.4"
    ],
    "cves": []
+  },
+  {
+   "t": "2026-11-11T15:01:24+00:00",
+   "id": "20689755a476f2c8",
+   "title": "Attackers Actively Probing for Upgrade-Window RCE Vulnerability in WordPress Core",
+   "kind": "news",
+   "link": "https://www.wordfence.com/blog/2026/11/attackers-actively-probing-for-upgrade-window-rce-vulnerability-in-wordpress-core",
+   "ents": [
+    "actively",
+    "attackers",
+    "core",
+    "probing",
+    "rce",
+    "upgrade-window",
+    "wordpress"
+   ],
+   "vers": [],
+   "cves": [
+    "CVE-2026-119977"
+   ]
   }
  ]
 }
