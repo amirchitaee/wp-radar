@@ -842,6 +842,11 @@ def load_plugin_watch():
                 "slug": slug,
                 "name": p[1] if len(p) > 1 and p[1] else "",
                 "min_installs": int(p[2]) if len(p) > 2 and p[2].isdigit() else 0,
+                # ستون چهارم اختیاری: «sec» یعنی فقط وصله و هشدار امنیتی
+                # پست شود، نه هر آپدیت. برای محصول فارسی لازم است، چون
+                # قاعده می‌گوید محصول فارسی تبلیغ نمی‌شود و تنها استثنا
+                # هشدار امنیتی است.
+                "sec_only": len(p) > 3 and p[3].lower() == "sec",
             }
         )
     return rows
@@ -955,6 +960,14 @@ def plugin_watch(kind, seen=None, commit=True):
         joined = " ".join(lines)
         vuln = bool(VULN_RE.search(joined))
         hardening = bool(HARDEN_RE.search(joined))
+        # افزونهٔ «فقط امنیتی» با آپدیت معمولی پست نمی‌شود. قاعدهٔ محصول
+        # فارسی می‌گوید نه معرفی، نه تخفیف، نه مقایسه؛ تنها استثنا هشدار
+        # امنیتی است. پس نسخه ثبت می‌شود تا دوباره بررسی نشود، ولی خبری
+        # ساخته نمی‌شود.
+        if cfg.get("sec_only") and not (vuln or hardening):
+            touched[cfg["slug"]] = {"version": version, "at": now().isoformat(timespec="seconds")}
+            log("  plugin quiet (امنیتی نبود):", cfg["slug"], prev, "->", version)
+            continue
         link = "https://wordpress.org/plugins/{}/".format(cfg["slug"])
         # شناسه باید نسخه را در خود داشته باشد. قبلاً فقط نشانی صفحهٔ
         # افزونه بود؛ پس اولین آپدیت هر افزونه که پست می‌شد، همهٔ
@@ -3005,6 +3018,9 @@ def publish_ready(s, st, seen, hard_deadline=None):
         add_story(store_story, target or row)
         d["count"] = int(d.get("count", 0)) + 1
         d["kinds"][kind] = int(d["kinds"].get(kind, 0)) + 1
+        # «ai» دسته نیست، گروه است. پس با شمارندهٔ دسته جمع نمی‌شود و
+        # مجموع kinds از count بیشتر درمی‌آید؛ این ایراد نیست. هر جا
+        # شمارش لازم شد، count را بخوان، نه جمع kinds را.
         if (row.get("group") or (target or {}).get("group") or "") == "ai":
             d["kinds"]["ai"] = int(d["kinds"].get("ai", 0)) + 1
         # تیتر و خلاصهٔ فارسی از خود رکورد نگه‌داری خوانده می‌شود. قبلاً

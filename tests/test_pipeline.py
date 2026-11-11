@@ -1509,11 +1509,91 @@ check("فیلتر واژه: منابع بدون فیلد هم خوانده می�
 
 # ---------------------------------------------------------------- فهرست افزونه
 _watch = REAL_LOAD_PLUGIN_WATCH()
-check("فهرست افزونه: بیست‌و‌دو افزونه زیر نظر است", len(_watch), 22)
+check("فهرست افزونه: بیست‌وهشت افزونه زیر نظر است", len(_watch), 28)
 check("فهرست افزونه: نامک تکراری نیست",
       len({c["slug"] for c in _watch}), len(_watch))
 check("فهرست افزونه: کمینهٔ نصب عدد است",
       all(isinstance(c["min_installs"], int) for c in _watch), True)
+
+# ---------------------------------------------------------------- درگاه‌های پرداخت
+# درگاه ایرانی روی سایت ایرانی پول جابه‌جا می‌کند؛ وصله‌اش هشدار است، نه تبلیغ.
+_GATEWAYS = (
+    "zarinpal-woocommerce-payment-gateway",
+    "zibal-payment-gateway-for-woocommerce",
+    "gateland",
+    "woo-payping-gateway",
+    "parsigate",
+    "woo-sadad-payment-gateway",
+)
+_slugs = {c["slug"] for c in _watch}
+for _g in _GATEWAYS:
+    check("درگاه: {} زیر نظر است".format(_g), _g in _slugs, True)
+check("درگاه: نام نمایشی لاتین است",
+      all(
+          not re.search(r"[\u0600-\u06FF]", c["name"])
+          for c in _watch
+          if c["slug"] in _GATEWAYS
+      ), True)
+check("درگاه: پرچم «فقط امنیتی» فقط روی درگاه‌هاست",
+      all(c["sec_only"] for c in _watch if c["slug"] in _GATEWAYS)
+      and not any(c["sec_only"] for c in _watch if c["slug"] not in _GATEWAYS), True)
+
+# رفتار: آپدیت معمولی درگاه ساکت می‌ماند، وصله امنیتی پست می‌شود.
+# قاعدهٔ محصول فارسی می‌گوید محصول فارسی تبلیغ نمی‌شود و تنها استثنا
+# هشدار امنیتی است. بدون این، هر نسخهٔ تازه یک پست تبلیغاتی می‌شد.
+_real_feed = radar.plugin_feed
+_real_watch = radar.load_plugin_watch
+_real_plstate = radar.PLUGIN_STATE
+# آزمون‌های بالاتر read_json را ساختگی کرده‌اند؛ وضعیت افزونه باید
+# از فایل واقعیِ موقت خوانده شود، وگرنه هر بار «اولین بار» حساب می‌شود.
+radar.read_json = _real_read_json
+_gw_box = Path(tempfile.mkdtemp())
+radar.PLUGIN_STATE = _gw_box / "plugins.json"
+radar.PLUGIN_STATE.write_text(
+    json.dumps({"v": 1, "seen": {"gw": {"version": "1.0"}}}), encoding="utf-8")
+radar.load_plugin_watch = lambda: [
+    {"slug": "gw", "name": "GW", "min_installs": 0, "sec_only": True}
+]
+radar.plugin_feed = lambda slug: {
+    "name": "GW", "version": "1.1", "installs": 500,
+    "changelog": "<h4>1.1</h4><ul><li>Fix a small layout bug.</li></ul>",
+}
+check("درگاه: آپدیت غیرامنیتی پست نمی‌شود",
+      len(radar.plugin_watch("news", {"v": 1, "ids": {}}, commit=False)), 0)
+radar.plugin_feed = lambda slug: {
+    "name": "GW", "version": "1.2", "installs": 500,
+    "changelog": "<h4>1.2</h4><ul><li>Security: fix unauthenticated SQL injection "
+                 "(CVE-2026-12345).</li></ul>",
+}
+check("درگاه: وصله امنیتی پست می‌شود",
+      len(radar.plugin_watch("news", {"v": 1, "ids": {}}, commit=False)), 1)
+radar.plugin_feed = _real_feed
+radar.load_plugin_watch = _real_watch
+radar.PLUGIN_STATE = _real_plstate
+# سد کالای فارسی نباید آپدیت درگاه را بگیرد. آیتم رصد نسخه زبانش en است
+# و لینکش مخزن رسمی است، پس اصلاً به آن سد نمی‌رسد.
+check("درگاه: سد کالای فارسی روی آپدیت درگاه نمی‌گیرد",
+      radar.persian_product({
+          "link": "https://wordpress.org/plugins/gateland/",
+          "title": "Gateland 2.5.1",
+          "desc": "نسخهٔ تازه منتشر شد",
+          "lang": "en",
+      }), False)
+
+# ---------------------------------------------------------------- سقف خبر
+# سقف روزانه ۱۱ است. سهم خبر ۸ شد تا صفِ پرِ خبر بیشتر تخلیه شود، ولی
+# سه پست برای بقیهٔ دسته‌ها رزرو می‌ماند؛ وگرنه خبر همه را می‌خورد.
+# فایل تنظیمات مستقیم خوانده می‌شود؛ آزمون‌های بالاتر read_json را
+# ساختگی کرده‌اند و مقدار واقعی از راه تابع نمی‌آید.
+_s2 = json.loads((radar.ROOT / "settings.json").read_text(encoding="utf-8"))
+check("سقف: خبر هشت در روز", _s2["caps"]["news"], 8)
+check("سقف: سقف روز سیزده شد، چون جمع دسته‌ها باید برابر سقف روز بماند", _s2["daily_cap"], 13)
+check("سقف: سهم خبر در روز خالی هشت است",
+      radar.daily_room(_s2, "news", {"count": 0, "kinds": {}}), 8)
+check("سقف: بعد از پر شدن خبر، ابزار هم سهم کاملش را دارد",
+      radar.daily_room(_s2, "tools", {"count": 8, "kinds": {"news": 8}}), 2)
+check("سقف: خبر بعد از سقف خودش صفر می‌شود",
+      radar.daily_room(_s2, "news", {"count": 8, "kinds": {"news": 8}}), 0)
 
 # ---------------------------------------------------------------- امنیت: پنجره دوم
 # هشدار کهنه رد می‌شود، مگر بهره‌برداری از آن هنوز فعال باشد. بدون این، یک
