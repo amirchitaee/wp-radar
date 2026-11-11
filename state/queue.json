@@ -457,7 +457,8 @@
    "added": "2026-11-11T00:15:40+00:00",
    "full": "OpenAI is launching a beta feature called \"Businesses in ChatGPT\" that could compete with Google's \"MyBusiness.\" Google My Business is Google's free tool that lets companies manage how they appear across Search and Maps, and OpenAI's new offering challenges it by placing business profiles directly inside a conversational AI interface instead. Companies can register and manage their business through a Business Hub, update their information, add product feeds with prices and availability, and track how often they're mentioned in conversations or how many clicks their website gets. Eligible US e-commerce and online service providers can also create \"Business Agents,\" AI agents that answer customer questions in ChatGPT, help with product comparisons, and can serve as targets for ChatGPT ads. Shopify merchants can connect their store directly. OpenAI says user conversations aren't shared with businesses. ChatGPT currently reaches 1.2 billion users per week, according to OpenAI, and the company plans to expand the offering to more markets and industries over time. Ad Ad Subscribe to THE DECODER for ad-free reading, a weekly AI newsletter, our exclusive \"AI Radar\" frontier report six times a year, full archive access, and access to our comment section.",
    "use_link": "https://openai.com/index/introducing-businesses-chatgpt/",
-   "held": true
+   "posted": true,
+   "msg_id": 127
   },
   {
    "id": "bb1492f15ad8ddfd",
