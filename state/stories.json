@@ -408,6 +408,19 @@
    "cves": [
     "CVE-2026-119977"
    ]
+  },
+  {
+   "t": "2026-11-11T16:46:44+00:00",
+   "id": "e8611a93afeb04e2",
+   "title": "Grok-built apps exposed patient data, plaintext passwords, and SpaceXSI's own sales pipeline",
+   "kind": "news",
+   "link": "https://the-decoder.com/grok-built-apps-exposed-patient-data-plaintext-passwords-and-spacexsis-own-sales-pipeline",
+   "ents": [
+    "grok-built",
+    "spacexsi"
+   ],
+   "vers": [],
+   "cves": []
   }
  ]
 }
