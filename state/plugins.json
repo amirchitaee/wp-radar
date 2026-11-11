@@ -88,6 +88,30 @@
   "kadence-blocks": {
    "version": "3.9.0",
    "at": "2026-11-05T21:15:52+00:00"
+  },
+  "zarinpal-woocommerce-payment-gateway": {
+   "version": "5.1.2",
+   "at": "2026-11-11T15:15:44+00:00"
+  },
+  "zibal-payment-gateway-for-woocommerce": {
+   "version": "2.1",
+   "at": "2026-11-11T15:15:44+00:00"
+  },
+  "gateland": {
+   "version": "2.5.1",
+   "at": "2026-11-11T15:15:44+00:00"
+  },
+  "woo-payping-gateway": {
+   "version": "4.8.0",
+   "at": "2026-11-11T15:15:44+00:00"
+  },
+  "parsigate": {
+   "version": "1.1.1",
+   "at": "2026-11-11T15:15:44+00:00"
+  },
+  "woo-sadad-payment-gateway": {
+   "version": "1.29",
+   "at": "2026-11-11T15:15:44+00:00"
   }
  }
 }
