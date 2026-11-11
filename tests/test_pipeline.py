@@ -1515,6 +1515,24 @@ check("فهرست افزونه: نامک تکراری نیست",
 check("فهرست افزونه: کمینهٔ نصب عدد است",
       all(isinstance(c["min_installs"], int) for c in _watch), True)
 
+# ---------------------------------------------------------------- امنیت: پنجره دوم
+# هشدار کهنه رد می‌شود، مگر بهره‌برداری از آن هنوز فعال باشد. بدون این، یک
+# RCE وردپرس با بهره‌برداری فعال که شش روز پیش منتشر شده بود، هرگز پست نمی‌شد.
+# آزمون‌های بالاتر read_json را ساختگی کرده‌اند؛ این‌جا نسخهٔ اصلی برمی‌گردد.
+radar.read_json = _real_read_json
+_s = radar.settings()
+check("امنیت: پنجره تازه بیست‌وچهار ساعت است", _s.get("security_max_age_h"), 24)
+check("امنیت: پنجره دیرفعال هفت روز است", _s.get("security_late_h"), 168)
+check("امنیت: سوءاستفاده فعال، کهنه هم پذیرفته می‌شود",
+      bool(radar.LATE_CRIT.search(
+          "Attackers Actively Probing for Upgrade-Window RCE Vulnerability in WordPress")), True)
+check("امنیت: انتشار نگه‌داری کهنه، بهره‌برداری فعال نیست",
+      bool(radar.LATE_CRIT.search("WordPress 7.1.3 Maintenance and Security Release")), False)
+check("امنیت: RCE وصله‌شده بدون سوءاستفاده، کهنه رد می‌شود",
+      bool(radar.LATE_CRIT.search("Critical RCE in Elementor, patched")), False)
+check("امنیت: متن فارسی بهره‌برداری فعال هم شناخته می‌شود",
+      bool(radar.LATE_CRIT.search("آسیب‌پذیری در حال سوءاستفاده در افزونه")), True)
+
 # ---------------------------------------------------------------- نتیجه
 print("{} آزمون اجرا شد.".format(COUNT))
 if FAILS:

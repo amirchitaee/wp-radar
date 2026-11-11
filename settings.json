@@ -122,6 +122,7 @@
  "guard_min_gap_min": 5,
  "backup_min_gap_min": 20,
  "security_max_age_h": 24,
+ "security_late_h": 168,
  "security_every_min": 60,
  "news_every_min": 55,
  "tools_every_min": 300,

@@ -3151,6 +3151,20 @@ ADV_HIT = re.compile(
 )
 ADV_SKIP = re.compile(r"(bug bounty|vulnerability report|weekly report|monthly report|podcast|webinar)", re.I)
 
+# هشدار کهنه، هشدار نیست. ولی آسیب‌پذیری‌ای که همین حالا در حال سوءاستفاده
+# است، یک هفته بعد هم خبر است. یک RCE وردپرس که مهاجم‌ها فعالانه رویش کار
+# می‌کردند، فقط به‌خاطر سن از دست رفت و هرگز پست نشد. این الگو فقط برای
+# پنجرهٔ دوم است و فقط نشانهٔ سوءاستفادهٔ فعال را می‌پذیرد، نه هر RCE را.
+# اگر «RCE» تنها کافی بود، هر آسیب‌پذیری وصله‌شدهٔ سه‌روزه هم هشدار فوری
+# می‌شد و همان چیزی می‌شد که از اول نمی‌خواستیم.
+LATE_CRIT = re.compile(
+    r"(actively exploit|actively prob|actively attempt|attempting to exploit|"
+    r"already exploit|exploited in the wild|under attack|attacks? (?:are )?ongoing|"
+    r"ongoing attacks|zero-day|"
+    r"بهره‌برداری فعال|در حال سوءاستفاده|حملات? فعال|زیر حمله)",
+    re.I,
+)
+
 
 def is_advisory(text):
     return bool(ADV_HIT.search(text or "")) and not bool(ADV_SKIP.search(text or ""))
@@ -3160,6 +3174,9 @@ def security_run(s, st, seen, hard_deadline=None):
     sources = load_sources("security")
     # هشدار امنیتی کهنه، هشدار نیست. کاربر باید همین امروز کاری بکند.
     max_age = float(s.get("security_max_age_h", 24))
+    # پنجرهٔ دوم: دیر ولی هنوز فعال. بدون این، یک RCE با بهره‌برداری فعال
+    # که شش روز پیش منتشر شده، برای همیشه دور ریخته می‌شود.
+    late_h = float(s.get("security_late_h", 168) or 168)
     fresh = []
     stale = 0
     started = time.time()
@@ -3182,9 +3199,13 @@ def security_run(s, st, seen, hard_deadline=None):
             age = 99
             if it["published"]:
                 age = (now() - it["published"]).total_seconds() / 3600
+            late = False
             if age > max_age:
-                stale += 1
-                continue
+                if age <= late_h and LATE_CRIT.search(it["title"] + " " + it["desc"]):
+                    late = True
+                else:
+                    stale += 1
+                    continue
             if not is_advisory(it["title"] + " " + it["desc"]):
                 continue
             fresh.append(
@@ -3195,10 +3216,15 @@ def security_run(s, st, seen, hard_deadline=None):
                     "lang": src["lang"],
                     "tier": src["tier"],
                     "age_hours": age,
+                    "late": late,
                 }
             )
     if stale:
-        log("security: {} کهنه (بیشتر از {} ساعت) کنار گذاشته شد".format(stale, int(max_age)))
+        log(
+            "security: {} کهنه کنار گذاشته شد (بیشتر از {} ساعت و بدون نشانهٔ بهره‌برداری فعال)".format(
+                stale, int(max_age)
+            )
+        )
 
     fresh.sort(key=lambda x: x["age_hours"])
     fresh = dedupe_stories(fresh)
@@ -3213,7 +3239,8 @@ def security_run(s, st, seen, hard_deadline=None):
             SYSTEM_PROMPT,
             build_prompt(
                 batch,
-                "این‌ها هشدار امنیتی تازه‌اند. برچسب همه «هشدار امنیتی» باشد. "
+                "این‌ها هشدار امنیتی تازه‌اند، یا قدیمی‌ترند ولی بهره‌برداری از آن‌ها هنوز فعال است. "
+                "برچسب همه «هشدار امنیتی» باشد. "
                 "در خلاصه بگو چه چیزی آسیب‌پذیر است و کاربر چه اقدامی باید بکند.",
             ),
             deadline=hard_deadline,
@@ -3282,6 +3309,8 @@ def security_run(s, st, seen, hard_deadline=None):
         age_h = float(it.get("age_hours") or 0)
         if age_h >= 6:
             meta = (meta + "\n" if meta else "") + "منتشر شده " + rel_age(age_h)
+        if it.get("late"):
+            meta = (meta + "\n" if meta else "") + "این مورد قدیمی است، ولی بهره‌برداری از آن هنوز فعال است."
         tags = "#فوری #هشدار_امنیتی #امنیت" if urgent else "#هشدار_امنیتی #امنیت"
         text = format_post(label, title, summary, details, meta, it["link"], tags, it.get("published"))
         try:
