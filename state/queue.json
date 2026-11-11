@@ -455,6 +455,34 @@
    "added": "2026-11-08T20:30:40+00:00",
    "full": "Principal Product Designer at https://chroniclehq.com/",
    "use_link": ""
+  },
+  {
+   "id": "9198dc1328a39d8d",
+   "title": "OpenAI turns ChatGPT into a business directory with AI agents that handle customer questions",
+   "link": "https://the-decoder.com/openai-turns-chatgpt-into-a-business-directory-with-ai-agents-that-handle-customer-questions",
+   "desc": "OpenAI is opening up ChatGPT as a business platform: through a new Business Hub, companies can claim their profile, add product data, and track how users interact with them. \"Business Agents\" let eligible US e-commerce providers talk to customers directly inside ChatGPT. The article OpenAI turns ChatGPT into a business directory with AI agents that handle customer questions appeared first on The Decoder .",
+   "source": "دیکودر",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 4.0,
+   "published": "2026-11-10T20:17:00+00:00",
+   "added": "2026-11-11T00:15:40+00:00"
+  },
+  {
+   "id": "bb1492f15ad8ddfd",
+   "title": "Anthropic turns Claude into a full workspace with Plugins, spreadsheets, whiteboards, and soon Meeting notes",
+   "link": "https://the-decoder.com/anthropic-turns-claude-into-a-full-workspace-with-plugins-spreadsheets-whiteboards-and-soon-meeting-notes",
+   "desc": "Anthropic is expanding Claude with Sheets, Whiteboards, and Interactive Connectors, letting partners like Adobe and Atlassian embed their apps directly inside Claude. Anthropic says Claude Meetings, which can join calls and take notes, is coming soon. Step by step, Anthropic is turning Claude into a central work platform for teams that brings many other apps together in one place. The article Anthropic turns Claude into a full workspace with Plugins, spreadsheets, whiteboards, and soon Meeting notes appeared first on The Decoder .",
+   "source": "دیکودر",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 4.5,
+   "published": "2026-11-10T19:48:40+00:00",
+   "added": "2026-11-11T00:15:40+00:00"
   }
  ]
 }
