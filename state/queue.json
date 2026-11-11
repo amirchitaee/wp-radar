@@ -362,23 +362,6 @@
    "reject_hits": 2
   },
   {
-   "id": "ff55535ca88b9a53",
-   "title": "Google ships four TPU variants in one year as it ramps up competition with Nvidia",
-   "link": "https://the-decoder.com/google-ships-four-tpu-variants-in-one-year-as-it-ramps-up-competition-with-nvidia",
-   "desc": "Google is expanding its TPU 8 family with two specialized variants: the TPU 8tx keeps sensitive data encrypted even during processing, while the TPU 8i Max doubles compute power and memory by placing two chips on a single package. With nearly 100 external customers now on board, Google is increasingly positioning its in-house chips as an alternative to Nvidia's GPUs. The article Google ships four TPU variants in one year as it ramps up competition with Nvidia appeared first on The Decoder .",
-   "source": "دیکودر",
-   "lang": "en",
-   "tier": 2,
-   "group": "ai",
-   "kind": "news",
-   "age_hours": 0.3,
-   "published": "2026-11-09T12:59:02+00:00",
-   "added": "2026-11-09T13:15:37+00:00",
-   "full": "With two new TPU variants, Google is targeting confidential AI workloads and memory-hungry applications. The expansion cements Google's strategic shift toward positioning its in-house AI chips as a broad platform for external customers. Google has added two new systems to its eighth-generation AI accelerator lineup: the TPU 8tx for confidential computing and the TPU 8i Max for memory-intensive workloads. With these additions, Google says it has shipped four TPU systems within a single year for the first time. Both new variants are built on existing silicon. Google isn't introducing a new chip generation here, but new system configurations: different packaging, different networking, and different memory setups around the same processor. The company frames this modular approach as a deliberate design choice that lets it deliver new hardware variants in months rather than years. Ad The TPU 8tx targets enterprises and government agencies working with confidential data. Normally, data is encrypted during storage and transmission but has to be decrypted in memory once a processor works with it. Ad The TPU 8tx is designed to close that gap. According to Google, data and model weights stay protected and isolated even during active use. Nvidia already offers a comparable feature for GPUs through its confidential computing architecture. The system uses the same low-latency Boardfly network Google developed for real-time inference and is supposed to deliver up to twice the latency reduction compared to the TPU 8t. Google says enterprises can use a single system to fine-tune models, distill large models into smaller ones, and train AI agents with reinforcement learning, all without moving sensitive data between different clusters. Ad The TPU 8i Max tackles a different problem: the memory bottleneck. When AI agents work simultaneously across large codebases or hours of video, memory bandwidth becomes the chokepoint. Google addressed this by placing two TPU 8i chips on a single package. The result is double the compute power, double the memory, and double the memory bandwidth in the same rack format, which means significantly more performance per square meter of data center space. Ad Beyond hardware, Google is working to make TPUs easier to use. The company has released TorchTPU as open source , so PyTorch code should run on TPUs with minimal changes. Popular inference frameworks like vLLM and SGLang are also supported. Ad The expansion is a direct response to Google's strategic shift from treating TPUs as a purely internal tool to marketing them as a competitive platform for outside customers. The company now counts nearly 100 external TPU customers. A broader market trend is driving this push. As AI applications spread, the focus is shifting from expensive training runs to inference, meaning the day-to-day operation of models. Specialized chips like TPUs can play to their strengths in exactly this area. That's also why Amazon, Microsoft, and OpenAI are all developing their own accelerators. Nvidia has responded by bolstering its own inference offering through its acqui-hire and licensing deal with Groq . Subscribe to THE DECODER for ad-free reading, a we",
-   "use_link": "",
-   "reject_hits": 2
-  },
-  {
    "id": "2382673acb375df8",
    "title": "The Web Is More Than Enough, by Paul Ford",
    "link": "https://simonwillison.net/2026/Nov/9/hn-50421091",
@@ -536,6 +519,40 @@
    "age_hours": 9.3,
    "published": "2026-11-10T19:26:18-08:00",
    "added": "2026-11-11T12:45:27+00:00",
+   "reject_hits": 1
+  },
+  {
+   "id": "45ad1d8519ac17ea",
+   "title": "#241 – Tiffany Farriss on Drupal Funding, Community, and a Shared Journey With WordPress",
+   "link": "https://wptavern.com/podcast/241-tiffany-farriss-on-drupal-funding-community-and-a-shared-journey-with-wordpress",
+   "desc": "Tiffany Farriss joined the podcast to talk about the sustainability issues affecting open source communities, drawing from her experience with the Drupal Association. Tiffany is currently the interim CEO of the Drupal Association, and is the organisation’s longest-serving board member after Drupal’s founder, Dries Buytaert. We examine how a small group of contributors often carry the bulk of financial and development responsibilities, while many users benefit without supporting the ecosystem. Tiffany outlined efforts to make these hidden costs transparent and to promote a utility-based funding",
+   "source": "تاورن",
+   "lang": "en",
+   "tier": 2,
+   "group": "",
+   "kind": "news",
+   "age_hours": 0.3,
+   "published": "2026-11-11T13:00:00+00:00",
+   "added": "2026-11-11T13:15:30+00:00",
+   "channel_skip": true,
+   "skip_why": "پادکست یا وبینار",
+   "skip_until": "2026-11-12T01:15:43+00:00"
+  },
+  {
+   "id": "e8611a93afeb04e2",
+   "title": "Grok-built apps exposed patient data, plaintext passwords, and SpaceXSI's own sales pipeline",
+   "link": "https://the-decoder.com/grok-built-apps-exposed-patient-data-plaintext-passwords-and-spacexsis-own-sales-pipeline",
+   "desc": "Security firm Claroc found more than 35,000 Grok-built apps open to anyone without login, including patient data and confidential SpaceXSI documents. The cause: \"Anyone with the link\" was preselected as the default access setting. SpaceXSI took only its own 24 employee apps offline. The rest remain accessible. The article Grok-built apps exposed patient data, plaintext passwords, and SpaceXSI's own sales pipeline appeared first on The Decoder .",
+   "source": "دیکودر",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 0.4,
+   "published": "2026-11-11T12:53:07+00:00",
+   "added": "2026-11-11T13:15:39+00:00",
+   "full": "Apps built with the AI assistant Grok are almost always open to anyone with the link, according to a security firm. The exposed data includes patient records and confidential documents from Grok maker SpaceXSI itself. Security firm Claroc found more than 35,000 Grok-built apps that could be accessed without login, according to a recent report. In SpaceXSI's \"Build\" mode (the company was formerly xAI), users describe an app in a chat and Grok writes the code. An app only goes public when its creator clicks \"Publish,\" which gives it its own address on grok.me. Out of 37,571 apps Claroc checked that were still online, 35,578 were open to anyone. That's 94.7 percent, according to the report . Claroc points to the publish dialog as the cause. On the paid account the firm used for testing, \"Anyone with the link\" was already preselected. The addresses were also easy to find. Each app gets its own subdomain, so its name shows up in commercial passive DNS databases after the first visit. Those databases can be searched by pattern. Ad 24 of the accessible apps came from SpaceXSI and X employees. Among them was a confidential onboarding plan for a new enterprise sales team member that included internal system addresses and 19 chat channels. Claroc also found a publicly accessible sales territory map with 594 strategic accounts and pipeline data, plus eight X ad proposals. One of those proposals targeted a U.S. federal agency and was marked as confidential. Campaign reports and dashboards with ad spending were also exposed. Ad Most of the open apps were games, landing pages, or calculators, Claroc says. But about one in ten contained sensitive material, internal business data, or personal information. The firm classifies roughly two percent as especially bad. The researchers estimate that 650 to 800 apps contained private data. Confirmed cases included an ICU briefing with a patient's lab values, a list of more than 3,500 employees at a hospital group, and a fire department shift schedule. The source code of a timesheet app contained 18 accounts with plaintext passwords. Beyond SpaceXSI and X, Claroc identified 30 affected organizations, six of them Fortune 500 companies. The firm is withholding the names. Ad Two of Claroc's own test apps turned up another problem. A contact list app ended up with a database that had no login, so anonymous visitors could add entries. For a sales team customer list, Grok added Google and X sign-in on its own. In that test app, though, Grok's code added every authenticated user to the team first and only checked membership afterward. An outside Google account could then read, edit, and delete records. Claroc says it ran write and delete tests only on its own apps. Grok does offer the right settings. When set to \"Only you,\" the test app blocked outside access. It just isn't the default. In a test with ChatGPT, a newly built app defaulted to \"Only me\" when shared. That app's address can also show up in DNS data, but it leads to an app only the owner can open. Ad SpaceXSI responded to the disclosure only by saying that apps are private until their creator shares them, that publishing takes multiple steps including a legal not",
+   "use_link": "",
    "reject_hits": 1
   }
  ]
