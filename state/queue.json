@@ -393,7 +393,7 @@
    "added": "2026-11-09T13:00:48+00:00",
    "channel_skip": true,
    "skip_why": "بی‌ربط به ابزار سایت",
-   "skip_until": "2026-11-11T12:30:37+00:00"
+   "skip_until": "2026-11-12T00:45:27+00:00"
   },
   {
    "id": "632168d89bb7e70d",
@@ -522,6 +522,21 @@
    "age_hours": 0.6,
    "published": "2026-11-11T11:54:46+00:00",
    "added": "2026-11-11T12:30:48+00:00"
+  },
+  {
+   "id": "a947672393e4b87c",
+   "title": "Mister Blocks",
+   "link": "https://www.producthunt.com/products/mister-blocks",
+   "desc": "Take a picture of your LEGO and AI will make a build Discussion | Link",
+   "source": "پروداکت هانت",
+   "lang": "en",
+   "tier": 3,
+   "group": "",
+   "kind": "tools",
+   "age_hours": 9.3,
+   "published": "2026-11-10T19:26:18-08:00",
+   "added": "2026-11-11T12:45:27+00:00",
+   "reject_hits": 1
   }
  ]
 }
