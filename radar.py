@@ -10,6 +10,7 @@ Commands:
   python radar.py digest     # nightly roundup of leftovers
   python radar.py report     # weekly coverage report
   python radar.py watchdog   # external health check
+  python radar.py health     # token expiry + model providers + cycle age
 Add --dry to print instead of posting.
 """
 
@@ -4889,6 +4890,152 @@ def report_run(s, st):
     return 1
 
 
+# ---------------------------------------------------------------- health
+
+HEALTH_FILE = ROOT / "health.txt"
+
+
+def load_health_targets():
+    """چیزهایی که تاریخ انقضا دارند: توکن‌ها و هر چیز بیرونی.
+
+    هر خط: نام | تاریخ میلادی | توضیح. تاریخ میلادی است چون فاصله‌اش
+    ساده حساب می‌شود؛ در پیام شمسی نشان داده می‌شود.
+    """
+    rows = []
+    if not HEALTH_FILE.exists():
+        return rows
+    for line in HEALTH_FILE.read_text(encoding="utf-8").splitlines():
+        line = line.strip()
+        if not line or line.startswith("#"):
+            continue
+        p = [x.strip() for x in line.split("|")]
+        if len(p) < 2:
+            continue
+        try:
+            when = datetime.fromisoformat(p[1]).date()
+        except Exception:
+            continue
+        rows.append({"name": p[0], "date": when, "note": p[2] if len(p) > 2 else ""})
+    return rows
+
+
+def ping_provider(p):
+    """یک درخواست سبک به فهرست مدل‌های یک لایه. جواب سالم یعنی سرویس زنده است.
+
+    این تنها راه فهمیدن «از دسترس خارج شد» است. خواندن وضعیت خطای قبلی
+    کافی نیست: ممکن است سرویس برگشته باشد، یا خرابی تازه شروع شده و
+    هنوز جایی ثبت نشده باشد.
+    """
+    base = str(p.get("base") or "").rstrip("/")
+    key = env_clean(p.get("key", ""))
+    if not base or not key:
+        return False, "کلید یا آدرس خالی"
+    try:
+        req = urllib.request.Request(
+            base + "/models", headers={"Authorization": "Bearer " + key}
+        )
+        with urllib.request.urlopen(req, timeout=float(p.get("timeout") or 20)) as resp:
+            resp.read(200)
+        return True, "زنده"
+    except urllib.error.HTTPError as exc:
+        return False, "کد {}".format(exc.code)
+    except Exception as exc:
+        return False, type(exc).__name__
+
+
+def health_run(s=None, notify=True, always=False):
+    """بازبینی سلامت: انقضای توکن‌ها، لایه‌های مدل، و تازگی چرخه.
+
+    نتیجه به کانال بازبینی می‌رود، نه کانال اصلی. هدف این است که وقتی
+    چیزی می‌خوابد، همان لحظه معلوم شود چه چیزی خوابیده، نه اینکه یک
+    هفته بعد بفهمیم هیچ پستی نیامده.
+    """
+    s = s or settings()
+    today_d = now().date()
+    problems = []
+    soon = None
+
+    for t in load_health_targets():
+        days = (t["date"] - today_d).days
+        if days < 0:
+            problems.append(
+                "{}: منقضی شده، {} روز پیش. {}".format(t["name"], -days, t["note"])
+            )
+        elif days <= int(s.get("expiry_warn_days", 21) or 21):
+            problems.append("{}: {} روز تا انقضا. {}".format(t["name"], days, t["note"]))
+        if soon is None or days < soon[1]:
+            soon = (t["name"], days)
+
+    providers = s.get("providers") or []
+    dead, nokey = [], []
+    for p in providers:
+        ok, why = ping_provider(p)
+        if ok:
+            continue
+        if why == "کلید یا آدرس خالی":
+            nokey.append(p.get("name", "?"))
+        else:
+            dead.append("{} ({})".format(p.get("name", "?"), why))
+    # «کلید نداریم» با «سرویس خوابیده» یکی نیست. اولی تنظیمات است،
+    # دومی خرابی بیرونی؛ و راه حلشان فرق دارد.
+    if dead:
+        problems.append("لایه‌های مدل جواب ندادند: " + "، ".join(dead))
+    if nokey:
+        problems.append("لایه‌های مدل کلید ندارند: " + "، ".join(nokey))
+    if not providers:
+        problems.append("هیچ لایهٔ مدلی در تنظیمات نیست")
+
+    # چرخه: اگر تریگر خوابیده باشد، همین‌جا معلوم می‌شود.
+    last = read_json(LAST, {})
+    age_h = None
+    try:
+        age_h = (now() - datetime.fromisoformat(str(last.get("at", "")))).total_seconds() / 3600
+    except Exception:
+        pass
+    if age_h is None:
+        problems.append("هیچ اجرایی ثبت نشده")
+    elif age_h > float(s.get("stale_cycle_h", 3) or 3):
+        problems.append("چرخه {} ساعت است نخوابیده ولی حرکت نکرده".format(int(age_h)))
+
+    if problems:
+        head = "<b>بازبینی سلامت — ایراد پیدا شد</b>"
+        body = "\n".join("• " + esc(x) for x in problems)
+    else:
+        head = "<b>بازبینی سلامت — همه سالم</b>"
+        body = "هر {} لایهٔ مدل جواب داد.".format(len(providers))
+        if soon and soon[1] < 90:
+            body += "\nنزدیک‌ترین انقضا: {}، {} روز دیگر.".format(esc(soon[0]), soon[1])
+
+    text = "{}\n\n{}\n\n<i>{}</i>".format(head, body, esc(stamp(now())))
+    # پیام فقط وقتی می‌رود که ایرادی باشد. ولی سکوت نباید با سالم بودن
+    # اشتباه شود، پس هفته‌ای یک بار گزارش سالم هم می‌رود.
+    sch = read_json(SCHED, {})
+    weekly = True
+    try:
+        last_rep = datetime.fromisoformat(str(sch.get("health_report_at") or ""))
+        weekly = (now() - last_rep).total_seconds() >= 7 * 86400
+    except Exception:
+        weekly = True
+    if notify and (always or problems or weekly):
+        try:
+            send_to(personal_chat(), text, preview=False)
+            if not DRY:
+                sch["health_report_at"] = now().isoformat(timespec="seconds")
+                write_json(SCHED, sch)
+        except Exception as exc:
+            log("health send failed:", str(exc)[:120])
+            try:
+                alert(text)
+            except Exception:
+                pass
+    else:
+        log("--- health report ---")
+        log(text)
+    return len(problems)
+
+
+# ---------------------------------------------------------------- watchdog
+
 def watchdog_run():
     last = read_json(LAST, {})
     ts = last.get("at")
@@ -4897,7 +5044,18 @@ def watchdog_run():
         return 0
     age = (now() - datetime.fromisoformat(ts)).total_seconds() / 3600
     if age > 6:
-        alert("<b>نگهبان</b>\n{:.0f} ساعت است هیچ اجرایی ثبت نشده. چرخه خوابیده.".format(age))
+        # اگر توکن تریگر منقضی شده باشد، همین چیز چرخه را خوابانده. نگهبان
+        # باید دلیل را هم بگوید، نه فقط خبر خوابیدن را.
+        why = ""
+        for t in load_health_targets():
+            left_days = (t["date"] - now().date()).days
+            if left_days < 0:
+                why += "\n• {} منقضی شده است".format(t["name"])
+            elif left_days <= 3:
+                why += "\n• {}: {} روز تا انقضا".format(t["name"], left_days)
+        alert(
+            "<b>نگهبان</b>\n{:.0f} ساعت است هیچ اجرایی ثبت نشده. چرخه خوابیده.{}".format(age, why)
+        )
         return 1
     log("watchdog ok, last run {:.1f}h ago".format(age))
     return 0
@@ -4992,6 +5150,16 @@ def auto_run(s, st, seen, extra, role="main"):
         if before != after:
             log("queue prune: {} -> {}".format(before, after))
         mark("pruned_day", today)
+
+    # بازبینی سلامت، روزی یک بار. ایراد که باشد پیام می‌رود؛ نبود هم
+    # هفته‌ای یک بار گزارش سالم می‌رود. این‌جا هست، نه در ورک‌فلو جدا،
+    # چون خودِ چرخه باید بگوید چرا خوابیده.
+    if sch.get("health_day") != today:
+        try:
+            health_run(s)
+        except Exception as exc:
+            log("health check failed:", str(exc)[:120])
+        mark("health_day", today)
 
     teh = now().astimezone(TZ)
 
@@ -5482,6 +5650,8 @@ def main():
         report_run(s, st)
     elif cmd == "watchdog":
         return watchdog_run()
+    elif cmd == "health":
+        return health_run(s, always=True)
     elif cmd == "auto":
         auto_run(s, st, seen, extra, role)
     elif cmd == "compare":

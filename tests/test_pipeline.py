@@ -1649,6 +1649,45 @@ check("نمایشگاه: محصول واقعی شخصی حساب نمی‌شود
 check("نمایشگاه: پورتفولیو در هر دو جا رد شده",
       "پورتفولیو" in radar.KIND_HINT["showcase"] and "پورتفولیو" in radar.SYSTEM_PROMPT, True)
 
+# ---------------------------------------------------------------- بازبینی سلامت
+# فهرست انقضا از فایل خوانده می‌شود و تاریخ‌ها باید سالم باشند.
+_ht = radar.load_health_targets()
+check("سلامت: فهرست انقضا خوانده می‌شود", len(_ht) >= 2, True)
+check("سلامت: هر ردیف نام و تاریخ دارد",
+      all(t["name"] and t["date"] for t in _ht), True)
+check("سلامت: تاریخ‌ها در آینده‌اند",
+      all(t["date"] > radar.now().date() for t in _ht), True)
+# لایهٔ بدون کلید، «خوابیده» حساب نمی‌شود؛ پیامش فرق دارد.
+check("سلامت: لایهٔ بی‌کلید جدا گزارش می‌شود",
+      radar.ping_provider({"base": "https://x.test/v1", "key": "NO_SUCH_ENV"})[1],
+      "کلید یا آدرس خالی")
+
+_real_targets = radar.load_health_targets
+_real_ping = radar.ping_provider
+_now_d = radar.now().date()
+# ایراد: توکن پنج روز دیگر منقضی می‌شود.
+radar.load_health_targets = lambda: [
+    {"name": "توکن آزمون", "date": _now_d + timedelta(days=5), "note": "آزمون"}
+]
+radar.ping_provider = lambda p: (True, "زنده")
+check("سلامت: انقضای نزدیک ایراد حساب می‌شود",
+      radar.health_run({"providers": [{"name": "a", "base": "x", "key": "K"}]},
+                       notify=False) >= 1, True)
+# سالم: توکن دور است و لایه جواب می‌دهد.
+radar.load_health_targets = lambda: [
+    {"name": "توکن آزمون", "date": _now_d + timedelta(days=200), "note": "آزمون"}
+]
+check("سلامت: همه سالم، ایراد صفر",
+      radar.health_run({"providers": [{"name": "a", "base": "x", "key": "K"}]},
+                       notify=False), 0)
+# لایهٔ خراب باید ایراد بسازد.
+radar.ping_provider = lambda p: (False, "کد ۴۰۱")
+check("سلامت: لایهٔ خراب ایراد می‌سازد",
+      radar.health_run({"providers": [{"name": "a", "base": "x", "key": "K"}]},
+                       notify=False) >= 1, True)
+radar.load_health_targets = _real_targets
+radar.ping_provider = _real_ping
+
 # ---------------------------------------------------------------- نتیجه
 print("{} آزمون اجرا شد.".format(COUNT))
 if FAILS:
