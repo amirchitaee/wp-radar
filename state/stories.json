@@ -356,6 +356,22 @@
    ],
    "vers": [],
    "cves": []
+  },
+  {
+   "t": "2026-11-11T01:16:01+00:00",
+   "id": "1afd9e573768b3f1",
+   "title": "Introducing Our Smallest, Most Efficient Model: Muse Ember",
+   "kind": "tools",
+   "link": "https://simonwillison.net/2026/Nov/10/muse-ember",
+   "ents": [
+    "efficient",
+    "ember",
+    "model",
+    "muse",
+    "smallest"
+   ],
+   "vers": [],
+   "cves": []
   }
  ]
 }
