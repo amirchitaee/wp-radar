@@ -84,7 +84,7 @@
    "added": "2026-11-10T19:45:42+00:00",
    "full": "Google Deepmind has unveiled a new AI model for robot control. In a pilot test on active Mercedes-Benz production lines, a humanoid robot reportedly achieved a 96 percent success rate. Google Deepmind has introduced Gemini Robotics 2.5 , a vision-language-action model (VLA) that processes visual information, understands language instructions, and translates them into robot movements. The model builds on its predecessor, introduced earlier this year, which was designed to give robots full-body control for the first time. Google Deepmind says it tested the model on more than 200 tasks, including serving food with tongs and pipetting liquids. Compared to the company's own previous baselines, it reportedly achieves a 30 to 100 percent higher success rate depending on the task type and completes tasks 20 to 30 percent faster. Ad The model is designed to work with different robot types, including Apptronik's humanoid robot Apollo 2 with a five-fingered hand that has 22 degrees of freedom, and the Franka Duo platform with two-finger parallel grippers. Ad Together with Apptronik and Mercedes-Benz, Google Deepmind tested the model on active production lines in Kecskemét, Hungary, and Sindelfingen, Germany. The Apollo 2 robot handled kitting: it sorted metal parts from bulk bins and placed them into trays in the order needed for each vehicle on the assembly line. Two AI models worked in tandem. Gemini Robotics ER monitored the workflow, while Gemini Robotics 2.5 controlled hands and arms. Google Deepmind reports a 96 percent success rate for this pilot test. Apptronik CEO Jeff Cardenas said the models improved significantly within a few weeks of post-training and successfully transitioned to Mercedes production with minimal performance loss. According to Google Deepmind, Gemini Robotics 2.5 uses real-time control that enables the robot to avoid physical hazards while performing a task. In its own evaluations, safe task completion improved by 33 percent near obstacles and by 43 percent near people. Ad In addition, Google Deepmind has published the open-source ASIMOV-Jailbreak benchmark on Hugging Face . It contains hundreds of prompts that disguise unsafe requests in dozens of scenes and is designed to test whether robotics models can be tricked into performing dangerous actions. According to the company, Google’s own model, Gemini 4 Argon, achieves a jailbreak resistance of 99.5 percent, compared to 82 percent for its predecessor, Gemini Robotics ER 2. Ad During the development of Gemini Robotics 2.5, Google Deepmind used its own language model, Gemini 4 Argon, as a simulation engine. Argon can generate thousands of simulated training runs from a real camera scene and create a digital twin. In combination with real-world training demonstrations, this is intended to help the robot generalize more quickly to new scenes and objects. Argon can also derive hypotheses about the causes of errors from video recordings and test improvements in simulation and on the actual robot. According to Google Deepmind, Gemini Robotics 2.5 is being rolled out to partners Agile, Apptronik, and Mercedes-Benz. Subscribe to THE DECODER for ad-free reading, a weekly AI newslett",
    "use_link": "https://huggingface.co/datasets/google/asimov_agentic",
-   "reject_hits": 1
+   "reject_hits": 2
   },
   {
    "id": "3d6663a0fbc986e0",
@@ -441,24 +441,6 @@
    "added": "2026-11-08T20:30:40+00:00",
    "full": "Principal Product Designer at https://chroniclehq.com/",
    "use_link": ""
-  },
-  {
-   "id": "9198dc1328a39d8d",
-   "title": "OpenAI turns ChatGPT into a business directory with AI agents that handle customer questions",
-   "link": "https://the-decoder.com/openai-turns-chatgpt-into-a-business-directory-with-ai-agents-that-handle-customer-questions",
-   "desc": "OpenAI is opening up ChatGPT as a business platform: through a new Business Hub, companies can claim their profile, add product data, and track how users interact with them. \"Business Agents\" let eligible US e-commerce providers talk to customers directly inside ChatGPT. The article OpenAI turns ChatGPT into a business directory with AI agents that handle customer questions appeared first on The Decoder .",
-   "source": "دیکودر",
-   "lang": "en",
-   "tier": 2,
-   "group": "ai",
-   "kind": "news",
-   "age_hours": 4.0,
-   "published": "2026-11-10T20:17:00+00:00",
-   "added": "2026-11-11T00:15:40+00:00",
-   "full": "OpenAI is launching a beta feature called \"Businesses in ChatGPT\" that could compete with Google's \"MyBusiness.\" Google My Business is Google's free tool that lets companies manage how they appear across Search and Maps, and OpenAI's new offering challenges it by placing business profiles directly inside a conversational AI interface instead. Companies can register and manage their business through a Business Hub, update their information, add product feeds with prices and availability, and track how often they're mentioned in conversations or how many clicks their website gets. Eligible US e-commerce and online service providers can also create \"Business Agents,\" AI agents that answer customer questions in ChatGPT, help with product comparisons, and can serve as targets for ChatGPT ads. Shopify merchants can connect their store directly. OpenAI says user conversations aren't shared with businesses. ChatGPT currently reaches 1.2 billion users per week, according to OpenAI, and the company plans to expand the offering to more markets and industries over time. Ad Ad Subscribe to THE DECODER for ad-free reading, a weekly AI newsletter, our exclusive \"AI Radar\" frontier report six times a year, full archive access, and access to our comment section.",
-   "use_link": "https://openai.com/index/introducing-businesses-chatgpt/",
-   "posted": true,
-   "msg_id": 127
   },
   {
    "id": "bb1492f15ad8ddfd",
