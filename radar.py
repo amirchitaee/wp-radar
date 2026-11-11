@@ -2482,6 +2482,39 @@ def og_image(url):
     return ""
 
 
+def real_site(link):
+    """آدرس واقعی سایتی که در گالری معرفی شده است.
+
+    وان‌پیج‌لاو در فید، لینک صفحهٔ گالری را می‌دهد و آدرس خود سایت را داخل
+    همان صفحه می‌گذارد. اگر لینک فید را پست کنیم، خواننده به گالری می‌رسد
+    نه به سایتی که قرار است ببیند. پس همان‌جا استخراجش می‌کنیم.
+    """
+    host = (urllib.parse.urlparse(link or "").netloc or "").lower()
+    if not host.endswith("onepagelove.com"):
+        return ""
+    try:
+        raw = http_get(link, timeout=12).decode("utf-8", "replace")
+    except Exception:
+        return ""
+    # دکمهٔ «Visit Website» تنها لینکی است که پارامتر ارجاع دارد و به خود
+    # سایت می‌رود. بقیهٔ لینک‌های همان صفحه، صفحهٔ گالری‌اند.
+    m = re.search(
+        r'<a[^>]+href="(https?://[^"]+?[?&]ref=onepagelove[^"]*)"[^>]*title="Visit',
+        raw,
+        re.I,
+    )
+    if not m:
+        m = re.search(
+            r'<a[^>]+title="Visit[^"]*"[^>]*href="(https?://[^"]+?[?&]ref=onepagelove[^"]*)"',
+            raw,
+            re.I,
+        )
+    if not m:
+        return ""
+    url = m.group(1).replace("&amp;", "&")
+    return re.sub(r"[?&]ref=onepagelove", "", url)
+
+
 FA_DIGITS = str.maketrans("0123456789", "۰۱۲۳۴۵۶۷۸۹")
 FA_MONTHS = [
     "فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد", "شهریور",
@@ -3576,6 +3609,10 @@ def collect(kind, st, seen, budget_sec=None, watch=True):
                     "id": iid,
                     "title": it["title"],
                     "link": it["link"],
+                    # گالری، لینک خودش را در فید می‌دهد. آدرس واقعی سایت
+                    # همین‌جا یک بار استخراج می‌شود تا موقع پست، وقتِ
+                    # انتشار صرف شبکه نشود و پست هم به گالری نرود.
+                    "site": real_site(it["link"]) if kind == "showcase" else "",
                     "desc": it["desc"],
                     "source": src["name"],
                     "lang": src["lang"],
@@ -4533,7 +4570,11 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
                 tags,
                 it.get("published"),
                 name=name,
-                use_link=it.get("use_link", "") if (kind == "offers" or action_links_on()) else "",
+                use_link=(
+                    (it.get("site") or "")
+                    if kind == "showcase"
+                    else (it.get("use_link", "") if (kind == "offers" or action_links_on()) else "")
+                ),
             )
             # خارج از پنجرهٔ انتشار، متن نوشته و نگه داشته می‌شود.
             # هشدار امنیتی و خبر فوری منتظر ساعت نمی‌مانند.
