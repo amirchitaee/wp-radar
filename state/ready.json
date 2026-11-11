@@ -1,20 +1,6 @@
 {
  "items": [
   {
-   "id": "053da60fa0cfa4af",
-   "at": "2026-11-10T22:01:09+00:00",
-   "kind": "news",
-   "label": "آپدیت",
-   "text": "<b>🔄 آپدیت: گوگل ⁦Gemini⁩ ۴ ⁦Carbon⁩ را برای همه باز کرد؛ ارزان‌تر از مدل قبلی</b>\n\nگوگل بعد از دو هفته آزمایش، ⁦Gemini⁩ ۴ ⁦Carbon⁩ را برای همه منتشر کرد. این مدل در چند بنچمارک اول شده و برای هر کار حل‌شده هزینه‌اش از مدل ارزان‌قیمت قبلی گوگل کمتر است.\n\n<blockquote expandable>گوگل می‌گوید ⁦Carbon⁩ جایگزین ⁦Gemini⁩ ۴ ⁦Argon⁩ نیست؛ ⁦Argon⁩ برای کارهای معمول برنامه‌نویسی بهتر است و ⁦Carbon⁩ برای کارهای پیچیده‌تر مثل دیباگ چندمرحله‌ای.\nقیمت هر یک میلیون توکن ورودی ۴ دلار و خروجی ۲۰ دلار است، ولی چون ⁦Carbon⁩ برای کارهای سخت توکن بیشتری مصرف می‌کند، قبض نهایی معمولاً از ⁦Argon⁩ بالاتر درمی‌آید.\nیک ویژگی به اسم /⁦swarm⁩ هم معرفی شده که چند ایجنت را برای تقسیم کار پیچیده هماهنگ می‌کند.</blockquote>\n\nاطلاعات بیشتر دربارهٔ این موضوع را از <a href=\"https://the-decoder.com/gemini-4-carbon-arrives-just-in-time-to-feel-like-yesterdays-news-in-the-fastest-model-cycle-yet\">منبع</a> بخوانید.\n\n<i>۱۹ آبان ۱۴۰۵ · ۲۱:۴۹</i>\n\n#آپدیت #هوش_مصنوعی",
-   "score": 65.0,
-   "title": "گوگل Gemini 4 Carbon را برای همه باز کرد؛ ارزان‌تر از مدل قبلی",
-   "summary": "گوگل بعد از دو هفته آزمایش، Gemini 4 Carbon را برای همه منتشر کرد. این مدل در چند بنچمارک اول شده و برای هر کار حل‌شده هزینه‌اش از مدل ارزان‌قیمت قبلی گوگل کمتر است.",
-   "link": "https://the-decoder.com/gemini-4-carbon-arrives-just-in-time-to-feel-like-yesterdays-news-in-the-fastest-model-cycle-yet",
-   "source": "دیکودر",
-   "group": "ai",
-   "photo": ""
-  },
-  {
    "id": "1afd9e573768b3f1",
    "at": "2026-11-11T01:16:01+00:00",
    "kind": "tools",
