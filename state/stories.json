@@ -421,6 +421,20 @@
    ],
    "vers": [],
    "cves": []
+  },
+  {
+   "t": "2026-11-11T18:01:19+00:00",
+   "id": "b16f94b075a4a76f",
+   "title": "WooCommerce 11.3.0",
+   "kind": "news",
+   "link": "https://wordpress.org/plugins/woocommerce/",
+   "ents": [
+    "woocommerce"
+   ],
+   "vers": [
+    "11.3.0"
+   ],
+   "cves": []
   }
  ]
 }

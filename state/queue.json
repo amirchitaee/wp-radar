@@ -342,7 +342,7 @@
    "added": "2026-11-11T00:15:40+00:00",
    "channel_skip": true,
    "skip_why": "صورت‌جلسه یا گزارش",
-   "skip_until": "2026-11-11T17:45:46+00:00"
+   "skip_until": "2026-11-12T06:01:09+00:00"
   },
   {
    "id": "5ebdd6214ba967db",
@@ -490,6 +490,65 @@
    "full": "American data brokers sell so-called RL environments to Chinese AI labs, helping them save compute during model development. A ChinaTalk investigation identifies at least nine companies involved. American data firms like Mercor, Surge AI, AfterQuery, and Turing are selling roughly half a billion dollars' worth of training data to Chinese AI labs, according to an investigation by ChinaTalk . Some of that data takes the form of reinforcement learning environments, which are simulated worlds where AI models are trained on specific tasks like coding, financial analysis, or office work. Chinese labs deliberately buy the same products previously sold to Anthropic or OpenAI, the report says. That way, they already know the data works and can skip costly in-house development and wasted training runs. Because Chinese chips suffer from acute memory bottlenecks, those savings are particularly valuable for labs there. Ad There is also the issue of distillation. Chinese labs use powerful US models like GPT or Claude as \"teachers,\" using their outputs as training examples. Combined with purchased RL environments, this creates a two-pronged advantage that lets Chinese labs close the gap with less compute of their own. Ad The authors identified at least nine US data firms selling to Chinese customers. AfterQuery reportedly draws a significant share of its annual recurring revenue from Chinese customers. ChinaTalk points to Forbes reports of about $100 million in ARR but could not independently verify the sales. Surge AI openly advertises on its website that its products are \"built by the same experts behind our frontier-lab work.\" The deals also run through offshore structures. ByteDance maintains procurement offices in Singapore and San Jose. Ad These business relationships came to light through a combination of anonymous sources and sloppy operational security among subcontractors, according to ChinaTalk. The US data firms outsource much of the actual RL environment creation and data curation to low-paid workers in developing countries, especially India. Those subcontractors then sometimes post client names on LinkedIn or in résumés, even though they are supposed to use only code names. Export controls barely apply because RL environments remain largely unregulated. Domains with dual-use potential pose particular risks: Coding environments improve software development but can also sharpen offensive cyber capabilities. Biology environments could improve gene synthesis capabilities and potentially enhance bioweapons-relevant applications. The ChinaTalk authors argue that the Bureau of Industry and Security should subject these dual-use environments to existing export controls. Ad At the same time, the authors stress that these relationships are not apocalyptic. By piggybacking on US work, Chinese labs still trail their US peers by at least a few months as a structural matter. Sensitive environments in areas like biology, chemistry, cybersecurity, chip design, and investment banking are increasingly being built in-house at American frontier companies, the authors say. Ad Subscribe to THE DECODER for ad-free reading, a weekly AI newsletter, our exclusive \"AI R",
    "use_link": "",
    "reject_hits": 2
+  },
+  {
+   "id": "b16f94b075a4a76f",
+   "title": "WooCommerce 11.3.0",
+   "link": "https://wordpress.org/plugins/woocommerce/",
+   "desc": "نسخهٔ 11.3.0 از WooCommerce منتشر شد. تغییرات این نسخه: Fix – Add the missing space between sentences in the footer of back-in-stock notification emails. #69812 | Fix – Align the customer stock notification admin screens with the order screens: even page gutters, a full-width action dropdown, rounded meta box corners, and a right-aligned submit button. #68851 | Fix – Allow JavaScript detection to work with nonce-based Content Security Policies. #69811 | Fix – Allow mobile zoom in the Core Profiler without triggering automatic input zoom. #68171 | Fix – Allow the Order Fulfillments drawer to be scrolled with the mouse wheel on desktop. #69634 | Fix – Allow turning off “Stock notifications” for a product that has never had the setting changed. #69497 | Fix – Always apply the offline payment methods’ “Enable for shipping methods” setting at checkout, including on requests that reference an order. #68976 | Fix – Analytics: add a Status > Tools tool, plus an inbox note pointing to it, that finds and re-imports orders whose partial-then-full refunds were counted twice in the Revenue report’s returns. #66505 | Fix – Analytics: fix the custom date range calendar reading out the wrong date to screen reader users. #68514",
+   "source": "آپدیت افزونه",
+   "lang": "en",
+   "tier": 1,
+   "group": "wp",
+   "kind": "news",
+   "age_hours": 0.0,
+   "published": "2026-11-11T18:01:03+00:00",
+   "added": "2026-11-11T18:01:03+00:00",
+   "plugin": {
+    "name": "WooCommerce",
+    "version": "11.3.0",
+    "prev": "11.2.2",
+    "installs": 7000000,
+    "updated": "2026-11-11"
+   },
+   "plugin_update": {
+    "name": "WooCommerce",
+    "slug": "woocommerce",
+    "version": "11.3.0",
+    "prev": "11.2.2",
+    "date": "11.3.0 2026-11-11",
+    "changes": [
+     "Fix – Add the missing space between sentences in the footer of back-in-stock notification emails. #69812",
+     "Fix – Align the customer stock notification admin screens with the order screens: even page gutters, a full-width action dropdown, rounded meta box corners, and a right-aligned submit button. #68851",
+     "Fix – Allow JavaScript detection to work with nonce-based Content Security Policies. #69811",
+     "Fix – Allow mobile zoom in the Core Profiler without triggering automatic input zoom. #68171",
+     "Fix – Allow the Order Fulfillments drawer to be scrolled with the mouse wheel on desktop. #69634",
+     "Fix – Allow turning off “Stock notifications” for a product that has never had the setting changed. #69497",
+     "Fix – Always apply the offline payment methods’ “Enable for shipping methods” setting at checkout, including on requests that reference an order. #68976",
+     "Fix – Analytics: add a Status > Tools tool, plus an inbox note pointing to it, that finds and re-imports orders whose partial-then-full refunds were counted twice in the Revenue report’s returns. #66505",
+     "Fix – Analytics: fix the custom date range calendar reading out the wrong date to screen reader users. #68514"
+    ],
+    "vuln": false,
+    "hardening": false
+   },
+   "full": "WooCommerce is the open-source ecommerce platform for WordPress. Our core platform is free, flexible, and amplified by a global community. The freedom of open-source means you retain full ownership of your store’s content and data forever. Whether you’re launching a business, taking brick-and-mortar retail online, or developing sites for clients, use WooCommerce for a store that powerfully blends content and commerce. Built-in tools and popular integrations help you efficiently manage your business operations. Many services are free to add with a single click via the optional Setup Wizard . WooCommerce means business. Keep tabs on the performance metrics most important to you with a powerful and flexible central dashboard built into WooCommerce. Expand your audience across marketing and social channels with Google Ads , HubSpot , Mailchimp , and Facebook integrations. You can always check out the in-dashboard Marketing Hub for fresh ideas and tips to help you succeed. Enhance store functionality with hundreds of free and paid extensions from the WooCommerce Marketplace . Our developers vet each new extension and regularly review existing extensions to maintain Marketplace quality standards. We are actively looking for products that help store builders create successful stores . Manage your store from anywhere with the free WooCommerce mobile app (Android and iOS). Spoiler alert: Keep an ear out for the slightly addictive “cha-ching” notification sound each time you make a new sale! With WooCommerce , your data belongs to you. Always. If you opt to share usage data with us, you can feel confident knowing that it’s anonymized and kept secure. Choose to opt-out at any time without impacting your store. Unlike hosted ecommerce solutions, WooCommerce store data is future-proof; you’re free to export all your content and take your site to any platform you choose. No restrictions. Developers can use WooCommerce to create, customize, and scale a store to meet a client’s exact specifications, making enhancements through extensions or custom solutions. The core platform is tested rigorously and often, supported by a dedicated development team working across time zones. Comprehensive documentation is updated with each release, empowering you to build exactly the store required. WooCommerce has a large, passionate community dedicated to helping merchants succeed – and it’s growing fast. There are WooCommerce Meetups in locations around the world that you can attend for free and even get involved in running. These events are a great way to learn from others, share your expertise, and connect with like-minded folks. WooCommerce also has a regular presence at WordCamps across the globe – we’d love to meet you. WooCommerce is developed and supported by Automattic, the creators of WordPress.com and Jetpack. We also have hundreds of independent contributors, and there’s always room for more. Head to the WooCommerce GitHub Repository to find out how you can pitch in. WooCommerce is translated into multiple languages, including Danish, Ukrainian, and Persian. Help localize WooCommerce even further by adding your locale – visit translate.wordpress.org . You can c",
+   "use_link": "",
+   "held": true
+  },
+  {
+   "id": "7171fc0535188e20",
+   "title": "Helsing built an AI system that prepares targets for weapons systems and says every decision will carry a human name",
+   "link": "https://the-decoder.com/helsing-built-an-ai-system-that-prepares-targets-for-weapons-systems-and-says-every-decision-will-carry-a-human-name",
+   "site": "",
+   "desc": "Helsing has unveiled Clarity, an AI platform that uses agents to distill sensor data into target recommendations for weapons systems, all under human oversight and European control. But experience from the Iran war, Gaza, and a near-miss involving China shows that the speed of automation and data fusion create risks that are hard to contain. The article Helsing built an AI system that prepares targets for weapons systems and says every decision will carry a human name appeared first on The Decoder .",
+   "source": "دیکودر",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 2.8,
+   "published": "2026-11-11T15:12:53+00:00",
+   "added": "2026-11-11T18:01:02+00:00"
   }
  ]
 }
