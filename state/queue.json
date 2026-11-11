@@ -70,24 +70,6 @@
    "reject_hits": 2
   },
   {
-   "id": "053da60fa0cfa4af",
-   "title": "Gemini 4 Carbon arrives just in time to feel like yesterday's news in the fastest model cycle yet",
-   "link": "https://the-decoder.com/gemini-4-carbon-arrives-just-in-time-to-feel-like-yesterdays-news-in-the-fastest-model-cycle-yet",
-   "desc": "Google is making Gemini 4 Carbon generally available after a two-week testing phase. The model ranks first in several benchmarks, in some cases ahead of Anthropic's new Fable 5.2, at less than half the per-task cost. Google is also previewing coordinated agent teams through the \"/swarm\" feature, which split up complex tasks in real time. The article Gemini 4 Carbon arrives just in time to feel like yesterday's news in the fastest model cycle yet appeared first on The Decoder .",
-   "source": "دیکودر",
-   "lang": "en",
-   "tier": 2,
-   "group": "ai",
-   "kind": "news",
-   "age_hours": 1.4,
-   "published": "2026-11-10T18:19:13+00:00",
-   "added": "2026-11-10T19:45:42+00:00",
-   "full": "About two weeks ago, it looked as though Google would once again take the lead in AI models when it unveiled Gemini 4 Carbon. But the advertising and cloud giant took a bit too long to release it. Now, Carbon is already starting to feel a little less fresh. Anthropic just unveiled its new top model, Fable 5.2 , which outperforms the new Gemini model in the Artificial Analysis test even at lower reasoning intensity. The model cycle is spinning particularly fast right now. Still, it's good to see that Carbon is now generally available after a two-week testing phase for selected security experts. Google says Carbon complements the previously released Gemini 4 Argon rather than replacing it. Argon is still the better choice for most software engineering and knowledge work tasks, according to Google, while Carbon is built for tasks that push the limits of model intelligence. That's a bit surprising, since both models have the same token price, but Carbon scores higher on benchmarks. Ad Google lists complex multi-step coding and debugging along with open-ended scientific research among Carbon's strengths. But the model uses more tokens than Argon to reason more deeply on complex debugging or open-ended research and to run longer verification loops. So in practice, the total bill is likely higher compared to Argon despite the same token price. Ad In the Artificial Analysis test published two weeks ago, Carbon cost $7.76 per solved task, already calculated at the regular standard price of four dollars per million input tokens and 20 dollars per million output tokens. That makes Carbon cheaper than the older budget model Flash 3.8 while delivering better performance, which is no small feat. A Flash variant of Gemini 4 is likely to launch soon. In the same test, Opus 5.5 Max comes in at $10.04, GPT-6 Astra Max at $6.25. Fable 5.2 at its maximum tier costs as much as $26.50. At the High tier, Fable 5.2 costs \"only\" about $9 per task but still sits two points ahead of Carbon in the overall index (62 vs. 60). Ad Developers and business customers on paid tiers can access the model through the Gemini API in Google AI Studio, in Android Studio, or through Gemini for Business. The introductory price stays at two dollars per million input tokens and ten dollars per million output tokens. Alongside the model launch, Google is previewing the \"/swarm\" feature in Google Antigravity, Google's counterpart to Claude Code. The new feature turns a single prompt into a coordinated team of agents whose work can be tracked in real time. Carbon takes on roles that need deep reasoning, such as architecture design, coordination, and auditing, while faster, lighter models run in parallel isolated workspaces and as adversarial verifiers. Ad Google demonstrates the feature with a 3D game where users explore the Google campus in Mountain View as a pelican on a GBike, an interactive 3D reconstruction of the Eiffel Tower's construction based on historical photos, and a playable 18th-century fortepiano with seat-specific spatial acoustics. Ad The cost-benefit ratio of agent swarms like these is being debated across the industry. OpenAI and Anthropic have recently sounded cautious, ",
-   "use_link": "",
-   "posted": true,
-   "msg_id": 125
-  },
-  {
    "id": "8ab9bda3b9d181f1",
    "title": "Google DeepMind's Gemini Robotics 2.5 scores 96 percent sorting metal parts in a Mercedes-Benz assembly pilot",
    "link": "https://the-decoder.com/google-deepminds-gemini-robotics-2-5-scores-96-percent-sorting-metal-parts-in-a-mercedes-benz-assembly-pilot",
