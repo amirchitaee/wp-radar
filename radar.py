@@ -1728,6 +1728,8 @@ KIND_HINT = {
     "showcase": (
         "این دسته نمایشگاه است؛ سایتی با طراحی دیدنی یا ایدهٔ تازه که ارزش نگاه کردن دارد. "
         "لازم نیست با وردپرس ساخته شده باشد؛ سایت ساخته‌شده با ابزار هوش مصنوعی هم پذیرفته است. "
+        "صفحهٔ فرود و فروگاه با ایدهٔ تازه پذیرفته است، حتی اگر محصول بفروشد. "
+        "پورتفولیو و آرشیو کارهای شخصی پذیرفته نیست، مگر طراحی‌اش واقعاً استثنایی باشد. "
         "قالب آمادهٔ فروشی و صفحهٔ فروش خدمت این‌جا جایی ندارد."
     ),
 }
@@ -1742,7 +1744,22 @@ def kind_hint(kind):
 # «Webflow HTML website template» و همین‌ها سبد را پر می‌کردند. مدل
 # هر بار ردشان می‌کرد، سبد خالی می‌شد و نوبت نمایشگاه بی‌پست می‌سوخت.
 SHOWCASE_TEMPLATE_RE = re.compile(
-    r"(website template|webflow template|\btemplate\b|\bui kit\b|\btheme\b)",
+    r"(website template|webflow template|\btemplate\b|\bui kit\b|\btheme\b|"
+    r"\bcloneable\b|\bwireframe\b|\bmockup\b|\bboilerplate\b|"
+    r"\bsite builder\b|\bwebsite builder\b|"
+    r"websites for (?:artists|photographers|agencies|startups|freelancers)|"
+    r"\bfree (?:template|download|bie)s?\b)",
+    re.I,
+)
+
+# پورتفولیو و آرشیو کارهای شخصی، سایت نیست؛ آلبوم است. حذف نمی‌شود چون
+# ممکن است طراحی‌اش واقعاً دیدنی باشد؛ فقط آخر صف می‌ایستد تا وقتی نمونهٔ
+# بهتری هست، نوبت به آن نرسد.
+SHOWCASE_PERSONAL_RE = re.compile(
+    r"(portfolio|resume|\bcv\b|personal (?:site|website|portfolio)|"
+    r"art director|photographer|illustrator|"
+    r"product designer|graphic designer|designer &|"
+    r"my (?:work|projects))",
     re.I,
 )
 
@@ -3669,6 +3686,18 @@ def collect(kind, st, seen, budget_sec=None, watch=True):
         if dropped:
             log("ai intake: {} dropped, daily cap reached".format(dropped))
         rows = kept
+    # پورتفولیو و آرشیو شخصی آخر صف می‌ایستد، نه بیرون. اگر نمونهٔ بهتری
+    # نبود، همان هم شانس دارد؛ ولی وقتی سبد پر است، اول نمونه‌های محصولی
+    # و فروگاهی وارد می‌شوند. مرتب‌سازی پایدار است، پس ترتیب درون هر
+    # گروه عوض نمی‌شود.
+    if kind == "showcase":
+        rows.sort(
+            key=lambda r: bool(
+                SHOWCASE_PERSONAL_RE.search(
+                    (r.get("title") or "") + " " + (r.get("desc") or "")
+                )
+            )
+        )
     # سقف ورود. پیش از رصد نسخه، چون آپدیت افزونه آیتم کمیاب است و
     # نباید قربانی سقف انبار شود.
     rows = trim_intake(kind, rows, settings())
@@ -4127,6 +4156,17 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
     # وردپرسی قبل از خبر عمومی هوش مصنوعی به مدل می‌رود، حتی اگر امتیازش
     # کمتر باشد. مدل فقط چیزی را می‌بیند که به او داده شود.
     pending = wp_first_sort(pending)
+    # نمونهٔ شخصی آخر صف. این‌جا هم تکرار می‌شود، نه فقط موقع ورود، چون
+    # آیتم‌هایی که پیش از این قاعده وارد صف شده‌اند باید هم بگیرند.
+    # حذف نمی‌شوند؛ فقط وقتی نمونهٔ محصولی هست، نوبت به آن‌ها نمی‌رسد.
+    if kind == "showcase":
+        pending.sort(
+            key=lambda x: bool(
+                SHOWCASE_PERSONAL_RE.search(
+                    (x.get("title") or "") + " " + (x.get("desc") or "")
+                )
+            )
+        )
     # حالت جای خالی: هیچ خبر تازهٔ وردپرسی در سبد نیست و فقط آموزش یا
     # خبر هوش مصنوعی مانده. آن وقت یک آموزش کاربردی بهتر از سکوت است،
     # ولی سقفش یک پست در هر اجراست تا کانال پر از «چطور فلان کار را

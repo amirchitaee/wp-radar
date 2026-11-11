@@ -1547,6 +1547,28 @@ check("نمایشگاه: دامنهٔ غیرگالری آدرس نمی‌ساز�
       radar.real_site("https://wordpress.org/plugins/x/"), "")
 check("نمایشگاه: آدرس خالی هم خطا نمی‌دهد", radar.real_site(""), "")
 
+# ---------------------------------------------------------------- معیار نمایشگاه
+# قالب آماده و سازندهٔ سایت، سایت نیست. این‌ها همان‌جا کنار می‌روند.
+check("نمایشگاه: قالب آماده رد می‌شود",
+      bool(radar.SHOWCASE_TEMPLATE_RE.search("Noura - Webflow HTML website template")), True)
+check("نمایشگاه: سازندهٔ سایت به‌جای سایت رد می‌شود",
+      bool(radar.SHOWCASE_TEMPLATE_RE.search(
+          "Relume — AI Website Builder for Marketing Websites")), True)
+check("نمایشگاه: سایت واقعی رد نمی‌شود",
+      bool(radar.SHOWCASE_TEMPLATE_RE.search("Teamtailor | For hiring people")), False)
+check("نمایشگاه: فروشگاه واقعی رد نمی‌شود",
+      bool(radar.SHOWCASE_TEMPLATE_RE.search("Spyker Cars")), False)
+# پورتفولیو حذف نمی‌شود، فقط آخر صف می‌ایستد.
+check("نمایشگاه: پورتفولیوی شخصی شناخته می‌شود",
+      bool(radar.SHOWCASE_PERSONAL_RE.search("Gavril — Product Designer & Art Director, Paris")), True)
+check("نمایشگاه: آرشیو کار شخصی شناخته می‌شود",
+      bool(radar.SHOWCASE_PERSONAL_RE.search("a portfolio to look and feel like his 10 year old self")), True)
+check("نمایشگاه: محصول واقعی شخصی حساب نمی‌شود",
+      bool(radar.SHOWCASE_PERSONAL_RE.search("Audienceful: Agentic email marketing and automation")), False)
+# قاعده باید در هر دو جا یکی باشد، وگرنه مدل و کد دو حرف می‌زنند.
+check("نمایشگاه: پورتفولیو در هر دو جا رد شده",
+      "پورتفولیو" in radar.KIND_HINT["showcase"] and "پورتفولیو" in radar.SYSTEM_PROMPT, True)
+
 # ---------------------------------------------------------------- نتیجه
 print("{} آزمون اجرا شد.".format(COUNT))
 if FAILS:
