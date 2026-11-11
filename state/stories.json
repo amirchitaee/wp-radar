@@ -85,20 +85,6 @@
    "cves": []
   },
   {
-   "t": "2026-11-07T15:15:54+00:00",
-   "id": "3e407aae56c89ae9",
-   "title": "State propaganda in some Chinese AI models is only \"a thin layer\" that fine-tuning can strip away",
-   "kind": "news",
-   "link": "https://the-decoder.com/state-propaganda-in-some-chinese-ai-models-is-only-a-thin-layer-that-fine-tuning-can-strip-away",
-   "ents": [
-    "ai",
-    "chinese",
-    "state"
-   ],
-   "vers": [],
-   "cves": []
-  },
-  {
    "t": "2026-11-08T04:16:20+00:00",
    "id": "575c2dec8f26ca76",
    "title": "The gap between open and closed AI models in cyber capabilities keeps shrinking",
