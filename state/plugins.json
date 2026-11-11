@@ -86,9 +86,8 @@
    "at": "2026-11-04T13:01:01+00:00"
   },
   "kadence-blocks": {
-   "version": "3.9.0",
-   "at": "2026-11-05T21:15:52+00:00",
-   "tries": 2
+   "version": "3.9.1",
+   "at": "2026-11-11T20:57:18+00:00"
   },
   "zarinpal-woocommerce-payment-gateway": {
    "version": "5.1.2",
