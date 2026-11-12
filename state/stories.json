@@ -501,6 +501,20 @@
    "cves": [
     "CVE-2026-119618"
    ]
+  },
+  {
+   "t": "2026-11-12T17:15:48+00:00",
+   "id": "fbcde0807c1b56ed",
+   "title": "Kinsta now protects every WordPress site it hosts with Patchstack",
+   "kind": "news",
+   "link": "https://patchstack.com/articles/kinsta-now-protects-every-wordpress-site-it-hosts-with-patchstack",
+   "ents": [
+    "kinsta",
+    "patchstack",
+    "wordpress"
+   ],
+   "vers": [],
+   "cves": []
   }
  ]
 }
