@@ -85,18 +85,6 @@
    "cves": []
   },
   {
-   "t": "2026-11-08T10:17:24+00:00",
-   "id": "f3600c82b54ebf75",
-   "title": "AI coding agents still need human cleanup on nearly three out of four tasks in a real-world test",
-   "kind": "news",
-   "link": "https://the-decoder.com/ai-coding-agents-still-need-human-cleanup-on-nearly-three-out-of-four-tasks-in-a-real-world-test",
-   "ents": [
-    "ai"
-   ],
-   "vers": [],
-   "cves": []
-  },
-  {
    "t": "2026-11-08T15:16:38+00:00",
    "id": "a0bd13772d4cdcb1",
    "title": "Awesome Motive Acquires Drip and Sleeknote, Plans Further Product Integrations",
@@ -463,6 +451,26 @@
    "kind": "tools",
    "link": "https://www.producthunt.com/products/l",
    "ents": [],
+   "vers": [],
+   "cves": []
+  },
+  {
+   "t": "2026-11-12T10:46:14+00:00",
+   "id": "c1427c502d8e8780",
+   "title": "WordPress REST API vs MCP: Application Passwords, OAuth and When You Need Each",
+   "kind": "news",
+   "link": "https://wpshout.com/wordpress-rest-api-vs-mcp",
+   "ents": [
+    "api",
+    "application",
+    "each",
+    "mcp",
+    "need",
+    "oauth",
+    "passwords",
+    "rest",
+    "wordpress"
+   ],
    "vers": [],
    "cves": []
   }
