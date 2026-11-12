@@ -454,6 +454,20 @@
     "7.2"
    ],
    "cves": []
+  },
+  {
+   "t": "2026-11-12T00:31:31+00:00",
+   "id": "4d33a45a8c997261",
+   "title": "Google joins the decision-model wave with Gemini Decision 1, scoring 1,000 questions in a single pass",
+   "kind": "news",
+   "link": "https://the-decoder.com/google-joins-the-decision-model-wave-with-gemini-decision-1-scoring-1000-questions-in-a-single-pass",
+   "ents": [
+    "decision",
+    "gemini",
+    "google"
+   ],
+   "vers": [],
+   "cves": []
   }
  ]
 }

@@ -532,6 +532,54 @@
    "added": "2026-11-12T00:00:46+00:00",
    "sources_count": 2,
    "reject_hits": 1
+  },
+  {
+   "id": "4d33a45a8c997261",
+   "title": "Google joins the decision-model wave with Gemini Decision 1, scoring 1,000 questions in a single pass",
+   "link": "https://the-decoder.com/google-joins-the-decision-model-wave-with-gemini-decision-1-scoring-1000-questions-in-a-single-pass",
+   "site": "",
+   "desc": "Google Deepmind's new Gemini Decisions API evaluates up to 1,000 closed-ended questions in a single pass across text, images, audio, and video. Gemini Decision 1 returns results in 150 to 250 milliseconds at roughly five times lower cost than Gemini 3.5 Flash-Lite, according to Google. The article Google joins the decision-model wave with Gemini Decision 1, scoring 1,000 questions in a single pass appeared first on The Decoder .",
+   "source": "دیکودر",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 4.3,
+   "published": "2026-11-11T20:12:46+00:00",
+   "added": "2026-11-12T00:30:44+00:00",
+   "full": "Google Deepmind is introducing the Gemini Decisions API, an interface built for fast, closed-ended decisions like yes/no questions, multiple choice, and scale-based ratings. The underlying model, Gemini Decision 1 , processes up to 1,000 independent questions in a single pass across text, images, audio, video, and PDFs. It scores options directly and returns probabilities with confidence values in 150 to 250 milliseconds. Google says it already uses the API internally for dynamic model routing in Gemini Notebook, design prototyping in Stitch , and safety checks in Google Search. The API costs $0.10 per million input tokens with no output-token charge, about five times cheaper than Gemini 3.5 Flash-Lite according to Google. It's available now through Google AI Studio , with integrations for OpenRouter, LangChain, Vercel, and other platforms rolling out. Similar models have been popping up in recent weeks. After the startup Jev introduced its version, OpenAI , Cloudflare , and Microsoft quickly followed with similar offerings. Ad Ad Subscribe to THE DECODER for ad-free reading, a weekly AI newsletter, our exclusive \"AI Radar\" frontier report six times a year, full archive access, and access to our comment section.",
+   "use_link": "",
+   "held": true
+  },
+  {
+   "id": "148cfca08abe6232",
+   "title": "US corporate AI spending hits a new high in October, but growth slows to 1.65 percent",
+   "link": "https://the-decoder.com/us-corporate-ai-spending-hits-a-new-high-in-october-but-growth-slows-to-1-65-percent",
+   "site": "",
+   "desc": "According to the Ramp AI Index, US corporate AI spending rose just 1.65 percent in October 2026. One percent of companies still drive 80 percent of revenue for OpenAI and Anthropic. Customer support is emerging as a new growth driver, but it may bring lower margins than the coding business that has fueled spending so far. The article US corporate AI spending hits a new high in October, but growth slows to 1.65 percent appeared first on The Decoder .",
+   "source": "دیکودر",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 4.9,
+   "published": "2026-11-11T19:35:11+00:00",
+   "added": "2026-11-12T00:30:44+00:00"
+  },
+  {
+   "id": "dc8dd8269ac9ca39",
+   "title": "Google Deepmind's AlphaProof Code verified Signal's cryptographic core in four weeks instead of years",
+   "link": "https://the-decoder.com/google-deepminds-alphaproof-code-verified-signals-cryptographic-core-in-four-weeks-instead-of-years",
+   "site": "",
+   "desc": "Google Deepmind's AlphaProof Code mathematically verified Signal's cryptographic core code in four weeks, a process that typically takes years. AI agents powered by Gemini Carbon wrote more than six million lines of proof code and flagged only about one percent for human review. Deepmind plans to extend the method to critical infrastructure like power grids and medical devices. The article Google Deepmind's AlphaProof Code verified Signal's cryptographic core in four weeks instead of years appeared first on The Decoder .",
+   "source": "دیکودر",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 6.2,
+   "published": "2026-11-11T18:18:25+00:00",
+   "added": "2026-11-12T00:30:44+00:00"
   }
  ]
 }
