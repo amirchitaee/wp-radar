@@ -532,7 +532,7 @@
    "added": "2026-11-12T00:30:44+00:00",
    "full": "US corporate AI spending hit a new high in October 2026, but growth was modest. The Ramp AI Index, which tracks AI spending among business customers of financial services provider Ramp, showed a 1.65 percent increase month over month. The heaviest AI users spent somewhat more, according to Ramp . The top one percent of companies by AI spending paid a median of $10,200 per employee per month, up nine percent. A typical company, by contrast, spent just $16.32, a slight increase of less than a dollar from the previous month. Ad Ramp's data reflects market trends but isn't necessarily representative. The index draws on payment data from more than 85,000 US companies, though free AI tools and usage through personal accounts may be missing from the figures. Ad According to Ramp, separate metrics on token volume and spending come only from companies using Ramp Token Spend Management and aren't representative of overall AI spending on the platform. The customer base skews growth-oriented, tech-savvy, and larger than US businesses overall, so AI adoption is likely overstated. Business customers' spending on OpenAI grew 2.1 percent month over month, compared with just 0.5 percent for Anthropic. According to Ramp chief economist Ara Kharazian, the structural risks he identified in his earlier analysis persist. One percent of companies drive 80 percent of revenue for OpenAI and Anthropic. Ad That top tier is mostly venture-backed firms in tech, finance, and technical services. Outside those sectors, AI adoption is barely spreading. Prices are falling at the same time. The average price per million processed text tokens dropped 21 percent last month, according to Ramp. Usage volume is growing faster than spending, so AI keeps getting cheaper, driven by competitive pressure between OpenAI and Anthropic along with open-weight models from China. Ad SpacexSI also grew strongly at 2.2 percent, making it the fastest-growing software company in Ramp's entire dataset. That likely says more about bias in Ramp's data than about any big win for Grok. The company's models aren't particularly noteworthy, and the growth is probably driven by the coding tool Cursor, which belongs to SpacexSI . On Ramp, the company holds a 6.3 percent market share, a figure that most likely doesn't reflect the broader market. Anthropic reached 44.8 percent adoption, up 1.1 percentage points, while OpenAI held steady at 40.6 percent. Overall adoption of AI services rose to 56.8 percent. Software development teams accounted for 72 percent of all tracked AI spending in October, but their spending has declined from summer highs. Customer support and customer success departments saw the strongest growth, with their share of AI spending climbing from 0.8 percent in June to 13.3 percent in October, possibly driven by AI chatbots in customer service. Leadership teams also spent slightly more. But customer support is nowhere near matching the rapid growth development teams posted earlier this year, Kharazian writes. These use cases also tend to favor cheaper, faster models over the most expensive flagship ones. For OpenAI and Anthropic, that means new customers may bring lower margins. The share ",
    "use_link": "",
-   "reject_hits": 1
+   "reject_hits": 2
   },
   {
    "id": "dc8dd8269ac9ca39",
@@ -548,6 +548,21 @@
    "age_hours": 6.2,
    "published": "2026-11-11T18:18:25+00:00",
    "added": "2026-11-12T00:30:44+00:00"
+  },
+  {
+   "id": "d287b226cd6b6fb7",
+   "title": "Anthropic says AI is eroding Nvidia's CUDA lead, cutting an AMD chip switch from months to three days",
+   "link": "https://the-decoder.com/anthropic-says-ai-is-eroding-nvidias-cuda-lead-cutting-an-amd-chip-switch-from-months-to-three-days",
+   "site": "",
+   "desc": "Anthropic claims it used AI itself to breach Nvidia's CUDA moat. The company's in-house model Mythos reportedly ported Claude to AMD GPUs in just three days, with almost no human intervention. Anthropic now runs Claude on four chip families and aims to cut costs and reduce vendor dependencies. The article Anthropic says AI is eroding Nvidia's CUDA lead, cutting an AMD chip switch from months to three days appeared first on The Decoder .",
+   "source": "دیکودر",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 16.6,
+   "published": "2026-11-11T14:25:20+00:00",
+   "added": "2026-11-12T07:00:55+00:00"
   }
  ]
 }
