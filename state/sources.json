@@ -99,19 +99,19 @@
   "name": "وردپرس امنیت",
   "fails": 0,
   "last_count": 10,
-  "last_ok": "2026-11-12T19:45:44+00:00"
+  "last_ok": "2026-11-12T21:00:59+00:00"
  },
  "https://www.wordfence.com/blog/feed/": {
   "name": "وردفنس",
   "fails": 0,
   "last_count": 10,
-  "last_ok": "2026-11-12T19:45:46+00:00"
+  "last_ok": "2026-11-12T21:01:00+00:00"
  },
  "https://patchstack.com/feed/": {
   "name": "پچ‌استک",
   "fails": 0,
   "last_count": 20,
-  "last_ok": "2026-11-12T19:45:46+00:00"
+  "last_ok": "2026-11-12T21:01:00+00:00"
  },
  "https://wpscan.com/feed/": {
   "name": "دبلیوپی‌اسکن",
@@ -123,7 +123,7 @@
   "name": "سوکوری",
   "fails": 0,
   "last_count": 11,
-  "last_ok": "2026-11-12T19:45:46+00:00"
+  "last_ok": "2026-11-12T21:01:00+00:00"
  },
  "https://make.wordpress.org/core/feed/": {
   "name": "هسته وردپرس",
@@ -249,7 +249,7 @@
   "name": "لندبوک",
   "fails": 0,
   "last_count": 40,
-  "last_ok": "2026-11-09T19:45:29+00:00"
+  "last_ok": "2026-11-12T21:00:44+00:00"
  },
  "https://aifree.dev/rss.xml": {
   "name": "ای‌فری",
@@ -309,13 +309,13 @@
   "name": "بلپینگ کامپیوتر",
   "fails": 0,
   "last_count": 15,
-  "last_ok": "2026-11-12T19:45:46+00:00"
+  "last_ok": "2026-11-12T21:01:00+00:00"
  },
  "https://feeds.feedburner.com/TheHackersNews": {
   "name": "هکرنیوز",
   "fails": 0,
   "last_count": 40,
-  "last_ok": "2026-11-12T19:45:47+00:00"
+  "last_ok": "2026-11-12T21:01:00+00:00"
  },
  "https://github.blog/feed/": {
   "name": "گیت‌هاب بلاگ",
@@ -351,18 +351,18 @@
   "name": "مینیمال گالری",
   "fails": 0,
   "last_count": 10,
-  "last_ok": "2026-11-09T19:45:31+00:00"
+  "last_ok": "2026-11-12T21:00:46+00:00"
  },
  "https://saaslandingpage.com/rss": {
   "name": "ساز لندینگ‌پیج",
   "fails": 0,
   "last_count": 10,
-  "last_ok": "2026-11-09T19:45:32+00:00"
+  "last_ok": "2026-11-12T21:00:47+00:00"
  },
  "https://onepagelove.com/feed": {
   "name": "وان‌پیج‌لاو",
   "fails": 0,
   "last_count": 10,
-  "last_ok": "2026-11-09T19:45:32+00:00"
+  "last_ok": "2026-11-12T21:00:47+00:00"
  }
 }

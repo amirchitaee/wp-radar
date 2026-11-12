@@ -515,6 +515,20 @@
    ],
    "vers": [],
    "cves": []
+  },
+  {
+   "t": "2026-11-12T21:00:59+00:00",
+   "id": "53731472ff3ba7e8",
+   "title": "Website Inspiration: Justin Schüler",
+   "kind": "showcase",
+   "link": "https://onepagelove.com/justin-schuler",
+   "ents": [
+    "inspiration",
+    "justin",
+    "website"
+   ],
+   "vers": [],
+   "cves": []
   }
  ]
 }
