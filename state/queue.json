@@ -409,26 +409,6 @@
    "skip_permanent": true
   },
   {
-   "id": "af35e190c9506adc",
-   "title": "How to Build a Fast News Aggregation Site With Astro and WordPress",
-   "link": "https://wpmayor.com/astro-wordpress-news-aggregator",
-   "desc": "Keep WordPress as a headless backend and let Astro render the front end to build a news aggregation site that loads fast and stays current. The post \" How to Build a Fast News Aggregation Site With Astro and WordPress \" first appeared on WP Mayor .",
-   "source": "دبلیوپی‌مایر",
-   "lang": "en",
-   "tier": 3,
-   "group": "",
-   "kind": "news",
-   "age_hours": 1.5,
-   "published": "2026-11-10T10:00:00+00:00",
-   "added": "2026-11-10T11:30:42+00:00",
-   "full": "If you purchase through a link on our site, we may earn a commission . News aggregation sites ask a lot of whatever you build them on. They pull in hundreds or thousands of items from outside feeds, the content refreshes constantly, and visitors judge the result on two things: how fast it loads and how current it feels. WordPress is great at one half of that job. It fetches feeds, organizes content, deduplicates items, and runs imports on a schedule without breaking a sweat. Where it struggles is the front end, where a long and frequently-updating stream rendered through a full theme starts to feel slow. There is a clean way around this, and it has become a lot more practical in the last couple of years. Keep WordPress as your backend and hand the front end to Astro . You get the half of WordPress that does the real work, and a front end built from the ground up for speed. In this guide you will see how the two fit together, how to connect them, and how to solve the one problem that trips everyone up the first time, which is showing fresh content on a site that is mostly static. A news aggregator is one of the strongest candidates for a headless setup, and a better fit than a typical blog. It is worth being honest about when headless WordPress makes sense and when it is overkill, because the answer here lands firmly on the “yes” side. Start with the front end: it is read-only . Visitors don’t log in, comment, or fill out a form on the aggregated stream. The entire value of the site is fetching, organizing, and presenting other people’s content quickly, so serving it as fast static or cached HTML costs you nothing. WordPress is genuinely good at the fetching and organizing. There is a mature plugin ecosystem for pulling RSS and Atom feeds, deduplicating them, mapping fields, handling images, and scheduling the imports. That is real work you do not want to rebuild from scratch in a custom app. Astro, meanwhile, is built for exactly this kind of content-heavy, mostly-static site. It ships zero JavaScript by default , renders to fast static HTML, and lets you add interactivity only on the pages that need it. For a wall of feed items, that default is precisely what you want. On the WordPress side, the import engine is what matters. WP RSS Aggregator is the most established option, and the feature that makes it work cleanly in a headless build is Feed to Post . Feed to Post imports each feed item as a real WordPress post, or any custom post type you choose, with the content, featured image, taxonomies, and author filled in. Regular posts and custom post types are exposed through the WordPress REST API and through WPGraphQL automatically. So once your feeds are importing as posts, Astro can read them with no extra work on the WordPress side. The lightweight feed items that the free version stores are a different story. They are built for on-site display and are not exposed through the REST API by default. You can register them for REST yourself with a small filter, but importing as posts avoids the detour and gives you richer data to render. It is also worth comparing a few RSS aggregator plugins before you commit, since your choice of import engine",
-   "use_link": "",
-   "reject_hits": 1,
-   "digest_sent": true,
-   "channel_skip": true,
-   "skip_permanent": true
-  },
-  {
    "id": "a920b086177de418",
    "title": "Contact Form 7 6.2.5",
    "link": "https://wordpress.org/plugins/contact-form-7/",
@@ -568,24 +548,7 @@
    "added": "2026-11-12T07:00:55+00:00",
    "full": "Anthropic claims it has broken free of its Nvidia dependence with a multi-chip strategy. The company says it ported its own AI model, Claude, to AMD GPUs in just three days, with almost no human intervention. Nvidia's biggest competitive edge is the combination of hardware and software, specifically CUDA, the software ecosystem that locks developers into Nvidia chips. Porting AI models to other chip architectures takes so much effort that many companies won't even try. Anthropic now claims in an investor presentation that it has solved this problem using AI itself. According to Tom Brown, co-founder and Chief Compute Officer at Anthropic, the company now trains and runs Claude on all four major chip families. Anthropic made an \"unconventional bet\" on a multi-chip strategy early on, at a time when most of the industry considered the effort not worth it. Each chip needs its own custom software and inference stack, which is expensive and time-consuming. But Anthropic has been investing in this work for years and has since become \"incredibly good\" at it, Brown says. Ad The company's most concrete test came with AMD GPUs. Until now, bringing up a new chip platform kept dozens of engineers busy for months. This year, Anthropic used AMD GPUs for the first time and let its own frontier model, Mythos, do the work. According to Anthropic, Claude was running on AMD after just three days, with almost no human intervention. The model ported or wrote nearly 100 percent of the kernels itself. Ad If these figures are accurate, the software overhead, long considered Nvidia's strongest competitive advantage, would shrink dramatically because of AI. Companies could switch more easily between chip providers and pick the most affordable or readily available option. In a compute market where supply is tight, a multi-chip approach lets companies focus on the best price-performance ratio, regardless of the vendor. Some chips are better for training, while others are better for inference. And because of its dominance in the AI chip market, Nvidia currently enjoys a margin of more than 70 percent, which is unusually high for hardware. Ad Anthropic treats compute from different vendors, chip architectures, and locations as one interchangeable pool. The company says it gets more out of every dollar of compute than any other frontier AI lab. Beyond its multi-chip strategy, Anthropic relies on what it calls compute multipliers, research breakthroughs that squeeze more performance from the same physical computing capacity. According to Anthropic, these multipliers build on one another so that each new breakthrough amplifies the effect of the previous one. Ad Eventually, Claude should be able to discover such compute multipliers on its own. That would amount to recursive self-improvement, a concept that's intensely debated in AI research but hasn't been proven yet . Ad Anthropic is also building its own data center capacity through the \"Anthropic Direct\" program. Instead of buying computing power only as a cloud service, the company leases chips and operates them in purpose-built data centers. The goal is to reduce total cost of ownership. The figures come from Anthropic's ",
    "use_link": "",
-   "reject_hits": 1
-  },
-  {
-   "id": "4239c4951c8dac72",
-   "title": "⌘+L",
-   "link": "https://www.producthunt.com/products/l",
-   "site": "",
-   "desc": "Edit your website like Figma! Discussion | Link",
-   "source": "پروداکت هانت",
-   "lang": "en",
-   "tier": 3,
-   "group": "",
-   "kind": "tools",
-   "age_hours": 23.3,
-   "published": "2026-11-11T01:27:27-08:00",
-   "added": "2026-11-12T08:45:27+00:00",
-   "posted": true,
-   "msg_id": 134
+   "reject_hits": 2
   }
  ]
 }
