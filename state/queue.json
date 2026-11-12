@@ -279,26 +279,6 @@
    "skip_permanent": true
   },
   {
-   "id": "8d158b6adbec29b3",
-   "title": "CSS Optimization: Is Using Declarations Just Once (UDJO) Still Effective Today?",
-   "link": "https://css-tricks.com/css-using-declarations-just-once",
-   "desc": "Is the technique inspired by the DRY principle by identifying and reducing (if not eliminating) CSS declaration repetition still a relevant optimization strategy? CSS Optimization: Is Using Declarations Just Once (UDJO) Still Effective Today? originally handwritten and published with love on CSS-Tricks . You should really get the newsletter as well.",
-   "source": "سی‌اس‌اس تریکس",
-   "lang": "en",
-   "tier": 3,
-   "group": "",
-   "kind": "news",
-   "age_hours": 0.1,
-   "published": "2026-11-10T16:42:18+00:00",
-   "added": "2026-11-10T16:45:37+00:00",
-   "full": "NVIDIA L4 GPUs. 5-second cold starts. Scale to zero when idle. CSS optimization is a deceptive topic. On the one hand, it feels like something simple that we should already have all the tooling for — especially when it comes to minification. On the other hand, the idea that we already exploited “everything” there is around CSS optimization may be considered naive. Such a claim looks hard to defend for a language that evolves almost daily. In this article, I’d like to pick a technique that’s at least 18 years old — UDJO , or “using declarations just once.” Aware of an older source? Please comment! The technique is inspired by the principle of DRY , “don’t repeat yourself” , in that it works by identifying and reducing (if not eliminating) declaration repetition. So, if there’s something like display: flex and it appears two or more times, it gets reconciled in one rule: .example { display: flex; } .sample { display: flex; } …becomes: .example, .sample { display: flex; } The outcome of the technique depends on how intelligently the deduplication is done and how long the selectors are. Intelligence determines if UDJO leads to an actual maintainability advantage — can the change of a declaration really be done to all the selectors attached? And the selector length influences how big file size savings are. If you’re interested, my article on “DRY CSS” describes the mechanics in more detail. The question here is: Is UDJO still effective and still relevant today? Better Deduplicating Through Tooling When we try to answer this question, however, we end up with a problem: When sites are complex and their style sheet declarations have not been de-duplicated before, UDJO can require a lot of work. To save some time, I built tooling for this work. While it didn’t seem like it would immediately be as comprehensive as manually going through and testing style sheets, it seemed realistic enough that a tool could catch some repetition. Skipping ahead, I created CSS Dedup not only to identify repetition, but also to deduplicate what could safely be optimized (CSS Dedup has some documentation on this but in essence, deduplication affects selector locations, which is part of how the cascade works ). This, then, gives us some data: Is There Anything to Deduplicate in Modern CSS? For the first batch, I arbitrarily picked 20 websites to analyze. I then used CSS Dedup to check what the file size changes would be if we deduplicated what seemed provably safe, and also what seemed probably safe, but only if it led to file size savings. I picked those two options to provide the “natural” result of deduplication, but also the one site owners may be most interested in to reduce repetition but also decrease transfer size. After all, UDJO as a CSS optimization technique can improve both maintainability and performance. Important note: These values cannot be used to tell CSS quality —they depend on selector length and also on verifying if deduplication, in the respective case, actually leads to better maintainability. Also note that this leaves out changes after compression—this was not part of the experiment but would be fair to test, too. What can we tell from this? For th",
-   "use_link": "",
-   "reject_hits": 2,
-   "digest_sent": true,
-   "channel_skip": true,
-   "skip_permanent": true
-  },
-  {
    "id": "b21095d32174c13c",
    "title": "Rank Math 1.0.282",
    "link": "https://wordpress.org/plugins/seo-by-rank-math/",
@@ -577,6 +557,24 @@
    "full": "Jensen Huang resigned as CEO, president, and board member of Nvidia effective immediately, according to a statement on November 12, 2026. The move came after the Wall Street Journal reported that the board was planning to fire Huang following revelations about two extramarital affairs, one of them with a suspected Chinese spy . Since a New York Times report on October 29 about possible ties to Chinese intelligence, Nvidia has shed roughly $1.4 trillion in market value. CFO Colette Kress is taking over on an interim basis while the board searches for a permanent successor. Harvey C. Jones will serve as the first independent board chair and stressed that business operations continue without disruption. Replacing Huang will be difficult because Nvidia was built entirely around him. He secured the company's market position through a complex web of alliances with financiers and roughly $300 billion in guarantees for smaller customers. His departure could unravel that structure, which he used to keep major tech rivals at bay and support large parts of the AI industry. Ad Major customers like Microsoft, Amazon, and Alphabet, along with AI labs like OpenAI and Anthropic, depend heavily on Nvidia's chips, but the company's 75 percent profit margin is pushing them to develop their own, cheaper alternatives. Huang also left no clear succession plan, with more than 60 employees reporting directly to him, leaving both internal and external candidates starting from a weakened position. Ad Subscribe to THE DECODER for ad-free reading, a weekly AI newsletter, our exclusive \"AI Radar\" frontier report six times a year, full archive access, and access to our comment section.",
    "use_link": "",
    "reject_hits": 2
+  },
+  {
+   "id": "23da4d4ec2e668a9",
+   "title": "Beyond 12 Columns: Designing Layouts With Personality",
+   "link": "https://css-tricks.com/beyond-12-columns",
+   "site": "",
+   "desc": "Too many websites look alike. They use familiar layouts, repeat the same patterns, and often leave little impression once you’ve moved on. Andy Clarke explores how understanding a company’s story can lead to more distinctive designs, using modular and compound grids to create layouts with character. Beyond 12 Columns: Designing Layouts With Personality originally handwritten and published with love on CSS-Tricks . You should really get the newsletter as well.",
+   "source": "سی‌اس‌اس تریکس",
+   "lang": "en",
+   "tier": 3,
+   "group": "",
+   "kind": "news",
+   "age_hours": 0.6,
+   "published": "2026-11-12T16:06:55+00:00",
+   "added": "2026-11-12T16:45:33+00:00",
+   "full": "NVIDIA L4 GPUs. 5-second cold starts. Scale to zero when idle. When I started designing websites thirty years ago, David Siegel had just published Creating Killer Web Sites , the book that popularised HTML tables and spacer GIFs for laying out web pages. CSS eventually gave us more control over layouts through floats and positioning. Neither was intended for page layout, and inconsistent browser behaviour could make using them frustrating. Still, that didn’t stop me and a generation of other designers from using floats and positioning. When CSS frameworks began providing ready-made grid systems, things got a little easier. Blueprint CSS ) offered a 24-column grid, while Nathan Smith’s 960 Grid System offered 12- and 16-column options. These frameworks gave designers and developers a shared structure, making layout planning and implementation considerably easier. Twelve-column grids weren’t invented in the 2000s. Graphic designers had used column-based and modular grids for decades, and twelve is a convenient number because you don’t need to be a maths genius to divide it into halves, thirds, and quarters to create the 2-up, 3-up, and 4-up components we see everywhere online. Frameworks like Bootstrap and Foundation followed, helping establish twelve-column grids as the de facto standard for page layouts. I get why that happened. But somewhere along the way, one layout option became the default starting point for almost everything. CSS Grid changed what’s possible for page layouts, but I still see designers start by dividing a page into twelve equal columns, then deciding how to fit their content into them. The designs they end up with might be perfectly fine, but they can also look remarkably similar. Still, I don’t think twelve-column grids themselves are the problem. It’s reaching for a familiar solution before considering what makes the company I’m designing for distinctive and what its website needs to communicate. So what happens when I start with those questions instead? Every company has a story worth telling Before I decide how many columns a layout needs, I want to understand the company I’m designing for. What makes it different from its competitors? What does it want people to remember? Does it have a personality that could influence how its website looks and feels? These questions matter because a layout does more than arrange content. The size, position, and relationships between elements influence how people experience a website. A restrained, orderly composition can communicate something very different from one that’s full of energy and movement. So to demonstrate what I mean, I’ll use Wheelman. It’s a fictional company I invented for my book, Standout Designs for the Web . Pre-orders for Standout Designs for the Web are now open in the CSS-Tricks store. Wheelman provides products and services for getaway drivers, including legal advice, robbery insurance, and an online shop selling break-in essentials. It also publishes a magazine with advice, news, and stories about life behind the wheel. Wheelman isn’t an ordinary company, so why should its website look like an everyday collection of components? It takes its business serious",
+   "use_link": "",
+   "reject_hits": 1
   }
  ]
 }
