@@ -3,7 +3,7 @@
   "name": "اوپن‌ای‌آی",
   "fails": 0,
   "last_count": 40,
-  "last_ok": "2026-11-12T02:00:49+00:00"
+  "last_ok": "2026-11-12T02:45:34+00:00"
  },
  "https://blog.google/technology/ai/rss/": {
   "name": "گوگل",
@@ -27,7 +27,7 @@
   "name": "تک‌کرانچ",
   "fails": 0,
   "last_count": 20,
-  "last_ok": "2026-11-12T02:00:49+00:00"
+  "last_ok": "2026-11-12T02:45:33+00:00"
  },
  "https://venturebeat.com/category/ai/feed/": {
   "name": "ونچربیت",
@@ -45,7 +45,7 @@
   "name": "دیکودر",
   "fails": 0,
   "last_count": 10,
-  "last_ok": "2026-11-12T02:00:49+00:00"
+  "last_ok": "2026-11-12T02:45:33+00:00"
  },
  "https://simonwillison.net/atom/everything/": {
   "name": "سایمون ویلیسون",
@@ -57,25 +57,25 @@
   "name": "وردپرس",
   "fails": 0,
   "last_count": 10,
-  "last_ok": "2026-11-12T02:00:41+00:00"
+  "last_ok": "2026-11-12T02:45:26+00:00"
  },
  "https://wptavern.com/feed": {
   "name": "دبلیوپی‌تاورن",
   "fails": 0,
   "last_count": 30,
-  "last_ok": "2026-11-12T02:00:42+00:00"
+  "last_ok": "2026-11-12T02:45:26+00:00"
  },
  "https://www.smashingmagazine.com/feed/": {
   "name": "اسمشینگ",
   "fails": 0,
   "last_count": 40,
-  "last_ok": "2026-11-12T02:00:42+00:00"
+  "last_ok": "2026-11-12T02:45:27+00:00"
  },
  "https://css-tricks.com/feed/": {
   "name": "سی‌اس‌اس‌تریکس",
   "fails": 0,
   "last_count": 15,
-  "last_ok": "2026-11-12T02:00:43+00:00"
+  "last_ok": "2026-11-12T02:45:27+00:00"
  },
  "https://torquemag.io/feed/": {
   "name": "تورک",
@@ -87,13 +87,13 @@
   "name": "دبلیوپی‌بگینر",
   "fails": 0,
   "last_count": 3,
-  "last_ok": "2026-11-12T02:00:45+00:00"
+  "last_ok": "2026-11-12T02:45:29+00:00"
  },
  "https://kinsta.com/blog/feed/": {
   "name": "کینستا",
   "fails": 0,
   "last_count": 3,
-  "last_ok": "2026-11-12T02:00:42+00:00"
+  "last_ok": "2026-11-12T02:45:27+00:00"
  },
  "https://wordpress.org/news/category/security/feed/": {
   "name": "وردپرس امنیت",
@@ -141,13 +141,13 @@
   "name": "دولوپر وردپرس",
   "fails": 0,
   "last_count": 10,
-  "last_ok": "2026-11-12T02:00:42+00:00"
+  "last_ok": "2026-11-12T02:45:26+00:00"
  },
  "https://woocommerce.com/blog/feed/": {
   "name": "ووکامرس",
   "fails": 0,
   "last_count": 20,
-  "last_ok": "2026-11-12T02:00:42+00:00"
+  "last_ok": "2026-11-12T02:45:26+00:00"
  },
  "https://fa.wordpress.org/news/feed/": {
   "name": "وردپرس فارسی",
@@ -165,7 +165,7 @@
   "name": "المنتور",
   "fails": 0,
   "last_count": 10,
-  "last_ok": "2026-11-12T02:00:42+00:00"
+  "last_ok": "2026-11-12T02:45:26+00:00"
  },
  "https://jetpack.com/blog/feed/": {
   "name": "جت‌پک",
@@ -189,7 +189,7 @@
   "name": "وردپرس دات کام",
   "fails": 0,
   "last_count": 10,
-  "last_ok": "2026-11-12T02:00:42+00:00"
+  "last_ok": "2026-11-12T02:45:26+00:00"
  },
  "https://wpmayor.com/feed/": {
   "name": "وپی مایور",
@@ -279,7 +279,7 @@
   "name": "دبلیوپی‌مایر",
   "fails": 0,
   "last_count": 10,
-  "last_ok": "2026-11-12T02:00:46+00:00"
+  "last_ok": "2026-11-12T02:45:30+00:00"
  },
  "https://www.wpkube.com/feed/": {
   "name": "دبلیوپی‌کیوب",
@@ -297,13 +297,13 @@
   "name": "دبلیوپی‌شوت",
   "fails": 0,
   "last_count": 8,
-  "last_ok": "2026-11-12T02:00:45+00:00"
+  "last_ok": "2026-11-12T02:45:29+00:00"
  },
  "https://thewpminute.com/feed/": {
   "name": "دبلیوپی مینت",
   "fails": 0,
   "last_count": 10,
-  "last_ok": "2026-11-12T02:00:46+00:00"
+  "last_ok": "2026-11-12T02:45:30+00:00"
  },
  "https://www.bleepingcomputer.com/feed/": {
   "name": "بلپینگ کامپیوتر",
@@ -333,13 +333,13 @@
   "name": "دبلیوپی کانتننت",
   "fails": 0,
   "last_count": 10,
-  "last_ok": "2026-11-12T02:00:47+00:00"
+  "last_ok": "2026-11-12T02:45:32+00:00"
  },
  "https://www.codeinwp.com/blog/feed/": {
   "name": "کدین‌وپی",
   "fails": 0,
   "last_count": 8,
-  "last_ok": "2026-11-12T02:00:48+00:00"
+  "last_ok": "2026-11-12T02:45:32+00:00"
  },
  "https://www.producthunt.com/feed?category=artificial-intelligence": {
   "name": "پروداکت هانت هوش مصنوعی",
