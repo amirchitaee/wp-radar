@@ -558,6 +558,24 @@
    "age_hours": 72.0,
    "published": "2026-11-09T07:01:22-08:00",
    "added": "2026-11-12T15:00:47+00:00"
+  },
+  {
+   "id": "588bccb6f16e5f89",
+   "title": "Jensen Huang resigns as Nvidia CEO after espionage scandal wipes out $1.4 trillion in market value",
+   "link": "https://the-decoder.com/jensen-huang-resigns-as-nvidia-ceo-after-espionage-scandal-wipes-out-1-4-trillion-in-market-value",
+   "site": "",
+   "desc": "Jensen Huang resigned as CEO, president, and board member of Nvidia effective immediately, according to a statement on November 12, 2026. The article Jensen Huang resigns as Nvidia CEO after espionage scandal wipes out $1.4 trillion in market value appeared first on The Decoder .",
+   "source": "دیکودر",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 1.1,
+   "published": "2026-11-12T14:11:40+00:00",
+   "added": "2026-11-12T15:15:42+00:00",
+   "full": "Jensen Huang resigned as CEO, president, and board member of Nvidia effective immediately, according to a statement on November 12, 2026. The move came after the Wall Street Journal reported that the board was planning to fire Huang following revelations about two extramarital affairs, one of them with a suspected Chinese spy . Since a New York Times report on October 29 about possible ties to Chinese intelligence, Nvidia has shed roughly $1.4 trillion in market value. CFO Colette Kress is taking over on an interim basis while the board searches for a permanent successor. Harvey C. Jones will serve as the first independent board chair and stressed that business operations continue without disruption. Replacing Huang will be difficult because Nvidia was built entirely around him. He secured the company's market position through a complex web of alliances with financiers and roughly $300 billion in guarantees for smaller customers. His departure could unravel that structure, which he used to keep major tech rivals at bay and support large parts of the AI industry. Ad Major customers like Microsoft, Amazon, and Alphabet, along with AI labs like OpenAI and Anthropic, depend heavily on Nvidia's chips, but the company's 75 percent profit margin is pushing them to develop their own, cheaper alternatives. Huang also left no clear succession plan, with more than 60 employees reporting directly to him, leaving both internal and external candidates starting from a weakened position. Ad Subscribe to THE DECODER for ad-free reading, a weekly AI newsletter, our exclusive \"AI Radar\" frontier report six times a year, full archive access, and access to our comment section.",
+   "use_link": "",
+   "reject_hits": 1
   }
  ]
 }
