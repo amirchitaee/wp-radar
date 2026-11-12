@@ -4811,11 +4811,27 @@ def digest_eligible(x, cutoff, reject_max):
     return aged or tired
 
 
-def digest_run(s, hours=24, top_n=10, mark=True):
+def digest_pick(items, cutoff, reject_max, everything=False):
+    """آیتم‌هایی که به جمع‌بندی می‌روند.
+
+    حالت ``everything`` برای فرمان بازبینی است: همهٔ صف را می‌خواند و
+    پرچم نمی‌زند، پس شرط سن ندارد.
+    """
+    if everything:
+        return [x for x in items if not x.get("posted") and not x.get("digest_sent")]
+    return [x for x in items if digest_eligible(x, cutoff, reject_max)]
+
+
+def digest_run(s, hours=24, top_n=10, mark=True, everything=False):
+    """جمع‌بندی روزانه، یا فهرست خواندنیِ همهٔ صف.
+
+    ``everything`` برای فرمان بازبینی است: فقط نشان می‌دهد و پرچم
+    نمی‌زند. آن‌جا شرط سن معنا ندارد، چون قرار نیست چیزی حذف شود.
+    """
     q = read_json(QUEUE, {"v": 1, "items": []})
     cutoff = now() - timedelta(hours=hours)
     reject_max = max(1, int(s.get("reject_max", 2) or 2))
-    pending = [x for x in q["items"] if digest_eligible(x, cutoff, reject_max)]
+    pending = digest_pick(q["items"], cutoff, reject_max, everything)
     # قدیمی‌ترین‌ها اول می‌روند؛ آن‌ها کمترین شانس انتشار را دارند.
     pending.sort(key=lambda x: x.get("age_hours", 99), reverse=True)
     top = pending[:top_n]
@@ -5697,7 +5713,7 @@ def main():
     elif cmd == "digest":
         digest_run(s)
     elif cmd == "backlog":
-        digest_run(s, hours=48, top_n=10, mark=False)
+        digest_run(s, hours=48, top_n=10, mark=False, everything=True)
     elif cmd == "report":
         report_run(s, st)
     elif cmd == "watchdog":
