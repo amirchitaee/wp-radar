@@ -517,25 +517,6 @@
    "reject_hits": 2
   },
   {
-   "id": "4d33a45a8c997261",
-   "title": "Google joins the decision-model wave with Gemini Decision 1, scoring 1,000 questions in a single pass",
-   "link": "https://the-decoder.com/google-joins-the-decision-model-wave-with-gemini-decision-1-scoring-1000-questions-in-a-single-pass",
-   "site": "",
-   "desc": "Google Deepmind's new Gemini Decisions API evaluates up to 1,000 closed-ended questions in a single pass across text, images, audio, and video. Gemini Decision 1 returns results in 150 to 250 milliseconds at roughly five times lower cost than Gemini 3.5 Flash-Lite, according to Google. The article Google joins the decision-model wave with Gemini Decision 1, scoring 1,000 questions in a single pass appeared first on The Decoder .",
-   "source": "دیکودر",
-   "lang": "en",
-   "tier": 2,
-   "group": "ai",
-   "kind": "news",
-   "age_hours": 4.3,
-   "published": "2026-11-11T20:12:46+00:00",
-   "added": "2026-11-12T00:30:44+00:00",
-   "full": "Google Deepmind is introducing the Gemini Decisions API, an interface built for fast, closed-ended decisions like yes/no questions, multiple choice, and scale-based ratings. The underlying model, Gemini Decision 1 , processes up to 1,000 independent questions in a single pass across text, images, audio, video, and PDFs. It scores options directly and returns probabilities with confidence values in 150 to 250 milliseconds. Google says it already uses the API internally for dynamic model routing in Gemini Notebook, design prototyping in Stitch , and safety checks in Google Search. The API costs $0.10 per million input tokens with no output-token charge, about five times cheaper than Gemini 3.5 Flash-Lite according to Google. It's available now through Google AI Studio , with integrations for OpenRouter, LangChain, Vercel, and other platforms rolling out. Similar models have been popping up in recent weeks. After the startup Jev introduced its version, OpenAI , Cloudflare , and Microsoft quickly followed with similar offerings. Ad Ad Subscribe to THE DECODER for ad-free reading, a weekly AI newsletter, our exclusive \"AI Radar\" frontier report six times a year, full archive access, and access to our comment section.",
-   "use_link": "",
-   "posted": true,
-   "msg_id": 133
-  },
-  {
    "id": "148cfca08abe6232",
    "title": "US corporate AI spending hits a new high in October, but growth slows to 1.65 percent",
    "link": "https://the-decoder.com/us-corporate-ai-spending-hits-a-new-high-in-october-but-growth-slows-to-1-65-percent",
