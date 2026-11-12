@@ -566,6 +566,21 @@
    "age_hours": 16.6,
    "published": "2026-11-11T14:25:20+00:00",
    "added": "2026-11-12T07:00:55+00:00"
+  },
+  {
+   "id": "4239c4951c8dac72",
+   "title": "⌘+L",
+   "link": "https://www.producthunt.com/products/l",
+   "site": "",
+   "desc": "Edit your website like Figma! Discussion | Link",
+   "source": "پروداکت هانت",
+   "lang": "en",
+   "tier": 3,
+   "group": "",
+   "kind": "tools",
+   "age_hours": 23.3,
+   "published": "2026-11-11T01:27:27-08:00",
+   "added": "2026-11-12T08:45:27+00:00"
   }
  ]
 }
