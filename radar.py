@@ -3931,14 +3931,20 @@ def in_publish_window(s, at=None):
 def ai_allowance(s, d, news_held=0, at=None, wp_left=None):
     """سهم هوش مصنوعی امروز، با پر کردن جای خالیِ وردپرس.
 
-    سهم پایه ثابت است. دو حالت جای خالی را باز می‌کند: گذشتن از ساعت
-    مقرر، یا خالی بودن کامل سبد وردپرس. حالت دوم همان پلن بی است:
-    وقتی هیچ خبر وردپرسی نمانده، کانال نباید ساکت بماند.
+    سهم پایه ثابت است. جای خالی سه شرط دارد، نه یکی:
 
-    چرا ساعت هم مانده؟ اگر فقط «خالی بودن سبد» معیار بود، صبح که صف
-    تازه است و خبر وردپرسی هنوز نرسیده، هوش مصنوعی همهٔ جاها را می‌گرفت
-    و خبر وردپرسی بعدازظهر جا نداشت. ساعت، جای خالی را از خیال به
-    واقعیت تبدیل می‌کند.
+    یک. سبد وردپرس خالی باشد. تا وقتی یک خبر وردپرسی منتظر است،
+    هوش مصنوعی جلو نمی‌افتد.
+
+    دو. یا از ساعت مقرر گذشته باشد، یا از ظهر گذشته باشد و امروز
+    هیچ خبر وردپرسی منتشر نشده باشد.
+
+    سه. سقف خبر روز جا داشته باشد.
+
+    چرا شرط دوم سخت شد؟ قبلاً خالی بودن لحظه‌ای سبد کافی بود. صبح
+    که خبر وردپرس هنوز نرسیده، سبد خالی است و همین کافی بود تا سه
+    پست هوش مصنوعی برود. حالا خالی بودن صبحگاهی به‌تنهایی چیزی باز
+    نمی‌کند؛ باید کل روز هم خبر وردپرسی نداشته باشیم.
     """
     base = int(s.get("ai_cap_per_day", 1))
     fill = s.get("ai_fill") or {}
@@ -3947,8 +3953,24 @@ def ai_allowance(s, d, news_held=0, at=None, wp_left=None):
     moment = (at or now()).astimezone(TZ)
     if not in_publish_window(s, moment):
         return base
-    late = moment.strftime("%H:%M") >= str(fill.get("after", "18:00"))
-    dry = bool(fill.get("when_wp_empty", True)) and wp_left is not None and int(wp_left) <= 0
+    # شرط اول و بی‌قید: تا وقتی یک خبر وردپرسی در سبد منتظر است،
+    # هوش مصنوعی حق ندارد جای او را بگیرد. سهم پایه سر جایش می‌ماند،
+    # ولی جای خالی فقط وقتی باز می‌شود که سبد وردپرس واقعاً خالی باشد.
+    if wp_left is None or int(wp_left) > 0:
+        return base
+    clock = moment.strftime("%H:%M")
+    late = clock >= str(fill.get("after", "18:00"))
+    # سبد خالی در صبح یعنی خبر وردپرس هنوز نرسیده، نه اینکه نیست.
+    # یک بار همین خالی بودن لحظه‌ای باعث شد سه پست هوش مصنوعی در یک
+    # صبح برود. حالا پیش از ساعت مقرر، جای خالی فقط وقتی باز می‌شود
+    # که امروز هیچ خبر وردپرسی منتشر نشده باشد.
+    kinds = d.get("kinds") or {}
+    wp_done = max(0, int(kinds.get("news", 0)) - int(kinds.get("ai", 0)))
+    dry = (
+        bool(fill.get("when_wp_empty", True))
+        and clock >= str(fill.get("dry_after", "12:00"))
+        and wp_done <= 0
+    )
     if not (late or dry):
         return base
     caps = s.get("caps") or {}
@@ -4760,21 +4782,37 @@ def personal_chat():
     return env_clean("TG_PERSONAL") or env_clean("TG_ADMIN") or TG_CHAT
 
 
+def digest_eligible(x, cutoff, reject_max):
+    """آیا این آیتم حق دارد به جمع‌بندی برود؟
+
+    جمع‌بندی پرچم دائمی می‌زند؛ یعنی آیتم دیگر هرگز به کانال نمی‌رسد.
+    پس فقط آیتمی به آن می‌رود که فرصتش تمام شده باشد: یا از پنجرهٔ
+    انتشار گذشته، یا مدل دو بار ردش کرده باشد.
+
+    شرط قبلی برعکس بود و تازه‌ها را برمی‌داشت. نتیجه‌اش این شد که
+    نسخهٔ بتای وردپرس ۷.۲ دو ساعت و نیم بعد از انتشار از کانال حذف
+    شد، در حالی که هنوز یک بار هم به مدل نشان داده نشده بود.
+    """
+    if x.get("posted") or x.get("digest_sent"):
+        return False
+    # معیار «فرصت» زمان ورود به صف است، نه تاریخ انتشار خبر. خبری که
+    # دیر کشف شده تازه وارد صف شده و باید فرصتش را بگیرد.
+    try:
+        ts = datetime.fromisoformat(str(x.get("added") or x.get("published") or ""))
+    except Exception:
+        ts = None
+    aged = ts is not None and ts < cutoff
+    tired = int(x.get("reject_hits") or 0) >= reject_max
+    return aged or tired
+
+
 def digest_run(s, hours=24, top_n=10, mark=True):
     q = read_json(QUEUE, {"v": 1, "items": []})
     cutoff = now() - timedelta(hours=hours)
-    pending = []
-    for x in q["items"]:
-        if x.get("posted") or x.get("digest_sent"):
-            continue
-        try:
-            ts = datetime.fromisoformat(str(x.get("published") or x.get("added") or ""))
-        except Exception:
-            ts = None
-        if ts and ts < cutoff:
-            continue
-        pending.append(x)
-    pending.sort(key=lambda x: x.get("age_hours", 99))
+    reject_max = max(1, int(s.get("reject_max", 2) or 2))
+    pending = [x for x in q["items"] if digest_eligible(x, cutoff, reject_max)]
+    # قدیمی‌ترین‌ها اول می‌روند؛ آن‌ها کمترین شانس انتشار را دارند.
+    pending.sort(key=lambda x: x.get("age_hours", 99), reverse=True)
     top = pending[:top_n]
     if not top:
         log("nothing to digest")

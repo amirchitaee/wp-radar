@@ -1231,26 +1231,31 @@ radar.read_json = _real_read_json
 _ai_s = {
     "ai_cap_per_day": 1,
     "ai_fill": {"enabled": True, "after": "18:00", "max": 3, "per_run": 1,
-                "max_age_h": 24},
+                "max_age_h": 24, "dry_after": "12:00", "when_wp_empty": True},
     "caps": {"news": 6},
     "daily_cap": 11,
 }
-_ai_day = datetime(2026, 11, 5, 15, 0, tzinfo=radar.TZ)
+_ai_morning = datetime(2026, 11, 5, 9, 0, tzinfo=radar.TZ)
+_ai_noon = datetime(2026, 11, 5, 15, 0, tzinfo=radar.TZ)
 _ai_eve = datetime(2026, 11, 5, 19, 0, tzinfo=radar.TZ)
-check("جای خالی: قبل از ساعت مقرر همان سهم پایه است",
-      radar.ai_allowance(_ai_s, {"kinds": {"news": 1}}, 0, _ai_day), 1)
-check("جای خالی: بعد از ساعت مقرر جاهای خالی پر می‌شوند",
-      radar.ai_allowance(_ai_s, {"kinds": {"news": 1}}, 0, _ai_eve), 3)
-check("جای خالی: از سقف مطلق بیشتر نمی‌شود",
-      radar.ai_allowance(_ai_s, {"kinds": {}}, 0, _ai_eve), 3)
-check("جای خالی: اگر خبر پر باشد سهم پایه می‌ماند",
-      radar.ai_allowance(_ai_s, {"kinds": {"news": 6}}, 0, _ai_eve), 1)
+check("جای خالی: پیش از ظهر، سبد خالی هم سهم پایه است",
+      radar.ai_allowance(_ai_s, {"kinds": {}}, 0, _ai_morning, wp_left=0), 1)
+check("جای خالی: بعد از ظهر با روز بی‌خبر باز می‌شود",
+      radar.ai_allowance(_ai_s, {"kinds": {}}, 0, _ai_noon, wp_left=0), 3)
+check("جای خالی: اگر امروز خبر وردپرسی رفته، باز نمی‌شود",
+      radar.ai_allowance(_ai_s, {"kinds": {"news": 1}}, 0, _ai_noon, wp_left=0), 1)
+check("جای خالی: تا خبر وردپرسی در سبد است، سهم پایه می‌ماند",
+      radar.ai_allowance(_ai_s, {"kinds": {"news": 1}}, 0, _ai_eve, wp_left=2), 1)
+check("جای خالی: شب با سبد خالی باز می‌شود",
+      radar.ai_allowance(_ai_s, {"kinds": {"news": 3}}, 0, _ai_eve, wp_left=0), 3)
+check("جای خالی: از سقف خبر بیشتر نمی‌شود",
+      radar.ai_allowance(_ai_s, {"kinds": {"news": 6}}, 0, _ai_eve, wp_left=0), 1)
 check("جای خالی: پست در نوبت هم جا می‌گیرد",
-      radar.ai_allowance(_ai_s, {"kinds": {"news": 5}}, 1, _ai_eve), 1)
+      radar.ai_allowance(_ai_s, {"kinds": {"news": 4}}, 1, _ai_eve, wp_left=0), 1)
 check("جای خالی: خاموش یعنی همان سهم قبلی",
       radar.ai_allowance(
           {"ai_cap_per_day": 1, "ai_fill": {"enabled": False}, "caps": {"news": 6}},
-          {"kinds": {}}, 0, _ai_eve), 1)
+          {"kinds": {}}, 0, _ai_eve, wp_left=0), 1)
 
 
 # ------------------------------------------------------------ پلن بی
@@ -1259,12 +1264,34 @@ check("جای خالی: خاموش یعنی همان سهم قبلی",
 _ai_win = dict(_ai_s)
 _ai_win["publish"] = {"enabled": True, "start": "08:00", "end": "23:30"}
 _ai_night = datetime(2026, 11, 5, 2, 0, tzinfo=radar.TZ)
-check("پلن بی: سبد وردپرس خالی است، سهم باز می‌شود",
-      radar.ai_allowance(_ai_s, {"kinds": {"news": 1}}, 0, _ai_day, wp_left=0), 3)
-check("پلن بی: وردپرس در سبد هست، سهم پایه می‌ماند",
-      radar.ai_allowance(_ai_s, {"kinds": {"news": 1}}, 0, _ai_day, wp_left=2), 1)
 check("پلن بی: بیرون پنجرهٔ انتشار باز نمی‌شود",
       radar.ai_allowance(_ai_win, {"kinds": {"news": 1}}, 0, _ai_night, wp_left=0), 1)
+
+# ------------------------------------------------------------ جمع‌بندی و کانال
+# جمع‌بندی پرچم دائمی می‌زند، پس حق ندارد خبر تازه را بردارد. شرط قبلی
+# برعکس بود و نسخهٔ بتای وردپرس ۷.۲ را دو ساعت و نیم بعد از انتشار از
+# کانال حذف کرد؛ صبحش سبد خالی شد و هوش مصنوعی جایش را گرفت.
+_cut = radar.now() - timedelta(hours=24)
+_fresh = {"id": "f1", "title": "WordPress 7.2 Beta 5", "kind": "news",
+          "added": (radar.now() - timedelta(hours=3)).isoformat(),
+          "published": (radar.now() - timedelta(hours=3)).isoformat()}
+_old = {"id": "o1", "title": "Old story", "kind": "news",
+        "added": (radar.now() - timedelta(hours=30)).isoformat(),
+        "published": (radar.now() - timedelta(hours=30)).isoformat()}
+_rejected = {"id": "r1", "title": "Rejected twice", "kind": "news",
+             "added": (radar.now() - timedelta(hours=4)).isoformat(),
+             "published": (radar.now() - timedelta(hours=4)).isoformat(),
+             "reject_hits": 2}
+check("جمع‌بندی: خبر تازه برداشته نمی‌شود",
+      radar.digest_eligible(_fresh, _cut, 2), False)
+check("جمع‌بندی: خبر کهنه برداشته می‌شود",
+      radar.digest_eligible(_old, _cut, 2), True)
+check("جمع‌بندی: خبری که دو بار رد شده، تازه هم باشد می‌رود",
+      radar.digest_eligible(_rejected, _cut, 2), True)
+check("جمع‌بندی: پست‌شده دوباره نمی‌رود",
+      radar.digest_eligible({**_old, "posted": True}, _cut, 2), False)
+check("جمع‌بندی: یک بار رد شده هنوز فرصت دارد",
+      radar.digest_eligible({**_rejected, "reject_hits": 1}, _cut, 2), False)
 
 # ------------------------------------------------------------ کنارگذاری موقت
 # پرچم دائمی یک بار چهار خبر وردپرسی را برای همیشه از گردش انداخت.
@@ -1331,22 +1358,27 @@ _ai_rows = [
     {"id": "ai_old", "title": "Old AI story", "kind": "news", "group": "ai",
      "published": (radar.now() - timedelta(hours=40)).isoformat()},
 ]
-_out_eve, _info_eve = radar.ai_narrow(_ai_rows, _ai_s, {"kinds": {"ai": 1}}, [], _ai_eve)
-check("جای خالی: خبر کهنه جای خالی را نمی‌گیرد",
-      [x["id"] for x in _out_eve], ["wp1", "ai_new"])
-_out_day, _info_day = radar.ai_narrow(_ai_rows, _ai_s, {"kinds": {"ai": 1}}, [], _ai_day)
-check("جای خالی: قبل از ساعت مقرر هوش مصنوعی اضافه نمی‌شود",
-      [x["id"] for x in _out_day], ["wp1"])
+_out_wp, _info_wp = radar.ai_narrow(_ai_rows, _ai_s, {"kinds": {"ai": 1}}, [], _ai_eve)
+check("جای خالی: تا خبر وردپرسی در سبد است، هوش مصنوعی جلو نمی‌افتد",
+      [x["id"] for x in _out_wp], ["wp1"])
+# سبد بی‌وردپرس: فقط آن‌وقت جای خالی باز می‌شود.
+_ai_only = [x for x in _ai_rows if x["group"] == "ai"]
+_out_eve, _info_eve = radar.ai_narrow(_ai_only, _ai_s, {"kinds": {"ai": 1}}, [], _ai_eve)
+check("جای خالی: سبد بی‌وردپرس در شب یک پست اضافه می‌دهد",
+      [x["id"] for x in _out_eve], ["ai_new"])
+_out_day, _info_day = radar.ai_narrow(_ai_only, _ai_s, {"kinds": {"ai": 1}}, [], _ai_morning)
+check("جای خالی: صبح، سبد خالی هم چیزی باز نمی‌کند",
+      [x["id"] for x in _out_day], [])
 
 # جای خالی چکه‌ای پر می‌شود. سه پست در یک اجرا هم کانال را می‌بندد و
 # هم پست سوم را از پنجرهٔ انتشار بیرون می‌برد.
-_ai_rows2 = _ai_rows + [
+_ai_rows2 = _ai_only + [
     {"id": "ai_new2", "title": "Another fresh AI story", "kind": "news", "group": "ai",
      "published": (radar.now() - timedelta(hours=4)).isoformat()},
 ]
 _out_2, _info_2 = radar.ai_narrow(_ai_rows2, _ai_s, {"kinds": {"ai": 1}}, [], _ai_eve)
 check("جای خالی: در هر اجرا فقط یکی اضافه می‌شود",
-      [x["id"] for x in _out_2], ["wp1", "ai_new"])
+      [x["id"] for x in _out_2], ["ai_new"])
 check("جای خالی: سقف روزانهٔ جای خالی هم‌چنان سه است", _info_2["left"], 2)
 
 # ---------------------------------------------------------------- رد ماندگار

@@ -20,7 +20,8 @@
   "max": 3,
   "per_run": 1,
   "max_age_h": 24,
-  "when_wp_empty": true
+  "when_wp_empty": true,
+  "dry_after": "12:00"
  },
  "reject_max": 2,
  "skip_hours": 12,
