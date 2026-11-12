@@ -85,26 +85,6 @@
    "cves": []
   },
   {
-   "t": "2026-11-08T15:16:38+00:00",
-   "id": "a0bd13772d4cdcb1",
-   "title": "Awesome Motive Acquires Drip and Sleeknote, Plans Further Product Integrations",
-   "kind": "news",
-   "link": "https://wp-content.co/awesome-motive-acquires-drip-and-sleeknote",
-   "ents": [
-    "acquires",
-    "awesome",
-    "drip",
-    "further",
-    "integrations",
-    "motive",
-    "plans",
-    "product",
-    "sleeknote"
-   ],
-   "vers": [],
-   "cves": []
-  },
-  {
    "t": "2026-11-09T00:15:57+00:00",
    "id": "b5e076245ed35d32",
    "title": "Andrej Karpathy built a curated video platform in a weekend using Claude and 20 years of Hacker News",
