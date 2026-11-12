@@ -550,7 +550,7 @@
    "added": "2026-11-12T00:30:44+00:00",
    "full": "Google Deepmind has unveiled AlphaProof Code, an AI system that mathematically proves software meets its security specs without errors. Researchers demonstrated the technology on Signal's encryption protocol, completing in four weeks work that typically takes years. Earlier verification efforts stopped at the theoretical design stage, according to a blog post by DeepMind researchers Pushmeet Kohli and Swarat Chaudhuri. AlphaProof Code verified the actual cryptographic core code running on users' devices. After experts defined formal security requirements, AI agents built on Gemini Carbon wrote over six million lines in the Lean proof language, flagging roughly one percent of the codebase for human review. Two bugs planted deliberately for testing were caught immediately. Signal CTO Ehren Kret says the approach strengthens trust in data privacy as AI threats grow. DeepMind plans to extend the method to power grids and medical devices through systems like CodeMender . Subscribe to THE DECODER for ad-free reading, a weekly AI newsletter, our exclusive \"AI Radar\" frontier report six times a year, full archive access, and access to our comment section.",
    "use_link": "",
-   "reject_hits": 1
+   "reject_hits": 2
   },
   {
    "id": "d287b226cd6b6fb7",
