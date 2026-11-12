@@ -455,6 +455,16 @@
    ],
    "vers": [],
    "cves": []
+  },
+  {
+   "t": "2026-11-12T09:30:42+00:00",
+   "id": "4239c4951c8dac72",
+   "title": "⌘+L",
+   "kind": "tools",
+   "link": "https://www.producthunt.com/products/l",
+   "ents": [],
+   "vers": [],
+   "cves": []
   }
  ]
 }
