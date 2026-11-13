@@ -529,6 +529,19 @@
    ],
    "vers": [],
    "cves": []
+  },
+  {
+   "t": "2026-11-13T02:15:39+00:00",
+   "id": "d1e144f1c14bca59",
+   "title": "Moving your site used to mean starting over. Not anymore",
+   "kind": "news",
+   "link": "https://wordpress.com/blog/2026/11/12/move-to-wordpress",
+   "ents": [
+    "moving",
+    "not"
+   ],
+   "vers": [],
+   "cves": []
   }
  ]
 }
