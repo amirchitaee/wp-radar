@@ -1357,7 +1357,7 @@ def rel_age(hours):
     return "{} روز پیش".format(fa_num(d))
 
 
-def quality_ok(title, summary):
+def quality_ok(title, summary, echo_check=True):
     """دروازهٔ کیفیت. پست بدتر از پست نبودن است."""
     s = (summary or "").strip()
     if len(s) < 80:
@@ -1365,10 +1365,6 @@ def quality_ok(title, summary):
     for phrase in BANNED_PHRASES:
         if phrase in s or phrase in (title or ""):
             return False, "عبارت ممنوع"
-    # کانال فارسی است. تیتری که یک حرف فارسی هم ندارد، ترجمه نشده.
-    # یک بار تیتر انگلیسی خام روی پست امنیتی نشست.
-    if not re.search(r"[\u0600-\u06FF]", title or ""):
-        return False, "تیتر بی‌فارسی"
     if VAGUE_SUBJECT_RE.search(title or ""):
         return False, "سوژهٔ مبهم"
     # تیتر کوتاه (دو واژه) طبیعتاً در خلاصه تکرار می‌شود و نباید رد شود.
@@ -1378,7 +1374,7 @@ def quality_ok(title, summary):
     # بلند می‌کنند ولی اطلاعاتی اضافه نمی‌کنند.
     tt, st = tokens(title), tokens(summary)
     fresh = {w for w in (st - tt) if len(w) >= 4}
-    if len(tt) >= 3 and len(tt & st) / len(tt) > 0.7 and len(fresh) < 4:
+    if echo_check and len(tt) >= 3 and len(tt & st) / len(tt) > 0.7 and len(fresh) < 4:
         return False, "بازگویی تیتر"
     # نام محصول لاتین است و در متن فارسی تکرار می‌شود. سد باید نسبت را
     # بسنجد نه تعداد را؛ قبلاً سه کلمهٔ لاتین کافی بود تا پست یک ابزار
@@ -1387,6 +1383,54 @@ def quality_ok(title, summary):
     if len(latin) > 6 and sum(len(w) for w in latin) > 0.25 * len(s):
         return False, "لاتین زیاد"
     return True, ""
+
+
+# کانال فارسی است. تیتر بی‌فارسی یعنی ترجمه نشده، نه اینکه خبر بد است.
+# خبر به‌خاطر یک تیتر انگلیسی دور ریخته نمی‌شود: اول از مدل ترجمه
+# می‌خواهیم، بعد از خلاصه می‌سازیم.
+FA_RE = re.compile(r"[\u0600-\u06FF]")
+
+
+def fa_title(title, summary, it, deadline=None, fallback=""):
+    """تیتر فارسی برمی‌گرداند. آخرین راه، تیتر عمومی است نه دور ریختن."""
+    t = str(title or "").strip()
+    it.pop("_title_from_summary", None)
+    if FA_RE.search(t):
+        return t
+    if t:
+        log("  title not persian, repairing:", t[:50])
+    try:
+        res = call_models(
+            SYSTEM_PROMPT,
+            build_prompt(
+                [it],
+                "فقط تیتر همین یک خبر را به فارسی روان برگردان. نام محصول و شمارهٔ نسخه "
+                "را لاتین نگه دار. خلاصه و جزئیات و برچسب لازم نیست.",
+            ),
+            deadline=deadline,
+        )
+        rows = res.get("items") if isinstance(res, dict) else None
+        for row in rows or []:
+            cand = str((row or {}).get("title") or "").strip()
+            if FA_RE.search(cand):
+                log("  title repaired:", cand[:40])
+                return cand
+    except Exception as exc:
+        log("  title repair failed:", str(exc)[:80])
+    # مدل نشد. جملهٔ اول خلاصه تیتر می‌شود؛ خلاصه فارسی است و اطلاعات
+    # را دارد. بهتر از تیتر انگلیسی و بهتر از دور ریختن خبر.
+    s = str(summary or "").strip()
+    if FA_RE.search(s):
+        head = re.split(r"[.؟!\n]", s)[0].strip().rstrip("،؛")
+        if len(head) > 90:
+            head = head[:90].rsplit(" ", 1)[0].rstrip("،؛") + "…"
+        if len(head) >= 15:
+            log("  title from summary:", head[:40])
+            # تیتری که از خود خلاصه آمده، طبیعتاً واژه‌های خلاصه را دارد.
+            # سد «بازگویی تیتر» نباید این یکی را رد کند.
+            it["_title_from_summary"] = True
+            return head
+    return fallback or "خبر تازه از {}".format(it.get("source") or "منبع")
 
 
 # ---------------------------------------------------------------- model
@@ -3418,8 +3462,20 @@ def security_run(s, st, seen, hard_deadline=None):
         summary = str((entry or {}).get("summary") or "").strip()
         details = clean_details((entry or {}).get("details") or "")
         meta = (entry or {}).get("meta") or ""
+        # تیتر انگلیسی ترجمه نشده است، نه اینکه هشدار بد باشد. یک بار
+        # دیگر از مدل می‌خواهیم؛ اگر نشد تیتر امن می‌نشیند. دور ریخته نمی‌شود.
+        # اگر مدل اصلاً جوابی نداده، ترجمهٔ دوباره بی‌فایده است.
         if not re.search(r"[\u0600-\u06FF]", title):
-            title = "هشدار تازه از {}".format(it["source"])
+            if entry:
+                title = fa_title(
+                    title,
+                    summary,
+                    it,
+                    hard_deadline,
+                    fallback="هشدار تازه از {}".format(it["source"]),
+                )
+            else:
+                title = "هشدار تازه از {}".format(it["source"])
         if not summary:
             summary = "منبع امنیتی تازه‌ای منتشر کرده است. متن اصلی داخل کادر آمده."
             if not details:
@@ -4559,6 +4615,11 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
                     break
             if not (entry.get("title") or "").strip() or not (entry.get("summary") or "").strip():
                 continue
+            # تیتر انگلیسی یعنی ترجمه نشده، نه اینکه خبر بد است. یک بار
+            # دیگر از مدل می‌خواهیم و در بدترین حالت از خلاصه می‌سازیم.
+            entry["title"] = fa_title(
+                entry.get("title"), entry.get("summary"), it, hard_deadline
+            )
             # نمره دیگر ابزار رد کردن نیست؛ فقط skip و سدهای پایین رد می‌کنند.
             if bad_lang(entry.get("title", "") + entry.get("summary", "") + entry.get("details", "")):
                 log("  bad script skipped:", entry.get("title", "")[:50])
@@ -4621,7 +4682,11 @@ def model_run(kind, s, st, seen, extra, hard_deadline=None):
                 if num(entry.get("use")) < 7:
                     rejected.append((it, entry, "کم‌بها"))
                     continue
-            ok_quality, why = quality_ok(entry.get("title", ""), entry.get("summary", ""))
+            ok_quality, why = quality_ok(
+                entry.get("title", ""),
+                entry.get("summary", ""),
+                echo_check=not it.get("_title_from_summary"),
+            )
             if not ok_quality:
                 log("  quality gate:", why, entry.get("title", "")[:40])
                 rejected.append((it, entry, why))

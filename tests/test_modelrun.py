@@ -124,6 +124,47 @@ check("پست: لینک منبع روی کلمه نشسته", '>منبع</a>' in
 check("پست: آدرس منبع در متن چاپ نشده", ">https://example.com/cf<" not in body, True)
 check("پست: تیتر یک خط است", body.split("\n")[0].startswith("<b>"), True)
 
+
+# ---------------------------------------------------------------- تیتر انگلیسی
+# خبری که تیترش ترجمه نشده دور ریخته نمی‌شود. یک بار دیگر از مدل
+# می‌خواهیم و همان پست با تیتر فارسی می‌رود.
+def english_then_fix(system, user, deadline=None, budget=None):
+    if "فقط تیتر همین یک خبر" in user:
+        return {"items": [{"id": FAKE_ROW["id"], "title": "سهمیهٔ روزانهٔ رایگان برای ساخت سایت"}]}
+    item = dict(fake_model(system, user)["items"][0])
+    item["title"] = "Cloudflare Workers AI free daily allowance"
+    return {"items": [item]}
+
+
+radar.call_models = english_then_fix
+SENT.clear()
+got = radar.model_run("offers", settings, {}, {"v": 1, "ids": {}}, "", hard_deadline=None)
+check("تیتر: خبر با تیتر انگلیسی دور ریخته نمی‌شود", got, 1)
+check(
+    "تیتر: تیتر فارسی روی پست نشست",
+    bool(SENT) and "سهمیهٔ روزانهٔ رایگان برای ساخت سایت" in SENT[0],
+    True,
+)
+check("تیتر: تیتر انگلیسی در پست نمانده", bool(SENT) and "Cloudflare Workers AI free" in SENT[0], False)
+
+
+# اگر ترجمهٔ دوباره هم جواب نداد، جملهٔ اول خلاصه تیتر می‌شود و خبر
+# باز هم می‌رود. دور ریختن، آخرین گزینه است.
+def english_no_fix(system, user, deadline=None, budget=None):
+    if "فقط تیتر همین یک خبر" in user:
+        return {"items": []}
+    item = dict(fake_model(system, user)["items"][0])
+    item["title"] = "Cloudflare Workers AI free daily allowance"
+    return {"items": [item]}
+
+
+radar.call_models = english_no_fix
+SENT.clear()
+got = radar.model_run("offers", settings, {}, {"v": 1, "ids": {}}, "", hard_deadline=None)
+check("تیتر: ترجمه نشد، از خلاصه ساخته می‌شود و پست می‌رود", got, 1)
+check("تیتر: پست بی‌فارسی نرفت", bool(SENT) and "Cloudflare Workers AI free" in SENT[0], False)
+radar.call_models = fake_model
+
 # ---------------------------------------------------------------- حالت‌های رد
 def run_with(entry_patch, label, want_posted):
     def fake(system, user, deadline=None, budget=None):

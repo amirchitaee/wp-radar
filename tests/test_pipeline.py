@@ -144,10 +144,51 @@ long_ok = "این ابزار یک صفحه‌ساز تازه است که با آ
 ok, why = radar.quality_ok("صفحه‌ساز تازه", long_ok)
 check("کیفیت: خلاصهٔ سالم قبول می‌شود", ok, True)
 
-ok, why = radar.quality_ok("Kinsta now protects every WordPress site it hosts", long_ok)
-check("کیفیت: تیتر بی‌فارسی رد می‌شود", ok, False)
-ok, why = radar.quality_ok("کینستا محافظت امنیتی اضافه کرد", long_ok)
-check("کیفیت: تیتر فارسی با نام لاتین قبول می‌شود", ok, True)
+# تیتر انگلیسی دور ریخته نمی‌شود؛ مدل دوباره ترجمه می‌کند.
+_real_call = radar.call_models
+_kinsta_it = {
+    "id": "t1",
+    "title": "Kinsta now protects every WordPress site",
+    "source": "پچ‌استک",
+    "lang": "en",
+    "published": "",
+    "desc": "",
+}
+radar.call_models = lambda sysp, prompt, **kw: {
+    "items": [{"id": "t1", "title": "کینستا حالا از همهٔ سایت‌های وردپرس محافظت می‌کند"}]
+}
+check("تیتر: ترجمهٔ دوباره انجام می‌شود",
+      radar.fa_title("Kinsta now protects every WordPress site", "", _kinsta_it),
+      "کینستا حالا از همهٔ سایت‌های وردپرس محافظت می‌کند")
+check("تیتر: فارسی سالم دست نمی‌خورد",
+      radar.fa_title("کینستا محافظت اضافه کرد", "", _kinsta_it),
+      "کینستا محافظت اضافه کرد")
+radar.call_models = lambda sysp, prompt, **kw: {"items": []}
+check("تیتر: مدل نشد، از خلاصه ساخته می‌شود",
+      radar.fa_title("Kinsta now protects every site",
+                     "کینستا سرویس محافظت امنیتی را روی همهٔ سایت‌هایش روشن کرد. این سرویس رایگان است.",
+                     _kinsta_it),
+      "کینستا سرویس محافظت امنیتی را روی همهٔ سایت‌هایش روشن کرد")
+
+
+def _model_down(*a, **k):
+    raise RuntimeError("down")
+
+
+radar.call_models = _model_down
+check("تیتر: مدل خواب، تیتر امن می‌نشیند",
+      radar.fa_title("Kinsta now protects", "", _kinsta_it, fallback="هشدار تازه از پچ‌استک"),
+      "هشدار تازه از پچ‌استک")
+
+# تیتری که از خلاصه ساخته شده، بازگویی حساب نمی‌شود؛ وگرنه همان خبر
+# دوباره دور ریخته می‌شد.
+_sum_from = "این ابزار یک صفحه‌ساز تازه است که با آن می‌توانی بدون کدنویسی سایت بسازی و سریع منتشر کنی."
+_sum_head = "این ابزار یک صفحه‌ساز تازه است که با آن می‌توانی بدون کدنویسی سایت بسازی"
+check("کیفیت: تیتر برگرفته از خلاصه بازگویی حساب نمی‌شود",
+      radar.quality_ok(_sum_head, _sum_from, echo_check=False), (True, ""))
+check("کیفیت: همان تیتر با سد بازگویی رد می‌شود",
+      radar.quality_ok(_sum_head, _sum_from)[1], "بازگویی تیتر")
+radar.call_models = _real_call
 
 ok, why = radar.quality_ok("خبر", "در دنیای امروز این ابزار می‌تواند کارهای زیادی انجام دهد و برای همه مفید باشد.")
 check("کیفیت: کلیشه رد می‌شود", ok, False)
