@@ -546,6 +546,55 @@
    "age_hours": 10.2,
    "published": "2026-11-12T13:48:19+00:00",
    "added": "2026-11-13T00:01:03+00:00"
+  },
+  {
+   "id": "01b49a7c7dde8d3e",
+   "title": "Build once, run on any agent: A practical guide to agent skills",
+   "link": "https://github.blog/ai-and-ml/github-copilot/build-once-run-on-any-agent-a-practical-guide-to-agent-skills",
+   "site": "",
+   "desc": "Agent skills capture repeatable engineering work in files teams can review and reuse, while tools, project context, and permissions remain specific to the host that runs them.",
+   "source": "گیت‌هاب بلاگ",
+   "lang": "en",
+   "tier": 3,
+   "group": "",
+   "kind": "tools",
+   "age_hours": 1.3,
+   "published": "2026-11-12T22:54:52+00:00",
+   "added": "2026-11-13T00:15:27+00:00",
+   "full": "Andrea is a Senior Developer Advocate at GitHub with over a decade of experience in developer tools. She combines technical depth with a mission to make advanced technologies more accessible. After transitioning from Army service and construction management to software development, she brings a unique perspective to bridging complex engineering concepts with practical implementation. She lives in Florida with her Welsh partner, two sons, and two dogs, where she continues to drive innovation and support open source through GitHub's global initiatives. Find her online @acolombiadev.",
+   "use_link": "https://resources.github.com/security/the-enterprise-guide-to-ai-powered-devsecops/",
+   "reject_hits": 1
+  },
+  {
+   "id": "0faca23dae5d073f",
+   "title": "Didit MCP",
+   "link": "https://www.producthunt.com/products/didit-3",
+   "site": "",
+   "desc": "The MCP server for identity verification and fraud checks Discussion | Link",
+   "source": "پروداکت هانت",
+   "lang": "en",
+   "tier": 3,
+   "group": "",
+   "kind": "tools",
+   "age_hours": 16.4,
+   "published": "2026-11-11T23:50:55-08:00",
+   "added": "2026-11-13T00:15:27+00:00"
+  },
+  {
+   "id": "c41f4b271d085ddd",
+   "title": "Cloudways Velocity",
+   "link": "https://www.producthunt.com/products/cloudways",
+   "site": "",
+   "desc": "Managed Node.js hosting. Always warm, never off. Discussion | Link",
+   "source": "پروداکت هانت",
+   "lang": "en",
+   "tier": 3,
+   "group": "",
+   "kind": "tools",
+   "age_hours": 81.2,
+   "published": "2026-11-09T07:01:22-08:00",
+   "added": "2026-11-13T00:15:27+00:00",
+   "reject_hits": 1
   }
  ]
 }
