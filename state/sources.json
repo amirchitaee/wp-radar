@@ -21,7 +21,7 @@
   "name": "هاگینگ‌فیس",
   "fails": 0,
   "last_count": 40,
-  "last_ok": "2026-11-13T15:00:46+00:00"
+  "last_ok": "2026-11-13T15:45:28+00:00"
  },
  "https://techcrunch.com/category/artificial-intelligence/feed/": {
   "name": "تک‌کرانچ",
@@ -51,7 +51,7 @@
   "name": "سایمون ویلیسون",
   "fails": 0,
   "last_count": 30,
-  "last_ok": "2026-11-13T15:00:46+00:00"
+  "last_ok": "2026-11-13T15:45:28+00:00"
  },
  "https://wordpress.org/news/feed/": {
   "name": "وردپرس",
@@ -99,19 +99,19 @@
   "name": "وردپرس امنیت",
   "fails": 0,
   "last_count": 10,
-  "last_ok": "2026-11-13T14:30:59+00:00"
+  "last_ok": "2026-11-13T15:45:28+00:00"
  },
  "https://www.wordfence.com/blog/feed/": {
   "name": "وردفنس",
   "fails": 0,
   "last_count": 10,
-  "last_ok": "2026-11-13T14:31:01+00:00"
+  "last_ok": "2026-11-13T15:45:29+00:00"
  },
  "https://patchstack.com/feed/": {
   "name": "پچ‌استک",
   "fails": 0,
   "last_count": 20,
-  "last_ok": "2026-11-13T14:31:02+00:00"
+  "last_ok": "2026-11-13T15:45:29+00:00"
  },
  "https://wpscan.com/feed/": {
   "name": "دبلیوپی‌اسکن",
@@ -123,7 +123,7 @@
   "name": "سوکوری",
   "fails": 0,
   "last_count": 11,
-  "last_ok": "2026-11-13T14:31:02+00:00"
+  "last_ok": "2026-11-13T15:45:29+00:00"
  },
  "https://make.wordpress.org/core/feed/": {
   "name": "هسته وردپرس",
@@ -219,7 +219,7 @@
   "name": "پروداکت هانت",
   "fails": 0,
   "last_count": 40,
-  "last_ok": "2026-11-13T15:00:46+00:00"
+  "last_ok": "2026-11-13T15:45:28+00:00"
  },
  "https://hn.algolia.com/api/v1/search_by_date?query=show%20hn&tags=story&hitsPerPage=20": {
   "name": "شو هکرنیوز",
@@ -309,19 +309,19 @@
   "name": "بلپینگ کامپیوتر",
   "fails": 0,
   "last_count": 15,
-  "last_ok": "2026-11-13T14:31:02+00:00"
+  "last_ok": "2026-11-13T15:45:29+00:00"
  },
  "https://feeds.feedburner.com/TheHackersNews": {
   "name": "هکرنیوز",
   "fails": 0,
   "last_count": 40,
-  "last_ok": "2026-11-13T14:31:02+00:00"
+  "last_ok": "2026-11-13T15:45:30+00:00"
  },
  "https://github.blog/feed/": {
   "name": "گیت‌هاب بلاگ",
   "fails": 0,
   "last_count": 10,
-  "last_ok": "2026-11-13T15:00:46+00:00"
+  "last_ok": "2026-11-13T15:45:28+00:00"
  },
  "https://wpnewsify.com/feed/": {
   "name": "دبلیوپی نیوزیفای",
@@ -345,7 +345,7 @@
   "name": "پروداکت هانت هوش مصنوعی",
   "fails": 0,
   "last_count": 40,
-  "last_ok": "2026-11-13T15:00:47+00:00"
+  "last_ok": "2026-11-13T15:45:28+00:00"
  },
  "https://minimal.gallery/feed/": {
   "name": "مینیمال گالری",
