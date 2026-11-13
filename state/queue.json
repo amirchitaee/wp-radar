@@ -313,23 +313,6 @@
    "skip_permanent": true
   },
   {
-   "id": "3059651df1a92528",
-   "title": "UK regulator threatens universities with sanctions unless they adopt AI-proof exam formats",
-   "link": "https://the-decoder.com/uk-regulator-threatens-universities-with-sanctions-unless-they-adopt-ai-proof-exam-formats",
-   "desc": "England's higher education regulator, the Office for Students, says AI has made it \"nearly impossible\" to fairly assess student coursework. An investigation found that students are having ChatGPT write entire papers undetected, without being able to recall basic content afterward. To save the credibility of degrees, universities now have to return to traditional exams or face sanctions. The article UK regulator threatens universities with sanctions unless they adopt AI-proof exam formats appeared first on The Decoder .",
-   "source": "دیکودر",
-   "lang": "en",
-   "tier": 2,
-   "group": "ai",
-   "kind": "news",
-   "age_hours": 0.6,
-   "published": "2026-11-11T11:54:46+00:00",
-   "added": "2026-11-11T12:30:48+00:00",
-   "digest_sent": true,
-   "channel_skip": true,
-   "skip_permanent": true
-  },
-  {
    "id": "d052336faa0a6d5d",
    "title": "Wordfence 9.1.1",
    "link": "https://wordpress.org/plugins/wordfence/",
@@ -541,6 +524,24 @@
    "published": "2026-11-09T07:01:22-08:00",
    "added": "2026-11-13T00:15:27+00:00",
    "reject_hits": 2
+  },
+  {
+   "id": "05980d05360737c6",
+   "title": "Copy Your WordPress Site with Reprint",
+   "link": "https://wordpress.org/news/2026/11/reprint-your-site",
+   "site": "",
+   "desc": "Reprint is a free, open-source, PHP-based tool that copies a WordPress site’s files and database. The plugin is available in the WordPress.org Plugin Directory, along with the command-line client used to copy the site. WordPress has long let you export your posts and pages. Moving the site itself means bringing along its theme, plugins, uploads, […]",
+   "source": "وردپرس",
+   "lang": "en",
+   "tier": 1,
+   "group": "",
+   "kind": "news",
+   "age_hours": 0.0,
+   "published": "2026-11-13T12:00:00+00:00",
+   "added": "2026-11-13T12:00:43+00:00",
+   "full": "Reprint is a free, open-source, PHP-based tool that copies a WordPress site’s files and database. The plugin is available in the WordPress.org Plugin Directory , along with the command-line client used to copy the site. WordPress has long let you export your posts and pages . Moving the site itself means bringing along its theme, plugins, uploads, and settings, too. Making that easier has been part of WordPress’s Data Liberation work since 2024. You can use Reprint to copy your site to a new host, or to create a local copy meant for testing. While moving your site to a new host, visitors can keep using the original. Use Reprint to copy the site, and then open the copy to check that your pages load, your images appear, and your forms work before you send visitors there. When you’re ready to switch, pause changes on the original site, make one last copy, and point your domain to the new host. The step-by-step guide to moving your site walks you through the move. You can also use Reprint to create a site copy meant for testing, a place to try changes without affecting the site your visitors use. Copy your site to your computer or try the experimental, browser-based option in WordPress Playground . Use the copy to try a new layout with your existing pages, see how a plugin fits into your site, or check that everything still works after a WordPress update. Reprint sends your files and database directly to the computer or server you choose, one piece at a time, without needing to connect to an external service. The transfer can begin without your old host having to make room for an archive of the whole site. If the connection drops during the copy, you can resume from the last saved point. If you give Reprint a new site address, it can update links that point to the old one. It builds on the WordPress Importer’s approach to rewriting links and applies it to the copied database, including links stored in site settings, blocks, shortcodes, and complex data structures like serialized data or custom fields safely without corrupting tables. When copying a site repeatedly, Reprint figures out what changed since the last time and copies only the files it needs. You don’t need to connect your own site to see how Reprint works. Try the experimental, browser-based option in WordPress Playground . You can copy a sample site right in your browser, with nothing to install. When you’re ready to work with your own pages and settings, start with a test site you manage. The guide to making your first copy takes you from installing the plugin to opening the copied site on your computer.",
+   "use_link": "https://wordpress.org/plugins/reprint/",
+   "held": true
   }
  ]
 }
