@@ -195,24 +195,6 @@
    "skip_permanent": true
   },
   {
-   "id": "7171fc0535188e20",
-   "title": "Helsing built an AI system that prepares targets for weapons systems and says every decision will carry a human name",
-   "link": "https://the-decoder.com/helsing-built-an-ai-system-that-prepares-targets-for-weapons-systems-and-says-every-decision-will-carry-a-human-name",
-   "site": "",
-   "desc": "Helsing has unveiled Clarity, an AI platform that uses agents to distill sensor data into target recommendations for weapons systems, all under human oversight and European control. But experience from the Iran war, Gaza, and a near-miss involving China shows that the speed of automation and data fusion create risks that are hard to contain. The article Helsing built an AI system that prepares targets for weapons systems and says every decision will carry a human name appeared first on The Decoder .",
-   "source": "دیکودر",
-   "lang": "en",
-   "tier": 2,
-   "group": "ai",
-   "kind": "news",
-   "age_hours": 2.8,
-   "published": "2026-11-11T15:12:53+00:00",
-   "added": "2026-11-11T18:01:02+00:00",
-   "digest_sent": true,
-   "channel_skip": true,
-   "skip_permanent": true
-  },
-  {
    "id": "d052336faa0a6d5d",
    "title": "Wordfence 9.1.1",
    "link": "https://wordpress.org/plugins/wordfence/",
@@ -395,22 +377,6 @@
    "reject_hits": 2
   },
   {
-   "id": "c41f4b271d085ddd",
-   "title": "Cloudways Velocity",
-   "link": "https://www.producthunt.com/products/cloudways",
-   "site": "",
-   "desc": "Managed Node.js hosting. Always warm, never off. Discussion | Link",
-   "source": "پروداکت هانت",
-   "lang": "en",
-   "tier": 3,
-   "group": "",
-   "kind": "tools",
-   "age_hours": 81.2,
-   "published": "2026-11-09T07:01:22-08:00",
-   "added": "2026-11-13T00:15:27+00:00",
-   "reject_hits": 2
-  },
-  {
    "id": "a97c7cf547a2a67c",
    "title": "10 Big Ol’ 2027 Black Friday Deals",
    "link": "https://css-tricks.com/2027-front-end-black-friday-deals",
@@ -425,6 +391,24 @@
    "published": "2026-11-13T14:05:24+00:00",
    "added": "2026-11-13T14:30:40+00:00",
    "full": "NVIDIA L4 GPUs. 5-second cold starts. Scale to zero when idle. Black Friday deals usually make me think of a big ol’ crowd of people trampling over one another for a TV in a Walmart parking lot. But turns out there’s a lot of deals for front-end too, specifically learning opportunities from course publishers. Thought I’d share those because (1) learning is still straight-up essential for what we do, (2) these really are the best courses in the business, and (3) it’s just plain good for all of us to support the huge effort these folks put into their work. So let’s get to it. I’m grouping them up by skill because, hey, that’s what you want to do: find your learning path on the way to becoming a practitioner. Front-End Development Let’s start with what’s right up our alley around here at CSS-Tricks: CSS and JavaScript! Here’s a bonafide educator educating about his craft. Piccalilli is just full of them, including head honcho Andy Bell who takes you beyond CSS syntax expertise and reach a level of skill that’s usually only achieved after years of experience. CSS Demystified $250 → $169 Yes, you can learn CSS straight from the GOAT himself, Kevin Powell! This may not be for many of you who regularly follow or read CSS-Tricks, but get it for a colleague who could really use a solid starting point for writing poetic styles. It’s a real gift that this is discounted at all. JavaScript for Everyone Did you that our own Mat Marquis is responsible for this gem? I can underscore enough just how adept Mat is as an educator. The dude makes the most complicated things accessible to anyone and has put his heart and soul into this JavaScript course, an area he is more qualified that most to tackle. I really like the play on words here because one of my favorite front-end educators, Josh Comeau, bucks the old trend of writing CSS in JavaScript for real, modern CSS best practices where CSS enhances JavaScript. It really is for those who fell in The Great Divide and want to bridge the gap. Design Chops Mindful Design £249 → £149 Did you see Heydon’s recent post on the awkward intersection between design, accessibility, and development? This is the sort of course that aims at harmonizing these things rather than letting them collide. Scott Riley will teach you to really understand how humans work and explore problem spaces with empathy, curiosity, and accountability to push your overall design skills beyond the next level. Smart Interface Design Patterns $350 → $227 I’ve had the pleasure of working with Vitaly Friedman at Smashing Magazine for three years (and going). The guy is truly at the forefront of UI/UX practices and has been since Istarting learning front-end 20 years ago. You’re going to get an amazing 40 hours of video lessons on real-life examples for common interface components: navigation, filters, tables, forms, and more. Atomic Design Certification Course $150 → $99 Hey look at that, another one from Brad. His Atomic Design work is core knowledge at this point. I mean, we’ve been talking about it since at least 2019 . And I love that Brad has added a certification path for it. It’s 11 hours of goodness on top of assets you can take with you, a Slac",
+   "use_link": "",
+   "reject_hits": 2
+  },
+  {
+   "id": "1bdcb63cc91c6b08",
+   "title": "Meta's Muse now calls businesses for you, but many companies might just hang up on the AI",
+   "link": "https://the-decoder.com/metas-muse-now-calls-businesses-for-you-but-many-companies-might-just-hang-up-on-the-ai",
+   "site": "",
+   "desc": "Meta's AI agent Muse can now call businesses on behalf of paying US subscribers, handling everything from cable providers to restaurants. The agent already has over 10 million users, according to Meta's AI chief Alexandr Wang. Google Gemini, Instinct, and xAI's Grok Bot offer the same feature, but many businesses hang up as soon as they detect an AI on the line. The article Meta's Muse now calls businesses for you, but many companies might just hang up on the AI appeared first on The Decoder .",
+   "source": "دیکودر",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 0.0,
+   "published": "2026-11-13T15:12:44+00:00",
+   "added": "2026-11-13T15:15:40+00:00",
+   "full": "Meta's AI agent Muse can now place calls to US businesses on behalf of its users. The feature, tested in September, is available to all paying Muse subscribers in the US, turning what Google Duplex demoed to widespread amazement in 2018 into a standard capability of always-on AI agents. Meta AI chief Alexandr Wang said the agent, with more than 10 million users, handles tedious calls to cable companies, the DMV, and restaurants, and will soon get a free email address. Google's Gemini , startup Instinct, and xAI's Grok Bot can already place calls as well, while OpenAI's ChatGPT Dots and Anthropic's Claude Duet still cannot. Many businesses, however, hang up the moment they detect an AI on the line. That problem forced Meta to temporarily test human operators for Muse in September, echoing Google's experience with Duplex, where on launch one in four calls was handled by a human. Synthetic voices keep getting more realistic, making that detection increasingly difficult. Users are drawn to the feature largely because the AI will sit on hold indefinitely and work through complex phone menus without complaint. Ad Ad Subscribe to THE DECODER for ad-free reading, a weekly AI newsletter, our exclusive \"AI Radar\" frontier report six times a year, full archive access, and access to our comment section.",
    "use_link": "",
    "reject_hits": 1
   }
