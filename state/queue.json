@@ -274,25 +274,6 @@
    "skip_permanent": true
   },
   {
-   "id": "45ad1d8519ac17ea",
-   "title": "#241 – Tiffany Farriss on Drupal Funding, Community, and a Shared Journey With WordPress",
-   "link": "https://wptavern.com/podcast/241-tiffany-farriss-on-drupal-funding-community-and-a-shared-journey-with-wordpress",
-   "desc": "Tiffany Farriss joined the podcast to talk about the sustainability issues affecting open source communities, drawing from her experience with the Drupal Association. Tiffany is currently the interim CEO of the Drupal Association, and is the organisation’s longest-serving board member after Drupal’s founder, Dries Buytaert. We examine how a small group of contributors often carry the bulk of financial and development responsibilities, while many users benefit without supporting the ecosystem. Tiffany outlined efforts to make these hidden costs transparent and to promote a utility-based funding",
-   "source": "تاورن",
-   "lang": "en",
-   "tier": 2,
-   "group": "",
-   "kind": "news",
-   "age_hours": 0.3,
-   "published": "2026-11-11T13:00:00+00:00",
-   "added": "2026-11-11T13:15:30+00:00",
-   "channel_skip": true,
-   "skip_why": "پادکست یا وبینار",
-   "skip_until": "2026-11-12T01:15:43+00:00",
-   "digest_sent": true,
-   "skip_permanent": true
-  },
-  {
    "id": "d052336faa0a6d5d",
    "title": "Wordfence 9.1.1",
    "link": "https://wordpress.org/plugins/wordfence/",
