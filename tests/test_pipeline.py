@@ -144,6 +144,11 @@ long_ok = "این ابزار یک صفحه‌ساز تازه است که با آ
 ok, why = radar.quality_ok("صفحه‌ساز تازه", long_ok)
 check("کیفیت: خلاصهٔ سالم قبول می‌شود", ok, True)
 
+ok, why = radar.quality_ok("Kinsta now protects every WordPress site it hosts", long_ok)
+check("کیفیت: تیتر بی‌فارسی رد می‌شود", ok, False)
+ok, why = radar.quality_ok("کینستا محافظت امنیتی اضافه کرد", long_ok)
+check("کیفیت: تیتر فارسی با نام لاتین قبول می‌شود", ok, True)
+
 ok, why = radar.quality_ok("خبر", "در دنیای امروز این ابزار می‌تواند کارهای زیادی انجام دهد و برای همه مفید باشد.")
 check("کیفیت: کلیشه رد می‌شود", ok, False)
 
@@ -1282,8 +1287,10 @@ check("جای خالی: پیش از ظهر، سبد خالی هم سهم پای�
       radar.ai_allowance(_ai_s, {"kinds": {}}, 0, _ai_morning, wp_left=0), 1)
 check("جای خالی: بعد از ظهر با روز بی‌خبر باز می‌شود",
       radar.ai_allowance(_ai_s, {"kinds": {}}, 0, _ai_noon, wp_left=0), 3)
-check("جای خالی: اگر امروز خبر وردپرسی رفته، باز نمی‌شود",
-      radar.ai_allowance(_ai_s, {"kinds": {"news": 1}}, 0, _ai_noon, wp_left=0), 1)
+check("جای خالی: خبر وردپرسی صبح رفته، بعد از ظهر سبد خالی است، باز می‌شود",
+      radar.ai_allowance(_ai_s, {"kinds": {"news": 1}}, 0, _ai_noon, wp_left=0), 3)
+check("جای خالی: همان روز، پیش از ظهر هم سبد خالی است، باز نمی‌شود",
+      radar.ai_allowance(_ai_s, {"kinds": {"news": 1}}, 0, _ai_morning, wp_left=0), 1)
 check("جای خالی: تا خبر وردپرسی در سبد است، سهم پایه می‌ماند",
       radar.ai_allowance(_ai_s, {"kinds": {"news": 1}}, 0, _ai_eve, wp_left=2), 1)
 check("جای خالی: شب با سبد خالی باز می‌شود",
