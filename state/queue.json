@@ -612,7 +612,8 @@
    "published": "2026-11-12T23:54:33+00:00",
    "added": "2026-11-13T01:30:37+00:00",
    "reject_hits": 1,
-   "held": true
+   "posted": true,
+   "msg_id": 140
   }
  ]
 }
