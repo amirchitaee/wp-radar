@@ -485,24 +485,6 @@
    "skip_permanent": true
   },
   {
-   "id": "c88537f3a56d1457",
-   "title": "Claude Meetings lets Anthropic's AI join your video calls",
-   "link": "https://the-decoder.com/claude-meetings-lets-anthropics-ai-join-your-video-calls",
-   "site": "",
-   "desc": "Anthropic is adding Claude directly to video calls. Claude Meetings joins Google Meet sessions and creates documents, whiteboards, and meeting notes in real time. The feature launches in beta for Team and Enterprise plans, with more platforms coming later. The article Claude Meetings lets Anthropic's AI join your video calls appeared first on The Decoder .",
-   "source": "دیکودر",
-   "lang": "en",
-   "tier": 2,
-   "group": "ai",
-   "kind": "news",
-   "age_hours": 3.6,
-   "published": "2026-11-12T20:26:50+00:00",
-   "added": "2026-11-13T00:01:03+00:00",
-   "full": "Anthropic has launched Claude Meetings, a feature that puts Claude into video calls as a visible participant. During a call, Claude can answer questions, generate documents and whiteboards, and log notes and action items, responding in text by default and accessing connected tools when granted permission. All notes, transcripts, and documents Claude produced are available on a dedicated page in claude.ai once the meeting ends. Privacy controls prevent Claude from joining calls with external participants by default. The feature is in beta for Team and Enterprise plans, with Google Meet as the only supported platform so far. Anthropic says more platforms will follow. Organizations running HIPAA or customer-managed encryption configurations can't use Meetings yet. Ad Claude Meetings extends recently announced capabilities like whiteboards and data dashboards that are gradually reshaping the Claude app into an all-in-one office tool. Ad Subscribe to THE DECODER for ad-free reading, a weekly AI newsletter, our exclusive \"AI Radar\" frontier report six times a year, full archive access, and access to our comment section.",
-   "use_link": "",
-   "held": true
-  },
-  {
    "id": "4d9244537a2033a7",
    "title": "Google's Gemini 4 Hydrogen outscores the bigger Argon just four weeks after its launch",
    "link": "https://the-decoder.com/googles-gemini-4-hydrogen-outscores-the-bigger-argon-just-four-weeks-after-its-launch",
