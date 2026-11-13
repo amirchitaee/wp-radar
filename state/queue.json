@@ -595,6 +595,22 @@
    "published": "2026-11-09T07:01:22-08:00",
    "added": "2026-11-13T00:15:27+00:00",
    "reject_hits": 2
+  },
+  {
+   "id": "d1e144f1c14bca59",
+   "title": "Moving your site used to mean starting over. Not anymore",
+   "link": "https://wordpress.com/blog/2026/11/12/move-to-wordpress",
+   "site": "",
+   "desc": "Moving your website used to mean starting over. Not anymore. Paste your site's address, and we bring your pages, images, and design to WordPress.com. Plans start at $4 a month, billed yearly.",
+   "source": "وردپرس دات کام",
+   "lang": "en",
+   "tier": 2,
+   "group": "",
+   "kind": "news",
+   "age_hours": 1.6,
+   "published": "2026-11-12T23:54:33+00:00",
+   "added": "2026-11-13T01:30:37+00:00",
+   "reject_hits": 1
   }
  ]
 }
