@@ -213,27 +213,6 @@
    "skip_permanent": true
   },
   {
-   "id": "d287b226cd6b6fb7",
-   "title": "Anthropic says AI is eroding Nvidia's CUDA lead, cutting an AMD chip switch from months to three days",
-   "link": "https://the-decoder.com/anthropic-says-ai-is-eroding-nvidias-cuda-lead-cutting-an-amd-chip-switch-from-months-to-three-days",
-   "site": "",
-   "desc": "Anthropic claims it used AI itself to breach Nvidia's CUDA moat. The company's in-house model Mythos reportedly ported Claude to AMD GPUs in just three days, with almost no human intervention. Anthropic now runs Claude on four chip families and aims to cut costs and reduce vendor dependencies. The article Anthropic says AI is eroding Nvidia's CUDA lead, cutting an AMD chip switch from months to three days appeared first on The Decoder .",
-   "source": "دیکودر",
-   "lang": "en",
-   "tier": 2,
-   "group": "ai",
-   "kind": "news",
-   "age_hours": 16.6,
-   "published": "2026-11-11T14:25:20+00:00",
-   "added": "2026-11-12T07:00:55+00:00",
-   "full": "Anthropic claims it has broken free of its Nvidia dependence with a multi-chip strategy. The company says it ported its own AI model, Claude, to AMD GPUs in just three days, with almost no human intervention. Nvidia's biggest competitive edge is the combination of hardware and software, specifically CUDA, the software ecosystem that locks developers into Nvidia chips. Porting AI models to other chip architectures takes so much effort that many companies won't even try. Anthropic now claims in an investor presentation that it has solved this problem using AI itself. According to Tom Brown, co-founder and Chief Compute Officer at Anthropic, the company now trains and runs Claude on all four major chip families. Anthropic made an \"unconventional bet\" on a multi-chip strategy early on, at a time when most of the industry considered the effort not worth it. Each chip needs its own custom software and inference stack, which is expensive and time-consuming. But Anthropic has been investing in this work for years and has since become \"incredibly good\" at it, Brown says. Ad The company's most concrete test came with AMD GPUs. Until now, bringing up a new chip platform kept dozens of engineers busy for months. This year, Anthropic used AMD GPUs for the first time and let its own frontier model, Mythos, do the work. According to Anthropic, Claude was running on AMD after just three days, with almost no human intervention. The model ported or wrote nearly 100 percent of the kernels itself. Ad If these figures are accurate, the software overhead, long considered Nvidia's strongest competitive advantage, would shrink dramatically because of AI. Companies could switch more easily between chip providers and pick the most affordable or readily available option. In a compute market where supply is tight, a multi-chip approach lets companies focus on the best price-performance ratio, regardless of the vendor. Some chips are better for training, while others are better for inference. And because of its dominance in the AI chip market, Nvidia currently enjoys a margin of more than 70 percent, which is unusually high for hardware. Ad Anthropic treats compute from different vendors, chip architectures, and locations as one interchangeable pool. The company says it gets more out of every dollar of compute than any other frontier AI lab. Beyond its multi-chip strategy, Anthropic relies on what it calls compute multipliers, research breakthroughs that squeeze more performance from the same physical computing capacity. According to Anthropic, these multipliers build on one another so that each new breakthrough amplifies the effect of the previous one. Ad Eventually, Claude should be able to discover such compute multipliers on its own. That would amount to recursive self-improvement, a concept that's intensely debated in AI research but hasn't been proven yet . Ad Anthropic is also building its own data center capacity through the \"Anthropic Direct\" program. Instead of buying computing power only as a cloud service, the company leases chips and operates them in purpose-built data centers. The goal is to reduce total cost of ownership. The figures come from Anthropic's ",
-   "use_link": "",
-   "reject_hits": 2,
-   "digest_sent": true,
-   "channel_skip": true,
-   "skip_permanent": true
-  },
-  {
    "id": "d052336faa0a6d5d",
    "title": "Wordfence 9.1.1",
    "link": "https://wordpress.org/plugins/wordfence/",
@@ -430,6 +409,24 @@
    "published": "2026-11-09T07:01:22-08:00",
    "added": "2026-11-13T00:15:27+00:00",
    "reject_hits": 2
+  },
+  {
+   "id": "a97c7cf547a2a67c",
+   "title": "10 Big Ol’ 2027 Black Friday Deals",
+   "link": "https://css-tricks.com/2027-front-end-black-friday-deals",
+   "site": "",
+   "desc": "A big ol' roundup of Black Friday deals on front-end courses from the best independent publishers and educators in the business. 10 Big Ol’ 2027 Black Friday Deals originally handwritten and published with love on CSS-Tricks . You should really get the newsletter as well.",
+   "source": "سی‌اس‌اس تریکس",
+   "lang": "en",
+   "tier": 3,
+   "group": "",
+   "kind": "news",
+   "age_hours": 0.4,
+   "published": "2026-11-13T14:05:24+00:00",
+   "added": "2026-11-13T14:30:40+00:00",
+   "full": "NVIDIA L4 GPUs. 5-second cold starts. Scale to zero when idle. Black Friday deals usually make me think of a big ol’ crowd of people trampling over one another for a TV in a Walmart parking lot. But turns out there’s a lot of deals for front-end too, specifically learning opportunities from course publishers. Thought I’d share those because (1) learning is still straight-up essential for what we do, (2) these really are the best courses in the business, and (3) it’s just plain good for all of us to support the huge effort these folks put into their work. So let’s get to it. I’m grouping them up by skill because, hey, that’s what you want to do: find your learning path on the way to becoming a practitioner. Front-End Development Let’s start with what’s right up our alley around here at CSS-Tricks: CSS and JavaScript! Here’s a bonafide educator educating about his craft. Piccalilli is just full of them, including head honcho Andy Bell who takes you beyond CSS syntax expertise and reach a level of skill that’s usually only achieved after years of experience. CSS Demystified $250 → $169 Yes, you can learn CSS straight from the GOAT himself, Kevin Powell! This may not be for many of you who regularly follow or read CSS-Tricks, but get it for a colleague who could really use a solid starting point for writing poetic styles. It’s a real gift that this is discounted at all. JavaScript for Everyone Did you that our own Mat Marquis is responsible for this gem? I can underscore enough just how adept Mat is as an educator. The dude makes the most complicated things accessible to anyone and has put his heart and soul into this JavaScript course, an area he is more qualified that most to tackle. I really like the play on words here because one of my favorite front-end educators, Josh Comeau, bucks the old trend of writing CSS in JavaScript for real, modern CSS best practices where CSS enhances JavaScript. It really is for those who fell in The Great Divide and want to bridge the gap. Design Chops Mindful Design £249 → £149 Did you see Heydon’s recent post on the awkward intersection between design, accessibility, and development? This is the sort of course that aims at harmonizing these things rather than letting them collide. Scott Riley will teach you to really understand how humans work and explore problem spaces with empathy, curiosity, and accountability to push your overall design skills beyond the next level. Smart Interface Design Patterns $350 → $227 I’ve had the pleasure of working with Vitaly Friedman at Smashing Magazine for three years (and going). The guy is truly at the forefront of UI/UX practices and has been since Istarting learning front-end 20 years ago. You’re going to get an amazing 40 hours of video lessons on real-life examples for common interface components: navigation, filters, tables, forms, and more. Atomic Design Certification Course $150 → $99 Hey look at that, another one from Brad. His Atomic Design work is core knowledge at this point. I mean, we’ve been talking about it since at least 2019 . And I love that Brad has added a certification path for it. It’s 11 hours of goodness on top of assets you can take with you, a Slac",
+   "use_link": "",
+   "reject_hits": 1
   }
  ]
 }

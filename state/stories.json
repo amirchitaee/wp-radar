@@ -85,20 +85,6 @@
    "cves": []
   },
   {
-   "t": "2026-11-09T14:16:13+00:00",
-   "id": "892d4b2fd053c6ff",
-   "title": "Elementor 4.4.0",
-   "kind": "news",
-   "link": "https://wordpress.org/plugins/elementor/",
-   "ents": [
-    "elementor"
-   ],
-   "vers": [
-    "4.4.0"
-   ],
-   "cves": []
-  },
-  {
    "t": "2026-11-09T15:45:37+00:00",
    "id": "f86d5f8581cb62a0",
    "title": "Website Inspiration: La Coignardière",
