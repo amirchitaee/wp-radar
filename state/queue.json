@@ -426,6 +426,40 @@
    "channel_skip": true,
    "skip_why": "خارج از مخاطب",
    "skip_until": "2026-11-14T09:00:51+00:00"
+  },
+  {
+   "id": "747fb6bb6a47b9fb",
+   "title": "What’s new for developers? (November 2026)",
+   "link": "https://developer.wordpress.org/news/2026/11/whats-new-for-developers-november-2026",
+   "site": "",
+   "desc": "WordPress 7.2 is coming. Here's what changed for plugin and theme developers: the Secrets API, SVG admin icons, random redirects, and what to test before string freeze.",
+   "source": "دولوپر وردپرس",
+   "lang": "en",
+   "tier": 1,
+   "group": "",
+   "kind": "news",
+   "age_hours": 0.6,
+   "published": "2026-11-13T21:08:16+00:00",
+   "added": "2026-11-13T21:45:31+00:00",
+   "full": "WordPress 7.2 Beta 5 is out, and RC1 arrives in just a few short days on November 17, 2026. You can also expect the 7.2 Field Guide and Source of Truth at the same time. The final release is scheduled for December 8. So this will be the last monthly roundup before WordPress 7.2 ships, so if you haven’t started testing your plugins and themes against the betas, well…it’s a good time to start. WordPress 7.1.4 shipped on October 28 with 13 security fixes, several of them in the Interactivity API. A week earlier, the PHP project released fixes for two critical vulnerabilities . Do yourself or your clients a favor and make sure that you’re updated across the board. You can test the latest with the WordPress Beta Tester plugin, wp core update --version=7.2-beta5 , or a Playground instance . The Help Test WordPress 7.2 post walks through each feature. Like I did last month, I’m experimenting with the monthly roundup format. I’m sticking the highlights that I think are most important at the top and including everything else in the Want more? section at the end of the post. Until now, every plugin that needed an API key stored it in the options table as plain text. WordPress 7.2 adds a Secrets API that encrypts credentials at rest, keeps a previous version for rotation, and lets hosts swap in their own storage through a secrets.php drop-in. The convention for secret names is plugin-slug/secret-name . It’s also worth noting that wp_get_secret() returns either a WP_Secret object, null, or WP_Error . And the secret is masked until you ask for it via reveal() on the secret object. Here’s some example code showing how to use it: function pluginslug_get_api_key() { $secret = wp_get_secret('plugin-slug/api-key'); if ( is_wp_error( $secret ) ) { // The secret exists but can't be read. Tell the user. return ''; } return $secret ? $secret->reveal() : ''; } Secrets are encrypted with a key from a new WP_SECRETS_KEY constant in wp-config.php . New installs get this automatically, and Site Health tells existing sites how to add it. There’s no admin UI for secrets in 7.2; that’s planned for a later release. The icons in the admin bar and sidebar menu are now inline SVGs from the core-admin icon collection instead of Dashicons font glyphs. If your plugin uses dashicons for menus, they won’t disappear. The equivalent core-admin icon will be swapped in. However, any CSS rule that uses ::before to color, hide, or replace icons will no longer work or could break the design. This is because the icon is now a real <svg> element. To see how to update these cases, read the Developer Note: SVG icons in the admin bar and menu in WordPress 7.2 . add_menu_page() , register_post_type() , and WP_Admin_Bar::add_node() all now accept the new SVG icons. Here’s an example of using it with a fallback check for pre-7.2: add_menu_page( __('Notes', 'pluginslug'), __('Notes', 'pluginslug'), 'manage_options', 'pluginslug-notes', 'pluginslug_render_notes', function_exists('wp_is_valid_icon_name') ? 'core-admin/pin' : 'dashicons-admin-post' ); You can also register your own collection and use those icons with wp_register_icon_collection() . WordPress 7.2 is adding a new /random URL that send",
+   "use_link": ""
+  },
+  {
+   "id": "08c4f29a10c8b8b1",
+   "title": "Kinsta launches Vulnerability Protection, Powered by Patchstack, to protect WordPress sites at no extra cost",
+   "link": "https://kinsta.com/blog/kinsta-launches-vulnerability-protection-powered-by-patchstack-to-protect-wordpress-sites-at-no-extra-cost",
+   "site": "",
+   "desc": "Sites are automatically protected from known plugin and theme vulnerabilities, including those without a vendor fix. LOS ANGELES — November 10, 2026 — Kinsta, a leading ...",
+   "source": "کینستا",
+   "lang": "en",
+   "tier": 2,
+   "group": "",
+   "kind": "news",
+   "age_hours": 1.4,
+   "published": "2026-11-13T20:21:14+00:00",
+   "added": "2026-11-13T21:45:33+00:00",
+   "full": "Sites are automatically protected from known plugin and theme vulnerabilities, including those without a vendor fix. LOS ANGELES — November 10, 2026 — Kinsta, a leading managed hosting provider for WordPress, today announced Vulnerability Protection, powered by Patchstack, a new security layer that automatically protects every Kinsta WordPress site against known plugin and theme vulnerabilities at no extra cost. Websites are protected as soon as a vulnerability is detected, even if a fix is not yet available. WordPress vulnerabilities are a growing problem, with vulnerabilities rising 42% in 2025, and 46% of those disclosed had no vendor fix at the time, according to Patchstack’s State of WordPress Security in 2026 report. A compromise can mean lost orders, damaged business reputation and exposed customer data. “AI has dramatically increased how quickly hackers can find and exploit vulnerabilities in software,” said Daniel Pataki, CTO at Kinsta. “Application-level issues have traditionally not been addressed by hosts, but we believe stability and security of a site is essential and lets a business focus on growth. We see this as an investment in our customers’ experience.” Kinsta’s Vulnerability Protection identifies vulnerabilities in a site’s software and applies a protection at the WordPress application layer. Vulnerability Protection continuously checks the plugins, themes and WordPress version running on each site against known vulnerabilities. If it finds one, it applies a personalized firewall, with no changes to site code and no dashboards or vulnerability feeds for customers to monitor. This keeps the site protected until the software can be safely updated. Within the first weeks, Patchstack has blocked more than 1.5 million exploitation attempts across more than 68,000 Kinsta sites. “With the recent avalanche of vulnerability discoveries combined with the increasing speed of vulnerability weaponization, fast mitigation is non-negotiable for businesses of any size,” said Oliver Sild, CEO of Patchstack. “Kinsta has made a major investment in its customers’ security and made a premium security solution available to everyone at no extra cost.” Patchstack’s report found 11,334 new WordPress vulnerabilities in 2025, and high-severity vulnerabilities in 2025 outnumbered the previous two years combined. Plugins were 91% of vulnerabilities. Some hosting providers monitor for vulnerabilities and send notifications but charge extra to mitigate them. Kinsta includes mitigation with every plan automatically. In addition, agencies are Kinsta’s core customers, and the benefit grows with the portfolio size. An agency with 200 clients gets 200 sites of protection without having to track a single vulnerability. Vulnerability Protection adds a layer to the security Kinsta already includes on every WordPress plan . Cloudflare-powered DDOS protection and a managed WAF stop attacks at the edge, and Bot Protection , which Kinsta launched in June, controls automated traffic. Kinsta Automatic Updates also installs vendor fixes as soon as they are released. Kinsta is a premium managed hosting for WordPress solution — designed for all types of businesses, age",
+   "use_link": ""
   }
  ]
 }

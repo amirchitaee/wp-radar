@@ -99,19 +99,6 @@
    "cves": []
   },
   {
-   "t": "2026-11-09T21:01:16+00:00",
-   "id": "3f5320e13125c0fa",
-   "title": "We went looking: What Woo has done about security since June",
-   "kind": "news",
-   "link": "https://woocommerce.com/posts/woo-latest-security",
-   "ents": [
-    "june",
-    "woo"
-   ],
-   "vers": [],
-   "cves": []
-  },
-  {
    "t": "2026-11-09T23:15:52+00:00",
    "id": "c14f3dc722258b07",
    "title": "What’s Coming in WordPress 7.2? (Features and Screenshots)",
