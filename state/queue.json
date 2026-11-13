@@ -411,6 +411,57 @@
    "full": "Meta's AI agent Muse can now place calls to US businesses on behalf of its users. The feature, tested in September, is available to all paying Muse subscribers in the US, turning what Google Duplex demoed to widespread amazement in 2018 into a standard capability of always-on AI agents. Meta AI chief Alexandr Wang said the agent, with more than 10 million users, handles tedious calls to cable companies, the DMV, and restaurants, and will soon get a free email address. Google's Gemini , startup Instinct, and xAI's Grok Bot can already place calls as well, while OpenAI's ChatGPT Dots and Anthropic's Claude Duet still cannot. Many businesses, however, hang up the moment they detect an AI on the line. That problem forced Meta to temporarily test human operators for Muse in September, echoing Google's experience with Duplex, where on launch one in four calls was handled by a human. Synthetic voices keep getting more realistic, making that detection increasingly difficult. Users are drawn to the feature largely because the AI will sit on hold indefinitely and work through complex phone menus without complaint. Ad Ad Subscribe to THE DECODER for ad-free reading, a weekly AI newsletter, our exclusive \"AI Radar\" frontier report six times a year, full archive access, and access to our comment section.",
    "use_link": "",
    "reject_hits": 1
+  },
+  {
+   "id": "bead99654d67d272",
+   "title": "Nearly 70 percent of US agencies use generative AI, and unions are finally catching up with guardrails",
+   "link": "https://the-decoder.com/nearly-70-percent-of-us-agencies-use-generative-ai-and-unions-are-finally-catching-up-with-guardrails",
+   "site": "",
+   "desc": "US public-sector unions are increasingly pushing through protections against AI surveillance and automated firings. In Oakland, a strike vote forced retraining programs instead of layoffs, and a transport union in Ohio won veto power over autonomous vehicles. California banned so-called bossware. All of this is happening while nearly 70 percent of US government agencies already use generative AI. The article Nearly 70 percent of US agencies use generative AI, and unions are finally catching up with guardrails appeared first on The Decoder .",
+   "source": "دیکودر",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 0.1,
+   "published": "2026-11-13T15:53:49+00:00",
+   "added": "2026-11-13T16:01:00+00:00",
+   "full": "US public-sector unions are winning more protections against AI surveillance and automation-driven job losses. The issue is growing more urgent as nearly 70 percent of US government agencies already use generative AI, according to an Ernst and Young survey . The wins are piling up nationwide. After a strike vote in October, IFPTE Local 21 in Oakland secured retraining programs instead of AI-related layoffs. In Pennsylvania, Governor Josh Shapiro guaranteed SEIU Local 668 human oversight during a pilot of OpenAI's ChatGPT Enterprise . The Transport Workers Union in Ohio won veto power over autonomous vehicles. On top of that, California Governor Gavin Newsom banned AI surveillance software, often called \"bossware,\" along with automated firings in September. New York has protected state employees from AI displacement by law since late 2025. Employers are pushing automation to cut costs, according to labor researcher Kung Feng at UC Berkeley. Union leaders like Liz Shuler of the AFL-CIO, Lorena Gonzalez, and TWU's John Samuelsen support AI safety systems where they help workers but insist on mandatory human control over every AI application in the workplace, the Guardian reports . Ad Ad Subscribe to THE DECODER for ad-free reading, a weekly AI newsletter, our exclusive \"AI Radar\" frontier report six times a year, full archive access, and access to our comment section.",
+   "use_link": "",
+   "reject_hits": 1
+  },
+  {
+   "id": "449fc35486b25600",
+   "title": "Former OpenAI researcher says he found Nvidia Blackwell fingerprints hidden inside six Chinese AI models",
+   "link": "https://the-decoder.com/former-openai-researcher-says-he-found-nvidia-blackwell-fingerprints-hidden-inside-six-chinese-ai-models",
+   "site": "",
+   "desc": "Former OpenAI researcher Will DePue says he has produced the first technical evidence that DeepSeek, Moonshot AI, MiniMax, and Ant Group are using Nvidia's latest Blackwell GPUs despite US export controls. His forensic method reads characteristic chip signatures directly from published model weights. He estimates the hardware behind the five training runs cost more than half a billion dollars. The article Former OpenAI researcher says he found Nvidia Blackwell fingerprints hidden inside six Chinese AI models appeared first on The Decoder .",
+   "source": "دیکودر",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 0.7,
+   "published": "2026-11-13T15:21:04+00:00",
+   "added": "2026-11-13T16:01:00+00:00"
+  },
+  {
+   "id": "a1ffa3194999acb7",
+   "title": "Anthropic's IPO is six times oversubscribed and on track to become the largest public offering in history",
+   "link": "https://the-decoder.com/anthropics-ipo-is-six-times-oversubscribed-and-on-track-to-become-the-largest-public-offering-in-history",
+   "site": "",
+   "desc": "Anthropic is on track for the largest IPO ever, with orders exceeding available shares by a factor of six. The article Anthropic's IPO is six times oversubscribed and on track to become the largest public offering in history appeared first on The Decoder .",
+   "source": "دیکودر",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 0.8,
+   "published": "2026-11-13T15:15:08+00:00",
+   "added": "2026-11-13T16:01:00+00:00",
+   "channel_skip": true,
+   "skip_why": "خارج از مخاطب",
+   "skip_until": "2026-11-14T04:01:06+00:00"
   }
  ]
 }
