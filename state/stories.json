@@ -85,21 +85,6 @@
    "cves": []
   },
   {
-   "t": "2026-11-09T00:15:57+00:00",
-   "id": "b5e076245ed35d32",
-   "title": "Andrej Karpathy built a curated video platform in a weekend using Claude and 20 years of Hacker News",
-   "kind": "news",
-   "link": "https://the-decoder.com/andrej-karpathy-built-a-curated-video-platform-in-a-weekend-using-claude-and-20-years-of-hacker-news",
-   "ents": [
-    "andrej",
-    "claude",
-    "hacker",
-    "karpathy"
-   ],
-   "vers": [],
-   "cves": []
-  },
-  {
    "t": "2026-11-09T09:16:05+00:00",
    "id": "d6275048f0a81206",
    "title": "Polylang 3.9.2",
