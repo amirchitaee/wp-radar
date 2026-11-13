@@ -99,20 +99,6 @@
    "cves": []
   },
   {
-   "t": "2026-11-09T16:46:08+00:00",
-   "id": "46af0b7ab7e2127e",
-   "title": "Wordfence 9.1.0",
-   "kind": "news",
-   "link": "https://wordpress.org/plugins/wordfence/",
-   "ents": [
-    "wordfence"
-   ],
-   "vers": [
-    "9.1.0"
-   ],
-   "cves": []
-  },
-  {
    "t": "2026-11-09T21:01:16+00:00",
    "id": "3f5320e13125c0fa",
    "title": "We went looking: What Woo has done about security since June",
