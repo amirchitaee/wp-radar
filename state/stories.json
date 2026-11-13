@@ -85,22 +85,6 @@
    "cves": []
   },
   {
-   "t": "2026-11-09T13:16:04+00:00",
-   "id": "b4f19b33e97a3209",
-   "title": "WordPress Publishing Without WordPress? Meet Quill",
-   "kind": "news",
-   "link": "https://thewpminute.com/wordpress-publishing-without-wordpress-meet-quill",
-   "ents": [
-    "meet",
-    "publishing",
-    "quill",
-    "without",
-    "wordpress"
-   ],
-   "vers": [],
-   "cves": []
-  },
-  {
    "t": "2026-11-09T14:16:13+00:00",
    "id": "892d4b2fd053c6ff",
    "title": "Elementor 4.4.0",
