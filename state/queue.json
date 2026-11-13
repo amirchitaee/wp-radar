@@ -374,25 +374,6 @@
    "reject_hits": 2
   },
   {
-   "id": "1bdcb63cc91c6b08",
-   "title": "Meta's Muse now calls businesses for you, but many companies might just hang up on the AI",
-   "link": "https://the-decoder.com/metas-muse-now-calls-businesses-for-you-but-many-companies-might-just-hang-up-on-the-ai",
-   "site": "",
-   "desc": "Meta's AI agent Muse can now call businesses on behalf of paying US subscribers, handling everything from cable providers to restaurants. The agent already has over 10 million users, according to Meta's AI chief Alexandr Wang. Google Gemini, Instinct, and xAI's Grok Bot offer the same feature, but many businesses hang up as soon as they detect an AI on the line. The article Meta's Muse now calls businesses for you, but many companies might just hang up on the AI appeared first on The Decoder .",
-   "source": "دیکودر",
-   "lang": "en",
-   "tier": 2,
-   "group": "ai",
-   "kind": "news",
-   "age_hours": 0.0,
-   "published": "2026-11-13T15:12:44+00:00",
-   "added": "2026-11-13T15:15:40+00:00",
-   "full": "Meta's AI agent Muse can now place calls to US businesses on behalf of its users. The feature, tested in September, is available to all paying Muse subscribers in the US, turning what Google Duplex demoed to widespread amazement in 2018 into a standard capability of always-on AI agents. Meta AI chief Alexandr Wang said the agent, with more than 10 million users, handles tedious calls to cable companies, the DMV, and restaurants, and will soon get a free email address. Google's Gemini , startup Instinct, and xAI's Grok Bot can already place calls as well, while OpenAI's ChatGPT Dots and Anthropic's Claude Duet still cannot. Many businesses, however, hang up the moment they detect an AI on the line. That problem forced Meta to temporarily test human operators for Muse in September, echoing Google's experience with Duplex, where on launch one in four calls was handled by a human. Synthetic voices keep getting more realistic, making that detection increasingly difficult. Users are drawn to the feature largely because the AI will sit on hold indefinitely and work through complex phone menus without complaint. Ad Ad Subscribe to THE DECODER for ad-free reading, a weekly AI newsletter, our exclusive \"AI Radar\" frontier report six times a year, full archive access, and access to our comment section.",
-   "use_link": "",
-   "reject_hits": 1,
-   "held": true
-  },
-  {
    "id": "bead99654d67d272",
    "title": "Nearly 70 percent of US agencies use generative AI, and unions are finally catching up with guardrails",
    "link": "https://the-decoder.com/nearly-70-percent-of-us-agencies-use-generative-ai-and-unions-are-finally-catching-up-with-guardrails",
