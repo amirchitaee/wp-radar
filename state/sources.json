@@ -21,7 +21,7 @@
   "name": "هاگینگ‌فیس",
   "fails": 0,
   "last_count": 40,
-  "last_ok": "2026-11-13T07:15:31+00:00"
+  "last_ok": "2026-11-13T08:00:42+00:00"
  },
  "https://techcrunch.com/category/artificial-intelligence/feed/": {
   "name": "تک‌کرانچ",
@@ -51,7 +51,7 @@
   "name": "سایمون ویلیسون",
   "fails": 0,
   "last_count": 30,
-  "last_ok": "2026-11-13T07:15:31+00:00"
+  "last_ok": "2026-11-13T08:00:42+00:00"
  },
  "https://wordpress.org/news/feed/": {
   "name": "وردپرس",
@@ -219,7 +219,7 @@
   "name": "پروداکت هانت",
   "fails": 0,
   "last_count": 40,
-  "last_ok": "2026-11-13T07:15:31+00:00"
+  "last_ok": "2026-11-13T08:00:42+00:00"
  },
  "https://hn.algolia.com/api/v1/search_by_date?query=show%20hn&tags=story&hitsPerPage=20": {
   "name": "شو هکرنیوز",
@@ -321,7 +321,7 @@
   "name": "گیت‌هاب بلاگ",
   "fails": 0,
   "last_count": 10,
-  "last_ok": "2026-11-13T07:15:31+00:00"
+  "last_ok": "2026-11-13T08:00:42+00:00"
  },
  "https://wpnewsify.com/feed/": {
   "name": "دبلیوپی نیوزیفای",
@@ -345,7 +345,7 @@
   "name": "پروداکت هانت هوش مصنوعی",
   "fails": 0,
   "last_count": 40,
-  "last_ok": "2026-11-13T07:15:31+00:00"
+  "last_ok": "2026-11-13T08:00:42+00:00"
  },
  "https://minimal.gallery/feed/": {
   "name": "مینیمال گالری",
