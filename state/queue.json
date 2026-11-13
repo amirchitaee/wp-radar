@@ -392,24 +392,6 @@
    "skip_permanent": true
   },
   {
-   "id": "4d9244537a2033a7",
-   "title": "Google's Gemini 4 Hydrogen outscores the bigger Argon just four weeks after its launch",
-   "link": "https://the-decoder.com/googles-gemini-4-hydrogen-outscores-the-bigger-argon-just-four-weeks-after-its-launch",
-   "site": "",
-   "desc": "Google's Gemini 4 Hydrogen replaces the Flash series, but benchmarks suggest it also makes the pricier Argon obsolete. On the independent Artificial Analysis Intelligence Index, Hydrogen nearly matches Claude Sonnet 5.5 for less money but costs about 2.5 times more per task than GPT-6.1 Sol and still falls short on agentic coding. The article Google's Gemini 4 Hydrogen outscores the bigger Argon just four weeks after its launch appeared first on The Decoder .",
-   "source": "دیکودر",
-   "lang": "en",
-   "tier": 2,
-   "group": "ai",
-   "kind": "news",
-   "age_hours": 4.0,
-   "published": "2026-11-12T19:58:43+00:00",
-   "added": "2026-11-13T00:01:03+00:00",
-   "full": "Google has released Gemini 4 Hydrogen, a fast general-purpose AI model meant for developers and everyday users. Unlike the frontier models Gemini 4 Carbon and Gemini 4 Argon , which Google designed for deep, long-horizon reasoning on hard problems, Hydrogen is meant to handle everyday tasks quickly and cheaply. It appears to be the counterpart to the earlier Flash series. That comparison may sell it short, though. According to Google, Hydrogen beats the larger Argon on the Artificial Analysis Intelligence Index at the default \"high\" thinking level (51 vs. 50) and reaches up to 54 at the highest level, \"xhigh.\" Ad Hydrogen offers four thinking levels: low, medium, high (the default), and a new xhigh tier, while Argon offers only medium and high. The model has a one-million-token context window for input and can output one million tokens. It costs $1.50 per million input tokens and $7.50 per million output tokens. Cache hits cost $0.075. Ad Hydrogen apparently ends up both more capable and cheaper than Argon. Adding to the confusion, when Google announced its new frontier model Carbon just two days ago , the company recommended sticking with Argon for daily coding work. Hydrogen should make that advice moot, leaving Argon obsolete less than four weeks after its release. Google pitches Hydrogen as a standalone model and a big upgrade over Gemini 3.8 Flash. At the default thinking level, Google says it finishes tasks 2.5 times faster. On Terminal-Bench 4.1 , the score jumps from 18.2 percent (Flash) to 57 percent (Hydrogen). Hallucinations dropped by a factor of five, and the model recovers better when a tool call fails or a search comes up empty, Google says. Ad On open-ended agent tasks like research, data analysis, and code navigation, Hydrogen ranks fifth on the Agent Arena leaderboard. Google says it takes first place on the Vals Tax Agent Bench with 52.3 percent and ties for first on the Vals Legal Research Bench with 55.8 percent. For multimodal knowledge work like summarizing large PDFs, spreadsheets, or videos, Hydrogen supports up to one million output tokens on top of its one-million-token input window. It scores 53.4 percent on Google's new Multimodal Knowledge Agent Benchmark and 71.6 percent on Agents' Last Exam v1.1 . Ad Google is rolling Hydrogen out globally across all platforms. Developers get access through the Gemini API in AI Studio and Android Studio, while paying Pro and Ultra subscribers can use it through Google Antigravity. Business customers get it through Gemini for Business, and it's available to everyone in the Gemini app and Google Search. Ad In the Gemini app, Google says the model sticks more closely to tone, format, and instructions over longer conversations, so drafts, summaries, and documents are more often usable on the first try. Hydrogen can also pull in context from Google apps like Gmail and Drive, as well as third-party apps like Airtable and Dropbox. Google claims Hydrogen is a \"significant upgrade\" for Search, too. The model handles search queries better, even when they contain typos, multi-part questions, or very specific requests, Google says. Results are more visual and easier to scan, and an improve",
-   "use_link": "",
-   "posted": true
-  },
-  {
    "id": "55c10e3370c708ea",
    "title": "OpenAI’s data suggests that frontier models are hiding their thoughts because developers optimize for capability and compute",
    "link": "https://the-decoder.com/openais-data-suggests-that-frontier-models-are-hiding-their-thoughts-because-developers-optimize-for-capability-and-compute",
