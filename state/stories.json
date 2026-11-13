@@ -494,6 +494,20 @@
    ],
    "vers": [],
    "cves": []
+  },
+  {
+   "t": "2026-11-13T19:01:12+00:00",
+   "id": "1bdcb63cc91c6b08",
+   "title": "Meta's Muse now calls businesses for you, but many companies might just hang up on the AI",
+   "kind": "news",
+   "link": "https://the-decoder.com/metas-muse-now-calls-businesses-for-you-but-many-companies-might-just-hang-up-on-the-ai",
+   "ents": [
+    "ai",
+    "meta",
+    "muse"
+   ],
+   "vers": [],
+   "cves": []
   }
  ]
 }

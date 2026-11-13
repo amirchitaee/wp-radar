@@ -389,7 +389,8 @@
    "added": "2026-11-13T15:15:40+00:00",
    "full": "Meta's AI agent Muse can now place calls to US businesses on behalf of its users. The feature, tested in September, is available to all paying Muse subscribers in the US, turning what Google Duplex demoed to widespread amazement in 2018 into a standard capability of always-on AI agents. Meta AI chief Alexandr Wang said the agent, with more than 10 million users, handles tedious calls to cable companies, the DMV, and restaurants, and will soon get a free email address. Google's Gemini , startup Instinct, and xAI's Grok Bot can already place calls as well, while OpenAI's ChatGPT Dots and Anthropic's Claude Duet still cannot. Many businesses, however, hang up the moment they detect an AI on the line. That problem forced Meta to temporarily test human operators for Muse in September, echoing Google's experience with Duplex, where on launch one in four calls was handled by a human. Synthetic voices keep getting more realistic, making that detection increasingly difficult. Users are drawn to the feature largely because the AI will sit on hold indefinitely and work through complex phone menus without complaint. Ad Ad Subscribe to THE DECODER for ad-free reading, a weekly AI newsletter, our exclusive \"AI Radar\" frontier report six times a year, full archive access, and access to our comment section.",
    "use_link": "",
-   "reject_hits": 1
+   "reject_hits": 1,
+   "held": true
   },
   {
    "id": "bead99654d67d272",
