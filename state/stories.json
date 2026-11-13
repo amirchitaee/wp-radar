@@ -523,6 +523,21 @@
    ],
    "vers": [],
    "cves": []
+  },
+  {
+   "t": "2026-11-13T13:16:07+00:00",
+   "id": "4d9244537a2033a7",
+   "title": "Google's Gemini 4 Hydrogen outscores the bigger Argon just four weeks after its launch",
+   "kind": "news",
+   "link": "https://the-decoder.com/googles-gemini-4-hydrogen-outscores-the-bigger-argon-just-four-weeks-after-its-launch",
+   "ents": [
+    "argon",
+    "gemini",
+    "google",
+    "hydrogen"
+   ],
+   "vers": [],
+   "cves": []
   }
  ]
 }
