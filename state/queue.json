@@ -293,26 +293,6 @@
    "skip_permanent": true
   },
   {
-   "id": "308e3a536b38d92d",
-   "title": "Enterprise sales push OpenAI's quarterly revenue to $10 billion, though it still trails Anthropic",
-   "link": "https://the-decoder.com/enterprise-sales-push-openais-quarterly-revenue-to-10-billion-though-it-still-trails-anthropic",
-   "desc": "OpenAI grew its quarterly revenue 50 percent to $10 billion but is still burning more cash than it brings in. Adjusted operating losses climbed to $10.9 billion, while rival Anthropic operates far more efficiently on $17 billion in revenue. To close the gap, OpenAI is now fueling a price war for enterprise customers. The article Enterprise sales push OpenAI's quarterly revenue to $10 billion, though it still trails Anthropic appeared first on The Decoder .",
-   "source": "دیکودر",
-   "lang": "en",
-   "tier": 2,
-   "group": "ai",
-   "kind": "news",
-   "age_hours": 0.3,
-   "published": "2026-11-11T12:12:47+00:00",
-   "added": "2026-11-11T12:30:48+00:00",
-   "full": "OpenAI posts a massive Q3 revenue jump, driven by new AI models and enterprise customers. But operating losses keep growing, while rival Anthropic operates far more efficiently ahead of its IPO. According to reports from the Wall Street Journal and The Information , OpenAI grew its revenue by about 50 percent quarter over quarter in Q3 to $10 billion. In Q2, revenue had grown by just 17 to 18 percent . A year earlier, the company brought in $3.9 billion. Despite tripling revenue within a year, adjusted operating losses rose slightly in Q3 from $10.1 billion to $10.9 billion. That figure doesn't include stock-based compensation, which climbed to $2.6 billion. The adjusted operating margin did improve, going from negative 150 percent in Q2 to negative 109 percent. A year earlier it was negative 97 percent. Ad That puts OpenAI behind industry leader Anthropic, which plans its IPO next week. The Claude developer already overtook OpenAI on revenue in Q2 and even posted a small operating profit at the time. In Q3, Anthropic grew revenue 47 percent to $17 billion, while its operating loss including stock compensation came to just $567 million. Ad The efficiency gap comes down to business models. Anthropic focuses heavily on enterprise customers and successful tools like Claude Code and the Claude Cowork agent. OpenAI, by contrast, funds broad research into robotics and runs an expensive consumer business. To catch up in the enterprise market, OpenAI reshuffled its priorities earlier this year. The company discontinued projects like a video app, put more resources into its coding tool Codex , and hired Dali Rajic as its new head of sales. At the same time, OpenAI cut prices on new models. Ad Third-party data showed companies seeking cheaper alternatives to Claude, which boosted API sales. OpenAI president Greg Brockman called it an incredible revenue turning point and pointed to major customers like JPMorgan Chase. The enterprise business doubled in Q3 and now accounts for the bulk of revenue, Brockman said. The consumer side is growing too. ChatGPT now has 1.2 billion weekly active users, with 100 million paying subscribers after 22 million new sign-ups. On top of that, the new ChatGPT ad product hit an annualized revenue run rate of $1 billion in August. Ad Both competitors are feeling the recent tech sell-off in the financial markets. OpenAI is targeting an IPO next year and is currently raising fresh capital at a $1.25 trillion valuation , but has so far raised less than half of the planned $30 billion. Anthropic also had to cut its IPO valuation target significantly. Ad Subscribe to THE DECODER for ad-free reading, a weekly AI newsletter, our exclusive \"AI Radar\" frontier report six times a year, full archive access, and access to our comment section.",
-   "use_link": "",
-   "reject_hits": 1,
-   "digest_sent": true,
-   "channel_skip": true,
-   "skip_permanent": true
-  },
-  {
    "id": "d052336faa0a6d5d",
    "title": "Wordfence 9.1.1",
    "link": "https://wordpress.org/plugins/wordfence/",
@@ -524,24 +504,6 @@
    "published": "2026-11-09T07:01:22-08:00",
    "added": "2026-11-13T00:15:27+00:00",
    "reject_hits": 2
-  },
-  {
-   "id": "05980d05360737c6",
-   "title": "Copy Your WordPress Site with Reprint",
-   "link": "https://wordpress.org/news/2026/11/reprint-your-site",
-   "site": "",
-   "desc": "Reprint is a free, open-source, PHP-based tool that copies a WordPress site’s files and database. The plugin is available in the WordPress.org Plugin Directory, along with the command-line client used to copy the site. WordPress has long let you export your posts and pages. Moving the site itself means bringing along its theme, plugins, uploads, […]",
-   "source": "وردپرس",
-   "lang": "en",
-   "tier": 1,
-   "group": "",
-   "kind": "news",
-   "age_hours": 0.0,
-   "published": "2026-11-13T12:00:00+00:00",
-   "added": "2026-11-13T12:00:43+00:00",
-   "full": "Reprint is a free, open-source, PHP-based tool that copies a WordPress site’s files and database. The plugin is available in the WordPress.org Plugin Directory , along with the command-line client used to copy the site. WordPress has long let you export your posts and pages . Moving the site itself means bringing along its theme, plugins, uploads, and settings, too. Making that easier has been part of WordPress’s Data Liberation work since 2024. You can use Reprint to copy your site to a new host, or to create a local copy meant for testing. While moving your site to a new host, visitors can keep using the original. Use Reprint to copy the site, and then open the copy to check that your pages load, your images appear, and your forms work before you send visitors there. When you’re ready to switch, pause changes on the original site, make one last copy, and point your domain to the new host. The step-by-step guide to moving your site walks you through the move. You can also use Reprint to create a site copy meant for testing, a place to try changes without affecting the site your visitors use. Copy your site to your computer or try the experimental, browser-based option in WordPress Playground . Use the copy to try a new layout with your existing pages, see how a plugin fits into your site, or check that everything still works after a WordPress update. Reprint sends your files and database directly to the computer or server you choose, one piece at a time, without needing to connect to an external service. The transfer can begin without your old host having to make room for an archive of the whole site. If the connection drops during the copy, you can resume from the last saved point. If you give Reprint a new site address, it can update links that point to the old one. It builds on the WordPress Importer’s approach to rewriting links and applies it to the copied database, including links stored in site settings, blocks, shortcodes, and complex data structures like serialized data or custom fields safely without corrupting tables. When copying a site repeatedly, Reprint figures out what changed since the last time and copies only the files it needs. You don’t need to connect your own site to see how Reprint works. Try the experimental, browser-based option in WordPress Playground . You can copy a sample site right in your browser, with nothing to install. When you’re ready to work with your own pages and settings, start with a test site you manage. The guide to making your first copy takes you from installing the plugin to opening the copied site on your computer.",
-   "use_link": "https://wordpress.org/plugins/reprint/",
-   "held": true
   }
  ]
 }
