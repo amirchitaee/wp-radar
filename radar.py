@@ -2461,7 +2461,14 @@ def classify_label(kind, text, model_label="", urgent=False, title="", source_ti
     # بتا و آر‌سی هشدار امنیتی نیستند، حتی اگر متنشان از «اصلاحیهٔ امنیتی»
     # حرف بزند. یک بار «وردپرس ۷.۲ بتای ۲» با برچسب هشدار امنیتی پست شد.
     beta = bool(BETA_RE.search(title) or BETA_RE.search(source_title))
-    advisory = is_advisory(text) and bool(WP_HINT.search(text)) and not tutorial and not beta
+    advisory = (
+        is_advisory(text)
+        and bool(WP_HINT.search(text))
+        and not tutorial
+        and not beta
+        # خبر شراکت امنیتی، هشدار امنیتی نیست.
+        and not is_sec_promo(source_title)
+    )
     # «نسخهٔ فارسی» نسخهٔ تازه نیست. برای همین فقط شمارهٔ واقعی یا فعل انتشار شاهد است.
 
     if kind == "news":
@@ -3233,8 +3240,40 @@ LATE_CRIT = re.compile(
 )
 
 
+# شراکت و معرفی محصول، هشدار امنیتی نیست. «کینستا حالا با پچ‌استک از همهٔ
+# سایت‌هایش محافظت می‌کند» در فید امنیتی بود، متنش پر از «آسیب‌پذیری» و
+# «بهره‌برداری»، و با برچسب هشدار امنیتی پست شد. دروازهٔ امنیتی فقط
+# کلیدواژه می‌دید و تیتر را نمی‌خواند. تیتر آگهی، تیتر خبر نیست.
+SEC_PROMO = re.compile(
+    r"(now protects|now includes|now ships|now available|now offers|"
+    r"\bpartner\w*|\bpartnership|joins? forces|teams? up|collaborat\w+|"
+    r"acquir\w+|acquisition|\bsponsor\w+|"
+    r"how to buy|buying guide|\bpricing\b|"
+    r"\bannounc\w+|\bunveil\w+|\blaunch\w+|\bintroduc\w+|"
+    r"\breview\b|case study|\binterview\b)",
+    re.I,
+)
+# نشانه‌ای که فقط در تیتر، آسیب‌پذیری واقعی را ثابت می‌کند. اگر تیتر آگهی
+# بود ولی همین نشانه را داشت، آگهی حساب نمی‌شود؛ خبر است.
+SEC_HARD = re.compile(
+    r"(CVE-\d{4}-\d+|vulnerab\w*|security release|security advisory|security update|"
+    r"\bpatched\b|\bpatch\b|\bXSS\b|\bRCE\b|\bCSRF\b|\bSSRF\b|\bLFI\b|\bRFI\b|"
+    r"\bSQLi\b|SQL injection|\bbackdoor\b|privilege escalation|\bexploit\w*|"
+    r"آسیب[\s\u200c]?پذیری|حفرهٔ? امنیتی|اصلاحیهٔ? امنیتی|آپدیت امنیتی)",
+    re.I,
+)
+
+
 def is_advisory(text):
     return bool(ADV_HIT.search(text or "")) and not bool(ADV_SKIP.search(text or ""))
+
+
+def is_sec_promo(title):
+    """تیتر آگهی یا خبر شراکت، هشدار امنیتی نمی‌سازد."""
+    t = str(title or "")
+    if not t:
+        return False
+    return bool(SEC_PROMO.search(t)) and not bool(SEC_HARD.search(t))
 
 
 def security_run(s, st, seen, hard_deadline=None):
@@ -3246,6 +3285,7 @@ def security_run(s, st, seen, hard_deadline=None):
     late_h = float(s.get("security_late_h", 168) or 168)
     fresh = []
     stale = 0
+    promo = 0
     started = time.time()
     fetch_budget = 90.0
     if hard_deadline:
@@ -3275,6 +3315,10 @@ def security_run(s, st, seen, hard_deadline=None):
                     continue
             if not is_advisory(it["title"] + " " + it["desc"]):
                 continue
+            # آگهی و خبر شراکت از سد کلیدواژه رد می‌شود، ولی هشدار نیست.
+            if is_sec_promo(it["title"]):
+                promo += 1
+                continue
             fresh.append(
                 {
                     **it,
@@ -3292,6 +3336,8 @@ def security_run(s, st, seen, hard_deadline=None):
                 stale, int(max_age)
             )
         )
+    if promo:
+        log("security: {} آگهی یا خبر شراکت کنار گذاشته شد".format(promo))
 
     fresh.sort(key=lambda x: x["age_hours"])
     fresh = dedupe_stories(fresh)
@@ -3360,18 +3406,23 @@ def security_run(s, st, seen, hard_deadline=None):
                 (entry or {}).get("summary", "") or "",
             ]
         )
-        if entry:
-            label = classify_label("security", sec_text, entry.get("label", ""), urgent)
-            title = entry.get("title") or it["title"]
-            summary = entry.get("summary") or ""
-            details = clean_details(entry.get("details") or "")
-            meta = entry.get("meta") or ""
-        else:
-            label = classify_label("security", sec_text, "", urgent)
+        # تیتر انگلیسی خام در کانال فارسی بی‌مصرف است. یک بار خبر شراکت
+        # کینستا با تیتر انگلیسی و خلاصهٔ خالی پست شد. تیتر بی‌فارسی جایش
+        # را به تیتر امن می‌دهد، و پست بی‌خلاصه با قالب ساده می‌رود؛
+        # هشدار امنیتی را به‌خاطر بدقولی مدل نمی‌شود دیر فرستاد.
+        title = str((entry or {}).get("title") or "").strip()
+        summary = str((entry or {}).get("summary") or "").strip()
+        details = clean_details((entry or {}).get("details") or "")
+        meta = (entry or {}).get("meta") or ""
+        if not re.search(r"[\u0600-\u06FF]", title):
             title = "هشدار تازه از {}".format(it["source"])
+        if not summary:
             summary = "منبع امنیتی تازه‌ای منتشر کرده است. متن اصلی داخل کادر آمده."
-            details = it["title"] + ("\n" + it["desc"][:400] if it["desc"] else "")
-            meta = "منبع: " + it["source"] + " | ترجمه نشده، مدل در دسترس نبود"
+            if not details:
+                details = it["title"] + ("\n" + it["desc"][:400] if it["desc"] else "")
+            if not meta:
+                meta = "منبع: " + it["source"] + " | ترجمه نشده، مدل در دسترس نبود"
+        label = classify_label("security", sec_text, (entry or {}).get("label", ""), urgent)
         # سن هشدار صریح گفته می‌شود تا خواننده بداند چقدر تازه است.
         age_h = float(it.get("age_hours") or 0)
         if age_h >= 6:

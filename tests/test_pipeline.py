@@ -299,6 +299,23 @@ sent.clear()
 n = radar.security_run(sec_settings, {}, {"v": 1, "ids": {}})
 check("امنیت: سقف دوتایی دسته رعایت شد", n, 0)
 
+# آگهی شراکت، هشدار امنیتی نیست. «کینستا حالا با پچ‌استک از همهٔ سایت‌ها
+# محافظت می‌کند» در فید امنیتی بود، متنش پر از «آسیب‌پذیری» و
+# «بهره‌برداری»، و با برچسب هشدار امنیتی پست شد.
+radar.write_json(radar.DAILY, {"date": radar.today(), "count": 0, "kinds": {}})
+_promo_item = {
+    "title": "Kinsta now protects every WordPress site it hosts with Patchstack",
+    "desc": "Every WordPress site on Kinsta is now protected. It blocked 1.5 million exploitation attempts.",
+    "link": "https://a.test/promo",
+    "published": t0 - timedelta(hours=3),
+}
+radar.fetch_source = lambda src, st: [_promo_item]
+sent.clear()
+n = radar.security_run(sec_settings, {}, {"v": 1, "ids": {}})
+check("امنیت: آگهی شراکت پست نمی‌شود", n, 0)
+check("امنیت: آگهی شراکت پیامی نساخت", len(sent), 0)
+radar.fetch_source = lambda src, st: sec_items
+
 # ---------------------------------------------------------------- برچسب درست
 def lab(kind, text, model_label="", urgent=False):
     return radar.classify_label(kind, text, model_label, urgent, title=text)
@@ -489,6 +506,29 @@ radar.QUEUE = _qreal
 check("هشدار: WooCommerce آسیب‌پذیری نیست", radar.is_advisory("activate WooCommerce and add products"), False)
 check("هشدار: RCE واقعی شناخته می‌شود", radar.is_advisory("Critical RCE in the login form"), True)
 check("هشدار: CVE واقعی شناخته می‌شود", radar.is_advisory("CVE-2026-1234 in core"), True)
+
+# شراکت امنیتی هشدار نیست، حتی وقتی متنش پر از «آسیب‌پذیری» است.
+_kinsta = "Kinsta now protects every WordPress site it hosts with Patchstack"
+check("هشدار: تیتر آگهی شراکت رد می‌شود", radar.is_sec_promo(_kinsta), True)
+check(
+    "هشدار: آگهی با CVE در تیتر رد نمی‌شود",
+    radar.is_sec_promo("Kinsta now blocks CVE-2026-1234 on every plan"),
+    False,
+)
+check(
+    "هشدار: تیتر آسیب‌پذیری آگهی نیست",
+    radar.is_sec_promo("Critical vulnerability in Kinsta's caching plugin"),
+    False,
+)
+_kinsta_label = radar.classify_label(
+    "news",
+    "Patchstack vulnerability protection now covers every WordPress site on Kinsta",
+    "",
+    False,
+    "کینستا محافظت امنیتی اضافه کرد",
+    _kinsta,
+)
+check("برچسب: خبر شراکت امنیتی هشدار نمی‌گیرد", _kinsta_label == "هشدار امنیتی", False)
 
 divi_title = "How To Build A Product Grid With Divi 5’s CSS Grid Editor"
 divi_text = (
