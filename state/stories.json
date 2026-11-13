@@ -495,6 +495,34 @@
    ],
    "vers": [],
    "cves": []
+  },
+  {
+   "t": "2026-11-13T22:31:18+00:00",
+   "id": "747fb6bb6a47b9fb",
+   "title": "What’s new for developers? (November 2026)",
+   "kind": "news",
+   "link": "https://developer.wordpress.org/news/2026/11/whats-new-for-developers-november-2026",
+   "ents": [
+    "november"
+   ],
+   "vers": [],
+   "cves": []
+  },
+  {
+   "t": "2026-11-13T22:31:19+00:00",
+   "id": "08c4f29a10c8b8b1",
+   "title": "Kinsta launches Vulnerability Protection, Powered by Patchstack, to protect WordPress sites at no extra cost",
+   "kind": "news",
+   "link": "https://kinsta.com/blog/kinsta-launches-vulnerability-protection-powered-by-patchstack-to-protect-wordpress-sites-at-no-extra-cost",
+   "ents": [
+    "kinsta",
+    "patchstack",
+    "powered",
+    "protection",
+    "wordpress"
+   ],
+   "vers": [],
+   "cves": []
   }
  ]
 }
