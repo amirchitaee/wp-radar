@@ -1345,6 +1345,27 @@ check("جای خالی: خاموش یعنی همان سهم قبلی",
           {"ai_cap_per_day": 1, "ai_fill": {"enabled": False}, "caps": {"news": 6}},
           {"kinds": {}}, 0, _ai_eve, wp_left=0), 1)
 
+# آیتمی که مدل یک بار ردش کرده، سبد وردپرس را «پر» نشان نمی‌دهد. یک بار
+# فهرست تخفیف‌های بلک‌فرایدی همین کار را کرد و دو خبر تازهٔ هوش مصنوعی
+# تا شب خانه‌نشین شدند. خود آیتم از سبد بیرون نمی‌رود؛ فقط جای هوش
+# مصنوعی را قفل نمی‌کند.
+_ago = lambda h: (radar.now() - timedelta(hours=h)).isoformat()
+_wp_tired = {"id": "w1", "kind": "news", "group": "wp", "reject_hits": 1,
+             "published": _ago(1), "added": _ago(1)}
+_wp_live = {"id": "w2", "kind": "news", "group": "wp",
+            "published": _ago(1), "added": _ago(1)}
+_ai_fresh = {"id": "a1", "kind": "news", "group": "ai",
+             "published": _ago(2), "added": _ago(2)}
+_ai_day = {"kinds": {"news": 2, "ai": 1}}
+_pool, _info = radar.ai_narrow([_wp_tired, _ai_fresh], _ai_s, _ai_day, [], _ai_eve)
+check("جای خالی: آیتم ردشدهٔ وردپرس سد هوش مصنوعی نیست", len(_pool), 2)
+check("جای خالی: جای خالی با ته‌ماندهٔ ردشده باز می‌شود", _info["left"], 2)
+check("جای خالی: آیتم ردشده از سبد بیرون نمی‌رود",
+      any(x["id"] == "w1" for x in _pool), True)
+_pool2, _info2 = radar.ai_narrow([_wp_live, _ai_fresh], _ai_s, _ai_day, [], _ai_eve)
+check("جای خالی: آیتم دست‌نخوردهٔ وردپرس هنوز سد است", len(_pool2), 1)
+check("جای خالی: با خبر وردپرسی دست‌نخورده جای خالی بسته است", _info2["left"], 0)
+
 
 # ------------------------------------------------------------ پلن بی
 # اگر سبد وردپرس خالی باشد، سهم هوش مصنوعی باز می‌شود؛ ولی بیرون از

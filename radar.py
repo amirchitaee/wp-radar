@@ -4102,7 +4102,16 @@ def ai_narrow(pool, s, d, ready_items=None, at=None):
     # پلن بی: اگر در سبد هیچ خبر وردپرسی نمانده، جای خالی باز می‌شود.
     # این عدد از خود سبد می‌آید، نه از ساعت؛ پس فقط وقتی فعال می‌شود
     # که واقعاً چیزی برای وردپرس نباشد.
-    wp_left = sum(1 for x in pool if (x.get("group") or "") != "ai")
+    #
+    # آیتمی که مدل یک بار ردش کرده، پشتوانهٔ سبد نیست؛ ته‌ماندهٔ صف است.
+    # یک بار فهرست تخفیف‌های بلک‌فرایدی سبد را «پر» نشان داد و دو خبر
+    # تازهٔ هوش مصنوعی تا شب خانه‌نشین شدند. خود آن آیتم سر جایش می‌ماند
+    # و شانس دومش را می‌گیرد؛ فقط جای هوش مصنوعی را قفل نمی‌کند.
+    wp_left = sum(
+        1
+        for x in pool
+        if (x.get("group") or "") != "ai" and not int(x.get("reject_hits") or 0)
+    )
     allowed = ai_allowance(s, d, held_news, at, wp_left=wp_left)
     base_left = max(0, base - ai_done - ai_held)
     ai_left = max(0, allowed - ai_done - ai_held)
