@@ -17,7 +17,7 @@
    "added": "2026-11-13T20:15:37+00:00",
    "channel_skip": true,
    "skip_why": "خارج از مخاطب",
-   "skip_until": "2026-11-14T09:00:51+00:00"
+   "skip_until": "2026-11-14T21:30:46+00:00"
   },
   {
    "id": "bead99654d67d272",
@@ -443,7 +443,7 @@
    "added": "2026-11-14T06:45:38+00:00",
    "full": "Anthropic has released Claude for Manufacturing, a plugin giving the AI direct access to industrial software to automate factory workflows. The new solution connects via four universal interfaces to Autodesk Fusion, Oracle NetSuite, Microsoft 365, and Infor. Other systems can be integrated through file exports to Microsoft 365. With 17 specific skills , the AI drafts quotes from actual inventory, compares suppliers, generates quality reports and design variants, and analyzes sensor data and manuals during machine downtime. Via an added Infor plugin, Claude can also order from backup suppliers when deliveries are delayed and reschedule production—after human approval. All results are linked to original source documents for employee review before reaching customers or suppliers. The plugin is available to Team and Enterprise customers but doesn't control physical machines yet. For that, Anthropic is separately developing the Model Hardware Standard as a research preview, connecting AI agents to devices like robotic arms and microscopes via standardized drivers. This cuts setup time from weeks or months to hours or minutes but still requires human oversight due to the AI's limited grasp of physical processes. Ad Ad Subscribe to THE DECODER for ad-free reading, a weekly AI newsletter, our exclusive \"AI Radar\" frontier report six times a year, full archive access, and access to our comment section.",
    "use_link": "",
-   "reject_hits": 1
+   "reject_hits": 2
   }
  ]
 }
