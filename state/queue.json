@@ -182,27 +182,6 @@
    "reject_hits": 2
   },
   {
-   "id": "a99d2b609c388344",
-   "title": "How to buy Kinsta hosting for your small business: A step-by-step guide",
-   "link": "https://kinsta.com/blog/how-to-buy-kinsta-hosting",
-   "site": "",
-   "desc": "If you’re ready to host your business website with Kinsta, the next steps are to choose a plan, create your account, and get your WordPress site running. The process ...",
-   "source": "کینستا",
-   "lang": "en",
-   "tier": 2,
-   "group": "",
-   "kind": "news",
-   "age_hours": 5.5,
-   "published": "2026-11-12T12:00:28+00:00",
-   "added": "2026-11-12T17:30:37+00:00",
-   "full": "If you’re ready to host your business website with Kinsta , the next steps are to choose a plan, create your account , and get your WordPress site running. The process is straightforward, but there are a few decisions worth making before entering payment details, especially if you’re moving an existing website. For example, a small business running one WordPress website may not need the same resources as a growing online store or a company managing several websites. You’ll also need to decide whether to pay based on website visits or bandwidth, and whether to start with monthly or annual billing. This guide walks you through the process, from choosing your hosting plan and signing up to creating your first WordPress site or requesting a migration. You don’t need to know every technical detail about your website before purchasing hosting. However, having a few things ready can make choosing a plan easier. Start by answering these questions: If you’re moving from another hosting provider, make sure you can access your current hosting control panel and WordPress dashboard. You’ll need some of those details later when requesting a migration. You don’t have to move your domain to Kinsta or cancel your existing hosting before signing up. Those steps come later. Start at Kinsta’s small-business hosting page or go directly to the WordPress hosting pricing page . The small-business page introduces the managed hosting service and provides a pricing section where you can configure a plan. The main pricing page gives you a more detailed comparison of available plans and resources. On the pricing page , you’ll find Business plans alongside options for agencies and larger organizations. For most small businesses evaluating their first Kinsta subscription, the Business plans are the appropriate place to begin comparing options. The pricing configuration lets you choose your billing period and, depending on the plan family, the number of WordPress installations and how usage is measured. If your business operates one independent WordPress website, start by comparing the single-site plans. If you manage several websites, such as separate WordPress installations for different businesses or brands, compare the multiple-site plans. Kinsta counts WordPress installations rather than every domain connected to a website. For example, using both example.com and www.example.com for the same installation doesn’t automatically mean you need two website slots. You can also add site capacity through the WordPress site add-on . Each additional site includes a staging environment, but it shares the hosting plan’s other resources, including bandwidth or visits, storage, and CDN bandwidth. If you’re unsure whether to choose a larger plan or add an individual website slot, compare the total resources you need, not just the number of websites. Kinsta offers plans that measure usage through either monthly visits or server bandwidth. With visits-based billing , your allowance is based on visits recorded by Kinsta’s infrastructure. These figures can differ from what you see in Google Analytics because the services measure traffic differently. With bandwidth-based billing , we calc",
-   "use_link": "",
-   "reject_hits": 2,
-   "digest_sent": true,
-   "channel_skip": true,
-   "skip_permanent": true
-  },
-  {
    "id": "d052336faa0a6d5d",
    "title": "Wordfence 9.1.1",
    "link": "https://wordpress.org/plugins/wordfence/",
