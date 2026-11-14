@@ -99,21 +99,6 @@
    "cves": []
   },
   {
-   "t": "2026-11-10T00:01:24+00:00",
-   "id": "1c08c141aa01274e",
-   "title": "Meta launches Muse Ember, a small AI model built for the repetitive work agents actually do",
-   "kind": "news",
-   "link": "https://the-decoder.com/meta-launches-muse-ember-a-small-ai-model-built-for-the-repetitive-work-agents-actually-do",
-   "ents": [
-    "ai",
-    "ember",
-    "meta",
-    "muse"
-   ],
-   "vers": [],
-   "cves": []
-  },
-  {
    "t": "2026-11-10T02:01:17+00:00",
    "id": "5e6608cb9710b15d",
    "title": "Your Content, Your Terms: New AI Controls and SEO Tools",
