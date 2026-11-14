@@ -464,6 +464,21 @@
    "channel_skip": true,
    "skip_why": "خارج از مخاطب",
    "skip_until": "2026-11-14T12:30:52+00:00"
+  },
+  {
+   "id": "6564d3fe1bb033a2",
+   "title": "Anthropic's Claude for Manufacturing plugs AI directly into factory software to automate industrial workflows",
+   "link": "https://the-decoder.com/anthropics-claude-for-manufacturing-plugs-ai-directly-into-factory-software-to-automate-industrial-workflows",
+   "site": "",
+   "desc": "Anthropic's new Claude for Manufacturing plugin connects the AI directly to Autodesk Fusion, Oracle NetSuite, and Infor. Its 17 specialized skills let the AI draft quotes, compare suppliers, and place backup orders when deliveries are delayed, all after human approval. The plugin doesn't control physical machines yet, but Anthropic is separately developing the Model Hardware Standard for that. The article Anthropic's Claude for Manufacturing plugs AI directly into factory software to automate industrial workflows appeared first on The Decoder .",
+   "source": "دیکودر",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 14.1,
+   "published": "2026-11-13T16:37:01+00:00",
+   "added": "2026-11-14T06:45:38+00:00"
   }
  ]
 }
