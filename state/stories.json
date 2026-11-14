@@ -511,6 +511,21 @@
    ],
    "vers": [],
    "cves": []
+  },
+  {
+   "t": "2026-11-14T01:15:56+00:00",
+   "id": "b6de13ec3caeae82",
+   "title": "OpenAI rebuilt AI shopping from scratch with ChatGPT Wallet",
+   "kind": "news",
+   "link": "https://the-decoder.com/openai-rebuilt-ai-shopping-from-scratch-with-chatgpt-wallet",
+   "ents": [
+    "ai",
+    "chatgpt",
+    "openai",
+    "wallet"
+   ],
+   "vers": [],
+   "cves": []
   }
  ]
 }
