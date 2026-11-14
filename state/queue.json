@@ -429,25 +429,6 @@
    "reject_hits": 2
   },
   {
-   "id": "b6de13ec3caeae82",
-   "title": "OpenAI rebuilt AI shopping from scratch with ChatGPT Wallet",
-   "link": "https://the-decoder.com/openai-rebuilt-ai-shopping-from-scratch-with-chatgpt-wallet",
-   "site": "",
-   "desc": "OpenAI is taking a second shot at AI-powered shopping with ChatGPT Wallet after scrapping its first approach, Instant Checkout. Users register a card once and confirm each purchase through Face ID or a fingerprint, while actual card details stay hidden behind payment tokens. Rivals such as Anthropic, Meta, and xAI already have their agents making purchases. The article OpenAI rebuilt AI shopping from scratch with ChatGPT Wallet appeared first on The Decoder .",
-   "source": "دیکودر",
-   "lang": "en",
-   "tier": 2,
-   "group": "ai",
-   "kind": "news",
-   "age_hours": 5.6,
-   "published": "2026-11-13T18:55:21+00:00",
-   "added": "2026-11-14T00:30:49+00:00",
-   "full": "OpenAI is taking a second shot at AI shopping with ChatGPT Wallet, catching up with rivals like Anthropic, Meta, and xAI, whose agents can already shop online. ChatGPT Wallet lets AI agents pay on behalf of users. OpenAI built it after scrapping Instant Checkout , its first attempt at letting people buy directly in the chat, because it wasn't flexible enough. At launch, the feature is available only in the US through Dots . Users must be adults and need a ChatGPT Pro subscription and an eligible US bank card. To get started, users add their card once. Before every purchase, the system displays the items, the total, and the selected card. Users then approve each payment with a security check such as Face ID or a fingerprint. Ad Neither the agent nor the online store ever sees the real card details. Instead, payment partners American Express, Mastercard, and Visa generate a payment token, a stand-in card number with its own security code. According to OpenAI, existing card rewards and the usual bank protections for eligible disputes still apply. OpenAI plans to eventually let users hand purchases off to their agents entirely, within set spending limits, product categories, and timeframes. Ad According to OpenAI, a purchase starts with the customer describing what they want, after which ChatGPT searches the open web, APIs, or merchant product feeds for options, and the user compares them and picks one. ChatGPT then completes the purchase either by using a browser on the merchant's existing website or through a plugin that supports structured actions such as managing the cart. Many websites and payment systems still block AI agents as bots or reject their purchases for security reasons. To address that, OpenAI is also releasing a Commerce Partner Playbook . The guide explains how merchants can adjust their firewalls, provide product data, and work with payment providers such as Stripe, Adyen, and Riskified so agent-driven purchases go through. Ad OpenAI is playing catch-up on payment features for AI agents. Competitors such as Anthropic's Claude Duet, Meta's Muse, and xAI's Grok Bot already have built-in payments and rely in part on single-use cards via Stripe Link . Google and Perplexity also let users buy through their own checkout tools, such as Google Pay and Instant Buy . Subscribe to THE DECODER for ad-free reading, a weekly AI newsletter, our exclusive \"AI Radar\" frontier report six times a year, full archive access, and access to our comment section.",
-   "use_link": "https://openai.com/index/introducing-chatgpt-wallet/",
-   "reject_hits": 1,
-   "held": true
-  },
-  {
    "id": "bf40a8e483ebbdeb",
    "title": "Banks bar Chinese and Hong Kong investors from Anthropic IPO over US export controls",
    "link": "https://the-decoder.com/banks-bar-chinese-and-hong-kong-investors-from-anthropic-ipo-over-us-export-controls",
