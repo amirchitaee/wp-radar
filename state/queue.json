@@ -423,6 +423,42 @@
    "full": "AI company Runway has released its robot model Praxis-1 with open weights and source code. The model uses what it learned from video to control robots and shows promising results in the company's own tests. Runway has released Praxis-1, its AI model for controlling robots. The company first introduced Praxis-1 in late September but initially gave access only to select partners. Alongside the release, Runway published a detailed research report with new performance tests. Runway's model weights and source code are available under the Apache 2.0 license, which allows commercial use. Ad Praxis-1 takes in camera images, text instructions, and information about a robot's position. From those inputs, it predicts how the environment will change and calculates the right robot movements. As new camera frames come in, the model continuously adjusts its control. Ad Praxis-1 builds on a video model that learned how objects move and interact from ordinary footage. Runway then fine-tuned it with videos of human actions and robot data. This approach could reduce the need for expensive robot-specific datasets, which have traditionally been collected just to train these kinds of systems. Runway is best known for generative video models like Gen-4.5 . With Praxis-1, the company is bringing its video research into robotics. Runway calls Praxis-1 a World Action Model that predicts how a scene will change and derives matching robot movements from those predictions. Since September, robotics companies Standard Bots, Noble Machines, and Ultra have been testing Praxis-1 on different systems, including a humanoid robot, an industrial robot arm, and a dual-arm warehouse robot. Ad Praxis-1 still needs some specialized robot data. To adapt it to a Franka robot arm, Runway used about 277 hours of recordings from the public DROID research dataset, according to its research report . Those recordings show robots grasping and moving objects, for example. For a dual-arm robot, the company used between 1,400 and 2,600 hours of training material. Runway had already used DROID data and data from other robot systems during earlier training stages. Whether the approach actually needs less robot data overall than comparable models without general video pretraining is still an open question. On Nvidia's RoboLab-120 leaderboard , Praxis-1 scores a 46.2 percent success rate. The benchmark tests how reliably robot models can sort, grasp, or stack objects across 120 tasks in simulation. FLUX 3 Action , also built as a World Action Model, scores 42.9 percent under the same test conditions. That puts Praxis-1 at the top of the World Action Model category. In the overall leaderboard, it ranks fifth behind two AI agents and two robot models with different architectures. Runway ran all the tests itself, and the results haven't been independently verified yet. Ad After fine-tuning on DROID data, Runway tested the model on a real Franka robot arm. Both models had to complete the same ten tasks, like placing a banana on a plate or closing a drawer. With ten attempts per task, Praxis-1 succeeded 88 times, while FLUX 3 Action managed 80. Ad Runway also tested how well Praxis-1 transfers to a robo",
    "use_link": "https://github.com/runwayml/praxis-1-oss",
    "reject_hits": 2
+  },
+  {
+   "id": "3fecc6a9d4a07de9",
+   "title": "OpenAI reassigns robotics researchers to other teams as general-purpose models might make specialized robotics AI unnecessary",
+   "link": "https://the-decoder.com/openai-reassigns-robotics-researchers-to-other-teams-as-general-purpose-models-might-make-specialized-robotics-ai-unnecessary",
+   "site": "",
+   "desc": "OpenAI is dissolving its standalone robotics team for the second time, but not because it lacks data. General-purpose models like GPT-6 Astra can apparently control robots directly, making a dedicated unit unnecessary. The researchers are being redistributed across other teams in what the company frames as a way to accelerate its robotics efforts. The article OpenAI reassigns robotics researchers to other teams as general-purpose models might make specialized robotics AI unnecessary appeared first on The Decoder .",
+   "source": "دیکودر",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 0.1,
+   "published": "2026-11-14T11:40:51+00:00",
+   "added": "2026-11-14T11:45:35+00:00",
+   "full": "OpenAI is apparently disbanding its robotics team again, but this time for different reasons than in 2020. Rather than abandoning robotics, the company wants to accelerate it by folding researchers into other teams. Robotics researchers are moving to the main research team under Chief Research Officer Mark Chen, while the applied robotics and hardware teams join Greg Brockman's Applied organization. OpenAI made the decision on such short notice that it had already booked a booth at the Conference on Robot Learning (CoRL) in Austin, which then sat empty, Fortune reports . OpenAI apparently believes that general-purpose models like GPT-6 Astra can control robots directly , reducing the need for specialized robotics models. Ad In an Nvidia study , an Astra-powered agent achieved a 74.8 percent success rate on simulated robotics tasks, compared to 51 percent for the best specialized models. The tests used a simulated DROID robot, not a physical one. Ad A new robotics benchmark called StationeryBench compared GPT-6 Astra with Ai2's MolmoAct2 on five tasks involving desk objects on dual-arm YAM robotic arms. Across 200 trials, Astra fully completed 7 out of 100 tasks, while MolmoAct2 didn't complete a single one. Astra's average progress score was 46, compared to 12 for MolmoAct2. In another test, Astra running on a humanoid robot navigated and cleaned up a kitchen. It remains unclear how much robotics data OpenAI and others incorporated during training. Other large general-purpose models from Anthropic and Google have also made recent progress on robotics tasks. Specialized robotics models may still have advantages in cost and reliability as well as speed and energy consumption , even if they don't generalize as well. Ad Yoav Artzi , an AI researcher at Cornell University and Google DeepMind, also sees Astra as a major leap in spatial understanding . On the still-unpublished REMAP benchmark, GPT-6 Astra reaches near-human accuracy, according to Artzi. He suspects that OpenAI may have trained the model on large amounts of 3D training data such as Blender scenes. OpenAI shut down its robotics division in 2020 because, according to co-founder Wojciech Zaremba, the company lacked the training data it needed and large language models were a faster path to AGI. The company rebuilt the team in 2024. CEO Sam Altman is reportedly targeting a first public robot demo for 2027 , and OpenAI wants to build its own everyday robots in the long term. But the company also faces heavy financial pressure to focus on its core AI business , where it has lost significant ground to Anthropic . Ad Subscribe to THE DECODER for ad-free reading, a weekly AI newsletter, our exclusive \"AI Radar\" frontier report six times a year, full archive access, and access to our comment section.",
+   "use_link": "https://www.anthropic.com/research/claude-plays-robotics",
+   "reject_hits": 1
+  },
+  {
+   "id": "938a8fdebfb42929",
+   "title": "Anthropic can already retrain Mythos with \"a fraction of the compute originally needed,\" says former researcher Coxon",
+   "link": "https://the-decoder.com/anthropic-can-already-retrain-mythos-with-a-fraction-of-the-compute-originally-needed-says-former-researcher-coxon",
+   "site": "",
+   "desc": "Former OpenAI and Anthropic researcher Jacob Coxon points to a slide from Anthropic's IPO roadshow as a reason he left, saying it shows the company's algorithms are improving not just quickly but at an accelerating rate. Coxon continues to call for a pause on frontier model development so competitors can catch up and human-level AI can become a commodity. The article Anthropic can already retrain Mythos with \"a fraction of the compute originally needed,\" says former researcher Coxon appeared first on The Decoder .",
+   "source": "دیکودر",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 0.4,
+   "published": "2026-11-14T11:21:41+00:00",
+   "added": "2026-11-14T11:45:35+00:00",
+   "channel_skip": true,
+   "skip_why": "خارج از مخاطب",
+   "skip_until": "2026-11-14T23:45:38+00:00"
   }
  ]
 }
