@@ -365,7 +365,7 @@
    "added": "2026-11-14T17:01:00+00:00",
    "full": "Google's Gemini 4 Carbon has become the first non-OpenAI model in a while to top the MathArena math benchmark. It knocked GPT-6.1 Sol from the top spot, while Claude Fable 5.2 came in second, making it potentially one of the most capable publicly available models for math tasks. OpenAI's models, which recently allegedly solved demanding equations like the Navier-Stokes equations , aren't publicly available yet. Gemini 4 Carbon's most common failure mode is exceeding the time limit. The model also almost never gives up on a task, a trait that can be read as either positive or negative . In one case, it launched a script that ran for more than eleven hours without checking on its progress. That extra performance comes at a price, though. With the reasoning settings used in testing, Carbon and Fable 5.2 cost roughly 15 and 40 times as much as GPT-6.1 Sol, respectively. Subscribe to THE DECODER for ad-free reading, a weekly AI newsletter, our exclusive \"AI Radar\" frontier report six times a year, full archive access, and access to our comment section.",
    "use_link": "",
-   "reject_hits": 1
+   "reject_hits": 2
   }
  ]
 }
