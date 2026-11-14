@@ -203,45 +203,6 @@
    "skip_permanent": true
   },
   {
-   "id": "e918b92f13194ec9",
-   "title": "Australia's proposed AI safety bill would force frontier model makers to open up to independent testing",
-   "link": "https://the-decoder.com/australias-proposed-ai-safety-bill-would-force-frontier-model-makers-to-open-up-to-independent-testing",
-   "site": "",
-   "desc": "Australia's government, led by Prime Minister Anthony Albanese, wants to enshrine mandatory safety rules for frontier AI companies in law for the first time. A new regulator would enforce independent model audits and impose steep penalties for violations. With this move, Canberra is deliberately prioritizing domestic regulation before entering international talks. The article Australia's proposed AI safety bill would force frontier model makers to open up to independent testing appeared first on The Decoder .",
-   "source": "دیکودر",
-   "lang": "en",
-   "tier": 2,
-   "group": "ai",
-   "kind": "news",
-   "age_hours": 0.6,
-   "published": "2026-11-12T10:09:56+00:00",
-   "added": "2026-11-12T10:45:34+00:00",
-   "full": "Australia's government, led by Prime Minister Anthony Albanese, has announced a law that would impose mandatory safety rules on frontier AI companies operating in the country for the first time. The rules target the most advanced models with the highest risk profiles and fall under the government's \"AI in Australia's Interests\" agenda. A new oversight body will work alongside the Australian AI Safety Institute to enforce compliance and hand out steep penalties for violations. Companies building frontier models will have to open them up to independent audits, maintain ongoing safety checks, publish their safety frameworks, and report security incidents to the government immediately . That last requirement is partly aimed at catching early warning signs from AI agents that go off the rails . Albanese, Deputy Prime Minister Richard Marles, and ministers Tony Burke and Tim Ayres said the government is putting domestic safety guardrails in place before entering international negotiations. The goal is to protect citizens and national interests while building the kind of trust and regulatory stability that attracts investment and lets AI benefit the economy and healthcare. More details will follow once consultations wrap up. Ad Ad Subscribe to THE DECODER for ad-free reading, a weekly AI newsletter, our exclusive \"AI Radar\" frontier report six times a year, full archive access, and access to our comment section.",
-   "use_link": "",
-   "reject_hits": 2
-  },
-  {
-   "id": "ebb2101084bef492",
-   "title": "Should You Actually Add AI To That? A Four-Question Audit For Product Teams",
-   "link": "https://smashingmagazine.com/2026/11/should-you-add-ai-audit-product-teams",
-   "site": "",
-   "desc": "An AI feature can save users time on a task, only for them to spend it checking the results. This practical audit helps product teams decide where AI earns its place and what users need to verify its output.",
-   "source": "اسمشینگ",
-   "lang": "en",
-   "tier": 3,
-   "group": "",
-   "kind": "news",
-   "age_hours": 3.3,
-   "published": "2026-11-12T10:00:00+00:00",
-   "added": "2026-11-12T13:15:32+00:00",
-   "full": "About The Author Victor Yocco, PhD, is a UX Researcher with a focus on AI and the author of Designing Agentic AI Experiences (CRC Press, 2026), Design for the Mind (Manning, … More about Victor ↬ Weekly tips on front-end & UX . Trusted by 182,000+ folks. How To Measure UX and Design Impact, 8h video + UX training Meet AI 2027 Conference, December 1, 2026. Celebrating 10 million developers Smart Interface Design Patterns, 45 lessons + UX training Advertise on Smashing Magazine An AI feature can save users time on a task, only for them to spend it checking the results. This practical audit helps product teams decide where AI earns its place and what users need to verify its output. A product team at a large health insurer wants to add AI that writes the full written determination for benefits appeals specialists. The technology works as specified. However, the specialists stop using it, and the ones who keep using it take longer on each case than the ones who ignore it. A short evaluation with the specialists surfaces the problem fast: reading an AI-written determination carefully enough to sign it takes about as long as writing one, and the specialist also has to check for mistakes they would never have made themselves. The feature adds work to a task these people had already mastered. Rescoping the release fixes it. A second version surfaces the policy provisions and prior decisions relevant to each appeal and leaves the writing to the specialist. The search step disappears, review time drops, and the part of the job the specialist is good at stays where it was. The technology is identical in both versions, and the difference is which part of the task the AI handles. Every interface change costs the user something before it pays anything back. They have to rebuild their picture of how the tool works, learn where things are now, and decide how far to trust what the AI hands them. Nelson Cowan’s review of working memory research (2001) put the limit at about four items held in mind at once. All three of those jobs draw on the same small supply. An AI feature in an enterprise software setting requires more from the user than a redesigned menu, because it changes what they do all day. Hand the synthesis to an AI and the user becomes a checker. Give it the recommendation too, and the job shrinks to signing off. Either change costs user attention, and for people whose training is their standing at work, either one can feel like a demotion. For example, in one study, Sophia Ackerhans (2025) and colleagues found that physicians asked to sign AI-assisted decisions reported a more serious threat to their professional identity, and explanations of the AI’s reasoning raised both trust and that threat together. We can call that the break-even line . Returns to users come in three forms: For example, an AI-powered fraud screening tool shows the errors-caught form at work, since the analyst reviews flags they would never have raised themselves, which costs attention, and the catch rate pays for it. That puts the feature above the break-even line. Four questions can help your team locate the break-even line before design work starts. Each one produces a desi",
-   "use_link": "",
-   "reject_hits": 2,
-   "digest_sent": true,
-   "channel_skip": true,
-   "skip_permanent": true
-  },
-  {
    "id": "d052336faa0a6d5d",
    "title": "Wordfence 9.1.1",
    "link": "https://wordpress.org/plugins/wordfence/",
@@ -444,6 +405,24 @@
    "full": "Anthropic has released Claude for Manufacturing, a plugin giving the AI direct access to industrial software to automate factory workflows. The new solution connects via four universal interfaces to Autodesk Fusion, Oracle NetSuite, Microsoft 365, and Infor. Other systems can be integrated through file exports to Microsoft 365. With 17 specific skills , the AI drafts quotes from actual inventory, compares suppliers, generates quality reports and design variants, and analyzes sensor data and manuals during machine downtime. Via an added Infor plugin, Claude can also order from backup suppliers when deliveries are delayed and reschedule production—after human approval. All results are linked to original source documents for employee review before reaching customers or suppliers. The plugin is available to Team and Enterprise customers but doesn't control physical machines yet. For that, Anthropic is separately developing the Model Hardware Standard as a research preview, connecting AI agents to devices like robotic arms and microscopes via standardized drivers. This cuts setup time from weeks or months to hours or minutes but still requires human oversight due to the AI's limited grasp of physical processes. Ad Ad Subscribe to THE DECODER for ad-free reading, a weekly AI newsletter, our exclusive \"AI Radar\" frontier report six times a year, full archive access, and access to our comment section.",
    "use_link": "",
    "reject_hits": 2
+  },
+  {
+   "id": "7bfee235c168b3e9",
+   "title": "Runway's open-source Praxis-1 turns video AI into a robot controller",
+   "link": "https://the-decoder.com/runways-open-source-praxis-1-turns-video-ai-into-a-robot-controller",
+   "site": "",
+   "desc": "Runway releases its robotics model Praxis-1 with open weights and source code under the Apache 2.0 license. The model uses knowledge from video training for robot control and leads the World Action Model category on Nvidia's RoboLab-120 benchmark. It can't yet plan complex action sequences on its own, though. The article Runway's open-source Praxis-1 turns video AI into a robot controller appeared first on The Decoder .",
+   "source": "دیکودر",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 0.5,
+   "published": "2026-11-14T09:45:45+00:00",
+   "added": "2026-11-14T10:15:35+00:00",
+   "full": "AI company Runway has released its robot model Praxis-1 with open weights and source code. The model uses what it learned from video to control robots and shows promising results in the company's own tests. Runway has released Praxis-1, its AI model for controlling robots. The company first introduced Praxis-1 in late September but initially gave access only to select partners. Alongside the release, Runway published a detailed research report with new performance tests. Runway's model weights and source code are available under the Apache 2.0 license, which allows commercial use. Ad Praxis-1 takes in camera images, text instructions, and information about a robot's position. From those inputs, it predicts how the environment will change and calculates the right robot movements. As new camera frames come in, the model continuously adjusts its control. Ad Praxis-1 builds on a video model that learned how objects move and interact from ordinary footage. Runway then fine-tuned it with videos of human actions and robot data. This approach could reduce the need for expensive robot-specific datasets, which have traditionally been collected just to train these kinds of systems. Runway is best known for generative video models like Gen-4.5 . With Praxis-1, the company is bringing its video research into robotics. Runway calls Praxis-1 a World Action Model that predicts how a scene will change and derives matching robot movements from those predictions. Since September, robotics companies Standard Bots, Noble Machines, and Ultra have been testing Praxis-1 on different systems, including a humanoid robot, an industrial robot arm, and a dual-arm warehouse robot. Ad Praxis-1 still needs some specialized robot data. To adapt it to a Franka robot arm, Runway used about 277 hours of recordings from the public DROID research dataset, according to its research report . Those recordings show robots grasping and moving objects, for example. For a dual-arm robot, the company used between 1,400 and 2,600 hours of training material. Runway had already used DROID data and data from other robot systems during earlier training stages. Whether the approach actually needs less robot data overall than comparable models without general video pretraining is still an open question. On Nvidia's RoboLab-120 leaderboard , Praxis-1 scores a 46.2 percent success rate. The benchmark tests how reliably robot models can sort, grasp, or stack objects across 120 tasks in simulation. FLUX 3 Action , also built as a World Action Model, scores 42.9 percent under the same test conditions. That puts Praxis-1 at the top of the World Action Model category. In the overall leaderboard, it ranks fifth behind two AI agents and two robot models with different architectures. Runway ran all the tests itself, and the results haven't been independently verified yet. Ad After fine-tuning on DROID data, Runway tested the model on a real Franka robot arm. Both models had to complete the same ten tasks, like placing a banana on a plate or closing a drawer. With ten attempts per task, Praxis-1 succeeded 88 times, while FLUX 3 Action managed 80. Ad Runway also tested how well Praxis-1 transfers to a robo",
+   "use_link": "https://github.com/runwayml/praxis-1-oss",
+   "reject_hits": 1
   }
  ]
 }
