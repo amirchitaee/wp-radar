@@ -99,21 +99,6 @@
    "cves": []
   },
   {
-   "t": "2026-11-10T05:02:27+00:00",
-   "id": "87e16f3cabbe9de1",
-   "title": "Bytedance's Seedream 5.5 promises pixel-stable image editing across 100 rounds without color drift",
-   "kind": "news",
-   "link": "https://the-decoder.com/bytedances-seedream-5-5-promises-pixel-stable-image-editing-across-100-rounds-without-color-drift",
-   "ents": [
-    "bytedance",
-    "seedream"
-   ],
-   "vers": [
-    "5.5"
-   ],
-   "cves": []
-  },
-  {
    "t": "2026-11-10T10:46:38+00:00",
    "id": "0fc56ecc6e9fba83",
    "title": "Self-Hosted vs Hosted WordPress MCP: Privacy, Security and the Multi-Site Trade-off",
