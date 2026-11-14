@@ -242,25 +242,6 @@
    "skip_permanent": true
   },
   {
-   "id": "ceffce3bf5d6c8fd",
-   "title": "Start a Newsletter with ChatGPT and Claude",
-   "link": "https://wordpress.com/blog/2026/11/12/start-newsletter-chatgpt-claude",
-   "site": "",
-   "desc": "From a wedding guest list to your first newsletter: see how ChatGPT or Claude can help you build, publish, and send with WordPress.com.",
-   "source": "وردپرس دات کام",
-   "lang": "en",
-   "tier": 2,
-   "group": "",
-   "kind": "news",
-   "age_hours": 1.8,
-   "published": "2026-11-12T09:00:00+00:00",
-   "added": "2026-11-12T10:45:28+00:00",
-   "reject_hits": 2,
-   "digest_sent": true,
-   "channel_skip": true,
-   "skip_permanent": true
-  },
-  {
    "id": "d052336faa0a6d5d",
    "title": "Wordfence 9.1.1",
    "link": "https://wordpress.org/plugins/wordfence/",
