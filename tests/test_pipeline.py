@@ -1451,6 +1451,40 @@ _bd2 = {"title": "Best Sports Betting Sites 2026", "link": "https://example.com/
 check("زباله: شرط‌بندی در تیتر هنوز رد می‌شود",
       radar.skip_reason(_bd2, "news", set()), "محتوای زباله")
 
+# ------------------------------------------------- وتو از تیتر می‌آید، نه از بدنه
+# تیتر می‌گوید خبر دربارهٔ چیست. یک واژهٔ اقتصادی در پاراگراف سوم نباید
+# خبر فنی را از گردش بیندازد؛ ولی اگر خودِ تیتر دربارهٔ عرضهٔ سهام باشد،
+# همان چیزی است که این سد برایش ساخته شد.
+_off_tech = {
+    "title": "Anthropic can already retrain its model with a fraction of the compute",
+    "link": "https://the-decoder.com/anthropic-retrain",
+    "desc": "The company told investors the IPO window stays open while costs fall.",
+}
+check("مخاطب: یک واژهٔ اقتصادی در بدنه خبر فنی را نمی‌کشد",
+      radar.skip_reason(_off_tech, "news", set()), "")
+_off_ipo = {
+    "title": "Banks bar Chinese investors from Anthropic IPO over US rules",
+    "link": "https://the-decoder.com/anthropic-ipo",
+    "desc": "",
+}
+check("مخاطب: عرضهٔ سهام در تیتر هنوز رد می‌شود",
+      radar.skip_reason(_off_ipo, "news", set()), "خارج از مخاطب")
+_off_dense = {
+    "title": "Startup raises fresh cash",
+    "link": "https://example.com/x",
+    "desc": "The funding round values the startup highly. Shareholders approved the IPO. "
+            "Wall Street bankers arranged the deal.",
+}
+check("مخاطب: بدنهٔ پر از واژهٔ اقتصادی هنوز رد می‌شود",
+      radar.skip_reason(_off_dense, "news", set()), "خارج از مخاطب")
+_off_wp = {
+    "title": "WordPress plugin shop raises funding for a new builder",
+    "link": "https://example.com/wp",
+    "desc": "The funding round closed this week, shareholders said.",
+}
+check("مخاطب: خبر وردپرسی با واژهٔ اقتصادی در بدنه رد نمی‌شود",
+      radar.skip_reason(_off_wp, "news", set()), "")
+
 # سد زباله: فید تجمیعی صف را پر کرد از پروکسی و بازی موبایل.
 for _t in ("How to Rotate Proxy IP Addresses for Web Scraping",
            "5 Apps Like FullDive VR for Exploring Virtual Reality",
