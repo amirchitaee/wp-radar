@@ -388,24 +388,6 @@
    "channel_skip": true,
    "skip_why": "خارج از مخاطب",
    "skip_until": "2026-11-15T12:30:58+00:00"
-  },
-  {
-   "id": "a5dca2d386f6a667",
-   "title": "Anthropic says outdated prompting habits are slowing down Claude Opus 5.5",
-   "link": "https://the-decoder.com/anthropic-says-outdated-prompting-habits-are-slowing-down-claude-opus-5-5",
-   "site": "",
-   "desc": "Anthropic has made Claude Opus 5.5 the default model on all paid plans and published a guide that does away with old prompting habits. The main takeaway is to drop \"think hard\" and start at Medium effort. The article Anthropic says outdated prompting habits are slowing down Claude Opus 5.5 appeared first on The Decoder .",
-   "source": "دیکودر",
-   "lang": "en",
-   "tier": 2,
-   "group": "ai",
-   "kind": "news",
-   "age_hours": 7.8,
-   "published": "2026-11-14T16:42:56+00:00",
-   "added": "2026-11-15T00:30:51+00:00",
-   "full": "Anyone using Claude Opus 5.5 should first drop several prompting habits carried over from older model generations, according to Anthropic. Anthropic says the model, now the default on Pro, Max, Ultra, and Team plans, works differently from its predecessors and that many users hold it back with outdated instructions. Topping the list is Anthropic's advice to cut phrases like \"think hard\" or \"think carefully\" from prompts. According to the company, the model always reasons on its own and scales its reasoning depth to the task and the selected effort level. In Anthropic's tests, responses without these phrases started faster with no measurable drop in quality. Ad These phrases date back to the early days of reasoning models, before today's standard adaptive reasoning existed. \"Back then,\" meaning about a year and a half ago , users could sometimes coax more performance out of a model or steer the router this way. Ad Anthropic also recommends starting at the \"Medium\" effort level, the default for Opus 5.5. In internal tests, Opus 5.5 on Medium matched the performance of its predecessor Opus 5 on \"High,\" the company says. Higher settings cost more and don't always produce better results. Anthropic advises switching to \"High\" only when Medium isn't enough, and users can change the setting in the model menu next to the send button. Teams that previously used the cheaper Sonnet and reserved Opus for complex projects should rethink that approach, according to Anthropic. The company argues that a more capable model can finish a task in fewer steps, which can partly offset its higher per-token price. Anyone who regularly cranks Sonnet up to \"Extra High\" or \"Max\" effort ends up paying about as much as with Opus 5.5, Anthropic says. Ad Anthropic advises describing the desired result in a single message rather than giving instructions one at a time, covering the goal, the output format, and when the model should check back with questions. Opus 5.5 is better than its predecessor at seeing multi-part tasks through, according to the company. The model can increasingly take over the back-and-forth users used to handle in the chat, sometimes doing it better, and effectively prompt itself from a single initial input. Anthropic recommends attaching diagrams and tables as images or files instead of typing them out. Workarounds that older models required, such as manually transcribing chart values, are no longer needed, the company says. Ad Users who need a finished document or spreadsheet should ask for it directly instead of requesting a draft first. Opus 5.5 often goes from request to finished product in a single pass, the company says. Image reading also improved significantly in Opus 5.5. Even at the lowest effort level, it read values from dense charts more accurately than Opus 5 at the highest, the firm says. Ad For design tasks, Anthropic recommends naming unwanted styles specifically, such as a cream-colored background or pill-shaped buttons, rather than vaguely banning \"generic design.\" According to the company, general instructions only swap one default style for another. Users who connect Claude to their own files and systems through connectors get sign",
-   "use_link": "",
-   "held": true
   }
  ]
 }
