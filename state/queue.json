@@ -182,24 +182,6 @@
    "skip_until": "2026-11-16T01:01:13+00:00"
   },
   {
-   "id": "a97c7cf547a2a67c",
-   "title": "10 Big Ol’ 2027 Black Friday Deals",
-   "link": "https://css-tricks.com/2027-front-end-black-friday-deals",
-   "site": "",
-   "desc": "A big ol' roundup of Black Friday deals on front-end courses from the best independent publishers and educators in the business. 10 Big Ol’ 2027 Black Friday Deals originally handwritten and published with love on CSS-Tricks . You should really get the newsletter as well.",
-   "source": "سی‌اس‌اس تریکس",
-   "lang": "en",
-   "tier": 3,
-   "group": "",
-   "kind": "news",
-   "age_hours": 0.4,
-   "published": "2026-11-13T14:05:24+00:00",
-   "added": "2026-11-13T14:30:40+00:00",
-   "full": "NVIDIA L4 GPUs. 5-second cold starts. Scale to zero when idle. Black Friday deals usually make me think of a big ol’ crowd of people trampling over one another for a TV in a Walmart parking lot. But turns out there’s a lot of deals for front-end too, specifically learning opportunities from course publishers. Thought I’d share those because (1) learning is still straight-up essential for what we do, (2) these really are the best courses in the business, and (3) it’s just plain good for all of us to support the huge effort these folks put into their work. So let’s get to it. I’m grouping them up by skill because, hey, that’s what you want to do: find your learning path on the way to becoming a practitioner. Front-End Development Let’s start with what’s right up our alley around here at CSS-Tricks: CSS and JavaScript! Here’s a bonafide educator educating about his craft. Piccalilli is just full of them, including head honcho Andy Bell who takes you beyond CSS syntax expertise and reach a level of skill that’s usually only achieved after years of experience. CSS Demystified $250 → $169 Yes, you can learn CSS straight from the GOAT himself, Kevin Powell! This may not be for many of you who regularly follow or read CSS-Tricks, but get it for a colleague who could really use a solid starting point for writing poetic styles. It’s a real gift that this is discounted at all. JavaScript for Everyone Did you that our own Mat Marquis is responsible for this gem? I can underscore enough just how adept Mat is as an educator. The dude makes the most complicated things accessible to anyone and has put his heart and soul into this JavaScript course, an area he is more qualified that most to tackle. I really like the play on words here because one of my favorite front-end educators, Josh Comeau, bucks the old trend of writing CSS in JavaScript for real, modern CSS best practices where CSS enhances JavaScript. It really is for those who fell in The Great Divide and want to bridge the gap. Design Chops Mindful Design £249 → £149 Did you see Heydon’s recent post on the awkward intersection between design, accessibility, and development? This is the sort of course that aims at harmonizing these things rather than letting them collide. Scott Riley will teach you to really understand how humans work and explore problem spaces with empathy, curiosity, and accountability to push your overall design skills beyond the next level. Smart Interface Design Patterns $350 → $227 I’ve had the pleasure of working with Vitaly Friedman at Smashing Magazine for three years (and going). The guy is truly at the forefront of UI/UX practices and has been since Istarting learning front-end 20 years ago. You’re going to get an amazing 40 hours of video lessons on real-life examples for common interface components: navigation, filters, tables, forms, and more. Atomic Design Certification Course $150 → $99 Hey look at that, another one from Brad. His Atomic Design work is core knowledge at this point. I mean, we’ve been talking about it since at least 2019 . And I love that Brad has added a certification path for it. It’s 11 hours of goodness on top of assets you can take with you, a Slac",
-   "use_link": "",
-   "reject_hits": 2
-  },
-  {
    "id": "d052336faa0a6d5d",
    "title": "Wordfence 9.1.1",
    "link": "https://wordpress.org/plugins/wordfence/",
@@ -405,7 +387,7 @@
    "added": "2026-11-15T12:15:35+00:00",
    "full": "Megaspeed arranged nearly $12 billion worth of Nvidia high-performance chip orders for Chinese companies between March 2024 and June 2025, according to documents reviewed by the Wall Street Journal. The company is owned by Alice Huang, the former lover of since-ousted Nvidia CEO Jensen Huang . Megaspeed shipped the chips to buyers in China who maintained long-standing business ties with local tech giants, the WSJ reports. The orders covered several hundred thousand chips that the US had sought to keep out of China through export controls. Megaspeed reportedly gained preferential access to scarce AI chips as an Nvidia cloud partner, apparently because it counted Chinese cloud and tech company Alibaba as a major client. Nvidia officially reported $12.4 billion in China revenue over six months, accounting for 7 percent of total revenue. Short-selling firm Culper Research estimates, however, that more than 20 percent of Nvidia's revenue in the last fiscal year came from Chinese customers. A significant share of that China business may have flowed through indirect channels. Subscribe to THE DECODER for ad-free reading, a weekly AI newsletter, our exclusive \"AI Radar\" frontier report six times a year, full archive access, and access to our comment section.",
    "use_link": "",
-   "reject_hits": 1
+   "reject_hits": 2
   },
   {
    "id": "7611c876b17c9451",

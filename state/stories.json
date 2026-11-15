@@ -115,22 +115,6 @@
    "cves": []
   },
   {
-   "t": "2026-11-11T14:01:45+00:00",
-   "id": "e9a337da15cce837",
-   "title": "WP Mail SMTP 4.10.4",
-   "kind": "news",
-   "link": "https://wordpress.org/plugins/wp-mail-smtp/",
-   "ents": [
-    "mail",
-    "smtp",
-    "wp"
-   ],
-   "vers": [
-    "4.10.4"
-   ],
-   "cves": []
-  },
-  {
    "t": "2026-11-11T15:01:24+00:00",
    "id": "20689755a476f2c8",
    "title": "Attackers Actively Probing for Upgrade-Window RCE Vulnerability in WordPress Core",
