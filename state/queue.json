@@ -388,24 +388,6 @@
    "channel_skip": true,
    "skip_why": "خارج از مخاطب",
    "skip_until": "2026-11-15T12:30:58+00:00"
-  },
-  {
-   "id": "6fc6bc2d3ff2654d",
-   "title": "Meituan releases a 1.6-trillion-parameter agent model that never touched an Nvidia GPU",
-   "link": "https://the-decoder.com/meituan-releases-a-1-6-trillion-parameter-agent-model-that-never-touched-an-nvidia-gpu",
-   "site": "",
-   "desc": "Meituan has released the weights for LongCat-2.5, a 1.6-trillion-parameter model built for AI agents and trained entirely on Chinese hardware. On Terminal Bench, it scores 88.4 points, landing just behind Claude Opus 5. The sample deployment runs on 194 Huawei Ascend chips, and Meituan makes no mention of Nvidia GPUs. The article Meituan releases a 1.6-trillion-parameter agent model that never touched an Nvidia GPU appeared first on The Decoder .",
-   "source": "دیکودر",
-   "lang": "en",
-   "tier": 2,
-   "group": "ai",
-   "kind": "news",
-   "age_hours": 0.7,
-   "published": "2026-11-15T10:06:06+00:00",
-   "added": "2026-11-15T10:45:33+00:00",
-   "full": "Meituan releases a 1.6-trillion-parameter agent model that never touched an Nvidia GPU Jonathan Kemper View the LinkedIn Profile of Jonathan Kemper Nov 15, 2026 ChatGPT-5.6 prompted by THE DECODER Meituan releases the weights for LongCat-2.5, a 1.6-trillion-parameter model built for AI agents. It was trained entirely on Chinese hardware and performs at the level US models like Claude Opus 5 reached a few months ago on coding benchmarks. The LongCat team at Chinese food delivery company Meituan has released the weights for LongCat-2.5, one week after the model's official unveiling. LongCat-2.5 is built for agents that work through long, multi-step tasks autonomously, particularly coding. According to Meituan, it comes close to top Western models on several benchmarks. LongCat-2.5 is a mixture-of-experts model that activates only a subset of its specialized subnetworks for each token it processes. Out of 1.6 trillion total parameters, roughly 48 billion are active per token. Through the API, the model handles up to one million tokens at once and generates responses up to 128,000 tokens long. It understands text, images, and video, responds in text, and lets users toggle reasoning on and off. LongCat-2.5 builds on its predecessor LongCat-2.0 and adds image understanding. Many multimodal models bolt on a separate image encoder after the fact. LongCat-2.5 instead converts images into tokens that the model processes alongside text, as is standard practice for today's LLMs. The approach draws on the research model LongCat-Next and aims to improve visual coding, design, and 3D tasks. For reinforcement learning, the team used real software tasks from GitHub pull requests along with recreated agent failures. To make sure the model actually solved the tasks during training, the developers blocked internet access in the training environments, removed Git history and cached files, and had a language model check its solutions for tricks. The team also distilled the capabilities of several specialized teacher models for agent work, reasoning, and dialog into LongCat-2.5. Meituan quantizes the experts' weights and activations to 4-bit precision, which Chinese chips can process natively. In Meituan's load tests, throughput rises 43.3 percent for prompt processing and 42.77 percent for response generation compared with an 8-bit version. Meituan says accuracy stays on par with the uncompressed model. This version is available in a separate repository . The self-hosting guide describes a cluster of 194 Huawei Ascend accelerators from the Atlas A2 series. Two handle image processing, 64 handle prompt ingestion, and 128 handle response generation. There's no guidance for Nvidia GPUs. The LongCat team reports 88.4 points on Terminal Bench v2.1, a benchmark that measures how well agents solve command-line tasks. Meituan lists Claude Opus 5 at 89.1, GPT-5.6 Sol at 88.8, and Deepseek-V4.1-Flash at the top of the table with 90.6. DeepSWE tests how well models fix bugs in real code repositories. Here LongCat-2.5 jumps from 9.7 to 64.6 points, placing it behind every other model in the table except Claude Opus 4.8 , with Deepseek-V4.1-Flash leading at 74.2 and GPT-5.6 So",
-   "use_link": "https://huggingface.co/meituan-longcat/LongCat-2.5",
-   "held": true
   }
  ]
 }
