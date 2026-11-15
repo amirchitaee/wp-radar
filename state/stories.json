@@ -115,26 +115,6 @@
    "cves": []
   },
   {
-   "t": "2026-11-11T15:01:24+00:00",
-   "id": "20689755a476f2c8",
-   "title": "Attackers Actively Probing for Upgrade-Window RCE Vulnerability in WordPress Core",
-   "kind": "news",
-   "link": "https://www.wordfence.com/blog/2026/11/attackers-actively-probing-for-upgrade-window-rce-vulnerability-in-wordpress-core",
-   "ents": [
-    "actively",
-    "attackers",
-    "core",
-    "probing",
-    "rce",
-    "upgrade-window",
-    "wordpress"
-   ],
-   "vers": [],
-   "cves": [
-    "CVE-2026-119977"
-   ]
-  },
-  {
    "t": "2026-11-11T16:46:44+00:00",
    "id": "e8611a93afeb04e2",
    "title": "Grok-built apps exposed patient data, plaintext passwords, and SpaceXSI's own sales pipeline",
@@ -478,6 +458,22 @@
    ],
    "vers": [
     "14.16.19"
+   ],
+   "cves": []
+  },
+  {
+   "t": "2026-11-15T15:46:10+00:00",
+   "id": "65ecef2327a06bf0",
+   "title": "Anthropic's Claude Fable 5.2 doesn't generate images, it paints them",
+   "kind": "news",
+   "link": "https://the-decoder.com/anthropics-claude-fable-5-2-doesnt-generate-images-it-paints-them",
+   "ents": [
+    "anthropic",
+    "claude",
+    "fable"
+   ],
+   "vers": [
+    "5.2"
    ],
    "cves": []
   }
