@@ -388,6 +388,39 @@
    "channel_skip": true,
    "skip_why": "خارج از مخاطب",
    "skip_until": "2026-11-15T12:30:58+00:00"
+  },
+  {
+   "id": "fa1b9f395520374a",
+   "title": "Firm linked to Jensen Huang's ex-lover reportedly brokered nearly $12 billion in Nvidia chip orders for China",
+   "link": "https://the-decoder.com/firm-linked-to-jensen-huangs-ex-lover-reportedly-brokered-nearly-12-billion-in-nvidia-chip-orders-for-china",
+   "site": "",
+   "desc": "Megaspeed, the firm owned by ousted Nvidia CEO Jensen Huang's former lover Alice Huang, arranged nearly $12 billion in Nvidia chip orders for Chinese companies between 2024 and 2025, according to the WSJ. Short seller Culper Research estimates Nvidia's actual China revenue share exceeds 20 percent, far above the officially reported 7 percent. The article Firm linked to Jensen Huang's ex-lover reportedly brokered nearly $12 billion in Nvidia chip orders for China appeared first on The Decoder .",
+   "source": "دیکودر",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 0.7,
+   "published": "2026-11-15T11:35:12+00:00",
+   "added": "2026-11-15T12:15:35+00:00",
+   "full": "Megaspeed arranged nearly $12 billion worth of Nvidia high-performance chip orders for Chinese companies between March 2024 and June 2025, according to documents reviewed by the Wall Street Journal. The company is owned by Alice Huang, the former lover of since-ousted Nvidia CEO Jensen Huang . Megaspeed shipped the chips to buyers in China who maintained long-standing business ties with local tech giants, the WSJ reports. The orders covered several hundred thousand chips that the US had sought to keep out of China through export controls. Megaspeed reportedly gained preferential access to scarce AI chips as an Nvidia cloud partner, apparently because it counted Chinese cloud and tech company Alibaba as a major client. Nvidia officially reported $12.4 billion in China revenue over six months, accounting for 7 percent of total revenue. Short-selling firm Culper Research estimates, however, that more than 20 percent of Nvidia's revenue in the last fiscal year came from Chinese customers. A significant share of that China business may have flowed through indirect channels. Subscribe to THE DECODER for ad-free reading, a weekly AI newsletter, our exclusive \"AI Radar\" frontier report six times a year, full archive access, and access to our comment section.",
+   "use_link": "",
+   "reject_hits": 1
+  },
+  {
+   "id": "7611c876b17c9451",
+   "title": "Australia's central bank finds AI hitting young workers first, especially in software and customer service",
+   "link": "https://the-decoder.com/australias-central-bank-finds-ai-hitting-young-workers-first-especially-in-software-and-customer-service",
+   "site": "",
+   "desc": "Australia's central bank sees early signs that AI is hitting young entry-level workers in highly exposed jobs like software development and customer service. Since ChatGPT launched, job postings and employment among 15- to 24-year-olds in those fields have dropped more sharply than among older workers. Author Mike Major cautions against jumping to conclusions, however, noting that business cycle shifts and remote work trends could also explain the numbers. The article Australia's central bank finds AI hitting young workers first, especially in software and customer service appeared first on Th",
+   "source": "دیکودر",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 1.5,
+   "published": "2026-11-15T10:45:58+00:00",
+   "added": "2026-11-15T12:15:35+00:00"
   }
  ]
 }
