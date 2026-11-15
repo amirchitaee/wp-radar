@@ -92,24 +92,6 @@
    "skip_until": "2026-11-15T12:30:58+00:00"
   },
   {
-   "id": "bf40a8e483ebbdeb",
-   "title": "Banks bar Chinese and Hong Kong investors from Anthropic IPO over US export controls",
-   "link": "https://the-decoder.com/banks-bar-chinese-and-hong-kong-investors-from-anthropic-ipo-over-us-export-controls",
-   "site": "",
-   "desc": "Chinese investors are shut out of Anthropic's IPO, Bloomberg reports. Banks are rejecting buy orders from mainland China and Hong Kong, citing U.S. export control rules known as ITAR. Similar restrictions applied during SpaceX's IPO, and Anthropic's products aren't available in either region anyway. The article Banks bar Chinese and Hong Kong investors from Anthropic IPO over US export controls appeared first on The Decoder .",
-   "source": "دیکودر",
-   "lang": "en",
-   "tier": 2,
-   "group": "ai",
-   "kind": "news",
-   "age_hours": 6.5,
-   "published": "2026-11-13T18:01:53+00:00",
-   "added": "2026-11-14T00:30:49+00:00",
-   "channel_skip": true,
-   "skip_why": "خارج از مخاطب",
-   "skip_until": "2026-11-15T22:45:34+00:00"
-  },
-  {
    "id": "d052336faa0a6d5d",
    "title": "Wordfence 9.1.1",
    "link": "https://wordpress.org/plugins/wordfence/",
