@@ -115,52 +115,6 @@
    "cves": []
   },
   {
-   "t": "2026-11-11T16:46:44+00:00",
-   "id": "e8611a93afeb04e2",
-   "title": "Grok-built apps exposed patient data, plaintext passwords, and SpaceXSI's own sales pipeline",
-   "kind": "news",
-   "link": "https://the-decoder.com/grok-built-apps-exposed-patient-data-plaintext-passwords-and-spacexsis-own-sales-pipeline",
-   "ents": [
-    "grok-built",
-    "spacexsi"
-   ],
-   "vers": [],
-   "cves": []
-  },
-  {
-   "t": "2026-11-11T18:01:19+00:00",
-   "id": "b16f94b075a4a76f",
-   "title": "WooCommerce 11.3.0",
-   "kind": "news",
-   "link": "https://wordpress.org/plugins/woocommerce/",
-   "ents": [
-    "woocommerce"
-   ],
-   "vers": [
-    "11.3.0"
-   ],
-   "cves": []
-  },
-  {
-   "t": "2026-11-11T20:01:04+00:00",
-   "id": "610d4f600f70d625",
-   "title": "WordPress 7.2’s New /random/ Endpoint Draws Criticism From The Community",
-   "kind": "news",
-   "link": "https://wp-content.co/wordpress-7-2s-new-random-endpoint-draws-criticism-from-the-community",
-   "ents": [
-    "community",
-    "criticism",
-    "draws",
-    "endpoint",
-    "the",
-    "wordpress"
-   ],
-   "vers": [
-    "7.2"
-   ],
-   "cves": []
-  },
-  {
    "t": "2026-11-12T00:31:31+00:00",
    "id": "4d33a45a8c997261",
    "title": "Google joins the decision-model wave with Gemini Decision 1, scoring 1,000 questions in a single pass",
@@ -475,6 +429,20 @@
    "vers": [
     "5.2"
    ],
+   "cves": []
+  },
+  {
+   "t": "2026-11-15T20:30:54+00:00",
+   "id": "1b73ae181d705263",
+   "title": "Website Inspiration: Wowww studio",
+   "kind": "showcase",
+   "link": "https://onepagelove.com/wowww-studio",
+   "ents": [
+    "inspiration",
+    "website",
+    "wowww"
+   ],
+   "vers": [],
    "cves": []
   }
  ]
