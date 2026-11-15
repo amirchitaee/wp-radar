@@ -333,7 +333,7 @@
    "added": "2026-11-15T00:00:48+00:00",
    "full": "One of the oldest Datasette plugins, and still one of my favorites. It now works with Datasette 1.0a42, and depends on the new datasette-leaflet to ensure OpenStreetMap tiles are requested with a referrer header. Here's a map of power plants owned by California's PG&E , also demonstrating Datasette's recently redesigned facets : This is a beat by Simon Willison, posted on 13th November 2026 . Sponsor me for $10/month and get a curated email digest of the month's most important LLM developments.",
    "use_link": "https://github.com/simonw/datasette/pull/3032",
-   "reject_hits": 1
+   "reject_hits": 2
   },
   {
    "id": "673d8bd62405d369",
@@ -366,7 +366,7 @@
    "added": "2026-11-15T00:00:49+00:00",
    "full": "Andrea is a Senior Developer Advocate at GitHub with over a decade of experience in developer tools. She combines technical depth with a mission to make advanced technologies more accessible. After transitioning from Army service and construction management to software development, she brings a unique perspective to bridging complex engineering concepts with practical implementation. She lives in Florida with her Welsh partner, two sons, and two dogs, where she continues to drive innovation and support open source through GitHub's global initiatives. Find her online @acolombiadev.",
    "use_link": "https://resources.github.com/security/the-enterprise-guide-to-ai-powered-devsecops/",
-   "reject_hits": 1
+   "reject_hits": 2
   },
   {
    "id": "3a53f4732b0a8eba",
