@@ -115,20 +115,6 @@
    "cves": []
   },
   {
-   "t": "2026-11-11T05:47:48+00:00",
-   "id": "9198dc1328a39d8d",
-   "title": "OpenAI turns ChatGPT into a business directory with AI agents that handle customer questions",
-   "kind": "news",
-   "link": "https://the-decoder.com/openai-turns-chatgpt-into-a-business-directory-with-ai-agents-that-handle-customer-questions",
-   "ents": [
-    "ai",
-    "chatgpt",
-    "openai"
-   ],
-   "vers": [],
-   "cves": []
-  },
-  {
    "t": "2026-11-11T14:01:45+00:00",
    "id": "e9a337da15cce837",
    "title": "WP Mail SMTP 4.10.4",
@@ -477,6 +463,22 @@
    ],
    "vers": [
     "5.5"
+   ],
+   "cves": []
+  },
+  {
+   "t": "2026-11-15T10:46:16+00:00",
+   "id": "6fc6bc2d3ff2654d",
+   "title": "Meituan releases a 1.6-trillion-parameter agent model that never touched an Nvidia GPU",
+   "kind": "news",
+   "link": "https://the-decoder.com/meituan-releases-a-1-6-trillion-parameter-agent-model-that-never-touched-an-nvidia-gpu",
+   "ents": [
+    "gpu",
+    "meituan",
+    "nvidia"
+   ],
+   "vers": [
+    "1.6"
    ],
    "cves": []
   }

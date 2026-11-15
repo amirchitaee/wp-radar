@@ -1,3 +1,18 @@
 {
- "items": []
+ "items": [
+  {
+   "id": "6fc6bc2d3ff2654d",
+   "at": "2026-11-15T10:46:16+00:00",
+   "kind": "news",
+   "label": "آپدیت",
+   "text": "<b>🔄 آپدیت: مدل ⁦LongCat-2.5⁩ برای ساخت ایجنت‌های کدنویس منتشر شد</b>\n\nشرکت ⁦Meituan⁩ مدل ⁦LongCat-2.5⁩ را به صورت ⁦open weights⁩ منتشر کرد. این مدل مخصوص ساخت ایجنت‌هایی است که کارهای پیچیده و چندمرحله‌ای کدنویسی را به‌صورت خودکار انجام می‌دهند.\n\n<blockquote expandable>این مدل می‌تواند ۱ میلیون توکن را هم‌زمان پردازش کند و تا ۱۲۸ هزار توکن پاسخ دهد.\nقابلیت درک تصویر، متن و ویدیو دارد که برای کارهای طراحی سایت و کدهای بصری کاربرد دارد.\nدر بنچمارک‌های کدنویسی، عملکردی نزدیک به ⁦Claude Opus⁩ ۵ دارد.\n۱.۶ تریلیون پارامتر</blockquote>\n\nاطلاعات بیشتر دربارهٔ این موضوع را از <a href=\"https://the-decoder.com/meituan-releases-a-1-6-trillion-parameter-agent-model-that-never-touched-an-nvidia-gpu\">منبع</a> بخوانید.\n\n<i>۲۴ آبان ۱۴۰۵ · ۱۳:۳۶</i>\n\n#آپدیت #هوش_مصنوعی",
+   "score": 61.2,
+   "title": "مدل LongCat-2.5 برای ساخت ایجنت‌های کدنویس منتشر شد",
+   "summary": "شرکت Meituan مدل LongCat-2.5 را به صورت open weights منتشر کرد. این مدل مخصوص ساخت ایجنت‌هایی است که کارهای پیچیده و چندمرحله‌ای کدنویسی را به‌صورت خودکار انجام می‌دهند.",
+   "link": "https://the-decoder.com/meituan-releases-a-1-6-trillion-parameter-agent-model-that-never-touched-an-nvidia-gpu",
+   "source": "دیکودر",
+   "group": "ai",
+   "photo": ""
+  }
+ ]
 }
