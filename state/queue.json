@@ -356,25 +356,6 @@
    "reject_hits": 2
   },
   {
-   "id": "885a2252df28ac5b",
-   "title": "Google warns that fully automated cyberattacks have arrived and will get worse fast",
-   "link": "https://the-decoder.com/google-warns-that-fully-automated-cyberattacks-have-arrived-and-will-get-worse-fast",
-   "site": "",
-   "desc": "Google's Threat Intelligence Group has for the first time caught attackers finding and exploiting security vulnerabilities with no human involvement at all. An AI framework called \"exploit_agent,\" found on an exposed server, automatically compared code before and after patches, built exploits, and ran them on its own. The article Google warns that fully automated cyberattacks have arrived and will get worse fast appeared first on The Decoder .",
-   "source": "دیکودر",
-   "lang": "en",
-   "tier": 2,
-   "group": "ai",
-   "kind": "news",
-   "age_hours": 1.3,
-   "published": "2026-11-16T19:42:13+00:00",
-   "added": "2026-11-16T21:00:58+00:00",
-   "full": "Google's Threat Intelligence Group (GTIG) says it has observed attackers fully automating vulnerability discovery and exploitation for the first time, with no human in the loop. GTIG found an exposed server running an AI framework called \"exploit_agent\" that connects to multiple language models, according to the GTIG AI Threat Tracker . The system compares software code before and after patches, identifies vulnerabilities, develops exploits, and runs them automatically. Russian-language comments in the configuration files suggest the operator speaks Russian. Server data suggests the operator targeted French websites in media, entertainment, and education. GTIG calls the shift a critical turning point but says these automated attacks currently sacrifice stealth for speed, leaving forensic traces that make them easier to detect. Subscribe to THE DECODER for ad-free reading, a weekly AI newsletter, our exclusive \"AI Radar\" frontier report six times a year, full archive access, and access to our comment section.",
-   "use_link": "",
-   "msg_id": 159,
-   "posted": true
-  },
-  {
    "id": "75df91af27d861e0",
    "title": "OpenAI's GPT-6 Astra tackles the Standard Model's toughest math problem on a lattice",
    "link": "https://the-decoder.com/openais-gpt-6-astra-tackles-the-standard-models-toughest-math-problem-on-a-lattice",
