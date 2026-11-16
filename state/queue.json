@@ -294,7 +294,28 @@
    "kind": "news",
    "age_hours": 12.5,
    "published": "2026-11-15T23:30:00+00:00",
-   "added": "2026-11-16T11:58:30+00:00"
+   "added": "2026-11-16T11:58:30+00:00",
+   "full": "Indian chip startup Bharat Semi lands $24M seed round as it eyes global AI sensor market Jagmeet Singh 3:30 PM PST · November 15, 2026 Bharat Semi , an Indian semiconductor startup, has raised $24 million in seed funding to develop AI-enabled image sensors, as it seeks to win customers in the United States and elsewhere. The investment comes as the nearly five-year-old, pre-revenue startup says it has secured design wins with U.S. defense technology company General Atomics and India’s Kaynes Semicon. Its image sensors, however, remain under development, with the startup targeting its initial commercial production in 2027. India has committed billions of dollars to build up a domestic semiconductor industry, with a hope to become an alternative manufacturing hub as U.S. companies look to diversify supply chains beyond China. The country, however, has yet to establish itself as a major chip manufacturing hub. Meanwhile, the AI boom is also giving Indian startups such as Bharat Semi an opportunity to develop specialized chips for global markets. The New Delhi-based startup is developing programmable image sensors that combine image capture, processing, and AI capabilities on a single chip, reducing the need to send visual data to separate processors. The move could cut system costs by at least 70% compared with conventional setups that use a separate image sensor, image signal processor, and a system-on-chip, co-founder Vrinda Kapoor (pictured above, right) said in an interview. “Our aim here is to move from sensors to sense-making solutions,” Kapoor told TechCrunch. Kapoor, a South Park Commons fellow who earlier worked in healthcare technology, co-founded Bharat Semi in late 2021 with Vinayak Dalmia (pictured above, left), the startup’s managing director, who previously worked at McKinsey and in private equity. Its chief technology officer, Boyd Fowler, previously held the same role at image-sensor maker OmniVision. Bharat Semi is targeting smart homes, industrial automation, surveillance, and aerospace. Without disclosing specifics, Kapoor pointed to air conditioners that could detect when a room is empty and adjust automatically and drones that could process visual information — even with the absence of more expensive computing hardware elsewhere in the system. The startup’s first-generation sensors are already in prototyping, while its second-generation sensors, which will incorporate more advanced AI capabilities, are expected to reach the prototype stage by mid-2027, Kapoor said. Moreover, the startup plans to get those newer sensors into customers’ hands by the end of 2027. The all-equity seed round was led by Info Edge Group, South Park Commons, and Indus Bridge Ventures, with participation from Valour Capital, Micromax, Gaingels, and individual investors. Bharat Semi, Kapoor said, plans to use the funding to expand its engineering team, complete product development, and bring its sensors to market. Bharat Semi has about 75 employees across India and the U.S., including 10 to 12 in its American operations, which span engineering and business development in Santa Clara. The startup plans to increase its U.S. headcount to around 20 by mid",
+   "use_link": "",
+   "reject_hits": 1
+  },
+  {
+   "id": "d13a856902e36309",
+   "title": "Is Your WooCommerce Host the Problem?",
+   "link": "https://thewpminute.com/is-your-woocommerce-host-the-problem",
+   "site": "",
+   "desc": "WooCommerce performance isn’t just about how quickly a storefront loads. When your client’s team is waiting on slow order searches, database queries, and backend tasks, that lost time can affect the entire business. In this episode of The WP Minute, Eric Karkovack talks with Matt Schwartz, founder and CEO of Inspry, about his agency’s real-world […]",
+   "source": "دبلیوپی مینت",
+   "lang": "en",
+   "tier": 2,
+   "group": "",
+   "kind": "news",
+   "age_hours": 0.5,
+   "published": "2026-11-16T12:45:00+00:00",
+   "added": "2026-11-16T13:15:32+00:00",
+   "full": "Follow the show in your app Apple Podcasts (WP Minute+ Podcast) Spotify (WP Minute+ Podcast) YouTube (WP Minute+ Podcast) Overcast (WP Minute+ Podcast) RSS (WP Minute+ Podcast) WooCommerce performance isn’t just about how quickly a storefront loads. When your client’s team is waiting on slow order searches, database queries, and backend tasks , that lost time can affect the entire business. In this episode of The WP Minute, Eric Karkovack talks with Matt Schwartz, founder and CEO of Inspry, about his agency’s real-world WooCommerce hosting benchmarks . After struggling to get a client’s store running fast enough, Matt tested multiple hosting providers to find out which configurations delivered the best results. They discuss why backend performance can be just as important as frontend speed , how database bottlenecks can undermine an otherwise powerful server , and why paying more for hosting doesn’t always mean getting better performance . Matt also shares which providers stood out, why CDNs can’t solve every problem , and how agencies can use benchmarking to make smarter hosting decisions for their clients. If you build or manage WooCommerce stores, this conversation offers a practical reminder: start with the business problem, then find the hosting solution that fits. New articles and episodes, plus the week’s WordPress news. A five-minute read. Free.",
+   "use_link": "",
+   "held": true
   }
  ]
 }

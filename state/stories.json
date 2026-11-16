@@ -379,6 +379,21 @@
    ],
    "vers": [],
    "cves": []
+  },
+  {
+   "t": "2026-11-16T13:15:59+00:00",
+   "id": "d13a856902e36309",
+   "title": "Is Your WooCommerce Host the Problem?",
+   "kind": "news",
+   "link": "https://thewpminute.com/is-your-woocommerce-host-the-problem",
+   "ents": [
+    "host",
+    "is",
+    "problem",
+    "woocommerce"
+   ],
+   "vers": [],
+   "cves": []
   }
  ]
 }
