@@ -74,24 +74,6 @@
    "skip_until": "2026-11-16T23:58:33+00:00"
   },
   {
-   "id": "d82d2c1dae8dfaa0",
-   "title": "Gemini 4 Carbon takes the MathArena crown but costs 15 times more than GPT-6.1 Sol",
-   "link": "https://the-decoder.com/gemini-4-carbon-takes-the-matharena-crown-but-costs-15-times-more-than-gpt-6-1-sol",
-   "site": "",
-   "desc": "For the first time in a while, no OpenAI model leads the MathArena AI math benchmark. Google's Gemini 4 Carbon and Anthropic's Fable 5.2 have knocked GPT-6.1 Sol from the top, though both cost significantly more. Gemini ignored the time limit in testing and almost never gave up on a task. The article Gemini 4 Carbon takes the MathArena crown but costs 15 times more than GPT-6.1 Sol appeared first on The Decoder .",
-   "source": "دیکودر",
-   "lang": "en",
-   "tier": 2,
-   "group": "ai",
-   "kind": "news",
-   "age_hours": 0.2,
-   "published": "2026-11-14T16:48:01+00:00",
-   "added": "2026-11-14T17:01:00+00:00",
-   "full": "Google's Gemini 4 Carbon has become the first non-OpenAI model in a while to top the MathArena math benchmark. It knocked GPT-6.1 Sol from the top spot, while Claude Fable 5.2 came in second, making it potentially one of the most capable publicly available models for math tasks. OpenAI's models, which recently allegedly solved demanding equations like the Navier-Stokes equations , aren't publicly available yet. Gemini 4 Carbon's most common failure mode is exceeding the time limit. The model also almost never gives up on a task, a trait that can be read as either positive or negative . In one case, it launched a script that ran for more than eleven hours without checking on its progress. That extra performance comes at a price, though. With the reasoning settings used in testing, Carbon and Fable 5.2 cost roughly 15 and 40 times as much as GPT-6.1 Sol, respectively. Subscribe to THE DECODER for ad-free reading, a weekly AI newsletter, our exclusive \"AI Radar\" frontier report six times a year, full archive access, and access to our comment section.",
-   "use_link": "",
-   "reject_hits": 2
-  },
-  {
    "id": "d052336faa0a6d5d",
    "title": "Wordfence 9.1.1",
    "link": "https://wordpress.org/plugins/wordfence/",
