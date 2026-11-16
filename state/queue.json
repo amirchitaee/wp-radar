@@ -295,24 +295,6 @@
    "age_hours": 12.5,
    "published": "2026-11-15T23:30:00+00:00",
    "added": "2026-11-16T11:58:30+00:00"
-  },
-  {
-   "id": "7f6eab96fdd58cfa",
-   "title": "I Found A Free Desktop App That Connects Your AI to All Your WordPress Sites",
-   "link": "https://wpmayor.com/novamira-hq-launch",
-   "site": "",
-   "desc": "Connecting your AI to one WordPress site is easy. Connecting it to thirty client sites across five hosts is where it gets messy. Novamira HQ, now in public beta, gives your AI one connection to all of them, and it's free. The post \" I Found A Free Desktop App That Connects Your AI to All Your WordPress Sites \" first appeared on WP Mayor .",
-   "source": "دبلیوپی‌مایر",
-   "lang": "en",
-   "tier": 3,
-   "group": "",
-   "kind": "news",
-   "age_hours": 1.0,
-   "published": "2026-11-16T11:00:00+00:00",
-   "added": "2026-11-16T11:58:26+00:00",
-   "full": "Novamira HQ is a free, open source desktop app for macOS, Windows and Linux that gives your AI one connection to every WordPress site you manage. It’s in public beta and the app itself is self-contained, so there’s nothing else to install alongside it, which made me think it’s worth a few minutes of your time. If you’ve used the Novamira plugin , you’ll know how setup has worked until now. Each site gets its own entry in Claude, Cursor, or whichever AI client you use, which is perfectly fine for a couple of sites. But, it gets tedious quick once you’re looking after a list of client sites. If you’re an agency or freelancer, you know you rarely manage just one site. You manage dozens, spread across different hosts, each with its own staging copies. HQ is Novamira’s answer to that, so here’s what the beta includes and how your sites get into it. Novamira HQ sits between your AI client and your WordPress sites, so you connect your AI to HQ once and every site you add to HQ becomes available to it automatically. That includes the sites you add next month, so onboarding a new client just means adding their site to HQ rather than editing the config in every AI tool your team uses. If you’ve already been running Novamira with one entry per site, you can bring those sites into HQ and then remove the old entries from your AI client. Novamira HQ currently supports 13 hosting providers: Kinsta, WP Engine, Hostinger, Cloudways, Pantheon, Pressable, Rocket.net, InstaWP, xCloud, SandyWP, Plesk, cPanel and WHM. When you connect a hosting account, HQ imports every site on it, and depending on what the host allows, you also get environments, backups, and staging-to-production pushes in the same place. If a site doesn’t have the Novamira plugin yet, HQ can install it for you where the host supports it. I’d keep an eye on the cPanel, WHM, and Plesk support in particular, because it brings a lot of traditional and reseller hosting into the picture, not just the managed WordPress hosts. If your client’s site is on a host HQ doesn’t integrate with yet, or it’s sitting on a VPS you look after yourself, you can connect it directly instead. Both kinds of site show up in the same list with their environments and connection status, and your AI works with them in the same way. Novamira HQ has a guided setup for Claude Desktop, Claude Code, ChatGPT, Codex, Cursor, VS Code, and OpenCode, plus a ready-made configuration for Antigravity, and any other MCP-compatible client can connect too. For an agency, that means nobody has to switch tools. Your developer can stick with Cursor or Claude Code while someone on the content side uses Claude Desktop, and they’ll both be working with the same set of sites. HQ works alongside the Novamira plugin, both the free version and Novamira Pro. The plugin is what gives your AI its WordPress abilities on each site, and HQ is what brings all those sites together under one connection. If you want to know more about what the plugin itself can do, our Novamira review goes through it in detail. Novamira HQ keeps your site and hosting credentials on your own computer. There’s no Novamira account to create, no Novamira server sitting in the midd",
-   "use_link": "",
-   "held": true
   }
  ]
 }
