@@ -318,7 +318,7 @@
    "added": "2026-11-16T00:00:48+00:00",
    "full": "A new release of Datasette's longest untouched plugin, for rendering charts (using Vega-Lite ) against data in a table or custom query. The last release was in July 2018! I finally bumped it for compatibility with the latest Datasette alphas, plus some cosmetic tweaks to make it work better with Datasette Lite . (Datasette Lite just gained the ability to run JavaScript plugins like this! I'll write more about that soon.) Since it works with Datasette Lite, the live demo in the README now links to this demo on Datasette Lite . This is a beat by Simon Willison, posted on 14th November 2026 . Sponsor me for $10/month and get a curated email digest of the month's most important LLM developments.",
    "use_link": "https://github.com/simonw/datasette-vega/releases/tag/0.7",
-   "reject_hits": 1
+   "reject_hits": 2
   },
   {
    "id": "fde4e161df129b17",
