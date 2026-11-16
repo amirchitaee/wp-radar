@@ -96,16 +96,6 @@
    "cves": []
   },
   {
-   "t": "2026-11-12T14:01:58+00:00",
-   "id": "cf760269da9cee01",
-   "title": "Your next visitor isn’t human, is your site ready?",
-   "kind": "news",
-   "link": "https://elementor.com/blog/introducing-agent-ready",
-   "ents": [],
-   "vers": [],
-   "cves": []
-  },
-  {
    "t": "2026-11-12T15:01:01+00:00",
    "id": "0502eb544c2da948",
    "title": "PSA: Critical Apache HTTP/2 Vulnerability: What WordPress Site Owners Should Know",
