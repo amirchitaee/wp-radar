@@ -298,6 +298,64 @@
    "full": "Indian chip startup Bharat Semi lands $24M seed round as it eyes global AI sensor market Jagmeet Singh 3:30 PM PST · November 15, 2026 Bharat Semi , an Indian semiconductor startup, has raised $24 million in seed funding to develop AI-enabled image sensors, as it seeks to win customers in the United States and elsewhere. The investment comes as the nearly five-year-old, pre-revenue startup says it has secured design wins with U.S. defense technology company General Atomics and India’s Kaynes Semicon. Its image sensors, however, remain under development, with the startup targeting its initial commercial production in 2027. India has committed billions of dollars to build up a domestic semiconductor industry, with a hope to become an alternative manufacturing hub as U.S. companies look to diversify supply chains beyond China. The country, however, has yet to establish itself as a major chip manufacturing hub. Meanwhile, the AI boom is also giving Indian startups such as Bharat Semi an opportunity to develop specialized chips for global markets. The New Delhi-based startup is developing programmable image sensors that combine image capture, processing, and AI capabilities on a single chip, reducing the need to send visual data to separate processors. The move could cut system costs by at least 70% compared with conventional setups that use a separate image sensor, image signal processor, and a system-on-chip, co-founder Vrinda Kapoor (pictured above, right) said in an interview. “Our aim here is to move from sensors to sense-making solutions,” Kapoor told TechCrunch. Kapoor, a South Park Commons fellow who earlier worked in healthcare technology, co-founded Bharat Semi in late 2021 with Vinayak Dalmia (pictured above, left), the startup’s managing director, who previously worked at McKinsey and in private equity. Its chief technology officer, Boyd Fowler, previously held the same role at image-sensor maker OmniVision. Bharat Semi is targeting smart homes, industrial automation, surveillance, and aerospace. Without disclosing specifics, Kapoor pointed to air conditioners that could detect when a room is empty and adjust automatically and drones that could process visual information — even with the absence of more expensive computing hardware elsewhere in the system. The startup’s first-generation sensors are already in prototyping, while its second-generation sensors, which will incorporate more advanced AI capabilities, are expected to reach the prototype stage by mid-2027, Kapoor said. Moreover, the startup plans to get those newer sensors into customers’ hands by the end of 2027. The all-equity seed round was led by Info Edge Group, South Park Commons, and Indus Bridge Ventures, with participation from Valour Capital, Micromax, Gaingels, and individual investors. Bharat Semi, Kapoor said, plans to use the funding to expand its engineering team, complete product development, and bring its sensors to market. Bharat Semi has about 75 employees across India and the U.S., including 10 to 12 in its American operations, which span engineering and business development in Santa Clara. The startup plans to increase its U.S. headcount to around 20 by mid",
    "use_link": "",
    "reject_hits": 2
+  },
+  {
+   "id": "d032bd1778d6c1af",
+   "title": "Elementor 4.4.1",
+   "link": "https://wordpress.org/plugins/elementor/",
+   "desc": "نسخهٔ 4.4.1 از Elementor منتشر شد. تغییرات این نسخه: Tweak: Updated WordPress compatibility to version 7.2 | Fix: Improved code security enforcement across attributes, permissions, and data handling | Fix: Anchor links scroll to the incorrect section on mobile devices when the page first loads | Fix: MCP manual configuration instructions may fail in certain environments | Fix: MCP may fail to update valid Atomic elements due to image validation errors | Fix: MCP changes to published pages may be lost or overwritten | Fix: Improved stability and reliability of Agent Ready features",
+   "source": "آپدیت افزونه",
+   "lang": "en",
+   "tier": 1,
+   "group": "wp",
+   "kind": "news",
+   "age_hours": 0.0,
+   "published": "2026-11-16T15:30:51+00:00",
+   "added": "2026-11-16T15:30:51+00:00",
+   "plugin": {
+    "name": "Elementor",
+    "version": "4.4.1",
+    "prev": "4.4.0",
+    "installs": 10000000,
+    "updated": "2026-11-16"
+   },
+   "plugin_update": {
+    "name": "Elementor",
+    "slug": "elementor",
+    "version": "4.4.1",
+    "prev": "4.4.0",
+    "date": "4.4.1 – 2026-11-16",
+    "changes": [
+     "Tweak: Updated WordPress compatibility to version 7.2",
+     "Fix: Improved code security enforcement across attributes, permissions, and data handling",
+     "Fix: Anchor links scroll to the incorrect section on mobile devices when the page first loads",
+     "Fix: MCP manual configuration instructions may fail in certain environments",
+     "Fix: MCP may fail to update valid Atomic elements due to image validation errors",
+     "Fix: MCP changes to published pages may be lost or overwritten",
+     "Fix: Improved stability and reliability of Agent Ready features"
+    ],
+    "vuln": false,
+    "hardening": true
+   },
+   "full": "Elementor, the leading WordPress website creation platform, empowers you to build professional, pixel-perfect websites seamlessly with its no-code, drag-and-drop Atomic Editor. Supporting the full website lifecycle, Elementor lets you build, optimize, and manage your website with extended capabilities such as agentic AI creation, native MCP connection, image optimization, transactional email delivery, accessibility tools, performance boosters, and more. Build beautiful websites for humans, while making sure AI agents can find, read, and act on them too. Elementor generates the files agents look for, like llms.txt, agent discovery files, markdown files and WebMCP tools, straight from your content, with a free Agent Ready score and a fix for every check that fails. Elementor is now in version 4, with a new generation of performance-first atomic building blocks that put you in control of every part of your site. Define your global design systems and reusable components once, and they apply everywhere instantly – turning hours or even days of work into single clicks. Connect your favorite AI tools, including Claude, Codex, and Cursor, directly to your Elementor sites. The Elementor MCP acts as a new execution layer, turning plain-language prompts into real, fully editable Elementor structures, layouts, and design systems while keeping you in complete control. Unlock all Pro features with Elementor Pro . Need fast and secure cloud hosting for your Elementor site? Try out Elementor Host Powered by Google Cloud & Cloudflare. 4.9/5 TrustPilot score. Access a suite of free widgets and tools built to support your website creation process: High-performing websites : Website performance affects your visitors’ experience and search result ranking. Elementor, in partnership with Google Chrome, continuously improves performance without compromising design. Create unparalleled websites while saving time, money and resources with Elementor Pro ’s full website builder. Get access to 100+ professional widgets, features, and tools. Editor Pro design widgets: Editor Pro theme widgets: Build and customize all the key parts of your website including headers, footers, 404 page, global archives, and more. Editor Pro WooCommerce widgets: Design and customize a complete online shopping experience across your entire website. Build professional websites with Elementor Pro Elementor places a strong emphasis on security, backed by industry certifications such as ISO/IEC 27001, ISO/IEC 27017, ISO/IEC 27018, ISO/IEC 27701, and SOC 2 Type II. These certifications reflect our commitment to robust security measures and recognized industry standards. We encourage ethical security research through our Bug Bounty program . We work with leading bug bounty services so researchers can report vulnerabilities in our service backed by a triage team available 24/7/365. For more information: Trust Center . Elementor offers accessibility tools and enhancements to help you provide a better experience for all users. Including HTML5 semantics, full keyboard navigation menus, ongoing improvements of features and widgets. Elementor supports multiple languages, typographies, and RTL, with editor",
+   "use_link": "https://github.com/elementor/elementor"
+  },
+  {
+   "id": "ab086a66f465eda3",
+   "title": "Anthropic says the key to agent memory is knowing what to forget, not how much to store",
+   "link": "https://the-decoder.com/anthropic-says-the-key-to-agent-memory-is-knowing-what-to-forget-not-how-much-to-store",
+   "site": "",
+   "desc": "Anthropic studied how Claude retains knowledge across sessions. Selective notes beat exhaustive archives by a wide margin. In a Pokémon Red test, the newer Claude Fable 5 got four times as far as the older Sonnet 3.7 by keeping just a handful of strategy files instead of more than 400. A \"Dreaming\" process retroactively corrects faulty memories. The article Anthropic says the key to agent memory is knowing what to forget, not how much to store appeared first on The Decoder .",
+   "source": "دیکودر",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 0.1,
+   "published": "2026-11-16T15:25:48+00:00",
+   "added": "2026-11-16T15:30:50+00:00",
+   "full": "Anthropic studied how Claude retains knowledge across sessions. Its tests show that selective notes outperform exhaustive archives and that having Claude review its own memories after the fact can correct errors. Anyone who works with an AI agent on a project over several days hits a wall fast, because every new session starts from scratch. In a research post, Anthropic describes how Claude is supposed to retain knowledge across sessions while the model stays unchanged. Claude writes notes to a folder that it can read back later. The core problem, according to Anthropic , is selection. Before it knows what comes next, the agent has to decide in the moment what might matter later, so every note is a bet on the future. Ad In an Anthropic test with Pokémon Red, the older Claude Sonnet 3.7 treated everything as potentially important and, across roughly 10,000 game steps, created 413 files in 225 folders, often a separate one for each battle and item it found. Because the game state keeps changing, the archive goes stale fast. At times, the model did nothing but reorganize its notes instead of playing, and it finished with just a single badge. Ad The newer Claude Fable 5 limited its memory to a few files and earned four badges. Fable 5 didn't record information already visible on screen and instead wrote down plans, strategies, and rules it had tested. Anthropic's comparison, however, covers only a single playthrough per model. Anthropic recommends explaining the purpose of memory to Claude and letting the model decide how to use it. In one benchmark, according to Anthropic, rigid instructions such as \"only record mistakes\" wiped out most of the advantage for stronger models. Older models, by contrast, benefited from clear instructions, such as being told to actually read their notes before every response. Ad The bigger risk comes from faulty notes that the agent blindly trusts later. Dreaming , an idea that builds on research from Letta and UC Berkeley, is designed to address this. Much like the human brain processes experiences during sleep, Claude goes through transcripts of earlier sessions during a break and checks its notes against them. In the Pokémon test, Claude had incorrectly noted which side of a mountain a landmark was on. Relying on that faulty note, Claude fell into the same trap three times, eventually wanted to give up, and missed its goal. After a Dreaming pass, Claude caught the error by checking the note against the transcript and found the right path. Ad According to Anthropic, Dreaming can also organize larger knowledge bases. Claude built a linked wiki from about 350,000 internal documents from Stainless, a software company Anthropic acquired. Dreaming is supposed to generate new pages while fixing gaps, duplicates, and broken links. The payoff was greatest when Claude could combine the wiki with search, so the wiki worked as a complement rather than a replacement. Ad In a separate legal test by Anthropic, a wiki helped most with questions whose answers were spread across multiple documents. Claude scored 87 percent with the wiki, compared to 73 percent with search alone. For simple lookup tasks, the wiki performed roughly o",
+   "use_link": "https://www.anthropic.com/research/components-of-agent-memory"
   }
  ]
 }

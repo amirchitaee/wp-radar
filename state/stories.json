@@ -96,25 +96,6 @@
    "cves": []
   },
   {
-   "t": "2026-11-12T15:01:01+00:00",
-   "id": "0502eb544c2da948",
-   "title": "PSA: Critical Apache HTTP/2 Vulnerability: What WordPress Site Owners Should Know",
-   "kind": "news",
-   "link": "https://www.wordfence.com/blog/2026/11/cve-2026-119618-apache-http2",
-   "ents": [
-    "apache",
-    "http",
-    "know",
-    "owners",
-    "psa",
-    "wordpress"
-   ],
-   "vers": [],
-   "cves": [
-    "CVE-2026-119618"
-   ]
-  },
-  {
    "t": "2026-11-12T17:15:48+00:00",
    "id": "fbcde0807c1b56ed",
    "title": "Kinsta now protects every WordPress site it hosts with Patchstack",
