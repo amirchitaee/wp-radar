@@ -320,25 +320,6 @@
    "skip_until": "2026-11-17T04:15:50+00:00"
   },
   {
-   "id": "daa2f3055cf909ab",
-   "title": "Alibaba's Qwen4-Max takes on Opus 5.5, GPT-6, and Kimi K3.1 Pro at much lower prices",
-   "link": "https://the-decoder.com/alibabas-qwen4-max-takes-on-opus-5-5-gpt-6-and-kimi-k3-1-pro-at-much-lower-prices",
-   "site": "",
-   "desc": "Alibaba launches Qwen4-Max, a new flagship model with 2.4 trillion parameters that activates only 71 billion per token. A hybrid architecture sharply cuts costs on long contexts. Qwen4-Max lands just behind Kimi K3.1 Pro on the Artificial Analysis Intelligence Index, and Alibaba plans to release smaller Qwen4 models as open source. The article Alibaba's Qwen4-Max takes on Opus 5.5, GPT-6, and Kimi K3.1 Pro at much lower prices appeared first on The Decoder .",
-   "source": "دیکودر",
-   "lang": "en",
-   "tier": 2,
-   "group": "ai",
-   "kind": "news",
-   "age_hours": 0.6,
-   "published": "2026-11-16T16:56:04+00:00",
-   "added": "2026-11-16T17:30:53+00:00",
-   "full": "Qwen4-Max is Alibaba's answer to Opus 5.5, GPT-6, and Kimi K3.1 Pro. The new flagship pairs a more efficient architecture with much lower prices and targets professional work in industry, science, and finance. The mixture-of-experts model has 2.4 trillion parameters but activates only 71 billion per token, according to the Qwen team. It processes images natively and offers a one-million-token context window. Qwen4-Max debuts the revamped architecture of the Qwen4 series . Instead of relying only on standard attention layers, Alibaba combines two methods. Three layers compress the prior context into a condensed state, and a fourth layer then picks out only the parts that matter. That sharply cuts compute costs on long inputs, since the model no longer has to give every part of the context equal attention. Ad The architecture also adds four parallel connections between model layers, with dynamic gates meant to stabilize the flow of information. An N-gram embedding layer with 328 billion parameters supplies common token sequences as ready-made building blocks. According to Alibaba, training the 2.4-trillion-parameter configuration ran stably. Training loss fell steadily throughout the run with no sudden spikes. Ad Alibaba's internal evaluations measure model quality in bits per byte across knowledge, code, question answering, and STEM. Qwen4-Max-Base scored best among the five checkpoints tested. It improved 5 to 13 percent over Qwen3.8-Max-Base while activating 25 percent fewer parameters per token. The efficiency gains show up in operating costs. Work360 is Alibaba's own benchmark for industrial work tasks across 721 specialized fields. On it, Qwen4-Max uses roughly a quarter to a third fewer tokens than its predecessor to solve the same tasks. On the agent benchmark Terminal-Bench 4.0, token use drops by nearly half. Ad According to Alibaba, the average cost per Work360 task falls 62 percent, from $4.43 to $1.67. The benchmark score climbs from 47.74 to 52.69 at the same time. Results on external benchmarks are mixed. On long-horizon agent tasks like Agents' Last Exam v1.1, Qwen4-Max scores 46.7 points, the best result in the comparison group. It trails Opus 5.5 and the GPT models on Humanity's Last Exam. On HealthBench Professional, it falls behind the GPT models but edges past Opus 5.5. Ad At its highest reasoning setting, Qwen4-Max scores 43 points on the current Artificial Analysis Intelligence Index. That's nine more than Qwen3.8-Max and three behind Kimi K3.1 Pro, the top Chinese model at 46 points. The biggest gains over the predecessor come on HLE-Diamond (up 21 points to 45 percent), AA-Omniscience (up 18), and AutomationBench-AA (up 17). Ad Artificial Analysis puts the cost of Qwen4-Max at $3.27 per Intelligence Index task. That's about a third of Qwen3.8-Max's $10.02 and roughly 11 percent less than Kimi K3.1 Pro's $3.68. The savings come from three places. Token prices are 25 percent lower than the predecessor's, cache hits cost 70 percent less, and the model burns through fewer tokens. Qwen4-Max needs about 105,000 output tokens per benchmark task, compared with 171,000 for Qwen3.8-Max. Tencent's Hy4 is much cheaper at $1.03 per ",
-   "use_link": "",
-   "posted": true,
-   "msg_id": 157
-  },
-  {
    "id": "8806a70ae484f167",
    "title": "Claude now builds interactive websites inside canvas graphics, reviving the Flash era with real HTML",
    "link": "https://the-decoder.com/claude-now-builds-interactive-websites-inside-canvas-graphics-reviving-the-flash-era-with-real-html",
