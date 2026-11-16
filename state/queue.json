@@ -56,24 +56,6 @@
    "reject_hits": 2
   },
   {
-   "id": "3a53f4732b0a8eba",
-   "title": "Anthropic CEO Amodei admits \"there's a huge uncertainty in what's going to happen next year\" days before a record IPO",
-   "link": "https://the-decoder.com/anthropic-ceo-amodei-admits-theres-a-huge-uncertainty-in-whats-going-to-happen-next-year-days-before-a-record-ipo",
-   "site": "",
-   "desc": "Days before what could be the largest IPO in history, Anthropic CEO Dario Amodei called buying compute 'the deepest business dilemma' his company faces. Anthropic's commitments now total nearly $901 billion, and it's still far from clear whether future revenue will justify those costs. The planned IPO is largely meant to serve as a financial buffer against that uncertainty. The article Anthropic CEO Amodei admits \"there's a huge uncertainty in what's going to happen next year\" days before a record IPO appeared first on The Decoder .",
-   "source": "دیکودر",
-   "lang": "en",
-   "tier": 2,
-   "group": "ai",
-   "kind": "news",
-   "age_hours": 5.4,
-   "published": "2026-11-14T19:05:17+00:00",
-   "added": "2026-11-15T00:30:51+00:00",
-   "channel_skip": true,
-   "skip_why": "خارج از مخاطب",
-   "skip_until": "2026-11-16T23:58:33+00:00"
-  },
-  {
    "id": "d052336faa0a6d5d",
    "title": "Wordfence 9.1.1",
    "link": "https://wordpress.org/plugins/wordfence/",
