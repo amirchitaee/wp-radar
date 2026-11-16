@@ -365,6 +365,20 @@
    ],
    "vers": [],
    "cves": []
+  },
+  {
+   "t": "2026-11-16T16:15:50+00:00",
+   "id": "d032bd1778d6c1af",
+   "title": "Elementor 4.4.1",
+   "kind": "news",
+   "link": "https://wordpress.org/plugins/elementor/",
+   "ents": [
+    "elementor"
+   ],
+   "vers": [
+    "4.4.1"
+   ],
+   "cves": []
   }
  ]
 }
