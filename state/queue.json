@@ -71,7 +71,7 @@
    "added": "2026-11-15T00:30:51+00:00",
    "channel_skip": true,
    "skip_why": "خارج از مخاطب",
-   "skip_until": "2026-11-16T01:01:13+00:00"
+   "skip_until": "2026-11-16T23:37:58+00:00"
   },
   {
    "id": "d82d2c1dae8dfaa0",
@@ -107,27 +107,6 @@
    "added": "2026-11-14T11:45:35+00:00",
    "full": "OpenAI is apparently disbanding its robotics team again, but this time for different reasons than in 2020. Rather than abandoning robotics, the company wants to accelerate it by folding researchers into other teams. Robotics researchers are moving to the main research team under Chief Research Officer Mark Chen, while the applied robotics and hardware teams join Greg Brockman's Applied organization. OpenAI made the decision on such short notice that it had already booked a booth at the Conference on Robot Learning (CoRL) in Austin, which then sat empty, Fortune reports . OpenAI apparently believes that general-purpose models like GPT-6 Astra can control robots directly , reducing the need for specialized robotics models. Ad In an Nvidia study , an Astra-powered agent achieved a 74.8 percent success rate on simulated robotics tasks, compared to 51 percent for the best specialized models. The tests used a simulated DROID robot, not a physical one. Ad A new robotics benchmark called StationeryBench compared GPT-6 Astra with Ai2's MolmoAct2 on five tasks involving desk objects on dual-arm YAM robotic arms. Across 200 trials, Astra fully completed 7 out of 100 tasks, while MolmoAct2 didn't complete a single one. Astra's average progress score was 46, compared to 12 for MolmoAct2. In another test, Astra running on a humanoid robot navigated and cleaned up a kitchen. It remains unclear how much robotics data OpenAI and others incorporated during training. Other large general-purpose models from Anthropic and Google have also made recent progress on robotics tasks. Specialized robotics models may still have advantages in cost and reliability as well as speed and energy consumption , even if they don't generalize as well. Ad Yoav Artzi , an AI researcher at Cornell University and Google DeepMind, also sees Astra as a major leap in spatial understanding . On the still-unpublished REMAP benchmark, GPT-6 Astra reaches near-human accuracy, according to Artzi. He suspects that OpenAI may have trained the model on large amounts of 3D training data such as Blender scenes. OpenAI shut down its robotics division in 2020 because, according to co-founder Wojciech Zaremba, the company lacked the training data it needed and large language models were a faster path to AGI. The company rebuilt the team in 2024. CEO Sam Altman is reportedly targeting a first public robot demo for 2027 , and OpenAI wants to build its own everyday robots in the long term. But the company also faces heavy financial pressure to focus on its core AI business , where it has lost significant ground to Anthropic . Ad Subscribe to THE DECODER for ad-free reading, a weekly AI newsletter, our exclusive \"AI Radar\" frontier report six times a year, full archive access, and access to our comment section.",
    "use_link": "https://www.anthropic.com/research/claude-plays-robotics",
-   "reject_hits": 2
-  },
-  {
-   "id": "938a8fdebfb42929",
-   "title": "Anthropic can already retrain Mythos with \"a fraction of the compute originally needed,\" says former researcher Coxon",
-   "link": "https://the-decoder.com/anthropic-can-already-retrain-mythos-with-a-fraction-of-the-compute-originally-needed-says-former-researcher-coxon",
-   "site": "",
-   "desc": "Former OpenAI and Anthropic researcher Jacob Coxon points to a slide from Anthropic's IPO roadshow as a reason he left, saying it shows the company's algorithms are improving not just quickly but at an accelerating rate. Coxon continues to call for a pause on frontier model development so competitors can catch up and human-level AI can become a commodity. The article Anthropic can already retrain Mythos with \"a fraction of the compute originally needed,\" says former researcher Coxon appeared first on The Decoder .",
-   "source": "دیکودر",
-   "lang": "en",
-   "tier": 2,
-   "group": "ai",
-   "kind": "news",
-   "age_hours": 0.4,
-   "published": "2026-11-14T11:21:41+00:00",
-   "added": "2026-11-14T11:45:35+00:00",
-   "channel_skip": true,
-   "skip_why": "خارج از مخاطب",
-   "skip_until": "2026-11-15T12:30:58+00:00",
-   "full": "Jacob Coxon, former OpenAI and Anthropic researcher who brought AI fears into the mainstream, says a slide from Anthropic's IPO roadshow was a major reason he quit. Coxon says a slide Anthropic released for its IPO roadshow was a key reason he left the company after only about four months. The chart shows how much compute Anthropic needs over time to train its models, and the axis is compressed so that a 10x and a 100x increase barely look different. Yet the curve still climbs steeply, which Coxon says shows that algorithmic efficiency is improving not just quickly but at an accelerating rate. \"It's an insane plot and I'm surprised they made it public,\" he writes. Ad Coxon argues that Anthropic's Mythos model, a major capability jump in the spring, was part of this accelerating trend. \"Mythos was not a one-time deviation, but a point on a superexponential. They could already retrain Mythos with a fraction of the compute originally needed,\" he writes. Ad He says algorithmic improvements are \"on the verge of being automated,\" which is why he wants frontier model development paused next year so competitors can catch up. A pause, he writes, would \"commoditize human-level intelligence. It would only harm OpenAI and Anthropic.\" Coxon previously trained AI models at OpenAI and, most recently, Anthropic. He drew wide attention in September with public warnings about the risks of advanced AI systems , echoed by other protagonists in the industry. One of their fears is that advanced, self-improving AI could get out of control. Ad Subscribe to THE DECODER for ad-free reading, a weekly AI newsletter, our exclusive \"AI Radar\" frontier report six times a year, full archive access, and access to our comment section.",
-   "use_link": "",
    "reject_hits": 2
   },
   {
@@ -301,6 +280,42 @@
    "full": "One of the oldest Datasette plugins, and still one of my favorites. It now works with Datasette 1.0a42, and depends on the new datasette-leaflet to ensure OpenStreetMap tiles are requested with a referrer header. Here's a map of power plants owned by California's PG&E , also demonstrating Datasette's recently redesigned facets : This is a beat by Simon Willison, posted on 13th November 2026 . Sponsor me for $10/month and get a curated email digest of the month's most important LLM developments.",
    "use_link": "https://github.com/simonw/datasette/pull/3032",
    "reject_hits": 2
+  },
+  {
+   "id": "09862cd7036c6133",
+   "title": "Apple launches new app to study how people use AI for health",
+   "link": "https://techcrunch.com/2026/11/15/apple-launches-new-app-to-study-how-people-use-ai-for-health",
+   "site": "",
+   "desc": "Apple's new app for a study will answer everyday medical questions",
+   "source": "تک‌کرانچ",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 10.1,
+   "published": "2026-11-16T01:30:00+00:00",
+   "added": "2026-11-16T11:37:55+00:00",
+   "full": "Apple launches new app to study how people use AI for health Ivan Mehta 5:30 PM PST · November 15, 2026 Big AI labs like OpenAI and Anthropic have made their bets on offering chatbots that can answer health-related queries with specialized features. Apple is debuting a new study to understand how people use AI for health. But it isn’t quite following other AI startups just yet; it wants to study how clinically grounded answers can help people. The iPhone maker is partnering with healthcare-focused AI company OpenEvidence to launch a new study app. Apple is inviting users in the U.S. over 21, using iPhone 15 or later, and running iOS 26 or later, with Apple Intelligence enabled. The company is aiming to run this study with up to 200,000 participants for more than 12 months. The new app will allow users to ask health-related questions, as they do with ChatGPT or Claude, with answers grounded in clinical data, from sources including The New England Journal of Medicine, Journal of the American Medical Association, and Nature. Apple said that the app will try to give simplified answers to everyday medical questions. Users can rate those answers and provide feedback about the responses; they’ll also be asked to participate in monthly surveys. Participants can share data from HealthKit such as resting heart rate, activity, sleep, or lab results to get more personalized and pointed suggestions from the app. The company said the app can also help prepare participants better for a doctor’s visit, and it will guide users to specific providers for answers related to concerning medical issues. Apple specified that the data will be anonymized before sending it to a secure third-party cloud provider, and it won’t be used to train any kind of AI models. The company said that OpenEvidence deletes the query and response data after 24 hours. “At Apple, we believe responsible innovation starts with scientific rigor and clinical grounding. Health is deeply personal, and conducting a dedicated research study is the most thoughtful way to understand how people engage with, comprehend, and evaluate health AI in everyday life,” Sumbul Desai, M.D., Apple’s vice president of Health and Fitness, said in a statement, adding, “Insights from this study will help advance the broader scientific conversation and ensure that as technology evolves, we continue building trusted tools that genuinely support people wherever they are on their health journey.” The app is available to download starting today for U.S. users. It’s not clear if Apple wants to release AI-powered answering to its Health app or Siri yet. The potential is huge — earlier this year, OpenAI said users were asking over 300 million health-related queries each week . When you purchase through links in our articles, we may earn a small commission . This doesn’t affect our editorial independence. Ivan Mehta Ivan covers global consumer tech developments at TechCrunch. He is based out of India and has previously worked at publications including Huffington Post and The Next Web. You can contact or verify outreach from Ivan by emailing [email protected] or via encrypted message at ivan.42 on Signal. 2027 San Francisco ",
+   "use_link": "https://apps.apple.com/us/app/apple-health-ai-study-app/id6800060365",
+   "reject_hits": 1
+  },
+  {
+   "id": "7f6eab96fdd58cfa",
+   "title": "I Found A Free Desktop App That Connects Your AI to All Your WordPress Sites",
+   "link": "https://wpmayor.com/novamira-hq-launch",
+   "site": "",
+   "desc": "Connecting your AI to one WordPress site is easy. Connecting it to thirty client sites across five hosts is where it gets messy. Novamira HQ, now in public beta, gives your AI one connection to all of them, and it's free. The post \" I Found A Free Desktop App That Connects Your AI to All Your WordPress Sites \" first appeared on WP Mayor .",
+   "source": "دبلیوپی‌مایر",
+   "lang": "en",
+   "tier": 3,
+   "group": "",
+   "kind": "news",
+   "age_hours": 0.6,
+   "published": "2026-11-16T11:00:00+00:00",
+   "added": "2026-11-16T11:37:51+00:00",
+   "full": "Novamira HQ is a free, open source desktop app for macOS, Windows and Linux that gives your AI one connection to every WordPress site you manage. It’s in public beta and the app itself is self-contained, so there’s nothing else to install alongside it, which made me think it’s worth a few minutes of your time. If you’ve used the Novamira plugin , you’ll know how setup has worked until now. Each site gets its own entry in Claude, Cursor, or whichever AI client you use, which is perfectly fine for a couple of sites. But, it gets tedious quick once you’re looking after a list of client sites. If you’re an agency or freelancer, you know you rarely manage just one site. You manage dozens, spread across different hosts, each with its own staging copies. HQ is Novamira’s answer to that, so here’s what the beta includes and how your sites get into it. Novamira HQ sits between your AI client and your WordPress sites, so you connect your AI to HQ once and every site you add to HQ becomes available to it automatically. That includes the sites you add next month, so onboarding a new client just means adding their site to HQ rather than editing the config in every AI tool your team uses. If you’ve already been running Novamira with one entry per site, you can bring those sites into HQ and then remove the old entries from your AI client. Novamira HQ currently supports 13 hosting providers: Kinsta, WP Engine, Hostinger, Cloudways, Pantheon, Pressable, Rocket.net, InstaWP, xCloud, SandyWP, Plesk, cPanel and WHM. When you connect a hosting account, HQ imports every site on it, and depending on what the host allows, you also get environments, backups, and staging-to-production pushes in the same place. If a site doesn’t have the Novamira plugin yet, HQ can install it for you where the host supports it. I’d keep an eye on the cPanel, WHM, and Plesk support in particular, because it brings a lot of traditional and reseller hosting into the picture, not just the managed WordPress hosts. If your client’s site is on a host HQ doesn’t integrate with yet, or it’s sitting on a VPS you look after yourself, you can connect it directly instead. Both kinds of site show up in the same list with their environments and connection status, and your AI works with them in the same way. Novamira HQ has a guided setup for Claude Desktop, Claude Code, ChatGPT, Codex, Cursor, VS Code, and OpenCode, plus a ready-made configuration for Antigravity, and any other MCP-compatible client can connect too. For an agency, that means nobody has to switch tools. Your developer can stick with Cursor or Claude Code while someone on the content side uses Claude Desktop, and they’ll both be working with the same set of sites. HQ works alongside the Novamira plugin, both the free version and Novamira Pro. The plugin is what gives your AI its WordPress abilities on each site, and HQ is what brings all those sites together under one connection. If you want to know more about what the plugin itself can do, our Novamira review goes through it in detail. Novamira HQ keeps your site and hosting credentials on your own computer. There’s no Novamira account to create, no Novamira server sitting in the midd",
+   "use_link": "",
+   "held": true
   }
  ]
 }
