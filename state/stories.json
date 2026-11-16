@@ -386,6 +386,20 @@
     "5.5"
    ],
    "cves": []
+  },
+  {
+   "t": "2026-11-16T19:45:55+00:00",
+   "id": "8806a70ae484f167",
+   "title": "Claude now builds interactive websites inside canvas graphics, reviving the Flash era with real HTML",
+   "kind": "news",
+   "link": "https://the-decoder.com/claude-now-builds-interactive-websites-inside-canvas-graphics-reviving-the-flash-era-with-real-html",
+   "ents": [
+    "claude",
+    "flash",
+    "html"
+   ],
+   "vers": [],
+   "cves": []
   }
  ]
 }
