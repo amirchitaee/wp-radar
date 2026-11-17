@@ -159,24 +159,6 @@
    "reject_hits": 2
   },
   {
-   "id": "fa1b9f395520374a",
-   "title": "Firm linked to Jensen Huang's ex-lover reportedly brokered nearly $12 billion in Nvidia chip orders for China",
-   "link": "https://the-decoder.com/firm-linked-to-jensen-huangs-ex-lover-reportedly-brokered-nearly-12-billion-in-nvidia-chip-orders-for-china",
-   "site": "",
-   "desc": "Megaspeed, the firm owned by ousted Nvidia CEO Jensen Huang's former lover Alice Huang, arranged nearly $12 billion in Nvidia chip orders for Chinese companies between 2024 and 2025, according to the WSJ. Short seller Culper Research estimates Nvidia's actual China revenue share exceeds 20 percent, far above the officially reported 7 percent. The article Firm linked to Jensen Huang's ex-lover reportedly brokered nearly $12 billion in Nvidia chip orders for China appeared first on The Decoder .",
-   "source": "دیکودر",
-   "lang": "en",
-   "tier": 2,
-   "group": "ai",
-   "kind": "news",
-   "age_hours": 0.7,
-   "published": "2026-11-15T11:35:12+00:00",
-   "added": "2026-11-15T12:15:35+00:00",
-   "full": "Megaspeed arranged nearly $12 billion worth of Nvidia high-performance chip orders for Chinese companies between March 2024 and June 2025, according to documents reviewed by the Wall Street Journal. The company is owned by Alice Huang, the former lover of since-ousted Nvidia CEO Jensen Huang . Megaspeed shipped the chips to buyers in China who maintained long-standing business ties with local tech giants, the WSJ reports. The orders covered several hundred thousand chips that the US had sought to keep out of China through export controls. Megaspeed reportedly gained preferential access to scarce AI chips as an Nvidia cloud partner, apparently because it counted Chinese cloud and tech company Alibaba as a major client. Nvidia officially reported $12.4 billion in China revenue over six months, accounting for 7 percent of total revenue. Short-selling firm Culper Research estimates, however, that more than 20 percent of Nvidia's revenue in the last fiscal year came from Chinese customers. A significant share of that China business may have flowed through indirect channels. Subscribe to THE DECODER for ad-free reading, a weekly AI newsletter, our exclusive \"AI Radar\" frontier report six times a year, full archive access, and access to our comment section.",
-   "use_link": "",
-   "reject_hits": 2
-  },
-  {
    "id": "d052336faa0a6d5d",
    "title": "Wordfence 9.1.1",
    "link": "https://wordpress.org/plugins/wordfence/",
@@ -211,46 +193,6 @@
    "full": "WordPress security requires a team of dedicated analysts researching the latest malware variants and WordPress exploits, turning them into firewall rules and malware signatures, and releasing those to customers in real-time. Choose the right protection for you: Wordfence Free, Premium, Care or Response Wordfence is widely acknowledged as the number one WordPress security research team in the World. Our plugin provides a comprehensive suite of security features, and our team’s research is what powers our plugin and provides the level of security that we are known for. At Wordfence, WordPress security isn’t a division of our business – WordPress security is all we do. We employ a global 24-hour dedicated incident response team that provides our priority customers with a 1 hour response time for any security incident. The sun never sets on our global security team and we run a sophisticated threat intelligence platform to aggregate, analyze and produce ground breaking security research on the newest security threats. Wordfence Security includes an endpoint firewall, malware scanner, robust login security features, live traffic views, and more. Our Threat Defense Feed arms Wordfence with the newest firewall rules, malware signatures, and malicious IP addresses it needs to keep your website safe. Rounded out by passkeys, 2FA, and a suite of additional features, Wordfence is the most comprehensive WordPress security solution available. The dashboard gives you an overview of your site’s security including notifications, attack statistics and Wordfence feature status. The firewall protects your site from common types of attacks and known security vulnerabilities. The Wordfence Security Scanner lets you know if your site has been compromised and alerts you to other security issues that need to be addressed. Wordfence is highly configurable, with a deep set of options available for each feature. High level scan options are shown above. Brute Force Protection features protect you from password guessing attacks. Block attackers by IP, Country, IP range, Hostname, Browser or Referrer. The Wordfence Live Traffic view shows you real-time activity on your site including bot traffic and exploit attempts. Take login security to the next level with Two-Factor Authentication. Logging in is easy with Wordfence 2FA. Installation Secure your website using the following steps to install Wordfence: To install Wordfence on WordPress Multi-Site installations: Visit our website to access our official documentation which includes security feature descriptions, common solutions and comprehensive help. The WordPress security plugin provides the best protection available for your website. Powered by the constantly updated Threat Defense Feed, Wordfence Firewall stops you from getting hacked. Wordfence Scan leverages the same proprietary feed, alerting you quickly about security issues or if your site is compromised. The Live Traffic view gives you real-time visibility into traffic and hack attempts on your website. A deep set of additional tools round out the most comprehensive WordPress security solution available. We offer a Premium API key that gives you real-time update",
    "use_link": "",
    "reject_hits": 2,
-   "digest_sent": true,
-   "channel_skip": true,
-   "skip_permanent": true
-  },
-  {
-   "id": "b21095d32174c13c",
-   "title": "Rank Math 1.0.282",
-   "link": "https://wordpress.org/plugins/seo-by-rank-math/",
-   "desc": "نسخهٔ 1.0.282 از Rank Math منتشر شد. تغییرات این نسخه: Added [HUGE!] Rank Math Assistant to the Help & Support page with improved safeguards . The assistant helps connected users get instant answers to support questions directly from the plugin. | Improved internal code for better performance and stability. | Fixed Reject and Undo options in the Fix with AI tool , as they were not restoring the original content or the selected suggestion correctly.",
-   "source": "آپدیت افزونه",
-   "lang": "en",
-   "tier": 1,
-   "group": "wp",
-   "kind": "news",
-   "age_hours": 0.0,
-   "published": "2026-11-10T11:30:46+00:00",
-   "added": "2026-11-10T11:30:46+00:00",
-   "plugin": {
-    "name": "Rank Math",
-    "version": "1.0.282",
-    "prev": "1.0.281",
-    "installs": 4000000,
-    "updated": "2026-11-10"
-   },
-   "plugin_update": {
-    "name": "Rank Math",
-    "slug": "seo-by-rank-math",
-    "version": "1.0.282",
-    "prev": "1.0.281",
-    "date": "1.0.282 [Nov 10, 2026]",
-    "changes": [
-     "Added [HUGE!] Rank Math Assistant to the Help & Support page with improved safeguards . The assistant helps connected users get instant answers to support questions directly from the plugin.",
-     "Improved internal code for better performance and stability.",
-     "Fixed Reject and Undo options in the Fix with AI tool , as they were not restoring the original content or the selected suggestion correctly."
-    ],
-    "vuln": false,
-    "hardening": false
-   },
-   "full": "Rank Math SEO helps you stay ahead of competitors with AI-powered SEO tools built for today’s search engines and AI assistants. The plugin brings powerful AI SEO tools right into WordPress . It helps you optimize content, include Schema Markup, add smart internal links, target the right keywords, run SEO checks, and more. Over 4 million WordPress websites trust Rank Math to grow their organic traffic faster. If you know you could be doing more for your website’s SEO but don’t have the time, Rank Math SEO is exactly what you need . Features | Why Choose Rank Math? | Compare | Screenshots | Benefits ➜ AI Visibility score to monitor your brand’s visibility ➜ Track how ChatGPT and Gemini mention your brand ➜ Monitor your brand’s sentiment across AI responses ➜ See how you compare against your competitors in AI Search ➜ Access complete transcripts of AI responses ➜ Check your brand’s AI Visibility across different countries Learn more about AI Visibility ➜ ➜ View every internal and external link on your site from one dashboard ➜ Update hundreds of links at once instead of editing pages one by one ➜ Get smart link suggestions as you write, right inside the editor ➜ Monitor broken links, redirects, and overall link health ➜ Automatically link keyword variations to the right pages ➜ Get related post suggestions that keep readers on your site longer ➜ Find pages nobody links to and reconnect them to the rest of your site ➜ Export your link data for reports or audits Learn more about AI Link Genius ➜ Get Started with Content AI for FREE and enjoy: ➜ 40+ AI Tools Built for SEO ➜ Use AI SEO to write high-quality content ➜ Fix SEO Issues in One Click ➜ Generate AI Image Alt Text Instantly ➜ Get Instant SEO Help with RankBot ➜ Full Control via Role Manager Learn more about Content AI ➜ See the features only Rank Math offers, and find out why it’s the right SEO plugin for you . ✔ Intuitive Setup Wizard that configures Rank Math automatically for your site ✔ 16+ Schema types to add rich results in a few clicks ✔ Optimize post for unlimited focus keywords (5 by default, unlimited with this filter ) ✔ Content AI to help you write SEO-friendly content ✔ Google Search Console integration ✔ Google Analytics Integration ✔ LSI keyword suggestions to attract more traffic ✔ XML Sitemap with custom post type support ✔ Detailed content analysis with actionable SEO recommendations ✔ 30+ SEO tests with 1-click ✔ Module based system, enable only what you need ✔ SEO optimized breadcrumbs with theme support ✔ Smart Redirection manager to create redirects at scale ✔ Built-in 404 monitor to catch and fix broken links ✔ Internal link suggestions ✔ Role Manager to control what each team member can access ✔ Automatic ALT Text and Title tags for every image ✔ WordPress Multisite support ✔ Fastest SEO plugin with barely any impact on site speed ✔ WooCommerce SEO with automatic Schema and meta tags ✔ Elementor SEO with native integration ✔ Divi SEO with native integration ✔ Local SEO tools to help nearby customers find your business ✔ Google AMP SEO with SEO data added automatically to AMP pages ✔ bbPress & BuddyPress SEO support with Q&A Schema ✔ 1-Click Import from Yoast ✔ 1-Clic",
-   "use_link": "https://github.com/rankmath/content-analyzer",
    "digest_sent": true,
    "channel_skip": true,
    "skip_permanent": true
