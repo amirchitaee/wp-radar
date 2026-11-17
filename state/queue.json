@@ -102,27 +102,6 @@
    "reject_hits": 2
   },
   {
-   "id": "2a42a874628f276b",
-   "title": "How to Manage Your WordPress Site From Your Phone With AI (Easy Way)",
-   "link": "https://www.wpbeginner.com/wp-tutorials/how-to-manage-your-wordpress-site-from-your-phone-with-ai-easy-way",
-   "site": "",
-   "desc": "Got a plugin update waiting, a typo on a live page, or a post to schedule, and no laptop nearby? The WordPress app and your phone’s browser can handle some of it, but plugin updates, settings, and page edits are hard to do on a…",
-   "source": "دبلیوپی بگینر",
-   "lang": "en",
-   "tier": 3,
-   "group": "",
-   "kind": "news",
-   "age_hours": 0.7,
-   "published": "2026-11-16T15:35:31+00:00",
-   "added": "2026-11-16T16:15:34+00:00",
-   "full": "Got a plugin update waiting, a typo on a live page, or a post to schedule, and no laptop nearby? The WordPress app and your phone’s browser can handle some of it, but plugin updates, settings, and page edits are hard to do on a small screen. That’s where an AI assistant helps. Once you connect Claude or ChatGPT to your site, you can describe the change in plain English from your phone, and the assistant makes it for you. Anything you can’t undo waits for your approval first. In this guide, we’ll show you how to manage your WordPress site from your phone using the Claude app and the free WPVibe plugin. Setup takes about five minutes, and we’ll also cover when other apps might be a better fit. For full site management, use the Claude app with the free WPVibe plugin . For writing posts and replying to comments, the official WordPress app also works. For anything else, open wp-admin in your phone’s browser. None of these replace a computer for building a new site design from scratch. Note: The WPVibe method works on self-hosted WordPress and on WordPress.com sites with a paid plan, because those plans let you install plugins. Free WordPress.com sites can’t install plugins. On a free site, use the WordPress app below instead. This method is useful when you need to make a change to your WordPress site but don’t have access to a computer. You can simply open Claude on your phone, describe what you want done, and let it handle the task through WPVibe. WPVibe is a WordPress MCP server . It lets your WordPress site connect with an AI assistant like ChatGPT or Claude. Once connected, you can use plain language to manage your WordPress site without leaving the AI chat box. WPVibe’s free plan includes 100 tool calls per day, while the Pro plan offers 500 per day for $99 a year. Each tool call counts as one action Claude sends to your site. You can use the free plans of ChatGPT or Claude for this if you want. The setup below is a one-time job. After that, any chat on your phone can reach your site. Start in your phone’s browser rather than in an app. Open your WordPress dashboard, go to Plugins » Add New , and search for WPVibe . The plugin is free, and it works on self-hosted WordPress and paid WordPress.com plans. For more instructions, see our tutorial on how to install a WordPress plugin . Once you activate it, WordPress shows an authorization screen asking whether you want to let the application connect to your account. Tap the button to approve the connection. WordPress then creates an Application Password, which is a separate password your site makes for one app, so you never hand over your real login. Once that’s done, WPVibe checks the connection and confirms your site by name. Note: We are using Claude in this tutorial, but you can do the same with the ChatGPT app on your phone. Simply click on in-app menu and go to Customize » Plugins and search for WPVibe plugin to install it. Next, install the Claude app on your phone and open Settings » Connectors . A connector is the link that lets an assistant reach another service, in this case your website. WPVibe sits in Claude’s connector directory as ‘WPVibe for WordPress’, so there’s no server address",
-   "use_link": "",
-   "channel_skip": true,
-   "skip_why": "آموزش است نه خبر",
-   "skip_until": "2026-11-17T04:15:50+00:00",
-   "held": true
-  },
-  {
    "id": "ab086a66f465eda3",
    "title": "Anthropic says the key to agent memory is knowing what to forget, not how much to store",
    "link": "https://the-decoder.com/anthropic-says-the-key-to-agent-memory-is-knowing-what-to-forget-not-how-much-to-store",
