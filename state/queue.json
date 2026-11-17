@@ -267,7 +267,7 @@
    "added": "2026-11-17T15:15:42+00:00",
    "full": "OpenAI is giving NATO and several European governments access to its cybersecurity tool Daybreak. Through Daybreak , cyber defense teams can use OpenAI's models to audit software, find vulnerabilities, and patch security gaps. The NATO Communications and Information Agency (NCIA) says it's already using the underlying models heavily. NCIA chief Dylan Browne called it a generational leap in cyber defense. During the NATO exercise Crossed Swords 2026 , participants deployed AI agents for cyber operations under human oversight for the first time. The models have already delivered results elsewhere. The EU's cybersecurity agency ENISA used them to find four vulnerabilities in software used by EU institutions. A joint report with CERT-EU examined 27 software projects, and 95 percent of the 88 reported issues turned out to be real bugs. Poland's CERT Polska found six vulnerabilities in MikroTik routers that were being actively exploited. Ukraine is using Daybreak to protect civilian infrastructure. France, Germany, and Poland have also been granted access. Subscribe to THE DECODER for ad-free reading, a weekly AI newsletter, our exclusive \"AI Radar\" frontier report six times a year, full archive access, and access to our comment section.",
    "use_link": "https://openai.com/index/strengthening-nato-allied-cyber-defences-ai/",
-   "reject_hits": 1
+   "reject_hits": 2
   },
   {
    "id": "de54dba0191d0c13",
