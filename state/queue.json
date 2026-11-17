@@ -119,7 +119,8 @@
    "use_link": "",
    "channel_skip": true,
    "skip_why": "آموزش است نه خبر",
-   "skip_until": "2026-11-17T04:15:50+00:00"
+   "skip_until": "2026-11-17T04:15:50+00:00",
+   "held": true
   },
   {
    "id": "ab086a66f465eda3",
@@ -396,7 +397,10 @@
    "kind": "news",
    "age_hours": 1.0,
    "published": "2026-11-16T23:32:32+00:00",
-   "added": "2026-11-17T00:30:53+00:00"
+   "added": "2026-11-17T00:30:53+00:00",
+   "channel_skip": true,
+   "skip_why": "خارج از مخاطب",
+   "skip_until": "2026-11-17T16:15:53+00:00"
   }
  ]
 }
