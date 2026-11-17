@@ -1,21 +1,6 @@
 {
  "items": [
   {
-   "t": "2026-11-02T12:05:06+00:00",
-   "title": "What Is LLMS.txt And Does Your Website Need One?",
-   "kind": "tools",
-   "link": "https://www.elegantthemes.com/blog/business/what-is-llms-txt-and-does-your-website-need-one",
-   "ents": [
-    "and",
-    "does",
-    "is",
-    "llms.txt",
-    "need",
-    "website"
-   ],
-   "vers": []
-  },
-  {
    "t": "2026-11-02T15:31:57+00:00",
    "title": "Get $70 in Free Exa API Credits With Promo Code EXA50API",
    "kind": "offers",
@@ -105,20 +90,6 @@
     "inspiration",
     "justin",
     "website"
-   ],
-   "vers": [],
-   "cves": []
-  },
-  {
-   "t": "2026-11-13T12:02:01+00:00",
-   "id": "05980d05360737c6",
-   "title": "Copy Your WordPress Site with Reprint",
-   "kind": "news",
-   "link": "https://wordpress.org/news/2026/11/reprint-your-site",
-   "ents": [
-    "copy",
-    "reprint",
-    "wordpress"
    ],
    "vers": [],
    "cves": []
@@ -427,6 +398,25 @@
     "elementor",
     "friday",
     "up"
+   ],
+   "vers": [],
+   "cves": []
+  },
+  {
+   "t": "2026-11-17T12:16:32+00:00",
+   "id": "d947721e8bbad6bc",
+   "title": "How to Add a Trust Badge to WooCommerce With PCrisk (That a Visitor Can Verify)",
+   "kind": "news",
+   "link": "https://wpmayor.com/how-to-add-a-trust-badge-to-woocommerce-with-pcrisk",
+   "ents": [
+    "add",
+    "badge",
+    "can",
+    "pcrisk",
+    "trust",
+    "verify",
+    "visitor",
+    "woocommerce"
    ],
    "vers": [],
    "cves": []

@@ -268,6 +268,39 @@
    "channel_skip": true,
    "skip_why": "خارج از مخاطب",
    "skip_until": "2026-11-17T16:15:53+00:00"
+  },
+  {
+   "id": "fa1b9f395520374a",
+   "title": "Firm linked to Jensen Huang's ex-lover reportedly brokered nearly $12 billion in Nvidia chip orders for China",
+   "link": "https://the-decoder.com/firm-linked-to-jensen-huangs-ex-lover-reportedly-brokered-nearly-12-billion-in-nvidia-chip-orders-for-china",
+   "site": "",
+   "desc": "Megaspeed, the firm owned by ousted Nvidia CEO Jensen Huang's former lover Alice Huang, arranged nearly $12 billion in Nvidia chip orders for Chinese companies between 2024 and 2025, according to the WSJ. Short seller Culper Research estimates Nvidia's actual China revenue share exceeds 20 percent, far above the officially reported 7 percent. The article Firm linked to Jensen Huang's ex-lover reportedly brokered nearly $12 billion in Nvidia chip orders for China appeared first on The Decoder .",
+   "source": "دیکودر",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 45.5,
+   "published": "2026-11-15T14:45:12+00:00",
+   "added": "2026-11-17T12:15:51+00:00"
+  },
+  {
+   "id": "d947721e8bbad6bc",
+   "title": "How to Add a Trust Badge to WooCommerce With PCrisk (That a Visitor Can Verify)",
+   "link": "https://wpmayor.com/how-to-add-a-trust-badge-to-woocommerce-with-pcrisk",
+   "site": "",
+   "desc": "A static security badge will display regardless of your site's security. PCrisk Trust Badge dynamically displays a verifiable badge based on the results of a security scan. In this tutorial, I’ll show you how to add a trust badge to WooCommerce, design it, and place it on your store's key pages! The post \" How to Add a Trust Badge to WooCommerce With PCrisk (That a Visitor Can Verify) \" first appeared on WP Mayor .",
+   "source": "دبلیوپی‌مایر",
+   "lang": "en",
+   "tier": 3,
+   "group": "",
+   "kind": "news",
+   "age_hours": 2.3,
+   "published": "2026-11-17T10:00:00+00:00",
+   "added": "2026-11-17T12:15:45+00:00",
+   "full": "If you purchase through a link on our site, we may earn a commission . In my PCrisk Trust Badge review , I introduced how displaying a dynamic badge on your site gives you an indicator of your trustworthiness. One of the use cases in that review is WooCommerce stores. This tutorial will walk you through how to add a trust badge to WooCommerce in about ten minutes . In a nutshell, PCrisk Trust Badge runs a scan on your site at regular intervals. For ‘clean’ scans that have a high enough ‘trust score’, you get to display a badge promoting the result. If you get an alert due to a low trust score, the badge hides until you fix the issues. However, you still need your security plugins because a scan only shows the site’s status at the time it ran. In reality, it’s probably quicker to set up PCrisk Trust Badge than it is to read this post! First, install and activate the PCrisk Trust Badge plugin from the WordPress Plugin Directory . I cover the full process in my PCrisk Trust Badge review post. Once you see the initial scan results screen, you can choose the premium plan option from the two buttons at the bottom of the screen. A reminder from the review: you don’t need to add a code snippet to connect your site to PCrisk’s servers. The plugin does all the work for you! If you head back to WordPress, it lets you click through to begin designing your badge. Before you do that though, stay in the PCrisk dashboard to carry out a quick check. The PCrisk dashboard lets you manage your domains and subscription plan, while the badge design options live in WordPress. Still, it’s a good idea to check here for any issues before you continue on with designing your badge. It includes the following: Underneath this is a list of domains with further links to manage the chosen domain. If you click through, you’ll see another screen that contains information on your badge status and active alerts, a timestamp of the last scan, a scan history, and your site’s trust score: If all looks okay here (it should do unless the initial scan failed), you can head back to WordPress to begin working with your trust badge. Once you click the Design your badge button, you’ll come to the main Trust Badge screen in WordPress. If your badge doesn’t have a placement, you’ll be asked to choose one before you can see a preview: For now, choose Top from the All pages selection menu. I’ll go through some of the more relevant ones for WooCommerce later. The How should it look? section is universal. There are a few options to choose from: Of course, your placement will mean you choose different options depending on your available space and vision. The Style you pick will have the most impact. For instance, the Bubble option is only a tick: I would choose something more descriptive in most cases. I’m going to use PCrisk Trust Badge on my own site after this tutorial, and I like the Ribbon or Minimal styles. All of the other badge styles include text to say that the site is “safe” and indicates the scanning frequency. However, the final choice is down to you. The Where does it go? section is split into two, with subsections for global and WooCommerce-specific placement: The global section c",
+   "use_link": "https://wordpress.org/plugins/pcrisk-trust-badge/",
+   "held": true
   }
  ]
 }
