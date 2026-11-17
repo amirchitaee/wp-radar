@@ -162,45 +162,6 @@
    "reject_hits": 2
   },
   {
-   "id": "d052336faa0a6d5d",
-   "title": "Wordfence 9.1.1",
-   "link": "https://wordpress.org/plugins/wordfence/",
-   "desc": "نسخهٔ 9.1.1 از Wordfence منتشر شد. تغییرات این نسخه: Improvement: Updated bundled cacert.pem",
-   "source": "آپدیت افزونه",
-   "lang": "en",
-   "tier": 1,
-   "group": "wp",
-   "kind": "news",
-   "age_hours": 0.0,
-   "published": "2026-11-10T19:45:44+00:00",
-   "added": "2026-11-10T19:45:44+00:00",
-   "plugin": {
-    "name": "Wordfence",
-    "version": "9.1.1",
-    "prev": "9.1.0",
-    "installs": 5000000,
-    "updated": "2026-11-10"
-   },
-   "plugin_update": {
-    "name": "Wordfence",
-    "slug": "wordfence",
-    "version": "9.1.1",
-    "prev": "9.1.0",
-    "date": "9.1.1 – November 10, 2026",
-    "changes": [
-     "Improvement: Updated bundled cacert.pem"
-    ],
-    "vuln": false,
-    "hardening": false
-   },
-   "full": "WordPress security requires a team of dedicated analysts researching the latest malware variants and WordPress exploits, turning them into firewall rules and malware signatures, and releasing those to customers in real-time. Choose the right protection for you: Wordfence Free, Premium, Care or Response Wordfence is widely acknowledged as the number one WordPress security research team in the World. Our plugin provides a comprehensive suite of security features, and our team’s research is what powers our plugin and provides the level of security that we are known for. At Wordfence, WordPress security isn’t a division of our business – WordPress security is all we do. We employ a global 24-hour dedicated incident response team that provides our priority customers with a 1 hour response time for any security incident. The sun never sets on our global security team and we run a sophisticated threat intelligence platform to aggregate, analyze and produce ground breaking security research on the newest security threats. Wordfence Security includes an endpoint firewall, malware scanner, robust login security features, live traffic views, and more. Our Threat Defense Feed arms Wordfence with the newest firewall rules, malware signatures, and malicious IP addresses it needs to keep your website safe. Rounded out by passkeys, 2FA, and a suite of additional features, Wordfence is the most comprehensive WordPress security solution available. The dashboard gives you an overview of your site’s security including notifications, attack statistics and Wordfence feature status. The firewall protects your site from common types of attacks and known security vulnerabilities. The Wordfence Security Scanner lets you know if your site has been compromised and alerts you to other security issues that need to be addressed. Wordfence is highly configurable, with a deep set of options available for each feature. High level scan options are shown above. Brute Force Protection features protect you from password guessing attacks. Block attackers by IP, Country, IP range, Hostname, Browser or Referrer. The Wordfence Live Traffic view shows you real-time activity on your site including bot traffic and exploit attempts. Take login security to the next level with Two-Factor Authentication. Logging in is easy with Wordfence 2FA. Installation Secure your website using the following steps to install Wordfence: To install Wordfence on WordPress Multi-Site installations: Visit our website to access our official documentation which includes security feature descriptions, common solutions and comprehensive help. The WordPress security plugin provides the best protection available for your website. Powered by the constantly updated Threat Defense Feed, Wordfence Firewall stops you from getting hacked. Wordfence Scan leverages the same proprietary feed, alerting you quickly about security issues or if your site is compromised. The Live Traffic view gives you real-time visibility into traffic and hack attempts on your website. A deep set of additional tools round out the most comprehensive WordPress security solution available. We offer a Premium API key that gives you real-time update",
-   "use_link": "",
-   "reject_hits": 2,
-   "digest_sent": true,
-   "channel_skip": true,
-   "skip_permanent": true
-  },
-  {
    "id": "4b4d48f19f03e283",
    "title": "datasette-maplibre 0.1a0",
    "link": "https://simonwillison.net/2026/Nov/15/datasette-maplibre",
