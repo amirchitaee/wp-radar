@@ -177,24 +177,6 @@
    "reject_hits": 2
   },
   {
-   "id": "7611c876b17c9451",
-   "title": "Australia's central bank finds AI hitting young workers first, especially in software and customer service",
-   "link": "https://the-decoder.com/australias-central-bank-finds-ai-hitting-young-workers-first-especially-in-software-and-customer-service",
-   "site": "",
-   "desc": "Australia's central bank sees early signs that AI is hitting young entry-level workers in highly exposed jobs like software development and customer service. Since ChatGPT launched, job postings and employment among 15- to 24-year-olds in those fields have dropped more sharply than among older workers. Author Mike Major cautions against jumping to conclusions, however, noting that business cycle shifts and remote work trends could also explain the numbers. The article Australia's central bank finds AI hitting young workers first, especially in software and customer service appeared first on Th",
-   "source": "دیکودر",
-   "lang": "en",
-   "tier": 2,
-   "group": "ai",
-   "kind": "news",
-   "age_hours": 1.5,
-   "published": "2026-11-15T10:45:58+00:00",
-   "added": "2026-11-15T12:15:35+00:00",
-   "full": "AI has barely displaced any jobs in Australia so far, but young workers entering highly exposed fields like software development are faring worse. An analysis by Mike Major for Australia's central bank (RBA) built a monitoring system that focuses on the areas where effects are likely to appear first, namely entry-level workers and highly AI-exposed occupations such as programming , clerical work, and customer service. According to the analysis , job postings have fallen across all groups since ChatGPT launched in late 2022, with the steepest drop in the highest-exposure group. In that group, workers aged 15 to 24 and young college graduates have weaker employment rates and higher unemployment than older workers. Ad Major cautions against drawing early conclusions, since the study does not establish direct causation and measures only theoretical exposure, not actual use by companies. Post-pandemic shifts in the business cycle or in remote work could also be driving the numbers. According to SEEK data, AI is complementing existing work while also creating new demand for AI skills . Ad An August 2025 Stanford study based on millions of US payroll records found a similar pattern, with employment among 22- to 25-year-olds in AI-exposed occupations down 13 percent in relative terms since late 2022 and nearly 20 percent among young software developers. More experienced workers in the same occupations held steady or gained ground. A March 2026 Anthropic study also found signs of declining hiring among 22- to 25-year-olds in exposed occupations, with job-finding rates down about 14 percent. It found no systematic rise in overall unemployment, however. Theoretical automation potential and actual AI use are far apart, according to the study. Ad Anthropic offers a company-level example. According to an internal review , the share of junior hires in technical roles has fallen from 27 percent to 9 percent since early 2025. In August 2026, AI agents across the company were already logging six times as many hours as human employees. Anthropic concedes that, as an extremely AI-intensive software company, it is a special case. Even so, researchers warn of a \"tragedy of the cognitive commons\" , in which disappearing junior roles lead to a future shortage of experienced professionals, assuming those professionals are still needed. A large study of 25,000 workers in Denmark confirms the lack of economy-wide impact. Despite a 64 percent AI adoption rate, researchers found no measurable changes in wages or hours worked. Workers saved an average of just 2.8 percent of their working time. Ad A January 2026 analysis of 10.6 million LinkedIn profiles and US unemployment data , however, cautions against blaming the downturn on AI alone. The research team led by Morgan Frank at the University of Pittsburgh found that the problems in exposed occupations started in early 2022, months before ChatGPT launched. Macroeconomic factors like the Fed's shift in interest rate policy or a correction after pandemic-era hiring surges may play a bigger role than previously assumed. Ad At the same time, AI is creating new demand. According to the World Economic Forum's \"Future of Jobs R",
-   "use_link": "",
-   "reject_hits": 2
-  },
-  {
    "id": "d052336faa0a6d5d",
    "title": "Wordfence 9.1.1",
    "link": "https://wordpress.org/plugins/wordfence/",
@@ -361,7 +343,53 @@
    "added": "2026-11-17T10:15:37+00:00",
    "full": "Loading... AI agents are already deciding which websites get discovered, quoted, and chosen. This Black Friday , you can build an agent-ready site on Elementor and save up to 40% on plans from Tuesday, November 17, through Tuesday, December 1. The biggest discounts are on multi-year subscriptions, so this is the window to lock in a plan that lasts. AI agents are already visiting, reading, and acting on websites. They compare, shortlist, and contact businesses before a person ever sees the site. If your site isn’t built for them, the lead goes to a competitor. Black Friday is the moment to fix that. Most sites don’t know how agents see them, until traffic quietly disappears. Check your agent readiness score with detailed guidelines on what to fix and how, directly inside the WordPress admin. Without the right files and tools, agents may not be able to properly find, read or take action on your pages. Turn on agent access and set the rules yourself. The sale covers Elementor Editor and Elementor One. Discounts climb with commitment length, so a three-year plan saves the most. Hosting and add-ons are not part of this sale. Elementor Editor is the most popular WordPress website builder, that gives you the power to build with AI, and the control to modify every aspect manually as well. Elementor Pro includes Pro widgets, popups, and dynamic content that professional creators rely on. Save more the longer you commit. Elementor One is the complete toolkit to create, optimize, and manage your site. It includes 25,000 monthly One credits in the One plan, and 350,000 monthly One credits in the One Agency plan, which unlock AI generation, image optimization, site accessibility, cookie consent, and email deliverability. It also brings everything from Pro plans together in one subscription. Drag and drop widgets, style by hand, or ask Angie to build full pages for you with a prompt. Describe the page you need, and Angie builds the complete layout: sections, content, and styling included. Review and refine it manually in the Editor, and stay in full control of every pixel. The Elementor MCP lets your AI tools work directly with your Elementor site. Connect the AI tool you already use, and build structured, fully editable pages from your prompts. Launch: Tuesday, November 17, 2026, at 8:00 AM EST Black Friday: Friday, November 27, 2026 Cyber Monday: Monday, November 30, 2026 Sale ends: Tuesday, December 1, 2026, at 11:59 PM EST The sale runs from Tuesday, November 17, 2026, at 8:00 AM EST through Tuesday, December 1, 2026, at 11:59 PM EST. Yes. Upgrades and crossgrades are part of this sale. Upgrades apply to new and upgraded plans only. No. Renewals are billed at the regular price. Elementor Editor and Elementor One plans. Hosting and add-ons are not discounted in this sale. Annual plans include a 30-day money-back guarantee. The Elementor MCP connects AI tools such as Claude, Cursor, and Codex to Elementor, so you can build structured, fully editable pages with prompts. Black Friday 2026 is the moment to build an agent-ready site and commit to a plan that grows with your work. The sale ends December 1, so plan your upgrade before the window closes.",
    "use_link": "https://github.com/elementor/elementor",
-   "reject_hits": 1
+   "reject_hits": 1,
+   "held": true
+  },
+  {
+   "id": "2b2004c9e5bda04d",
+   "title": "UpdraftPlus 1.26.16",
+   "link": "https://wordpress.org/plugins/updraftplus/",
+   "desc": "نسخهٔ 1.26.16 از UpdraftPlus منتشر شد. تغییرات این نسخه: SECURITY: Thanks to Jakub Herman and Wordfence for reporting further related instances of the problem patched in 1.26.9 (which could allow a low-privileged user account to manipulate a restore after inserting long controlled sequences in the database). | FEATURE: Search for and use mariadb-dump binaries as well as mysqldump | TWEAK: Search/replace of JSON sequences should not allow unwanted changes; thanks to Jakub Herman for reporting this issue. This could rise to a security issue, but only if the attacker (who would need a login) also has a further vulnerable ‘gadget’ on the site to exploit (none are known to exist in default WP + UpdraftPlus installs). | TWEAK: Pass –set-gtid-purged=OFF to mysqldump if relevant | TWEAK: When logging identified mysqldump, include the full command used | TWEAK: Updated bundled certificate authority file | TWEAK: Clarify search/replace message when restoring | TWEAK: When skipping a table during search/replace, include the table name in the log line | TWEAK: Set the connection character set to a UTF8 variant; abort backup upon failure",
+   "source": "آپدیت افزونه",
+   "lang": "en",
+   "tier": 1,
+   "group": "wp",
+   "kind": "news",
+   "age_hours": 0.0,
+   "published": "2026-11-17T11:00:58+00:00",
+   "added": "2026-11-17T11:00:58+00:00",
+   "plugin": {
+    "name": "UpdraftPlus",
+    "version": "1.26.16",
+    "prev": "1.26.14",
+    "installs": 4000000,
+    "updated": "2026-11-17"
+   },
+   "plugin_update": {
+    "name": "UpdraftPlus",
+    "slug": "updraftplus",
+    "version": "1.26.16",
+    "prev": "1.26.14",
+    "date": "1.26.16 – 16/Nov/2026",
+    "changes": [
+     "SECURITY: Thanks to Jakub Herman and Wordfence for reporting further related instances of the problem patched in 1.26.9 (which could allow a low-privileged user account to manipulate a restore after inserting long controlled sequences in the database).",
+     "FEATURE: Search for and use mariadb-dump binaries as well as mysqldump",
+     "TWEAK: Search/replace of JSON sequences should not allow unwanted changes; thanks to Jakub Herman for reporting this issue. This could rise to a security issue, but only if the attacker (who would need a login) also has a further vulnerable ‘gadget’ on the site to exploit (none are known to exist in default WP + UpdraftPlus installs).",
+     "TWEAK: Pass –set-gtid-purged=OFF to mysqldump if relevant",
+     "TWEAK: When logging identified mysqldump, include the full command used",
+     "TWEAK: Updated bundled certificate authority file",
+     "TWEAK: Clarify search/replace message when restoring",
+     "TWEAK: When skipping a table during search/replace, include the table name in the log line",
+     "TWEAK: Set the connection character set to a UTF8 variant; abort backup upon failure"
+    ],
+    "vuln": true,
+    "hardening": false
+   },
+   "full": "The UpdraftPlus Backup & Migration Plugin is trusted by the WordPress community to backup, restore and migrate their WordPress websites. UpdraftPlus is actively installed on more than 4 million websites around the world. UpdraftPlus is the world’s highest ranking and most popular scheduled backup and migration plugin. Backup to your preferred storage location and restore in just three clicks. Backup to Dropbox, Google Drive, Amazon S3 (or compatible), Rackspace Cloud, FTP, DreamObjects, Openstack Swift or email. The paid version also allows you to backup to Microsoft OneDrive, Microsoft Azure, Google Cloud, Backblaze B2, SFTP, SCP, pCloud, WebDAV or UpdraftVault, our integrated storage option for UpdraftPlus. Backup manually or schedule to run every 2, 4, 8 or 12 hours, daily, weekly, monthly or fortnightly. Your WordPress website is vulnerable. Your site may get hacked. Something could go wrong with an update or your server could crash. You might need to reverse a change made or a mistake caused by human error. Whatever the reason, you can restore your WordPress website in just a few clicks with UpdraftPlus. Choose which components to restore (e.g. plugins, themes, database etc.), click again to restore, then click again to return to the main screen. It’s easy to migrate your WordPress website to another web host, server or domain with this free version of UpdraftPlus. To migrate, simply download your database, plugins, themes etc. from the source site, then upload them into your destination site. When migrating, a built-in search-and-replace engine identifies old strings and replaces these to reflect the new location. UpdraftPlus saves you time and reduces the risk of broken links or missing files associated with manual migrations. Writing a reliable backup and migration plugin that ‘just works’ consistently across millions of different WordPress deployments is hard. UpdraftPlus is relied upon to do exactly that. We’re trusted and actively deployed on more websites around the world than any other WordPress backup and migration plugin. The free version of UpdraftPlus will back up and migrate your website perfectly well. However if you need more features and options you can purchase our Premium version. Backup and Migrate with UpdraftPlus Premium, and: Get automatic backups before updates. Restore the very latest version if a WordPress or plugin update breaks your site. Backup Incrementally. Changes are added to the master, saving server resources vs repeatedly backing up in full. Get more remote storage options including Microsoft OneDrive, SFTP, Microsoft Azure, WebDAV, Google Cloud, SCP, Backblaze and pCloud. Get 1GB of integrated storage with UpdraftVault for 99.999% reliability, redundancy and scalability. Get more control over how many backups are stored in a specified interval. Restore from other backup plugins including BackWPup, BackupWordPress, Simple Backups and more. Run backups at set times e.g. during periods of low traffic. Backup to more than one location for added protection. Get detailed reports. Includes cryptographic checksums so you can verify the integrity of the backup files and more. Get Premium migration. Migrating to",
+   "use_link": "",
+   "msg_id": 161,
+   "posted": true
   }
  ]
 }

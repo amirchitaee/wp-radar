@@ -401,6 +401,35 @@
    ],
    "vers": [],
    "cves": []
+  },
+  {
+   "t": "2026-11-17T11:02:02+00:00",
+   "id": "2b2004c9e5bda04d",
+   "title": "UpdraftPlus 1.26.16",
+   "kind": "news",
+   "link": "https://wordpress.org/plugins/updraftplus/",
+   "ents": [
+    "updraftplus"
+   ],
+   "vers": [
+    "1.26.16"
+   ],
+   "cves": []
+  },
+  {
+   "t": "2026-11-17T11:02:06+00:00",
+   "id": "8acda8cd2e46734d",
+   "title": "Black Friday 2026 at Elementor: Up to 40% off plans",
+   "kind": "news",
+   "link": "https://elementor.com/blog/black-friday-2026",
+   "ents": [
+    "black",
+    "elementor",
+    "friday",
+    "up"
+   ],
+   "vers": [],
+   "cves": []
   }
  ]
 }
