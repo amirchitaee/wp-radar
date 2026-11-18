@@ -340,7 +340,7 @@
    "added": "2026-11-18T00:00:53+00:00",
    "full": "Accumulated small fixes for Datasette Agent, my agent plugin for Datasette that lets you ask questions about your data. Most notably, it now adds an agent prompt directly to the Datasette homepage, with support for hash-mentions of tables and queries: This is a beat by Simon Willison, posted on 15th November 2026 . Sponsor me for $10/month and get a curated email digest of the month's most important LLM developments.",
    "use_link": "https://github.com/datasette/datasette-agent/releases/tag/0.6a0",
-   "reject_hits": 1
+   "reject_hits": 2
   },
   {
    "id": "eea4039d51a0b325",
