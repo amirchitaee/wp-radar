@@ -1,17 +1,6 @@
 {
  "items": [
   {
-   "t": "2026-11-03T04:30:37+00:00",
-   "title": "llm 0.37",
-   "kind": "tools",
-   "link": "https://simonwillison.net/2026/Nov/2/llm",
-   "ents": [],
-   "vers": [
-    "0.37"
-   ],
-   "cves": []
-  },
-  {
    "t": "2026-11-09T15:45:37+00:00",
    "id": "f86d5f8581cb62a0",
    "title": "Website Inspiration: La Coignardière",
