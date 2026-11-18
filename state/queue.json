@@ -158,24 +158,6 @@
    "skip_permanent": true
   },
   {
-   "id": "bec78e9702b1517e",
-   "title": "Cybersecurity AI startup Corma reaches $1B valuation in about 3 months",
-   "link": "https://techcrunch.com/2026/11/16/cybersecurity-ai-startup-corma-reaches-1b-valuation-in-about-3-months",
-   "site": "",
-   "desc": "Three months since introducing its product, AI cybersecurity startup Corba has raised a $125 million Series A at a $1 billion valuation led by NEA.",
-   "source": "تک‌کرانچ",
-   "lang": "en",
-   "tier": 2,
-   "group": "ai",
-   "kind": "news",
-   "age_hours": 1.0,
-   "published": "2026-11-16T23:32:32+00:00",
-   "added": "2026-11-17T00:30:53+00:00",
-   "channel_skip": true,
-   "skip_why": "خارج از مخاطب",
-   "skip_until": "2026-11-19T08:45:45+00:00"
-  },
-  {
    "id": "2fcea45b8abd0dd4",
    "title": "Smush 4.3.7",
    "link": "https://wordpress.org/plugins/wp-smushit/",
