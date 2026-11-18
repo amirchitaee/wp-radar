@@ -375,24 +375,6 @@
    "full": "Enjoy all PRO features for $72 $50 per year. The discount also applies to current PRO users. Limited-time offer. Go from design to website with Framer, the web builder for designers",
    "use_link": "",
    "reject_hits": 2
-  },
-  {
-   "id": "2bacfaffee5a24fa",
-   "title": "Suno's new Visuals feature pairs AI-generated music with AI-generated video",
-   "link": "https://the-decoder.com/sunos-new-visuals-feature-pairs-ai-generated-music-with-ai-generated-video",
-   "site": "",
-   "desc": "AI music generator Suno can now create images and video clips to go with its songs, thanks to a new feature called Visuals. The article Suno's new Visuals feature pairs AI-generated music with AI-generated video appeared first on The Decoder .",
-   "source": "دیکودر",
-   "lang": "en",
-   "tier": 2,
-   "group": "ai",
-   "kind": "news",
-   "age_hours": 0.6,
-   "published": "2026-11-18T10:22:45+00:00",
-   "added": "2026-11-18T11:01:12+00:00",
-   "full": "AI music generator Suno can now create images and video clips to go with its songs, thanks to a new feature called Visuals. The feature runs on H3 Move, a customized and safety-filtered version of MiniMax's video model H3 . The clips run up to 15 seconds, follow the song's structure, pick up on lyrics, and support lip sync. Users can start from a reference photo, a prompt, or one of Suno's preset characters. Lyric videos let you tweak fonts and colors, extend clips on a timeline, and pick the length and aspect ratio. Two quality tiers are available, \"Fast\" and \"Standard.\" Filters block prompts and uploads that reference specific artists, celebrities, or copyrighted works. Before sharing content outside Suno, the platform adds an embedded watermark. Visuals works on the web, iOS, and Android, and requires its own credits. Pro and Premier subscribers get a temporary allotment to try it out. Ad In late July, the Munich Regional Court I ruled against Suno in a lawsuit filed by GEMA, Germany's music rights organization, finding copyright infringement . Shortly after, Suno announced tools to label Suno-made songs as AI-generated on other platforms. The company has reached a deal with Warner Music, but Universal and Sony are still pursuing litigation. Ad Subscribe to THE DECODER for ad-free reading, a weekly AI newsletter, our exclusive \"AI Radar\" frontier report six times a year, full archive access, and access to our comment section.",
-   "use_link": "",
-   "held": true
   }
  ]
 }
