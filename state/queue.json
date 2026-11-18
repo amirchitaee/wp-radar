@@ -176,25 +176,6 @@
    "skip_until": "2026-11-18T20:30:53+00:00"
   },
   {
-   "id": "75bbed6777bb4f43",
-   "title": "How One Teacher Turns Digital Marketing Lessons Into Real Websites",
-   "link": "https://wordpress.com/blog/2026/11/16/teaching-digital-marketing",
-   "site": "",
-   "desc": "Every student starts with a fictional business. Here's how one teacher turns that idea into a year-long digital marketing project on WordPress.com.",
-   "source": "وردپرس دات کام",
-   "lang": "en",
-   "tier": 2,
-   "group": "",
-   "kind": "news",
-   "age_hours": 2.1,
-   "published": "2026-11-16T20:09:00+00:00",
-   "added": "2026-11-16T22:15:41+00:00",
-   "reject_hits": 2,
-   "digest_sent": true,
-   "channel_skip": true,
-   "skip_permanent": true
-  },
-  {
    "id": "2fcea45b8abd0dd4",
    "title": "Smush 4.3.7",
    "link": "https://wordpress.org/plugins/wp-smushit/",
