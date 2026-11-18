@@ -289,24 +289,6 @@
    "reject_hits": 1
   },
   {
-   "id": "09862cd7036c6133",
-   "title": "Apple launches new app to study how people use AI for health",
-   "link": "https://techcrunch.com/2026/11/15/apple-launches-new-app-to-study-how-people-use-ai-for-health",
-   "site": "",
-   "desc": "Apple's new app for a study will answer everyday medical questions",
-   "source": "تک‌کرانچ",
-   "lang": "en",
-   "tier": 2,
-   "group": "ai",
-   "kind": "news",
-   "age_hours": 10.5,
-   "published": "2026-11-16T01:30:00+00:00",
-   "added": "2026-11-16T11:58:30+00:00",
-   "full": "Apple launches new app to study how people use AI for health Ivan Mehta 5:30 PM PST · November 15, 2026 Big AI labs like OpenAI and Anthropic have made their bets on offering chatbots that can answer health-related queries with specialized features. Apple is debuting a new study to understand how people use AI for health. But it isn’t quite following other AI startups just yet; it wants to study how clinically grounded answers can help people. The iPhone maker is partnering with healthcare-focused AI company OpenEvidence to launch a new study app. Apple is inviting users in the U.S. over 21, using iPhone 15 or later, and running iOS 26 or later, with Apple Intelligence enabled. The company is aiming to run this study with up to 200,000 participants for more than 12 months. The new app will allow users to ask health-related questions, as they do with ChatGPT or Claude, with answers grounded in clinical data, from sources including The New England Journal of Medicine, Journal of the American Medical Association, and Nature. Apple said that the app will try to give simplified answers to everyday medical questions. Users can rate those answers and provide feedback about the responses; they’ll also be asked to participate in monthly surveys. Participants can share data from HealthKit such as resting heart rate, activity, sleep, or lab results to get more personalized and pointed suggestions from the app. The company said the app can also help prepare participants better for a doctor’s visit, and it will guide users to specific providers for answers related to concerning medical issues. Apple specified that the data will be anonymized before sending it to a secure third-party cloud provider, and it won’t be used to train any kind of AI models. The company said that OpenEvidence deletes the query and response data after 24 hours. “At Apple, we believe responsible innovation starts with scientific rigor and clinical grounding. Health is deeply personal, and conducting a dedicated research study is the most thoughtful way to understand how people engage with, comprehend, and evaluate health AI in everyday life,” Sumbul Desai, M.D., Apple’s vice president of Health and Fitness, said in a statement, adding, “Insights from this study will help advance the broader scientific conversation and ensure that as technology evolves, we continue building trusted tools that genuinely support people wherever they are on their health journey.” The app is available to download starting today for U.S. users. It’s not clear if Apple wants to release AI-powered answering to its Health app or Siri yet. The potential is huge — earlier this year, OpenAI said users were asking over 300 million health-related queries each week . When you purchase through links in our articles, we may earn a small commission . This doesn’t affect our editorial independence. Ivan Mehta Ivan covers global consumer tech developments at TechCrunch. He is based out of India and has previously worked at publications including Huffington Post and The Next Web. You can contact or verify outreach from Ivan by emailing [email protected] or via encrypted message at ivan.42 on Signal. 2027 San Francisco ",
-   "use_link": "https://apps.apple.com/us/app/apple-health-ai-study-app/id6800060365",
-   "reject_hits": 2
-  },
-  {
    "id": "4b4d48f19f03e283",
    "title": "datasette-maplibre 0.1a0",
    "link": "https://simonwillison.net/2026/Nov/15/datasette-maplibre",
@@ -337,7 +319,10 @@
    "kind": "tools",
    "age_hours": 48.7,
    "published": "2026-11-15T23:20:27+00:00",
-   "added": "2026-11-18T00:00:53+00:00"
+   "added": "2026-11-18T00:00:53+00:00",
+   "full": "I've been leaning hard into Claude Fable 5.2 to help knock things off the 1.0 milestone , which is now 53% complete. The biggest 1.0 item in this release is streaming support for output renderers - the built-in TSV and CSV export mechanisms now use this as well, and plugins can register themselves as capable of streaming every row in a table in one go via the new Response.stream() method. There are a couple of security fixes, one of which I deemed deserving of a GitHub advisory : private stored queries could be exposed, granting access to the title and SQL of the query (but not allowing that query to be executed). There are dozens of smaller improvements. The row page JSON representation finally has a design suitable for 1.0 . A new <datasette-copy-button> Web Component provides copy-schema in various places. JSON in columns on the row page can be pretty-printed. There's a new DatasetteModal.confirm() JavaScript utility method. Plus dozens of bug fixes, including contributions by Zihan Dai , Peter Olkhovets , Ilya Khalafi , and Ankita Advitot . The feature I'm most excited about is a pretty tiny one: I've added CSS multi-page view transitions to Datasette! Here's the commit - key CSS is as follows: /* Enable cross-document view transitions, for anyone without prefers-reduced-motion */ @media ( prefers-reduced-motion : no-preference ) { @view-transition { navigation : auto ; } } /* .facet-results should morph from old position to new */ html : active-view-transition . content > . facet-results { view-transition-name : facet-results ; } /* So should a .table-wrapper, provided it contains .rows-and-columns */ html : active-view-transition . table-wrapper : has ( > table . rows-and-columns ) { view-transition-name : rows-table ; } With that in place, navigations within Datasette - still staunchly a multi-page application - feel more like an SPA. This works on Safari and Chrome at the moment and I believe supports for Firefox is due to land in Firefox 162 on December 8th 2026 (seeing as they are no longer feature-flagged in Firefox Nightly.) This is a beat by Simon Willison, posted on 15th November 2026 . Sponsor me for $10/month and get a curated email digest of the month's most important LLM developments.",
+   "use_link": "https://github.com/simonw/datasette/milestone/37",
+   "reject_hits": 1
   },
   {
    "id": "16b4b3a7aa40d059",
