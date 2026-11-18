@@ -234,25 +234,6 @@
    "reject_hits": 2
   },
   {
-   "id": "ebff97034b293e5f",
-   "title": "Moonshot AI pivots Kimi models from coding to science as benchmark gains flatten",
-   "link": "https://the-decoder.com/moonshot-ai-pivots-kimi-models-from-coding-to-science-as-benchmark-gains-flatten",
-   "site": "",
-   "desc": "Moonshot AI is done chasing coding benchmarks, it says. The Beijing startup is pivoting its Kimi language models toward biology, chemistry, and pharma research, arguing that science demands smarter AI than law, finance, or code. The article Moonshot AI pivots Kimi models from coding to science as benchmark gains flatten appeared first on The Decoder .",
-   "source": "دیکودر",
-   "lang": "en",
-   "tier": 2,
-   "group": "ai",
-   "kind": "news",
-   "age_hours": 2.1,
-   "published": "2026-11-16T18:52:55+00:00",
-   "added": "2026-11-16T21:00:58+00:00",
-   "full": "Because Moonshot AI sees diminishing returns in coding, the Beijing startup is redirecting its Kimi language models toward biology, chemistry, and pharma research. International director Giacomo Ficari said at the Web Summit in Lisbon that science demands smarter AI models than law, finance, or code. Beijing startup DP Technology is integrating Kimi K3.1 Pro into its research assistant BioMaster. In one test, the AI analyzed gene data from 3,696 mouse pancreatic cells and flagged 100 candidate genes in 90 minutes instead of an estimated four hours of human work. Fully independent breakthroughs are still a long way off. On TCSExam, a 100-problem theoretical CS benchmark, leading models produced verifiable proofs but couldn't crack any open conjectures alone. US rivals hit similar limits. Anthropic's Claude found an enzyme system in September, but mathematicians criticized OpenAI's claimed math and physics breakthroughs . The pharma industry isn't sold yet either. A June Citi survey of 50 US research leaders found 72 percent already using AI broadly, but only 24 percent expect it to noticeably improve drug development success rates. Ad Ad Subscribe to THE DECODER for ad-free reading, a weekly AI newsletter, our exclusive \"AI Radar\" frontier report six times a year, full archive access, and access to our comment section.",
-   "use_link": "",
-   "reject_hits": 1,
-   "held": true
-  },
-  {
    "id": "156836d6c9f67878",
    "title": "Staggering Scroll-Driven Animations with animation-range-start",
    "link": "https://css-tricks.com/staggering-scroll-driven-animations-with-animation-range-start",
