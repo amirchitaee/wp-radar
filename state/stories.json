@@ -363,6 +363,21 @@
     "7.1.5"
    ],
    "cves": []
+  },
+  {
+   "t": "2026-11-18T20:01:21+00:00",
+   "id": "fea5949a9ade262f",
+   "title": "What’s new in PHP 8.6 and what that means for WordPress?",
+   "kind": "news",
+   "link": "https://developer.wordpress.org/news/2026/11/whats-new-in-php-8-6-and-what-that-means-for-wordpress",
+   "ents": [
+    "php",
+    "wordpress"
+   ],
+   "vers": [
+    "8.6"
+   ],
+   "cves": []
   }
  ]
 }
