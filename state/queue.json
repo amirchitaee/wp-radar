@@ -234,24 +234,6 @@
    "reject_hits": 2
   },
   {
-   "id": "156836d6c9f67878",
-   "title": "Staggering Scroll-Driven Animations with animation-range-start",
-   "link": "https://css-tricks.com/staggering-scroll-driven-animations-with-animation-range-start",
-   "site": "",
-   "desc": "Imagine a CSS karaoke machine that displays a ball bouncing on text that incrementally highlights, based on progress through via speech recognition and running that kind of animation as a single predictable, holistic effect driven by one progress value. Staggering Scroll-Driven Animations with animation-range-start originally handwritten and published with love on CSS-Tricks . You should really get the newsletter as well.",
-   "source": "سی‌اس‌اس تریکس",
-   "lang": "en",
-   "tier": 3,
-   "group": "",
-   "kind": "news",
-   "age_hours": 0.7,
-   "published": "2026-11-16T16:47:05+00:00",
-   "added": "2026-11-16T17:30:44+00:00",
-   "full": "NVIDIA L4 GPUs. 5-second cold starts. Scale to zero when idle. The other day on the CSS-Tricks Slack channel, Danny Schwartz shared an interesting recent Master.dev article by Ashutosh Biswas on how to stagger CSS scrolling animations using a clever combo of several emergent CSS features and a lot of math, which Ashutosh admits is “a huge formula and can look intimidating.” I’ll agree with Ashutosh there. A heartbreaking work of staggering genius When Danny Slacked the link for the Frontend Masters article, he described it as “CSS on drugs.” Speaking of drugs, I am on heavy prescription painkillers while recovering from a serious injury, so that might not help my current comprehension skills. Nevertheless, after reading Ashutosh’s article a few times, here’s a meme showing how I’d feel using such an elaborate algorithm for something as mundane as staggering the animations of some characters as they scroll into view. Don’t get me wrong. I know the complexity is because Ashutosh is going for a generic solution in which we can connect a “progress value to an animation, scroll progress, or any other input to drive the staggering.” In fact, I can dream up a scenario in which this might be what we want: Imagine a CSS karaoke machine that displays a ball bouncing on text that incrementally highlights, based on the user’s progress through the vocals measured via speech recognition . Running that kind of animation “not as a collection of independently timed objects, but as a single predictable, holistic effect driven by one progress value” might be exactly what the doctor ordered. This would be true because the staggered animations could be interrelated, and the overall animation would be driven by a custom input that’s not built into the browser. But unlike this hypothetical scenario, replacing the passage of time with scroll progress to control animations is already built into modern CSS. I contend that we’d need a better reason to roll our own implementation than the examples Ashutosh gives. How modern CSS solves staggered scrolling animations Ashutosh showcases a scroll-driven use case as “one of those ideal scenarios where the stagger formula shines.” But a red flag that we’re in danger of reinventing something we can get for free is that the spec for scroll-driven animations is cognizant that if we opt to base an animation on scroll progress rather than on time, then, as Ashutosh says, “the animation we are going to achieve is different from traditional ones because we don’t include time in our considerations.” This is no surprise to the creators of scroll timeline, and the MDN docs make Ashutosh’s point in different words when introducing scroll timeline . The docs also point out that animation-delay is only meaningful when we are using the default time-based document timeline . Therefore, animation-delay does not affect scroll-driven animations. But this is why CSS introduced animation-range-start , which allows us to delay a scroll-driven animation relative to scroll progress and not time. So, as esoteric and trippy as the math-heavy approach appears, that could be because we are doing something that should be simple in an unusual way. Let’s ",
-   "use_link": "",
-   "reject_hits": 2
-  },
-  {
    "id": "4b4d48f19f03e283",
    "title": "datasette-maplibre 0.1a0",
    "link": "https://simonwillison.net/2026/Nov/15/datasette-maplibre",
