@@ -324,24 +324,6 @@
    "reject_hits": 2
   },
   {
-   "id": "eea4039d51a0b325",
-   "title": "OpenAI launches GPT-6.2 Astra and Sol with lower API prices and some benchmark gains",
-   "link": "https://the-decoder.com/openai-launches-gpt-6-2-astra-and-sol-with-lower-api-prices-and-some-benchmark-gains",
-   "site": "",
-   "desc": "OpenAI releases GPT-6.2 Astra and Sol, two new models that are more capable and cheaper than their predecessors. In the independent Artificial Analysis Intelligence Index, Astra ranks second behind Claude Fable 5.2, and it is the first released model to reach the High threshold for AI self-improvement on OpenAI's own scale. OpenAI itself classifies that as a risk. The article OpenAI launches GPT-6.2 Astra and Sol with lower API prices and some benchmark gains appeared first on The Decoder .",
-   "source": "دیکودر",
-   "lang": "en",
-   "tier": 2,
-   "group": "ai",
-   "kind": "news",
-   "age_hours": 4.0,
-   "published": "2026-11-17T20:30:50+00:00",
-   "added": "2026-11-18T00:31:00+00:00",
-   "full": "OpenAI releases two new language models. GPT-6.2 Astra is aimed at demanding professional work, while GPT-6.2 Sol is built for everyday use. OpenAI says both outperform their predecessors on benchmarks and cost less to run. GPT-6.2 Astra and Sol are available now for Plus, Pro, Enterprise, and Edu users in ChatGPT Work and Codex. Pro-500 subscribers can use Ultrafast mode with both models. For the first time, Pro-200 subscribers also get Ultrafast access, starting with GPT-6.2 Sol. Developers can access both models through the OpenAI API. OpenAI says API pricing for GPT-6.2 Astra is 20 percent cheaper than its predecessor's, at $8 per million input tokens, $0.40 for cached inputs, and $40 per million output tokens. GPT-6.2 Sol keeps GPT-6.1 Sol's pricing at $2 for input, $0.10 for cached inputs, and $10 for output per million tokens. Ad OpenAI trained GPT-6.2 Astra to handle professional conventions in fields like law, finance, and accounting more reliably. The company says presentations pull layouts, colors, and typography from templates, matching exact font sizes. Slide titles are meant to capture a slide's main point, while body text stays focused on key details. Ad OpenAI's announcement leans hard on the price-to-performance ratio of its models. On Agents' Last Exam, a benchmark that tests multi-step professional workflows, GPT-6.2 Astra scores 5.2 points above its predecessor GPT-6 Astra at less than a third of the cost, according to OpenAI. It leads Anthropic's Claude Fable 5.2 by 5.5 points at just 5 percent of the cost. Only Google's Gemini 4 Carbon keeps up with Astra on this benchmark. On the legal benchmark Harvey LAB-AA, which covers tasks like contract clause analysis, GPT-6.2 Astra more than doubles Claude Fable 5.2's pass rate at about one-sixth of the cost, according to OpenAI. On the internal GDPval-v2 benchmark, which includes consulting, finance, and design tasks, OpenAI says Astra gains 6.2 percentage points over its predecessor while using 22 percent fewer output tokens. Ad OpenAI says computer use, already a strong suit of the predecessor , got better again. In testing, the model reportedly built a 3D car model, wrote a physics solver in Python, and animated the results in Blender. In another demo, it modeled a remote-controlled car part by part and produced an animated assembly guide. OpenAI also claims progress in web design. On the 3D benchmark AA-3D, human judges compare two blinded interactive experiences. GPT-6.2 Astra takes first with 1,318 Elo points, ahead of Claude Fable 5.2 at 1,271 and GPT-6.2 Sol at 1,259. Ad On Terminal-Bench-Science, a benchmark that tests scientific workflows in a terminal, the model scores 9 percentage points above GPT-6 Astra, again at less than a third of the cost, according to OpenAI. Astra also sets a new high on the Vals Science Index, which measures how well models interpret biological data and run experiments, OpenAI says. Ad GPT-6.2 Sol is for users who want a fast, versatile model for everyday tasks, OpenAI says. On the coding benchmark FrontierCode 2.0, which checks whether code changes meet the quality bar of real projects, Sol trails Astra by just 0.5 points at one-fifth the ",
-   "use_link": "https://openai.com/index/astra-for-law/",
-   "held": true
-  },
-  {
    "id": "5a76136e8f2d5ccb",
    "title": "The US wants to block China from renting AI power abroad but China already built a parallel supply chain from US AI output",
    "link": "https://the-decoder.com/the-us-wants-to-block-china-from-renting-ai-power-abroad-but-china-already-built-a-parallel-supply-chain-from-us-ai-output",
