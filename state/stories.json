@@ -317,6 +317,24 @@
    ],
    "vers": [],
    "cves": []
+  },
+  {
+   "t": "2026-11-18T08:31:22+00:00",
+   "id": "eea4039d51a0b325",
+   "title": "OpenAI launches GPT-6.2 Astra and Sol with lower API prices and some benchmark gains",
+   "kind": "news",
+   "link": "https://the-decoder.com/openai-launches-gpt-6-2-astra-and-sol-with-lower-api-prices-and-some-benchmark-gains",
+   "ents": [
+    "api",
+    "astra",
+    "gpt-6.2",
+    "openai",
+    "sol"
+   ],
+   "vers": [
+    "6.2"
+   ],
+   "cves": []
   }
  ]
 }
