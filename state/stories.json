@@ -66,26 +66,6 @@
    "cves": []
   },
   {
-   "t": "2026-11-13T23:45:54+00:00",
-   "id": "1161bfd9f7de0b02",
-   "title": "WordPress.com Changelog: Easily Migrate Your Site and Get Developer Tools on Every Paid Plan",
-   "kind": "news",
-   "link": "https://wordpress.com/blog/2026/11/13/changelog-move-developer-tools",
-   "ents": [
-    "changelog",
-    "developer",
-    "easily",
-    "every",
-    "migrate",
-    "paid",
-    "plan",
-    "tools",
-    "wordpress.com"
-   ],
-   "vers": [],
-   "cves": []
-  },
-  {
    "t": "2026-11-14T01:15:56+00:00",
    "id": "b6de13ec3caeae82",
    "title": "OpenAI rebuilt AI shopping from scratch with ChatGPT Wallet",
