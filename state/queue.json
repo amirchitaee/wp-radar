@@ -428,7 +428,37 @@
    "added": "2026-11-18T13:15:31+00:00",
    "full": "After years of uncertainty under corporate ownership, CSS-Tricks has a new chapter and a new owner. Geoff Graham joins Matt Medeiros to talk about bringing the beloved web development resource back to its community roots and building a sustainable future for the site. Geoff shares how DigitalOcean made the transition possible, why he wants CSS-Tricks… After years of uncertainty under corporate ownership, CSS-Tricks has a new chapter and a new owner. Geoff Graham joins Matt Medeiros to talk about bringing the beloved web development resource back to its community roots and building a sustainable future for the site. Geoff shares how DigitalOcean made the transition possible, why he wants CSS-Tricks to become a learning community rather than just another content site , and how memberships, sponsorships, and new educational opportunities will help support it. The conversation also gets into the bigger questions facing WordPress: Is AI making WordPress less necessary? Does the platform need a lighter version for simpler sites? And as AI changes how developers work, why will human expertise, education, and community matter even more? Plus, Geoff explains why CSS-Tricks is embracing multiple revenue streams, experimenting with cohort-based learning, and focusing on engagement over page views. New articles and episodes, plus the week’s WordPress news. A five-minute read. Free.",
    "use_link": "",
-   "reject_hits": 1
+   "reject_hits": 2
+  },
+  {
+   "id": "996cedf31573e6ea",
+   "title": "KPMG's \"Project Exponential\" put AI agents alongside a real audit team and found the bots dug deeper on individual questions",
+   "link": "https://the-decoder.com/kpmgs-project-exponential-put-ai-agents-alongside-a-real-audit-team-and-found-the-bots-dug-deeper-on-individual-questions",
+   "site": "",
+   "desc": "KPMG deployed more than 100 AI agents alongside the regular audit of a UK-listed company. The agents asked \"better questions\" than the audit team in some cases, according to UK head of audit Cath Burnet. The UK's accounting regulator, the FRC, sees a risk in the approach because AI agents analyze far more data than traditional sampling methods, potentially surfacing findings that could serve as a sales pitch for lucrative consulting work and undermine auditor independence. The article KPMG's \"Project Exponential\" put AI agents alongside a real audit team and found the bots dug deeper on indivi",
+   "source": "دیکودر",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 0.1,
+   "published": "2026-11-18T13:55:49+00:00",
+   "added": "2026-11-18T14:01:14+00:00"
+  },
+  {
+   "id": "9c0a1db7310df6bb",
+   "title": "SEC probes Nvidia over undisclosed chip sales tied to China",
+   "link": "https://the-decoder.com/sec-probes-nvidia-over-undisclosed-chip-sales-tied-to-china",
+   "site": "",
+   "desc": "The U.S. Securities and Exchange Commission (SEC) has launched a civil investigation into Nvidia. The article SEC probes Nvidia over undisclosed chip sales tied to China appeared first on The Decoder .",
+   "source": "دیکودر",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 0.5,
+   "published": "2026-11-18T13:28:49+00:00",
+   "added": "2026-11-18T14:01:14+00:00"
   }
  ]
 }
