@@ -17,7 +17,10 @@
    "added": "2026-11-17T18:45:38+00:00",
    "full": "OpenAI wants GPT-6 Astra and GPT-6 Luna to click and type their way through clinic software and insurance portals as digital clerks. GPT-6 Luna handles administrative tasks for about 8.5 cents per task, according to the company. In a recent product announcement , OpenAI targets the lack of APIs in healthcare. The computer-use agents integrated into the Agents API in late September operate existing user interfaces the way a human would. In this case, they transfer data between electronic health records and external web portals. According to OpenAI, when a patient reports back pain, the agent is meant to search relevant prior findings and draft both an MRI order and a reply to the patient. It should also prepare a prior authorization request on the insurer's portal. Clinicians and the responsible administrative staff review these drafts before they are released. The features are available through the API as well as in ChatGPT for Healthcare and ChatGPT for Clinicians. Ad In an evaluation described by OpenAI, GPT-6 Astra worked through tasks from electronic health record inboxes, among other things preparing an ibuprofen dosage for a child with a broken arm. Physician reviewers rated 99 percent of the 325 tasks evaluated as clinically safe. In 93 percent of 646 reviews, the reviewers called the prep work very or extremely helpful. For administrative workflows such as prior authorizations, appeals, or medical equipment orders, OpenAI points to the independent HealthAdminBench benchmark from Stanford University researchers . GPT-6 Astra scored 94.3 percent of possible points. GPT-6 Luna, built for low API pricing , scored 91.8 percent and, according to OpenAI, cost about 8.5 cents per task, 98 percent less than Astra. Both models ran at maximum reasoning effort on the benchmark. Ad Several partner organizations are helping advance the technology. At CVS Health, the agents already process referrals and specialist consultations across separate systems. According to the announcement, one agent cleared a months-long backlog of outgoing documents in one weekend, while another handles the system steps for tens of thousands of consultations daily. CVS Health published its software architecture as Agent Kit on GitHub. At insurer Cigna Healthcare, the models merge patient information from more than 10 separate systems. Abridge is developing the agents for planned use in clinical discharge planning. Ambience has demonstrated additional safety mechanisms in which an agent stops when a patient's record is unclear and asks a physician for input. Startups like Assort also use the feature in Codex to complete referrals in practice management software whose APIs don't support that final click. Ad Because the agents work directly in electronic health records, protecting sensitive health data is a core concern. OpenAI says it does not use organizational data to train its base models. ChatGPT for Healthcare offers role-based access controls and audit logs, according to the company. Organizations can also configure the applications and environments so an agent only accesses the records and actions needed for a given task. Ad For HIPAA-compliant workflows with protect",
    "use_link": "",
-   "reject_hits": 2
+   "reject_hits": 2,
+   "digest_sent": true,
+   "channel_skip": true,
+   "skip_permanent": true
   },
   {
    "id": "e1a87f9f921d4b9e",
@@ -107,7 +110,10 @@
    "added": "2026-11-17T15:15:32+00:00",
    "full": "Your client’s WooCommerce homepage scores 98 in Lighthouse. They’re happy with that, until a customer emails: “I enter my delivery address, and checkout just sits there.” You try it yourself. Everything works. By the following afternoon, another complaint arrives. The homepage still loads quickly, and another speed test gives you little to investigate. Somewhere in the live site, under conditions your test doesn’t reproduce, customers struggle to place an order. Performance reports are more than just a simple score, though. Your team needs to know what runs during the slowdown and where requests spend their time. Otherwise, troubleshooting becomes a sequence of guesses, each with its own chance of disrupting the store. As sites take on more automated work, those questions become harder to answer from the browser alone. This article follows that checkout problem from the first complaint through the fix, with a look at the evidence your agency needs and how to explain the results to a client. A Lighthouse report earns its place in a developer’s toolkit. It can expose a large image that delays the main content or JavaScript that keeps the browser busy. Fixing those problems improves the experience people have on the page. The performance score combines several measurements from the test. It’s useful for comparing changes under similar conditions, provided you pay attention to the individual metrics behind it. The trouble starts when a client reads “98” as confirmation that everything on the website works well. A standard homepage audit doesn’t usually involve filling a cart and submitting a shipping address. It doesn’t wait for the afternoon inventory update, either. Instead, it measures the page you ask it to test, under the conditions of that run. PageSpeed Insights also includes field data from the Chrome User Experience Report when enough data is available. That reflects real visitors over a rolling 28-day period. The Lighthouse score comes from a separate lab test. Mixing those up makes the report harder to explain. Real-user Core Web Vitals give you a broader view of page experience. They still don’t identify which function inside an import plugin puts pressure on the database. For the store in our example, the homepage score can be entirely legitimate. A cached page reaches visitors quickly while checkout waits on work inside WordPress. The useful question is whether your measurements cover the interaction customers complain about. A fast homepage tells you something worth knowing. It leaves plenty of the store untested. At 2 p.m., the store imports a supplier’s stock file. Nobody opens the WordPress dashboard to start it. A scheduled task begins processing product records while customers continue shopping. That import needs database time. Depending on how the plugin runs it, it also occupies PHP threads that serve other requests. Moving work into the background changes when it happens, but the work still uses resources. WordPress cron jobs and queue runners can make this activity easy to overlook. The schedule lives in a plugin setting, and the person who configures it may have no reason to revisit it until something slows down. AI agent",
    "use_link": "",
-   "reject_hits": 2
+   "reject_hits": 2,
+   "digest_sent": true,
+   "channel_skip": true,
+   "skip_permanent": true
   },
   {
    "id": "ea1bd15d2eacce43",
@@ -125,7 +131,10 @@
    "added": "2026-11-17T16:01:02+00:00",
    "full": "About The Author Juggling between three languages on a daily basis, Iris is known for her love of linguistics, arts, web design and typography, as well as her goldmine of … More about Iris ↬ Weekly tips on front-end & UX . Trusted by 182,000+ folks. AI is changing how we design and build, and it isn’t slowing down. On December 1, 2026, SmashingConf is hosting the AI 2027 Conference , a live online half day event to take stock of where AI stands today, what we can expect in 2027, and where teams are getting it right. With AI maturing, it’s clear we need to learn how AI can elevate your workflow as a UX designer and Design System engineer. Most of us are still figuring it out and trying to work smarter in this new world, so we invited industry experts who have been doing this for a while. They show their experience and tell you what works and what doesn’t , so you don’t have to figure it all out yourself. Every session is practical. Speakers show how they actually work: their tools, their setups, and the small things that are easy to miss. The event ends with moderated breakout rooms, where you can bring your own workflow questions . See you there? This conference is dedicated to designers and engineers (front-end, UI, UX) who want to understand how AI can improve the way their team works, without the hype. If you’re interested in AI-ready design systems, AI and Figma, harness engineering, agentic AI UX patterns, and AI workflows for design and engineering teams, this conference is right up your alley! Showing, not telling : All sessions will be highly practical, focusing on how to integrate AI in your daily work and what to expect in 2027. For our AI 2027 Conference, your friendly host Vitaly will welcome you and quickly explain how the event will run. We can’t wait to meet you! AI is moving fast. With it come new workflows in product teams, new design patterns, new user expectations and new ways of thinking about building and designing for AI. Let’s look at where things stand today. A lot changed in 2026, and there are things we can now design and build that simply weren’t possible a year ago. We’ll cover the patterns taking shape heading into 2027, from multi-modal experiences to accessibility, and what tends to go wrong along the way. A big part of that is designing for trust, so people feel confident using what we make. What makes AI products reliable in practice? We’ll look at how teams cut down on hallucinations with better context, a well-built harness and sensible guardrails. Then we’ll finish with what’s coming in 2027, including new experiments, regulations and a few takeaways to bring back to your team. Roll up your sleeves for a packed session, full of real-life examples and design patterns. Great AI-powered products live at the intersection of engineering depth, design craft and product thinking. In this talk, Anna Arteeva shows how to build real, working AI experiences, not just one-shot prototypes that fall apart the moment someone uses them. You’ll learn how to design and prototype an AI-powered experience from scratch, with functionality built on LLMs, voice and image generation logic. Anna will also show how to add that littl",
    "use_link": "",
-   "reject_hits": 2
+   "reject_hits": 2,
+   "digest_sent": true,
+   "channel_skip": true,
+   "skip_permanent": true
   },
   {
    "id": "f0c70df868e9ab11",
@@ -143,7 +152,10 @@
    "added": "2026-11-17T13:30:40+00:00",
    "full": "About The Author Andrew Chung is Chief Product Officer at Level Access , a Leader in the first Gartner® Magic Quadrant™ for Digital Accessibility Platforms. Andrew leads the … More about Andrew ↬ Weekly tips on front-end & UX . Trusted by 182,000+ folks. This article has been kindly supported by our dear friends at Level Access , who help organizations create accessible and legally compliant websites, mobile apps, software, and other digital experiences. Thank you! Lately, I’ve been thinking and writing a lot about what AI is doing to product development, and what that means for accessibility. The thing that has my wheels turning is a finding from Level Access’s 2026 State of Digital Accessibility Report . Basically: AI is helping us hit fast-forward on the build, but testing practices haven’t kept up. We asked more than 2,500 professionals where they noticed AI was speeding up their work in the SDLC. Most said they noticed gains in planning (58%), design (61%), and development (51%). But QA and testing lagged behind: Only 30% said AI had sped up that stage. These results point to a two-speed workflow . AI has turbocharged design, planning, and development, while checking and validation are still running at a very different pace. This means a lot of teams are likely racing through the build, then being forced to hit the brakes the moment someone has to answer a pretty fundamental question: Is this thing actually accessible? Accessibility has historically been treated as a QA bottleneck, and AI is pushing far more work into it, faster. If your team has already shifted left on accessibility, you’re off to a good start. But AI has reshuffled the workflow, so even proactive teams need to work out where those early checks belong now. This matters because right now, the web is moving in the wrong direction. WebAIM’s latest scan of the top million home pages found that automatically detected errors per home page rose 10.1% in a year, from 51 to 56.1 per page. WebAIM cited AI-assisted coding as one possible contributing factor. So how do we get validation out of first gear? How do we build human judgment into the workflow as AI keeps pushing the pace? We looked at the organizations that are improving across every accessibility metric they track (a group we call the “improvers”) to find out what they’re doing differently. Here’s what stood out: AI adoption made the smallest difference of anything we measured. Improvers use AI at a similar rate to everyone else we surveyed. Their edge shows up in the maturity of their surrounding accessibility practices — things like training , communication , and a culture of accessibility . A quick caveat : This is survey data, so it only shows correlation, and mature programs may simply be better at tracking and reporting their wins. Even so, this finding was hard to ignore. And it got even more interesting. Professionals in mature accessibility programs were nearly six times as likely to say AI helps them prioritize issues. They were also nearly three times as likely to say it helps them tackle accessibility more proactively in development. In other words, AI works best as an amplifier of a strong program. With con",
    "use_link": "",
-   "reject_hits": 2
+   "reject_hits": 2,
+   "digest_sent": true,
+   "channel_skip": true,
+   "skip_permanent": true
   },
   {
    "id": "bec78e9702b1517e",
@@ -177,25 +189,10 @@
    "age_hours": 2.1,
    "published": "2026-11-16T20:09:00+00:00",
    "added": "2026-11-16T22:15:41+00:00",
-   "reject_hits": 2
-  },
-  {
-   "id": "75df91af27d861e0",
-   "title": "OpenAI's GPT-6 Astra tackles the Standard Model's toughest math problem on a lattice",
-   "link": "https://the-decoder.com/openais-gpt-6-astra-tackles-the-standard-models-toughest-math-problem-on-a-lattice",
-   "site": "",
-   "desc": "OpenAI physicist Nathaniel Craig used GPT-6 Astra to tackle a problem that had stumped particle physicists for over 25 years. The AI model took Craig's strategy for defining the full Standard Model on a computational lattice and turned it into a working proof. Craig says a lot of work remains before realistic simulations are possible. The article OpenAI's GPT-6 Astra tackles the Standard Model's toughest math problem on a lattice appeared first on The Decoder .",
-   "source": "دیکودر",
-   "lang": "en",
-   "tier": 2,
-   "group": "ai",
-   "kind": "news",
-   "age_hours": 1.7,
-   "published": "2026-11-16T19:19:56+00:00",
-   "added": "2026-11-16T21:00:58+00:00",
-   "full": "OpenAI's GPT-6 Astra helped produce a proof that could solve a 50-year-old problem in particle physics. Physicist Nathaniel Craig of UC Santa Barbara, currently a visiting scientist at OpenAI, presented the approach on the OpenAI blog and as a preprint paper . Craig leads the particle theory group at UCSB and is a permanent member of its Kavli Institute for Theoretical Physics. Physicists can simulate parts of the Standard Model, the theory describing all known particles and fundamental forces, on a computer grid called a lattice. That has already led to breakthroughs like calculating the proton's mass from first principles. But putting the full theory on a lattice has been impossible. The weak force, which governs certain types of radioactive decay, treats left- and right-handed particles differently. On simple lattices, this asymmetry creates unwanted ghost particles. Special lattice particles called overlap fermions can filter them out, but for over 25 years, nobody could set their phase correctly. Ad Craig had a strategy to fix the phase by comparing progressively finer lattices, but couldn't prove it worked in all the cases it needed to cover. GPT-6 Astra turned the idea into a working construction and took the lead on the detailed proof. Lattice field theorists Maarten Golterman, Andreas Kronfeld, and Yigal Shamir reviewed the proof and raised questions that Craig says helped build confidence in the result. He calls the work \"much more a beginning than an end\" and says a lot remains before realistic simulations are possible. Ad The result follows a run of AI advances in mathematics that started in January 2026 . In May, OpenAI's disproof of Erdős's unit distance conjecture became the first AI proof worthy of math's top journal . Days later, Google Deepmind's AlphaProof Nexus solved nine of 353 open Erdős problems for a few hundred dollars, and by October its results had passed peer review . The most far-reaching claim came in September, when OpenAI submitted a 166-page proof for the Navier-Stokes Millennium Prize Problem and the Clay Mathematics Institute said it had \"apparently been settled\" . The solution remains under review, and mathematicians have questioned whether OpenAI fully understands its own proof . Across the field, mathematicians have mixed feelings as AI keeps cracking unsolved problems. Ad Subscribe to THE DECODER for ad-free reading, a weekly AI newsletter, our exclusive \"AI Radar\" frontier report six times a year, full archive access, and access to our comment section.",
-   "use_link": "https://openai.com/index/step-toward-defining-the-standard-model/",
-   "reject_hits": 2
+   "reject_hits": 2,
+   "digest_sent": true,
+   "channel_skip": true,
+   "skip_permanent": true
   },
   {
    "id": "2fcea45b8abd0dd4",
@@ -249,7 +246,10 @@
    "added": "2026-11-18T00:00:53+00:00",
    "full": "The first new Datasette geospatial plugin in quite a while! This one combines the excellent MapLibre GL library with OpenFreeMap , the free vector map server operated by Zsolt Ero (you should sponsor Zsolt on GitHub .) I built most of this with a single prompt to Claude Fable 5.2: Look at datasette-cluster-map and datasette-leaflet-geojson plugins, then look at ~/dev/tools/openfreemap-demo.html - then build a brand new Datasette plugin that uses maplibreGL and openfreemap and combines the features of those other two plugins - but be creative and think outside the box for other useful features the plugin might have \"Be creative and think outside the box\" resulted in a few neat ideas - my favorite is that it displays SVG previews of GeoJSON shapes, then loads a WebGL preview only when they scroll into view. I also had Claude build a comprehensive demo which works in the latest Datasette Lite, so you can visit this link to load the plugin and a demo database in your browser via Pyodide and WebAssembly. I like this demo page showing both GeoJSON shapes and lat/lon points on the same map: This is a beat by Simon Willison, posted on 15th November 2026 . Sponsor me for $10/month and get a curated email digest of the month's most important LLM developments.",
    "use_link": "https://github.com/datasette/datasette-maplibre/releases/tag/0.1a0",
-   "reject_hits": 2
+   "reject_hits": 2,
+   "digest_sent": true,
+   "channel_skip": true,
+   "skip_permanent": true
   },
   {
    "id": "3bc6cdb34c17f840",
@@ -267,7 +267,10 @@
    "added": "2026-11-18T00:00:53+00:00",
    "full": "I've been leaning hard into Claude Fable 5.2 to help knock things off the 1.0 milestone , which is now 53% complete. The biggest 1.0 item in this release is streaming support for output renderers - the built-in TSV and CSV export mechanisms now use this as well, and plugins can register themselves as capable of streaming every row in a table in one go via the new Response.stream() method. There are a couple of security fixes, one of which I deemed deserving of a GitHub advisory : private stored queries could be exposed, granting access to the title and SQL of the query (but not allowing that query to be executed). There are dozens of smaller improvements. The row page JSON representation finally has a design suitable for 1.0 . A new <datasette-copy-button> Web Component provides copy-schema in various places. JSON in columns on the row page can be pretty-printed. There's a new DatasetteModal.confirm() JavaScript utility method. Plus dozens of bug fixes, including contributions by Zihan Dai , Peter Olkhovets , Ilya Khalafi , and Ankita Advitot . The feature I'm most excited about is a pretty tiny one: I've added CSS multi-page view transitions to Datasette! Here's the commit - key CSS is as follows: /* Enable cross-document view transitions, for anyone without prefers-reduced-motion */ @media ( prefers-reduced-motion : no-preference ) { @view-transition { navigation : auto ; } } /* .facet-results should morph from old position to new */ html : active-view-transition . content > . facet-results { view-transition-name : facet-results ; } /* So should a .table-wrapper, provided it contains .rows-and-columns */ html : active-view-transition . table-wrapper : has ( > table . rows-and-columns ) { view-transition-name : rows-table ; } With that in place, navigations within Datasette - still staunchly a multi-page application - feel more like an SPA. This works on Safari and Chrome at the moment and I believe supports for Firefox is due to land in Firefox 162 on December 8th 2026 (seeing as they are no longer feature-flagged in Firefox Nightly.) This is a beat by Simon Willison, posted on 15th November 2026 . Sponsor me for $10/month and get a curated email digest of the month's most important LLM developments.",
    "use_link": "https://github.com/simonw/datasette/milestone/37",
-   "reject_hits": 2
+   "reject_hits": 2,
+   "digest_sent": true,
+   "channel_skip": true,
+   "skip_permanent": true
   },
   {
    "id": "16b4b3a7aa40d059",
@@ -285,7 +288,10 @@
    "added": "2026-11-18T00:00:53+00:00",
    "full": "Accumulated small fixes for Datasette Agent, my agent plugin for Datasette that lets you ask questions about your data. Most notably, it now adds an agent prompt directly to the Datasette homepage, with support for hash-mentions of tables and queries: This is a beat by Simon Willison, posted on 15th November 2026 . Sponsor me for $10/month and get a curated email digest of the month's most important LLM developments.",
    "use_link": "https://github.com/datasette/datasette-agent/releases/tag/0.6a0",
-   "reject_hits": 2
+   "reject_hits": 2,
+   "digest_sent": true,
+   "channel_skip": true,
+   "skip_permanent": true
   },
   {
    "id": "5a76136e8f2d5ccb",
@@ -338,7 +344,10 @@
    "added": "2026-11-18T04:45:36+00:00",
    "full": "Enjoy all PRO features for $72 $50 per year. The discount also applies to current PRO users. Limited-time offer. Go from design to website with Framer, the web builder for designers",
    "use_link": "",
-   "reject_hits": 2
+   "reject_hits": 2,
+   "digest_sent": true,
+   "channel_skip": true,
+   "skip_permanent": true
   },
   {
    "id": "9bca8b26d9b12cd0",
@@ -356,7 +365,10 @@
    "added": "2026-11-18T12:30:45+00:00",
    "full": "A visitor lands on one of your best articles from search, reads the opening, and hits a subscription wall. They wanted that one piece, not a monthly plan, so they leave, even though they’d probably have paid a dollar for it. Micropayments were supposed to close that gap, but most systems still ask a stranger to sign up and fund a wallet before they’ve read anything worth paying for. 2WayMicropay , from Qixit, removes that step by letting publishers charge from one cent and also hand readers credits to spend. The quickest way to see what’s different is to go through the flow as a reader. Qixit’s interactive paywall demo has you create a free Qixit consumer account, receive complimentary credits, and spend them to unlock premium articles about how 2WayMicropay works. Notice the order of events. You’re asked for an account, but never for a deposit, because the credits you spend arrive through the same system that charges for the content. Qixit is the company and account platform, and 2WayMicropay is its two-way micropayment product. The 2WayMicropay WordPress plugin lets visitors pay for posts, pages, comments, video, audio, downloads and other content in Qix Credits, at prices from one cent up to several dollars. The “two-way” part is what sets it apart. Most payment systems only move value from customer to seller, while 2WayMicropay also lets publishers, advertisers and sponsors send credits to visitors, which readers can then spend on content from participating publishers. It’s worth knowing that Qix Credits are platform credits. Qixit is clear that they aren’t cash or legal tender, and that redemption and withdrawal follow its own agreements and policies. You don’t have to drop subscriptions, memberships or ads to use it. 2WayMicropay sits beside them as an à-la-carte option for the readers a subscription wall turns away. Our guide to ways to monetize WordPress covers how the other models fit together. Checkout is hosted by Qixit, so there’s nothing for you to build. A visitor signs in or creates a free Qixit account, confirms the purchase, and gets access once payment goes through. The plugin is also a showcase for a broader platform. Qixit’s vendor tools and developer API let teams add the same purchase and payout links to custom websites and other applications. Each premium item gets an access rule: pay once and view forever, pay per view, limited hours, or session only. For a free preview, you add a WordPress “More” break and enable “Use Pay-per-play works the same way for video, audio and games through a product shortcode. That lets podcasters and video creators charge for a single episode on their own site. Payout links are created in Qixit’s vendor portal and added to posts with a shortcode or URL. For each one you set the amount, the credit type, a destination URL, a total budget and an optional expiry date. Qix Credits work across participating sites, while site-specific promotional credits can only be spent on your content, which gives readers a reason to come back. Either type can fund free trials or reward readers for viewing a sponsor’s page, completing a survey or referring a friend. You don’t need to open each post to monetize",
    "use_link": "https://wordpress.org/plugins/2waymicropay/",
-   "reject_hits": 2
+   "reject_hits": 2,
+   "digest_sent": true,
+   "channel_skip": true,
+   "skip_permanent": true
   },
   {
    "id": "6103bfd614e1089f",
