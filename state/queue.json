@@ -74,7 +74,7 @@
    "added": "2026-11-17T15:15:42+00:00",
    "channel_skip": true,
    "skip_why": "خارج از مخاطب",
-   "skip_until": "2026-11-18T20:30:53+00:00"
+   "skip_until": "2026-11-19T08:45:45+00:00"
   },
   {
    "id": "64497aa5406ed410",
@@ -92,7 +92,7 @@
    "added": "2026-11-17T15:15:42+00:00",
    "channel_skip": true,
    "skip_why": "خارج از مخاطب",
-   "skip_until": "2026-11-18T20:30:53+00:00"
+   "skip_until": "2026-11-19T08:45:45+00:00"
   },
   {
    "id": "b435e64956b1ea21",
@@ -173,7 +173,7 @@
    "added": "2026-11-17T00:30:53+00:00",
    "channel_skip": true,
    "skip_why": "خارج از مخاطب",
-   "skip_until": "2026-11-18T20:30:53+00:00"
+   "skip_until": "2026-11-19T08:45:45+00:00"
   },
   {
    "id": "2fcea45b8abd0dd4",
@@ -430,7 +430,10 @@
    "kind": "news",
    "age_hours": 0.8,
    "published": "2026-11-18T14:40:52+00:00",
-   "added": "2026-11-18T15:30:50+00:00"
+   "added": "2026-11-18T15:30:50+00:00",
+   "full": "Mistral's AI agent Vibe now has its own desktop app. Mistral says users can give Vibe ( formerly \"Le Chat\" ) multiple tasks at once through the new desktop app and watch the agent work on them in parallel. Until now, Mistral only offered Vibe as a web app, a command-line tool, or a smartphone app. The desktop version ties together the local features of Vibe CLI with the cloud sessions from Vibe Code Web. The agent can work either in a local repository or in a cloud sandbox, and the app uses Git worktrees to keep parallel tasks in the same project separate. Beyond code, the Work mode now also has access to local files, though Mistral doesn't mention any computer-use capabilities. Competitors are further along. Anthropic's desktop app already lets Claude open apps, control browsers, and fill out spreadsheets since this spring. Mistral caught up on the model side in October with Large 4 , but in head-to-head comparisons it still trails Gemini 4 Carbon and Claude Opus 5.5 by a wide margin and also falls behind the strongest open models from China. The French company makes most of its money from enterprises and government agencies that run its models via API or on-premise. Ad Vibe Desktop is available for macOS and Windows from Mistral , with a Linux version planned. Ad Subscribe to THE DECODER for ad-free reading, a weekly AI newsletter, our exclusive \"AI Radar\" frontier report six times a year, full archive access, and access to our comment section.",
+   "use_link": "",
+   "held": true
   },
   {
    "id": "5875bfe14d0e6f3d",
