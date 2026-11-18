@@ -393,6 +393,42 @@
    "full": "A visitor lands on one of your best articles from search, reads the opening, and hits a subscription wall. They wanted that one piece, not a monthly plan, so they leave, even though they’d probably have paid a dollar for it. Micropayments were supposed to close that gap, but most systems still ask a stranger to sign up and fund a wallet before they’ve read anything worth paying for. 2WayMicropay , from Qixit, removes that step by letting publishers charge from one cent and also hand readers credits to spend. The quickest way to see what’s different is to go through the flow as a reader. Qixit’s interactive paywall demo has you create a free Qixit consumer account, receive complimentary credits, and spend them to unlock premium articles about how 2WayMicropay works. Notice the order of events. You’re asked for an account, but never for a deposit, because the credits you spend arrive through the same system that charges for the content. Qixit is the company and account platform, and 2WayMicropay is its two-way micropayment product. The 2WayMicropay WordPress plugin lets visitors pay for posts, pages, comments, video, audio, downloads and other content in Qix Credits, at prices from one cent up to several dollars. The “two-way” part is what sets it apart. Most payment systems only move value from customer to seller, while 2WayMicropay also lets publishers, advertisers and sponsors send credits to visitors, which readers can then spend on content from participating publishers. It’s worth knowing that Qix Credits are platform credits. Qixit is clear that they aren’t cash or legal tender, and that redemption and withdrawal follow its own agreements and policies. You don’t have to drop subscriptions, memberships or ads to use it. 2WayMicropay sits beside them as an à-la-carte option for the readers a subscription wall turns away. Our guide to ways to monetize WordPress covers how the other models fit together. Checkout is hosted by Qixit, so there’s nothing for you to build. A visitor signs in or creates a free Qixit account, confirms the purchase, and gets access once payment goes through. The plugin is also a showcase for a broader platform. Qixit’s vendor tools and developer API let teams add the same purchase and payout links to custom websites and other applications. Each premium item gets an access rule: pay once and view forever, pay per view, limited hours, or session only. For a free preview, you add a WordPress “More” break and enable “Use Pay-per-play works the same way for video, audio and games through a product shortcode. That lets podcasters and video creators charge for a single episode on their own site. Payout links are created in Qixit’s vendor portal and added to posts with a shortcode or URL. For each one you set the amount, the credit type, a destination URL, a total budget and an optional expiry date. Qix Credits work across participating sites, while site-specific promotional credits can only be spent on your content, which gives readers a reason to come back. Either type can fund free trials or reward readers for viewing a sponsor’s page, completing a survey or referring a friend. You don’t need to open each post to monetize",
    "use_link": "https://wordpress.org/plugins/2waymicropay/",
    "reject_hits": 1
+  },
+  {
+   "id": "6103bfd614e1089f",
+   "title": "#242 – Mark Westguard on How WordPress Adapts to Rapid Change: the Dot-Com Bubble to AI Hysteria",
+   "link": "https://wptavern.com/podcast/242-mark-westguard-on-how-wordpress-adapts-to-rapid-change-the-dot-com-bubble-to-ai-hysteria",
+   "site": "",
+   "desc": "Today I'm chatting with Mark Westguard from WS Form, and the conversation focused on how AI is transforming WordPress and the broader web development landscape. We discussed the striking similarity between today’s AI hype and the dot-com bubble, with both periods experiencing rapid innovation and investment. In Mark's view, whilst AI makes it easier for more people to build websites and plugins, true success still depends on marketing, support, and ongoing maintenance. We explored whether the flood of AI-generated products could oversaturate the market and make it harder for established develo",
+   "source": "تاورن",
+   "lang": "en",
+   "tier": 2,
+   "group": "",
+   "kind": "news",
+   "age_hours": 0.3,
+   "published": "2026-11-18T13:00:00+00:00",
+   "added": "2026-11-18T13:15:28+00:00",
+   "channel_skip": true,
+   "skip_why": "پادکست یا وبینار",
+   "skip_until": "2026-11-19T01:15:35+00:00"
+  },
+  {
+   "id": "23c03062aafe0919",
+   "title": "CSS-Tricks Is Back. Can a Community Save One of the Web’s Most Beloved Resources?",
+   "link": "https://thewpminute.com/css-tricks-is-back-can-a-community-save-one-of-the-webs-most-beloved-resources",
+   "site": "",
+   "desc": "After years of uncertainty under corporate ownership, CSS-Tricks has a new chapter and a new owner. Geoff Graham joins Matt Medeiros to talk about bringing the beloved web development resource back to its community roots and building a sustainable future for the site. Geoff shares how DigitalOcean made the transition possible, why he wants CSS-Tricks […]",
+   "source": "دبلیوپی مینت",
+   "lang": "en",
+   "tier": 2,
+   "group": "",
+   "kind": "news",
+   "age_hours": 0.4,
+   "published": "2026-11-18T12:52:50+00:00",
+   "added": "2026-11-18T13:15:31+00:00",
+   "full": "After years of uncertainty under corporate ownership, CSS-Tricks has a new chapter and a new owner. Geoff Graham joins Matt Medeiros to talk about bringing the beloved web development resource back to its community roots and building a sustainable future for the site. Geoff shares how DigitalOcean made the transition possible, why he wants CSS-Tricks… After years of uncertainty under corporate ownership, CSS-Tricks has a new chapter and a new owner. Geoff Graham joins Matt Medeiros to talk about bringing the beloved web development resource back to its community roots and building a sustainable future for the site. Geoff shares how DigitalOcean made the transition possible, why he wants CSS-Tricks to become a learning community rather than just another content site , and how memberships, sponsorships, and new educational opportunities will help support it. The conversation also gets into the bigger questions facing WordPress: Is AI making WordPress less necessary? Does the platform need a lighter version for simpler sites? And as AI changes how developers work, why will human expertise, education, and community matter even more? Plus, Geoff explains why CSS-Tricks is embracing multiple revenue streams, experimenting with cohort-based learning, and focusing on engagement over page views. New articles and episodes, plus the week’s WordPress news. A five-minute read. Free.",
+   "use_link": "",
+   "reject_hits": 1
   }
  ]
 }
