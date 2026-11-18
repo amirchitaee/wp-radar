@@ -375,6 +375,24 @@
    "full": "Enjoy all PRO features for $72 $50 per year. The discount also applies to current PRO users. Limited-time offer. Go from design to website with Framer, the web builder for designers",
    "use_link": "",
    "reject_hits": 2
+  },
+  {
+   "id": "9bca8b26d9b12cd0",
+   "title": "Discover 2WayMicropay: Sell WordPress Content From One Cent and Give Readers Credits to Spend",
+   "link": "https://wpmayor.com/discover-2waymicropay",
+   "site": "",
+   "desc": "Most readers won't subscribe for one article, and most micropayment systems still ask them to fund a wallet first. 2WayMicropay lets WordPress publishers charge from one cent and hand readers credits to spend on that content. The post \" Discover 2WayMicropay: Sell WordPress Content From One Cent and Give Readers Credits to Spend \" first appeared on WP Mayor .",
+   "source": "دبلیوپی‌مایر",
+   "lang": "en",
+   "tier": 3,
+   "group": "",
+   "kind": "news",
+   "age_hours": 1.5,
+   "published": "2026-11-18T11:00:00+00:00",
+   "added": "2026-11-18T12:30:45+00:00",
+   "full": "A visitor lands on one of your best articles from search, reads the opening, and hits a subscription wall. They wanted that one piece, not a monthly plan, so they leave, even though they’d probably have paid a dollar for it. Micropayments were supposed to close that gap, but most systems still ask a stranger to sign up and fund a wallet before they’ve read anything worth paying for. 2WayMicropay , from Qixit, removes that step by letting publishers charge from one cent and also hand readers credits to spend. The quickest way to see what’s different is to go through the flow as a reader. Qixit’s interactive paywall demo has you create a free Qixit consumer account, receive complimentary credits, and spend them to unlock premium articles about how 2WayMicropay works. Notice the order of events. You’re asked for an account, but never for a deposit, because the credits you spend arrive through the same system that charges for the content. Qixit is the company and account platform, and 2WayMicropay is its two-way micropayment product. The 2WayMicropay WordPress plugin lets visitors pay for posts, pages, comments, video, audio, downloads and other content in Qix Credits, at prices from one cent up to several dollars. The “two-way” part is what sets it apart. Most payment systems only move value from customer to seller, while 2WayMicropay also lets publishers, advertisers and sponsors send credits to visitors, which readers can then spend on content from participating publishers. It’s worth knowing that Qix Credits are platform credits. Qixit is clear that they aren’t cash or legal tender, and that redemption and withdrawal follow its own agreements and policies. You don’t have to drop subscriptions, memberships or ads to use it. 2WayMicropay sits beside them as an à-la-carte option for the readers a subscription wall turns away. Our guide to ways to monetize WordPress covers how the other models fit together. Checkout is hosted by Qixit, so there’s nothing for you to build. A visitor signs in or creates a free Qixit account, confirms the purchase, and gets access once payment goes through. The plugin is also a showcase for a broader platform. Qixit’s vendor tools and developer API let teams add the same purchase and payout links to custom websites and other applications. Each premium item gets an access rule: pay once and view forever, pay per view, limited hours, or session only. For a free preview, you add a WordPress “More” break and enable “Use Pay-per-play works the same way for video, audio and games through a product shortcode. That lets podcasters and video creators charge for a single episode on their own site. Payout links are created in Qixit’s vendor portal and added to posts with a shortcode or URL. For each one you set the amount, the credit type, a destination URL, a total budget and an optional expiry date. Qix Credits work across participating sites, while site-specific promotional credits can only be spent on your content, which gives readers a reason to come back. Either type can fund free trials or reward readers for viewing a sponsor’s page, completing a survey or referring a friend. You don’t need to open each post to monetize",
+   "use_link": "https://wordpress.org/plugins/2waymicropay/",
+   "reject_hits": 1
   }
  ]
 }
