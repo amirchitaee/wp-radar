@@ -441,6 +441,39 @@
    "full": "Datasette 1.0a43 added the ability for plugins to implement streaming export formats. Datasette core supports streaming CSV and TSV - you can export millions of lines of data from a table without needing to load it all into memory, because those two file formats support streaming data in chunks. The register_output_renderer() plugin hook can now be used to implement the same pattern for other formats. I've learned never to release a new plugin feature without accompanying it with a plugin that uses it. Claude Fable 5.2 suggested the Apache Arrow streaming format as a good option, and built this plugin in almost a single shot. Add the plugin to Datasette ( datasette install datasette-arrows ) and the export dialog gains this new Arrow option: This screenshot is from Datasette's main branch - the most recent release doesn't yet group streaming formats such as Arrow with the TSV and CSV in the \"All rows in this table\" section, but that's coming in the next alpha release. This is a beat by Simon Willison, posted on 18th November 2026 . Sponsor me for $10/month and get a curated email digest of the month's most important LLM developments.",
    "use_link": "https://github.com/datasette/datasette-arrows/releases/tag/0.1a0",
    "reject_hits": 2
+  },
+  {
+   "id": "ab196dc93b9e80d3",
+   "title": "OCR models now digitize a million pages for under $130 as costs drop fivefold in 18 months",
+   "link": "https://the-decoder.com/ocr-models-now-digitize-a-million-pages-for-under-130-as-costs-drop-fivefold-in-18-months",
+   "site": "",
+   "desc": "Pulling text out of scanned books and records has gotten a lot cheaper with freely available AI models. The article OCR models now digitize a million pages for under $130 as costs drop fivefold in 18 months appeared first on The Decoder .",
+   "source": "دیکودر",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 0.8,
+   "published": "2026-11-19T09:28:01+00:00",
+   "added": "2026-11-19T10:15:42+00:00",
+   "full": "Pulling text out of scanned books and records has gotten a lot cheaper with freely available AI models. Daniel van Strien of Hugging Face compared eight such models that recognize text in images. He tested them on 850 pages from old natural history books, the 1771 Encyclopaedia Britannica, and typed and printed archival documents. All models ran on the same GPU, an Nvidia RTX PRO 6000 that van Strien rented through Hugging Face for $2.75 per hour. At the same image size, the oldest model from April 2025 (RolmOCR) cost about 51 cents per 1,000 pages. The newest from October 2026 (LightOnOCR-3-0.8B) came in at just under 10 cents. A million pages now runs between $65 and $130 in GPU rental, depending on the source material. According to van Strien, optimizing how the models ran saved about as much money as switching to newer models did, if not more. That meant feeding pages more evenly, using smaller scans, updating software, and running a faster GPU. The newest model read book pages at least as accurately as the oldest one. Some models, though, hallucinated text on blank pages or repeated the same content over and over. The cost of scanning 1,000 pages has dropped from 51 cents for the oldest model to just under 10 cents for the newest one; the five models in between are almost on par with each other. Ad Subscribe to THE DECODER for ad-free reading, a weekly AI newsletter, our exclusive \"AI Radar\" frontier report six times a year, full archive access, and access to our comment section.",
+   "use_link": "",
+   "held": true
+  },
+  {
+   "id": "42159eae923c9536",
+   "title": "OpenAI says its models delivered a year's worth of chip optimization on top of AMD's own engineering",
+   "link": "https://the-decoder.com/openai-says-its-models-delivered-a-years-worth-of-chip-optimization-on-top-of-amds-own-engineering",
+   "site": "",
+   "desc": "Working with AMD, OpenAI achieved up to 14 percent PPA improvement on AMD's flagship GPU IP in less than five months. According to OpenAI, that's roughly a year's worth of progress, and AMD has already folded the changes into a design sent to production. Anthropic is also applying AI to chip work to optimize cost and performance per dollar. The article OpenAI says its models delivered a year's worth of chip optimization on top of AMD's own engineering appeared first on The Decoder .",
+   "source": "دیکودر",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 16.3,
+   "published": "2026-11-18T18:00:33+00:00",
+   "added": "2026-11-19T10:15:42+00:00"
   }
  ]
 }
