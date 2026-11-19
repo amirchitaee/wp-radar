@@ -418,22 +418,6 @@
    "reject_hits": 2
   },
   {
-   "id": "0bebe180e57f1c33",
-   "title": "Bring your own agents to WordPress Studio",
-   "link": "https://wordpress.com/blog/2026/11/18/wordpress-studio-agents",
-   "site": "",
-   "desc": "WordPress Studio 2.3 lets you connect the AI you already pay for, like a ChatGPT plan, a Claude subscription, or GitHub Copilot, choose your model in every chat, and publish to WordPress.com.",
-   "source": "وردپرس دات کام",
-   "lang": "en",
-   "tier": 2,
-   "group": "",
-   "kind": "news",
-   "age_hours": 1.5,
-   "published": "2026-11-18T23:02:07+00:00",
-   "added": "2026-11-19T00:30:37+00:00",
-   "held": true
-  },
-  {
    "id": "335389d60da62f8b",
    "title": "Google ships Gemini 4 Neon, its fourth new Gemini model in a month",
    "link": "https://the-decoder.com/google-ships-gemini-4-neon-its-fourth-new-gemini-model-in-a-month",
