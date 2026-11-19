@@ -55,21 +55,6 @@
    "cves": []
   },
   {
-   "t": "2026-11-15T13:01:51+00:00",
-   "id": "f7b00d7faa242846",
-   "title": "WP Statistics 14.16.19",
-   "kind": "news",
-   "link": "https://wordpress.org/plugins/wp-statistics/",
-   "ents": [
-    "statistics",
-    "wp"
-   ],
-   "vers": [
-    "14.16.19"
-   ],
-   "cves": []
-  },
-  {
    "t": "2026-11-15T15:46:10+00:00",
    "id": "65ecef2327a06bf0",
    "title": "Anthropic's Claude Fable 5.2 doesn't generate images, it paints them",
