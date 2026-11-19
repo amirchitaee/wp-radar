@@ -369,6 +369,21 @@
    "full": "The CSS scroll-state() query, surprisingly, has nothing to do with whether you’re doom-scrolling in a state of existential dread. It does, however, allow you to change the CSS used based on scrolling behavior. Far from doom, that’s pretty neat-o speedo. (Okay, you’re right, there’s nothing neat-o about a speedo). You can do lots of things that used to require JavaScript, like revealing the navigation when a user scrolls up or animating in a back to top link once the user scrolls down. While scroll-state() , with those slimming parentheses, looks like a function, it’s not technically one. It’s a container query ( @container ) like style() . Since scroll-state() is a query, the website is basically asking the browser whether a particular feature of a container has a specific value. If it does, the styles within the brackets will apply. If it doesn’t have that feature at all or has the feature, but the value is different, the @container query is false and the styles in the brackets will not apply. In the following demo (which we’ll dissect in a bit), a “Back to Top” link slides in from the bottom as you scroll down the page. Syntax @container scroll-state( <scroll-state-feature>: <value> ) { /* styles */ } Values scroll-state() has four possible features and each of those has a variety of possible values. scrolled Asks if a container has been scrolled in a given direction: scrollable Asks if a container can be scrolled in a given direction: stuck Asks if a sticky-positioned element is stuck: snapped Asks if a snap target has been snapped on a particular axis: Demos Scrolled First let’s look at the scrolled feature. This is the demo we saw at the beginning where we animate a back-to-top link when we scroll down: .toplink { position: fixed; bottom: 0.125em; right: 1em; translate: 0 200px; transition: translate 0.5s; @container top-revealer scroll-state(scrolled: block-end) { translate: 0 0; transition: translate 0.5s; } } When the scroll container is scrolled toward the block-end (downward in this case) the translate applies and the .toplink element animates up into the visible area. Because we’re using a transition , when we scroll a different direction (up and down/ block-start and block-end are the only options here), it nicely animates out. Scrollable While the scrolling direction in the demo above is pretty clear, what if this page was translated into a different language? Or we had a hero image that covered the entire viewport? One way we could indicate the scroll direction would be to have an arrow or other signifier animating and pointing in the correct direction. (I’m more a believer in constructing your page such that scroll direction is pretty obvious; however, I can foresee situations where an indicator was the best user experience or where translations/writing-mode changes could obscure what scrolling direction was appropriate.) .scrollindicator { display: none; @container top-revealer scroll-state(scrollable: block-end) { display: block; } } One nice thing about the scrollable feature is that when you scroll to the end of the scrollable area, it shuts off. So when we scroll to the block-end of the page (bottom of the page in this ins",
    "use_link": "",
    "reject_hits": 2
+  },
+  {
+   "id": "ed8618f15436cf68",
+   "title": "Who controls your site? Securing AI agent access in WordPress",
+   "link": "https://kinsta.com/blog/control-ai-agent-access-in-wordpress",
+   "site": "",
+   "desc": "One of your publishing clients receives hundreds of comments every weekend. By Monday morning, an editor has already lost an hour to fake giveaways and copied ...",
+   "source": "کینستا",
+   "lang": "en",
+   "tier": 2,
+   "group": "",
+   "kind": "news",
+   "age_hours": 5.8,
+   "published": "2026-11-19T13:30:37+00:00",
+   "added": "2026-11-19T19:15:40+00:00"
   }
  ]
 }
