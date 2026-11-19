@@ -471,24 +471,6 @@
    "age_hours": 0.2,
    "published": "2026-11-19T11:18:18+00:00",
    "added": "2026-11-19T11:30:48+00:00"
-  },
-  {
-   "id": "02cc01ed3095cfc8",
-   "title": "Discover Vireo Analytics: See How Much of Your WordPress Traffic Is Human",
-   "link": "https://wpmayor.com/discover-vireo-analytics",
-   "site": "",
-   "desc": "Most WordPress analytics can tell you how many visits you got but not how many came from people. Vireo Analytics filters out bots, reports AI as its own traffic source and brings your history with it, without setting a single cookie. The post \" Discover Vireo Analytics: See How Much of Your WordPress Traffic Is Human \" first appeared on WP Mayor .",
-   "source": "دبلیوپی‌مایر",
-   "lang": "en",
-   "tier": 3,
-   "group": "",
-   "kind": "news",
-   "age_hours": 1.5,
-   "published": "2026-11-19T10:00:00+00:00",
-   "added": "2026-11-19T11:30:42+00:00",
-   "full": "How much of your traffic is actually human is the question I hear most from site owners at the moment, and most analytics can’t answer it. Between AI crawlers fetching thousands of pages, automated browsers that pass themselves off as Chrome and readers who now arrive by way of ChatGPT or Perplexity, the visitor figure in most dashboards mixes several very different things into one number. We built Vireo Analytics at RebelCode to pull those apart. It started as our founder, Jean Galea’s, own project before it became one of our products. One of the early reviews it picked up on WordPress.org came from Jamie , who’s rolling it out across eight sites, and what sold them was that it records AI agents separately from real users. This article covers how Vireo separates people from bots and AI, how it brings your history over from GA4 and eight other tools, what cookie-free counting means for your numbers, and what Vireo Pro adds on top of the free version. Vireo Analytics is a free, self-hosted analytics plugin for WordPress. It keeps known bots, crawlers and automated browsers out of your numbers, reports ChatGPT, Claude, Gemini, Perplexity and Copilot as their own traffic source, and shows the Google searches behind each post through Search Console. It sets no cookies, and visitor data stays in your own WordPress database rather than coming to us or anyone else. The free plugin runs on as many sites as you like and covers traffic, history imports, Search Console, AI assistant traffic, the MCP server and the REST API. Vireo Pro runs on top of it for sites that want revenue and lead tracking, deeper content reports, or client dashboards. Most sites I see run one of two setups. Some use GA4, either directly or through a plugin like MonsterInsights or Site Kit, which sets cookies and sends visitor data to Google, so it usually sits behind a consent banner. Others have moved to a self-hosted plugin such as Koko Analytics, WP Statistics, Burst Statistics, or Independent Analytics to keep the data on their own server. Vireo can replace either setup, or run alongside GA4 while you decide. It doesn’t need Google Analytics to work, but it can import from it, so the usual cost of switching (charts that restart from zero, for example) doesn’t apply. If you’ve read our guide to tracking WordPress site performance without Google Analytics , Vireo sits on the self-hosted side of that picture. That’s how we made the move ourselves. Vireo now runs on all of RebelCode’s sites, WP Mayor included, with our GA4 history imported, Search Console connected, and Claude AI connected over MCP. With bots and AI filtered out, it gives us a far more accurate picture of our traffic than GA4 did on its own. On our product sites, Vireo Pro also traces sales from Easy Digital Downloads, Freemius, and WooCommerce back to the page and source that brought each buyer in. Plenty of plugins now count AI in some form. There are dedicated AI crawler monitors on WordPress.org, and a few newer analytics plugins list AI crawlers separately too. What Vireo does differently is put the whole picture inside your main analytics. You get bot filtering you can check, AI readers as a traffic source",
-   "use_link": "https://wordpress.org/plugins/vireo-analytics/",
-   "held": true
   }
  ]
 }
