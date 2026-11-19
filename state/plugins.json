@@ -6,8 +6,8 @@
    "at": "2026-11-16T15:30:51+00:00"
   },
   "woocommerce": {
-   "version": "11.3.0",
-   "at": "2026-11-11T18:01:03+00:00"
+   "version": "11.3.1",
+   "at": "2026-11-19T20:45:46+00:00"
   },
   "wordpress-seo": {
    "version": "28.9",
@@ -38,8 +38,8 @@
    "at": "2026-11-10T06:30:45+00:00"
   },
   "advanced-custom-fields": {
-   "version": "6.8.11",
-   "at": "2026-11-03T14:20:26+00:00"
+   "version": "6.8.12",
+   "at": "2026-11-19T20:45:48+00:00"
   },
   "all-in-one-wp-migration": {
    "version": "7.113",
@@ -87,7 +87,8 @@
   },
   "kadence-blocks": {
    "version": "3.9.1.1",
-   "at": "2026-11-16T23:01:03+00:00"
+   "at": "2026-11-16T23:01:03+00:00",
+   "tries": 1
   },
   "zarinpal-woocommerce-payment-gateway": {
    "version": "5.1.2",
