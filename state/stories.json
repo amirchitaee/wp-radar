@@ -55,22 +55,6 @@
    "cves": []
   },
   {
-   "t": "2026-11-15T15:46:10+00:00",
-   "id": "65ecef2327a06bf0",
-   "title": "Anthropic's Claude Fable 5.2 doesn't generate images, it paints them",
-   "kind": "news",
-   "link": "https://the-decoder.com/anthropics-claude-fable-5-2-doesnt-generate-images-it-paints-them",
-   "ents": [
-    "anthropic",
-    "claude",
-    "fable"
-   ],
-   "vers": [
-    "5.2"
-   ],
-   "cves": []
-  },
-  {
    "t": "2026-11-15T20:30:54+00:00",
    "id": "1b73ae181d705263",
    "title": "Website Inspiration: Wowww studio",
@@ -447,6 +431,21 @@
    "ents": [
     "ai",
     "websites"
+   ],
+   "vers": [],
+   "cves": []
+  },
+  {
+   "t": "2026-11-19T16:17:39+00:00",
+   "id": "5c61e4288665e5bb",
+   "title": "PHP’s November 2026 Security Release: What Reaches WordPress",
+   "kind": "news",
+   "link": "https://patchstack.com/articles/php-november-2026-security-release-wordpress",
+   "ents": [
+    "november",
+    "php",
+    "reaches",
+    "wordpress"
    ],
    "vers": [],
    "cves": []
