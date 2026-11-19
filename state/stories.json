@@ -437,6 +437,19 @@
     "2.0.5.1"
    ],
    "cves": []
+  },
+  {
+   "t": "2026-11-19T15:32:03+00:00",
+   "id": "49bf6d419db70cf8",
+   "title": "Websites are as relevant as ever, they just have a new type of visitor: AI agents",
+   "kind": "news",
+   "link": "https://elementor.com/blog/new-type-of-visitor",
+   "ents": [
+    "ai",
+    "websites"
+   ],
+   "vers": [],
+   "cves": []
   }
  ]
 }

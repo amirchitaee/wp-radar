@@ -95,7 +95,7 @@
    "added": "2026-11-18T13:15:28+00:00",
    "channel_skip": true,
    "skip_why": "پادکست یا وبینار",
-   "skip_until": "2026-11-19T15:30:47+00:00"
+   "skip_until": "2026-11-20T03:30:56+00:00"
   },
   {
    "id": "23c03062aafe0919",
@@ -174,24 +174,6 @@
    "full": "The US wants to block China from renting AI power abroad but China already built a parallel supply chain from US AI output Maximilian Schreiner View the LinkedIn Profile of Maximilian Schreiner Nov 17, 2026 Nano Banana Pro prompted by THE DECODER Chinese companies have been skirting US export bans by legally renting Nvidia computing power in third countries. After Nvidia CEO Jensen Huang's resignation, the US is closing that loophole. An investigation also reveals how China has cushioned the years-long chip embargo through an entire industry built around model distillation. For years, the US has tried to cut China off from importing advanced AI processors through strict export controls. Chinese companies responded by exploiting an entirely legal loophole, renting the computing power they needed through cloud-based remote access from foreign data centers that were allowed to receive US hardware. The Bureau of Industry and Security (BIS) at the US Commerce Department now wants to shut down that workaround with an interim rule . It aligns remote-access rules with existing physical export bans. Data center operators in Singapore, Malaysia, Thailand, Indonesia, and Brazil will need a US government license to buy advanced AI chips from US manufacturers like Nvidia, Bloomberg reports . Applications will be reviewed on a case-by-case basis. Subsidiaries of US-headquartered companies are exempt from the license requirement, as are shipments to data centers running only commercial recommendation systems for online retailers or social media platforms. The rules take effect once published in the Federal Register. Nvidia's stock fell as much as 2.9 percent after the announcement, while the Philadelphia Semiconductor Index dropped up to 5.5 percent. The political trigger, though, was suspected illegal smuggling of physical chips. The new rule comes just days after the abrupt resignation of Nvidia CEO Jensen Huang, who had admitted to an affair with Alice Huang, a former manager at Singapore-based Megaspeed International. US authorities suspect Alice Huang, who now lives in China, of espionage. They are investigating Megaspeed for possible export-control violations after banned Nvidia chips reportedly turned up in a Chinese data center linked to her. Megaspeed denies any wrongdoing, and President Donald Trump said Monday that Jensen Huang did not compromise national security. The scandal still set off an open power struggle in Washington over lax enforcement of chip sanctions. Commerce Secretary Howard Lutnick had delayed a Trump-authorized measure against illegal chip diversions, according to Axios, prompting Treasury Secretary Scott Bessent to publicly accuse him of inaction. The Commerce Department's announcement now states with unusual bluntness that the draft rule was written by and at the direction of the Treasury Department and the National Security Council. A separate exclusive Reuters investigation shows how Chinese developers cope with the years-long shortage of top-tier domestic hardware. By reviewing more than 300 Chinese papers, patents, job postings, and government documents, Reuters shows for the first time how heavily China relies on model d",
    "use_link": "",
    "reject_hits": 1
-  },
-  {
-   "id": "e1a87f9f921d4b9e",
-   "title": "OpenAI opens its cybersecurity tool Daybreak to NATO and European governments",
-   "link": "https://the-decoder.com/openai-opens-its-cybersecurity-tool-daybreak-to-nato-and-european-governments",
-   "site": "",
-   "desc": "OpenAI is opening its cybersecurity tool Daybreak to NATO and several European governments, including Germany, France, and Poland. The EU's cybersecurity agency ENISA has already used it to find real vulnerabilities in EU software. The NATO Communications and Information Agency (NCIA) says it's already making heavy use of the underlying models. The article OpenAI opens its cybersecurity tool Daybreak to NATO and European governments appeared first on The Decoder .",
-   "source": "دیکودر",
-   "lang": "en",
-   "tier": 2,
-   "group": "ai",
-   "kind": "news",
-   "age_hours": 0.2,
-   "published": "2026-11-17T15:02:03+00:00",
-   "added": "2026-11-17T15:15:42+00:00",
-   "full": "OpenAI is giving NATO and several European governments access to its cybersecurity tool Daybreak. Through Daybreak , cyber defense teams can use OpenAI's models to audit software, find vulnerabilities, and patch security gaps. The NATO Communications and Information Agency (NCIA) says it's already using the underlying models heavily. NCIA chief Dylan Browne called it a generational leap in cyber defense. During the NATO exercise Crossed Swords 2026 , participants deployed AI agents for cyber operations under human oversight for the first time. The models have already delivered results elsewhere. The EU's cybersecurity agency ENISA used them to find four vulnerabilities in software used by EU institutions. A joint report with CERT-EU examined 27 software projects, and 95 percent of the 88 reported issues turned out to be real bugs. Poland's CERT Polska found six vulnerabilities in MikroTik routers that were being actively exploited. Ukraine is using Daybreak to protect civilian infrastructure. France, Germany, and Poland have also been granted access. Subscribe to THE DECODER for ad-free reading, a weekly AI newsletter, our exclusive \"AI Radar\" frontier report six times a year, full archive access, and access to our comment section.",
-   "use_link": "https://openai.com/index/strengthening-nato-allied-cyber-defences-ai/",
-   "reject_hits": 2
   },
   {
    "id": "a2ff170e3766f7d9",
@@ -404,7 +386,46 @@
    "kind": "news",
    "age_hours": 0.7,
    "published": "2026-11-19T14:02:22+00:00",
-   "added": "2026-11-19T14:45:39+00:00"
+   "added": "2026-11-19T14:45:39+00:00",
+   "channel_skip": true,
+   "skip_why": "خارج از مخاطب",
+   "skip_until": "2026-11-20T03:30:56+00:00"
+  },
+  {
+   "id": "49bf6d419db70cf8",
+   "title": "Websites are as relevant as ever, they just have a new type of visitor: AI agents",
+   "link": "https://elementor.com/blog/new-type-of-visitor",
+   "site": "",
+   "desc": "People are clicking through to websites less, but traffic keeps growing, because AI agents are visiting on their behalf. Here’s how to welcome this new visitor.",
+   "source": "المنتور",
+   "lang": "en",
+   "tier": 2,
+   "group": "",
+   "kind": "news",
+   "age_hours": 0.6,
+   "published": "2026-11-19T14:56:14+00:00",
+   "added": "2026-11-19T15:30:41+00:00",
+   "full": "Loading... Many are wondering if it’s the end of the website era, now that people are interacting more and more with information within the confines of their AI clients like ChatGPT, Claude, etc. instead of visiting the sites themselves. When looking at regular analytics, it may indeed appear that it’s the end of the web as we know it because people aren’t visiting websites. However, when we look closely at what’s really happening on websites, who (or what) is visiting them, and how often, a different story emerges: websites are very relevant, and will continue to be, but they now have to be ready to welcome a new type of visitor: AI agents. I gave a talk about this last week at the CloudFest Americas conference , explaining where the web is at, and how site owners can prepare to maximize this new reality and opportunity. The talk was titled “Is the Website Dying?” and here’s a recap of what I shared. Photo credit: Marcus Burnette Every few years someone announces that the website, and WordPress along with it, is dead. Apps were going to kill it, then social media, and at one point people even said voice assistants like Amazon Echo and Google Home would finish it off! With website analytics looking the way they do now, I understand why people are predicting the demise of the web again. The numbers don’t look so good. Pew Research Center studied the real browsing data of 900 US adults to see how Google’s AI summaries affect clicks. When Google didn’t show a summary, people clicked through to a website in 15% of visits. When Google showed an AI summary at the top of the results, that dropped to 8%. The AI summary gives people the information right on the results page, so fewer of them need to visit the site it came from. For about 30 years, the web ran on a simple deal. You let search engines crawl your site, they sent you visitors in return, and you turned those visitors into customers. That deal is breaking, and it isn’t ever going to be the same again. While click-throughs are going down, overall traffic to websites is changing, and in some ways it’s even increasing. In September, Cloudflare reported that more than half of internet traffic is no longer human, and daily requests from AI agents on its network grew by more than 1,700% in a single year! People often show that number as proof that the website is dying, because they see it as the demise of the human web visitor. But I read it the opposite way: bots go out of their way to visit websites, and in increasing numbers and frequency, because websites have what they need. They come to read pages and check facts, and increasingly to do something on a site on behalf of a person. When someone asks an AI assistant a question, the assistant may read several pages to answer it while the person themself never visits any of them. So while technically people may be visiting sites less, they are still visiting sites via their proxies, AI agents. So the website isn’t dying; its audience is simply evolving. If AI agents are a large and growing share of your visitors, how do you make your site a good place for them? Start with what they’re trying to do. Agents visit sites for three reasons, and gettin",
+   "use_link": "",
+   "held": true
+  },
+  {
+   "id": "f1b2d3570214958c",
+   "title": "scroll-state()",
+   "link": "https://css-tricks.com/almanac/functions/s/scroll-state",
+   "site": "",
+   "desc": "The CSS scroll-state() query, surprisingly, has nothing to do with whether you’re doom-scrolling in a state of existential dread. It does, however, allow you to change the CSS used based on scrolling behavior. scroll-state() originally handwritten and published with love on CSS-Tricks . You should really get the newsletter as well.",
+   "source": "سی‌اس‌اس تریکس",
+   "lang": "en",
+   "tier": 3,
+   "group": "",
+   "kind": "news",
+   "age_hours": 0.5,
+   "published": "2026-11-19T14:57:54+00:00",
+   "added": "2026-11-19T15:30:43+00:00",
+   "full": "The CSS scroll-state() query, surprisingly, has nothing to do with whether you’re doom-scrolling in a state of existential dread. It does, however, allow you to change the CSS used based on scrolling behavior. Far from doom, that’s pretty neat-o speedo. (Okay, you’re right, there’s nothing neat-o about a speedo). You can do lots of things that used to require JavaScript, like revealing the navigation when a user scrolls up or animating in a back to top link once the user scrolls down. While scroll-state() , with those slimming parentheses, looks like a function, it’s not technically one. It’s a container query ( @container ) like style() . Since scroll-state() is a query, the website is basically asking the browser whether a particular feature of a container has a specific value. If it does, the styles within the brackets will apply. If it doesn’t have that feature at all or has the feature, but the value is different, the @container query is false and the styles in the brackets will not apply. In the following demo (which we’ll dissect in a bit), a “Back to Top” link slides in from the bottom as you scroll down the page. Syntax @container scroll-state( <scroll-state-feature>: <value> ) { /* styles */ } Values scroll-state() has four possible features and each of those has a variety of possible values. scrolled Asks if a container has been scrolled in a given direction: scrollable Asks if a container can be scrolled in a given direction: stuck Asks if a sticky-positioned element is stuck: snapped Asks if a snap target has been snapped on a particular axis: Demos Scrolled First let’s look at the scrolled feature. This is the demo we saw at the beginning where we animate a back-to-top link when we scroll down: .toplink { position: fixed; bottom: 0.125em; right: 1em; translate: 0 200px; transition: translate 0.5s; @container top-revealer scroll-state(scrolled: block-end) { translate: 0 0; transition: translate 0.5s; } } When the scroll container is scrolled toward the block-end (downward in this case) the translate applies and the .toplink element animates up into the visible area. Because we’re using a transition , when we scroll a different direction (up and down/ block-start and block-end are the only options here), it nicely animates out. Scrollable While the scrolling direction in the demo above is pretty clear, what if this page was translated into a different language? Or we had a hero image that covered the entire viewport? One way we could indicate the scroll direction would be to have an arrow or other signifier animating and pointing in the correct direction. (I’m more a believer in constructing your page such that scroll direction is pretty obvious; however, I can foresee situations where an indicator was the best user experience or where translations/writing-mode changes could obscure what scrolling direction was appropriate.) .scrollindicator { display: none; @container top-revealer scroll-state(scrollable: block-end) { display: block; } } One nice thing about the scrollable feature is that when you scroll to the end of the scrollable area, it shuts off. So when we scroll to the block-end of the page (bottom of the page in this ins",
+   "use_link": "",
+   "reject_hits": 1
   }
  ]
 }
