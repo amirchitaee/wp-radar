@@ -419,6 +419,25 @@
    ],
    "vers": [],
    "cves": []
+  },
+  {
+   "t": "2026-11-19T11:31:20+00:00",
+   "id": "02cc01ed3095cfc8",
+   "title": "Discover Vireo Analytics: See How Much of Your WordPress Traffic Is Human",
+   "kind": "news",
+   "link": "https://wpmayor.com/discover-vireo-analytics",
+   "ents": [
+    "analytics",
+    "discover",
+    "human",
+    "is",
+    "see",
+    "traffic",
+    "vireo",
+    "wordpress"
+   ],
+   "vers": [],
+   "cves": []
   }
  ]
 }
