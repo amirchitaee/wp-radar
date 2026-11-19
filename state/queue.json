@@ -227,7 +227,7 @@
    "added": "2026-11-17T15:15:42+00:00",
    "channel_skip": true,
    "skip_why": "خارج از مخاطب",
-   "skip_until": "2026-11-19T08:45:45+00:00"
+   "skip_until": "2026-11-19T21:01:23+00:00"
   },
   {
    "id": "64497aa5406ed410",
@@ -245,7 +245,7 @@
    "added": "2026-11-17T15:15:42+00:00",
    "channel_skip": true,
    "skip_why": "خارج از مخاطب",
-   "skip_until": "2026-11-19T08:45:45+00:00"
+   "skip_until": "2026-11-19T21:01:23+00:00"
   },
   {
    "id": "a2ff170e3766f7d9",
@@ -391,7 +391,10 @@
    "kind": "news",
    "age_hours": 3.5,
    "published": "2026-11-18T21:03:23+00:00",
-   "added": "2026-11-19T00:30:44+00:00"
+   "added": "2026-11-19T00:30:44+00:00",
+   "full": "Google released Gemini 4 Neon, promising \"frontier-level intelligence with fast end-to-end task completion across complex software engineering, knowledge work, and science workflows.\" The model is live today through the API at $3 per million input tokens and $15 per million output tokens, above Carbon and Argon's introductory rate of $2/$10 (doubling to $4/$20 on December 1 ) and twice the price of Hydrogen at $1.50/$7.50. Neon offers a context window of about one million tokens and can produce up to one million output tokens. It handles text, images, video, audio, and PDFs, with support for Computer Use , code execution, file search, and grounding via Google Search and Maps. Image and audio generation aren't supported. Full specs are in the documentation . Benchmarks should follow in the next few hours. If Carbon and Argon are Google's counterparts to OpenAI's Astra or Anthropic's Fable, Neon is likely its Claude Opus or Sol equivalent. It's also Google's fourth new Gemini 4 model in four weeks. Ad Ad Subscribe to THE DECODER for ad-free reading, a weekly AI newsletter, our exclusive \"AI Radar\" frontier report six times a year, full archive access, and access to our comment section.",
+   "use_link": "",
+   "held": true
   },
   {
    "id": "02cad8eaae446dc5",
