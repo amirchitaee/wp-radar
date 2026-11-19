@@ -446,6 +446,67 @@
    "age_hours": 92.2,
    "published": "2026-11-15T03:49:47+00:00",
    "added": "2026-11-19T00:00:49+00:00"
+  },
+  {
+   "id": "0bebe180e57f1c33",
+   "title": "Bring your own agents to WordPress Studio",
+   "link": "https://wordpress.com/blog/2026/11/18/wordpress-studio-agents",
+   "site": "",
+   "desc": "WordPress Studio 2.3 lets you connect the AI you already pay for, like a ChatGPT plan, a Claude subscription, or GitHub Copilot, choose your model in every chat, and publish to WordPress.com.",
+   "source": "وردپرس دات کام",
+   "lang": "en",
+   "tier": 2,
+   "group": "",
+   "kind": "news",
+   "age_hours": 1.5,
+   "published": "2026-11-18T23:02:07+00:00",
+   "added": "2026-11-19T00:30:37+00:00",
+   "held": true
+  },
+  {
+   "id": "335389d60da62f8b",
+   "title": "Google ships Gemini 4 Neon, its fourth new Gemini model in a month",
+   "link": "https://the-decoder.com/google-ships-gemini-4-neon-its-fourth-new-gemini-model-in-a-month",
+   "site": "",
+   "desc": "Google released Gemini 4 Neon, a new frontier model built for software development, knowledge work, and science. It handles text, images, video, audio, and PDFs with a context window of one million tokens. At $3 per million input tokens and $15 per million output tokens, Neon is priced above previous Gemini 4 models. The article Google ships Gemini 4 Neon, its fourth new Gemini model in a month appeared first on The Decoder .",
+   "source": "دیکودر",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 3.5,
+   "published": "2026-11-18T21:03:23+00:00",
+   "added": "2026-11-19T00:30:44+00:00"
+  },
+  {
+   "id": "02cad8eaae446dc5",
+   "title": "Google Deepmind's Project Genie update brings Genie 4, chainable worlds, and a community gallery for remixing",
+   "link": "https://the-decoder.com/google-deepminds-project-genie-update-brings-genie-4-chainable-worlds-and-a-community-gallery-for-remixing",
+   "site": "",
+   "desc": "With Genie 4, Google DeepMind is launching its most realistic world model to date for Google AI Ultra subscribers. It generates interactive 3D worlds that can be modified in real time via text input and, for the first time, includes native sound. A community gallery allows users to share and remix the worlds they've created. The article Google Deepmind's Project Genie update brings Genie 4, chainable worlds, and a community gallery for remixing appeared first on The Decoder .",
+   "source": "دیکودر",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 5.1,
+   "published": "2026-11-18T19:26:25+00:00",
+   "added": "2026-11-19T00:30:44+00:00"
+  },
+  {
+   "id": "0250765af6030c2e",
+   "title": "Microsoft is replacing outside AI models in its own products with cheaper in-house alternatives",
+   "link": "https://the-decoder.com/microsoft-is-replacing-outside-ai-models-in-its-own-products-with-cheaper-in-house-alternatives",
+   "site": "",
+   "desc": "Microsoft's AI division MAI unveiled seven new models for code, security, images, language, and routing at Ignite. MAI Code 2 reaches 98 percent of GPT-6.1 Sol's performance at 40 percent of the cost, according to Microsoft. The models are built for running AI agents around the clock in enterprises. The article Microsoft is replacing outside AI models in its own products with cheaper in-house alternatives appeared first on The Decoder .",
+   "source": "دیکودر",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 5.7,
+   "published": "2026-11-18T18:47:36+00:00",
+   "added": "2026-11-19T00:30:44+00:00"
   }
  ]
 }
