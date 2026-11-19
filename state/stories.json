@@ -55,22 +55,6 @@
    "cves": []
   },
   {
-   "t": "2026-11-15T00:31:15+00:00",
-   "id": "a5dca2d386f6a667",
-   "title": "Anthropic says outdated prompting habits are slowing down Claude Opus 5.5",
-   "kind": "news",
-   "link": "https://the-decoder.com/anthropic-says-outdated-prompting-habits-are-slowing-down-claude-opus-5-5",
-   "ents": [
-    "anthropic",
-    "claude",
-    "opus"
-   ],
-   "vers": [
-    "5.5"
-   ],
-   "cves": []
-  },
-  {
    "t": "2026-11-15T10:46:16+00:00",
    "id": "6fc6bc2d3ff2654d",
    "title": "Meituan releases a 1.6-trillion-parameter agent model that never touched an Nvidia GPU",
