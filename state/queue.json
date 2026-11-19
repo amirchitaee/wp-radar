@@ -429,6 +429,21 @@
    "age_hours": 0.2,
    "published": "2026-11-19T11:18:18+00:00",
    "added": "2026-11-19T11:30:48+00:00"
+  },
+  {
+   "id": "bb25daab1f924307",
+   "title": "OpenAI's own researchers now say they value their AI tools more than nearly half their colleagues",
+   "link": "https://the-decoder.com/openais-own-researchers-now-say-they-value-their-ai-tools-more-than-nearly-half-their-colleagues",
+   "site": "",
+   "desc": "OpenAI's internal use of coding agents is growing fast, with theoretical token costs now exceeding researchers' base salaries. Even though teams are reluctant to work without these tools, the models still produce a lot of \"AI slop\" beyond routine tasks. The article OpenAI's own researchers now say they value their AI tools more than nearly half their colleagues appeared first on The Decoder .",
+   "source": "دیکودر",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 0.9,
+   "published": "2026-11-19T13:08:35+00:00",
+   "added": "2026-11-19T14:01:09+00:00"
   }
  ]
 }
