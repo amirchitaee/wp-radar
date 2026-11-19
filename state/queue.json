@@ -392,24 +392,6 @@
    "skip_until": "2026-11-20T03:30:56+00:00"
   },
   {
-   "id": "49bf6d419db70cf8",
-   "title": "Websites are as relevant as ever, they just have a new type of visitor: AI agents",
-   "link": "https://elementor.com/blog/new-type-of-visitor",
-   "site": "",
-   "desc": "People are clicking through to websites less, but traffic keeps growing, because AI agents are visiting on their behalf. Here’s how to welcome this new visitor.",
-   "source": "المنتور",
-   "lang": "en",
-   "tier": 2,
-   "group": "",
-   "kind": "news",
-   "age_hours": 0.6,
-   "published": "2026-11-19T14:56:14+00:00",
-   "added": "2026-11-19T15:30:41+00:00",
-   "full": "Loading... Many are wondering if it’s the end of the website era, now that people are interacting more and more with information within the confines of their AI clients like ChatGPT, Claude, etc. instead of visiting the sites themselves. When looking at regular analytics, it may indeed appear that it’s the end of the web as we know it because people aren’t visiting websites. However, when we look closely at what’s really happening on websites, who (or what) is visiting them, and how often, a different story emerges: websites are very relevant, and will continue to be, but they now have to be ready to welcome a new type of visitor: AI agents. I gave a talk about this last week at the CloudFest Americas conference , explaining where the web is at, and how site owners can prepare to maximize this new reality and opportunity. The talk was titled “Is the Website Dying?” and here’s a recap of what I shared. Photo credit: Marcus Burnette Every few years someone announces that the website, and WordPress along with it, is dead. Apps were going to kill it, then social media, and at one point people even said voice assistants like Amazon Echo and Google Home would finish it off! With website analytics looking the way they do now, I understand why people are predicting the demise of the web again. The numbers don’t look so good. Pew Research Center studied the real browsing data of 900 US adults to see how Google’s AI summaries affect clicks. When Google didn’t show a summary, people clicked through to a website in 15% of visits. When Google showed an AI summary at the top of the results, that dropped to 8%. The AI summary gives people the information right on the results page, so fewer of them need to visit the site it came from. For about 30 years, the web ran on a simple deal. You let search engines crawl your site, they sent you visitors in return, and you turned those visitors into customers. That deal is breaking, and it isn’t ever going to be the same again. While click-throughs are going down, overall traffic to websites is changing, and in some ways it’s even increasing. In September, Cloudflare reported that more than half of internet traffic is no longer human, and daily requests from AI agents on its network grew by more than 1,700% in a single year! People often show that number as proof that the website is dying, because they see it as the demise of the human web visitor. But I read it the opposite way: bots go out of their way to visit websites, and in increasing numbers and frequency, because websites have what they need. They come to read pages and check facts, and increasingly to do something on a site on behalf of a person. When someone asks an AI assistant a question, the assistant may read several pages to answer it while the person themself never visits any of them. So while technically people may be visiting sites less, they are still visiting sites via their proxies, AI agents. So the website isn’t dying; its audience is simply evolving. If AI agents are a large and growing share of your visitors, how do you make your site a good place for them? Start with what they’re trying to do. Agents visit sites for three reasons, and gettin",
-   "use_link": "",
-   "held": true
-  },
-  {
    "id": "f1b2d3570214958c",
    "title": "scroll-state()",
    "link": "https://css-tricks.com/almanac/functions/s/scroll-state",
