@@ -69,23 +69,6 @@
    "cves": []
   },
   {
-   "t": "2026-11-16T11:58:48+00:00",
-   "id": "7f6eab96fdd58cfa",
-   "title": "I Found A Free Desktop App That Connects Your AI to All Your WordPress Sites",
-   "kind": "news",
-   "link": "https://wpmayor.com/novamira-hq-launch",
-   "ents": [
-    "ai",
-    "all",
-    "connects",
-    "desktop",
-    "found",
-    "wordpress"
-   ],
-   "vers": [],
-   "cves": []
-  },
-  {
    "t": "2026-11-16T13:15:59+00:00",
    "id": "d13a856902e36309",
    "title": "Is Your WooCommerce Host the Problem?",
