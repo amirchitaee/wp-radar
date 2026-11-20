@@ -216,21 +216,6 @@
    "skip_permanent": true
   },
   {
-   "id": "996cedf31573e6ea",
-   "title": "KPMG's \"Project Exponential\" put AI agents alongside a real audit team and found the bots dug deeper on individual questions",
-   "link": "https://the-decoder.com/kpmgs-project-exponential-put-ai-agents-alongside-a-real-audit-team-and-found-the-bots-dug-deeper-on-individual-questions",
-   "site": "",
-   "desc": "KPMG deployed more than 100 AI agents alongside the regular audit of a UK-listed company. The agents asked \"better questions\" than the audit team in some cases, according to UK head of audit Cath Burnet. The UK's accounting regulator, the FRC, sees a risk in the approach because AI agents analyze far more data than traditional sampling methods, potentially surfacing findings that could serve as a sales pitch for lucrative consulting work and undermine auditor independence. The article KPMG's \"Project Exponential\" put AI agents alongside a real audit team and found the bots dug deeper on indivi",
-   "source": "دیکودر",
-   "lang": "en",
-   "tier": 2,
-   "group": "ai",
-   "kind": "news",
-   "age_hours": 0.1,
-   "published": "2026-11-18T13:55:49+00:00",
-   "added": "2026-11-18T14:01:14+00:00"
-  },
-  {
    "id": "2fcea45b8abd0dd4",
    "title": "Smush 4.3.7",
    "link": "https://wordpress.org/plugins/wp-smushit/",
