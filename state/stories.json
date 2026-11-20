@@ -530,6 +530,22 @@
    ],
    "vers": [],
    "cves": []
+  },
+  {
+   "t": "2026-11-20T00:30:59+00:00",
+   "id": "927af7ecd6d1ef51",
+   "title": "Your Zoom Scheduler Booking Page, Now on WordPress.com",
+   "kind": "news",
+   "link": "https://wordpress.com/blog/2026/11/19/zoom-scheduler",
+   "ents": [
+    "booking",
+    "page",
+    "scheduler",
+    "wordpress.com",
+    "zoom"
+   ],
+   "vers": [],
+   "cves": []
   }
  ]
 }
