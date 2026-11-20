@@ -481,6 +481,19 @@
     "14.16.20"
    ],
    "cves": []
+  },
+  {
+   "t": "2026-11-20T22:01:10+00:00",
+   "id": "fd3deff7466808c0",
+   "title": "Google's latest homepage update pushes its search engine further toward an AI answer engine",
+   "kind": "news",
+   "link": "https://the-decoder.com/googles-latest-homepage-update-pushes-its-search-engine-further-toward-an-ai-answer-engine",
+   "ents": [
+    "ai",
+    "google"
+   ],
+   "vers": [],
+   "cves": []
   }
  ]
 }

@@ -299,7 +299,10 @@
    "kind": "news",
    "age_hours": 1.2,
    "published": "2026-11-20T13:19:31+00:00",
-   "added": "2026-11-20T14:30:54+00:00"
+   "added": "2026-11-20T14:30:54+00:00",
+   "full": "Google is rolling out a collapsible sidebar globally on its Desktop Search homepage, making AI search even easier to access. Announced on X by Google Search VP Robby Stein , the feature lets users easily find and reopen recent AI searches. Sitting on the left side of the AI Mode interface, it lets users start new threads, search existing ones, create notebooks, and open recent queries and settings. Stein said people are increasingly asking Google Search questions that a single query can't answer. In testing, the sidebar significantly helped users make progress and keep researching across the web by making it easier to pick up right where they left off. The update also pushes Google's shift toward an AI answer engine. Google is also rolling out temporary threads in AI Mode worldwide. These searches don't use prior context, aren't saved to history, and don't affect future recommendations. Once closed, they're gone, Stein said. Ad Ad Already a subscriber? Sign in",
+   "use_link": "",
+   "held": true
   },
   {
    "id": "f9d528cd3606a534",
