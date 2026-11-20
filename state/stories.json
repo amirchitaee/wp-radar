@@ -69,27 +69,6 @@
    "cves": []
   },
   {
-   "t": "2026-11-16T17:31:20+00:00",
-   "id": "daa2f3055cf909ab",
-   "title": "Alibaba's Qwen4-Max takes on Opus 5.5, GPT-6, and Kimi K3.1 Pro at much lower prices",
-   "kind": "news",
-   "link": "https://the-decoder.com/alibabas-qwen4-max-takes-on-opus-5-5-gpt-6-and-kimi-k3-1-pro-at-much-lower-prices",
-   "ents": [
-    "alibaba",
-    "gpt-6",
-    "k3.1",
-    "kimi",
-    "opus",
-    "pro",
-    "qwen4-max"
-   ],
-   "vers": [
-    "3.1",
-    "5.5"
-   ],
-   "cves": []
-  },
-  {
    "t": "2026-11-16T19:45:55+00:00",
    "id": "8806a70ae484f167",
    "title": "Claude now builds interactive websites inside canvas graphics, reviving the Flash era with real HTML",

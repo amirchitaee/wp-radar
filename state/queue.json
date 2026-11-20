@@ -144,21 +144,6 @@
    "added": "2026-11-19T00:30:44+00:00"
   },
   {
-   "id": "42159eae923c9536",
-   "title": "OpenAI says its models delivered a year's worth of chip optimization on top of AMD's own engineering",
-   "link": "https://the-decoder.com/openai-says-its-models-delivered-a-years-worth-of-chip-optimization-on-top-of-amds-own-engineering",
-   "site": "",
-   "desc": "Working with AMD, OpenAI achieved up to 14 percent PPA improvement on AMD's flagship GPU IP in less than five months. According to OpenAI, that's roughly a year's worth of progress, and AMD has already folded the changes into a design sent to production. Anthropic is also applying AI to chip work to optimize cost and performance per dollar. The article OpenAI says its models delivered a year's worth of chip optimization on top of AMD's own engineering appeared first on The Decoder .",
-   "source": "دیکودر",
-   "lang": "en",
-   "tier": 2,
-   "group": "ai",
-   "kind": "news",
-   "age_hours": 16.3,
-   "published": "2026-11-18T18:00:33+00:00",
-   "added": "2026-11-19T10:15:42+00:00"
-  },
-  {
    "id": "2fcea45b8abd0dd4",
    "title": "Smush 4.3.7",
    "link": "https://wordpress.org/plugins/wp-smushit/",
