@@ -2,24 +2,6 @@
  "v": 1,
  "items": [
   {
-   "id": "8ad9a22e37efbafb",
-   "title": "AI agents can already buy from your Woo store — here’s how it works",
-   "link": "https://woocommerce.com/posts/agentic-commerce-payments",
-   "site": "",
-   "desc": "Your Woo store can already accept AI agent orders. Here's how it works for you and for your customers.",
-   "source": "ووکامرس",
-   "lang": "en",
-   "tier": 1,
-   "group": "",
-   "kind": "news",
-   "age_hours": 0.7,
-   "published": "2026-11-19T19:17:01+00:00",
-   "added": "2026-11-19T20:00:47+00:00",
-   "full": "By Darren Ethier • Nov 9, 2026",
-   "use_link": "https://play.google.com/store/apps/details?id=com.woocommerce.android&amp;utm_medium=download",
-   "held": true
-  },
-  {
    "id": "f1b2d3570214958c",
    "title": "scroll-state()",
    "link": "https://css-tricks.com/almanac/functions/s/scroll-state",
