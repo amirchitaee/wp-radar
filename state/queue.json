@@ -329,7 +329,7 @@
    "added": "2026-11-20T14:30:40+00:00",
    "full": "Contributors to the Costa Rican Spanish locale are making WordPress more accessible to Spanish-speaking communities in Costa Rica. Students from local schools and universities have joined the Polyglots team, helping translate WordPress.org projects and review community contributions. Students from two universities and a bilingual high school in Costa Rica contributed through the WordPress Credits program , which lets students earn academic credit for contributing to WordPress as part of their studies. On the Polyglots team, contributors suggest translations for WordPress Core, plugins, themes, and WordPress.org sites. Locale editors review and approve those suggestions. Between September 2025 and November 2026, translation coverage in es_CR rose from 38% to 100% on WordPress.org, from 39% to 98% in the Plugin Directory, and from 45% to 99% in the Forums. WordPress Core reached 99%, while the queue of strings waiting for review fell from 665 to 105. One participating school, Liceo Experimental Bilingüe José Figueres Ferrer in Cartago, was the first high school in the Americas to implement WordPress Credits through its Student Community Service program, Trabajo Comunal Estudiantil. Its students focused on Polyglots and helped advance the es_CR translations. WP Credits pushed me to contribute to something real, not just a class assignment. Going from not knowing what a ‘string’ was to translating hundreds of them was a great feeling, and it showed me that even a ‘small’ contribution like translation genuinely helps people who use WordPress in Spanish every day. The project also produced a resource for new contributors. The video “ Cómo contribuir en el equipo de traducción ” walks viewers through contributing on the WordPress translation platform, using Costa Rican Spanish as an example. If you read and write a language other than English, you can help make WordPress more useful to people in your language. Start with the first steps in the Polyglots Handbook to learn how to suggest translations and take part in the review process. Then check the translation stats page to find projects that need work in your locale. Educators can explore the WordPress Credits program to learn how students can contribute to WordPress as part of their studies.",
    "use_link": "https://wordpress.org/education/credits/",
-   "reject_hits": 1
+   "reject_hits": 2
   },
   {
    "id": "fd3deff7466808c0",
@@ -345,6 +345,24 @@
    "age_hours": 1.2,
    "published": "2026-11-20T13:19:31+00:00",
    "added": "2026-11-20T14:30:54+00:00"
+  },
+  {
+   "id": "f9d528cd3606a534",
+   "title": "Andy Clarke answers six questions about Standout Designs for the Web",
+   "link": "https://css-tricks.com/andy-clarke-standout-designs-for-the-web-interview",
+   "site": "",
+   "desc": "Web designer, author, and Stuff & Nonsense founder Andy Clarke has released Standout Designs for the Web , a new e-book that encourages designers to move beyond familiar templates and conventional layouts to create more personality-driven websites. The book draws … Andy Clarke answers six questions about Standout Designs for the Web originally handwritten and published with love on CSS-Tricks . You should really get the newsletter as well.",
+   "source": "سی‌اس‌اس تریکس",
+   "lang": "en",
+   "tier": 3,
+   "group": "",
+   "kind": "news",
+   "age_hours": 0.2,
+   "published": "2026-11-20T15:03:47+00:00",
+   "added": "2026-11-20T15:15:32+00:00",
+   "full": "NVIDIA L4 GPUs. 5-second cold starts. Scale to zero when idle. Web designer, author, and Stuff & Nonsense founder Andy Clarke has released Standout Designs for the Web , a new e-book that encourages designers to move beyond familiar templates and conventional layouts to create more personality-driven websites. The book draws on Clarke’s thirty years of web design experience. It explores how storytelling, color, typography, imagery, and layout can work together to create websites that people recognize and remember. We asked Andy a few questions about the book and the ideas that went into it. Question: What made you want to write this book? I’ve been designing websites for over thirty years, and I can’t remember a time when designers had more tools, techniques, and technology available to them. Yet, somehow, so many websites look remarkably similar. I’m not suggesting every website needs a novelty design. Far from it. But I do think that — somewhere along the way—designers have become a little too comfortable with familiar patterns and predictable layouts. I wrote Standout Designs for the Web to encourage designers to rediscover the creativity and personality that made me fall in love with the web in the first place. Question: What’s wrong with websites looking similar? Isn’t familiarity a good thing? Absolutely. Familiarity helps people understand how websites work, and there’s no reason to make something difficult to use just to be different. The problem is when familiarity makes every design look alike. When you visit a hotel website, an insurance company, or an online shop, you should be able to recognise something of the company behind it. I call this sameness “commodity design,” and it’s perfectly fine when all you want is fine, but it does little to make a company recognisable or its website memorable. I’m not arguing against using conventions. I’m asking designers to make more thoughtful decisions about when to use them. Question: You talk a lot about storytelling. What does that actually mean for web design? When I talk about storytelling, I don’t mean writing a lengthy company history or filling a website with marketing messages. Every company has a story worth telling. It might be how it started, the people behind it, its personality, or something unexpected about what it does. Those details can influence everything from the words you write to the colours, typography, illustrations, and layouts you choose. I spend a lot of time talking to clients because I’m looking for what makes them different. Sometimes, something they mention almost in passing becomes the inspiration for an entire design. The trick is recognising which details are worth developing and turning them into something visual. Question: Why did you invent a fake company for getaway drivers to demonstrate your ideas? Ha! Because I wanted a vehicle for my explanations and to have some fun. Wheelman is a fictional company for getaway drivers, and it gave me the freedom to explore ideas without worrying too much about the practical constraints of a real client project. Its characters, criminal connections, and rather questionable business activities gave me plenty of opport",
+   "use_link": "",
+   "reject_hits": 1
   }
  ]
 }
