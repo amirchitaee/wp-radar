@@ -231,24 +231,6 @@
    "added": "2026-11-18T14:01:14+00:00"
   },
   {
-   "id": "9c0a1db7310df6bb",
-   "title": "SEC probes Nvidia over undisclosed chip sales tied to China",
-   "link": "https://the-decoder.com/sec-probes-nvidia-over-undisclosed-chip-sales-tied-to-china",
-   "site": "",
-   "desc": "The U.S. Securities and Exchange Commission (SEC) has launched a civil investigation into Nvidia. The article SEC probes Nvidia over undisclosed chip sales tied to China appeared first on The Decoder .",
-   "source": "دیکودر",
-   "lang": "en",
-   "tier": 2,
-   "group": "ai",
-   "kind": "news",
-   "age_hours": 0.5,
-   "published": "2026-11-18T13:28:49+00:00",
-   "added": "2026-11-18T14:01:14+00:00",
-   "digest_sent": true,
-   "channel_skip": true,
-   "skip_permanent": true
-  },
-  {
    "id": "2fcea45b8abd0dd4",
    "title": "Smush 4.3.7",
    "link": "https://wordpress.org/plugins/wp-smushit/",
@@ -404,45 +386,6 @@
    "added": "2026-11-20T11:15:31+00:00",
    "full": "Sunstill app displays a live wallpaper showing sunlight on a wall that follows the real sun’s position based on your location. The landing page combines warm photographic light with different “blinds” to select your light, and a translucent control panel filled with realistic application. Visit Website Tech Jekyll Typefaces Hedwig Letters , Instrument Sans Category App , Landing Page Style Glassmorphism , Skeuomorphism Color Colorful Features Call-To-Action Hero Day and Night Geolocation Lighting macOS Menubar App Screensaver Wallpaper Weather Published 20 Nov 2026 Report an issue Sections on this page Call-To-Action Hero Similar websites Fonting App Landing Page Clips App Landing Page Music Related Badgey App Digital Product Landing Page mappy App Landing Page Eight Shot App Digital Product Landing Page Resurf App Digital Product View all websites → Website categories Portfolio Landing Page Digital Product Launching Soon App Service Our favorite websites, every two weeks Join thousands of designers reading the Love Letter. Unsubscribe anytime",
    "use_link": ""
-  },
-  {
-   "id": "802ba890bc03aea6",
-   "title": "WP Statistics 14.16.20",
-   "link": "https://wordpress.org/plugins/wp-statistics/",
-   "desc": "نسخهٔ 14.16.20 از WP Statistics منتشر شد. تغییرات این نسخه: Fix: Locked pages and the Add-ons page no longer show other plugins’ notices, the pricing table displays correctly on right-to-left sites, and there is a single license notice. | Enhancement: Improved offer cards in the notification inbox. | Enhancement: Calmer focus style on locked pages, and the menu no longer shows a dot for them.",
-   "source": "آپدیت افزونه",
-   "lang": "en",
-   "tier": 1,
-   "group": "wp",
-   "kind": "news",
-   "age_hours": 0.0,
-   "published": "2026-11-20T13:01:00+00:00",
-   "added": "2026-11-20T13:01:00+00:00",
-   "plugin": {
-    "name": "WP Statistics",
-    "version": "14.16.20",
-    "prev": "14.16.19",
-    "installs": 500000,
-    "updated": "2026-11-20"
-   },
-   "plugin_update": {
-    "name": "WP Statistics",
-    "slug": "wp-statistics",
-    "version": "14.16.20",
-    "prev": "14.16.19",
-    "date": "14.16.20 – 2026-11-20",
-    "changes": [
-     "Fix: Locked pages and the Add-ons page no longer show other plugins’ notices, the pricing table displays correctly on right-to-left sites, and there is a single license notice.",
-     "Enhancement: Improved offer cards in the notification inbox.",
-     "Enhancement: Calmer focus style on locked pages, and the menu no longer shows a dot for them."
-    ],
-    "vuln": false,
-    "hardening": false
-   },
-   "full": "Discover privacy-friendly analytics with WP Statistics , the top choice for WordPress users seeking an alternative to Google Analytics. No external accounts, unlimited visitor tracking, and full data ownership—all stored directly in your WordPress database. Checkout Demo | View Screenshots WP Statistics is privacy-friendly by default. Whether you need consent depends on your country and your settings. WP Statistics uses cookie-less tracking . You can find more information in “ What we collect “. Get the most out of your website analytics by using WP Statistics Premium Add-ons Upgrade your analytics toolkit with our range of premium add-ons, including Data Plus , Advanced Reporting , Real-Time Stats , Mini Chart , Marketing , and more . Making informed decisions is easier with these powerful tools. Special Offer: Save up to 60% on all premium features when you purchase WP Statistics Premium . Having trouble with a bug? Please create an issue on GitHub. Kindly note that GitHub is exclusively for bug reports; other inquiries will be closed. For security vulnerabilities, please report them through the Patchstack Vulnerability Disclosure Program . The Patchstack team will validate, triage, and handle any security issues. This product includes GeoLite2 Data created by MaxMind, available from https://www.maxmind.com . IP Geolocation by DB-IP . Overview Visitors Insights Online Visitors Monitoring Optimization Settings Real-Time Stats Download Tracker Understand Your Traffic Sources Geographic Author Analytics Devices Link Tracker Privacy Audit Content Analytics Dashboard Category Analytics Website Performance Report Mini Chart Quick View Page Insights Detailed Visitor Report Campaign Reports Google Search Console Reports Goal and Event Tracking Show all 22 screenshots Installation Upload wp-statistics to the /wp-content/plugins/ directory. Activate the plugin through the ‘Plugins’ menu in WordPress. Make sure the Date and Time are set correctly in WordPress. Go to the plugin settings page and configure as required (note this will also include downloading the GeoIP database for the first time). FAQ Who should use WP Statistics? WP Statistics is designed for website owners, bloggers, marketers, and analysts who wish to track and understand the traffic on their WordPress site. It’s user-friendly and powerful for professionals but also accessible for beginners. No, WP Statistics focuses on simplicity. You don’t need any coding skills to use it. Right from your WordPress dashboard, you can install and use the plugin. Your site’s loading times will remain quick with WP Statistics. With our “Optimization” settings page, you can fine-tune how data is handled for high-traffic sites, providing you with the tools to optimize performance. WP Statistics is built to be privacy-friendly by default: it sets no cookies, and new installs anonymize and hash IP addresses. Whether your site meets the GDPR depends on your country, your settings and how you use the plugin. You can find more information in “ What we collect “. Every post, page, and custom post type is tracked in detail. WP Statistics is fully compatible with all caching plugins and CDNs. By default, no. Ho",
-   "use_link": "",
-   "posted": true,
-   "msg_id": 186
   },
   {
    "id": "eff10dd94532cdc0",
