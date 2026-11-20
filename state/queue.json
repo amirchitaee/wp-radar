@@ -270,23 +270,6 @@
    "reject_hits": 2
   },
   {
-   "id": "9d72523cd536df1f",
-   "title": "CodeDesign v3",
-   "link": "https://www.producthunt.com/products/codedesign",
-   "site": "",
-   "desc": "Run your website and business apps from ChatGPT or Claude Discussion | Link",
-   "source": "پروداکت هانت",
-   "lang": "en",
-   "tier": 3,
-   "group": "",
-   "kind": "tools",
-   "age_hours": 66.6,
-   "published": "2026-11-16T21:24:17-08:00",
-   "added": "2026-11-20T00:00:58+00:00",
-   "sources_count": 2,
-   "held": true
-  },
-  {
    "id": "3b19cad45d5e4500",
    "title": "How to build ecommerce buyer personas that guide better decisions",
    "link": "https://woocommerce.com/posts/example-buyer-personas-online-store",
@@ -386,6 +369,39 @@
    "age_hours": 3.0,
    "published": "2026-11-20T09:59:51+00:00",
    "added": "2026-11-20T13:00:58+00:00"
+  },
+  {
+   "id": "1f0877e19ce676cf",
+   "title": "WordPress Credits Boost Translation",
+   "link": "https://wordpress.org/news/2026/11/wp-credits-boost-translation",
+   "site": "",
+   "desc": "Contributors to the Costa Rican Spanish locale are making WordPress more accessible to Spanish-speaking communities in Costa Rica. Students from local schools and universities have joined the Polyglots team, helping translate WordPress.org projects and review community contributions. Students from two universities and a bilingual high school in Costa Rica contributed through the WordPress Credits program, […]",
+   "source": "وردپرس",
+   "lang": "en",
+   "tier": 1,
+   "group": "",
+   "kind": "news",
+   "age_hours": 0.7,
+   "published": "2026-11-20T13:48:10+00:00",
+   "added": "2026-11-20T14:30:40+00:00",
+   "full": "Contributors to the Costa Rican Spanish locale are making WordPress more accessible to Spanish-speaking communities in Costa Rica. Students from local schools and universities have joined the Polyglots team, helping translate WordPress.org projects and review community contributions. Students from two universities and a bilingual high school in Costa Rica contributed through the WordPress Credits program , which lets students earn academic credit for contributing to WordPress as part of their studies. On the Polyglots team, contributors suggest translations for WordPress Core, plugins, themes, and WordPress.org sites. Locale editors review and approve those suggestions. Between September 2025 and November 2026, translation coverage in es_CR rose from 38% to 100% on WordPress.org, from 39% to 98% in the Plugin Directory, and from 45% to 99% in the Forums. WordPress Core reached 99%, while the queue of strings waiting for review fell from 665 to 105. One participating school, Liceo Experimental Bilingüe José Figueres Ferrer in Cartago, was the first high school in the Americas to implement WordPress Credits through its Student Community Service program, Trabajo Comunal Estudiantil. Its students focused on Polyglots and helped advance the es_CR translations. WP Credits pushed me to contribute to something real, not just a class assignment. Going from not knowing what a ‘string’ was to translating hundreds of them was a great feeling, and it showed me that even a ‘small’ contribution like translation genuinely helps people who use WordPress in Spanish every day. The project also produced a resource for new contributors. The video “ Cómo contribuir en el equipo de traducción ” walks viewers through contributing on the WordPress translation platform, using Costa Rican Spanish as an example. If you read and write a language other than English, you can help make WordPress more useful to people in your language. Start with the first steps in the Polyglots Handbook to learn how to suggest translations and take part in the review process. Then check the translation stats page to find projects that need work in your locale. Educators can explore the WordPress Credits program to learn how students can contribute to WordPress as part of their studies.",
+   "use_link": "https://wordpress.org/education/credits/",
+   "reject_hits": 1
+  },
+  {
+   "id": "fd3deff7466808c0",
+   "title": "Google's latest homepage update pushes its search engine further toward an AI answer engine",
+   "link": "https://the-decoder.com/googles-latest-homepage-update-pushes-its-search-engine-further-toward-an-ai-answer-engine",
+   "site": "",
+   "desc": "Google is rolling out a collapsible sidebar globally on its Desktop Search homepage. In AI Mode, it lets users reopen recent AI searches, search threads, and create notebooks. Temporary threads that aren't saved to history are also launching worldwide. Google Search co-lead Robby Stein says the feature should make it easier for users to continue longer web research. The article Google's latest homepage update pushes its search engine further toward an AI answer engine appeared first on The Decoder .",
+   "source": "دیکودر",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 1.2,
+   "published": "2026-11-20T13:19:31+00:00",
+   "added": "2026-11-20T14:30:54+00:00"
   }
  ]
 }
