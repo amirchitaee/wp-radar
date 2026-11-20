@@ -367,6 +367,24 @@
    "published": "2026-11-20T16:20:00+00:00",
    "added": "2026-11-20T17:30:43+00:00",
    "reject_hits": 2
+  },
+  {
+   "id": "81ce5b24dd897b42",
+   "title": "Quoting Ravi Vakil",
+   "link": "https://simonwillison.net/2026/Nov/20/ravi-vakil",
+   "site": "",
+   "desc": "Alessandro Masullo has a proposed proof of [Generalized Riemann Hypothesis], and Brian Conrad has been looking closely at it for months and gave extensive feedback which is being incorporated, and it is so far looking good. It is all human, with no AI. The hope was to bring Alessandro to Stanford for a year to polish the writing and then announce it after running it by enough people. Now it seems best to put out the current draft. — Ravi Vakil , Hurried Announcement: Alessandro Masullo GRH Tags: mathematics",
+   "source": "سایمون ویلیسون",
+   "lang": "en",
+   "tier": 3,
+   "group": "",
+   "kind": "tools",
+   "age_hours": 0.6,
+   "published": "2026-11-20T19:21:49+00:00",
+   "added": "2026-11-20T20:00:44+00:00",
+   "full": "Alessandro Masullo has a proposed proof of [Generalized Riemann Hypothesis], and Brian Conrad has been looking closely at it for months and gave extensive feedback which is being incorporated, and it is so far looking good. It is all human, with no AI. The hope was to bring Alessandro to Stanford for a year to polish the writing and then announce it after running it by enough people. Now it seems best to put out the current draft. — Ravi Vakil , Hurried Announcement: Alessandro Masullo GRH This is a quotation collected by Simon Willison, posted on 20th November 2026 .",
+   "use_link": "",
+   "reject_hits": 1
   }
  ]
 }
