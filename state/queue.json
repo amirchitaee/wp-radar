@@ -391,6 +391,44 @@
    "full": "Alessandro Masullo has a proposed proof of [Generalized Riemann Hypothesis], and Brian Conrad has been looking closely at it for months and gave extensive feedback which is being incorporated, and it is so far looking good. It is all human, with no AI. The hope was to bring Alessandro to Stanford for a year to polish the writing and then announce it after running it by enough people. Now it seems best to put out the current draft. — Ravi Vakil , Hurried Announcement: Alessandro Masullo GRH This is a quotation collected by Simon Willison, posted on 20th November 2026 .",
    "use_link": "",
    "reject_hits": 2
+  },
+  {
+   "id": "f257c7d6209fbdd5",
+   "title": "Parsigate 1.2.1",
+   "link": "https://wordpress.org/plugins/parsigate/",
+   "desc": "نسخهٔ 1.2.1 از Parsigate منتشر شد. تغییرات این نسخه: Security: Fixed a stored cross-site scripting (XSS) issue in the Gateway Log page. Values received from bank callbacks (such as the Zibal trackId ) are now fully escaped when the log is displayed. | Security: Zibal payments are now verified only for the order they were started for.",
+   "source": "آپدیت افزونه",
+   "lang": "en",
+   "tier": 1,
+   "group": "wp",
+   "kind": "news",
+   "age_hours": 0.0,
+   "published": "2026-11-20T22:45:34+00:00",
+   "added": "2026-11-20T22:45:34+00:00",
+   "plugin": {
+    "name": "Parsigate",
+    "version": "1.2.1",
+    "prev": "1.2.0",
+    "installs": 1000,
+    "updated": "2026-11-20"
+   },
+   "plugin_update": {
+    "name": "Parsigate",
+    "slug": "parsigate",
+    "version": "1.2.1",
+    "prev": "1.2.0",
+    "date": "1.2.1",
+    "changes": [
+     "Security: Fixed a stored cross-site scripting (XSS) issue in the Gateway Log page. Values received from bank callbacks (such as the Zibal trackId ) are now fully escaped when the log is displayed.",
+     "Security: Zibal payments are now verified only for the order they were started for."
+    ],
+    "vuln": true,
+    "hardening": false
+   },
+   "full": "ParsiGate is a professional WooCommerce payment gateway plugin designed for Iranian online stores. With ParsiGate, you can easily connect your WooCommerce store to Iranian payment providers and offer your customers a simple, secure, and reliable online payment experience. Built with WordPress and WooCommerce standards in mind, ParsiGate focuses on performance, compatibility, and ease of use. Whether you run a small online shop, a digital product store, an educational website, or a growing ecommerce business, ParsiGate helps you manage your online payments with confidence. Enable the gateways you need from the Parsidate settings, grouped into bank, intermediary, installment and offline gateways. Each gateway’s WooCommerce settings: title, description, merchant code, test mode, failure message and display rules (user roles, minimum cart total, categories, products). Enabled gateways with their logos on the checkout page. Card to Card: the customer sees your bank details and uploads the payment receipt. Card to Card: the uploaded receipt on the order screen; the order is put on hold for your review. Installation Ensure that the “Parsidate” plugin is installed and active. Upload the Parsigate plugin files to the /wp-content/plugins/ directory, or install it via the WordPress plugins screen. Activate the plugin through the ‘Plugins’ screen in WordPress. Go to Parsidate settings → “Payment Gateways” tab, configure your desired gateways, and save. External Services Parsigate connects to third-party payment providers to process and verify online payments. External requests are made only when: * A site administrator enables a payment gateway. * A customer selects that payment gateway during checkout. * A payment request, verification, inquiry, or confirmation is required by the payment provider. Depending on the selected gateway, the plugin may transmit the following information: No payment-related data is transmitted unless a customer initiates a payment. The Card to Card and Test gateways do not contact any external service. Card to Card payment receipts uploaded by customers are stored privately on your own server (in wp-content/uploads/parsigate-receipts , outside the Media Library) and are only shown to shop managers on the order screen. Used to process online payments through the AqayePardakht payment gateway. Payment requests are sent to: https://panel.aqayepardakht.ir/ The plugin sends the order amount, order ID, callback URL, merchant credentials and other payment parameters required to create and verify the transaction. Website: https://aqayepardakht.ir/ Terms: https://aqayepardakht.ir/terms/ Privacy: https://aqayepardakht.ir/terms/ Used to process online payments through the Asan Pardakht payment gateway. Payment requests are sent to: https://ipgrest.asanpardakht.ir/ The plugin sends the order amount, order ID, callback URL, merchant credentials and other payment parameters required to create and verify the transaction. Website: https://asanpardakht.ir/ Terms: https://asanpardakht.ir/faq Privacy: https://asanpardakht.ir/privacy Used to process installment payments through Azki Loan. Payment requests are sent to: https://api.azkiloan.com/ Th",
+   "use_link": "",
+   "msg_id": 188,
+   "posted": true
   }
  ]
 }

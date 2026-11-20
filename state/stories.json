@@ -494,6 +494,40 @@
    ],
    "vers": [],
    "cves": []
+  },
+  {
+   "t": "2026-11-20T22:45:40+00:00",
+   "id": "f257c7d6209fbdd5",
+   "title": "Parsigate 1.2.1",
+   "kind": "news",
+   "link": "https://wordpress.org/plugins/parsigate/",
+   "ents": [
+    "parsigate"
+   ],
+   "vers": [
+    "1.2.1"
+   ],
+   "cves": []
+  },
+  {
+   "t": "2026-11-20T22:45:55+00:00",
+   "id": "69f4255efcc70317",
+   "title": "CVE-2026-129289 and Other Critical PHP Vulnerabilities: What WordPress Site Owners Need to Know",
+   "kind": "news",
+   "link": "https://www.wordfence.com/blog/2026/11/cve-2026-129289-wordpress-php-vulnerabilities",
+   "ents": [
+    "cve-2026-129289",
+    "know",
+    "need",
+    "other",
+    "owners",
+    "php",
+    "wordpress"
+   ],
+   "vers": [],
+   "cves": [
+    "CVE-2026-129289"
+   ]
   }
  ]
 }
