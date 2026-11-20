@@ -69,20 +69,6 @@
    "cves": []
   },
   {
-   "t": "2026-11-16T16:15:50+00:00",
-   "id": "d032bd1778d6c1af",
-   "title": "Elementor 4.4.1",
-   "kind": "news",
-   "link": "https://wordpress.org/plugins/elementor/",
-   "ents": [
-    "elementor"
-   ],
-   "vers": [
-    "4.4.1"
-   ],
-   "cves": []
-  },
-  {
    "t": "2026-11-16T17:31:20+00:00",
    "id": "daa2f3055cf909ab",
    "title": "Alibaba's Qwen4-Max takes on Opus 5.5, GPT-6, and Kimi K3.1 Pro at much lower prices",
