@@ -546,6 +546,19 @@
    ],
    "vers": [],
    "cves": []
+  },
+  {
+   "t": "2026-11-20T09:31:28+00:00",
+   "id": "234a2f00022bbf61",
+   "title": "Nova by Vybe",
+   "kind": "tools",
+   "link": "https://www.producthunt.com/products/vybe-4",
+   "ents": [
+    "nova",
+    "vybe"
+   ],
+   "vers": [],
+   "cves": []
   }
  ]
 }

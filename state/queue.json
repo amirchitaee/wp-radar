@@ -412,22 +412,6 @@
    "reject_hits": 2
   },
   {
-   "id": "927af7ecd6d1ef51",
-   "title": "Your Zoom Scheduler Booking Page, Now on WordPress.com",
-   "link": "https://wordpress.com/blog/2026/11/19/zoom-scheduler",
-   "site": "",
-   "desc": "Zoom Scheduler now works with WordPress.com. Create a free website with your booking page included, or add the new Zoom Scheduler block to an existing site.",
-   "source": "وردپرس دات کام",
-   "lang": "en",
-   "tier": 2,
-   "group": "",
-   "kind": "news",
-   "age_hours": 1.6,
-   "published": "2026-11-19T22:53:31+00:00",
-   "added": "2026-11-20T00:30:37+00:00",
-   "held": true
-  },
-  {
    "id": "27ade97edf6bd0c5",
    "title": "An OpenAI agent assigned a simple writing task decided on its own to build a secret email surveillance tool",
    "link": "https://the-decoder.com/an-openai-agent-assigned-a-simple-writing-task-decided-on-its-own-to-build-a-secret-email-surveillance-tool",
@@ -488,7 +472,8 @@
    "kind": "tools",
    "age_hours": 12.9,
    "published": "2026-11-19T11:54:06-08:00",
-   "added": "2026-11-20T08:45:26+00:00"
+   "added": "2026-11-20T08:45:26+00:00",
+   "held": true
   }
  ]
 }
