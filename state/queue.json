@@ -2,50 +2,6 @@
  "v": 1,
  "items": [
   {
-   "id": "f5cf7ae4e5bc02b2",
-   "title": "ACF 6.8.12",
-   "link": "https://wordpress.org/plugins/advanced-custom-fields/",
-   "desc": "نسخهٔ 6.8.12 از ACF منتشر شد. تغییرات این نسخه: Security – script tags in ACF Block preview HTML, including ones that load an external file, no longer run in the block editor unless the block opts in with allowDangerousPreviewScripts in block.json (or allow_dangerous_preview_scripts in acf_register_block_type() ), or the site opts in with the new acf/blocks/allow_dangerous_preview_scripts filter | Security – The [acf] shortcode no longer shows fields from draft or private posts referenced by a prefixed ID such as post_123 when used inside an ACF Block, or outside the loop such as in a widget on a 404 or search page | Security – Icon Picker fields set to return an icon string no longer reveal the URLs of private Media Library images in the REST API | New – ACF now has a new Settings page with a Features tab for turning ACF features on and off without code. In ACF PRO, the License and Updates screens are now tabs on this page. Settings defined in code are shown as “Managed via code” and can’t be changed in the UI | New – Developers can add their own tabs, sections and fields to the Settings page with the new acf/settings_page/tabs , acf/settings_page/general/sections and acf/settings_page/general/{$section}/fields filters. The Features tab can be hidden with the new acf/settings/show_settings filter | New – ACF Abilities are now enabled by default for all field groups, post types and taxonomies on WordPress 6.9 and later. They can be turned off for each object, or for the whole site from the Settings page. The enable_acf_ai setting has been renamed to enable_abilities , and existing allow_ai_access values are not carried over | Enhancement – The “Edit Block” button text on ACF Blocks V3 that turn off the preview with “renderPreview”: false can now be changed with acf.placeholderButtonText in block.json or the new acf/blocks/default_placeholder_button_text filter | New – ACF Blocks registered with acf_register_block_type() can now set the InnerBlocks default_block and direct_insert options | Enhancement – ACF Abilities now publish valid JSON Schema, so MCP clients such as ChatGPT can discover and use them. Schemas now describe conditional logic, Repeater and Group sub fields, and Flexible Content layouts",
-   "source": "آپدیت افزونه",
-   "lang": "en",
-   "tier": 1,
-   "group": "wp",
-   "kind": "news",
-   "age_hours": 0.0,
-   "published": "2026-11-19T20:45:48+00:00",
-   "added": "2026-11-19T20:45:48+00:00",
-   "plugin": {
-    "name": "ACF",
-    "version": "6.8.12",
-    "prev": "6.8.11",
-    "installs": 2000000,
-    "updated": "2026-11-19"
-   },
-   "plugin_update": {
-    "name": "ACF",
-    "slug": "advanced-custom-fields",
-    "version": "6.8.12",
-    "prev": "6.8.11",
-    "date": "6.8.12",
-    "changes": [
-     "Security – script tags in ACF Block preview HTML, including ones that load an external file, no longer run in the block editor unless the block opts in with allowDangerousPreviewScripts in block.json (or allow_dangerous_preview_scripts in acf_register_block_type() ), or the site opts in with the new acf/blocks/allow_dangerous_preview_scripts filter",
-     "Security – The [acf] shortcode no longer shows fields from draft or private posts referenced by a prefixed ID such as post_123 when used inside an ACF Block, or outside the loop such as in a widget on a 404 or search page",
-     "Security – Icon Picker fields set to return an icon string no longer reveal the URLs of private Media Library images in the REST API",
-     "New – ACF now has a new Settings page with a Features tab for turning ACF features on and off without code. In ACF PRO, the License and Updates screens are now tabs on this page. Settings defined in code are shown as “Managed via code” and can’t be changed in the UI",
-     "New – Developers can add their own tabs, sections and fields to the Settings page with the new acf/settings_page/tabs , acf/settings_page/general/sections and acf/settings_page/general/{$section}/fields filters. The Features tab can be hidden with the new acf/settings/show_settings filter",
-     "New – ACF Abilities are now enabled by default for all field groups, post types and taxonomies on WordPress 6.9 and later. They can be turned off for each object, or for the whole site from the Settings page. The enable_acf_ai setting has been renamed to enable_abilities , and existing allow_ai_access values are not carried over",
-     "Enhancement – The “Edit Block” button text on ACF Blocks V3 that turn off the preview with “renderPreview”: false can now be changed with acf.placeholderButtonText in block.json or the new acf/blocks/default_placeholder_button_text filter",
-     "New – ACF Blocks registered with acf_register_block_type() can now set the InnerBlocks default_block and direct_insert options",
-     "Enhancement – ACF Abilities now publish valid JSON Schema, so MCP clients such as ChatGPT can discover and use them. Schemas now describe conditional logic, Repeater and Group sub fields, and Flexible Content layouts"
-    ],
-    "vuln": false,
-    "hardening": false
-   },
-   "full": "Advanced Custom Fields (ACF®) turns WordPress sites into a fully-fledged content management system by giving you all the tools to do more with your data. Use the ACF plugin to take full control of your WordPress edit screens, custom field data, and more. Add fields on demand. The ACF field builder allows you to quickly and easily add fields to WP edit screens with only the click of a few buttons! Whether it’s something simple like adding an “author” field to a book review post, or something more complex like the structured data needs of an ecommerce site or marketplace, ACF makes adding fields to your content model easy. Add them anywhere. Fields can be added all over WordPress including posts, pages, users, taxonomy terms, media, comments and even custom options pages! It couldn’t be simpler to bring structure to the WordPress content creation experience. Show them everywhere. Load and display your custom field values in any theme template file with our hassle-free, developer friendly functions! Whether you need to display a single value or generate content based on a more complex query, the out-of-the-box functions of ACF make templating a dream for developers of all levels of experience. Any Content, Fast. Turning WordPress into a true content management system is not just about custom fields. Creating new custom post types and taxonomies is an essential part of building custom WordPress sites. Registering post types and taxonomies is now possible right in the ACF UI, speeding up the content modeling workflow without the need to touch code or use another plugin. Simply beautiful and intentionally accessible. For content creators and those tasked with data entry, the field user experience is as intuitive as they could desire while fitting neatly into the native WordPress experience. Accessibility standards are regularly reviewed and applied, ensuring ACF is able to empower as close to anyone as possible. Documentation and developer guides. Over 10 plus years of vibrant community contribution alongside an ongoing commitment to clear documentation means that you’ll be able to find the guidance you need to build what you want. The Advanced Custom Fields plugin is also available in a professional version which includes more fields, more functionality, and more flexibility. The ACF PRO plugin features: Registering Custom Post Types From your WordPress dashboard Support Forums. Our ACF Community Forums provide a great resource for searching and finding previously answered and asked support questions. You may create a new thread on these forums, however, it is not guaranteed that you will receive an answer from our support team. This is more of an area for ACF developers to talk to one another, post ideas, plugins and provide basic help. View the Support Forum Our plugin’s non-minified JS and CSS files are available on GitHub . ACF includes an optional email signup to receive plugin updates and news. No data is collected unless you choose to subscribe. Your email is stored in accordance with WP Engine’s Privacy Policy .",
-   "use_link": "https://wordpress.org/support/forums/",
-   "held": true
-  },
-  {
    "id": "de5902c916c8dba3",
    "title": "WooCommerce 11.3.1",
    "link": "https://wordpress.org/plugins/woocommerce/",
