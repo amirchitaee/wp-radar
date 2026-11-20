@@ -471,6 +471,21 @@
    "age_hours": 7.5,
    "published": "2026-11-19T17:02:41+00:00",
    "added": "2026-11-20T00:30:46+00:00"
+  },
+  {
+   "id": "234a2f00022bbf61",
+   "title": "Nova by Vybe",
+   "link": "https://www.producthunt.com/products/vybe-4",
+   "site": "",
+   "desc": "Nova audits your website free, then fixes what it finds Discussion | Link",
+   "source": "پروداکت هانت",
+   "lang": "en",
+   "tier": 3,
+   "group": "",
+   "kind": "tools",
+   "age_hours": 12.9,
+   "published": "2026-11-19T11:54:06-08:00",
+   "added": "2026-11-20T08:45:26+00:00"
   }
  ]
 }
