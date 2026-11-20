@@ -378,6 +378,40 @@
    "age_hours": 0.8,
    "published": "2026-11-20T15:56:03+00:00",
    "added": "2026-11-20T16:45:38+00:00"
+  },
+  {
+   "id": "90b7c4a2145667ca",
+   "title": "Global Partners Across the Third Quarter of the 2026",
+   "link": "https://wordpress.org/news/2026/11/global-partners-third-quarter-2026",
+   "site": "",
+   "desc": "From July through September 2026, the WordPress Community organized 39 events with the financial support of the project’s five Global Partners: Jetpack, WordPress.com, WooCommerce, Bluehost, and Hostinger. From a small gathering of 56 in Mannheim to a Contributor Day in the Philippines that drew 322 people, and the first-ever WordCamp in Eket, Nigeria, these events […]",
+   "source": "وردپرس",
+   "lang": "en",
+   "tier": 1,
+   "group": "",
+   "kind": "news",
+   "age_hours": 0.2,
+   "published": "2026-11-20T17:17:24+00:00",
+   "added": "2026-11-20T17:30:42+00:00",
+   "full": "From July through September 2026, the WordPress Community organized 39 events with the financial support of the project’s five Global Partners : Jetpack, WordPress.com, WooCommerce, Bluehost, and Hostinger. From a small gathering of 56 in Mannheim to a Contributor Day in the Philippines that drew 322 people, and the first-ever WordCamp in Eket, Nigeria, these events brought newcomers, contributors, and builders together around the world. The 39 events were too many to cover in one post, so this recap highlights a few of the moments that stood out. The quarter opened in July with WordCamp Mannheim , a small event with real range. The 56 attendees covered topics from AI and WordPress block development to current security know-how, along with presentations on values, training, and the open web. In August, the momentum moved to Nigeria, where Eket held its inaugural WordCamp on August 15 under the theme “From Idea to Income: Building Opportunities with WordPress.” Engr. Aniebiet Udoh took the stage for the keynote, challenging attendees to embrace the global reach of the web: “The internet has no small towns.” He urged creators to follow a five-step path: Later in August, WordCamp Philippines drew approximately 434 attendees, contributors and first-time attendees, to Iloilo City on August 28-29. One of the highlights of Contributor Day was the Open Source Library, an activity inspired by the Human Library concept. Instead of borrowing a book, participants could “borrow” a person and spend time having a meaningful conversation about their experiences, careers, communities, and journeys in open source. WordPress.com ran both a booth and a dedicated Community + Education table. The education table alone generated connections with 14 schools and universities, sparked three new meetup applications, and produced a new Campus Connect application from Colegio San Agustin in Bacolod. In Uganda, WordPress is reaching people who have never worked with it before. The third edition of WordCamp Masaka welcomed students and first-timers to participate in a hands-on WordPress Practical session. Led by community members, Stephen Dumba and Cinderella Mbabazi, Florence Namyalo , the Founder and CEO of RAPCIO, and the IT team of Equator University of Science and Technology, the group installed WordPress, explored the dashboard, and began building websites. In September, nearly half of this year’s participants at WordCamp Jinja were students. One of them, fascinated by the WordPress ecosystem and its spirit of generosity and inclusivity, drew all the sponsor logos by hand so he could remember them after the event. In September, WordCamp Costa Rica brought together 327 people. A noteworthy highlight was the pre-event WordPress Studio workshop, where 25 participants each built and launched a live site on WordPress.com in a single morning. The event also demonstrated the growing pipeline from education to community. At least 100 attendees came to WordCamp Costa Rica after first experiencing WordPress through WordPress Campus Connect events at Beenova and UCR Esparza earlier in the year. The thread running through many of these stories is education and the increasing att",
+   "use_link": "",
+   "reject_hits": 1
+  },
+  {
+   "id": "63d9a553bafce750",
+   "title": "How to Build a Small Business Website on WordPress.com",
+   "link": "https://wordpress.com/blog/2026/11/20/build-small-business-website",
+   "site": "",
+   "desc": "What should your first business website include? See how a coaching site explains its services, answers common questions, and gives visitors a clear way to book or get in touch.",
+   "source": "وردپرس دات کام",
+   "lang": "en",
+   "tier": 2,
+   "group": "",
+   "kind": "news",
+   "age_hours": 1.2,
+   "published": "2026-11-20T16:20:00+00:00",
+   "added": "2026-11-20T17:30:43+00:00",
+   "reject_hits": 1
   }
  ]
 }
