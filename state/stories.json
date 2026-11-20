@@ -518,6 +518,18 @@
    ],
    "vers": [],
    "cves": []
+  },
+  {
+   "t": "2026-11-20T00:01:13+00:00",
+   "id": "9d72523cd536df1f",
+   "title": "CodeDesign v3",
+   "kind": "tools",
+   "link": "https://www.producthunt.com/products/codedesign",
+   "ents": [
+    "codedesign"
+   ],
+   "vers": [],
+   "cves": []
   }
  ]
 }
