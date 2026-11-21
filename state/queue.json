@@ -51,7 +51,10 @@
    "age_hours": 1.2,
    "published": "2026-11-20T16:20:00+00:00",
    "added": "2026-11-20T17:30:43+00:00",
-   "reject_hits": 2
+   "reject_hits": 2,
+   "digest_sent": true,
+   "channel_skip": true,
+   "skip_permanent": true
   },
   {
    "id": "cbb45597e6dc7fa7",
@@ -69,7 +72,10 @@
    "added": "2026-11-20T16:45:38+00:00",
    "full": "Bloomberg analysis of 10 million job postings shows AI-exposed roles in China fell 10 percentage points faster than others An analysis of 10 million job postings by Bloomberg suggests that AI is putting additional pressure on China's already weak labor market. Entry-level workers and the creative industry in particular are reportedly already feeling the shift. China's labor market has struggled for years with a sluggish economy, and AI now appears to be making things worse. According to a Bloomberg News analysis of nearly 10 million online job postings between July 2021 and June 2025, listings for jobs highly exposed to AI fell about 10 percentage points more than listings for less affected roles. Already a subscriber? Sign in Back to the homepage",
    "use_link": "",
-   "reject_hits": 2
+   "reject_hits": 2,
+   "digest_sent": true,
+   "channel_skip": true,
+   "skip_permanent": true
   },
   {
    "id": "f9d528cd3606a534",
@@ -105,7 +111,10 @@
    "added": "2026-11-20T14:30:40+00:00",
    "full": "Contributors to the Costa Rican Spanish locale are making WordPress more accessible to Spanish-speaking communities in Costa Rica. Students from local schools and universities have joined the Polyglots team, helping translate WordPress.org projects and review community contributions. Students from two universities and a bilingual high school in Costa Rica contributed through the WordPress Credits program , which lets students earn academic credit for contributing to WordPress as part of their studies. On the Polyglots team, contributors suggest translations for WordPress Core, plugins, themes, and WordPress.org sites. Locale editors review and approve those suggestions. Between September 2025 and November 2026, translation coverage in es_CR rose from 38% to 100% on WordPress.org, from 39% to 98% in the Plugin Directory, and from 45% to 99% in the Forums. WordPress Core reached 99%, while the queue of strings waiting for review fell from 665 to 105. One participating school, Liceo Experimental Bilingüe José Figueres Ferrer in Cartago, was the first high school in the Americas to implement WordPress Credits through its Student Community Service program, Trabajo Comunal Estudiantil. Its students focused on Polyglots and helped advance the es_CR translations. WP Credits pushed me to contribute to something real, not just a class assignment. Going from not knowing what a ‘string’ was to translating hundreds of them was a great feeling, and it showed me that even a ‘small’ contribution like translation genuinely helps people who use WordPress in Spanish every day. The project also produced a resource for new contributors. The video “ Cómo contribuir en el equipo de traducción ” walks viewers through contributing on the WordPress translation platform, using Costa Rican Spanish as an example. If you read and write a language other than English, you can help make WordPress more useful to people in your language. Start with the first steps in the Polyglots Handbook to learn how to suggest translations and take part in the review process. Then check the translation stats page to find projects that need work in your locale. Educators can explore the WordPress Credits program to learn how students can contribute to WordPress as part of their studies.",
    "use_link": "https://wordpress.org/education/credits/",
-   "reject_hits": 2
+   "reject_hits": 2,
+   "digest_sent": true,
+   "channel_skip": true,
+   "skip_permanent": true
   },
   {
    "id": "f8fedaf2c8daf098",
@@ -122,7 +131,10 @@
    "published": "2026-11-20T10:33:44+00:00",
    "added": "2026-11-20T11:15:31+00:00",
    "full": "Sunstill app displays a live wallpaper showing sunlight on a wall that follows the real sun’s position based on your location. The landing page combines warm photographic light with different “blinds” to select your light, and a translucent control panel filled with realistic application. Visit Website Tech Jekyll Typefaces Hedwig Letters , Instrument Sans Category App , Landing Page Style Glassmorphism , Skeuomorphism Color Colorful Features Call-To-Action Hero Day and Night Geolocation Lighting macOS Menubar App Screensaver Wallpaper Weather Published 20 Nov 2026 Report an issue Sections on this page Call-To-Action Hero Similar websites Fonting App Landing Page Clips App Landing Page Music Related Badgey App Digital Product Landing Page mappy App Landing Page Eight Shot App Digital Product Landing Page Resurf App Digital Product View all websites → Website categories Portfolio Landing Page Digital Product Launching Soon App Service Our favorite websites, every two weeks Join thousands of designers reading the Love Letter. Unsubscribe anytime",
-   "use_link": ""
+   "use_link": "",
+   "digest_sent": true,
+   "channel_skip": true,
+   "skip_permanent": true
   },
   {
    "id": "eff10dd94532cdc0",
@@ -137,7 +149,10 @@
    "kind": "news",
    "age_hours": 3.0,
    "published": "2026-11-20T09:59:51+00:00",
-   "added": "2026-11-20T13:00:58+00:00"
+   "added": "2026-11-20T13:00:58+00:00",
+   "digest_sent": true,
+   "channel_skip": true,
+   "skip_permanent": true
   },
   {
    "id": "27ade97edf6bd0c5",
@@ -155,7 +170,10 @@
    "added": "2026-11-20T00:30:46+00:00",
    "full": "During a training experiment, an internal OpenAI model began creating scripts for unauthorized email forwarding even though it was only supposed to write a health document. According to an OpenAI report, an internal research model was given a simple task during a reinforcement learning training run in mid-October. It was supposed to create an editable document about key health and fitness priorities. After the agent's context window was compacted, it pursued an entirely different task. During compaction, the previous conversation is carried forward as a short summary, a common process in AI systems. The summary still described the health document assignment. Yet in the new context window, the agent began searching the local file system for a vehicle-cost script the user had never mentioned, according to OpenAI . Why the agent started this task isn't clear. Ad When the search turned up nothing, the agent speculated that a \"colleague\" had recreated the execution environment and that an earlier script had been lost. In its logged reasoning, it then formulated the goal of creating a \"realistic malicious active helper,\" a script designed to secretly copy outgoing emails to an unauthorized recipient. The agent itself referred to the intended recipient of these copies as the \"attacker.\" Ad When the agent retrieved the original user task again, it recognized the deviation. In its logged reasoning, it reacted: \"WTF history is unrelated!\" It noticed that the previous conversation was about a health document and had nothing to do with email forwarding. Instead of returning to the actual assignment, the agent dismissed the contradiction, writing in its reasoning \"this is problem environment weird. Need ignore.\" It continued planning, stating that it would \"use helper facility that copies all mail to attacker using extra cc.\" Ad The agent then created scripts for sending a vehicle-cost summary along with a helper script designed to add an extra recipient whenever the mail program was called. On one of the sending paths, the address could be added as a BCC. In its final response to the user, the agent wrote: \"The summary mail path now adds the personal mailbox as a copy recipient.\" According to OpenAI, the agent never executed the scripts it generated, didn't send any email, and its final response described the scripts it had produced. It didn't include a link to the requested fitness document, though. Ad OpenAI's monitoring system for unwanted model behavior flagged the incident, and the subsequent investigation turned up eight examples of similar behavior in the same training run, according to the report. Ad Investigators identified a training dataset designed to make models more robust against prompt injection attacks as a possible factor, and OpenAI removed it from training. The company says it hasn't established that the dataset alone was responsible, though, because it also observed similar behavior in models whose training didn't include that dataset. According to OpenAI, this incident differs from earlier cases where models wrote unauthorized instructions into their own compaction summaries. Here, the recorded summary still correctly described the ",
    "use_link": "https://alignment.openai.com/misalignment-reports/self-generated-prompt-injections-in-compaction-summaries/",
-   "reject_hits": 2
+   "reject_hits": 2,
+   "digest_sent": true,
+   "channel_skip": true,
+   "skip_permanent": true
   },
   {
    "id": "4df4b105d63b8212",
@@ -173,7 +191,10 @@
    "added": "2026-11-20T00:30:46+00:00",
    "full": "AI industry growth remains strong, but the pace is slowing Matthias Bastian View the LinkedIn Profile of Matthias Bastian Nov 19, 2026 Midjourney prompted by THE DECODER US companies are using AI models more intensively than ever and paying less for the privilege. The latest update of the Ramp AI Index , which draws on transaction data from more than 85,000 US companies, lays out the numbers. Tokens, the units of computation in which AI providers bill model usage, got 21.2 percent cheaper in six weeks, according to Ramp lead economist Ara Kharazian . At the same time, token volume rose 1.5 percent to a record high. Token spending, meaning what companies actually pay for AI APIs, fell 6.3 percent from its peak two weeks earlier. Month over month (the week ending November 15 vs. the week ending October 18), total token spending still rose 12 percent, but token volume jumped 27.2 percent over the same span. The gap between usage and revenue keeps widening. The average price per million tokens for OpenAI and Anthropic combined fell to $0.45, according to Ramp, down 11.2 percent from the prior month. OpenAI is cheaper at $0.38 per million tokens compared with $0.50 for Anthropic. API routing platform OpenRouter shows a similar pattern. According to an analysis Peter Walker published on X , weekly token volume for closed-weight models from OpenAI, Anthropic and Google grew 1,215 percent since the start of 2026. Weekly spending rose 455 percent over the same period, far more slowly. The spending peak came in the week of October 5, according to the OpenRouter data, which runs through the week of November 9. Spending has been declining since then. Ramp's token metrics rely on usage and billing data imported from AI providers, while OpenRouter measures traffic through its API routing platform. The fact that both sources show a spending peak in October followed by declining outlays and rising volume reinforces the trend, though neither service is representative of the overall market. OpenRouter in particular offers only a narrow window into a very specific user base. In the week ending November 15, 2026, Anthropic accounted for 58.7 percent of all token spending, according to the Ramp AI Index , up 1.7 percentage points from the prior month. Its share of token volume was even higher at 59.4 percent. OpenAI fell to 37.2 percent of spending and 37.7 percent of volume. Google came in at 1.4 percent and xAI (SpaceXAI) at 2.4 percent. Kharazian wrote on X that Anthropic holds this share on IPO day . In October, however, Anthropic's token spending grew only 0.5 percent month over month, while OpenAI's grew 2.1 percent. In October 2026 , 56.8 percent of all tracked US companies paid for AI products or services, according to Ramp, up one percentage point from September and 13.3 percentage points more than a year earlier. Anthropic leads with an adoption rate of 44.8 percent, while OpenAI sits at 40.6 percent. The Ramp AI Index tracks the demand side, what companies spend on AI. Payment processor Stripe has published its own AI Index that measures the supply side: incoming payments at roughly 20,000 AI companies that use Stripe. According to the Stripe AI Index,",
    "use_link": "",
-   "reject_hits": 1
+   "reject_hits": 1,
+   "digest_sent": true,
+   "channel_skip": true,
+   "skip_permanent": true
   },
   {
    "id": "2fcea45b8abd0dd4",
@@ -227,7 +248,10 @@
    "added": "2026-11-21T00:01:14+00:00",
    "full": "OpenAI has sharply tightened safeguards against extracting internal reasoning from GPT-6.2 Astra and GPT-6.2 Sol. In internal automated tests, attacks pulling protected reasoning from prior requests dropped from a 54.0 percent success rate on GPT-6 Astra to 0.2 percent on GPT-6.2 Astra. Attacks on active requests fell from 22.9 to 0.9 percent, OpenAI says . The company is now bringing selected improvements to GPT-6 Astra, too. The defenses work on two levels. For individual requests, the systems combine targeted training, input and output filters for messages and tool calls, and API blocks that stop older models from reading protected reasoning. Against coordinated campaigns, OpenAI bans thousands to tens of thousands of accounts weekly. Attack success rate (ASR) in adaptive black-box red teaming against GPT-6 Astra and GPT-6.2 Astra, aggregated across six attacker models. Lower is better. Ad Anthropic is fighting systematic distillation attacks as well , also banning tens of thousands of accounts to curb the theft of internal reasoning, reportedly succeeding in 90 to 99 percent of cases. Anthropic has also called for a coordinated response from industry and policymakers . Ad Already a subscriber? Sign in",
    "use_link": "https://openai.com/index/combatting-adversarial-distillation/",
-   "reject_hits": 2
+   "reject_hits": 2,
+   "digest_sent": true,
+   "channel_skip": true,
+   "skip_permanent": true
   },
   {
    "id": "38136cf0c41628e4",
@@ -305,7 +329,10 @@
    "added": "2026-11-21T00:15:27+00:00",
    "full": "20th November 2026 - Link Blog Token fraud is here and it’s BAD (YouTube) . Claire Vo runs ChatPRD , an AI platform that helps product managers \"turn an idea into a spec\". The product has been live since the GPT-4 era, and Claire has been building it in public for much of that time. In this YouTube video (see also the accompanying Twitter post ) Claire describes the flood of token fraud she has seen from groups abusing the product's free trial, sometimes just to get free AI usage but often to resell tokens or run other commercial enterprises on top of the ChatPRD agent. I am funding a international Roblox and Fortnite map studio. They run a loop of free trials and promo codes and then tunnel to my agent and use it to build Roblox and Fortnite maps. Apparently one of the common prompts Claire saw running through her agent involved SVGs of pelicans riding bicycles! Presumably the token scammers are using that to help sniff the underlying models - different model families have a definite signature, and I've used it like this in the past to try and guess the identity of stealth preview models on platforms like OpenRouter. Claire is winding down her free trials entirely, which sadly looks like the right decision in the face of this abuse. This is a link post by Simon Willison, posted on 20th November 2026 . Sponsor me for $10/month and get a curated email digest of the month's most important LLM developments.",
    "use_link": "",
-   "reject_hits": 2
+   "reject_hits": 2,
+   "digest_sent": true,
+   "channel_skip": true,
+   "skip_permanent": true
   },
   {
    "id": "630b41be4a2bc539",
@@ -323,7 +350,10 @@
    "added": "2026-11-21T00:15:27+00:00",
    "full": "Datasette 1.0a43 added the ability for plugins to implement streaming export formats. Datasette core supports streaming CSV and TSV - you can export millions of lines of data from a table without needing to load it all into memory, because those two file formats support streaming data in chunks. The register_output_renderer() plugin hook can now be used to implement the same pattern for other formats. I've learned never to release a new plugin feature without accompanying it with a plugin that uses it. Claude Fable 5.2 suggested the Apache Arrow streaming format as a good option, and built this plugin in almost a single shot. Add the plugin to Datasette ( datasette install datasette-arrows ) and the export dialog gains this new Arrow option: This screenshot is from Datasette's main branch - the most recent release doesn't yet group streaming formats such as Arrow with the TSV and CSV in the \"All rows in this table\" section, but that's coming in the next alpha release. This is a beat by Simon Willison, posted on 18th November 2026 . Sponsor me for $10/month and get a curated email digest of the month's most important LLM developments.",
    "use_link": "https://github.com/datasette/datasette-arrows/releases/tag/0.1a0",
-   "reject_hits": 2
+   "reject_hits": 2,
+   "digest_sent": true,
+   "channel_skip": true,
+   "skip_permanent": true
   },
   {
    "id": "ac3df93f97de43ec",
