@@ -69,23 +69,6 @@
    "cves": []
   },
   {
-   "t": "2026-11-17T04:16:15+00:00",
-   "id": "2a42a874628f276b",
-   "title": "How to Manage Your WordPress Site From Your Phone With AI (Easy Way)",
-   "kind": "news",
-   "link": "https://www.wpbeginner.com/wp-tutorials/how-to-manage-your-wordpress-site-from-your-phone-with-ai-easy-way",
-   "ents": [
-    "ai",
-    "easy",
-    "manage",
-    "phone",
-    "way",
-    "wordpress"
-   ],
-   "vers": [],
-   "cves": []
-  },
-  {
    "t": "2026-11-17T11:02:02+00:00",
    "id": "2b2004c9e5bda04d",
    "title": "UpdraftPlus 1.26.16",
