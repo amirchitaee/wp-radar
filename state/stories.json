@@ -69,20 +69,6 @@
    "cves": []
   },
   {
-   "t": "2026-11-17T23:01:36+00:00",
-   "id": "ebff97034b293e5f",
-   "title": "Moonshot AI pivots Kimi models from coding to science as benchmark gains flatten",
-   "kind": "news",
-   "link": "https://the-decoder.com/moonshot-ai-pivots-kimi-models-from-coding-to-science-as-benchmark-gains-flatten",
-   "ents": [
-    "ai",
-    "kimi",
-    "moonshot"
-   ],
-   "vers": [],
-   "cves": []
-  },
-  {
    "t": "2026-11-18T08:31:22+00:00",
    "id": "eea4039d51a0b325",
    "title": "OpenAI launches GPT-6.2 Astra and Sol with lower API prices and some benchmark gains",
@@ -487,6 +473,20 @@
    "vers": [
     "8.6"
    ],
+   "cves": []
+  },
+  {
+   "t": "2026-11-21T23:45:49+00:00",
+   "id": "bc5933ad429c9c37",
+   "title": "Google's Gemini can now run Mac apps and finish desktop chores in the background while you keep working",
+   "kind": "news",
+   "link": "https://the-decoder.com/googles-gemini-can-now-run-mac-apps-and-finish-desktop-chores-in-the-background-while-you-keep-working",
+   "ents": [
+    "gemini",
+    "google",
+    "mac"
+   ],
+   "vers": [],
    "cves": []
   }
  ]

@@ -242,7 +242,10 @@
    "kind": "news",
    "age_hours": 5.2,
    "published": "2026-11-20T18:50:31+00:00",
-   "added": "2026-11-21T00:01:14+00:00"
+   "added": "2026-11-21T00:01:14+00:00",
+   "full": "Google now lets Gemini handle Mac tasks in the background. The new \"Computer Use\" feature in the Gemini Mac app completes multistep tasks across local files, desktop apps, and websites. Google says users simply describe a goal, and Gemini clicks, types, and navigates menus and forms. Everything runs in an isolated background window with a live chat preview, keeping the screen and cursor free for uninterrupted work. Users choose which apps Gemini can access, watch every step live, pause anytime, and approve key actions beforehand. Google's examples include batch-editing photos and 3D scenes, filling out shipping forms from local PDFs, and building presentations. Computer Use rolls out in English in the US today, and the Gemini Mac app is available to download . OpenAI has also focused on Computer Use recently, pulling well ahead with its Astra model . Ad Ad Already a subscriber? Sign in",
+   "use_link": "",
+   "held": true
   },
   {
    "id": "17bfc23ca17d1398",
