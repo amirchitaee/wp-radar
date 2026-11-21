@@ -339,25 +339,6 @@
    "age_hours": 1.2,
    "published": "2026-11-21T11:19:49+00:00",
    "added": "2026-11-21T12:30:49+00:00"
-  },
-  {
-   "id": "6436063e7769ba08",
-   "title": "PHP 8.6 ships: Here’s what’s new in the latest release",
-   "link": "https://kinsta.com/blog/php-8-6",
-   "site": "",
-   "desc": "A new PHP release is rolling out to servers worldwide after developers of the open-source scripting language launched version 8.6 this week. Fixed on the calendar ...",
-   "source": "کینستا",
-   "lang": "en",
-   "tier": 2,
-   "group": "",
-   "kind": "news",
-   "age_hours": 24.0,
-   "published": "2026-11-20T18:00:56+00:00",
-   "added": "2026-11-21T18:00:44+00:00",
-   "full": "A new PHP release is rolling out to servers worldwide after developers of the open-source scripting language launched version 8.6 this week. Fixed on the calendar for November since PHP 8.4 in 2024, these updates pack new features and clean up a few bugs. Usually, the bugs are benign enough not to require a mid-year patch, but the path to version 8.6 included a real doozy: a pair of PHP vulnerabilities now known as PHP2Shell . Discovered with the help of AI tools, the PHP2Shell security holes could have opened doors for attackers and have existed in the PHP system since the release of version 5.4 in 2012. Patches for the vulnerabilities across various PHP versions became available in late October. By then, the PHP Group had already shared the third release candidate for version 8.6. Release candidate four solved the PHP2Shell problem in 8.6 on October 21, while smaller fixes kept development going until November 11 and release candidate seven — now PHP 8.6. With that security issue behind us, let’s focus on the more visible changes found in 8.6. The new Duration class in PHP 8.6 brings a stopwatch-like feel to time math, without the baggage of calendar/clock measurement complicated by months with differing numbers of days, daylight saving time, and time zones. Duration here can be measured in nanoseconds, and with values equal to more than 9.2 billion seconds available on 64-bit systems, it’s handy to be able to manipulate these numbers without being surprised by floating-point imprecision. // Sleep for half a second $half = \\Time\\Duration::fromMilliseconds(500); time_nanosleep($half->seconds, $half->nanoseconds); In addition to the method for capturing milliseconds illustrated above, you’ll also find these basic methods: Methods for performing a variety of calculations on these values are built in. Here are two examples: // Subtract $remaining = \\Time\\Duration::fromSeconds(10)->sub(\\Time\\Duration::fromMilliseconds(2500)); show('10 s - 2.5 s', $remaining); // Output: 10 s - 2.5 s: 7.500000000 // Multiply $total = \\Time\\Duration::fromMilliseconds(1500)->multiplyBy(4); show('1.5 s × 4', $total); // Output: 1.5 s × 4: 6.000000000 A new math function: clamp() Just like C++, Java, Rust, Ruby — and even CSS — PHP now has a clamp() function that evaluates a value within a range defined by minimum and maximum parameters. If the value you are testing falls within the minimum and maximum limits, the function returns that value. Otherwise, it returns whichever of the minimum and maximum values is closest. // “min:” and “max:” notation is optional echo clamp(5, min: 1, max: 10); // 5 - Within range echo clamp(15, 1, 10); // 10 - Closest to 15 // Doesn’t have to be numbers clamp(\"b\", \"a\", \"c\") // \"b\" The function can even compare the values you will work with in the Duration class above. It looks like a function call, but using ? and/or ... as placeholders makes it a closure. The function is actually called when the remaining parameters are provided: $replaceWhitespace = str_replace(' ', ?, ?); echo $replaceWhitespace('+', ' Hello World '); // Output: +Hello+World+ Below, we can be more efficient with the pipe operator, which requires a function with a on",
-   "use_link": "",
-   "msg_id": 193,
-   "posted": true
   }
  ]
 }
