@@ -69,35 +69,6 @@
    "cves": []
   },
   {
-   "t": "2026-11-17T11:02:02+00:00",
-   "id": "2b2004c9e5bda04d",
-   "title": "UpdraftPlus 1.26.16",
-   "kind": "news",
-   "link": "https://wordpress.org/plugins/updraftplus/",
-   "ents": [
-    "updraftplus"
-   ],
-   "vers": [
-    "1.26.16"
-   ],
-   "cves": []
-  },
-  {
-   "t": "2026-11-17T11:02:06+00:00",
-   "id": "8acda8cd2e46734d",
-   "title": "Black Friday 2026 at Elementor: Up to 40% off plans",
-   "kind": "news",
-   "link": "https://elementor.com/blog/black-friday-2026",
-   "ents": [
-    "black",
-    "elementor",
-    "friday",
-    "up"
-   ],
-   "vers": [],
-   "cves": []
-  },
-  {
    "t": "2026-11-17T12:16:32+00:00",
    "id": "d947721e8bbad6bc",
    "title": "How to Add a Trust Badge to WooCommerce With PCrisk (That a Visitor Can Verify)",
@@ -521,6 +492,19 @@
    "ents": [
     "ai",
     "bytedance"
+   ],
+   "vers": [],
+   "cves": []
+  },
+  {
+   "t": "2026-11-21T11:15:48+00:00",
+   "id": "101fc3518e5fa5d3",
+   "title": "New open model Inkling 2 Mini thinks in loops to solve problems with fewer words and still runs on a laptop",
+   "kind": "news",
+   "link": "https://the-decoder.com/new-open-model-inkling-2-mini-thinks-in-loops-to-solve-problems-with-fewer-words-and-still-runs-on-a-laptop",
+   "ents": [
+    "inkling",
+    "mini"
    ],
    "vers": [],
    "cves": []

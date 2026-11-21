@@ -1,3 +1,18 @@
 {
- "items": []
+ "items": [
+  {
+   "id": "101fc3518e5fa5d3",
+   "at": "2026-11-21T11:15:48+00:00",
+   "kind": "news",
+   "label": "آپدیت",
+   "text": "<b>🔄 آپدیت: مدل ⁦open source Inkling⁩ ۲ ⁦Mini⁩ با حافظهٔ یک‌میلیون توکن روی لپ‌تاپ اجرا می‌شود</b>\n\n‏⁦Thinking Machines⁩ مدل جدید ⁦Inkling⁩ ۲ ⁦Mini⁩ را منتشر کرده که با معماری حلقه‌ای، جواب را با توکن کمتری پیدا می‌کند. وزنش روی ⁦Hugging Face⁩ است و روی مک با ۳۲ گیگ رم اجرا می‌شود؛ برای کسی که با هوش مصنوعی کد می‌زند، یعنی یک مدل رایگان و محلی برای کارهای سنگین‌تر.\n\n<blockquote expandable>مدل ۲۶.۴ میلیارد پارامتری است و از متن و تصویر پشتیبانی می‌کند.\nدر تست‌های کدنویسی عاملی، امتیاز ۴۸.۲ درصد در ⁦DeepSWE⁩ گرفته.\nروی مک با ۳۲ گیگ رم و روی ⁦Nvidia DGX Spark⁩ اجرا می‌شود.\nنسخهٔ پژوهشی با حلقه‌های متغیر هم از ⁦Hugging Face⁩ دانلود می‌شود.\n‏⁦Apache⁩ ۲.۰</blockquote>\n\nاطلاعات بیشتر دربارهٔ این موضوع را از <a href=\"https://the-decoder.com/new-open-model-inkling-2-mini-thinks-in-loops-to-solve-problems-with-fewer-words-and-still-runs-on-a-laptop\">منبع</a> بخوانید.\n\n<i>۳۰ آبان ۱۴۰۵ · ۱۴:۰۳</i>\n\n#آپدیت #هوش_مصنوعی",
+   "score": 72.2,
+   "title": "مدل open source Inkling 2 Mini با حافظهٔ یک‌میلیون توکن روی لپ‌تاپ اجرا می‌شود",
+   "summary": "Thinking Machines مدل جدید Inkling 2 Mini را منتشر کرده که با معماری حلقه‌ای، جواب را با توکن کمتری پیدا می‌کند. وزنش روی Hugging Face است و روی مک با ۳۲ گیگ رم اجرا می‌شود؛ برای کسی که با هوش مصنوعی کد می‌زند، یعنی یک مدل رایگان و محلی برای کارهای سنگین‌تر.",
+   "link": "https://the-decoder.com/new-open-model-inkling-2-mini-thinks-in-loops-to-solve-problems-with-fewer-words-and-still-runs-on-a-laptop",
+   "source": "دیکودر",
+   "group": "ai",
+   "photo": ""
+  }
+ ]
 }

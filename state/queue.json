@@ -396,6 +396,24 @@
    "full": "Datasette 1.0a43 added the ability for plugins to implement streaming export formats. Datasette core supports streaming CSV and TSV - you can export millions of lines of data from a table without needing to load it all into memory, because those two file formats support streaming data in chunks. The register_output_renderer() plugin hook can now be used to implement the same pattern for other formats. I've learned never to release a new plugin feature without accompanying it with a plugin that uses it. Claude Fable 5.2 suggested the Apache Arrow streaming format as a good option, and built this plugin in almost a single shot. Add the plugin to Datasette ( datasette install datasette-arrows ) and the export dialog gains this new Arrow option: This screenshot is from Datasette's main branch - the most recent release doesn't yet group streaming formats such as Arrow with the TSV and CSV in the \"All rows in this table\" section, but that's coming in the next alpha release. This is a beat by Simon Willison, posted on 18th November 2026 . Sponsor me for $10/month and get a curated email digest of the month's most important LLM developments.",
    "use_link": "https://github.com/datasette/datasette-arrows/releases/tag/0.1a0",
    "reject_hits": 2
+  },
+  {
+   "id": "101fc3518e5fa5d3",
+   "title": "New open model Inkling 2 Mini thinks in loops to solve problems with fewer words and still runs on a laptop",
+   "link": "https://the-decoder.com/new-open-model-inkling-2-mini-thinks-in-loops-to-solve-problems-with-fewer-words-and-still-runs-on-a-laptop",
+   "site": "",
+   "desc": "Thinking Machines has released Inkling 2 Mini, an open looped transformer that runs 12 of its 24 layers three times per token. This lets the model reason internally for longer without generating extra text. On Artificial Analysis's Intelligence Index, it ties with Qwen3.8 27B at roughly six times lower cost. The article New open model Inkling 2 Mini thinks in loops to solve problems with fewer words and still runs on a laptop appeared first on The Decoder .",
+   "source": "دیکودر",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 0.7,
+   "published": "2026-11-21T10:33:02+00:00",
+   "added": "2026-11-21T11:15:39+00:00",
+   "full": "Thinking Machines has released Inkling 2 Mini, a so-called looped transformer. A looped transformer runs certain layers multiple times for each token. Inkling 2 Mini runs 12 of its 24 layers three times in a row. That lets the model reason internally for longer without generating more text, finding the right answer with fewer tokens, according to Thinking Machines . The open mixture-of-experts model has 26.4 billion parameters, with 5.4 billion active per token because of the loops, the company says. It processes text and images, has a 1-million-token context window, and is licensed under Apache 2.0. Inkling 2 Mini leads all open models under 100 billion parameters on agentic coding tests, scoring 48.2 percent on DeepSWE v1.1 and 46.5 percent on the Vals Index v2.2. Artificial Analysis gives it 20 points on its Intelligence Index, tying it with Qwen3.8 27B at roughly six times lower cost and four times the speed. Inkling 2 Mini runs locally on Macs with at least 32 GB of memory and on Nvidia's DGX Spark. You can download the weights and a research version with variable loops from Hugging Face . It is also available to try in the Tinker Playground . Ad Ad Already a subscriber? Sign in",
+   "use_link": "https://huggingface.co/thinkingmachines/Inkling-2-Mini",
+   "held": true
   }
  ]
 }
