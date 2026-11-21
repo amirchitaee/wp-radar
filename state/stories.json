@@ -69,40 +69,6 @@
    "cves": []
   },
   {
-   "t": "2026-11-17T12:16:32+00:00",
-   "id": "d947721e8bbad6bc",
-   "title": "How to Add a Trust Badge to WooCommerce With PCrisk (That a Visitor Can Verify)",
-   "kind": "news",
-   "link": "https://wpmayor.com/how-to-add-a-trust-badge-to-woocommerce-with-pcrisk",
-   "ents": [
-    "add",
-    "badge",
-    "can",
-    "pcrisk",
-    "trust",
-    "verify",
-    "visitor",
-    "woocommerce"
-   ],
-   "vers": [],
-   "cves": []
-  },
-  {
-   "t": "2026-11-17T16:47:10+00:00",
-   "id": "1b00d1c0cdd765cd",
-   "title": "WordPress 7.2 Release Candidate 1",
-   "kind": "news",
-   "link": "https://wordpress.org/news/2026/11/wordpress-7-2-release-candidate-1",
-   "ents": [
-    "candidate",
-    "wordpress"
-   ],
-   "vers": [
-    "7.2"
-   ],
-   "cves": []
-  },
-  {
    "t": "2026-11-17T23:01:36+00:00",
    "id": "ebff97034b293e5f",
    "title": "Moonshot AI pivots Kimi models from coding to science as benchmark gains flatten",
@@ -507,6 +473,20 @@
     "mini"
    ],
    "vers": [],
+   "cves": []
+  },
+  {
+   "t": "2026-11-21T18:01:19+00:00",
+   "id": "6436063e7769ba08",
+   "title": "PHP 8.6 ships: Here’s what’s new in the latest release",
+   "kind": "news",
+   "link": "https://kinsta.com/blog/php-8-6",
+   "ents": [
+    "php"
+   ],
+   "vers": [
+    "8.6"
+   ],
    "cves": []
   }
  ]
