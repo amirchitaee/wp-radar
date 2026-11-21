@@ -227,7 +227,7 @@
    "added": "2026-11-21T00:01:14+00:00",
    "full": "Signal is restricting screenshots to stop AI agents from reading private chats. The app blocks screenshots on iOS 27 and triggers protection on supported Android versions when an AI assistant tries to access the screen. Signal warned Reuters of an \"existential threat\" to privacy. OS-level AI like Apple's Siri AI and Google's Gemini Intelligence can capture screen content to complete user tasks. That undermines end-to-end encryption by letting agents pull decrypted messages straight from the display and process them externally. Meta's AI agent Muse recently captured Signal content on Android and macOS through broad setup permissions, including accessibility tools and screenshots on macOS. Meta says this happened only with explicit user permission. Ad Signal already blocked Microsoft's Recall on Windows but calls its defenses incomplete: macOS screenshots can't be reliably blocked, and AI access to file systems and notifications remains a risk. Signal says Apple, Google, and Microsoft should make it easy to block AI agents from apps entirely. Ad Already a subscriber? Sign in",
    "use_link": "",
-   "reject_hits": 1
+   "reject_hits": 2
   },
   {
    "id": "bc5933ad429c9c37",
