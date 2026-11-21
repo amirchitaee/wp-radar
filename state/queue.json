@@ -299,7 +299,7 @@
    "added": "2026-11-21T00:01:14+00:00",
    "full": "OpenAI has sharply tightened safeguards against extracting internal reasoning from GPT-6.2 Astra and GPT-6.2 Sol. In internal automated tests, attacks pulling protected reasoning from prior requests dropped from a 54.0 percent success rate on GPT-6 Astra to 0.2 percent on GPT-6.2 Astra. Attacks on active requests fell from 22.9 to 0.9 percent, OpenAI says . The company is now bringing selected improvements to GPT-6 Astra, too. The defenses work on two levels. For individual requests, the systems combine targeted training, input and output filters for messages and tool calls, and API blocks that stop older models from reading protected reasoning. Against coordinated campaigns, OpenAI bans thousands to tens of thousands of accounts weekly. Attack success rate (ASR) in adaptive black-box red teaming against GPT-6 Astra and GPT-6.2 Astra, aggregated across six attacker models. Lower is better. Ad Anthropic is fighting systematic distillation attacks as well , also banning tens of thousands of accounts to curb the theft of internal reasoning, reportedly succeeding in 90 to 99 percent of cases. Anthropic has also called for a coordinated response from industry and policymakers . Ad Already a subscriber? Sign in",
    "use_link": "https://openai.com/index/combatting-adversarial-distillation/",
-   "reject_hits": 1
+   "reject_hits": 2
   },
   {
    "id": "38136cf0c41628e4",
