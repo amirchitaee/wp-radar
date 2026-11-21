@@ -176,27 +176,6 @@
    "skip_permanent": true
   },
   {
-   "id": "4df4b105d63b8212",
-   "title": "AI industry growth remains strong, but the pace is slowing",
-   "link": "https://the-decoder.com/ai-industry-growth-remains-strong-but-the-pace-is-slowing",
-   "site": "",
-   "desc": "Token prices for AI models fell 21 percent in six weeks while usage volume hit a record high, according to the Ramp AI Index. Anthropic dominates with nearly 59 percent of token spending. Data from Ramp, Stripe and OpenRouter independently show the same pattern: the AI industry is still growing, but revenue momentum is cooling. The article AI industry growth remains strong, but the pace is slowing appeared first on The Decoder .",
-   "source": "دیکودر",
-   "lang": "en",
-   "tier": 2,
-   "group": "ai",
-   "kind": "news",
-   "age_hours": 5.0,
-   "published": "2026-11-19T19:28:19+00:00",
-   "added": "2026-11-20T00:30:46+00:00",
-   "full": "AI industry growth remains strong, but the pace is slowing Matthias Bastian View the LinkedIn Profile of Matthias Bastian Nov 19, 2026 Midjourney prompted by THE DECODER US companies are using AI models more intensively than ever and paying less for the privilege. The latest update of the Ramp AI Index , which draws on transaction data from more than 85,000 US companies, lays out the numbers. Tokens, the units of computation in which AI providers bill model usage, got 21.2 percent cheaper in six weeks, according to Ramp lead economist Ara Kharazian . At the same time, token volume rose 1.5 percent to a record high. Token spending, meaning what companies actually pay for AI APIs, fell 6.3 percent from its peak two weeks earlier. Month over month (the week ending November 15 vs. the week ending October 18), total token spending still rose 12 percent, but token volume jumped 27.2 percent over the same span. The gap between usage and revenue keeps widening. The average price per million tokens for OpenAI and Anthropic combined fell to $0.45, according to Ramp, down 11.2 percent from the prior month. OpenAI is cheaper at $0.38 per million tokens compared with $0.50 for Anthropic. API routing platform OpenRouter shows a similar pattern. According to an analysis Peter Walker published on X , weekly token volume for closed-weight models from OpenAI, Anthropic and Google grew 1,215 percent since the start of 2026. Weekly spending rose 455 percent over the same period, far more slowly. The spending peak came in the week of October 5, according to the OpenRouter data, which runs through the week of November 9. Spending has been declining since then. Ramp's token metrics rely on usage and billing data imported from AI providers, while OpenRouter measures traffic through its API routing platform. The fact that both sources show a spending peak in October followed by declining outlays and rising volume reinforces the trend, though neither service is representative of the overall market. OpenRouter in particular offers only a narrow window into a very specific user base. In the week ending November 15, 2026, Anthropic accounted for 58.7 percent of all token spending, according to the Ramp AI Index , up 1.7 percentage points from the prior month. Its share of token volume was even higher at 59.4 percent. OpenAI fell to 37.2 percent of spending and 37.7 percent of volume. Google came in at 1.4 percent and xAI (SpaceXAI) at 2.4 percent. Kharazian wrote on X that Anthropic holds this share on IPO day . In October, however, Anthropic's token spending grew only 0.5 percent month over month, while OpenAI's grew 2.1 percent. In October 2026 , 56.8 percent of all tracked US companies paid for AI products or services, according to Ramp, up one percentage point from September and 13.3 percentage points more than a year earlier. Anthropic leads with an adoption rate of 44.8 percent, while OpenAI sits at 40.6 percent. The Ramp AI Index tracks the demand side, what companies spend on AI. Payment processor Stripe has published its own AI Index that measures the supply side: incoming payments at roughly 20,000 AI companies that use Stripe. According to the Stripe AI Index,",
-   "use_link": "",
-   "reject_hits": 1,
-   "digest_sent": true,
-   "channel_skip": true,
-   "skip_permanent": true
-  },
-  {
    "id": "2fcea45b8abd0dd4",
    "title": "Smush 4.3.7",
    "link": "https://wordpress.org/plugins/wp-smushit/",
@@ -386,7 +365,7 @@
    "added": "2026-11-21T19:00:52+00:00",
    "full": "Gemini 4 Carbon only supports low , medium and high reasoning levels - but Gemini 4 Hydrogen and Gemini 4 Neon both have an extra xhigh level. I missed that when I added those models to the llm-gemini plugin, which is now fixed in this dot release. The xhigh setting for Hydrogen makes a significant difference. I updated my Gemini 4 comparison grid - note how Hydrogen at high used 5,311 output tokens and cost 3.99 cents, but the same model at xhigh used 31,477 output tokens, cost 23.61 cents, and produced a pelican that's competitive with Gemini 4 Neon: This is a beat by Simon Willison, posted on 20th November 2026 . Sponsor me for $10/month and get a curated email digest of the month's most important LLM developments.",
    "use_link": "https://github.com/simonw/llm-gemini/releases/tag/0.38.1",
-   "reject_hits": 1
+   "reject_hits": 2
   }
  ]
 }
