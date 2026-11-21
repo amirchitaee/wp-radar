@@ -511,6 +511,19 @@
    "cves": [
     "CVE-2026-129289"
    ]
+  },
+  {
+   "t": "2026-11-21T10:01:09+00:00",
+   "id": "c77f37fad59e94ed",
+   "title": "Bytedance argues most AI training phases are unnecessary and backs it up with a competitive open model",
+   "kind": "news",
+   "link": "https://the-decoder.com/bytedance-argues-most-ai-training-phases-are-unnecessary-and-backs-it-up-with-a-competitive-open-model",
+   "ents": [
+    "ai",
+    "bytedance"
+   ],
+   "vers": [],
+   "cves": []
   }
  ]
 }
