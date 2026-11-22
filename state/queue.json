@@ -270,7 +270,10 @@
    "kind": "tools",
    "age_hours": 28.6,
    "published": "2026-11-20T19:21:49+00:00",
-   "added": "2026-11-22T00:00:47+00:00"
+   "added": "2026-11-22T00:00:47+00:00",
+   "full": "Alessandro Masullo has a proposed proof of [Generalized Riemann Hypothesis], and Brian Conrad has been looking closely at it for months and gave extensive feedback which is being incorporated, and it is so far looking good. It is all human, with no AI. The hope was to bring Alessandro to Stanford for a year to polish the writing and then announce it after running it by enough people. Now it seems best to put out the current draft. — Ravi Vakil , Hurried Announcement: Alessandro Masullo GRH This is a quotation collected by Simon Willison, posted on 20th November 2026 .",
+   "use_link": "",
+   "reject_hits": 1
   },
   {
    "id": "480c7f59bbc97a69",
