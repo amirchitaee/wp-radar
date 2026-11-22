@@ -165,27 +165,6 @@
    "added": "2026-11-21T00:01:14+00:00"
   },
   {
-   "id": "1f0877e19ce676cf",
-   "title": "WordPress Credits Boost Translation",
-   "link": "https://wordpress.org/news/2026/11/wp-credits-boost-translation",
-   "site": "",
-   "desc": "Contributors to the Costa Rican Spanish locale are making WordPress more accessible to Spanish-speaking communities in Costa Rica. Students from local schools and universities have joined the Polyglots team, helping translate WordPress.org projects and review community contributions. Students from two universities and a bilingual high school in Costa Rica contributed through the WordPress Credits program, […]",
-   "source": "وردپرس",
-   "lang": "en",
-   "tier": 1,
-   "group": "",
-   "kind": "news",
-   "age_hours": 0.7,
-   "published": "2026-11-20T13:48:10+00:00",
-   "added": "2026-11-20T14:30:40+00:00",
-   "full": "Contributors to the Costa Rican Spanish locale are making WordPress more accessible to Spanish-speaking communities in Costa Rica. Students from local schools and universities have joined the Polyglots team, helping translate WordPress.org projects and review community contributions. Students from two universities and a bilingual high school in Costa Rica contributed through the WordPress Credits program , which lets students earn academic credit for contributing to WordPress as part of their studies. On the Polyglots team, contributors suggest translations for WordPress Core, plugins, themes, and WordPress.org sites. Locale editors review and approve those suggestions. Between September 2025 and November 2026, translation coverage in es_CR rose from 38% to 100% on WordPress.org, from 39% to 98% in the Plugin Directory, and from 45% to 99% in the Forums. WordPress Core reached 99%, while the queue of strings waiting for review fell from 665 to 105. One participating school, Liceo Experimental Bilingüe José Figueres Ferrer in Cartago, was the first high school in the Americas to implement WordPress Credits through its Student Community Service program, Trabajo Comunal Estudiantil. Its students focused on Polyglots and helped advance the es_CR translations. WP Credits pushed me to contribute to something real, not just a class assignment. Going from not knowing what a ‘string’ was to translating hundreds of them was a great feeling, and it showed me that even a ‘small’ contribution like translation genuinely helps people who use WordPress in Spanish every day. The project also produced a resource for new contributors. The video “ Cómo contribuir en el equipo de traducción ” walks viewers through contributing on the WordPress translation platform, using Costa Rican Spanish as an example. If you read and write a language other than English, you can help make WordPress more useful to people in your language. Start with the first steps in the Polyglots Handbook to learn how to suggest translations and take part in the review process. Then check the translation stats page to find projects that need work in your locale. Educators can explore the WordPress Credits program to learn how students can contribute to WordPress as part of their studies.",
-   "use_link": "https://wordpress.org/education/credits/",
-   "reject_hits": 2,
-   "digest_sent": true,
-   "channel_skip": true,
-   "skip_permanent": true
-  },
-  {
    "id": "2fcea45b8abd0dd4",
    "title": "Smush 4.3.7",
    "link": "https://wordpress.org/plugins/wp-smushit/",
@@ -355,6 +334,21 @@
    "full": "The Lean and Mathlib community has confirmed that Levent Alpöge's proof of the Riemann hypothesis is correct. \"We have full confidence that Alpöge's proof is correct, and we congratulate him on this achievement,\" the community said in a statement . Alpöge, a Stanford mathematician, published the proof on Nov. 20, 2026, as 17 million lines of code written in Lean , a tool that checks mathematical proofs for errors. Dozens of people ran the code independently and got the same result. The verification programs are designed so they provably cannot accept a flawed proof. MIT mathematician Andrew Sutherland lists the independent checks on his website . The Riemann hypothesis had been one of the most famous unsolved problems in math, making a prediction about how prime numbers are distributed. The video below, generated with Fable 5.2, explains the proof if you want to dig deeper. Ad The solution arrived much earlier than expected. As Ethan Mollick notes , forecasters on Metaculus had put the expected date at May 2035. Mathematician Terence Tao said last month he expected the problem to fall to \"a combination of humans and AI around 2050 or so.\" Ad Already a subscriber? Sign in",
    "use_link": "",
    "reject_hits": 2
+  },
+  {
+   "id": "b014e723007fa87f",
+   "title": "AI is getting better faster than experts can reliably test whether new systems are safe, METR warns",
+   "link": "https://the-decoder.com/ai-is-getting-better-faster-than-experts-can-reliably-test-whether-new-systems-are-safe-metr-warns",
+   "site": "",
+   "desc": "METR reports that leading AI models like Opus 5.5 and GPT-6 Astra are improving rapidly at research tasks but getting harder to measure. Current data can't rule out a dangerous acceleration in AI development, the organization warns, though it also says common tests may overestimate what the models can actually do. The article AI is getting better faster than experts can reliably test whether new systems are safe, METR warns appeared first on The Decoder .",
+   "source": "دیکودر",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 1.0,
+   "published": "2026-11-22T13:00:43+00:00",
+   "added": "2026-11-22T14:01:01+00:00"
   }
  ]
 }
