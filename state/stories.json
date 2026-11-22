@@ -69,20 +69,6 @@
    "cves": []
   },
   {
-   "t": "2026-11-18T20:45:55+00:00",
-   "id": "1f88370877cf26c4",
-   "title": "Mistral plays catch-up with Vibe Desktop as rivals already command full operating systems",
-   "kind": "news",
-   "link": "https://the-decoder.com/mistral-plays-catch-up-with-vibe-desktop-as-rivals-already-command-full-operating-systems",
-   "ents": [
-    "desktop",
-    "mistral",
-    "vibe"
-   ],
-   "vers": [],
-   "cves": []
-  },
-  {
    "t": "2026-11-18T22:00:59+00:00",
    "id": "bcd81dc455f875ea",
    "title": "PSA: Critical NGINX HTTP/2 Vulnerabilities: What WordPress Site Owners Should Know",
