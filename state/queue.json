@@ -206,7 +206,7 @@
    "added": "2026-11-22T14:01:01+00:00",
    "full": "AI models are rapidly improving at AI research tasks, and they're getting harder to measure. According to the AI research organization METR , current public data isn't enough to rule out a drastic acceleration in AI research over the next few years. That could leave humans unable \"to meaningfully understand, assess, and react to catastrophic risks posed by new AI systems,\" the organization warns. On clearly defined coding and computational tasks with direct feedback, the models already beat experienced human professionals most of the time, METR found, though they haven't yet outperformed large groups of top experts. For tasks that take humans longer, the task length the models can handle doubles every 3.6 months. A naive extrapolation of METR's data puts them at a 50 percent success rate on the longest, 200-hour tasks by July 2027. The systems still struggle with open-ended questions that lack immediate feedback and require real judgment, as well as with situations that are hard to recreate for training, according to METR. The organization also warns that common, easy-to-run tests may overestimate how well the models perform in real-world use, since developers train them in very similar test environments. Ad Ad Already a subscriber? Sign in",
    "use_link": "",
-   "reject_hits": 1
+   "reject_hits": 2
   },
   {
    "id": "b37093cc9fffb655",
