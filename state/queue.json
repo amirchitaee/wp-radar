@@ -150,21 +150,6 @@
    "added": "2026-11-21T00:01:14+00:00"
   },
   {
-   "id": "05d97431e50b773a",
-   "title": "Nvidia bets at least $500 million on Inception's diffusion models to strengthen its open-source Nemotron lineup",
-   "link": "https://the-decoder.com/nvidia-bets-at-least-500-million-on-inceptions-diffusion-models-to-strengthen-its-open-source-nemotron-lineup",
-   "site": "",
-   "desc": "Nvidia is close to acquiring AI startup Inception for at least $500 million, according to The Information. The company is just two years old and builds language models based on diffusion processes, an alternative approach to the token-by-token generation used by models like ChatGPT. The deal would bolster Nvidia's own open-source models and its push into robotics. The article Nvidia bets at least $500 million on Inception's diffusion models to strengthen its open-source Nemotron lineup appeared first on The Decoder .",
-   "source": "دیکودر",
-   "lang": "en",
-   "tier": 2,
-   "group": "ai",
-   "kind": "news",
-   "age_hours": 9.1,
-   "published": "2026-11-20T14:53:50+00:00",
-   "added": "2026-11-21T00:01:14+00:00"
-  },
-  {
    "id": "2fcea45b8abd0dd4",
    "title": "Smush 4.3.7",
    "link": "https://wordpress.org/plugins/wp-smushit/",
