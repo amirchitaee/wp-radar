@@ -304,6 +304,66 @@
    "age_hours": 78.8,
    "published": "2026-11-18T17:09:59+00:00",
    "added": "2026-11-22T00:00:47+00:00"
+  },
+  {
+   "id": "f5a6d06d7d43a3a7",
+   "title": "Nvidia researchers argue huge AI context windows are a dead end",
+   "link": "https://the-decoder.com/nvidia-researchers-argue-huge-ai-context-windows-are-a-dead-end",
+   "site": "",
+   "desc": "Nvidia researchers argue that language models often don't need their full context windows—which are slow, expensive, and prone to errors—and propose an alternative. In tests, periodic summaries and targeted keyword search usually matched full-context results at a fraction of the cost. The team even proposes a new class of models that works with short notes instead of long context. The article Nvidia researchers argue huge AI context windows are a dead end appeared first on The Decoder .",
+   "source": "دیکودر",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 8.1,
+   "published": "2026-11-21T16:23:45+00:00",
+   "added": "2026-11-22T00:30:42+00:00"
+  },
+  {
+   "id": "77a328232039d8e2",
+   "title": "Silicon Valley's growing obsession with AI doomsday is turning parts of the tech industry toward cult-like devotion",
+   "link": "https://the-decoder.com/silicon-valleys-growing-obsession-with-ai-doomsday-is-turning-parts-of-the-tech-industry-toward-cult-like-devotion",
+   "site": "",
+   "desc": "A Buddhist monastery in Vermont called Maple wants to establish itself as Silicon Valley's spiritual authority while creating its own AI god. According to a New Yorker report, leader Soryu Forall's group records every breath its members take to train an AI in his image. Former members report manipulation and psychological breakdowns. The article Silicon Valley's growing obsession with AI doomsday is turning parts of the tech industry toward cult-like devotion appeared first on The Decoder .",
+   "source": "دیکودر",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 8.4,
+   "published": "2026-11-21T16:04:29+00:00",
+   "added": "2026-11-22T00:30:42+00:00"
+  },
+  {
+   "id": "62e92effd5b9310b",
+   "title": "OpenAI shares new prompting tips for GPT-6.2 Astra and Sol to fix brief answers and unnecessary questions",
+   "link": "https://the-decoder.com/openai-shares-new-prompting-tips-for-gpt-6-2-astra-and-sol-to-fix-brief-answers-and-unnecessary-questions",
+   "site": "",
+   "desc": "OpenAI has released new prompt templates for GPT-6.2 Astra and Sol meant to fix common model behaviors such as overly brief answers, unnecessary follow-up questions, and excessive testing when coding. The API is changing as well, since editing a conversation's history can discard reasoning content and lower response quality. The article OpenAI shares new prompting tips for GPT-6.2 Astra and Sol to fix brief answers and unnecessary questions appeared first on The Decoder .",
+   "source": "دیکودر",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 11.0,
+   "published": "2026-11-21T13:32:35+00:00",
+   "added": "2026-11-22T00:30:42+00:00"
+  },
+  {
+   "id": "31739de0b0b363cc",
+   "title": "US technology stocks suffer their worst weekly loss since the pandemic as AI doubts pile up",
+   "link": "https://the-decoder.com/us-technology-stocks-suffer-their-worst-weekly-loss-since-the-pandemic-as-ai-doubts-pile-up",
+   "site": "",
+   "desc": "The Nasdaq 100 has slipped into a bear market after its worst weekly loss since the Covid-19 crisis. Nvidia plunged 14 percent as the SEC reviews its accounting, and Anthropic lost nearly all of its gains a day after its record IPO. AI doubts, scandals, rising interest rates, and political headwinds are hitting overheated valuations all at once. The article US technology stocks suffer their worst weekly loss since the pandemic as AI doubts pile up appeared first on The Decoder .",
+   "source": "دیکودر",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 14.0,
+   "published": "2026-11-21T10:27:44+00:00",
+   "added": "2026-11-22T00:30:42+00:00"
   }
  ]
 }
