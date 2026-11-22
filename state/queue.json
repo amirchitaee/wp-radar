@@ -309,7 +309,7 @@
    "added": "2026-11-22T00:30:42+00:00",
    "full": "Nvidia researchers argue huge AI context windows are a dead end Nano Banana Pro prompted by THE DECODER Language models can now process entire novels at once. An Nvidia research team says that's often overkill and expensive. In many tests, periodic summaries and targeted lookups worked about as well. A language model's context window is its working memory, covering everything it holds in view when generating a reply. Over the past few years, that window has grown rapidly. GPT-4 launched in March 2023 with 8,192 tokens. Today, GPT 5.6 Sol handles around one million tokens, about 120 times as much and enough for Tolstoy's \"War and Peace.\" Already a subscriber? Sign in Back to the homepage",
    "use_link": "",
-   "reject_hits": 1
+   "reject_hits": 2
   },
   {
    "id": "77a328232039d8e2",
