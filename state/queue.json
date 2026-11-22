@@ -23,27 +23,6 @@
    "skip_permanent": true
   },
   {
-   "id": "08401912b13f330b",
-   "title": "OpenAI makes it much harder for attackers to extract how its latest AI models think",
-   "link": "https://the-decoder.com/openai-makes-it-much-harder-for-attackers-to-extract-how-its-latest-ai-models-think",
-   "site": "",
-   "desc": "OpenAI has significantly strengthened safeguards against extracting internal reasoning from GPT-6.2 Astra and GPT-6.2 Sol. In adaptive red-teaming tests, the success rate for extracting protected reasoning fell from 54 percent to 0.2 percent. The company is also suspending thousands to tens of thousands of accounts each week over coordinated distillation campaigns. The article OpenAI makes it much harder for attackers to extract how its latest AI models think appeared first on The Decoder .",
-   "source": "دیکودر",
-   "lang": "en",
-   "tier": 2,
-   "group": "ai",
-   "kind": "news",
-   "age_hours": 3.5,
-   "published": "2026-11-20T20:31:50+00:00",
-   "added": "2026-11-21T00:01:14+00:00",
-   "full": "OpenAI has sharply tightened safeguards against extracting internal reasoning from GPT-6.2 Astra and GPT-6.2 Sol. In internal automated tests, attacks pulling protected reasoning from prior requests dropped from a 54.0 percent success rate on GPT-6 Astra to 0.2 percent on GPT-6.2 Astra. Attacks on active requests fell from 22.9 to 0.9 percent, OpenAI says . The company is now bringing selected improvements to GPT-6 Astra, too. The defenses work on two levels. For individual requests, the systems combine targeted training, input and output filters for messages and tool calls, and API blocks that stop older models from reading protected reasoning. Against coordinated campaigns, OpenAI bans thousands to tens of thousands of accounts weekly. Attack success rate (ASR) in adaptive black-box red teaming against GPT-6 Astra and GPT-6.2 Astra, aggregated across six attacker models. Lower is better. Ad Anthropic is fighting systematic distillation attacks as well , also banning tens of thousands of accounts to curb the theft of internal reasoning, reportedly succeeding in 90 to 99 percent of cases. Anthropic has also called for a coordinated response from industry and policymakers . Ad Already a subscriber? Sign in",
-   "use_link": "https://openai.com/index/combatting-adversarial-distillation/",
-   "reject_hits": 2,
-   "digest_sent": true,
-   "channel_skip": true,
-   "skip_permanent": true
-  },
-  {
    "id": "2fcea45b8abd0dd4",
    "title": "Smush 4.3.7",
    "link": "https://wordpress.org/plugins/wp-smushit/",
@@ -225,6 +204,40 @@
    "age_hours": 1.0,
    "published": "2026-11-22T13:00:43+00:00",
    "added": "2026-11-22T14:01:01+00:00"
+  },
+  {
+   "id": "b37093cc9fffb655",
+   "title": "Website Inspiration: Damián Panes",
+   "link": "https://onepagelove.com/damian-panes",
+   "site": "https://www.dapan.es",
+   "desc": "Damián Panes, a programmer and founder, has a portfolio that presents everything as a draggable mint-and-black pixel-art chessboard, using animated pieces, bitmap typography and dithered graphics reminiscent of an early computer game. Full Review",
+   "source": "وان‌پیج‌لاو",
+   "lang": "en",
+   "tier": 3,
+   "group": "",
+   "kind": "showcase",
+   "age_hours": 10.0,
+   "published": "2026-11-22T10:42:44+00:00",
+   "added": "2026-11-22T20:45:31+00:00",
+   "full": "Damián Panes, a programmer and founder, has a portfolio that presents everything as a draggable mint-and-black pixel-art chessboard, using animated pieces, bitmap typography and dithered graphics reminiscent of an early computer game. Visit Website Tech Astro Typefaces Lora Category Personal , Portfolio Style Fun , Pixel Art , Retro & Vintage , Scroll Effects Color Dark , Turquoise Features Biography Hero Banner Recent Blogs 8-bit App Developer Code Draggable Entrepreneur Interactive Software Published 22 Nov 2026 Report an issue Sections on this page Hero Banner Biography Recent Blogs Similar websites Justin Schüler Personal Portfolio La Coignardière Music Related Personal Oluwatobi Salawu Personal Portfolio Pete Sena Personal Made by Igor Personal Portfolio Christoph Mandl Personal Portfolio View all websites → Website categories Portfolio Landing Page Digital Product Launching Soon App Service Our favorite websites, every two weeks Join thousands of designers reading the Love Letter. Unsubscribe anytime",
+   "use_link": ""
+  },
+  {
+   "id": "3c8e91791cb1164c",
+   "title": "108 Supply — Website and motion templates",
+   "link": "https://land-book.com/websites/103197-108-supply-website-and-motion-templates",
+   "site": "",
+   "desc": "",
+   "source": "لندبوک",
+   "lang": "en",
+   "tier": 3,
+   "group": "",
+   "kind": "showcase",
+   "age_hours": 84.3,
+   "published": "2026-11-19T08:27:00+00:00",
+   "added": "2026-11-22T20:45:28+00:00",
+   "full": "Enjoy all PRO features for $72 $50 per year. The discount also applies to current PRO users. Limited-time offer. I design in Figma and build websites in Webflow and Framer, and animate in Jitter. I tend …",
+   "use_link": ""
   }
  ]
 }
