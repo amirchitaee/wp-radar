@@ -1,3 +1,18 @@
 {
- "items": []
+ "items": [
+  {
+   "id": "b37093cc9fffb655",
+   "at": "2026-11-22T21:30:51+00:00",
+   "kind": "showcase",
+   "label": "نمایشگاه",
+   "text": "<b>🖼 نمایشگاه: ⁦Damián Panes⁩ — پورتفولیویی که یک صفحه‌شطرنجی پیکسلی است</b>\n\nسایت ⁦Damián Panes⁩، برنامه‌نویس و بنیان‌گذار، همه‌چیز را به شکل صفحه‌شطرنجی سبز-سیاه با مهره‌های متحرک نشان می‌دهد. گرافیکش شبیه بازی‌های کامپیوتری قدیمی است و تایپوگرافی بیت‌مپ دارد.\n\n<blockquote expandable>کل سایت با ⁦Astro⁩ ساخته شده و بخش‌هایش شامل بیوگرافی، بلاگ و هدر است.\nمهره‌ها را می‌شود کشید و جابه‌جا کرد.\nفونت ⁦Lora⁩ و افکت اسکرول هم دارد.\nبرای دیدنش فقط یک مرورگر لازم است.</blockquote>\n\nدیدن سایت از این آدرس:\n<a href=\"https://www.dapan.es\">https://www.dapan.es</a>\n\nاطلاعات بیشتر دربارهٔ این موضوع را از <a href=\"https://onepagelove.com/damian-panes\">منبع</a> بخوانید.\n\n<i>۱ آذر ۱۴۰۵ · ۱۴:۱۲</i>\n\n#نمایشگاه #طراحی_سایت",
+   "score": 59.0,
+   "title": "پورتفولیویی که یک صفحه‌شطرنجی پیکسلی است",
+   "summary": "سایت Damián Panes، برنامه‌نویس و بنیان‌گذار، همه‌چیز را به شکل صفحه‌شطرنجی سبز-سیاه با مهره‌های متحرک نشان می‌دهد. گرافیکش شبیه بازی‌های کامپیوتری قدیمی است و تایپوگرافی بیت‌مپ دارد.",
+   "link": "https://onepagelove.com/damian-panes",
+   "source": "وان‌پیج‌لاو",
+   "group": "",
+   "photo": "https://assets.onepagelove.com/cdn-cgi/image/width=1200,height=628,fit=cover,gravity=top,format=jpg,quality=85/wp-content/uploads/2026/11/opl-screenshot-damian-panes-1795275356334-desktop.jpg"
+  }
+ ]
 }

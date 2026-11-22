@@ -442,6 +442,20 @@
    ],
    "vers": [],
    "cves": []
+  },
+  {
+   "t": "2026-11-22T21:30:52+00:00",
+   "id": "b37093cc9fffb655",
+   "title": "Website Inspiration: Damián Panes",
+   "kind": "showcase",
+   "link": "https://onepagelove.com/damian-panes",
+   "ents": [
+    "inspiration",
+    "panes",
+    "website"
+   ],
+   "vers": [],
+   "cves": []
   }
  ]
 }
