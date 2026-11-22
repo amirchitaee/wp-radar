@@ -69,26 +69,6 @@
    "cves": []
   },
   {
-   "t": "2026-11-18T22:00:59+00:00",
-   "id": "bcd81dc455f875ea",
-   "title": "PSA: Critical NGINX HTTP/2 Vulnerabilities: What WordPress Site Owners Should Know",
-   "kind": "news",
-   "link": "https://www.wordfence.com/blog/2026/11/nginx-http2-vulnerabilities-wordpress",
-   "ents": [
-    "http",
-    "know",
-    "nginx",
-    "owners",
-    "psa",
-    "wordpress"
-   ],
-   "vers": [],
-   "cves": [
-    "CVE-2026-123007",
-    "CVE-2026-123633"
-   ]
-  },
-  {
    "t": "2026-11-19T00:30:49+00:00",
    "id": "0bebe180e57f1c33",
    "title": "Bring your own agents to WordPress Studio",
