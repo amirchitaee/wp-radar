@@ -473,6 +473,18 @@
     "6.2"
    ],
    "cves": []
+  },
+  {
+   "t": "2026-11-22T12:47:00+00:00",
+   "id": "1dea5cb19bbd0b0a",
+   "title": "Security researchers show how cheap AI inference providers steal keys and snoop on users",
+   "kind": "news",
+   "link": "https://the-decoder.com/security-researchers-show-how-cheap-ai-inference-providers-steal-keys-and-snoop-on-users",
+   "ents": [
+    "ai"
+   ],
+   "vers": [],
+   "cves": []
   }
  ]
 }
