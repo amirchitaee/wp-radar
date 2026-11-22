@@ -186,24 +186,6 @@
    "skip_permanent": true
   },
   {
-   "id": "eff10dd94532cdc0",
-   "title": "Hermes Agent's Collective Wisdom feature turns one employee's AI trick into the whole team's skill",
-   "link": "https://the-decoder.com/hermes-agents-collective-wisdom-feature-turns-one-employees-ai-trick-into-the-whole-teams-skill",
-   "site": "",
-   "desc": "Companies will soon be able to run the open-source Hermes Agent from Nous Research directly inside Microsoft Teams. The article Hermes Agent's Collective Wisdom feature turns one employee's AI trick into the whole team's skill appeared first on The Decoder .",
-   "source": "دیکودر",
-   "lang": "en",
-   "tier": 2,
-   "group": "ai",
-   "kind": "news",
-   "age_hours": 3.0,
-   "published": "2026-11-20T09:59:51+00:00",
-   "added": "2026-11-20T13:00:58+00:00",
-   "digest_sent": true,
-   "channel_skip": true,
-   "skip_permanent": true
-  },
-  {
    "id": "2fcea45b8abd0dd4",
    "title": "Smush 4.3.7",
    "link": "https://wordpress.org/plugins/wp-smushit/",
@@ -355,6 +337,24 @@
    "age_hours": 14.0,
    "published": "2026-11-21T10:27:44+00:00",
    "added": "2026-11-22T00:30:42+00:00"
+  },
+  {
+   "id": "0cbda05d55dc00f2",
+   "title": "GPT-6.2 Astra and Sol get to the point faster but score lower on transparency than Claude",
+   "link": "https://the-decoder.com/gpt-6-2-astra-and-sol-get-to-the-point-faster-but-score-lower-on-transparency-than-claude",
+   "site": "",
+   "desc": "OpenAI's GPT-6.2 Astra and Sol give much shorter, more direct answers than their predecessors, but they are also less willing to admit uncertainty. Anthropic's Claude models score well ahead on transparency. The article GPT-6.2 Astra and Sol get to the point faster but score lower on transparency than Claude appeared first on The Decoder .",
+   "source": "دیکودر",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 0.3,
+   "published": "2026-11-22T09:41:37+00:00",
+   "added": "2026-11-22T10:01:13+00:00",
+   "full": "An Artificial Analysis evaluation shows how much OpenAI's communication style has changed. A comparison with Anthropic reveals sharp differences. OpenAI's GPT-6.2 Astra and Sol give much shorter answers, get to the point faster, and impose less structure on their responses than their predecessors. At the same time, Artificial Analysis rates their tendency to admit uncertainty much lower. Astra's average answer length dropped from 352 to 210 words, a 40 percent decrease. Sol went from 337 to 223 words, down 34 percent. Both models also use far fewer headings and em dashes. Astra's average number of headings per answer fell from 1.99 to 0.11, and Sol's from 1.85 to 0.25. The Organization Index dropped sharply too. Astra went from 70 to 11, Sol from 86 to 27. This index combines four traits rated by AI judges, including answer structure, clarity, and Answer First, which measures whether a model immediately addresses the actual question. On that last trait, Astra jumped from 49 to 89 and Sol from 64 to 87. Scores for Natural Sounding language also climbed, from 58 to 100 for Astra and from 54 to 79 for Sol. The biggest change shows up in the Admits Uncertainty trait. Astra's score fell from 96 to 24, and Sol's from 98 to 51. Unlike the raw word counts, these personality scores are relative rankings on a scale from 1 to 100. They show how strongly a given trait shows up in one model compared to all other tested models. A score of 24 doesn't mean Astra only admits uncertainty in 24 percent of its answers. Artificial Analysis published the evaluation on LinkedIn and X . Our own comparison of all eight personality indexes shows clear gaps between OpenAI's latest models and Anthropic's Claude Fable 5.2 and Opus 5.5 . The indexes roll up 30 personality traits, each rated by AI judges based on model responses. All comparisons use the \"max\" model variants as listed by Artificial Analysis. Anthropic's models score 81 and 90 on the Transparency Index, well above Astra (41) and Sol (57). This index covers five traits: Admits Uncertainty, Truthful, Disclaims Assumptions, Flags Nuances, and Sycophantic. That last one is scored inversely, since less flattery counts as a positive. Anthropic's models also lead on Organization. Opus 5.5 stands out on the Informativeness Index with a score of 90, well ahead of the other three models. Its strongest individual traits include Information Dense and Evidence-Based reasoning. The AA-PersonalityBench uses 900 English-language test questions that each model answers without a system prompt. A panel of three AI models evaluates anonymized answer pairs. For each comparison, one AI judge picks which answer shows the tested personality trait more strongly, or calls it a tie. From these evaluations, Artificial Analysis calculates scores for 30 individual personality traits, which feed into eight higher-level indexes. The index values from 1 to 100 reflect each model's relative position among all tested models. Separately, Artificial Analysis measures 21 communication traits that are counted directly rather than rated by AI judges. These include average answer length and the number of headings and em dashes per answer. The perso",
+   "use_link": "",
+   "held": true
   }
  ]
 }
