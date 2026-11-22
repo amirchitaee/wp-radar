@@ -17,7 +17,10 @@
    "added": "2026-11-21T12:30:49+00:00",
    "full": "Levent Alpöge, a mathematician at Anthropic, said Friday he used a large language model to solve math's most famous open problem. Alpöge posted a paper and the accompanying computer code on his website, according to Scientific American and other US outlets. \"I believe I have, working with Claude, discovered a proof of the Riemann Hypothesis,\" he wrote in his announcement . According to Alpöge, his method goes beyond the original prime-number problem and also resolves the Generalized Riemann Hypothesis (GRH), which extends that ordering principle to a large family of related equations. Given a bit more time, he expects to solve the even broader Extended Riemann Hypothesis as well. Alpöge had treated the problem as a secret lifelong goal since college, expecting it to take decades. Over the past few months, he worked closely with Anthropic's AI model, setting the direction and combining two approaches on a simplified toy model. Once they moved to the actual problem, the AI took over and left him far behind near the finish line. To crack the puzzle, the pair extended an idea from mathematician Stepanov, who had solved a similar question in another mathematical system. That method relies on a tool similar to taking derivatives of smooth curves in high school calculus, a trick that normally fails on whole numbers because individual values cannot be differentiated like a continuous line. Alpöge and Claude got around that obstacle by chaining special mathematical transformations together like links to mimic the effect of a derivative. The language model supplied the key insight, finding that for a number sequence of length X, you need to chain exactly as many transformations as the square root of X. Ideas like that alone should leave fellow mathematicians stunned, Alpöge says. Hours after Alpöge's announcement, the story took a dramatic turn. Just before a board meeting, Stanford math professor and American Mathematical Society (AMS) president Ravi Vakil posted a \"hurried announcement\" on his blog, sharing an independent draft proof of the Generalized Riemann Hypothesis written by mathematician Alessandro Masullo. \"It is all human, with no AI,\" Vakil wrote. Renowned Stanford number theorist Brian Conrad had quietly reviewed Masullo's work for months, offering extensive feedback that is now being incorporated, Vakil said. Masullo was originally supposed to spend a year at Stanford refining the draft before going public, but Anthropic's sudden AI announcement forced the researchers to release their current version right away. About eight hours after his initial announcement, Vakil updated his post, saying several people had contacted him to report problems in the proposed proof, identified with the assistance of different AI models. Several mathematicians in particular were first to flag the issues, he said. \"As is usual, all issues need to be resolved to the satisfaction of the community before this proof would be accepted as true. (I make no claim as to the correctness of the proof strategy.),\" Vakil wrote. Mathematicians are taking both claims seriously right away because of the groundwork behind them. Masullo's traditional proof comes with months ",
    "use_link": "",
-   "reject_hits": 2
+   "reject_hits": 2,
+   "digest_sent": true,
+   "channel_skip": true,
+   "skip_permanent": true
   },
   {
    "id": "08401912b13f330b",
@@ -56,7 +59,10 @@
    "added": "2026-11-21T00:01:14+00:00",
    "full": "Signal is restricting screenshots to stop AI agents from reading private chats. The app blocks screenshots on iOS 27 and triggers protection on supported Android versions when an AI assistant tries to access the screen. Signal warned Reuters of an \"existential threat\" to privacy. OS-level AI like Apple's Siri AI and Google's Gemini Intelligence can capture screen content to complete user tasks. That undermines end-to-end encryption by letting agents pull decrypted messages straight from the display and process them externally. Meta's AI agent Muse recently captured Signal content on Android and macOS through broad setup permissions, including accessibility tools and screenshots on macOS. Meta says this happened only with explicit user permission. Ad Signal already blocked Microsoft's Recall on Windows but calls its defenses incomplete: macOS screenshots can't be reliably blocked, and AI access to file systems and notifications remains a risk. Signal says Apple, Google, and Microsoft should make it easy to block AI agents from apps entirely. Ad Already a subscriber? Sign in",
    "use_link": "",
-   "reject_hits": 2
+   "reject_hits": 2,
+   "digest_sent": true,
+   "channel_skip": true,
+   "skip_permanent": true
   },
   {
    "id": "2fcea45b8abd0dd4",
@@ -92,7 +98,10 @@
    },
    "full": "Compress images, optimize images, and enable image lazy load automatically with the powerful Smush image optimizer to keep your WordPress site fast, without losing quality. Smush makes it easy to optimize images, compress images, and deliver images faster across your entire WordPress site. This all-in-one image optimizer automatically reduces image file sizes, enables image lazy load, and serves modern formats like WebP and AVIF, all without breaking image quality or adding extra work. Whether you’re running a blog, store, or portfolio, Smush helps you optimize images at scale and keep your site fast with a trusted WordPress image optimizer. Trusted by 1+ Million Sites | 4.8/5 Star Rating Get everything you need to optimize images and speed up your site. Smush works out of the box with no complicated setup – just install and let it handle the rest. Reduce image file size automatically while keeping your images sharp and clear. Smush is an easy-to-use image optimizer which let’s you compress images using both lossless and lossy compression, giving you the best balance of quality and performance without extra work. You can also compress images outside the media library using Directory Smush, making it easy to optimize images stored in theme folders, plugins, or other directories on your server. Enable image lazy load across your site so images load only when needed. This image optimizer improves initial page speed and creates a smoother experience for visitors without extra configuration. Convert images to WebP and AVIF and serve them automatically to supported browsers. Smush helps you optimize images using next-gen formats to reduce file size and improve load times across your WordPress site. Serve images through a global image CDN to reduce latency and improve load times for visitors around the world. Eliminate common PageSpeed warnings and improve layout stability with automatic image sizing. Smush dynamically resizes images to perfectly fit their containers, regardless of original size, helping fix the “Properly size images” warning in Google PageSpeed Insights. It also automatically adds missing width and height attributes to your images, improving rendering speed and reducing layout shifts. This helps you meet the “Ensure images have explicit width and height” recommendation without any manual work. Smush works across your whole site as a powerful image optimizer to optimize images as you upload them and maintain performance over time without manual work. Smush improves page speed and overall performance by reducing image weight and improving how images are delivered. Smush is built to work with your current WordPress setup, including popular themes, page builders, and plugins. You don’t need to be a performance expert to optimize images with Smush image optimizer. There are plenty of image optimization plugins, but Smush focuses on making it easy to optimize images, compress images, and improve performance without complexity. As a leading WordPress image optimizer, Smush gives you powerful optimization tools without the technical hassle. Install Smush, activate it, and start to compress images, optimize images, and enable image lazy loa",
    "use_link": "",
-   "reject_hits": 2
+   "reject_hits": 2,
+   "digest_sent": true,
+   "channel_skip": true,
+   "skip_permanent": true
   },
   {
    "id": "81ce5b24dd897b42",
@@ -110,7 +119,10 @@
    "added": "2026-11-22T00:00:47+00:00",
    "full": "Alessandro Masullo has a proposed proof of [Generalized Riemann Hypothesis], and Brian Conrad has been looking closely at it for months and gave extensive feedback which is being incorporated, and it is so far looking good. It is all human, with no AI. The hope was to bring Alessandro to Stanford for a year to polish the writing and then announce it after running it by enough people. Now it seems best to put out the current draft. — Ravi Vakil , Hurried Announcement: Alessandro Masullo GRH This is a quotation collected by Simon Willison, posted on 20th November 2026 .",
    "use_link": "",
-   "reject_hits": 2
+   "reject_hits": 2,
+   "digest_sent": true,
+   "channel_skip": true,
+   "skip_permanent": true
   },
   {
    "id": "480c7f59bbc97a69",
@@ -128,7 +140,10 @@
    "added": "2026-11-22T00:00:47+00:00",
    "full": "Gemini 4 Carbon only supports low , medium and high reasoning levels - but Gemini 4 Hydrogen and Gemini 4 Neon both have an extra xhigh level. I missed that when I added those models to the llm-gemini plugin, which is now fixed in this dot release. The xhigh setting for Hydrogen makes a significant difference. I updated my Gemini 4 comparison grid - note how Hydrogen at high used 5,311 output tokens and cost 3.99 cents, but the same model at xhigh used 31,477 output tokens, cost 23.61 cents, and produced a pelican that's competitive with Gemini 4 Neon: This is a beat by Simon Willison, posted on 20th November 2026 . Sponsor me for $10/month and get a curated email digest of the month's most important LLM developments.",
    "use_link": "https://github.com/simonw/llm-gemini/releases/tag/0.38.1",
-   "reject_hits": 2
+   "reject_hits": 2,
+   "digest_sent": true,
+   "channel_skip": true,
+   "skip_permanent": true
   },
   {
    "id": "f5a6d06d7d43a3a7",
@@ -146,7 +161,10 @@
    "added": "2026-11-22T00:30:42+00:00",
    "full": "Nvidia researchers argue huge AI context windows are a dead end Nano Banana Pro prompted by THE DECODER Language models can now process entire novels at once. An Nvidia research team says that's often overkill and expensive. In many tests, periodic summaries and targeted lookups worked about as well. A language model's context window is its working memory, covering everything it holds in view when generating a reply. Over the past few years, that window has grown rapidly. GPT-4 launched in March 2023 with 8,192 tokens. Today, GPT 5.6 Sol handles around one million tokens, about 120 times as much and enough for Tolstoy's \"War and Peace.\" Already a subscriber? Sign in Back to the homepage",
    "use_link": "",
-   "reject_hits": 2
+   "reject_hits": 2,
+   "digest_sent": true,
+   "channel_skip": true,
+   "skip_permanent": true
   },
   {
    "id": "77a328232039d8e2",
@@ -209,7 +227,10 @@
    "added": "2026-11-22T11:15:36+00:00",
    "full": "The Lean and Mathlib community has confirmed that Levent Alpöge's proof of the Riemann hypothesis is correct. \"We have full confidence that Alpöge's proof is correct, and we congratulate him on this achievement,\" the community said in a statement . Alpöge, a Stanford mathematician, published the proof on Nov. 20, 2026, as 17 million lines of code written in Lean , a tool that checks mathematical proofs for errors. Dozens of people ran the code independently and got the same result. The verification programs are designed so they provably cannot accept a flawed proof. MIT mathematician Andrew Sutherland lists the independent checks on his website . The Riemann hypothesis had been one of the most famous unsolved problems in math, making a prediction about how prime numbers are distributed. The video below, generated with Fable 5.2, explains the proof if you want to dig deeper. Ad The solution arrived much earlier than expected. As Ethan Mollick notes , forecasters on Metaculus had put the expected date at May 2035. Mathematician Terence Tao said last month he expected the problem to fall to \"a combination of humans and AI around 2050 or so.\" Ad Already a subscriber? Sign in",
    "use_link": "",
-   "reject_hits": 2
+   "reject_hits": 2,
+   "digest_sent": true,
+   "channel_skip": true,
+   "skip_permanent": true
   },
   {
    "id": "b014e723007fa87f",
