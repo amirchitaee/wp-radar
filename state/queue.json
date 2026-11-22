@@ -77,25 +77,6 @@
    "reject_hits": 2
   },
   {
-   "id": "63d9a553bafce750",
-   "title": "How to Build a Small Business Website on WordPress.com",
-   "link": "https://wordpress.com/blog/2026/11/20/build-small-business-website",
-   "site": "",
-   "desc": "What should your first business website include? See how a coaching site explains its services, answers common questions, and gives visitors a clear way to book or get in touch.",
-   "source": "وردپرس دات کام",
-   "lang": "en",
-   "tier": 2,
-   "group": "",
-   "kind": "news",
-   "age_hours": 1.2,
-   "published": "2026-11-20T16:20:00+00:00",
-   "added": "2026-11-20T17:30:43+00:00",
-   "reject_hits": 2,
-   "digest_sent": true,
-   "channel_skip": true,
-   "skip_permanent": true
-  },
-  {
    "id": "2fcea45b8abd0dd4",
    "title": "Smush 4.3.7",
    "link": "https://wordpress.org/plugins/wp-smushit/",
