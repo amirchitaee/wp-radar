@@ -69,20 +69,6 @@
    "cves": []
   },
   {
-   "t": "2026-11-19T21:30:56+00:00",
-   "id": "de5902c916c8dba3",
-   "title": "WooCommerce 11.3.1",
-   "kind": "news",
-   "link": "https://wordpress.org/plugins/woocommerce/",
-   "ents": [
-    "woocommerce"
-   ],
-   "vers": [
-    "11.3.1"
-   ],
-   "cves": []
-  },
-  {
    "t": "2026-11-19T22:15:54+00:00",
    "id": "2b8784d0dd7924c0",
    "title": "Google's latest AI model is faster, cheaper and smarter than its flagship predecessor from just weeks ago",
