@@ -69,18 +69,6 @@
    "cves": []
   },
   {
-   "t": "2026-11-19T10:16:09+00:00",
-   "id": "ab196dc93b9e80d3",
-   "title": "OCR models now digitize a million pages for under $130 as costs drop fivefold in 18 months",
-   "kind": "news",
-   "link": "https://the-decoder.com/ocr-models-now-digitize-a-million-pages-for-under-130-as-costs-drop-fivefold-in-18-months",
-   "ents": [
-    "ocr"
-   ],
-   "vers": [],
-   "cves": []
-  },
-  {
    "t": "2026-11-19T11:31:20+00:00",
    "id": "02cc01ed3095cfc8",
    "title": "Discover Vireo Analytics: See How Much of Your WordPress Traffic Is Human",
@@ -437,6 +425,20 @@
    "vers": [
     "7.1.5"
    ],
+   "cves": []
+  },
+  {
+   "t": "2026-11-23T10:31:07+00:00",
+   "id": "141d3e3e6383c48f",
+   "title": "Perplexity's new Monitor API turns web search from a one-off query into a nonstop watchdog",
+   "kind": "news",
+   "link": "https://the-decoder.com/perplexitys-new-monitor-api-turns-web-search-from-a-one-off-query-into-a-nonstop-watchdog",
+   "ents": [
+    "api",
+    "monitor",
+    "perplexity"
+   ],
+   "vers": [],
    "cves": []
   }
  ]
