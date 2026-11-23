@@ -95,27 +95,6 @@
    "added": "2026-11-22T00:30:42+00:00"
   },
   {
-   "id": "ac3df93f97de43ec",
-   "title": "Hours after Anthropic claims a Claude proof of the Riemann hypothesis, Stanford releases an all-human competing draft",
-   "link": "https://the-decoder.com/hours-after-anthropic-claims-a-claude-proof-of-the-riemann-hypothesis-stanford-releases-an-all-human-competing-draft",
-   "site": "",
-   "desc": "Anthropic mathematician Levent Alpöge says he used Claude to prove the Riemann hypothesis, math's most famous open problem for 167 years, with a proof formalized in Lean that spans over 250,000 pages. Just hours later, Stanford researchers published an independent, entirely human competing proof, and mathematicians are now checking whether either one holds up. The article Hours after Anthropic claims a Claude proof of the Riemann hypothesis, Stanford releases an all-human competing draft appeared first on The Decoder .",
-   "source": "دیکودر",
-   "lang": "en",
-   "tier": 2,
-   "group": "ai",
-   "kind": "news",
-   "age_hours": 1.2,
-   "published": "2026-11-21T11:19:49+00:00",
-   "added": "2026-11-21T12:30:49+00:00",
-   "full": "Levent Alpöge, a mathematician at Anthropic, said Friday he used a large language model to solve math's most famous open problem. Alpöge posted a paper and the accompanying computer code on his website, according to Scientific American and other US outlets. \"I believe I have, working with Claude, discovered a proof of the Riemann Hypothesis,\" he wrote in his announcement . According to Alpöge, his method goes beyond the original prime-number problem and also resolves the Generalized Riemann Hypothesis (GRH), which extends that ordering principle to a large family of related equations. Given a bit more time, he expects to solve the even broader Extended Riemann Hypothesis as well. Alpöge had treated the problem as a secret lifelong goal since college, expecting it to take decades. Over the past few months, he worked closely with Anthropic's AI model, setting the direction and combining two approaches on a simplified toy model. Once they moved to the actual problem, the AI took over and left him far behind near the finish line. To crack the puzzle, the pair extended an idea from mathematician Stepanov, who had solved a similar question in another mathematical system. That method relies on a tool similar to taking derivatives of smooth curves in high school calculus, a trick that normally fails on whole numbers because individual values cannot be differentiated like a continuous line. Alpöge and Claude got around that obstacle by chaining special mathematical transformations together like links to mimic the effect of a derivative. The language model supplied the key insight, finding that for a number sequence of length X, you need to chain exactly as many transformations as the square root of X. Ideas like that alone should leave fellow mathematicians stunned, Alpöge says. Hours after Alpöge's announcement, the story took a dramatic turn. Just before a board meeting, Stanford math professor and American Mathematical Society (AMS) president Ravi Vakil posted a \"hurried announcement\" on his blog, sharing an independent draft proof of the Generalized Riemann Hypothesis written by mathematician Alessandro Masullo. \"It is all human, with no AI,\" Vakil wrote. Renowned Stanford number theorist Brian Conrad had quietly reviewed Masullo's work for months, offering extensive feedback that is now being incorporated, Vakil said. Masullo was originally supposed to spend a year at Stanford refining the draft before going public, but Anthropic's sudden AI announcement forced the researchers to release their current version right away. About eight hours after his initial announcement, Vakil updated his post, saying several people had contacted him to report problems in the proposed proof, identified with the assistance of different AI models. Several mathematicians in particular were first to flag the issues, he said. \"As is usual, all issues need to be resolved to the satisfaction of the community before this proof would be accepted as true. (I make no claim as to the correctness of the proof strategy.),\" Vakil wrote. Mathematicians are taking both claims seriously right away because of the groundwork behind them. Masullo's traditional proof comes with months ",
-   "use_link": "",
-   "reject_hits": 2,
-   "digest_sent": true,
-   "channel_skip": true,
-   "skip_permanent": true
-  },
-  {
    "id": "2fcea45b8abd0dd4",
    "title": "Smush 4.3.7",
    "link": "https://wordpress.org/plugins/wp-smushit/",
