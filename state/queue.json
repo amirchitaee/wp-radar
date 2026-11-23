@@ -293,6 +293,24 @@
    "added": "2026-11-23T13:30:42+00:00",
    "full": "Follow the show in your app Apple Podcasts (WP Minute+ Podcast) Spotify (WP Minute+ Podcast) YouTube (WP Minute+ Podcast) Overcast (WP Minute+ Podcast) RSS (WP Minute+ Podcast) AI is changing how we build websites, develop plugins, and even think about the future of WordPress. But is the WordPress community ready for what’s coming? In this special episode of The WP Minute, Matt Medeiros sits down with Dan Maby, co-founder of Show.fm, to discuss the rapid changes happening across the WordPress ecosystem and what they mean for developers, agencies, and the wider community. Dan shares his perspective on the challenges facing WordPress events, the growing influence of AI, and the risks of building software without thinking about long-term maintenance, security, and sustainability. They also dig into the hidden costs of AI, the potential for vendor lock-in, and why being able to build something doesn’t always mean you should. Then, the conversation shifts to podcasting. Dan explains how he and Nathan Wrigley evolved Podcaster Plus into Show.fm, an end-to-end podcast operations platform designed to help creators manage everything from guest booking to publication. They explore guest discovery, automations, analytics, AI-powered research, and the importance of owning your content through RSS. Is WordPress at a crossroads? Is AI creating more work than it’s solving? And can podcasting become a more sustainable business? Let’s get into it. New articles and episodes, plus the week’s WordPress news. A five-minute read. Free.",
    "use_link": "",
+   "reject_hits": 2
+  },
+  {
+   "id": "341c9475d1b971f0",
+   "title": "Meta's Alexandr Wang warns the AI industry isn't ready for what's coming after Riemann breakthrough",
+   "link": "https://the-decoder.com/metas-alexandr-wang-warns-the-ai-industry-isnt-ready-for-whats-coming-after-riemann-breakthrough",
+   "site": "",
+   "desc": "Meta's Chief AI Officer Alexandr Wang sees the recent AI-assisted proof sketch of the Riemann Hypothesis as a clear sign that superintelligence is right around the corner. The article Meta's Alexandr Wang warns the AI industry isn't ready for what's coming after Riemann breakthrough appeared first on The Decoder .",
+   "source": "دیکودر",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 0.3,
+   "published": "2026-11-23T13:59:36+00:00",
+   "added": "2026-11-23T14:15:36+00:00",
+   "full": "Meta's Chief AI Officer Alexandr Wang sees the recent AI-assisted proof sketch of the Riemann Hypothesis as a clear sign that superintelligence is right around the corner. The Riemann Hypothesis is widely considered the most intellectually demanding unsolved problem in mathematics. The brightest minds have failed to crack it for 150 years. The fact that an AI model played a major role in the breakthrough shows that raw intelligence is no longer the bottleneck, Wang argues. According to Wang, current models only lack domain-specific knowledge and practical infrastructure to outperform humans in nearly every field. That includes AI research itself. Since AI research is intellectually less demanding than the Riemann Hypothesis, Wang believes models could soon automate their own development and improve themselves. They could also dramatically speed up biological research, weapons research, and economic research at a pace humans can barely follow. Wang also warns that the AI industry isn't thinking hard enough about what comes next. In his view, many in the field treat superintelligence as inevitable and focus only on safety. But the stakes are much broader than that, he argues. The industry needs to actively ensure that AI gives people more agency rather than taking control of society. That would require a sharp departure from the current course, Wang says. Despite having its own superintelligence team , Meta isn't a major player at the frontier right now. Ad Ad Already a subscriber? Sign in",
+   "use_link": "",
    "reject_hits": 1
   }
  ]
