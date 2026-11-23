@@ -326,7 +326,10 @@
    "kind": "news",
    "age_hours": 0.3,
    "published": "2026-11-23T14:43:23+00:00",
-   "added": "2026-11-23T15:00:56+00:00"
+   "added": "2026-11-23T15:00:56+00:00",
+   "full": "Chinese military researchers fear that AI advances could give the US an edge in the nuclear balance of power. Experts in China worry that artificial intelligence could make it easier for US forces to detect and destroy Chinese nuclear missiles, according to a New York Times analysis. That would undermine China's deterrence strategy, which relies on a guaranteed second-strike capability. Researchers at the Academy of Military Sciences in Beijing write that AI could shrink US decision-making time from 15 to 30 minutes down to 90 seconds. China currently has about 620 operational warheads, according to the Federation of American Scientists, and is expected to expand its arsenal to roughly 1,000 by 2030. At the same time, Chinese military institutes are studying how AI could make their own weapons harder to intercept, for instance by using AI-controlled flight paths for hypersonic missiles. Experts warn, however, that flawed AI data could trigger dangerous miscalculations during a crisis. That risk proved very real earlier this year, when the US military nearly boarded a Chinese ship based on a false, AI-generated intelligence report . Xi Jinping did discuss nuclear risks at a summit with Trump and Putin, but AI's role in nuclear weapons never came up, according to the report. Despite the growing urgency, the US and China have made almost no progress on talks about AI safeguards in nuclear systems. Ad Ad Already a subscriber? Sign in",
+   "use_link": "",
+   "reject_hits": 1
   },
   {
    "id": "8fe6012ce64814c5",
@@ -374,7 +377,7 @@
    "added": "2026-11-23T15:00:50+00:00",
    "full": "NVIDIA L4 GPUs. 5-second cold starts. Scale to zero when idle. A new resource resurrecting lost web-dev articles and posts : This is an archive of written articles about web development, web design, and web accessibility that once existed on the World Wide Web and which would otherwise be lost to time. Publications close, SEO strategies change, rights lapse, standards alter, content management systems are migrated between, acquisitions happen, websites get redesigned. Whatever the reason may be, so much high-quality web writing has been lost through the years. I love the effort, which is ongoing. Link rot is a real thing. It’s links that point to either removed content or a page that’s changed URLs. Either way, it’s an awkward topic in our field. No one is obligated to archive and retain content, but doing so clearly benefits us all. A big thanks to this site for helping preserve the things we care about. The same can said about Jay Hoffman and his long-running work on The History of the Web .",
    "use_link": "",
-   "reject_hits": 1
+   "reject_hits": 2
   }
  ]
 }
