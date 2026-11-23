@@ -436,6 +436,18 @@
    ],
    "vers": [],
    "cves": []
+  },
+  {
+   "t": "2026-11-23T00:01:30+00:00",
+   "id": "ea4ec8bb42c1fcbf",
+   "title": "AI coding agents ace isolated tests but complete fewer than one in ten tasks in a simulated workplace",
+   "kind": "news",
+   "link": "https://the-decoder.com/ai-coding-agents-ace-isolated-tests-but-complete-fewer-than-one-in-ten-tasks-in-a-simulated-workplace",
+   "ents": [
+    "ai"
+   ],
+   "vers": [],
+   "cves": []
   }
  ]
 }
