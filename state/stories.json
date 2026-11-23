@@ -379,6 +379,40 @@
    ],
    "vers": [],
    "cves": []
+  },
+  {
+   "t": "2026-11-23T17:15:48+00:00",
+   "id": "c059a9919df79cc9",
+   "title": "Z.ai follows OpenAI into loop transformer territory with its new 750B flagship model",
+   "kind": "news",
+   "link": "https://the-decoder.com/z-ai-follows-openai-into-loop-transformer-territory-with-its-new-750b-flagship-model",
+   "ents": [
+    "openai",
+    "z.ai"
+   ],
+   "vers": [],
+   "cves": []
+  },
+  {
+   "t": "2026-11-23T17:16:07+00:00",
+   "id": "3b3a09e523e04e6a",
+   "title": "Supply Chain Compromise Backdoors Six WP connect Plugins, Blocked by WordPress.org’s Release Hold",
+   "kind": "news",
+   "link": "https://www.wordfence.com/blog/2026/11/supply-chain-compromise-backdoors-six-wp-connect-plugins-blocked-by-wordpress-orgs-release-hold",
+   "ents": [
+    "backdoors",
+    "blocked",
+    "chain",
+    "compromise",
+    "hold",
+    "plugins",
+    "six",
+    "supply",
+    "wordpress.org",
+    "wp"
+   ],
+   "vers": [],
+   "cves": []
   }
  ]
 }
