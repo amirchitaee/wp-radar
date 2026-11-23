@@ -69,21 +69,6 @@
    "cves": []
   },
   {
-   "t": "2026-11-19T16:17:39+00:00",
-   "id": "5c61e4288665e5bb",
-   "title": "PHP’s November 2026 Security Release: What Reaches WordPress",
-   "kind": "news",
-   "link": "https://patchstack.com/articles/php-november-2026-security-release-wordpress",
-   "ents": [
-    "november",
-    "php",
-    "reaches",
-    "wordpress"
-   ],
-   "vers": [],
-   "cves": []
-  },
-  {
    "t": "2026-11-19T20:46:08+00:00",
    "id": "f5cf7ae4e5bc02b2",
    "title": "ACF 6.8.12",

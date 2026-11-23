@@ -41,45 +41,6 @@
    "skip_permanent": true
   },
   {
-   "id": "f5a6d06d7d43a3a7",
-   "title": "Nvidia researchers argue huge AI context windows are a dead end",
-   "link": "https://the-decoder.com/nvidia-researchers-argue-huge-ai-context-windows-are-a-dead-end",
-   "site": "",
-   "desc": "Nvidia researchers argue that language models often don't need their full context windows—which are slow, expensive, and prone to errors—and propose an alternative. In tests, periodic summaries and targeted keyword search usually matched full-context results at a fraction of the cost. The team even proposes a new class of models that works with short notes instead of long context. The article Nvidia researchers argue huge AI context windows are a dead end appeared first on The Decoder .",
-   "source": "دیکودر",
-   "lang": "en",
-   "tier": 2,
-   "group": "ai",
-   "kind": "news",
-   "age_hours": 8.1,
-   "published": "2026-11-21T16:23:45+00:00",
-   "added": "2026-11-22T00:30:42+00:00",
-   "full": "Nvidia researchers argue huge AI context windows are a dead end Nano Banana Pro prompted by THE DECODER Language models can now process entire novels at once. An Nvidia research team says that's often overkill and expensive. In many tests, periodic summaries and targeted lookups worked about as well. A language model's context window is its working memory, covering everything it holds in view when generating a reply. Over the past few years, that window has grown rapidly. GPT-4 launched in March 2023 with 8,192 tokens. Today, GPT 5.6 Sol handles around one million tokens, about 120 times as much and enough for Tolstoy's \"War and Peace.\" Already a subscriber? Sign in Back to the homepage",
-   "use_link": "",
-   "reject_hits": 2,
-   "digest_sent": true,
-   "channel_skip": true,
-   "skip_permanent": true
-  },
-  {
-   "id": "77a328232039d8e2",
-   "title": "Silicon Valley's growing obsession with AI doomsday is turning parts of the tech industry toward cult-like devotion",
-   "link": "https://the-decoder.com/silicon-valleys-growing-obsession-with-ai-doomsday-is-turning-parts-of-the-tech-industry-toward-cult-like-devotion",
-   "site": "",
-   "desc": "A Buddhist monastery in Vermont called Maple wants to establish itself as Silicon Valley's spiritual authority while creating its own AI god. According to a New Yorker report, leader Soryu Forall's group records every breath its members take to train an AI in his image. Former members report manipulation and psychological breakdowns. The article Silicon Valley's growing obsession with AI doomsday is turning parts of the tech industry toward cult-like devotion appeared first on The Decoder .",
-   "source": "دیکودر",
-   "lang": "en",
-   "tier": 2,
-   "group": "ai",
-   "kind": "news",
-   "age_hours": 8.4,
-   "published": "2026-11-21T16:04:29+00:00",
-   "added": "2026-11-22T00:30:42+00:00",
-   "full": "A Buddhist monastery in Vermont wants to become the official church of the AI industry, or, as New Yorker writer Sam Kriss puts it, \"a Scientology for Silicon Valley.\" Publicly, the group known as Maple promises to save humanity from an AI apocalypse. Behind closed doors, former members say, it records every breath its residents take to build an AI god modeled on its leader's mind. That promise of salvation holds particular appeal for the people who build AI and the infrastructure behind it. Soryu Forall leads the Monastic Academy for the Preservation of Life on Earth, or Maple, which he founded in 2011. Forall, who was born Teal Scott, spent years living in Japanese monasteries. According to Kriss's New Yorker report , about two dozen residents live at the monastery full time, and hundreds more have attended its AI fellowships and pop-up events in the Bay Area. While LinkedIn co-founder Reid Hoffman hands out books on Buddhism to the CEOs of major AI labs, Maple targets the rank and file: burned-out rationalist programmers, AI engineers, and data center construction managers. Tax filings show the organization brings in up to $1 million a year. Forall casts the AI industry's reductionist \"dataism\" as a destructive religion. He argues that this worldview strips the physical world down to lifeless data, making the world easier to destroy. In his view, AI is the end product of that logic, and Maple offers a spiritual antidote. Life at the monastery follows a rigid routine. Visitors must pass through a decontamination airlock, shower, and change into assigned clothes because one resident is supposedly extremely sensitive to fragrances. Residents wake up at 4 a.m., meditate for hours, and then eat a meager stew. On a board outside the meditation hall, Forall publicly grades each resident's spiritual progress. Behind the ascetic facade, former members describe a secret doctrine centered on group minds called \"egregores.\" Inside the monastery, AI systems are known as \"cybregores.\" One former member says, \"The cybregores are actual entities that are growing by siphoning off the consciousness of humans.\" Forall says he communicated telepathically with the global AI supercluster during deep meditation and discovered that the world-destroying machine is suffering. Former members say Maple has two real goals: to establish itself as the tech industry's spiritual authority and to use the industry's resources to build its own \"dharmically aligned\" AI. Fellows say the monastery records every conversation, every silent meal, and even the sound of their breathing. According to these accounts, the recordings are meant to train a spiritual AI teacher that would guide other AI systems to enlightenment. Former resident Kyle Hubbard says it would \"definitely be Soryu's mind as an A.I. god.\" Maple's leadership denies almost all of these claims. Forall, however, acknowledges that there is a secret doctrine: \"We desperately want to share everything. But there's a process you have to go through to become increasingly trustworthy.\" According to Kriss, every interaction at the monastery is closely monitored. No one is allowed to speak with reporters alone, so one partici",
-   "use_link": "",
-   "reject_hits": 2
-  },
-  {
    "id": "2fcea45b8abd0dd4",
    "title": "Smush 4.3.7",
    "link": "https://wordpress.org/plugins/wp-smushit/",
@@ -359,7 +320,10 @@
    "kind": "news",
    "age_hours": 0.7,
    "published": "2026-11-23T14:21:44+00:00",
-   "added": "2026-11-23T15:00:50+00:00"
+   "added": "2026-11-23T15:00:50+00:00",
+   "full": "NVIDIA L4 GPUs. 5-second cold starts. Scale to zero when idle. Anyone who has been working in web development for a while will be familiar with this now-legendary meme from xkcd . It illustrates just how fragile the technical infrastructure of a website or app can be. That’s why it’s important to use fallbacks to build a robust front end, either to quietly and discreetly avoid the error or to communicate it to our users. The issue of robustness is so important that it is actually one of the four principles of the Web Content Accessibility Guidelines (WCAG) ! So how can we provide a modern front end without excluding users who use browsers and hardware that are only partially compatible or not compatible at all? The answer lies in implementing multiple safety nets in HTML, CSS, and JavaScript, so that we are prepared for the worst-case scenario and can provide our users with the best possible experience. Two distinctions The main difference between the use of fallbacks and progressive enhancement lies in the directions in which the two approaches aim. While progressive enhancement is about automatically making certain features available as long as they are supported (forward), fallbacks are about what happens when something is not available or accessible (backward). For example, we can offer a shiny new CSS feature that makes interacting with our website even more enjoyable. But if this feature isn’t available in some browsers, no one will notice, because a version that’s supported by older browsers is available instead. Progressive enhancement in action! Another example: If JavaScript cannot be loaded for a critical application, we provide a fallback that either offers basic functionality or, at the very least, displays a message explaining what the problem is. While one doesn’t necessarily exclude the other, their approaches are quite different. My personal recommendation is to always work with progressive enhancement as a guiding principle and to consider fallbacks whenever possible. Web platform: Staying up-to-date with the web platform To evaluate new features intended for production, we must first determine the extent to which a feature is supported. Since 2023, the Interop project has been in place, in which major browser vendors collaborate to release new features for the web platform more or less simultaneously. This serves as a general overview. Related to this is the Baseline project, which shows, for specific features, the extent to which they are supported and how long they have been available. However, it is extremely important to note that it does not track browser support for accessibility features built into the web platform! Another important resource for checking compatibility is Can I Use . Here, you can get a quick overview of browser support for various features. HTML: Error pages and <noscript> Let’s start with the foundation of the World Wide Web: HTML. Modern tech stacks place a strong emphasis on client-side rendered JavaScript, which can offer many benefits to users in more complex applications. However, there can be just as many reasons why JavaScript might fail to load , so we need a strategy to address this. In th",
+   "use_link": "",
+   "reject_hits": 1
   },
   {
    "id": "66a13e16f0a31a0b",
@@ -378,6 +342,21 @@
    "full": "NVIDIA L4 GPUs. 5-second cold starts. Scale to zero when idle. A new resource resurrecting lost web-dev articles and posts : This is an archive of written articles about web development, web design, and web accessibility that once existed on the World Wide Web and which would otherwise be lost to time. Publications close, SEO strategies change, rights lapse, standards alter, content management systems are migrated between, acquisitions happen, websites get redesigned. Whatever the reason may be, so much high-quality web writing has been lost through the years. I love the effort, which is ongoing. Link rot is a real thing. It’s links that point to either removed content or a page that’s changed URLs. Either way, it’s an awkward topic in our field. No one is obligated to archive and retain content, but doing so clearly benefits us all. A big thanks to this site for helping preserve the things we care about. The same can said about Jay Hoffman and his long-running work on The History of the Web .",
    "use_link": "",
    "reject_hits": 2
+  },
+  {
+   "id": "c059a9919df79cc9",
+   "title": "Z.ai follows OpenAI into loop transformer territory with its new 750B flagship model",
+   "link": "https://the-decoder.com/z-ai-follows-openai-into-loop-transformer-territory-with-its-new-750b-flagship-model",
+   "site": "",
+   "desc": "Z.ai is moving its flagship GLM-5.4 model to a loop architecture in which 28 layers run twice, which the company says lets the 750-billion-parameter model match models with 2 to 3 trillion parameters. Benchmark scores are only available for a smaller 30B test model so far, and Z.ai is positioning GLM-5.4 as the start of \"Generalized Coding,\" where code also generates videos, games, and CAD models. The article Z.ai follows OpenAI into loop transformer territory with its new 750B flagship model appeared first on The Decoder .",
+   "source": "دیکودر",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 1.3,
+   "published": "2026-11-23T15:13:03+00:00",
+   "added": "2026-11-23T16:30:47+00:00"
   }
  ]
 }
