@@ -185,7 +185,8 @@
    "added": "2026-11-23T00:01:13+00:00",
    "full": "AI coding agents ace isolated tests but complete fewer than one in ten tasks in a simulated workplace ChatGPT-5.6 prompted by THE DECODER AI coding agents are nearing top scores on standard benchmarks. A new experiment puts them to work for the first time as digital employees inside a simulated software company with colleagues, project boards, and chat histories. Even Claude Opus 5.5 and GPT-6 Astra fully complete fewer than one in ten tasks. Success stories about AI coding agents keep piling up. Anthropic says Claude writes more than 80 percent of the company's production code , and standard benchmarks like SWE-bench are nearly saturated. Already a subscriber? Sign in Back to the homepage",
    "use_link": "",
-   "held": true
+   "posted": true,
+   "msg_id": 198
   },
   {
    "id": "141d3e3e6383c48f",
