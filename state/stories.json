@@ -374,6 +374,21 @@
     "7.2"
    ],
    "cves": []
+  },
+  {
+   "t": "2026-11-23T22:15:41+00:00",
+   "id": "f90bbf612456604d",
+   "title": "Staying Ahead of the New Threat Landscape in 2027",
+   "kind": "news",
+   "link": "https://www.wordfence.com/blog/2026/11/staying-ahead-of-the-new-threat-landscape-in-2027",
+   "ents": [
+    "ahead",
+    "landscape",
+    "staying",
+    "threat"
+   ],
+   "vers": [],
+   "cves": []
   }
  ]
 }
