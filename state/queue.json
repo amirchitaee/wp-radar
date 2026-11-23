@@ -170,25 +170,6 @@
    "skip_permanent": true
   },
   {
-   "id": "ea4ec8bb42c1fcbf",
-   "title": "AI coding agents ace isolated tests but complete fewer than one in ten tasks in a simulated workplace",
-   "link": "https://the-decoder.com/ai-coding-agents-ace-isolated-tests-but-complete-fewer-than-one-in-ten-tasks-in-a-simulated-workplace",
-   "site": "",
-   "desc": "A new real-world test puts AI coding agents in a simulated developer job with colleagues, project boards, and incomplete handoffs, where they have to keep developing software on their own and reliably close open tickets in a messy daily workflow. Even Opus 5.5 and Astra fall far short, solving fewer than one in ten tasks completely. The models finish clear, standalone assignments quickly, but they lose track as autonomous developers. The article AI coding agents ace isolated tests but complete fewer than one in ten tasks in a simulated workplace appeared first on The Decoder .",
-   "source": "دیکودر",
-   "lang": "en",
-   "tier": 2,
-   "group": "ai",
-   "kind": "news",
-   "age_hours": 8.8,
-   "published": "2026-11-22T15:15:48+00:00",
-   "added": "2026-11-23T00:01:13+00:00",
-   "full": "AI coding agents ace isolated tests but complete fewer than one in ten tasks in a simulated workplace ChatGPT-5.6 prompted by THE DECODER AI coding agents are nearing top scores on standard benchmarks. A new experiment puts them to work for the first time as digital employees inside a simulated software company with colleagues, project boards, and chat histories. Even Claude Opus 5.5 and GPT-6 Astra fully complete fewer than one in ten tasks. Success stories about AI coding agents keep piling up. Anthropic says Claude writes more than 80 percent of the company's production code , and standard benchmarks like SWE-bench are nearly saturated. Already a subscriber? Sign in Back to the homepage",
-   "use_link": "",
-   "posted": true,
-   "msg_id": 198
-  },
-  {
    "id": "141d3e3e6383c48f",
    "title": "Perplexity's new Monitor API turns web search from a one-off query into a nonstop watchdog",
    "link": "https://the-decoder.com/perplexitys-new-monitor-api-turns-web-search-from-a-one-off-query-into-a-nonstop-watchdog",
