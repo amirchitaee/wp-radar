@@ -69,48 +69,6 @@
    "cves": []
   },
   {
-   "t": "2026-11-19T20:46:08+00:00",
-   "id": "f5cf7ae4e5bc02b2",
-   "title": "ACF 6.8.12",
-   "kind": "news",
-   "link": "https://wordpress.org/plugins/advanced-custom-fields/",
-   "ents": [
-    "acf"
-   ],
-   "vers": [
-    "6.8.12"
-   ],
-   "cves": []
-  },
-  {
-   "t": "2026-11-19T20:46:09+00:00",
-   "id": "8ad9a22e37efbafb",
-   "title": "AI agents can already buy from your Woo store — here’s how it works",
-   "kind": "news",
-   "link": "https://woocommerce.com/posts/agentic-commerce-payments",
-   "ents": [
-    "ai",
-    "woo"
-   ],
-   "vers": [],
-   "cves": []
-  },
-  {
-   "t": "2026-11-19T20:46:17+00:00",
-   "id": "ed8618f15436cf68",
-   "title": "Who controls your site? Securing AI agent access in WordPress",
-   "kind": "news",
-   "link": "https://kinsta.com/blog/control-ai-agent-access-in-wordpress",
-   "ents": [
-    "ai",
-    "securing",
-    "who",
-    "wordpress"
-   ],
-   "vers": [],
-   "cves": []
-  },
-  {
    "t": "2026-11-19T21:30:56+00:00",
    "id": "de5902c916c8dba3",
    "title": "WooCommerce 11.3.1",
