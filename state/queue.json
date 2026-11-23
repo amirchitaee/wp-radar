@@ -348,6 +348,24 @@
    "age_hours": 0.2,
    "published": "2026-11-23T18:47:53+00:00",
    "added": "2026-11-23T19:01:06+00:00"
+  },
+  {
+   "id": "c2a328a332f1383a",
+   "title": "Join the WordPress 7.2 Release Celebration Livestream",
+   "link": "https://wordpress.org/news/2026/11/7-2-release-celebration",
+   "site": "",
+   "desc": "On December 8, 2026, at 16:00 UTC, contributors to WordPress 7.2 will livestream the release, and you’re invited. Expect demos of what’s new and time to hear from the contributors themselves. Anyone can watch and ask questions. WordPress 7.2 will introduce Ipsum, a new default theme, and a new way to discover posts with /random […]",
+   "source": "وردپرس",
+   "lang": "en",
+   "tier": 1,
+   "group": "",
+   "kind": "news",
+   "age_hours": 0.7,
+   "published": "2026-11-23T19:06:10+00:00",
+   "added": "2026-11-23T19:45:27+00:00",
+   "full": "On December 8, 2026, at 16:00 UTC , contributors to WordPress 7.2 will livestream the release, and you’re invited. Expect demos of what’s new and time to hear from the contributors themselves. Anyone can watch and ask questions. WordPress 7.2 will introduce Ipsum , a new default theme, and a new way to discover posts with /random on your site. Notes will gain emoji reactions, and the Admin dashboard will get modern, redesigned icons. Can’t wait? Every one of those features is in the latest Beta/RC release today, ready for you to test. WordPress contributors collaborate across the globe. What they build together powers millions of sites. Come see the faces behind the commits and be a part of the latest release.",
+   "use_link": "",
+   "held": true
   }
  ]
 }
