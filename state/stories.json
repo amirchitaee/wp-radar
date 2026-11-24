@@ -397,6 +397,25 @@
     "0.38.1"
    ],
    "cves": []
+  },
+  {
+   "t": "2026-11-24T11:31:17+00:00",
+   "id": "505e462d1ac9b7d8",
+   "title": "How to Set Up a Team of AI Agents for Your Small Business With Symphony",
+   "kind": "news",
+   "link": "https://wpmayor.com/symphony-ai-agents-tutorial",
+   "ents": [
+    "agents",
+    "ai",
+    "business",
+    "set",
+    "small",
+    "symphony",
+    "team",
+    "up"
+   ],
+   "vers": [],
+   "cves": []
   }
  ]
 }
