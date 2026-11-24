@@ -1,3 +1,18 @@
 {
- "items": []
+ "items": [
+  {
+   "id": "fe9a774fba4e4a1b",
+   "at": "2026-11-24T00:01:16+00:00",
+   "kind": "news",
+   "label": "خبر",
+   "text": "<b>📰 خبر: ⁦OpenAI⁩ — چت‌جی‌پی‌تی مدل تازه گرفت؛ درک تصویر و دستورهای پیچیده بهتر شد</b>\n\n‏⁦OpenAI⁩ مدل ⁦GPT-6.2 Sol⁩ را پیش‌فرض چت‌جی‌پی‌تی کرد و برای همه کاربران پولی فعالش کرد. در تست داخلی، درک تصویر از ۴۷.۴ به ۷۱.۷ درصد رسیده و دستورهای سخت را ۷۸.۱ درصد مواقع درست اجرا می‌کند.\n\n<blockquote expandable>جست‌وجوی وب و سؤال‌های پیچیده را بهتر از ⁦GPT-6⁩ جواب می‌دهد و سؤال‌های پیگیری مرتبط‌تری می‌پرسد.\nدر بنچمارک داخلی، در هر چهار سطح استدلال از ⁦GPT-6⁩ جلو زده.\nنسخه ⁦Work⁩ و ⁦Codex⁩ تغییری نکرده‌اند؛ فقط چت ارتقا یافته.\n‏⁦GPT-6.2 Sol⁩</blockquote>\n\nاطلاعات بیشتر دربارهٔ این موضوع را از <a href=\"https://the-decoder.com/openai-updates-chatgpt-to-handle-complex-everyday-questions-web-searches-and-images-more-reliably\">منبع</a> بخوانید.\n\n<i>۳ آذر ۱۴۰۵ · ۰۰:۰۹</i>\n\n#خبر #هوش_مصنوعی",
+   "score": 69.6,
+   "title": "چت‌جی‌پی‌تی مدل تازه گرفت؛ درک تصویر و دستورهای پیچیده بهتر شد",
+   "summary": "OpenAI مدل GPT-6.2 Sol را پیش‌فرض چت‌جی‌پی‌تی کرد و برای همه کاربران پولی فعالش کرد. در تست داخلی، درک تصویر از ۴۷.۴ به ۷۱.۷ درصد رسیده و دستورهای سخت را ۷۸.۱ درصد مواقع درست اجرا می‌کند.",
+   "link": "https://the-decoder.com/openai-updates-chatgpt-to-handle-complex-everyday-questions-web-searches-and-images-more-reliably",
+   "source": "دیکودر",
+   "group": "ai",
+   "photo": ""
+  }
+ ]
 }
