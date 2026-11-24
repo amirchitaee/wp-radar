@@ -389,6 +389,18 @@
    ],
    "vers": [],
    "cves": []
+  },
+  {
+   "t": "2026-11-24T00:15:36+00:00",
+   "id": "289c8aeddacd50cf",
+   "title": "datasette-charts 0.1a0",
+   "kind": "tools",
+   "link": "https://simonwillison.net/2026/Nov/23/datasette-charts",
+   "ents": [],
+   "vers": [
+    "0.1"
+   ],
+   "cves": []
   }
  ]
 }

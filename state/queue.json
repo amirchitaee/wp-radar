@@ -324,6 +324,55 @@
    "age_hours": 5.3,
    "published": "2026-11-23T18:42:38+00:00",
    "added": "2026-11-24T00:00:58+00:00"
+  },
+  {
+   "id": "289c8aeddacd50cf",
+   "title": "datasette-charts 0.1a0",
+   "link": "https://simonwillison.net/2026/Nov/23/datasette-charts",
+   "site": "",
+   "desc": "Release: datasette-charts 0.1a0 I've been thinking about this problem for over a year now, but on Sunday I finally fired up Claude Fable 5.2 to build an initial prototype. The prototype went so well that this is now a full plugin. You can try it out in Datasette Lite here . It looks like this: The new charts plugin works against any table or arbitrary SQL query in Datasette. It defines several different chart types (using vendored D3 , Observable Plot , and topojson-client ), each with a set of heuristics for identifying when they might be a good match for a specific set of rows. Those suggest",
+   "source": "سایمون ویلیسون",
+   "lang": "en",
+   "tier": 3,
+   "group": "",
+   "kind": "tools",
+   "age_hours": 23.6,
+   "published": "2026-11-23T00:37:20+00:00",
+   "added": "2026-11-24T00:15:27+00:00",
+   "full": "I've been thinking about this problem for over a year now, but on Sunday I finally fired up Claude Fable 5.2 to build an initial prototype. The prototype went so well that this is now a full plugin. You can try it out in Datasette Lite here . It looks like this: The new charts plugin works against any table or arbitrary SQL query in Datasette. It defines several different chart types (using vendored D3 , Observable Plot , and topojson-client ), each with a set of heuristics for identifying when they might be a good match for a specific set of rows. Those suggestion thumbnails at the top are actual visualizations driven by the data, and selecting one pulls up the full chart along with tools for modifying it. You can also manually construct a chart from scratch. As with other Datasette visualization plugins, the current state of your chart is persisted in a #fragment in the URL - so you can bookmark charts or share them with others. The most important feature is that the charts take all rows into account . Previous charting plugins like datasette-vega would only show charts for the current page of results, generally up to 100 rows. The new plugin compiles each chart to a SQL query that aggregates across the entire result set (potentially millions of rows) using GROUP BY, time bucketing, and window functions. Each query returns a result capped at 5,000 rows, suitable for display on the chart. The plugin uses sampling to help suggest charts for larger tables without evaluating the full result set. I'm really happy with this initial release of the plugin. It's still very much an alpha, but it's the closest I've got to the dream of Datasette helping visualize data with as little required direction from the user as possible. This is a beat by Simon Willison, posted on 23rd November 2026 . Sponsor me for $10/month and get a curated email digest of the month's most important LLM developments.",
+   "use_link": "https://github.com/simonw/datasette-vega",
+   "held": true
+  },
+  {
+   "id": "00e78bd4969763ac",
+   "title": "Letter Visitors",
+   "link": "https://www.producthunt.com/products/visitors",
+   "site": "",
+   "desc": "See website visitors on your website itself Discussion | Link",
+   "source": "پروداکت هانت",
+   "lang": "en",
+   "tier": 3,
+   "group": "",
+   "kind": "tools",
+   "age_hours": 40.6,
+   "published": "2026-11-21T23:39:42-08:00",
+   "added": "2026-11-24T00:15:27+00:00",
+   "reject_hits": 1
+  },
+  {
+   "id": "480c7f59bbc97a69",
+   "title": "llm-gemini 0.38.1",
+   "link": "https://simonwillison.net/2026/Nov/20/llm-gemini",
+   "site": "",
+   "desc": "Release: llm-gemini 0.38.1 Gemini 4 Carbon only supports low , medium and high reasoning levels - but Gemini 4 Hydrogen and Gemini 4 Neon both have an extra xhigh level. I missed that when I added those models to the llm-gemini plugin, which is now fixed in this dot release. The xhigh setting for Hydrogen makes a significant difference. I updated my Gemini 4 comparison grid - note how Hydrogen at high used 5,311 output tokens and cost 3.99 cents, but the same model at xhigh used 31,477 output tokens, cost 23.61 cents, and produced a pelican that's competitive with Gemini 4 Neon: Tags: gemini ,",
+   "source": "سایمون ویلیسون",
+   "lang": "en",
+   "tier": 3,
+   "group": "",
+   "kind": "tools",
+   "age_hours": 93.2,
+   "published": "2026-11-20T03:01:57+00:00",
+   "added": "2026-11-24T00:15:27+00:00"
   }
  ]
 }
