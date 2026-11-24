@@ -426,6 +426,24 @@
    "age_hours": 1.7,
    "published": "2026-11-24T14:02:31+00:00",
    "added": "2026-11-24T15:45:34+00:00"
+  },
+  {
+   "id": "f0fb06df1cb45fc8",
+   "title": "Anthropic turns Claude Artifacts into standalone desktop apps for macOS and Windows",
+   "link": "https://the-decoder.com/anthropic-turns-claude-artifacts-into-standalone-desktop-apps-for-macos-and-windows",
+   "site": "",
+   "desc": "Anthropic now lets you install Claude Artifacts as desktop apps on Mac and Windows, and a free account is enough. You build one in chat without writing code, and it can add menu bar items, send notifications, and create transparent windows. The article Anthropic turns Claude Artifacts into standalone desktop apps for macOS and Windows appeared first on The Decoder .",
+   "source": "دیکودر",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 0.3,
+   "published": "2026-11-24T20:42:29+00:00",
+   "added": "2026-11-24T21:00:53+00:00",
+   "full": "Anthropic now lets you install Claude Artifacts as Mac or Windows apps. The feature is in beta as of today and requires the latest version of Claude for macOS or Windows. You build an Artifact in chat and keep it in the dock without writing any code. The installed apps can use OS APIs, connectors, and Claude itself. That lets an app add menu bar items, create transparent windows, and send notifications, among other things. Examples include custom terminals, file managers, and video editors. Several demos are available to try. Anthropic's Felix Rieseberg wrote on X that you need a Claude account and the Claude app for now, though a free account is enough. If you have an Apple Developer account, you can also have Claude build a standalone app. Ad Ad Already a subscriber? Sign in",
+   "use_link": "https://claude.ai/artifact/9j53nCVcrSdZyCHtxUZkWJ",
+   "held": true
   }
  ]
 }

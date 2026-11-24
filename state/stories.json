@@ -489,6 +489,21 @@
     "7.9.4"
    ],
    "cves": []
+  },
+  {
+   "t": "2026-11-24T21:01:10+00:00",
+   "id": "f0fb06df1cb45fc8",
+   "title": "Anthropic turns Claude Artifacts into standalone desktop apps for macOS and Windows",
+   "kind": "news",
+   "link": "https://the-decoder.com/anthropic-turns-claude-artifacts-into-standalone-desktop-apps-for-macos-and-windows",
+   "ents": [
+    "anthropic",
+    "artifacts",
+    "claude",
+    "windows"
+   ],
+   "vers": [],
+   "cves": []
   }
  ]
 }
