@@ -248,7 +248,7 @@
    "added": "2026-11-23T12:01:10+00:00",
    "channel_skip": true,
    "skip_why": "خارج از مخاطب",
-   "skip_until": "2026-11-24T00:01:13+00:00"
+   "skip_until": "2026-11-24T20:30:42+00:00"
   },
   {
    "id": "b014e723007fa87f",
@@ -305,7 +305,10 @@
    "kind": "news",
    "age_hours": 5.3,
    "published": "2026-11-23T18:42:38+00:00",
-   "added": "2026-11-24T00:00:58+00:00"
+   "added": "2026-11-24T00:00:58+00:00",
+   "full": "OpenAI ties capabilities like fluent conversation and math breakthroughs to specific scores. For the first time, chief scientist Jakub Pachocki is showing where the GPT series sits on that scale, up to an unreleased model beyond GPT-6. Pachocki wants to make perplexity a common measure of progress for the AI industry and published internal scores for the GPT series in a bl o g post . The metric has long been standard in AI research and Transformer development because it reliably measures how well a pretrained base model predicts the next token in a text. Lower scores mean more accurate predictions. A perplexity of 2 roughly means the model is as uncertain about the next token as if it were choosing between two equally likely options. Before it stopped publishing openly, OpenAI often released perplexity scores to show how its models were improving. Releasing them again is a trade-off, Pachocki writes . While rivals get a clearer picture of where OpenAI stands, he says, the need for shared safety standards outweighs that downside. He hopes for a common scientific foundation that lets labs coordinate their pace of development at critical points. Pachocki says many capabilities of modern models map surprisingly closely to specific perplexity scores, even though it wasn't clear beforehand that they would appear at those thresholds. He reports the figures on a logarithmic scale called log-perplexity, where lower scores are still better. In his account, GPT-3.5 first enabled fluent conversation at around 0.99, laying the groundwork for the original ChatGPT. At about 0.91, GPT-4 unlocked productive chain-of-thought reasoning, or working through problems step by step. Below 0.8, he writes, transformative capabilities emerged in cybersecurity and math . The published chart plots OpenAI's base-model log-perplexity by release or evaluation date through November 2026. It covers GPT-5 , GPT-5.1 , GPT-5.2 , GPT-5.3-Codex , GPT-5.4 , GPT-5.5 , GPT-5.6 Sol , GPT-6 Astra , and GPT-6.2 Astra , plus an internal model at around 0.73. OpenAI has been feeding its models open math problems for more than a year. Starting with a model at about 0.76 log-perplexity, the models began producing breakthrough results, Pachocki writes. For researchers with a math background, he says, it was \"deeply surreal\" to watch solutions to longstanding questions pop up one after another in a single Slack thread. Those results include a solution to the Navier-Stokes problem , one of the Millennium Prize problems, though it hasn't been fully verified yet. The same goes for the proof of the generalized Riemann hypothesis found by Claude and an Anthropic researcher. Pachocki thinks deep learning research itself could see something similar as soon as 2027, bringing a sudden avalanche of core advances in AI training. A footnote says the sharp acceleration in the chart starting in 2026 comes mostly from long-term research and compute investments and less from automation. Even so, AI itself has contributed major design work on OpenAI's latest models, according to the post. Between 0.68 and 0.7 log-perplexity, Pachocki expects further transformative capabilities that he can't predict and that t",
+   "use_link": "https://openai.com/index/perplexity-and-intelligence/",
+   "reject_hits": 1
   },
   {
    "id": "00e78bd4969763ac",
