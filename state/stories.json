@@ -474,6 +474,21 @@
     "7.2"
    ],
    "cves": []
+  },
+  {
+   "t": "2026-11-24T18:16:19+00:00",
+   "id": "451939a621281be7",
+   "title": "LiteSpeed Cache 7.9.4",
+   "kind": "news",
+   "link": "https://wordpress.org/plugins/litespeed-cache/",
+   "ents": [
+    "cache",
+    "litespeed"
+   ],
+   "vers": [
+    "7.9.4"
+   ],
+   "cves": []
   }
  ]
 }

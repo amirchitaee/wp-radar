@@ -412,6 +412,50 @@
    "full": "Release Candidate 3 (“RC3”) for WordPress 7.2 is ready for download and testing! This version of the WordPress software is still under development . Please do not install, run, or test this version of WordPress on production or mission-critical websites. Instead, it’s recommended to evaluate RC3 on a test server and site. Wait, what happened to 7.2 RC2? Changes in WordPress 7.1.5 were simultaneously applied to WordPress 7.2 RC2. The scheduled release date for WordPress 7.2 is December 8, 2026 . The full release schedule can be found here . Your help testing Beta and RC versions is vital to making this release as stable and powerful as possible. Thank you to everyone who contributes by testing. Please continue checking the Make WordPress Core blog for 7.2-related posts in the coming weeks for more information. Check out the RC1 announcement for details on WordPress 7.2. You can browse the technical details for all issues addressed since RC1 using these links: This release brings additional bug fixes, accessibility improvements, and compatibility updates: improved client-side media processing, fixes for navigation menus with outdated item counts, and more reliable handling of HTML and revision metadata. Additional changes strengthen email header handling, address font upload compatibility, and refine the performance of random-content redirects on larger sites. Learn more: Trac #66769 , Trac #66668 , Trac #66102 , Trac #66490 , Trac #66654 WordPress 7.2 RC3 includes further refinements to the Block Editor, with improvements to security, accessibility, and media handling. Recent fixes strengthen the handling of external image metadata and entity records, preserve filenames during media transformations, and improve consistency between client-side and server-side Interactivity API behavior. Additional updates simplify editor controls for non-hierarchical post types and improve accessibility labels. Learn more: GitHub #87015 , GitHub #87150 , GitHub #87275 WordPress is open source software made possible by a passionate community of people collaborating on and contributing to its development. The resources below outline various ways you can help the world’s most popular open source web platform, regardless of your technical expertise. Your help testing the WordPress 7.2 RC3 version is key to ensuring that the final release is the best it can be. While testing the upgrade process is essential, trying out new features is equally important. This detailed guide will walk you through testing features in WordPress 7.2. Curious about testing releases in general? Follow along with the testing initiatives in Make Core and join the #core-test channel on Making WordPress Slack . For plugin and theme authors, your products play an integral role in extending the functionality and value of WordPress for all users. With RC3, you’ll want to conclude your testing and update the “Tested up to” version in your plugin’s readme file to 7.2. If you find compatibility issues, please post detailed information to the support forum . Thank you to all web hosts who help test WordPress . Web hosts provide vital infrastructure for supporting WordPress and its users. Testing on h",
    "use_link": "",
    "held": true
+  },
+  {
+   "id": "451939a621281be7",
+   "title": "LiteSpeed Cache 7.9.4",
+   "link": "https://wordpress.org/plugins/litespeed-cache/",
+   "desc": "نسخهٔ 7.9.4 از LiteSpeed Cache منتشر شد. تغییرات این نسخه: Object Cache Flush once after the backend was unreachable. (PR#1069) | GUI Fixed a dark mode flash on load. (RyansGit PR#983) | Optimize litespeed_comment now also hides the HTML Minify comment. (Tobolo #1093 PR#1094) | 3rd Kadence Blocks: saving a part purges related pages again. (Tobolo #1090 PR#1091) | Htaccess Deactivation now removes the LiteSpeed blocks with their markers. (PR#1068) | Cache Drop Query String now strips its arguments from the request too. | Core Saved three option queries per request. (Tobolo PR#1095 PR#1096) | Htaccess Deactivation keeps user rules after an unclosed LiteSpeed block. | Object Cache A failed Memcached flush now retries on the next request.",
+   "source": "آپدیت افزونه",
+   "lang": "en",
+   "tier": 1,
+   "group": "wp",
+   "kind": "news",
+   "age_hours": 0.0,
+   "published": "2026-11-24T18:15:46+00:00",
+   "added": "2026-11-24T18:15:46+00:00",
+   "plugin": {
+    "name": "LiteSpeed Cache",
+    "version": "7.9.4",
+    "prev": "7.9.3",
+    "installs": 7000000,
+    "updated": "2026-11-24"
+   },
+   "plugin_update": {
+    "name": "LiteSpeed Cache",
+    "slug": "litespeed-cache",
+    "version": "7.9.4",
+    "prev": "7.9.3",
+    "date": "7.9.4 – Nov 24 2026",
+    "changes": [
+     "Object Cache Flush once after the backend was unreachable. (PR#1069)",
+     "GUI Fixed a dark mode flash on load. (RyansGit PR#983)",
+     "Optimize litespeed_comment now also hides the HTML Minify comment. (Tobolo #1093 PR#1094)",
+     "3rd Kadence Blocks: saving a part purges related pages again. (Tobolo #1090 PR#1091)",
+     "Htaccess Deactivation now removes the LiteSpeed blocks with their markers. (PR#1068)",
+     "Cache Drop Query String now strips its arguments from the request too.",
+     "Core Saved three option queries per request. (Tobolo PR#1095 PR#1096)",
+     "Htaccess Deactivation keeps user rules after an unclosed LiteSpeed block.",
+     "Object Cache A failed Memcached flush now retries on the next request."
+    ],
+    "vuln": false,
+    "hardening": false
+   },
+   "full": "LiteSpeed Cache for WordPress (LSCWP) is an all-in-one site acceleration plugin, featuring an exclusive server-level cache and a collection of optimization features. LSCWP supports WordPress Multisite and is compatible with most popular plugins, including WooCommerce, bbPress, and Yoast SEO. LiteSpeed Cache for WordPress is compatible with ClassicPress. General Features may be used by anyone with any web server (LiteSpeed, Apache, NGINX, etc.). LiteSpeed Exclusive Features require one of the following: OpenLiteSpeed, commercial LiteSpeed products, LiteSpeed-powered hosting, or QUIC.cloud CDN. Why? + This service is not provided by the LSCache plugin, nor is it guaranteed to be installed by your service provider. However, the plugin is compatible with the service if it is in use on your site. * Feature not available in OpenLiteSpeed The vast majority of plugins and themes are compatible with LSCache. Our API is available for those that are not. Use the API to customize smart purging, customize cache rules, create cache varies, and make WP nonce cacheable, among other things. This plugin includes some suggested text that you can add to your site’s Privacy Policy via the Guide in the WordPress Privacy settings. For your own information: LiteSpeed Cache for WordPress potentially stores a duplicate copy of every web page on display on your site. The pages are stored locally on the system where LiteSpeed server software is installed and are not transferred to or accessed by LiteSpeed employees in any way, except as necessary in providing routine technical support if you request it. All cache files are temporary, and may easily be purged before their natural expiration, if necessary, via a Purge All command. It is up to individual site administrators to come up with their own cache expiration rules. In addition to caching, our WordPress plugin has online features provided by QUIC.cloud for Image Optimization and Page Optimization services. When one of these optimizations is requested, data is transmitted to a remote QUIC.cloud server, processed, and then transmitted back for use on your site. QUIC.cloud keeps copies of that data for up to 7 days and then permanently deletes it. Similarly, the WordPress plugin has a Reporting feature whereby a site owner can transmit an environment report to LiteSpeed so that we may better provide technical support. None of these features collects any visitor data. Only server and site data are involved. QUIC.cloud CDN, if enabled, uses LSCache technology to access your site, and serve your content from remote global nodes. Your data is not accessed by QUIC.cloud employees in any way, except as necessary in providing maintenance or technical support. Please see the QUIC.cloud Privacy Policy for our complete Privacy/GDPR statement. Plugin Benchmarks Admin – Dashboard Admin – Image Optimization Admin – Crawler Admin Settings – Cache Admin Settings – Page Optimization Admin Settings – CDN Admin Settings – DB Optimizer Admin Settings – Toolbox Cache Miss Example Cache Hit Example Show all 11 screenshots Installation View detailed documentation . This plugin communicates with your LiteSpeed Web Server and its built-in pag",
+   "use_link": "https://github.com/litespeedtech/lscache_wp",
+   "held": true
   }
  ]
 }
