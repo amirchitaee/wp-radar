@@ -416,6 +416,20 @@
    ],
    "vers": [],
    "cves": []
+  },
+  {
+   "t": "2026-11-24T13:01:40+00:00",
+   "id": "651333ec2007c8c4",
+   "title": "WPForms 2.0.5.2",
+   "kind": "news",
+   "link": "https://wordpress.org/plugins/wpforms-lite/",
+   "ents": [
+    "wpforms"
+   ],
+   "vers": [
+    "2.0.5.2"
+   ],
+   "cves": []
   }
  ]
 }

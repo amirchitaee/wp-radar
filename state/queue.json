@@ -251,27 +251,6 @@
    "skip_until": "2026-11-24T20:30:42+00:00"
   },
   {
-   "id": "b014e723007fa87f",
-   "title": "AI is getting better faster than experts can reliably test whether new systems are safe, METR warns",
-   "link": "https://the-decoder.com/ai-is-getting-better-faster-than-experts-can-reliably-test-whether-new-systems-are-safe-metr-warns",
-   "site": "",
-   "desc": "METR reports that leading AI models like Opus 5.5 and GPT-6 Astra are improving rapidly at research tasks but getting harder to measure. Current data can't rule out a dangerous acceleration in AI development, the organization warns, though it also says common tests may overestimate what the models can actually do. The article AI is getting better faster than experts can reliably test whether new systems are safe, METR warns appeared first on The Decoder .",
-   "source": "دیکودر",
-   "lang": "en",
-   "tier": 2,
-   "group": "ai",
-   "kind": "news",
-   "age_hours": 1.0,
-   "published": "2026-11-22T13:00:43+00:00",
-   "added": "2026-11-22T14:01:01+00:00",
-   "full": "AI models are rapidly improving at AI research tasks, and they're getting harder to measure. According to the AI research organization METR , current public data isn't enough to rule out a drastic acceleration in AI research over the next few years. That could leave humans unable \"to meaningfully understand, assess, and react to catastrophic risks posed by new AI systems,\" the organization warns. On clearly defined coding and computational tasks with direct feedback, the models already beat experienced human professionals most of the time, METR found, though they haven't yet outperformed large groups of top experts. For tasks that take humans longer, the task length the models can handle doubles every 3.6 months. A naive extrapolation of METR's data puts them at a 50 percent success rate on the longest, 200-hour tasks by July 2027. The systems still struggle with open-ended questions that lack immediate feedback and require real judgment, as well as with situations that are hard to recreate for training, according to METR. The organization also warns that common, easy-to-run tests may overestimate how well the models perform in real-world use, since developers train them in very similar test environments. Ad Ad Already a subscriber? Sign in",
-   "use_link": "",
-   "reject_hits": 2,
-   "digest_sent": true,
-   "channel_skip": true,
-   "skip_permanent": true
-  },
-  {
    "id": "afb5825ea1aa5f61",
    "title": "OpenAI warns that upcoming AI systems could outpace safety checks and urges rivals to agree on shared limits",
    "link": "https://the-decoder.com/openai-warns-that-upcoming-ai-systems-could-outpace-safety-checks-and-urges-rivals-to-agree-on-shared-limits",
@@ -352,6 +331,76 @@
    "age_hours": 7.6,
    "published": "2026-11-24T04:24:29+00:00",
    "added": "2026-11-24T12:00:52+00:00"
+  },
+  {
+   "id": "651333ec2007c8c4",
+   "title": "WPForms 2.0.5.2",
+   "link": "https://wordpress.org/plugins/wpforms-lite/",
+   "desc": "نسخهٔ 2.0.5.2 از WPForms منتشر شد. تغییرات این نسخه: Changed: Updated DOMPurify library to 3.5.0. | Fixed: The Elementor editor never finished loading and theme demo imports failed on sites with no published forms.",
+   "source": "آپدیت افزونه",
+   "lang": "en",
+   "tier": 1,
+   "group": "wp",
+   "kind": "news",
+   "age_hours": 0.0,
+   "published": "2026-11-24T13:00:57+00:00",
+   "added": "2026-11-24T13:00:57+00:00",
+   "plugin": {
+    "name": "WPForms",
+    "version": "2.0.5.2",
+    "prev": "2.0.5.1",
+    "installs": 5000000,
+    "updated": "2026-11-24"
+   },
+   "plugin_update": {
+    "name": "WPForms",
+    "slug": "wpforms-lite",
+    "version": "2.0.5.2",
+    "prev": "2.0.5.1",
+    "date": "2.0.5.2",
+    "changes": [
+     "Changed: Updated DOMPurify library to 3.5.0.",
+     "Fixed: The Elementor editor never finished loading and theme demo imports failed on sites with no published forms."
+    ],
+    "vuln": false,
+    "hardening": false
+   },
+   "full": "WPForms is an AI drag & drop WordPress form builder that’s EASY and POWERFUL. Create contact forms, feedback forms, subscription forms, payment forms (including Stripe, Square & PayPal), and other types of forms for your site in minutes with just a few clicks! At WPForms, user experience is our #1 priority. Our pre-built form templates and workflows make WPForms the most beginner-friendly contact form plugin on the market. You don’t have to hire a developer. Create a form in less than 5 minutes with our drag & drop form builder, using a template or just asking AI to get a head start. WPForms Pro This plugin is the Lite version of WPForms Pro, which comes with email subscription forms, multi-page contact forms, file uploads, conditional logic, and extra payment integrations. Click here to purchase the best premium WordPress contact form plugin now! Create custom contact forms in minutes with our easy-to-use drag and drop online form builder or just ask AI to build it for you. But don’t just take our word for it. See what WordPress experts are saying: WPForms is by far the easiest form plugin to use . My clients love WPForms and it’s one of the few plugins they can use without any training. As a developer I appreciate how fast, modern, clean and extensible it is. Bill Erickson – Expert WordPress Consultant WPForms comes with 2100+ pre-built form templates . Whether you’re looking to create a simple contact form, marketing form, request a quote form, donation form, payment order form, registration form, survey form, quiz form, Stripe payment form, or a subscription form, we have a form template already prepared and ready to use. WPForms contact forms are 100% responsive and mobile-friendly. We optimized every query on the frontend and the backend to ensure that it’s one of the fastest WordPress contact form plugins. You can embed your contact form on any page with an optimized title and description, so WPForms is one of the most SEO friendly contact form plugins too. With star ratings, file uploads, repeater fields, survey fields, and multi-page contact forms, you can easily build the right custom form for your site’s needs. Plus, integrate your contact forms with an email marketing service in just a few steps and collect payments with Stripe, PayPal, and Square for bookings and orders without the need for a dedicated eCommerce plugin. See what one business owner has to say about their WPForms contact form: As a business owner, time is my most valuable asset. WPForms allows me to create smart contact forms with just a few clicks. With their pre-built form templates and the drag & drop builder, I can create a new form that works in less than 2 minutes without writing a single line of code. Well worth the investment. David Henzel – Co-founder of MaxCDN Create custom survey forms like Survey Monkey. Our WordPress survey plugin addon comes with smart survey fields including Likert scale, star ratings, and NPS. Embed your surveys and polls anywhere in WordPress. Use our survey reporting tools to customize graphs, export them for presentations, and display aggregate results. You can also share poll results instantly when collecting votes. Aside from b",
+   "use_link": "",
+   "held": true
+  },
+  {
+   "id": "52df971b9cc843c6",
+   "title": "The New Rules of Running a WordPress Agency in the Age of AI",
+   "link": "https://thewpminute.com/the-new-rules-of-running-a-wordpress-agency-in-the-age-of-ai",
+   "site": "",
+   "desc": "AI is changing how WordPress agencies build websites, develop plugins, and manage client work. But is it actually making agency life easier, or just creating a whole new set of responsibilities? Kurt von Ahnen and Toby Cryns dig into the business decisions agency owners are facing as AI speeds up development and changes what clients […]",
+   "source": "دبلیوپی مینت",
+   "lang": "en",
+   "tier": 2,
+   "group": "",
+   "kind": "news",
+   "age_hours": 0.0,
+   "published": "2026-11-24T13:00:00+00:00",
+   "added": "2026-11-24T13:00:53+00:00",
+   "full": "Follow the show in your app Apple Podcasts (Agency Action) YouTube (Agency Action) Overcast (Agency Action) RSS (Agency Action) AI is changing how WordPress agencies build websites, develop plugins, and manage client work. But is it actually making agency life easier, or just creating a whole new set of responsibilities? Kurt von Ahnen and Toby Cryns dig into the business decisions agency owners are facing as AI speeds up development and changes what clients are willing to pay for. They discuss the rising cost of WordPress maintenance, custom plugin development, security updates, and whether traditional website redesigns are becoming harder to sell. They also explore some unexpected opportunities: building micro-plugin businesses, offering AI training to existing clients, and finding new ways to deliver value beyond managing websites. The bigger question? Do agencies need to grow, shrink, or rethink their business model entirely to stay profitable? New articles and episodes, plus the week’s WordPress news. A five-minute read. Free.",
+   "use_link": "",
+   "reject_hits": 1
+  },
+  {
+   "id": "4d4f41c7508663e5",
+   "title": "German researchers call for computer science to reinvent itself as \"Computer and AI Science\"",
+   "link": "https://the-decoder.com/german-researchers-call-for-computer-science-to-reinvent-itself-as-computer-and-ai-science",
+   "site": "",
+   "desc": "In a position paper, TU Darmstadt researchers call for redefining computer science as \"Computer and AI Science.\" Their biggest concern is code generated on the fly at runtime, which they say upends today's safety and correctness guarantees. The article German researchers call for computer science to reinvent itself as \"Computer and AI Science\" appeared first on The Decoder .",
+   "source": "دیکودر",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 0.5,
+   "published": "2026-11-24T12:30:49+00:00",
+   "added": "2026-11-24T13:00:56+00:00"
   }
  ]
 }
