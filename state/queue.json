@@ -293,25 +293,6 @@
    "skip_permanent": true
   },
   {
-   "id": "fe9a774fba4e4a1b",
-   "title": "OpenAI updates ChatGPT to handle complex everyday questions, web searches, and images more reliably",
-   "link": "https://the-decoder.com/openai-updates-chatgpt-to-handle-complex-everyday-questions-web-searches-and-images-more-reliably",
-   "site": "",
-   "desc": "OpenAI is making GPT-6.2 Sol the new default model in ChatGPT's chat tab, rolling it out worldwide. In internal tests, image understanding jumped from 47.4 to 71.7 percent, and the model now handles difficult instructions correctly 78.1 percent of the time. It also sticks to safety policies more consistently. The article OpenAI updates ChatGPT to handle complex everyday questions, web searches, and images more reliably appeared first on The Decoder .",
-   "source": "دیکودر",
-   "lang": "en",
-   "tier": 2,
-   "group": "ai",
-   "kind": "news",
-   "age_hours": 3.4,
-   "published": "2026-11-23T20:39:18+00:00",
-   "added": "2026-11-24T00:00:58+00:00",
-   "full": "OpenAI is rolling out a chat-tuned version of GPT-6.2 Sol worldwide, available now for Plus, Pro, Business, and Enterprise users. The company says the model handles complex requests and web searches better than GPT-6 and asks more relevant follow-up questions. In internal tests, GPT-6.2 understands images better (71.7 vs. 47.4 percent) and follows difficult instructions more often (78.1 vs. 62.5 percent). On an internal benchmark for expert-level tasks, GPT-6.2 beats GPT-6 across all four reasoning levels, according to OpenAI. It scores roughly 65 to just over 71 percent, compared with about 52 to 66 percent for GPT-6. OpenAI also uses an internal version of BrowseComp to test how well models find answers to tough questions on the web. GPT-6.2 leads at every level, finishing about 10 percentage points ahead at the highest one. According to the system card , GPT-6.2 follows safety policies in 91 to 94 percent of difficult conversations, up from 77 to 80 percent for GPT-6. The model makes its biggest gains in youth safety, specifically around emotional dependency, eating disorders, and dangerous activities. Ad These numbers only apply to ChatGPT's chat mode. The Work and Codex models stay the same. Enterprise admins can decide whether their users get access to GPT-6.2. Ad Already a subscriber? Sign in",
-   "use_link": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
-   "posted": true,
-   "msg_id": 205
-  },
-  {
    "id": "afb5825ea1aa5f61",
    "title": "OpenAI warns that upcoming AI systems could outpace safety checks and urges rivals to agree on shared limits",
    "link": "https://the-decoder.com/openai-warns-that-upcoming-ai-systems-could-outpace-safety-checks-and-urges-rivals-to-agree-on-shared-limits",
