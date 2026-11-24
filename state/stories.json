@@ -94,21 +94,6 @@
    "cves": []
   },
   {
-   "t": "2026-11-20T13:01:06+00:00",
-   "id": "802ba890bc03aea6",
-   "title": "WP Statistics 14.16.20",
-   "kind": "news",
-   "link": "https://wordpress.org/plugins/wp-statistics/",
-   "ents": [
-    "statistics",
-    "wp"
-   ],
-   "vers": [
-    "14.16.20"
-   ],
-   "cves": []
-  },
-  {
    "t": "2026-11-20T22:01:10+00:00",
    "id": "fd3deff7466808c0",
    "title": "Google's latest homepage update pushes its search engine further toward an AI answer engine",
