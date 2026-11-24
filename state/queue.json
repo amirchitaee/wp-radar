@@ -348,7 +348,7 @@
    "added": "2026-11-24T13:00:53+00:00",
    "full": "Follow the show in your app Apple Podcasts (Agency Action) YouTube (Agency Action) Overcast (Agency Action) RSS (Agency Action) AI is changing how WordPress agencies build websites, develop plugins, and manage client work. But is it actually making agency life easier, or just creating a whole new set of responsibilities? Kurt von Ahnen and Toby Cryns dig into the business decisions agency owners are facing as AI speeds up development and changes what clients are willing to pay for. They discuss the rising cost of WordPress maintenance, custom plugin development, security updates, and whether traditional website redesigns are becoming harder to sell. They also explore some unexpected opportunities: building micro-plugin businesses, offering AI training to existing clients, and finding new ways to deliver value beyond managing websites. The bigger question? Do agencies need to grow, shrink, or rethink their business model entirely to stay profitable? New articles and episodes, plus the week’s WordPress news. A five-minute read. Free.",
    "use_link": "",
-   "reject_hits": 1
+   "reject_hits": 2
   },
   {
    "id": "4d4f41c7508663e5",
@@ -364,6 +364,44 @@
    "age_hours": 0.5,
    "published": "2026-11-24T12:30:49+00:00",
    "added": "2026-11-24T13:00:56+00:00"
+  },
+  {
+   "id": "5f7603cff67c9415",
+   "title": "Elementor 4.4.2",
+   "link": "https://wordpress.org/plugins/elementor/",
+   "desc": "نسخهٔ 4.4.2 از Elementor منتشر شد. تغییرات این نسخه: Fix: Cached Markdown content may appear instead of the website’s regular pages when Generate website markdown is activated ( #37853 ) | Fix: Logged-in users may be unexpectedly redirected to the login page after content changes when Agent Ready is enabled ( #38189 ) | Fix: SVG Icon Library picker closes when searching for a different icon in grid view",
+   "source": "آپدیت افزونه",
+   "lang": "en",
+   "tier": 1,
+   "group": "wp",
+   "kind": "news",
+   "age_hours": 0.0,
+   "published": "2026-11-24T14:15:37+00:00",
+   "added": "2026-11-24T14:15:37+00:00",
+   "plugin": {
+    "name": "Elementor",
+    "version": "4.4.2",
+    "prev": "4.4.1",
+    "installs": 10000000,
+    "updated": "2026-11-24"
+   },
+   "plugin_update": {
+    "name": "Elementor",
+    "slug": "elementor",
+    "version": "4.4.2",
+    "prev": "4.4.1",
+    "date": "4.4.2 – 2026-11-24",
+    "changes": [
+     "Fix: Cached Markdown content may appear instead of the website’s regular pages when Generate website markdown is activated ( #37853 )",
+     "Fix: Logged-in users may be unexpectedly redirected to the login page after content changes when Agent Ready is enabled ( #38189 )",
+     "Fix: SVG Icon Library picker closes when searching for a different icon in grid view"
+    ],
+    "vuln": false,
+    "hardening": false
+   },
+   "full": "Elementor, the leading WordPress website creation platform, empowers you to build professional, pixel-perfect websites seamlessly with its no-code, drag-and-drop Atomic Editor. Supporting the full website lifecycle, Elementor lets you build, optimize, and manage your website with extended capabilities such as agentic AI creation, native MCP connection, image optimization, transactional email delivery, accessibility tools, performance boosters, and more. Build beautiful websites for humans, while making sure AI agents can find, read, and act on them too. Elementor generates the files agents look for, like llms.txt, agent discovery files, markdown files and WebMCP tools, straight from your content, with a free Agent Ready score and a fix for every check that fails. Elementor is now in version 4, with a new generation of performance-first atomic building blocks that put you in control of every part of your site. Define your global design systems and reusable components once, and they apply everywhere instantly – turning hours or even days of work into single clicks. Connect your favorite AI tools, including Claude, Codex, and Cursor, directly to your Elementor sites. The Elementor MCP acts as a new execution layer, turning plain-language prompts into real, fully editable Elementor structures, layouts, and design systems while keeping you in complete control. Unlock all Pro features with Elementor Pro . Need fast and secure cloud hosting for your Elementor site? Try out Elementor Host Powered by Google Cloud & Cloudflare. 4.9/5 TrustPilot score. Access a suite of free widgets and tools built to support your website creation process: High-performing websites : Website performance affects your visitors’ experience and search result ranking. Elementor, in partnership with Google Chrome, continuously improves performance without compromising design. Create unparalleled websites while saving time, money and resources with Elementor Pro ’s full website builder. Get access to 100+ professional widgets, features, and tools. Editor Pro design widgets: Editor Pro theme widgets: Build and customize all the key parts of your website including headers, footers, 404 page, global archives, and more. Editor Pro WooCommerce widgets: Design and customize a complete online shopping experience across your entire website. Build professional websites with Elementor Pro Elementor places a strong emphasis on security, backed by industry certifications such as ISO/IEC 27001, ISO/IEC 27017, ISO/IEC 27018, ISO/IEC 27701, and SOC 2 Type II. These certifications reflect our commitment to robust security measures and recognized industry standards. We encourage ethical security research through our Bug Bounty program . We work with leading bug bounty services so researchers can report vulnerabilities in our service backed by a triage team available 24/7/365. For more information: Trust Center . Elementor offers accessibility tools and enhancements to help you provide a better experience for all users. Including HTML5 semantics, full keyboard navigation menus, ongoing improvements of features and widgets. Elementor supports multiple languages, typographies, and RTL, with editor",
+   "use_link": "https://github.com/elementor/elementor",
+   "held": true
   }
  ]
 }

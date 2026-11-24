@@ -415,6 +415,20 @@
     "2.0.5.2"
    ],
    "cves": []
+  },
+  {
+   "t": "2026-11-24T14:15:48+00:00",
+   "id": "5f7603cff67c9415",
+   "title": "Elementor 4.4.2",
+   "kind": "news",
+   "link": "https://wordpress.org/plugins/elementor/",
+   "ents": [
+    "elementor"
+   ],
+   "vers": [
+    "4.4.2"
+   ],
+   "cves": []
   }
  ]
 }
