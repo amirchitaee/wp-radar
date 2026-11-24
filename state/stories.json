@@ -81,22 +81,6 @@
    "cves": []
   },
   {
-   "t": "2026-11-20T00:30:59+00:00",
-   "id": "927af7ecd6d1ef51",
-   "title": "Your Zoom Scheduler Booking Page, Now on WordPress.com",
-   "kind": "news",
-   "link": "https://wordpress.com/blog/2026/11/19/zoom-scheduler",
-   "ents": [
-    "booking",
-    "page",
-    "scheduler",
-    "wordpress.com",
-    "zoom"
-   ],
-   "vers": [],
-   "cves": []
-  },
-  {
    "t": "2026-11-20T09:31:28+00:00",
    "id": "234a2f00022bbf61",
    "title": "Nova by Vybe",
@@ -399,6 +383,18 @@
    "ents": [],
    "vers": [
     "0.1"
+   ],
+   "cves": []
+  },
+  {
+   "t": "2026-11-24T01:01:01+00:00",
+   "id": "480c7f59bbc97a69",
+   "title": "llm-gemini 0.38.1",
+   "kind": "tools",
+   "link": "https://simonwillison.net/2026/Nov/20/llm-gemini",
+   "ents": [],
+   "vers": [
+    "0.38.1"
    ],
    "cves": []
   }
