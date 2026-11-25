@@ -119,27 +119,6 @@
    "reject_hits": 2
   },
   {
-   "id": "d1483362de06e0c1",
-   "title": "The 2026 WooCommerce holiday gift guide",
-   "link": "https://woocommerce.com/posts/2026-woocommerce-holiday-gift-guide",
-   "site": "",
-   "desc": "Unique, fun gift ideas for friends, family, or yourself! 'Tis the season to celebrate some of the amazing stores on WooCommerce.",
-   "source": "ووکامرس",
-   "lang": "en",
-   "tier": 1,
-   "group": "",
-   "kind": "news",
-   "age_hours": 0.4,
-   "published": "2026-11-23T20:36:25+00:00",
-   "added": "2026-11-23T21:00:53+00:00",
-   "full": "By George Jeng • Nov 19, 2026",
-   "use_link": "https://wordpress.org/support/plugin/woocommerce/",
-   "reject_hits": 2,
-   "digest_sent": true,
-   "channel_skip": true,
-   "skip_permanent": true
-  },
-  {
    "id": "3bb34cd96a5a708f",
    "title": "Contact Form 7 6.2.6",
    "link": "https://wordpress.org/plugins/contact-form-7/",
