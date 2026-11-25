@@ -411,6 +411,42 @@
    "full": "NVIDIA L4 GPUs. 5-second cold starts. Scale to zero when idle. This article is adapted from a lesson in Writing Resilient CSS, the newest module in Kevin’s course, CSS Demystified . The module covers configuration options with custom properties, math functions, relative colors, :has() , style queries, and more, all put to work in practical, reusable patterns. The course is 32% off until December 2, 2026. Modifiers have been with us for a long time, often with modifier classes, but also with attribute selectors. Some common examples are things like different versions of alerts and buttons. /* BEM approach */ .button--accent { background-color: var(--clr-accent); } /* CUBECSS approach */ .toast[data-type=\"error\"] { border-color: var(--clr-warning); } For a lot of use cases, either of those approaches work great, but when it comes to layout, a lot of the time we want the context of where the element is being used to control things. A card is a nice example of this, where we might have several versions. .card { display: grid; gap: .75rem; } .card--horizontal { grid-template-columns: 1fr 2fr; } .card--compact { padding: .75rem; gap: .5rem; } The issue here is, if I’m using .card--compact , I probably want to do that for all the cards within a section. That can be annoying to apply to each card, but that’s rendered moot since most people are doing some sort of looping in a template like this these days. <aside className=\"sidebar\"> {relatedPosts.map((post) => ( <article className=\"card card--compact\"> <h3>{post.title}</h3> <p>{post.excerpt}</p> </article> ))} </aside> And this works great, as long as we always want the cards to be compact. However, you might put this together and send it off to the design team for approval, only for them not to like that when the compact cards are lower down the page, the smaller padding isn’t needed to create visual separation between the two sections. Instead of helping with the hierarchy, it’s simply creating a strange visual inconsistency. We could use something like a resize observer to try and deal with this, but we have a better tool at our disposal: Container Style Queries , which are now Baseline Newly Available . While they all start with container , for the rest of this article I interchangeable use container query or size query for a container size query, and style query for what we’re talking about here. A quick look at style queries Before we get into the good stuff, a quick look at the basics of style queries. You’re probably familiar with size queries, which work similar to @media but look at the size of a container, rather than the viewport. Container style queries use the same @container at-rule as container size queries, but instead of looking at a size, they look at the value of a custom property. @container style(--theme: high-contrast) { .card { background: white; color: black; border-color: black; } } This reads as, “if the nearest container has --theme: high-contrast , style the .card like this.” A couple of important notes about them: Elements can’t query themselves Just like with size queries, style queries look at an ancestor , not the element itself. That means this won’t work: .card { --",
    "use_link": "",
    "reject_hits": 2
+  },
+  {
+   "id": "ef19321dd5d2e94b",
+   "title": "2026 WordPress Black Friday / Cyber Monday Deals (Huge Savings)",
+   "link": "https://www.wpbeginner.com/wordpress-black-friday",
+   "site": "",
+   "desc": "Each year, Black Friday and Cyber Monday bring some of the best opportunities to save on premium WordPress tools. Whether you’re looking to build a stronger website or expand your toolkit, this is the time to invest and get the best value for your money.…",
+   "source": "دبلیوپی بگینر",
+   "lang": "en",
+   "tier": 3,
+   "group": "",
+   "kind": "news",
+   "age_hours": 0.2,
+   "published": "2026-11-25T16:13:33+00:00",
+   "added": "2026-11-25T16:22:48+00:00",
+   "full": "Each year, Black Friday and Cyber Monday bring some of the best opportunities to save on premium WordPress tools. Whether you’re looking to build a stronger website or expand your toolkit, this is the time to invest and get the best value for your money. We’ve personally handpicked these top Black Friday deals for 2026, with exclusive discounts just for WPBeginner readers. From powerful plugins to high-speed hosting, there’s something for every WordPress user, and these deals are simply too good to miss. These discounts are available for a LIMITED TIME only, so check each offer’s coupon and expiration date. Some deals may not be live yet, but keep an eye out, as they’ll be rolling out as they become available. Note: We believe in full transparency. We may earn an affiliate commission when you buy using links on our site. This helps us continue finding the best deals for you. Learn More » Important: Remember to bookmark this page 🔖. We will update it throughout the week as we find new deals and send exclusive deals to our newsletter subscribers. Below are the featured WordPress Black Friday deals that are our team’s favorite: Save up to 70% off WPForms – WPForms is the most powerful A.I. form builder for WordPress, used by 6 million+ sites. It comes with 2000+ pre-made form templates and drag & drop tool, so you can build any forms, like contact forms, surveys, payment forms, calculators & more. Coupon code: Click Here Offer Details: This deal is valid from November 23 to December 4. Save up to 65% off AIOSEO – All in One SEO is the best WordPress SEO plugin that helps you rank in Google and AI tools like ChatGPT and others. It’s used by 3 million+ websites and offers tools like SEO audits, the TruSEO content analyzer, AI writing assistant, schema markup, local SEO tools, a redirection manager, and more. Coupon code: Click Here Offer Details: This deal is valid from November 23 to December 4. Get Started for Free with WPVibe – WPVibe connects AI assistants like Claude and ChatGPT to your WordPress site, so you can build pages, update content, and manage your website by simply chatting. It works on any WordPress host and is free to start. Coupon code: Click Here Offer Details: WPVibe is free to start, and you get 3x usage during your first week. Save up to 70% off WPConsent – WPConsent helps you stay compliant with GDPR and other privacy laws by showing clean cookie banners, managing user preferences, and blocking tracking scripts until users give permission — all with a simple, no-code setup. Coupon code: Click Here Offer Details: This deal is valid from November 23 to December 4. Save up to 60% off Duplicator – Duplicator is the best WordPress migration and backup plugin on the market. It allows you to easily create automated secure backups, store them on the cloud, restore, migrate, and clone websites with one click. Coupon code: Click Here Offer Details: This deal is valid from November 23 to December 4. Every plan also includes the first year of Duplicator Cloud Starter for free. Save 10% off Universally – Universally uses AI to translate your entire WordPress site into 110+ languages in minutes. The translations are SEO-ready and run on U",
+   "use_link": "",
+   "reject_hits": 1
+  },
+  {
+   "id": "f8f83d059f8d134b",
+   "title": "RSS Club: Preview Art-Directed Scrollytelling Article",
+   "link": "https://css-tricks.com/rss-club-preview-art-directed-scrollytelling-article",
+   "site": "",
+   "desc": "Hey folks! I’m just so dang excited about this little project I’m working on with long-time author Lee Meyer that I had to share it with you before it goes out. We’re going full 2013-meets-2026 with an art-directed piece that … RSS Club: Preview Art-Directed Scrollytelling Article originally handwritten and published with love on CSS-Tricks . You should really get the newsletter as well.",
+   "source": "سی‌اس‌اس تریکس",
+   "lang": "en",
+   "tier": 3,
+   "group": "",
+   "kind": "news",
+   "age_hours": 0.8,
+   "published": "2026-11-25T15:32:42+00:00",
+   "added": "2026-11-25T16:22:47+00:00",
+   "full": "NVIDIA L4 GPUs. 5-second cold starts. Scale to zero when idle. Hey folks! I’m just so dang excited about this little project I’m working on with long-time author Lee Meyer that I had to share it with you before it goes out. We’re going full 2013-meets-2026 with an art-directed piece that demo scroll animations and randomness… and with a personal story, no less. Coming to a browser near you around December 16.",
+   "use_link": "",
+   "reject_hits": 1
   }
  ]
 }
