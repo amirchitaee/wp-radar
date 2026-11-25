@@ -411,6 +411,57 @@
    "full": "MIT researchers have developed a method that makes training AI climate models faster, cheaper, and more reliable. According to MIT News , these emulators now need only a fraction of the data typically required. Normally, researchers rely on massive, physics-based climate simulations that take months to run a single scenario on supercomputers. Fast AI models for climate prediction can mimic these in seconds and help plan power grids, public health measures, and agriculture. But training them previously required six to eight runs of those large simulations using evenly distributed, realistic future scenarios. That took so long the finished models were usually outdated, according to co-author Noelle Selin. They also often failed on unfamiliar situations. An algorithm built by a team from MIT, ETH Zurich, and Imperial College London uses synthetic training data with extreme swings instead, like a sudden CO2 spike in 2050 or dropping methane in 2037. These targeted spikes help the AI understand the climate system far more precisely, according to lead author Christopher Womack. A single simulation run is enough for training, according to the team, and the AI reliably calculates the effects of local environmental policies too. Ad Ad Already a subscriber? Sign in",
    "use_link": "",
    "reject_hits": 1
+  },
+  {
+   "id": "54335327ef463f21",
+   "title": "#243 – Rudy Faile on How WordPress Is Fighting Exploding AI-Driven Vulnerabilities",
+   "link": "https://wptavern.com/podcast/243-rudy-faile-on-how-wordpress-is-fighting-exploding-ai-driven-vulnerabilities",
+   "site": "",
+   "desc": "Today the podcast conversation focused on the evolving landscape of WordPress security, with guest Rudy Faile discussing the surge in vulnerability reports driven by AI advancements. We chatted about the shift from traditional security processes to leveraging AI for automated triage and proactive vulnerability detection. We also explored the Core Security Initiative’s three-pronged approach: improving release processes, addressing backlog, and using AI to 'crush' vulnerabilities. Broader reflections compared military security principles to cybersecurity, predicted future systemic risks, and un",
+   "source": "تاورن",
+   "lang": "en",
+   "tier": 2,
+   "group": "",
+   "kind": "news",
+   "age_hours": 0.0,
+   "published": "2026-11-25T13:00:00+00:00",
+   "added": "2026-11-25T13:00:46+00:00",
+   "channel_skip": true,
+   "skip_why": "پادکست یا وبینار",
+   "skip_until": "2026-11-26T01:00:51+00:00"
+  },
+  {
+   "id": "c97a28f0c86856f9",
+   "title": "Two New Courses for WordPress Agency Owners: Omnisend and JetHost",
+   "link": "https://thewpminute.com/courses-for-wordpress-agency-owners-omnisend-and-jethost",
+   "site": "",
+   "desc": "New Courses for WordPress Freelancers and Agency Owners Building and launching websites is only one part of running a WordPress agency. Clients also rely on agencies for email marketing, hosting, automation, troubleshooting, and reporting. Developing these skills can help freelancers and agency owners support more of their clients’ ongoing needs. The WP Minute has introduced […]",
+   "source": "دبلیوپی مینت",
+   "lang": "en",
+   "tier": 2,
+   "group": "",
+   "kind": "news",
+   "age_hours": 0.0,
+   "published": "2026-11-25T13:00:00+00:00",
+   "added": "2026-11-25T13:00:48+00:00",
+   "full": "New Courses for WordPress Freelancers and Agency Owners Building and launching websites is only one part of running a WordPress agency. Clients also rely on agencies for email marketing, hosting, automation, troubleshooting, and reporting. Developing these skills can help freelancers and agency owners support more of their clients’ ongoing needs. The WP Minute has introduced… Building and launching websites is only one part of running a WordPress agency. Clients also rely on agencies for email marketing, hosting, automation, troubleshooting, and reporting. Developing these skills can help freelancers and agency owners support more of their clients’ ongoing needs. The WP Minute has introduced two new courses for WordPress professionals: Omnisend for Agency Owners and JetHost for Agency Owners . Both are sponsored educational partnerships developed to help freelancers and agency owners build practical skills with tools they can use in client projects. Led by instructor Ben Meredith, The WP Minute’s courses focus on practical training, real-world workflows, and tools relevant to professional WordPress work. Explore the WordPress courses hub to find more training for your agency. Email marketing is a natural extension of WooCommerce development. A store may have a well-designed website and a smooth checkout process, but it also needs ways to stay connected with customers, recover abandoned purchases, and encourage repeat orders. For agencies, understanding how to manage these activities creates opportunities to offer clients more than website development alone. The Omnisend for Agency Owners course focuses on the practical side of delivering email marketing services for WooCommerce stores. It walks through the process of connecting WooCommerce with Omnisend, creating and embedding signup forms, and configuring abandoned-cart and checkout-recovery workflows. The training also covers the technical and operational work involved in managing client accounts. This includes DNS authentication, syncing a store with a live production environment, importing contacts, organizing audience segments, and working with custom properties. Participants also learn to create campaigns, audit accounts for promotional inconsistencies, and identify broken automations that could affect customer communication. Reporting is another part of the workflow. The course demonstrates how to generate PDF analytics reports that agencies can share with clients, making it easier to communicate campaign activity and results. It also explores Omnisend’s Model Context Protocol (MCP) and how it can connect the platform with AI-powered tools such as Cursor. The course is designed for WordPress freelancers, agency owners, WooCommerce developers, and technical consultants who want to add email marketing and automation to their service offerings. The workflows can help professionals manage more of the customer journey, from collecting subscriber information to following up after a purchase. If you work with WooCommerce stores and want to develop these capabilities, explore the Omnisend for Agency Owners course. Managing WordPress hosting starts with choosing a server and pointing a domain t",
+   "use_link": "",
+   "reject_hits": 1
+  },
+  {
+   "id": "b678a9f766b4b394",
+   "title": "PrismML shrinks a 54 GB language model to 5.9 GB by reducing every weight to just three possible values",
+   "link": "https://the-decoder.com/prismml-squeezes-an-agent-based-coding-model-with-27-billion-parameters-into-5-9-gb",
+   "site": "",
+   "desc": "Startup PrismML has released Ternary Bonsai 2.5 27B, an updated version of its aggressively compressed language model. The article PrismML shrinks a 54 GB language model to 5.9 GB by reducing every weight to just three possible values appeared first on The Decoder .",
+   "source": "دیکودر",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 1.2,
+   "published": "2026-11-25T11:51:49+00:00",
+   "added": "2026-11-25T13:00:50+00:00"
   }
  ]
 }
