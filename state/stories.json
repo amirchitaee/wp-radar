@@ -94,20 +94,6 @@
    "cves": []
   },
   {
-   "t": "2026-11-21T18:01:19+00:00",
-   "id": "6436063e7769ba08",
-   "title": "PHP 8.6 ships: Here’s what’s new in the latest release",
-   "kind": "news",
-   "link": "https://kinsta.com/blog/php-8-6",
-   "ents": [
-    "php"
-   ],
-   "vers": [
-    "8.6"
-   ],
-   "cves": []
-  },
-  {
    "t": "2026-11-21T23:45:49+00:00",
    "id": "bc5933ad429c9c37",
    "title": "Google's Gemini can now run Mac apps and finish desktop chores in the background while you keep working",
