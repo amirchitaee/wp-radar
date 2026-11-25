@@ -389,24 +389,6 @@
    "skip_permanent": true
   },
   {
-   "id": "0f64ef477057f093",
-   "title": "Anthropic tops 700 million monthly MCP SDK downloads and expands the protocol for more autonomous AI agents",
-   "link": "https://the-decoder.com/anthropic-tops-700-million-monthly-mcp-sdk-downloads-and-expands-the-protocol-for-more-autonomous-ai-agents",
-   "site": "",
-   "desc": "Two years after launch, Anthropic reports more than 700 million monthly downloads for its MCP interface standard. New features such as background tasks, follow-up questions for users, and file uploads are meant to let Claude work more independently. The article Anthropic tops 700 million monthly MCP SDK downloads and expands the protocol for more autonomous AI agents appeared first on The Decoder .",
-   "source": "دیکودر",
-   "lang": "en",
-   "tier": 2,
-   "group": "ai",
-   "kind": "news",
-   "age_hours": 4.6,
-   "published": "2026-11-24T19:23:41+00:00",
-   "added": "2026-11-25T00:00:51+00:00",
-   "full": "Anthropic reports more than 700 million monthly downloads for its MCP standard two years after launch. New features such as background tasks, follow-up questions for users, and file uploads are designed to let Claude work more independently. The company says the standard now tops 700 million monthly downloads of its developer tools (SDK) and more than 10,000 MCP connectors for Claude. Anthropic is expanding the protocol so AI agents can communicate with each other and coordinate workflows more smoothly. \"Tasks\" and \"Elicitation\" rank among the biggest additions, reaching general availability after a public test in October. With Tasks, a server can run a longer job in the background and report back only when the result is ready. Elicitation lets a running process pause and ask the user for specific missing details. Both features are meant to let MCP servers operate more independently. Skills over MCP is also new and in public beta for now. The feature lets servers pair their tools with skills that guide Claude through long, multistep tasks. Anthropic says these skills cover best practices, step-by-step workflows, and instructions tailored to a specific user account or organization. The company also announced that file upload support is coming soon. Once it ships, Claude will be able to pass files such as PDFs, spreadsheets, and images directly to MCP servers. Anthropic plans to roll the feature out shortly in Claude and Claude Code for Pro, Max, and Ultra subscribers, and for eligible Team and Enterprise customers. These new agent features build on several technical changes Anthropic made over the past year. To cut memory demands during active conversations, Tool Search waits to load individual tool descriptions until they're needed. Anthropic says this can reduce context usage by more than 85 percent in multi-server setups. The current MCP specification is stateless, meaning it doesn't have to store session data permanently. It works across all Claude products. The goal is to make servers easier for developers to build and more reliable to run as usage grows. Anthropic has also rolled out Enterprise Managed Auth for business customers. Admins can approve supported servers once so employees connect automatically. MCP Apps lets developers embed full user interfaces inside Claude, either beside the active chat or in full-screen mode. In November 2024, Anthropic introduced the Model Context Protocol as an open standard that gives AI assistants uniform access to business tools, development environments, and other data sources. OpenAI CEO Sam Altman announced in March 2025 that his company would adopt its rival's standard across its own products. In May 2025, OpenAI upgraded its Responses API with remote MCP servers . Researchers at the Shanghai Artificial Intelligence Laboratory used MCP as a model for the Science Context Protocol (SCP) , introduced in January 2026. Already a subscriber? Sign in",
-   "use_link": "",
-   "held": true
-  },
-  {
    "id": "4dce32eabf5f6ab1",
    "title": "Novartis CEO says AI will shave four years off drug development, not cure all disease",
    "link": "https://the-decoder.com/novartis-ceo-says-ai-will-shave-four-years-off-drug-development-not-cure-all-disease",
