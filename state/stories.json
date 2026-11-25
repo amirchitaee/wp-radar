@@ -457,6 +457,21 @@
    ],
    "vers": [],
    "cves": []
+  },
+  {
+   "t": "2026-11-25T04:46:05+00:00",
+   "id": "09311b9a112be94a",
+   "title": "Website Inspiration: Rinat Seif",
+   "kind": "showcase",
+   "link": "https://onepagelove.com/rinat-seif",
+   "ents": [
+    "inspiration",
+    "rinat",
+    "seif",
+    "website"
+   ],
+   "vers": [],
+   "cves": []
   }
  ]
 }
