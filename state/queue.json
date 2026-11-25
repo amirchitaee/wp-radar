@@ -266,27 +266,6 @@
    "skip_permanent": true
   },
   {
-   "id": "341c9475d1b971f0",
-   "title": "Meta's Alexandr Wang warns the AI industry isn't ready for what's coming after Riemann breakthrough",
-   "link": "https://the-decoder.com/metas-alexandr-wang-warns-the-ai-industry-isnt-ready-for-whats-coming-after-riemann-breakthrough",
-   "site": "",
-   "desc": "Meta's Chief AI Officer Alexandr Wang sees the recent AI-assisted proof sketch of the Riemann Hypothesis as a clear sign that superintelligence is right around the corner. The article Meta's Alexandr Wang warns the AI industry isn't ready for what's coming after Riemann breakthrough appeared first on The Decoder .",
-   "source": "دیکودر",
-   "lang": "en",
-   "tier": 2,
-   "group": "ai",
-   "kind": "news",
-   "age_hours": 0.3,
-   "published": "2026-11-23T13:59:36+00:00",
-   "added": "2026-11-23T14:15:36+00:00",
-   "full": "Meta's Chief AI Officer Alexandr Wang sees the recent AI-assisted proof sketch of the Riemann Hypothesis as a clear sign that superintelligence is right around the corner. The Riemann Hypothesis is widely considered the most intellectually demanding unsolved problem in mathematics. The brightest minds have failed to crack it for 150 years. The fact that an AI model played a major role in the breakthrough shows that raw intelligence is no longer the bottleneck, Wang argues. According to Wang, current models only lack domain-specific knowledge and practical infrastructure to outperform humans in nearly every field. That includes AI research itself. Since AI research is intellectually less demanding than the Riemann Hypothesis, Wang believes models could soon automate their own development and improve themselves. They could also dramatically speed up biological research, weapons research, and economic research at a pace humans can barely follow. Wang also warns that the AI industry isn't thinking hard enough about what comes next. In his view, many in the field treat superintelligence as inevitable and focus only on safety. But the stakes are much broader than that, he argues. The industry needs to actively ensure that AI gives people more agency rather than taking control of society. That would require a sharp departure from the current course, Wang says. Despite having its own superintelligence team , Meta isn't a major player at the frontier right now. Ad Ad Already a subscriber? Sign in",
-   "use_link": "",
-   "reject_hits": 2,
-   "digest_sent": true,
-   "channel_skip": true,
-   "skip_permanent": true
-  },
-  {
    "id": "3bb34cd96a5a708f",
    "title": "Contact Form 7 6.2.6",
    "link": "https://wordpress.org/plugins/contact-form-7/",
