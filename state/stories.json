@@ -481,6 +481,21 @@
    ],
    "vers": [],
    "cves": []
+  },
+  {
+   "t": "2026-11-25T19:15:46+00:00",
+   "id": "b678a9f766b4b394",
+   "title": "PrismML shrinks a 54 GB language model to 5.9 GB by reducing every weight to just three possible values",
+   "kind": "news",
+   "link": "https://the-decoder.com/prismml-squeezes-an-agent-based-coding-model-with-27-billion-parameters-into-5-9-gb",
+   "ents": [
+    "gb",
+    "prismml"
+   ],
+   "vers": [
+    "5.9"
+   ],
+   "cves": []
   }
  ]
 }
