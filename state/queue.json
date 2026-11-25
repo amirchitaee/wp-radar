@@ -468,46 +468,6 @@
    "full": "Enjoy all PRO features for $72 $50 per year. The discount also applies to current PRO users. Limited-time offer. I design in Figma and build websites in Webflow and Framer, and animate in Jitter. I tend …",
    "use_link": "",
    "reject_hits": 1
-  },
-  {
-   "id": "1cf6b33f5557fb26",
-   "title": "Rank Math 1.0.283",
-   "link": "https://wordpress.org/plugins/seo-by-rank-math/",
-   "desc": "نسخهٔ 1.0.283 از Rank Math منتشر شد. تغییرات این نسخه: Added Compatibility with the Divi 5 editor , so the SEO meta box now works in both Divi 4 and Divi 5. | Improved the handling of Content AI connection data and permissions. | Fixed the post Save button, which was not activated after changing the Redirect settings in the Advanced Tab of the Rank Math meta box. | Fixed the Links Per Sitemap option in the Sitemap settings , which could be set below 1 previously. | Fixed a UI issue with the SEO test category score badge.",
-   "source": "آپدیت افزونه",
-   "lang": "en",
-   "tier": 1,
-   "group": "wp",
-   "kind": "news",
-   "age_hours": 0.0,
-   "published": "2026-11-25T06:16:09+00:00",
-   "added": "2026-11-25T06:16:09+00:00",
-   "plugin": {
-    "name": "Rank Math",
-    "version": "1.0.283",
-    "prev": "1.0.282",
-    "installs": 4000000,
-    "updated": "2026-11-25"
-   },
-   "plugin_update": {
-    "name": "Rank Math",
-    "slug": "seo-by-rank-math",
-    "version": "1.0.283",
-    "prev": "1.0.282",
-    "date": "1.0.283 [Nov 25, 2026]",
-    "changes": [
-     "Added Compatibility with the Divi 5 editor , so the SEO meta box now works in both Divi 4 and Divi 5.",
-     "Improved the handling of Content AI connection data and permissions.",
-     "Fixed the post Save button, which was not activated after changing the Redirect settings in the Advanced Tab of the Rank Math meta box.",
-     "Fixed the Links Per Sitemap option in the Sitemap settings , which could be set below 1 previously.",
-     "Fixed a UI issue with the SEO test category score badge."
-    ],
-    "vuln": false,
-    "hardening": false
-   },
-   "full": "Rank Math SEO helps you stay ahead of competitors with AI-powered SEO tools built for today’s search engines and AI assistants. The plugin brings powerful AI SEO tools right into WordPress . It helps you optimize content, include Schema Markup, add smart internal links, target the right keywords, run SEO checks, and more. Over 4 million WordPress websites trust Rank Math to grow their organic traffic faster. If you know you could be doing more for your website’s SEO but don’t have the time, Rank Math SEO is exactly what you need . Features | Why Choose Rank Math? | Compare | Screenshots | Benefits ➜ AI Visibility score to monitor your brand’s visibility ➜ Track how ChatGPT and Gemini mention your brand ➜ Monitor your brand’s sentiment across AI responses ➜ See how you compare against your competitors in AI Search ➜ Access complete transcripts of AI responses ➜ Check your brand’s AI Visibility across different countries Learn more about AI Visibility ➜ ➜ View every internal and external link on your site from one dashboard ➜ Update hundreds of links at once instead of editing pages one by one ➜ Get smart link suggestions as you write, right inside the editor ➜ Monitor broken links, redirects, and overall link health ➜ Automatically link keyword variations to the right pages ➜ Get related post suggestions that keep readers on your site longer ➜ Find pages nobody links to and reconnect them to the rest of your site ➜ Export your link data for reports or audits Learn more about AI Link Genius ➜ Get Started with Content AI for FREE and enjoy: ➜ 40+ AI Tools Built for SEO ➜ Use AI SEO to write high-quality content ➜ Fix SEO Issues in One Click ➜ Generate AI Image Alt Text Instantly ➜ Get Instant SEO Help with RankBot ➜ Full Control via Role Manager Learn more about Content AI ➜ See the features only Rank Math offers, and find out why it’s the right SEO plugin for you . ✔ Intuitive Setup Wizard that configures Rank Math automatically for your site ✔ 16+ Schema types to add rich results in a few clicks ✔ Optimize post for unlimited focus keywords (5 by default, unlimited with this filter ) ✔ Content AI to help you write SEO-friendly content ✔ Google Search Console integration ✔ Google Analytics Integration ✔ LSI keyword suggestions to attract more traffic ✔ XML Sitemap with custom post type support ✔ Detailed content analysis with actionable SEO recommendations ✔ 30+ SEO tests with 1-click ✔ Module based system, enable only what you need ✔ SEO optimized breadcrumbs with theme support ✔ Smart Redirection manager to create redirects at scale ✔ Built-in 404 monitor to catch and fix broken links ✔ Internal link suggestions ✔ Role Manager to control what each team member can access ✔ Automatic ALT Text and Title tags for every image ✔ WordPress Multisite support ✔ Fastest SEO plugin with barely any impact on site speed ✔ WooCommerce SEO with automatic Schema and meta tags ✔ Elementor SEO with native integration ✔ Divi SEO with native integration ✔ Local SEO tools to help nearby customers find your business ✔ Google AMP SEO with SEO data added automatically to AMP pages ✔ bbPress & BuddyPress SEO support with Q&A Schema ✔ 1-Click Import from Yoast ✔ 1-Clic",
-   "use_link": "https://github.com/rankmath/content-analyzer",
-   "held": true
   }
  ]
 }
