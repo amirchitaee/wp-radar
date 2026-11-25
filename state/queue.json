@@ -302,25 +302,6 @@
    "reject_hits": 2
   },
   {
-   "id": "b678a9f766b4b394",
-   "title": "PrismML shrinks a 54 GB language model to 5.9 GB by reducing every weight to just three possible values",
-   "link": "https://the-decoder.com/prismml-squeezes-an-agent-based-coding-model-with-27-billion-parameters-into-5-9-gb",
-   "site": "",
-   "desc": "Startup PrismML has released Ternary Bonsai 2.5 27B, an updated version of its aggressively compressed language model. The article PrismML shrinks a 54 GB language model to 5.9 GB by reducing every weight to just three possible values appeared first on The Decoder .",
-   "source": "دیکودر",
-   "lang": "en",
-   "tier": 2,
-   "group": "ai",
-   "kind": "news",
-   "age_hours": 1.2,
-   "published": "2026-11-25T11:51:49+00:00",
-   "added": "2026-11-25T13:00:50+00:00",
-   "full": "Startup PrismML has released Ternary Bonsai 2.5 27B, an updated version of its aggressively compressed language model. It's based on Qwen3.8-27B and takes up just 5.9 GB of memory, same as its predecessor. That's possible because of ternary quantization, where each weight can only be one of three values (−1, 0, or +1) instead of the usual 16-bit storage. At full precision, a model this size would need about 54 GB. Bonsai 2.5 is designed to perform more reliably on agentic tasks that involve long chains of tool calls. It needs fewer passes and tokens than Bonsai 2, and it's less likely to get stuck in loops or spiral into drawn-out reasoning phases. The benchmark numbers reflect the improvement. On SWE-bench Verified, the score jumps from 60.8 to 75.6 percent. The full Qwen model hits 80.6. On AppWorld, an agent benchmark, Bonsai leaps from 51.2 to 90.5, landing just behind the base model. On LiveCodeBench v6, the new version scores slightly lower than its predecessor. Ad On an RTX 4090, the model generates about 204 tokens per second using multi-token prediction. The weights are available under an Apache 2.0 license and run via llama.cpp on Nvidia and Intel GPUs, as well as through MLX on Mac, iPhone, and iPad. PrismML grew out of a research team at Caltech and is backed by Khosla Ventures, Google, and Samsung, among others. The company first introduced Bonsai 27B in July , built on an older Qwen model. Its smallest variant needed less than 4 GB of memory, small enough to run directly on an iPhone. Already a subscriber? Sign in",
-   "use_link": "https://github.com/PrismML-Eng/Bonsai-demo/blob/main/bonsai-2-5-27b-whitepaper.pdf",
-   "reject_hits": 1,
-   "held": true
-  },
-  {
    "id": "6bac70b0e1802a36",
    "title": "AI agents now control part of Deepmind's compute for Gemini experiments, but recursive self-improvement remains distant",
    "link": "https://the-decoder.com/ai-agents-now-control-part-of-deepminds-compute-for-gemini-experiments-but-recursive-self-improvement-remains-distant",
