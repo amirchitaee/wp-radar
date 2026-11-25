@@ -472,6 +472,21 @@
    ],
    "vers": [],
    "cves": []
+  },
+  {
+   "t": "2026-11-25T06:17:08+00:00",
+   "id": "1cf6b33f5557fb26",
+   "title": "Rank Math 1.0.283",
+   "kind": "news",
+   "link": "https://wordpress.org/plugins/seo-by-rank-math/",
+   "ents": [
+    "math",
+    "rank"
+   ],
+   "vers": [
+    "1.0.283"
+   ],
+   "cves": []
   }
  ]
 }
