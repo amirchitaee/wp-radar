@@ -94,19 +94,6 @@
    "cves": []
   },
   {
-   "t": "2026-11-21T10:01:09+00:00",
-   "id": "c77f37fad59e94ed",
-   "title": "Bytedance argues most AI training phases are unnecessary and backs it up with a competitive open model",
-   "kind": "news",
-   "link": "https://the-decoder.com/bytedance-argues-most-ai-training-phases-are-unnecessary-and-backs-it-up-with-a-competitive-open-model",
-   "ents": [
-    "ai",
-    "bytedance"
-   ],
-   "vers": [],
-   "cves": []
-  },
-  {
    "t": "2026-11-21T11:15:48+00:00",
    "id": "101fc3518e5fa5d3",
    "title": "New open model Inkling 2 Mini thinks in loops to solve problems with fewer words and still runs on a laptop",
