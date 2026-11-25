@@ -94,19 +94,6 @@
    "cves": []
   },
   {
-   "t": "2026-11-21T11:15:48+00:00",
-   "id": "101fc3518e5fa5d3",
-   "title": "New open model Inkling 2 Mini thinks in loops to solve problems with fewer words and still runs on a laptop",
-   "kind": "news",
-   "link": "https://the-decoder.com/new-open-model-inkling-2-mini-thinks-in-loops-to-solve-problems-with-fewer-words-and-still-runs-on-a-laptop",
-   "ents": [
-    "inkling",
-    "mini"
-   ],
-   "vers": [],
-   "cves": []
-  },
-  {
    "t": "2026-11-21T18:01:19+00:00",
    "id": "6436063e7769ba08",
    "title": "PHP 8.6 ships: Here’s what’s new in the latest release",
@@ -486,6 +473,25 @@
     "anthropic",
     "mcp",
     "sdk"
+   ],
+   "vers": [],
+   "cves": []
+  },
+  {
+   "t": "2026-11-25T11:46:43+00:00",
+   "id": "7c49258a108743a4",
+   "title": "Stop Configuring Your AI Site by Site: Setting Up Novamira HQ for Your Agency",
+   "kind": "news",
+   "link": "https://wpmayor.com/novamira-hq-connect-ai-to-multiple-wordpress-sites",
+   "ents": [
+    "agency",
+    "ai",
+    "configuring",
+    "hq",
+    "novamira",
+    "setting",
+    "stop",
+    "up"
    ],
    "vers": [],
    "cves": []
