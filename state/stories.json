@@ -487,6 +487,21 @@
     "1.0.283"
    ],
    "cves": []
+  },
+  {
+   "t": "2026-11-25T09:01:35+00:00",
+   "id": "0f64ef477057f093",
+   "title": "Anthropic tops 700 million monthly MCP SDK downloads and expands the protocol for more autonomous AI agents",
+   "kind": "news",
+   "link": "https://the-decoder.com/anthropic-tops-700-million-monthly-mcp-sdk-downloads-and-expands-the-protocol-for-more-autonomous-ai-agents",
+   "ents": [
+    "ai",
+    "anthropic",
+    "mcp",
+    "sdk"
+   ],
+   "vers": [],
+   "cves": []
   }
  ]
 }
