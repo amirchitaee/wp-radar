@@ -407,26 +407,6 @@
    "skip_permanent": true
   },
   {
-   "id": "914bb147d0bf37ce",
-   "title": "How Notable Capital, GIC, and Baillie Gifford bet big on Anthropic before its IPO",
-   "link": "https://techcrunch.com/2026/11/22/how-notable-capital-gic-and-baillie-gifford-bet-big-on-anthropic-before-its-ipo",
-   "site": "",
-   "desc": "Three significant backers share what gave them conviction to bet billions on Anthropic.",
-   "source": "تک‌کرانچ",
-   "lang": "en",
-   "tier": 2,
-   "group": "ai",
-   "kind": "news",
-   "age_hours": 10.6,
-   "published": "2026-11-23T01:25:53+00:00",
-   "added": "2026-11-23T12:01:10+00:00",
-   "channel_skip": true,
-   "skip_why": "خارج از مخاطب",
-   "skip_until": "2026-11-24T20:30:42+00:00",
-   "digest_sent": true,
-   "skip_permanent": true
-  },
-  {
    "id": "0f64ef477057f093",
    "title": "Anthropic tops 700 million monthly MCP SDK downloads and expands the protocol for more autonomous AI agents",
    "link": "https://the-decoder.com/anthropic-tops-700-million-monthly-mcp-sdk-downloads-and-expands-the-protocol-for-more-autonomous-ai-agents",
