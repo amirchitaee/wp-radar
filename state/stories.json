@@ -94,20 +94,6 @@
    "cves": []
   },
   {
-   "t": "2026-11-21T23:45:49+00:00",
-   "id": "bc5933ad429c9c37",
-   "title": "Google's Gemini can now run Mac apps and finish desktop chores in the background while you keep working",
-   "kind": "news",
-   "link": "https://the-decoder.com/googles-gemini-can-now-run-mac-apps-and-finish-desktop-chores-in-the-background-while-you-keep-working",
-   "ents": [
-    "gemini",
-    "google",
-    "mac"
-   ],
-   "vers": [],
-   "cves": []
-  },
-  {
    "t": "2026-11-22T10:01:39+00:00",
    "id": "0cbda05d55dc00f2",
    "title": "GPT-6.2 Astra and Sol get to the point faster but score lower on transparency than Claude",

@@ -188,7 +188,10 @@
    "kind": "news",
    "age_hours": 6.0,
    "published": "2026-11-24T17:58:44+00:00",
-   "added": "2026-11-25T00:00:51+00:00"
+   "added": "2026-11-25T00:00:51+00:00",
+   "full": "OpenAI o1 co-creator Noam Brown urges promising students to drop out as AI enters a \"very steep rate of progress\" Nano Banana Pro prompted by THE DECODER At a poker bot tournament, OpenAI o1 co-creator Noam Brown explained why game theory's core assumption fails in practice and why AI models must think before acting. He also argued that talented students should drop out. Brown developed Libratus and Pluribus , the first poker AIs to beat human pros, and worked on Meta's Diplomacy AI, CICERO . He has been researching reasoning models at OpenAI since 2023. At the \"No Limit\" poker bot tournament, hosted by Sequoia Capital, Citadel Securities, and OpenAI, he outlined key lessons from more than a decade of research on games. Already a subscriber? Sign in Back to the homepage",
+   "use_link": "",
+   "reject_hits": 1
   },
   {
    "id": "6ff348e652c905f1",
