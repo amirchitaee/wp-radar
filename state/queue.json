@@ -418,6 +418,39 @@
    "published": "2026-11-25T20:04:50-08:00",
    "added": "2026-11-26T09:45:28+00:00",
    "reject_hits": 2
+  },
+  {
+   "id": "19fd120ee363e12f",
+   "title": "Nvidia halts server shipments to Malaysia, Singapore, Thailand, and Indonesia after tighter US export controls",
+   "link": "https://the-decoder.com/nvidia-halts-server-shipments-to-malaysia-singapore-thailand-and-indonesia-after-tighter-us-export-controls",
+   "site": "",
+   "desc": "Nvidia has told partners such as Dell and Supermicro to stop shipping servers to Malaysia, Singapore, Thailand, and Indonesia. Following new US export controls targeting Chinese cloud access, dealers are already seeking buyers for thousands of B300 chips, while one cloud executive describes \"chaos\", Loans and major deals are now on the line for Southeast Asia's data centers. The article Nvidia halts server shipments to Malaysia, Singapore, Thailand, and Indonesia after tighter US export controls appeared first on The Decoder .",
+   "source": "دیکودر",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 0.2,
+   "published": "2026-11-26T11:21:16+00:00",
+   "added": "2026-11-26T11:30:44+00:00"
+  },
+  {
+   "id": "c5b480807cb6bc37",
+   "title": "Wix Domains Brings 400+ Extensions and an AI Name Generator to Domain Registration",
+   "link": "https://wpmayor.com/wix-domains-register-domain-name",
+   "site": "",
+   "desc": "Finding a good domain name is harder than it should be. Wix Domains pairs an AI name generator with 400+ extensions, free SSL, and up to ten years of registration. The post \" Wix Domains Brings 400+ Extensions and an AI Name Generator to Domain Registration \" first appeared on WP Mayor .",
+   "source": "دبلیوپی‌مایر",
+   "lang": "en",
+   "tier": 3,
+   "group": "",
+   "kind": "news",
+   "age_hours": 0.5,
+   "published": "2026-11-26T11:00:00+00:00",
+   "added": "2026-11-26T11:30:41+00:00",
+   "full": "Picking a domain name sounds like a five-minute job until you start searching. The .com you had in mind is taken, the next three variations are parked, and before long you’re wondering whether a hyphen really looks that bad. If you’re at that stage, Wix Domains is worth a look. You can search more than 400 extensions in one go, get name ideas from an AI generator when your first choice has gone, and register your domain from $0.99 for the first year. If you’re building your site on Wix too, the domain is free for a year with any annual site plan. Wix Domains is Wix’s domain registration service, where you can search for, buy, and manage domain names from your Wix account. Wix is an ICANN-accredited registrar for .com and .net, and you’ll find hundreds of other extensions there too, from .org and .co to newer ones like .ai, .shop and .guru. Every domain comes with free SSL, so your site runs on HTTPS from the start, and Wix’s support team is there 24/7 if you get stuck. You can register a domain for anything from one to ten years, and auto-renewal (with reminders) means it won’t quietly lapse because you forgot about it. You can search for a name you already have in mind, or try Wix’s free, AI-powered Domain Name Generator . Type in a keyword and it comes back with available name ideas across different extensions, which you can filter if you’ve got your heart set on a .com. I find this handy, because in my experience, the hardest part of buying a domain is thinking of something short and memorable that nobody else has already registered, and having a tool throw alternatives at you saves a lot of trial and error. When you search, Wix shows you the exact match along with the alternatives that are still available in other extensions. A .com is still the safe choice for most businesses, but a niche extension can work nicely when it fits, like .fit for a personal trainer or .training for someone selling courses. Alongside free SSL, Wix doesn’t add ICANN fees on top of the price you see, which makes a nice change from registrars that tack them on at checkout. For most extensions, you can also lock the domain so nobody can transfer it away without your say-so. Privacy is covered at three levels, with Basic Protection being free and it masks your name, address, phone number, and email in the public WHOIS database, though your country, state and organisation can still show. If you’d rather hide everything, full privacy protection costs $9.90 a year, or $12.90 a year with DNSSEC added to protect your domain from being hijacked or redirected. If your plans change later on, you can transfer the domain out of Wix too. Yes, you can connect a domain bought from Wix to a site hosted anywhere else, including a WordPress site. This was the bit I was most curious about, since plenty of you reading this run WordPress and might have no plans to move. Your host gives you an A record for your main domain and a CNAME record for the www version, and you add both under Manage DNS Records in your Wix account. If your host would rather you used its own nameservers, you can switch to those instead, and the domain stays registered with Wix. Either way, allow up to 48 hours",
+   "use_link": "",
+   "reject_hits": 1
   }
  ]
 }
