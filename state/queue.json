@@ -164,24 +164,6 @@
    "reject_hits": 2
   },
   {
-   "id": "4dce32eabf5f6ab1",
-   "title": "Novartis CEO says AI will shave four years off drug development, not cure all disease",
-   "link": "https://the-decoder.com/novartis-ceo-says-ai-will-shave-four-years-off-drug-development-not-cure-all-disease",
-   "site": "",
-   "desc": "Novartis CEO Vas Narasimhan, who also sits on Anthropic's board, is pushing back on the cure-all promises from Anthropic CEO Amodei and DeepMind founder Hassabis. AI will speed up drug development, he says, but it won't beat cancer in a decade. The real value lies \"somewhere in the middle.\" The article Novartis CEO says AI will shave four years off drug development, not cure all disease appeared first on The Decoder .",
-   "source": "دیکودر",
-   "lang": "en",
-   "tier": 2,
-   "group": "ai",
-   "kind": "news",
-   "age_hours": 6.0,
-   "published": "2026-11-24T18:01:55+00:00",
-   "added": "2026-11-25T00:00:51+00:00",
-   "full": "Vas Narasimhan, CEO of Swiss drugmaker Novartis and an Anthropic board member, is pushing back on expectations that AI could cure cancer in five to 10 years. That puts him at odds with Anthropic CEO Dario Amodei and chemistry Nobel laureate Demis Hassabis , who founded DeepMind and its drug discovery spinoff Isomorphic. Around Anthropic's IPO , Amodei suggested that cancer, Alzheimer's, heart disease, and mental illness could be cured in under a decade, while Hassabis said last year that AI could defeat all diseases within 10 years. According to the Financial Times , Narasimhan points to a limited understanding of human biology, which is why lengthy animal and human trials will still be needed. His forecast is more cautious: within a decade, he expects AI to cut average drug development only from 12 years to eight, with the early phase before human trials alone accounting for up to two years of that. He also expects success rates in clinical development to rise from 8 percent to 12 percent. Anthropic is investing in its own drug research , acquired biotech startup Coefficient Bio, and is building a biology lab. Isomorphic raised $5 billion last week and is working with pharmaceutical companies including Novartis on new drugs. Narasimhan sees AI's real benefit as \"somewhere in the middle\" between ambitious AI forecasts and a skeptical pharma industry. Ad Ad Already a subscriber? Sign in",
-   "use_link": "",
-   "reject_hits": 2
-  },
-  {
    "id": "3bb34cd96a5a708f",
    "title": "Contact Form 7 6.2.6",
    "link": "https://wordpress.org/plugins/contact-form-7/",
@@ -375,7 +357,10 @@
    "kind": "news",
    "age_hours": 0.6,
    "published": "2026-11-26T13:41:07+00:00",
-   "added": "2026-11-26T14:15:37+00:00"
+   "added": "2026-11-26T14:15:37+00:00",
+   "full": "FCC clears SpaceX to deploy up to 1 million Starmind satellites for orbital AI data centers by 2040 Nano Banana Pro prompted by THE DECODER SpaceX has won approval from US communications regulators for its Starmind constellation. Up to 1 million satellites would process AI data in orbit. The Federal Communications Commission (FCC) has authorized SpaceX to deploy up to 1 million satellites for orbital data centers, according to Reuters . The Starmind constellation of orbital compute modules is intended to meet part of the rapidly growing demand for AI computing power on Earth. The agency also approved radio links that let SpaceX monitor and control the satellites if their optical connections fail. Already a subscriber? Sign in Back to the homepage",
+   "use_link": "",
+   "reject_hits": 1
   },
   {
    "id": "4eed1a85829de992",
