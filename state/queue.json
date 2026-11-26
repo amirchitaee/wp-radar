@@ -236,27 +236,6 @@
    "reject_hits": 2
   },
   {
-   "id": "52df971b9cc843c6",
-   "title": "The New Rules of Running a WordPress Agency in the Age of AI",
-   "link": "https://thewpminute.com/the-new-rules-of-running-a-wordpress-agency-in-the-age-of-ai",
-   "site": "",
-   "desc": "AI is changing how WordPress agencies build websites, develop plugins, and manage client work. But is it actually making agency life easier, or just creating a whole new set of responsibilities? Kurt von Ahnen and Toby Cryns dig into the business decisions agency owners are facing as AI speeds up development and changes what clients […]",
-   "source": "دبلیوپی مینت",
-   "lang": "en",
-   "tier": 2,
-   "group": "",
-   "kind": "news",
-   "age_hours": 0.0,
-   "published": "2026-11-24T13:00:00+00:00",
-   "added": "2026-11-24T13:00:53+00:00",
-   "full": "Follow the show in your app Apple Podcasts (Agency Action) YouTube (Agency Action) Overcast (Agency Action) RSS (Agency Action) AI is changing how WordPress agencies build websites, develop plugins, and manage client work. But is it actually making agency life easier, or just creating a whole new set of responsibilities? Kurt von Ahnen and Toby Cryns dig into the business decisions agency owners are facing as AI speeds up development and changes what clients are willing to pay for. They discuss the rising cost of WordPress maintenance, custom plugin development, security updates, and whether traditional website redesigns are becoming harder to sell. They also explore some unexpected opportunities: building micro-plugin businesses, offering AI training to existing clients, and finding new ways to deliver value beyond managing websites. The bigger question? Do agencies need to grow, shrink, or rethink their business model entirely to stay profitable? New articles and episodes, plus the week’s WordPress news. A five-minute read. Free.",
-   "use_link": "",
-   "reject_hits": 2,
-   "digest_sent": true,
-   "channel_skip": true,
-   "skip_permanent": true
-  },
-  {
    "id": "3bb34cd96a5a708f",
    "title": "Contact Form 7 6.2.6",
    "link": "https://wordpress.org/plugins/contact-form-7/",
