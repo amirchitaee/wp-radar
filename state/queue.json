@@ -381,49 +381,6 @@
    "reject_hits": 1
   },
   {
-   "id": "df1a4ee29a914fb8",
-   "title": "Really Simple Security 9.8.5",
-   "link": "https://wordpress.org/plugins/really-simple-ssl/",
-   "desc": "نسخهٔ 9.8.5 از Really Simple Security منتشر شد. تغییرات این نسخه: Security: When the plugin is network activated, only network admins can now manage its settings. | Security: Stricter REST API checks, and user roles are no longer exposed through the REST API. | Security: The 404 resource check now only checks files on your own website. | Fixed: Vulnerability warnings now disappear after the vulnerable plugin or theme is deleted. | Changed: Block code execution in the uploads folder now covers more PHP file types. | Changed: Updated the About Vulnerabilities text. | Changed: Updated the links to our website.",
-   "source": "آپدیت افزونه",
-   "lang": "en",
-   "tier": 1,
-   "group": "wp",
-   "kind": "news",
-   "age_hours": 0.0,
-   "published": "2026-11-26T14:15:37+00:00",
-   "added": "2026-11-26T14:15:37+00:00",
-   "plugin": {
-    "name": "Really Simple Security",
-    "version": "9.8.5",
-    "prev": "9.8.4",
-    "installs": 3000000,
-    "updated": "2026-11-26"
-   },
-   "plugin_update": {
-    "name": "Really Simple Security",
-    "slug": "really-simple-ssl",
-    "version": "9.8.5",
-    "prev": "9.8.4",
-    "date": "9.8.5 – 2026-11-24",
-    "changes": [
-     "Security: When the plugin is network activated, only network admins can now manage its settings.",
-     "Security: Stricter REST API checks, and user roles are no longer exposed through the REST API.",
-     "Security: The 404 resource check now only checks files on your own website.",
-     "Fixed: Vulnerability warnings now disappear after the vulnerable plugin or theme is deleted.",
-     "Changed: Block code execution in the uploads folder now covers more PHP file types.",
-     "Changed: Updated the About Vulnerabilities text.",
-     "Changed: Updated the links to our website."
-    ],
-    "vuln": true,
-    "hardening": false
-   },
-   "full": "Easily improve site security with WordPress Hardening, Two-Factor Authentication (2FA), Login Protection, Vulnerability Detection and SSL certificate. Really Simple Security is the most lightweight and easy-to-use security plugin for WordPress. It secures your WordPress website with SSL certificate generation, including proper 301 https redirection and SSL enforcement, scanning for possible vulnerabilities, Login Protection and implementing essential WordPress hardening features. We believe that security should have the absolute minimum effect on website performance, user experience and maintainability. Therefore, Really Simple Security is: Migrates your website to HTTPS and enforces SSL in just one click. Tweak your configuration and keep WordPress fortified and safe by tackling potential weaknesses. Get notified when plugins, themes or WP core contain vulnerabilities and need appropriate action. Allow or enforce Two-Factor Authentication (2FA) for specific user roles. Users receive a two-factor code via Email. Protect your site with all essential security features by upgrading to Really Simple Security Pro. Really Simple Security Pro includes a performant and efficient WordPress firewall, to stop bots, crawlers and bad actors with IP and username blocks. Security headers protect your site visitors against the risk of clickjacking, cross-site-forgery attacks, stealing login credentials and malware. When a vulnerability is detected in a plugin, theme or WordPress core you will get notified accordingly. With Vulnerability Measures, you can configure simple but effective measures to make sure that a critical vulnerability won’t remain unattended. Secure your website’s login process and user accounts with powerful security measures. With Limit Login Attempts you can configure a threshold to temporarily or permanently block IP addresses or (non-existing) usernames. You can also throw a CAPTCHA after a failed login (hCaptcha or Google reCaptcha) If you want to support the continuing development of this plugin, please consider buying Really Simple Security Pro , which includes some excellent security features and premium support. Our mission is to make complex WordPress requirements really easy. Really Simple Security is developed by Really Simple Plugins . For generating SSL certificates, Really Simple Security uses the le acme2 PHP Let’s Encrypt client library, thanks to ‘fbett’ for providing it. Vulnerability Detection uses WP Vulnerability, an open-source initiative by Javier Casares. Want to join as a collaborator? We’re on GitHub as well! The Really Simple Security Dashboard provides a quick security overview. Enable or enforce 2FA per user role. Stay ahead of plugin, theme and WP core vulnerabilities. Harden your site’s security with Basic Hardening features. 1-minute configuration with the short security onboarding. Installation To install this plugin: For more detailed explanations and documentation on all Really Simple Security features, please search the Knowledge Base All features that made Really Simple SSL the most powerful and easy-to-use SSL generation and redirect plugin are still part of Really Simple Security. The plugin is devel",
-   "use_link": "",
-   "msg_id": 225,
-   "posted": true
-  },
-  {
    "id": "a72a6281d079c05a",
    "title": "FCC clears SpaceX to deploy up to 1 million Starmind satellites for orbital AI data centers by 2040",
    "link": "https://the-decoder.com/fcc-clears-spacex-to-deploy-up-to-1-million-starmind-satellites-for-orbital-ai-data-centers-by-2040",
