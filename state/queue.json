@@ -125,7 +125,7 @@
    "added": "2026-11-25T13:00:46+00:00",
    "channel_skip": true,
    "skip_why": "پادکست یا وبینار",
-   "skip_until": "2026-11-26T01:00:51+00:00"
+   "skip_until": "2026-11-26T13:15:48+00:00"
   },
   {
    "id": "c97a28f0c86856f9",
@@ -401,7 +401,7 @@
    "added": "2026-11-26T00:30:46+00:00",
    "full": "The US is tightening its grip in the AI race with China, and the push is already having an effect, according to The Information. Chinese AI developers including Deepseek, Moonshot AI, and Alibaba have been under pressure since September, squeezed by restrictions on Chinese firms' remote access to advanced Nvidia chips in foreign data centers and by successful anti-distillation measures from OpenAI and Anthropic . As a result, many ongoing projects are facing delays, the report says . Last month, Deepseek researchers internally estimated that their gap to top US models could grow from three to six months to nine months if distillation disappears completely . Moonshot AI has already canceled a $150 million deal for Nvidia Blackwell chips in Indonesia . Chinese firms are now looking for new workarounds, the publication reports. Some are trying to rent computing power through non-Chinese third parties, while companies such as MiniMax, Mihoyo, and Alibaba are leaning more heavily on domestic chips. They are also investing more in training data for their own reinforcement learning. Ad Ad Already a subscriber? Sign in",
    "use_link": "",
-   "reject_hits": 1
+   "reject_hits": 2
   },
   {
    "id": "32865a30877055f1",
