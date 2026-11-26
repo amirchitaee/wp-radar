@@ -387,7 +387,10 @@
    "kind": "tools",
    "age_hours": 44.2,
    "published": "2026-11-24T03:45:57+00:00",
-   "added": "2026-11-26T00:00:47+00:00"
+   "added": "2026-11-26T00:00:47+00:00",
+   "full": "A small improvement to Datasette Agent : chat sessions could already open an iframe side panel that could then navigate to different pages. This version improves navigation by fragment hashes, for deeper integration with other Datasette plugins that update fragment hashes when the user interacts with the plugin in a way that changes state. I built this in order to fix some bugs with the much more exciting datasette-charts 0.2a0 release . This is a beat by Simon Willison, posted on 24th November 2026 . Sponsor me for $10/month and get a curated email digest of the month's most important LLM developments.",
+   "use_link": "https://github.com/datasette/datasette-agent/releases/tag/0.7a1",
+   "reject_hits": 1
   },
   {
    "id": "e99bede8482e441e",
