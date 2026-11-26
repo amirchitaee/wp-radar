@@ -483,6 +483,22 @@
    ],
    "vers": [],
    "cves": []
+  },
+  {
+   "t": "2026-11-26T14:17:10+00:00",
+   "id": "ab91e12a343df255",
+   "title": "All-in-One WP Migration 7.114",
+   "kind": "news",
+   "link": "https://wordpress.org/plugins/all-in-one-wp-migration/",
+   "ents": [
+    "all-in-one",
+    "migration",
+    "wp"
+   ],
+   "vers": [
+    "7.114"
+   ],
+   "cves": []
   }
  ]
 }

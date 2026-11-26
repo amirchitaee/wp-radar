@@ -218,24 +218,6 @@
    "reject_hits": 2
   },
   {
-   "id": "4f2a19111d34eb8b",
-   "title": "Dozens of insiders say OpenAI and Anthropic's unreleased models have outgrown their safety measures",
-   "link": "https://the-decoder.com/dozens-of-insiders-say-openai-and-anthropics-unreleased-models-have-outgrown-their-safety-measures",
-   "site": "",
-   "desc": "According to an Axios report, many employees at OpenAI and Anthropic believe the companies' own unreleased frontier models can no longer be safely controlled. Both companies are internally debating whether to halt releases or even stop training altogether, while employee trust in leadership is eroding. The article Dozens of insiders say OpenAI and Anthropic's unreleased models have outgrown their safety measures appeared first on The Decoder .",
-   "source": "دیکودر",
-   "lang": "en",
-   "tier": 2,
-   "group": "ai",
-   "kind": "news",
-   "age_hours": 1.7,
-   "published": "2026-11-24T14:02:31+00:00",
-   "added": "2026-11-24T15:45:34+00:00",
-   "full": "Dozens of insiders say OpenAI and Anthropic's unreleased models have outgrown their safety measures GPT-Image-2 prompted by THE DECODER Unreleased frontier models from OpenAI and Anthropic have grown so capable that many employees no longer believe they can be safely controlled, according to a new report. Internally, both companies are already debating whether to halt their release altogether. Concerns are mounting at OpenAI and Anthropic that internal AI models are slipping beyond human oversight. Axios reports, citing more than two dozen insiders , that many employees now consider the unreleased systems too powerful to safely ship to the public. Already a subscriber? Sign in Back to the homepage",
-   "use_link": "",
-   "reject_hits": 2
-  },
-  {
    "id": "3bb34cd96a5a708f",
    "title": "Contact Form 7 6.2.6",
    "link": "https://wordpress.org/plugins/contact-form-7/",
@@ -415,6 +397,99 @@
    "full": "The AI framework ARTEX automates cyberattacks from reconnaissance to data theft. A Microsoft analysis shows how state-backed groups and cybercriminals use its specialized agents at machine speed, and how defenders can respond. Since its release in July 2026, the AI-powered penetration-testing framework ARTEX has become a go-to tool for cyberattacks. The software was recently suspected of being used in an intrusion into an analytics system run by the CIA, NGA, and ODNI (Link nicht geprüft). That breach surfaced shortly before US financial crimes agency FinCEN reported a security incident. The FBI and the US Department of Agriculture had reported incidents earlier. A report from Microsoft Threat Intelligence now details how ARTEX works and how widely it has spread. GitHub user \"Autumn-27\" published the source code in July and deleted it in October, though other developers still distribute copies. Chinese security firm ThreatBook also sells a commercial Pro version. Microsoft says state-backed groups from China and North Korea have integrated ARTEX into their operations, including Salt Typhoon, Crystal Typhoon, Onyx Sleet, and Storm-0940 . Financially motivated cybercriminals also use the system, the company says, with both state-backed and criminal groups deploying it in operations such as supply chain attacks. Microsoft points out that ARTEX doesn't invent new attack techniques. Instead, the framework operates existing security software with almost no human intervention, including tools such as Nmap, Sqlmap, Metasploit, and automated headless browsers. Attackers can connect any large language model, including modified versions without safety guardrails. A built-in pooling feature automatically switches models or API keys on errors or usage limits, making attacks hard for any single AI provider to track. According to Microsoft, the system is built on a multi-agent architecture. A goal model breaks an attacker's instructions into verifiable subgoals. From there, a planning agent continuously reviews a knowledge graph, a dynamic map of discovered systems and vulnerabilities, to assign short attack tasks. Worker agents carry out those tasks via system commands, including deploying web shells on web servers, reading password files, or hijacking cloud accounts. Each new finding feeds back into the map and prompts the planning agent for the next step until a reporting agent documents all exploited flaws. Automation cuts defender response times to just a few minutes, the company found. In one case, an AI agent took just five minutes to search for accidentally exposed credentials on GitHub and pull data from Azure Key Vault, a cloud key store. During a Storm-0940 campaign, the company logged more than 151,000 failed login attempts from automated password guessing, peaking at 2,900 per minute. In that same campaign, Microsoft observed some compromised apps granting themselves top administrator privileges. Conventional rule-based filters often fail against ARTEX because they rely on fixed markers like known IP addresses or the browser identifiers \"artex-enrich\" and \"norma.\" Agents and their human operators constantly change those markers and reroute bloc",
    "use_link": "",
    "reject_hits": 1
+  },
+  {
+   "id": "ab91e12a343df255",
+   "title": "All-in-One WP Migration 7.114",
+   "link": "https://wordpress.org/plugins/all-in-one-wp-migration/",
+   "desc": "نسخهٔ 7.114 از All-in-One WP Migration منتشر شد. تغییرات این نسخه: Improved access checks on admin pages. Credits to Gen Sato for reporting it | Some settings could break after import when they contained the database table prefix. Credits to Jakub Herman for reporting it | Search and replace could break or empty some stored settings. Credits to Jakub Herman for reporting it | Backups in subfolders could not be managed through the REST API",
+   "source": "آپدیت افزونه",
+   "lang": "en",
+   "tier": 1,
+   "group": "wp",
+   "kind": "news",
+   "age_hours": 0.0,
+   "published": "2026-11-26T14:15:38+00:00",
+   "added": "2026-11-26T14:15:38+00:00",
+   "plugin": {
+    "name": "All-in-One WP Migration",
+    "version": "7.114",
+    "prev": "7.113",
+    "installs": 5000000,
+    "updated": "2026-11-26"
+   },
+   "plugin_update": {
+    "name": "All-in-One WP Migration",
+    "slug": "all-in-one-wp-migration",
+    "version": "7.114",
+    "prev": "7.113",
+    "date": "7.114",
+    "changes": [
+     "Improved access checks on admin pages. Credits to Gen Sato for reporting it",
+     "Some settings could break after import when they contained the database table prefix. Credits to Jakub Herman for reporting it",
+     "Search and replace could break or empty some stored settings. Credits to Jakub Herman for reporting it",
+     "Backups in subfolders could not be managed through the REST API"
+    ],
+    "vuln": false,
+    "hardening": false
+   },
+   "full": "The Most Trusted WordPress Migration & Backup Plugin Since 2013 All-in-One WP Migration is the gold standard for WordPress site migration and backup, used by over 60 million websites worldwide – from small blogs to Fortune 500 companies and government agencies. Whether you need to migrate WordPress to a new host, create a full site backup, or restore a previous backup, our plugin offers enterprise-grade reliability with beginner-friendly simplicity. Free vs. paid, plainly: The free plugin backs up and exports sites of any size. To restore for free, download your backup file and import it on the Import screen. Your hosting company decides how large a file you can upload, so a very large backup may not go through that way. The paid Unlimited Extension adds one-click Restore from the Backups page and uploads that get around your host’s file-size restrictions. That is how we fund the free plugin. Why Choose All-in-One WP Migration? How to Migrate WordPress – Simple as 1-2-3: For Developers & Power Users: Enhance your migration and backup workflow with our premium extensions : Trusted by the Government and Big Corporations: Many enterprise customers, government organizations, and universities use, love, and trust All-in-One WP Migration. Here are some: Boeing, NASA, VW, IBM, Harvard University, Stanford University, Lego, P&G, Automattic, State of California, State of Hawaii. This broad adoption demonstrates how safe, reliable and adaptable this WordPress migration and backup plugin is for any website migration need. Update Frequency: Our team is dedicated to keeping this WordPress migration and backup plugin up-to-date and secure. We release updates every two weeks or at least once a month, ensuring your migration and backup workflows remain compatible with the latest WordPress versions, including beta releases. Our proactive testing and feedback to the WordPress core team help in preemptively addressing any potential issues, so you can always migrate and backup with confidence. Full Compatibility and Support: All-in-One WP Migration has been extensively tested and confirmed to be compatible with most WordPress plugins and themes, so you can migrate and backup without worrying about conflicts. This means you don’t experience cross-plugin compatibility issues that can slow down or break your WordPress site when you migrate. All-in-One WP Migration has partnered with multiple theme and plugin vendors to distribute their products with us as a single, easy-to-install migration and backup package. These vendors trust our migration plugin to provide their customers with reliable product delivery, support, migrations, and backups. All-in-One WP Migration supports backup and migration to all major cloud storage services. The plugin comes preinstalled on all Bitnami WordPress sites running on AWS, Google Compute Cloud, and Microsoft Azure – ready to migrate and backup out of the box. All-in-One WP Migration is designed to fully respect and protect the personal information of its users. It asks for your consent to collect the user’s email address when filling the plugin’s contact form. All-in-One WP Migration is in full compliance with General Data Protecti",
+   "use_link": "",
+   "held": true
+  },
+  {
+   "id": "df1a4ee29a914fb8",
+   "title": "Really Simple Security 9.8.5",
+   "link": "https://wordpress.org/plugins/really-simple-ssl/",
+   "desc": "نسخهٔ 9.8.5 از Really Simple Security منتشر شد. تغییرات این نسخه: Security: When the plugin is network activated, only network admins can now manage its settings. | Security: Stricter REST API checks, and user roles are no longer exposed through the REST API. | Security: The 404 resource check now only checks files on your own website. | Fixed: Vulnerability warnings now disappear after the vulnerable plugin or theme is deleted. | Changed: Block code execution in the uploads folder now covers more PHP file types. | Changed: Updated the About Vulnerabilities text. | Changed: Updated the links to our website.",
+   "source": "آپدیت افزونه",
+   "lang": "en",
+   "tier": 1,
+   "group": "wp",
+   "kind": "news",
+   "age_hours": 0.0,
+   "published": "2026-11-26T14:15:37+00:00",
+   "added": "2026-11-26T14:15:37+00:00",
+   "plugin": {
+    "name": "Really Simple Security",
+    "version": "9.8.5",
+    "prev": "9.8.4",
+    "installs": 3000000,
+    "updated": "2026-11-26"
+   },
+   "plugin_update": {
+    "name": "Really Simple Security",
+    "slug": "really-simple-ssl",
+    "version": "9.8.5",
+    "prev": "9.8.4",
+    "date": "9.8.5 – 2026-11-24",
+    "changes": [
+     "Security: When the plugin is network activated, only network admins can now manage its settings.",
+     "Security: Stricter REST API checks, and user roles are no longer exposed through the REST API.",
+     "Security: The 404 resource check now only checks files on your own website.",
+     "Fixed: Vulnerability warnings now disappear after the vulnerable plugin or theme is deleted.",
+     "Changed: Block code execution in the uploads folder now covers more PHP file types.",
+     "Changed: Updated the About Vulnerabilities text.",
+     "Changed: Updated the links to our website."
+    ],
+    "vuln": true,
+    "hardening": false
+   }
+  },
+  {
+   "id": "a72a6281d079c05a",
+   "title": "FCC clears SpaceX to deploy up to 1 million Starmind satellites for orbital AI data centers by 2040",
+   "link": "https://the-decoder.com/fcc-clears-spacex-to-deploy-up-to-1-million-starmind-satellites-for-orbital-ai-data-centers-by-2040",
+   "site": "",
+   "desc": "The FCC has authorized SpaceX to deploy up to 1 million Starmind satellites to process AI data as orbital data centers. SpaceX is targeting its first launches in 2027, and the full constellation is set to be operating by 2040. Google and Blue Origin are also working on AI infrastructure in space, but Boston Consulting Group estimates costs will stay well above ground-based data centers for now. The article FCC clears SpaceX to deploy up to 1 million Starmind satellites for orbital AI data centers by 2040 appeared first on The Decoder .",
+   "source": "دیکودر",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 0.6,
+   "published": "2026-11-26T13:41:07+00:00",
+   "added": "2026-11-26T14:15:37+00:00"
   }
  ]
 }
