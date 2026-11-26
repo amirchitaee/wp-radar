@@ -384,6 +384,54 @@
    "age_hours": 44.2,
    "published": "2026-11-24T03:45:57+00:00",
    "added": "2026-11-26T00:00:47+00:00"
+  },
+  {
+   "id": "e99bede8482e441e",
+   "title": "US chip-access curbs and anti-distillation measures are reportedly already slowing Chinese AI labs",
+   "link": "https://the-decoder.com/us-chip-access-curbs-and-anti-distillation-measures-are-reportedly-already-slowing-chinese-ai-labs",
+   "site": "",
+   "desc": "Chip restrictions, anti-distillation measures, and shrinking access to Nvidia hardware abroad are putting growing pressure on Deepseek, Moonshot AI, and Alibaba, according to a report. Deepseek researchers internally estimate they're already up to nine months behind US models, and the gap is widening. The article US chip-access curbs and anti-distillation measures are reportedly already slowing Chinese AI labs appeared first on The Decoder .",
+   "source": "دیکودر",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 3.7,
+   "published": "2026-11-25T20:51:02+00:00",
+   "added": "2026-11-26T00:30:46+00:00",
+   "full": "The US is tightening its grip in the AI race with China, and the push is already having an effect, according to The Information. Chinese AI developers including Deepseek, Moonshot AI, and Alibaba have been under pressure since September, squeezed by restrictions on Chinese firms' remote access to advanced Nvidia chips in foreign data centers and by successful anti-distillation measures from OpenAI and Anthropic . As a result, many ongoing projects are facing delays, the report says . Last month, Deepseek researchers internally estimated that their gap to top US models could grow from three to six months to nine months if distillation disappears completely . Moonshot AI has already canceled a $150 million deal for Nvidia Blackwell chips in Indonesia . Chinese firms are now looking for new workarounds, the publication reports. Some are trying to rent computing power through non-Chinese third parties, while companies such as MiniMax, Mihoyo, and Alibaba are leaning more heavily on domestic chips. They are also investing more in training data for their own reinforcement learning. Ad Ad Already a subscriber? Sign in",
+   "use_link": "",
+   "reject_hits": 1
+  },
+  {
+   "id": "32865a30877055f1",
+   "title": "OpenAI wants companies to trust it with sensitive work by promising not to look at their data",
+   "link": "https://the-decoder.com/openai-wants-companies-to-trust-it-with-sensitive-work-by-promising-not-to-look-at-their-data",
+   "site": "",
+   "desc": "OpenAI is testing a new feature called \"Private Inference\" that lets companies run queries on its most powerful models without OpenAI being able to access the data. The article OpenAI wants companies to trust it with sensitive work by promising not to look at their data appeared first on The Decoder .",
+   "source": "دیکودر",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 6.1,
+   "published": "2026-11-25T18:22:02+00:00",
+   "added": "2026-11-26T00:30:46+00:00"
+  },
+  {
+   "id": "3a2027e2694465cf",
+   "title": "Amazon and Meta are in talks to end the block on Meta's AI shopping agent Muse in Amazon's online store.",
+   "link": "https://the-decoder.com/amazon-and-meta-are-in-talks-to-end-the-block-on-metas-ai-shopping-agent-muse-in-amazons-online-store",
+   "site": "",
+   "desc": "Amazon and Meta are in talks to bring back Muse, Meta's AI shopping agent that Amazon kicked off its platform in September. The two sides are stuck on ad revenue and who gets to control search results. That matters because Amazon's ad business generates $68.6 billion a year, and Muse already commands 51 percent of all agentic shopping orders. The article Amazon and Meta are in talks to end the block on Meta's AI shopping agent Muse in Amazon's online store. appeared first on The Decoder .",
+   "source": "دیکودر",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 7.8,
+   "published": "2026-11-25T16:44:37+00:00",
+   "added": "2026-11-26T00:30:46+00:00"
   }
  ]
 }
