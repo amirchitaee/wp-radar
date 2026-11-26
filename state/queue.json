@@ -418,7 +418,10 @@
    "kind": "news",
    "age_hours": 6.1,
    "published": "2026-11-25T18:22:02+00:00",
-   "added": "2026-11-26T00:30:46+00:00"
+   "added": "2026-11-26T00:30:46+00:00",
+   "full": "OpenAI is testing a new feature called \"Private Inference\" that lets companies run queries on its most powerful models without OpenAI being able to access the data. CEO Sam Altman said the company is now piloting the previously announced offering with its first enterprise customers. Better privacy makes AI useful for a much wider range of work, Altman wrote. Shekar, the OpenAI employee leading the effort, called it a first step toward \"private intelligence for everyone.\" OpenAI is currently scaling up the compute capacity needed to expand the offering. For now, Private Inference targets business customers, whose data OpenAI already doesn't use for training . Consumer ChatGPT conversations, by contrast, are used for training by default unless users opt out. With Private Inference, queries are processed on specially isolated hardware whose security can be independently verified, according to OpenAI . Altman also pointed to Private Safety Processing , a system that lets OpenAI scan for abuse without storing customer data. Flagged content is encrypted and stored in the customer's own cloud, and only a secured review system can read it. Google is pursuing a similar approach with Private AI Compute . Ad Ad Already a subscriber? Sign in",
+   "use_link": "https://openai.com/de-DE/form/private-intelligence-interest/",
+   "reject_hits": 1
   },
   {
    "id": "3a2027e2694465cf",
