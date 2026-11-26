@@ -78,23 +78,6 @@
    "cves": []
   },
   {
-   "t": "2026-11-22T10:01:39+00:00",
-   "id": "0cbda05d55dc00f2",
-   "title": "GPT-6.2 Astra and Sol get to the point faster but score lower on transparency than Claude",
-   "kind": "news",
-   "link": "https://the-decoder.com/gpt-6-2-astra-and-sol-get-to-the-point-faster-but-score-lower-on-transparency-than-claude",
-   "ents": [
-    "astra",
-    "claude",
-    "gpt-6.2",
-    "sol"
-   ],
-   "vers": [
-    "6.2"
-   ],
-   "cves": []
-  },
-  {
    "t": "2026-11-22T12:47:00+00:00",
    "id": "1dea5cb19bbd0b0a",
    "title": "Security researchers show how cheap AI inference providers steal keys and snoop on users",
@@ -477,6 +460,21 @@
    "vers": [
     "0.2"
    ],
+   "cves": []
+  },
+  {
+   "t": "2026-11-26T10:15:57+00:00",
+   "id": "92c709b4dedffefa",
+   "title": "Anthropic's Claude Ship lets AI agents review, fix, and approve pull requests on their own",
+   "kind": "news",
+   "link": "https://the-decoder.com/anthropics-claude-ship-lets-ai-agents-review-fix-and-approve-pull-requests-on-their-own",
+   "ents": [
+    "ai",
+    "anthropic",
+    "claude",
+    "ship"
+   ],
+   "vers": [],
    "cves": []
   }
  ]

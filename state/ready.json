@@ -1,3 +1,18 @@
 {
- "items": []
+ "items": [
+  {
+   "id": "92c709b4dedffefa",
+   "at": "2026-11-26T10:15:57+00:00",
+   "kind": "news",
+   "label": "خبر",
+   "text": "<b>📰 خبر: ابزار جدید ⁦Anthropic⁩ تغییرات کد را خودش بررسی و تأیید می‌کند</b>\n\n‏⁦Anthropic⁩ ابزار ⁦Claude Ship⁩ را به‌صورت بتا منتشر کرده که پیشنهادهای تغییر کد را خودکار بررسی، اصلاح و تأیید می‌کند. برای کسی که با تیم برنامه‌نویس کار می‌کند، یعنی دیگر لازم نیست هر تغییر را دستی چک کند.\n\n<blockquote expandable>دو ایجنت جدید به نام ⁦PR Steward⁩ و ⁦Claude Approvals⁩ کار را انجام می‌دهند؛ اولی مشکلات را اصلاح می‌کند و دومی بر اساس فایل خط‌مشی تصمیم می‌گیرد که تأیید خودکار باشد یا انسانی.\nاگر خط‌مشی اجازه دهد و ⁦GitHub auto-merge⁩ روشن باشد، کد بدون دخالت انسان ادغام می‌شود.\nفقط در پلن ⁦Team⁩ و ⁦Enterprise⁩ در دسترس است و هزینه‌اش جداگانه بر اساس مصرف توکن حساب می‌شود.</blockquote>\n\nاطلاعات بیشتر دربارهٔ این موضوع را از <a href=\"https://the-decoder.com/anthropics-claude-ship-lets-ai-agents-review-fix-and-approve-pull-requests-on-their-own\">منبع</a> بخوانید.\n\n<i>۳ آذر ۱۴۰۵ · ۱۴:۵۶</i>\n\n#خبر #هوش_مصنوعی",
+   "score": 34.0,
+   "title": "ابزار جدید Anthropic تغییرات کد را خودش بررسی و تأیید می‌کند",
+   "summary": "Anthropic ابزار Claude Ship را به‌صورت بتا منتشر کرده که پیشنهادهای تغییر کد را خودکار بررسی، اصلاح و تأیید می‌کند. برای کسی که با تیم برنامه‌نویس کار می‌کند، یعنی دیگر لازم نیست هر تغییر را دستی چک کند.",
+   "link": "https://the-decoder.com/anthropics-claude-ship-lets-ai-agents-review-fix-and-approve-pull-requests-on-their-own",
+   "source": "دیکودر",
+   "group": "ai",
+   "photo": ""
+  }
+ ]
 }
