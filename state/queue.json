@@ -275,24 +275,6 @@
    "reject_hits": 2
   },
   {
-   "id": "92c709b4dedffefa",
-   "title": "Anthropic's Claude Ship lets AI agents review, fix, and approve pull requests on their own",
-   "link": "https://the-decoder.com/anthropics-claude-ship-lets-ai-agents-review-fix-and-approve-pull-requests-on-their-own",
-   "site": "",
-   "desc": "Anthropic has introduced Claude Ship, a new tool currently in beta that automatically reviews, corrects, and approves suggestions for code changes in accordance with team guidelines. The article Anthropic's Claude Ship lets AI agents review, fix, and approve pull requests on their own appeared first on The Decoder .",
-   "source": "دیکودر",
-   "lang": "en",
-   "tier": 2,
-   "group": "ai",
-   "kind": "news",
-   "age_hours": 0.1,
-   "published": "2026-11-24T11:26:23+00:00",
-   "added": "2026-11-24T11:30:44+00:00",
-   "full": "Anthropic launched Claude Ship in beta, a new tool that automatically reviews proposed code changes, fixes problems, and approves merges based on team policies. The system pairs the already available Code Review feature for catching bugs with two new AI agents called PR Steward and Claude Approvals. Code Review handles the analysis, while PR Steward steps in to rework the draft whenever tests fail, changes conflict, or reviewers leave correction notes, documenting every step along the way. Once that process wraps up, Claude Approvals checks a policy file stored in the project directory to decide whether the AI can approve a routine change on its own or whether a human still needs to sign off. With GitHub auto-merge enabled and the right policy in place, new code can be merged entirely without human involvement, according to the documentation . The tool is available on the Team and Enterprise plans but billed separately based on token usage. Because PR Steward has no spending cap by default, teams can set their own budgets to keep costs in check. Organizations with specific data privacy requirements can't use the feature. Already a subscriber? Sign in",
-   "use_link": "",
-   "held": true
-  },
-  {
    "id": "3bb34cd96a5a708f",
    "title": "Contact Form 7 6.2.6",
    "link": "https://wordpress.org/plugins/contact-form-7/",
@@ -435,7 +417,7 @@
    "age_hours": 5.7,
    "published": "2026-11-25T20:04:50-08:00",
    "added": "2026-11-26T09:45:28+00:00",
-   "reject_hits": 1
+   "reject_hits": 2
   }
  ]
 }
