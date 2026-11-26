@@ -499,6 +499,21 @@
     "7.114"
    ],
    "cves": []
+  },
+  {
+   "t": "2026-11-26T17:15:47+00:00",
+   "id": "df1a4ee29a914fb8",
+   "title": "Really Simple Security 9.8.5",
+   "kind": "news",
+   "link": "https://wordpress.org/plugins/really-simple-ssl/",
+   "ents": [
+    "really",
+    "simple"
+   ],
+   "vers": [
+    "9.8.5"
+   ],
+   "cves": []
   }
  ]
 }
