@@ -476,6 +476,25 @@
    ],
    "vers": [],
    "cves": []
+  },
+  {
+   "t": "2026-11-26T12:17:45+00:00",
+   "id": "c5b480807cb6bc37",
+   "title": "Wix Domains Brings 400+ Extensions and an AI Name Generator to Domain Registration",
+   "kind": "news",
+   "link": "https://wpmayor.com/wix-domains-register-domain-name",
+   "ents": [
+    "ai",
+    "domain",
+    "domains",
+    "extensions",
+    "generator",
+    "name",
+    "registration",
+    "wix"
+   ],
+   "vers": [],
+   "cves": []
   }
  ]
 }
