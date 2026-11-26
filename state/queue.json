@@ -362,7 +362,7 @@
    "added": "2026-11-26T00:00:47+00:00",
    "full": "A small improvement to Datasette Agent : chat sessions could already open an iframe side panel that could then navigate to different pages. This version improves navigation by fragment hashes, for deeper integration with other Datasette plugins that update fragment hashes when the user interacts with the plugin in a way that changes state. I built this in order to fix some bugs with the much more exciting datasette-charts 0.2a0 release . This is a beat by Simon Willison, posted on 24th November 2026 . Sponsor me for $10/month and get a curated email digest of the month's most important LLM developments.",
    "use_link": "https://github.com/datasette/datasette-agent/releases/tag/0.7a1",
-   "reject_hits": 1
+   "reject_hits": 2
   },
   {
    "id": "e99bede8482e441e",
@@ -417,6 +417,22 @@
    "full": "Amazon and Meta are in talks to end the block on Meta's AI shopping agent Muse in Amazon's online store. In September, Amazon blocked Muse's access . Ad revenue and control over search results are the main sticking points in the ongoing talks, Fortune reports . Amazon worries that shopping agents like Muse could weaken its relationship with customers and bypass the ads on its platform, a business that brings in $68.6 billion a year. Andy Jassy, Amazon's CEO, said shopping through third-party agents so far hasn't been more convenient or better than going directly to a retailer, but he didn't rule out opening access. The company also offers its own agentic shopping features, which in some cases have pulled in sellers that don't sell on Amazon . It previously tried and failed to block Perplexity . Any deal would need sign-off from both CEOs, according to Fortune. Muse is Meta's most successful consumer AI product so far, with more than 10 million users in the US and Canada. Meta is already seeing gains in its Instagram ad business because Muse helps users organize saved products, which boosts conversion rates for advertisers, CNBC reports . Data from Forter Intelligence shows that Muse recently accounted for 51 percent of all agentic orders, followed by SpaceX's Grok at 24 percent and OpenAI's ChatGPT at 22 percent. Ad Ad Already a subscriber? Sign in",
    "use_link": "",
    "reject_hits": 2
+  },
+  {
+   "id": "d3c39bf0be0ab098",
+   "title": "Pax by Pydantic",
+   "link": "https://www.producthunt.com/products/pydantic",
+   "site": "",
+   "desc": "A coding agent where even coding is a plugin Discussion | Link",
+   "source": "پروداکت هانت",
+   "lang": "en",
+   "tier": 3,
+   "group": "",
+   "kind": "tools",
+   "age_hours": 5.7,
+   "published": "2026-11-25T20:04:50-08:00",
+   "added": "2026-11-26T09:45:28+00:00",
+   "reject_hits": 1
   }
  ]
 }
