@@ -212,7 +212,10 @@
    "kind": "news",
    "age_hours": 1.3,
    "published": "2026-11-24T14:28:41+00:00",
-   "added": "2026-11-24T15:45:34+00:00"
+   "added": "2026-11-24T15:45:34+00:00",
+   "full": "Anthropic researcher stands by his AI-assisted Riemann proof but owns up to \"stupid things\" in the rollout Nano Banana Pro prompted by THE DECODER Anthropic researcher Levent Alpöge stands by the mathematical validity of his AI-assisted proof of the generalized Riemann hypothesis, but he concedes he got several things wrong in how he released it. He says his claims about the work's length were meant as a joke and that he published the accompanying code without cleaning it up. In a post titled \"Stupid things I did,\" Alpöge lists several missteps in his initial announcement , which he made shortly after Anthropic's IPO. His Lean code passes formal verification , he writes, but it's \"full of garbage,\" meaning it's packed with redundant intermediate steps and unnecessary lemmas that make it hard to read. He says he improvised a lot and skipped the cleanup, and that the criticism of how he presented the work is fair. A successful compile alone doesn't prove that the Lean code states the right theorem with no hidden assumptions. Already a subscriber? Sign in Back to the homepage",
+   "use_link": "",
+   "reject_hits": 1
   },
   {
    "id": "4f2a19111d34eb8b",
