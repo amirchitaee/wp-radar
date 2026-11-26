@@ -371,7 +371,8 @@
    "added": "2026-11-26T00:00:47+00:00",
    "full": "I introduced this new charting plugin for Datasette yesterday . Today it's gained integration with Datasette Agent , so now you can ask chat for a chart and it will create one for you using the same underlying chart suggestion and generation tools. Here's a demo video, recorded on agent.datasette.io where you can sign in with GitHub to try the plugin yourself: Here's a Markdown export of the chat from the video. This is a beat by Simon Willison, posted on 24th November 2026 . Sponsor me for $10/month and get a curated email digest of the month's most important LLM developments.",
    "use_link": "https://github.com/datasette/datasette-charts/releases/tag/0.2a0",
-   "reject_hits": 1
+   "reject_hits": 1,
+   "held": true
   },
   {
    "id": "f3349335f15c963a",
