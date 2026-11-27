@@ -326,49 +326,6 @@
    "reject_hits": 1
   },
   {
-   "id": "c2531871646df0db",
-   "title": "WP Statistics 14.17.1",
-   "link": "https://wordpress.org/plugins/wp-statistics/",
-   "desc": "نسخهٔ 14.17.1 از WP Statistics منتشر شد. تغییرات این نسخه: Enhancement: Improved the visitor card: the IP, hash or user name is back on each row, and clicking it opens the visitor’s journey. | Enhancement: A notice when your cookie banner stops visitors from being counted, with a one-click fix. | Enhancement: Tested with WordPress 7.2. | Fix: Updating no longer turns on the WP Consent API integration by itself. | Fix: Posts no longer show 0 views after their address was a 404 earlier the same day. | Fix: The Privacy Audit now matches the consent notice and names the settings that need consent. | Fix: “Random post” visits on WordPress 7.2 are no longer counted twice with server-side tracking. | Fix: No more PHP 8.5 and 8.6 deprecation notices from the search engine and social media charts.",
-   "source": "آپدیت افزونه",
-   "lang": "en",
-   "tier": 1,
-   "group": "wp",
-   "kind": "news",
-   "age_hours": 0.0,
-   "published": "2026-11-27T15:45:38+00:00",
-   "added": "2026-11-27T15:45:38+00:00",
-   "plugin": {
-    "name": "WP Statistics",
-    "version": "14.17.1",
-    "prev": "14.17.0",
-    "installs": 500000,
-    "updated": "2026-11-27"
-   },
-   "plugin_update": {
-    "name": "WP Statistics",
-    "slug": "wp-statistics",
-    "version": "14.17.1",
-    "prev": "14.17.0",
-    "date": "14.17.1 – 2026-11-27",
-    "changes": [
-     "Enhancement: Improved the visitor card: the IP, hash or user name is back on each row, and clicking it opens the visitor’s journey.",
-     "Enhancement: A notice when your cookie banner stops visitors from being counted, with a one-click fix.",
-     "Enhancement: Tested with WordPress 7.2.",
-     "Fix: Updating no longer turns on the WP Consent API integration by itself.",
-     "Fix: Posts no longer show 0 views after their address was a 404 earlier the same day.",
-     "Fix: The Privacy Audit now matches the consent notice and names the settings that need consent.",
-     "Fix: “Random post” visits on WordPress 7.2 are no longer counted twice with server-side tracking.",
-     "Fix: No more PHP 8.5 and 8.6 deprecation notices from the search engine and social media charts."
-    ],
-    "vuln": false,
-    "hardening": false
-   },
-   "full": "Discover privacy-friendly analytics with WP Statistics , the top choice for WordPress users seeking an alternative to Google Analytics. No external accounts, unlimited visitor tracking and full data ownership. Everything is stored in your own WordPress database. Checkout Demo | View Screenshots WP Statistics is privacy-friendly by default. Whether you need consent depends on your country and your settings. WP Statistics uses cookie-less tracking . You can find more information in “ What we collect “. Get the most out of your website analytics by using WP Statistics Premium Add-ons Upgrade your analytics toolkit with our range of premium add-ons, including Data Plus , Advanced Reporting , Real-Time Stats , Mini Chart , Marketing , and more . Making informed decisions is easier with these powerful tools. Special Offer: Save up to 60% on all premium features when you purchase WP Statistics Premium . Having trouble with a bug? Please create an issue on GitHub. Kindly note that GitHub is exclusively for bug reports; other inquiries will be closed. For security vulnerabilities, please report them through the Patchstack Vulnerability Disclosure Program . The Patchstack team will validate, triage, and handle any security issues. Overview: Visitors, views, top pages and sources on one screen. Visitor journey: See where every visit started, where it ended, and who bounced. Traffic Sources: Search, social, AI assistants like ChatGPT and paid ads, side by side. Visitor card: Location, browser and device for any visitor. IP hidden when hashed. Content Analytics: Views, visitors, bounce and exit rate for every post and page. Privacy Audit: Check every privacy setting in one place and fix issues in one click. Editor panel: A post’s views and visitors, right in the block editor. Author leaderboard: See which writers bring the most readers. Geographic: Visitors by country on a map, plus regions and cities. Devices: Browsers, systems, device types and models, with share bars. Real-Time Stats: Watch visitors arrive live and see what they read right now. Campaigns: Visitors and views for every UTM campaign. Search Console: Google clicks, impressions and search terms next to your stats. Goals: Set a goal, like a sign-up, and see your conversion rate. Link Tracker: See which outgoing links people click most. Download Tracker: Count downloads of every file and see who downloaded what. Email report: A daily, weekly or monthly email report. PDF with Advanced Reporting. Mini Chart: A small views chart next to each post in your list. Dashboard widgets: Your key numbers on the WordPress dashboard. Tracking alert: An email if visits stop being recorded. Checked once a day. Category Analytics: Find the categories and tags that bring the most readers. Page Insights: Top pages, entry and exit pages, and 404 pages. Visitor Insights: Visitors over time, bounce rate, logged-in users and who is online. Settings: Choose what to track, who sees reports and how long data stays. Optimization: Clean old data and keep your database small. Show all 25 screenshots Installation Upload wp-statistics to the /wp-content/plugins/ directory. Activate the plugin through the ‘Plugins’ menu in ",
-   "use_link": "",
-   "held": true
-  },
-  {
    "id": "63f7c1abbb4c9b31",
    "title": "Rockstar's AI dilemma: Can GTA 6's staggered release model survive coding agents?",
    "link": "https://the-decoder.com/rockstars-ai-dilemma-can-gta-6s-staggered-release-model-survive-coding-agents",
