@@ -198,24 +198,6 @@
    "reject_hits": 2
   },
   {
-   "id": "0f441275f550ee23",
-   "title": "Style Queries as Conditional Modifiers",
-   "link": "https://css-tricks.com/css-style-queries-as-conditional-modifiers",
-   "site": "",
-   "desc": "Where style queries shine is when the condition and the styles need to live in different places, or when one condition needs to affect several things at once: components that keep working, and adapt sensibly, no matter where they end up. Style Queries as Conditional Modifiers originally handwritten and published with love on CSS-Tricks . You should really get the newsletter as well.",
-   "source": "سی‌اس‌اس تریکس",
-   "lang": "en",
-   "tier": 3,
-   "group": "",
-   "kind": "news",
-   "age_hours": 0.4,
-   "published": "2026-11-25T14:06:34+00:00",
-   "added": "2026-11-25T14:30:39+00:00",
-   "full": "NVIDIA L4 GPUs. 5-second cold starts. Scale to zero when idle. This article is adapted from a lesson in Writing Resilient CSS, the newest module in Kevin’s course, CSS Demystified . The module covers configuration options with custom properties, math functions, relative colors, :has() , style queries, and more, all put to work in practical, reusable patterns. The course is 32% off until December 2, 2026. Modifiers have been with us for a long time, often with modifier classes, but also with attribute selectors. Some common examples are things like different versions of alerts and buttons. /* BEM approach */ .button--accent { background-color: var(--clr-accent); } /* CUBECSS approach */ .toast[data-type=\"error\"] { border-color: var(--clr-warning); } For a lot of use cases, either of those approaches work great, but when it comes to layout, a lot of the time we want the context of where the element is being used to control things. A card is a nice example of this, where we might have several versions. .card { display: grid; gap: .75rem; } .card--horizontal { grid-template-columns: 1fr 2fr; } .card--compact { padding: .75rem; gap: .5rem; } The issue here is, if I’m using .card--compact , I probably want to do that for all the cards within a section. That can be annoying to apply to each card, but that’s rendered moot since most people are doing some sort of looping in a template like this these days. <aside className=\"sidebar\"> {relatedPosts.map((post) => ( <article className=\"card card--compact\"> <h3>{post.title}</h3> <p>{post.excerpt}</p> </article> ))} </aside> And this works great, as long as we always want the cards to be compact. However, you might put this together and send it off to the design team for approval, only for them not to like that when the compact cards are lower down the page, the smaller padding isn’t needed to create visual separation between the two sections. Instead of helping with the hierarchy, it’s simply creating a strange visual inconsistency. We could use something like a resize observer to try and deal with this, but we have a better tool at our disposal: Container Style Queries , which are now Baseline Newly Available . While they all start with container , for the rest of this article I interchangeable use container query or size query for a container size query, and style query for what we’re talking about here. A quick look at style queries Before we get into the good stuff, a quick look at the basics of style queries. You’re probably familiar with size queries, which work similar to @media but look at the size of a container, rather than the viewport. Container style queries use the same @container at-rule as container size queries, but instead of looking at a size, they look at the value of a custom property. @container style(--theme: high-contrast) { .card { background: white; color: black; border-color: black; } } This reads as, “if the nearest container has --theme: high-contrast , style the .card like this.” A couple of important notes about them: Elements can’t query themselves Just like with size queries, style queries look at an ancestor , not the element itself. That means this won’t work: .card { --",
-   "use_link": "",
-   "reject_hits": 2
-  },
-  {
    "id": "3bb34cd96a5a708f",
    "title": "Contact Form 7 6.2.6",
    "link": "https://wordpress.org/plugins/contact-form-7/",
