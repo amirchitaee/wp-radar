@@ -508,6 +508,25 @@
    ],
    "vers": [],
    "cves": []
+  },
+  {
+   "t": "2026-11-27T14:46:28+00:00",
+   "id": "0e426df10651502a",
+   "title": "Critical WP Rocket RCE (CVE-2026-125812) Under Active Attack",
+   "kind": "news",
+   "link": "https://patchstack.com/articles/critical-wp-rocket-rce-cve-2026-125812-under-active-attack",
+   "ents": [
+    "active",
+    "attack",
+    "cve-2026-125812",
+    "rce",
+    "rocket",
+    "wp"
+   ],
+   "vers": [],
+   "cves": [
+    "CVE-2026-125812"
+   ]
   }
  ]
 }
