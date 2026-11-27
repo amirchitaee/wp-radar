@@ -249,7 +249,7 @@
   "name": "لندبوک",
   "fails": 0,
   "last_count": 40,
-  "last_ok": "2026-11-27T11:15:28+00:00"
+  "last_ok": "2026-11-27T12:15:33+00:00"
  },
  "https://aifree.dev/rss.xml": {
   "name": "ای‌فری",
@@ -349,20 +349,20 @@
  },
  "https://minimal.gallery/feed/": {
   "name": "مینیمال گالری",
-  "fails": 2,
+  "fails": 0,
   "last_count": 10,
-  "last_ok": "2026-11-27T09:45:29+00:00"
+  "last_ok": "2026-11-27T12:15:35+00:00"
  },
  "https://saaslandingpage.com/rss": {
   "name": "ساز لندینگ‌پیج",
-  "fails": 2,
+  "fails": 0,
   "last_count": 10,
-  "last_ok": "2026-11-27T09:45:30+00:00"
+  "last_ok": "2026-11-27T12:15:36+00:00"
  },
  "https://onepagelove.com/feed": {
   "name": "وان‌پیج‌لاو",
   "fails": 0,
   "last_count": 10,
-  "last_ok": "2026-11-27T11:15:38+00:00"
+  "last_ok": "2026-11-27T12:15:36+00:00"
  }
 }
