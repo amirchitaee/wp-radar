@@ -502,6 +502,22 @@
     "9.8.5"
    ],
    "cves": []
+  },
+  {
+   "t": "2026-11-27T02:31:30+00:00",
+   "id": "27f35f09a947a507",
+   "title": "GPT-6.2 Astra users now hit limits 40% faster after OpenAI patched a pricing error",
+   "kind": "news",
+   "link": "https://the-decoder.com/gpt-6-2-astra-users-now-hit-limits-40-faster-after-openai-patched-a-pricing-error",
+   "ents": [
+    "astra",
+    "gpt-6.2",
+    "openai"
+   ],
+   "vers": [
+    "6.2"
+   ],
+   "cves": []
   }
  ]
 }
