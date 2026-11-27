@@ -491,6 +491,21 @@
     "6.2"
    ],
    "cves": []
+  },
+  {
+   "t": "2026-11-27T10:00:58+00:00",
+   "id": "9b32b4ea06d6d316",
+   "title": "Black Friday: Save 25% and Build a Site That Grows With You",
+   "kind": "news",
+   "link": "https://wordpress.com/blog/2026/11/27/black-friday-2026",
+   "ents": [
+    "black",
+    "friday",
+    "grows",
+    "save"
+   ],
+   "vers": [],
+   "cves": []
   }
  ]
 }
