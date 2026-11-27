@@ -216,24 +216,6 @@
    "reject_hits": 2
   },
   {
-   "id": "6bac70b0e1802a36",
-   "title": "AI agents now control part of Deepmind's compute for Gemini experiments, but recursive self-improvement remains distant",
-   "link": "https://the-decoder.com/ai-agents-now-control-part-of-deepminds-compute-for-gemini-experiments-but-recursive-self-improvement-remains-distant",
-   "site": "",
-   "desc": "Google Deepmind uses AI agents to run experiments on their own for upcoming Gemini models. Research chief Koray Kavukcuoglu says the lab is still far from recursive self-improvement. For oversight, Deepmind intentionally leaves the agents' internal chains of thought untrained so they can be reviewed. Kavukcuoglu measures AGI by everyday user trust rather than benchmarks. The article AI agents now control part of Deepmind's compute for Gemini experiments, but recursive self-improvement remains distant appeared first on The Decoder .",
-   "source": "دیکودر",
-   "lang": "en",
-   "tier": 2,
-   "group": "ai",
-   "kind": "news",
-   "age_hours": 1.1,
-   "published": "2026-11-25T13:23:36+00:00",
-   "added": "2026-11-25T14:30:43+00:00",
-   "full": "Google Deepmind lets AI agents run experiments on their own for the next Gemini model. On the company's podcast, VP of Research Koray Kavukcuoglu, who leads Gemini development, frames this as part of a strategic shift at the lab. Rather than running separate teams for specialized projects like AlphaFold and nuclear fusion, Deepmind now relies on a single general-purpose algorithm for both science and products, he says. Each Gemini generation, he adds, is a hand-built one-off rather than a fixed architecture, while parallel teams work on its successors. According to Kavukcuoglu, AI agents control part of the compute themselves to run experiments, though the lab is still far from full recursive self-improvement. As a safety measure, Deepmind doesn't reward the agents' internal thought streams (\"Chain of Thought\") during training, he says, so their intentions stay unfiltered and reviewable in natural language before they act. Kavukcuoglu also points to limits. Today's AI can depict physical processes such as fluid flows and collisions with visual accuracy, he says, but doesn't understand them precisely. No test can show when models will close those gaps and reach artificial general intelligence (AGI), he argues, because no benchmark captures the core of intelligence. In his view, AGI won't begin until useful everyday products earn enough trust for people to hand decisions over to them, the way they would when working with other people. Ad Ad Already a subscriber? Sign in",
-   "use_link": "",
-   "reject_hits": 2
-  },
-  {
    "id": "3bb34cd96a5a708f",
    "title": "Contact Form 7 6.2.6",
    "link": "https://wordpress.org/plugins/contact-form-7/",
