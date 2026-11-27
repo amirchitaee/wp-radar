@@ -336,6 +336,24 @@
    "full": "NVIDIA L4 GPUs. 5-second cold starts. Scale to zero when idle. I honestly hadn’t thought about “getting caught” by light-dark() — particularly when leaning heavily on it for this site — but Martin Underhill explains : Without fallbacks, browsers that don’t support light-dark() typically use black text on a white background in Light Mode, and white text on a dark grey background in Dark Mode. They’re not the exact colours I’d want, but my website looks fine. Again, it’s risky, so test thoroughly. Like Martin, I initially began implementing color themes based on media queries sniffing out user preferences. But it became super cumbersome to write prefers-color-scheme time and again. I mean, totally DX-world problems. I also remembered the piece Sara Joy wrote with us a while back encouraging a jump into the light-dark() waters and thought it’d be nice to take that advice. Doing that, I ran into another DX annoyance: writing two color values for each light-dark() . CSS variables help, of course, but even then it exhausted me. That says something more about me than the feature, but I digress. So, I took Martin’s process one step further to abstract all the things: :root { --gray-1: #eaeaea; /* Light */ /* ... */ --gray-10: #111; /* Dark */ --text: light-dark(var(--gray-1), var(--gray-10)); } .article-content { color: var(--text); } Very nice, at least for my penchant for laziness. But I ran into another issue because sometimes text needs to go the other direction. Keep abstracting. I could define the background variable which is normally the contrast to text: :root { --gray-1: #eaeaea; /* Light */ /* ... */ --gray-10: #111; /* Dark */ --text: light-dark(var(--gray-1), var(--gray-10)); --surface: light-dark(var(--gray-10), var(--gray-1)); } .widget-content { color: var(--surface); } Works, but using a helper called “surface” on a property controlling color bothers me too. I may be lazy, but I’m a little anal with semantics. Hence: :root { --gray-1: #eaeaea; /* Light */ /* ... */ --gray-10: #111; /* Dark */ --text: light-dark(var(--gray-1), var(--gray-10)); --text-reverse: light-dark(var(--gray-10), var(--gray-1)); } .article-content { color: var(--text-reverse); /* Light then dark */ } .widget-content { color: var(--text-reverse); /* Dark then light */ } …where “reverse” means it goes the opposite direction of a normal “light-dark” call and the “dark” value is called first. But even that is still too much for my brain to handle because now I’m left with multiple tokens to remember if I want things to be super semantic: :root { --gray-1: #eaeaea; /* Light */ /* ... */ --gray-10: #111; /* Dark */ --text: light-dark(var(--gray-1), var(--gray-10)); --text-reverse: light-dark(var(--gray-10), var(--gray-1)); --surface: light-dark(var(--gray-1), var(--gray-10)); --surface-reverse: light-dark(var(--gray-10), var(--gray-1)); } .article-content { background-color: var(--surface); /* Dark then light */ color: var(--text-reverse); /* Light then dark */ } .widget-content { background-color: var(--surface-reverse); /* Light then dark */ color: var(--text-reverse); /* Dark then light */ } so I went with an even more general abstraction: :root { --gray-1: #eaeaea;",
    "use_link": "",
    "reject_hits": 2
+  },
+  {
+   "id": "3bf87ee1a2a2bacf",
+   "title": "What you need to know before choosing a payment gateway",
+   "link": "https://woocommerce.com/posts/how-to-choose-payment-gateway",
+   "site": "",
+   "desc": "Learn how to choose a payment gateway for your ecommerce store by comparing processing fees, payment methods, payout timelines, and everyday management tools.",
+   "source": "ووکامرس",
+   "lang": "en",
+   "tier": 1,
+   "group": "",
+   "kind": "news",
+   "age_hours": 1.8,
+   "published": "2026-11-27T17:12:57+00:00",
+   "added": "2026-11-27T19:00:45+00:00",
+   "full": "By Vanessa Petersen • Nov 23, 2026",
+   "use_link": "",
+   "reject_hits": 1
   }
  ]
 }
