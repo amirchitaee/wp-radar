@@ -82,23 +82,6 @@
    "cves": []
   },
   {
-   "t": "2026-11-23T19:45:47+00:00",
-   "id": "c2a328a332f1383a",
-   "title": "Join the WordPress 7.2 Release Celebration Livestream",
-   "kind": "news",
-   "link": "https://wordpress.org/news/2026/11/7-2-release-celebration",
-   "ents": [
-    "celebration",
-    "join",
-    "livestream",
-    "wordpress"
-   ],
-   "vers": [
-    "7.2"
-   ],
-   "cves": []
-  },
-  {
    "t": "2026-11-23T22:15:41+00:00",
    "id": "f90bbf612456604d",
    "title": "Staying Ahead of the New Threat Landscape in 2027",
