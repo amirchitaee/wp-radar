@@ -527,6 +527,21 @@
    "cves": [
     "CVE-2026-125812"
    ]
+  },
+  {
+   "t": "2026-11-27T15:46:04+00:00",
+   "id": "c2531871646df0db",
+   "title": "WP Statistics 14.17.1",
+   "kind": "news",
+   "link": "https://wordpress.org/plugins/wp-statistics/",
+   "ents": [
+    "statistics",
+    "wp"
+   ],
+   "vers": [
+    "14.17.1"
+   ],
+   "cves": []
   }
  ]
 }
