@@ -267,7 +267,7 @@
    "added": "2026-11-25T13:00:46+00:00",
    "channel_skip": true,
    "skip_why": "پادکست یا وبینار",
-   "skip_until": "2026-11-27T01:30:46+00:00"
+   "skip_until": "2026-11-27T13:45:40+00:00"
   },
   {
    "id": "c97a28f0c86856f9",
@@ -375,7 +375,10 @@
    "kind": "news",
    "age_hours": 6.8,
    "published": "2026-11-26T17:28:56+00:00",
-   "added": "2026-11-27T00:15:39+00:00"
+   "added": "2026-11-27T00:15:39+00:00",
+   "full": "OpenAI got its math wrong. A billing bug during the GPT-6.2 rollout gave most users the wrong discounts on GPT-6.2 Astra and Sol, according to OpenAI Codex engineer Thibault Sottiaux. The bug has been fixed. You'll now hit your limits 40 percent faster on Astra and 25 percent faster on Sol than last week, Sottiaux says . Your quota should still last longer than it did with GPT-6 Astra and GPT-6.1 Sol. Other models weren't affected, and OpenAI won't retroactively charge for the difference. To make up for it, all Go, Plus, Pro, and Business subscribers get an extra saved reset. Business users also get free access to Fast Mode through the end of the year, according to Sottiaux. OpenAI is also testing merging Chat and Work mode with select Pro users. Work mode is more agentic than Chat mode, which likely means higher token costs for OpenAI. It's slower but more capable. Anthropic already made the same move with Cowork . All conversations now run in one cloud environment, where the model decides whether to answer directly or spin up a full agentic workflow. Ad Ad Already a subscriber? Sign in",
+   "use_link": "",
+   "reject_hits": 1
   },
   {
    "id": "5320f5d21a0968a3",
