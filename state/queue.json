@@ -74,24 +74,6 @@
    "reject_hits": 2
   },
   {
-   "id": "e99bede8482e441e",
-   "title": "US chip-access curbs and anti-distillation measures are reportedly already slowing Chinese AI labs",
-   "link": "https://the-decoder.com/us-chip-access-curbs-and-anti-distillation-measures-are-reportedly-already-slowing-chinese-ai-labs",
-   "site": "",
-   "desc": "Chip restrictions, anti-distillation measures, and shrinking access to Nvidia hardware abroad are putting growing pressure on Deepseek, Moonshot AI, and Alibaba, according to a report. Deepseek researchers internally estimate they're already up to nine months behind US models, and the gap is widening. The article US chip-access curbs and anti-distillation measures are reportedly already slowing Chinese AI labs appeared first on The Decoder .",
-   "source": "دیکودر",
-   "lang": "en",
-   "tier": 2,
-   "group": "ai",
-   "kind": "news",
-   "age_hours": 3.7,
-   "published": "2026-11-25T20:51:02+00:00",
-   "added": "2026-11-26T00:30:46+00:00",
-   "full": "The US is tightening its grip in the AI race with China, and the push is already having an effect, according to The Information. Chinese AI developers including Deepseek, Moonshot AI, and Alibaba have been under pressure since September, squeezed by restrictions on Chinese firms' remote access to advanced Nvidia chips in foreign data centers and by successful anti-distillation measures from OpenAI and Anthropic . As a result, many ongoing projects are facing delays, the report says . Last month, Deepseek researchers internally estimated that their gap to top US models could grow from three to six months to nine months if distillation disappears completely . Moonshot AI has already canceled a $150 million deal for Nvidia Blackwell chips in Indonesia . Chinese firms are now looking for new workarounds, the publication reports. Some are trying to rent computing power through non-Chinese third parties, while companies such as MiniMax, Mihoyo, and Alibaba are leaning more heavily on domestic chips. They are also investing more in training data for their own reinforcement learning. Ad Ad Already a subscriber? Sign in",
-   "use_link": "",
-   "reject_hits": 2
-  },
-  {
    "id": "d3c39bf0be0ab098",
    "title": "Pax by Pydantic",
    "link": "https://www.producthunt.com/products/pydantic",
@@ -302,7 +284,7 @@
    "added": "2026-11-27T17:30:41+00:00",
    "full": "Hackers breached the US Air Force's flagship cloud platform. Reuters reports that attackers penetrated Cloud One, the Air Force's central cloud infrastructure, potentially exposing sensitive tactical, personnel, and logistics data. The breach was discovered last month during routine system upgrades. According to one source, the attackers exploited a software vulnerability to gain access to the platform's control plane. Cloud One has pooled cloud resources from Microsoft, Amazon, Oracle, and Alphabet since 2017, running applications that include air defense radar and munitions management. In response, the Air Force paused migration of additional applications, blocked updates, and revoked administrator privileges. US Cyber Command is assessing the damage. The breach comes amid growing concern about AI-powered attacks, as AI models can rapidly identify vulnerabilities across large cloud networks. At least six other cyber incidents have hit US government agencies recently, and Microsoft's cybersecurity division reported widespread use of the AI tool ARTEX . Who carried out the attack and whether any data was exfiltrated remain unknown. Ad Ad Already a subscriber? Sign in",
    "use_link": "",
-   "reject_hits": 1
+   "reject_hits": 2
   },
   {
    "id": "b1cddf2a539ba372",
