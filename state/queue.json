@@ -92,24 +92,6 @@
    "reject_hits": 2
   },
   {
-   "id": "9656a61fb78e3b65",
-   "title": "Anthropic CEO Dario Amodei says letting AI govern society would be \"a bad idea\"",
-   "link": "https://the-decoder.com/anthropic-ceo-dario-amodei-says-letting-ai-govern-society-would-be-a-bad-idea",
-   "site": "",
-   "desc": "Anthropic CEO Dario Amodei is pushing back on an Axios report saying some employees believe humanity will hand power to superintelligent systems. Amodei says \"turning over governance to AI is a bad idea.\" The article Anthropic CEO Dario Amodei says letting AI govern society would be \"a bad idea\" appeared first on The Decoder .",
-   "source": "دیکودر",
-   "lang": "en",
-   "tier": 2,
-   "group": "ai",
-   "kind": "news",
-   "age_hours": 0.2,
-   "published": "2026-11-25T20:15:50+00:00",
-   "added": "2026-11-25T20:30:45+00:00",
-   "full": "Dario Amodei said it was \"absurd\" to suggest he believed people should \"surrender human free will\" to AI systems. In a lengthy post on X, he responded to an Axios report that cited people familiar with internal discussions. The outlet reported that some Anthropic employees believed humanity would safely hand authority to superintelligent systems, and often should, rather than fight for control. AI must be governed by \"legitimate democratic processes,\" Amodei wrote . Political decisions should stay in human hands, he argued, and he rejected handing power to AI as firmly as he rejected autocracy. Ad [...] We should never sacrifice legitimacy or self-determination on the altar of efficiency or security. This argument against autocracy applies word for word to governance by AI, and I feel just as strongly that handing over governance to AI is a bad idea. Ad Automating specific tasks such as driving, developing cancer drugs, and writing software could benefit humanity, Amodei said, but that was a different matter from giving up free will in politics. End-to-end automation could also bring risks, Amodei wrote, including serious job disruption and AI building new models without human oversight. \"It is clearly desirable in many cases and will save a lot of lives,\" he wrote. \"But it has downsides as well, and in some areas it may not be worth it.\" In many cases, he added, \"humans would simply prefer to do some activities themselves, so they can stay deeply engaged in what matters to them, even if AI can do those activities better.\" Ad Amodei said AI companies didn't differ much on automating specific tasks. Some AI CEOs, he wrote, repeated slogans like \"human control and agency\" and \"AI should be just a tool\" but still shipped products built for more and more automation. Anthropic, by contrast, refused to allow its existing models to be used for autonomous weapons during its dispute with the Pentagon . He was \"willing to risk Anthropic's future as a company\" over that refusal, \"even in the face of legal sanctions,\" Amodei wrote. Ad Already a subscriber? Sign in",
-   "use_link": "",
-   "reject_hits": 2
-  },
-  {
    "id": "d3c39bf0be0ab098",
    "title": "Pax by Pydantic",
    "link": "https://www.producthunt.com/products/pydantic",
@@ -317,7 +299,10 @@
    "kind": "news",
    "age_hours": 1.4,
    "published": "2026-11-27T16:06:43+00:00",
-   "added": "2026-11-27T17:30:41+00:00"
+   "added": "2026-11-27T17:30:41+00:00",
+   "full": "Hackers breached the US Air Force's flagship cloud platform. Reuters reports that attackers penetrated Cloud One, the Air Force's central cloud infrastructure, potentially exposing sensitive tactical, personnel, and logistics data. The breach was discovered last month during routine system upgrades. According to one source, the attackers exploited a software vulnerability to gain access to the platform's control plane. Cloud One has pooled cloud resources from Microsoft, Amazon, Oracle, and Alphabet since 2017, running applications that include air defense radar and munitions management. In response, the Air Force paused migration of additional applications, blocked updates, and revoked administrator privileges. US Cyber Command is assessing the damage. The breach comes amid growing concern about AI-powered attacks, as AI models can rapidly identify vulnerabilities across large cloud networks. At least six other cyber incidents have hit US government agencies recently, and Microsoft's cybersecurity division reported widespread use of the AI tool ARTEX . Who carried out the attack and whether any data was exfiltrated remain unknown. Ad Ad Already a subscriber? Sign in",
+   "use_link": "",
+   "reject_hits": 1
   },
   {
    "id": "b1cddf2a539ba372",
