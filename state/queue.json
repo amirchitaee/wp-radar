@@ -288,24 +288,6 @@
    "reject_hits": 2
   },
   {
-   "id": "6d2775bbc9cabcdd",
-   "title": "MIT team discovers that unrealistic training data makes AI climate predictions more reliable",
-   "link": "https://the-decoder.com/mit-team-discovers-that-unrealistic-training-data-makes-ai-climate-predictions-more-reliable",
-   "site": "",
-   "desc": "MIT researchers have developed a method that lets AI climate models get by with a single training run instead of the usual six to eight. An algorithm generates deliberately unrealistic scenarios with extreme CO2 or methane swings that make the model more robust. Until now, these emulators were often outdated by the time they were finished, according to the researchers. The article MIT team discovers that unrealistic training data makes AI climate predictions more reliable appeared first on The Decoder .",
-   "source": "دیکودر",
-   "lang": "en",
-   "tier": 2,
-   "group": "ai",
-   "kind": "news",
-   "age_hours": 0.2,
-   "published": "2026-11-25T10:47:51+00:00",
-   "added": "2026-11-25T11:02:03+00:00",
-   "full": "MIT researchers have developed a method that makes training AI climate models faster, cheaper, and more reliable. According to MIT News , these emulators now need only a fraction of the data typically required. Normally, researchers rely on massive, physics-based climate simulations that take months to run a single scenario on supercomputers. Fast AI models for climate prediction can mimic these in seconds and help plan power grids, public health measures, and agriculture. But training them previously required six to eight runs of those large simulations using evenly distributed, realistic future scenarios. That took so long the finished models were usually outdated, according to co-author Noelle Selin. They also often failed on unfamiliar situations. An algorithm built by a team from MIT, ETH Zurich, and Imperial College London uses synthetic training data with extreme swings instead, like a sudden CO2 spike in 2050 or dropping methane in 2037. These targeted spikes help the AI understand the climate system far more precisely, according to lead author Christopher Womack. A single simulation run is enough for training, according to the team, and the AI reliably calculates the effects of local environmental policies too. Ad Ad Already a subscriber? Sign in",
-   "use_link": "",
-   "reject_hits": 2
-  },
-  {
    "id": "3bb34cd96a5a708f",
    "title": "Contact Form 7 6.2.6",
    "link": "https://wordpress.org/plugins/contact-form-7/",

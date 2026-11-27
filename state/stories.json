@@ -82,20 +82,6 @@
    "cves": []
   },
   {
-   "t": "2026-11-23T10:31:07+00:00",
-   "id": "141d3e3e6383c48f",
-   "title": "Perplexity's new Monitor API turns web search from a one-off query into a nonstop watchdog",
-   "kind": "news",
-   "link": "https://the-decoder.com/perplexitys-new-monitor-api-turns-web-search-from-a-one-off-query-into-a-nonstop-watchdog",
-   "ents": [
-    "api",
-    "monitor",
-    "perplexity"
-   ],
-   "vers": [],
-   "cves": []
-  },
-  {
    "t": "2026-11-23T17:15:48+00:00",
    "id": "c059a9919df79cc9",
    "title": "Z.ai follows OpenAI into loop transformer territory with its new 750B flagship model",
