@@ -82,21 +82,6 @@
    "cves": []
   },
   {
-   "t": "2026-11-23T22:15:41+00:00",
-   "id": "f90bbf612456604d",
-   "title": "Staying Ahead of the New Threat Landscape in 2027",
-   "kind": "news",
-   "link": "https://www.wordfence.com/blog/2026/11/staying-ahead-of-the-new-threat-landscape-in-2027",
-   "ents": [
-    "ahead",
-    "landscape",
-    "staying",
-    "threat"
-   ],
-   "vers": [],
-   "cves": []
-  },
-  {
    "t": "2026-11-24T00:01:16+00:00",
    "id": "fe9a774fba4e4a1b",
    "title": "OpenAI updates ChatGPT to handle complex everyday questions, web searches, and images more reliably",
