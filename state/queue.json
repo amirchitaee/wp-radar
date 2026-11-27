@@ -234,24 +234,6 @@
    "reject_hits": 2
   },
   {
-   "id": "8625dd519ff72f7d",
-   "title": "Anthropic study shows the hardest part of adopting AI at work has little to do with learning the tools",
-   "link": "https://the-decoder.com/anthropic-study-shows-the-hardest-part-of-adopting-ai-at-work-has-little-to-do-with-learning-the-tools",
-   "site": "",
-   "desc": "Anthropic studied nearly 300 AI deployments across 58 US companies with sobering results. Nearly one in five still delivers no business value, held back by heavy review workloads, internal bottlenecks, and employee resistance. The researchers say the biggest hurdles stem from outdated company structures. The article Anthropic study shows the hardest part of adopting AI at work has little to do with learning the tools appeared first on The Decoder .",
-   "source": "دیکودر",
-   "lang": "en",
-   "tier": 2,
-   "group": "ai",
-   "kind": "news",
-   "age_hours": 1.3,
-   "published": "2026-11-25T13:14:27+00:00",
-   "added": "2026-11-25T14:30:43+00:00",
-   "full": "AI models keep getting better, but putting them to work mostly creates friction, a new Anthropic report finds. Review bottlenecks, employee pushback, security risks, and outdated custom tools are dragging down many enterprise projects. Anthropic's researchers conducted 66 in-person interviews at 58 US companies for the qualitative study, from AI startups to established firms in law, construction, finance, medicine, and manufacturing. The authors note that the sample isn't representative because every participant is an Anthropic customer. Still, it offers a detailed look at nearly 300 real-world AI deployments. The findings from the \"Working with AI\" report amount to a reality check for anyone expecting quick efficiency gains. Respondents say 55 percent of the deployments studied produced higher output or better quality. But almost one in five (19 percent) still delivers no business value. Those deployments get stuck in internal bottlenecks (6 percent), lose their time savings to review work (5 percent), or have unclear effects (8 percent). External hurdles like regulation (4 mentions) and skeptical customers (13 mentions) barely came up. The real pain happens inside the companies themselves, according to the report. The most common obstacle cited in Anthropic's full report (PDF) is the volume of AI output that humans still need to check (49 mentions). Employee resistance (43 mentions) and required expert reviews and testing (42 mentions) rank close behind. In one case, an AI agent added one stray \"S\" to an API call and derailed a carefully planned software release. AI also tends to speed up only parts of a workflow while other departments fall behind (20 mentions). One industrial equipment maker found that AI could translate its product interface text into 10 languages with ease. The company shut the feature back down because nobody on staff could field customer support calls in those languages. That uneven pace breeds day-to-day conflict as power users flood coworkers with AI-generated text. The report mentions \"Claude grenades\" and \"Claude cannons,\" as when an employee casually sends IT seven pages of AI-written instructions. Skeptics push back and refuse to read AI-written emails at all. One frustrated executive put it bluntly, saying, \"A mediocre engineer with an AI is a menace to society.\" Anthropic's findings echo the broader \"workslop\" debate. In a survey by BetterUp Labs and the Stanford Social Media Lab , 40 percent of US workers said they regularly receive shallow AI content from colleagues. Workers spend an average of nearly two hours dealing with each incident, and the survey found that trust within teams takes a hit. Employee resistance is the second most common obstacle in Anthropic's study, with 43 mentions. Pushback is most visible when companies roll out AI from the top down to automate entire workflows. Only two of the 58 companies reported direct layoffs tied to AI automation, and five dismissed workers who refused to use AI. But the hiring impact is already visible. Two-thirds of the companies surveyed are hiring fewer people because of AI. Nine firms also cut outside contractors, mostly offshore roles in software developm",
-   "use_link": "https://www.anthropic.com/research/working-with-ai",
-   "reject_hits": 2
-  },
-  {
    "id": "3bb34cd96a5a708f",
    "title": "Contact Form 7 6.2.6",
    "link": "https://wordpress.org/plugins/contact-form-7/",
