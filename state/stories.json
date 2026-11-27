@@ -492,6 +492,22 @@
    ],
    "vers": [],
    "cves": []
+  },
+  {
+   "t": "2026-11-27T11:47:41+00:00",
+   "id": "54a1f2cafd9ba58d",
+   "title": "SiteWon Monitors Your First 10 WordPress Sites for Free and Fixes What It Finds",
+   "kind": "news",
+   "link": "https://wpmayor.com/sitewon-wordpress-site-monitoring",
+   "ents": [
+    "finds",
+    "it",
+    "monitors",
+    "sitewon",
+    "wordpress"
+   ],
+   "vers": [],
+   "cves": []
   }
  ]
 }
