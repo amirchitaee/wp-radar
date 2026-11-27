@@ -375,7 +375,10 @@
    "kind": "news",
    "age_hours": 8.5,
    "published": "2026-11-26T15:45:08+00:00",
-   "added": "2026-11-27T00:15:39+00:00"
+   "added": "2026-11-27T00:15:39+00:00",
+   "full": "Chinese AI companies Z.AI and Moonshot AI have to delay their next flagship models and are looking for new sources of training data. The effects now reach beyond previously known delays , after the US closed the cloud loophole for Nvidia chips , Nvidia halted shipments to Southeast Asia , and US companies cracked down on model distillation. As a result, Z.AI's roughly 3-trillion-parameter GLM-5.5 model, planned for November, is likely to slip into the first quarter of 2027, Reuters reports, citing sources. To bridge the gap, the company released the 750-billion-parameter GLM-5.4 on Monday and says a new design lets it keep up with systems that have 2 to 3 trillion parameters. Without foreign computing power, Moonshot AI's development cycle could double from six to 12 months, likely delaying its next major model, Kimi K4, until mid-2027. With OpenAI and Anthropic blocking data scraping for distillation , Moonshot is now turning to the latest models from Google and Meta for training and stepping up its search for compute capacity in Europe, according to the sources. Ad Ad Already a subscriber? Sign in",
+   "use_link": "",
+   "reject_hits": 1
   },
   {
    "id": "6ff348e652c905f1",
