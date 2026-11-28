@@ -394,6 +394,24 @@
    "age_hours": 41.8,
    "published": "2026-11-26T16:00:00+00:00",
    "added": "2026-11-28T09:46:24+00:00"
+  },
+  {
+   "id": "2d66b9a2f223d46e",
+   "title": "Google Deepmind's \"Humanity's First Exam\" shows top AI models still fail simple everyday tasks under repeated runs",
+   "link": "https://the-decoder.com/google-deepminds-humanitys-first-exam-shows-top-ai-models-still-fail-simple-everyday-tasks-under-repeated-runs",
+   "site": "",
+   "desc": "Google Deepmind tests the reliability of 18 AI models with \"Humanity's First Exam.\" Top models solve nearly every task family at least once, but even leaders like OpenAI's GPT-6.2 Astra stumble when asked for 16 straight correct answers. Visual perception accounts for 73 percent of errors, and more compute time doesn't fix the problem. The article Google Deepmind's \"Humanity's First Exam\" shows top AI models still fail simple everyday tasks under repeated runs appeared first on The Decoder .",
+   "source": "دیکودر",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 0.1,
+   "published": "2026-11-28T11:12:30+00:00",
+   "added": "2026-11-28T11:15:34+00:00",
+   "full": "Google Deepmind's \"Humanity's First Exam\" shows top AI models still fail simple everyday tasks under repeated runs Nano Banana prompted by THE DECODER Google Deepmind wants to measure AI reliability rather than peak performance with \"Humanity's First Exam.\"Early results show top models can solve nearly every task family at least once. Still, no model stays error-free across all repeated runs and variations. The benchmark's name plays off the well-known \"Humanity's Last Exam\" AI test , which takes the opposite approach by using highly complex tasks to test peak performance. Already a subscriber? Sign in Back to the homepage",
+   "use_link": "",
+   "held": true
   }
  ]
 }

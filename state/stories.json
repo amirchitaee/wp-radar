@@ -463,6 +463,22 @@
     "14.17.1"
    ],
    "cves": []
+  },
+  {
+   "t": "2026-11-28T11:15:50+00:00",
+   "id": "2d66b9a2f223d46e",
+   "title": "Google Deepmind's \"Humanity's First Exam\" shows top AI models still fail simple everyday tasks under repeated runs",
+   "kind": "news",
+   "link": "https://the-decoder.com/google-deepminds-humanitys-first-exam-shows-top-ai-models-still-fail-simple-everyday-tasks-under-repeated-runs",
+   "ents": [
+    "ai",
+    "deepmind",
+    "exam",
+    "google",
+    "humanity"
+   ],
+   "vers": [],
+   "cves": []
   }
  ]
 }
