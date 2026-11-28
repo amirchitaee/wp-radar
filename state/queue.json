@@ -17,7 +17,10 @@
    "added": "2026-11-27T19:00:45+00:00",
    "full": "By Vanessa Petersen • Nov 23, 2026",
    "use_link": "",
-   "reject_hits": 2
+   "reject_hits": 2,
+   "digest_sent": true,
+   "channel_skip": true,
+   "skip_permanent": true
   },
   {
    "id": "4d4018e508b60f14",
@@ -53,7 +56,10 @@
    "added": "2026-11-27T17:30:41+00:00",
    "full": "Hackers breached the US Air Force's flagship cloud platform. Reuters reports that attackers penetrated Cloud One, the Air Force's central cloud infrastructure, potentially exposing sensitive tactical, personnel, and logistics data. The breach was discovered last month during routine system upgrades. According to one source, the attackers exploited a software vulnerability to gain access to the platform's control plane. Cloud One has pooled cloud resources from Microsoft, Amazon, Oracle, and Alphabet since 2017, running applications that include air defense radar and munitions management. In response, the Air Force paused migration of additional applications, blocked updates, and revoked administrator privileges. US Cyber Command is assessing the damage. The breach comes amid growing concern about AI-powered attacks, as AI models can rapidly identify vulnerabilities across large cloud networks. At least six other cyber incidents have hit US government agencies recently, and Microsoft's cybersecurity division reported widespread use of the AI tool ARTEX . Who carried out the attack and whether any data was exfiltrated remain unknown. Ad Ad Already a subscriber? Sign in",
    "use_link": "",
-   "reject_hits": 2
+   "reject_hits": 2,
+   "digest_sent": true,
+   "channel_skip": true,
+   "skip_permanent": true
   },
   {
    "id": "b1cddf2a539ba372",
@@ -71,7 +77,10 @@
    "added": "2026-11-27T17:30:38+00:00",
    "full": "NVIDIA L4 GPUs. 5-second cold starts. Scale to zero when idle. I honestly hadn’t thought about “getting caught” by light-dark() — particularly when leaning heavily on it for this site — but Martin Underhill explains : Without fallbacks, browsers that don’t support light-dark() typically use black text on a white background in Light Mode, and white text on a dark grey background in Dark Mode. They’re not the exact colours I’d want, but my website looks fine. Again, it’s risky, so test thoroughly. Like Martin, I initially began implementing color themes based on media queries sniffing out user preferences. But it became super cumbersome to write prefers-color-scheme time and again. I mean, totally DX-world problems. I also remembered the piece Sara Joy wrote with us a while back encouraging a jump into the light-dark() waters and thought it’d be nice to take that advice. Doing that, I ran into another DX annoyance: writing two color values for each light-dark() . CSS variables help, of course, but even then it exhausted me. That says something more about me than the feature, but I digress. So, I took Martin’s process one step further to abstract all the things: :root { --gray-1: #eaeaea; /* Light */ /* ... */ --gray-10: #111; /* Dark */ --text: light-dark(var(--gray-1), var(--gray-10)); } .article-content { color: var(--text); } Very nice, at least for my penchant for laziness. But I ran into another issue because sometimes text needs to go the other direction. Keep abstracting. I could define the background variable which is normally the contrast to text: :root { --gray-1: #eaeaea; /* Light */ /* ... */ --gray-10: #111; /* Dark */ --text: light-dark(var(--gray-1), var(--gray-10)); --surface: light-dark(var(--gray-10), var(--gray-1)); } .widget-content { color: var(--surface); } Works, but using a helper called “surface” on a property controlling color bothers me too. I may be lazy, but I’m a little anal with semantics. Hence: :root { --gray-1: #eaeaea; /* Light */ /* ... */ --gray-10: #111; /* Dark */ --text: light-dark(var(--gray-1), var(--gray-10)); --text-reverse: light-dark(var(--gray-10), var(--gray-1)); } .article-content { color: var(--text-reverse); /* Light then dark */ } .widget-content { color: var(--text-reverse); /* Dark then light */ } …where “reverse” means it goes the opposite direction of a normal “light-dark” call and the “dark” value is called first. But even that is still too much for my brain to handle because now I’m left with multiple tokens to remember if I want things to be super semantic: :root { --gray-1: #eaeaea; /* Light */ /* ... */ --gray-10: #111; /* Dark */ --text: light-dark(var(--gray-1), var(--gray-10)); --text-reverse: light-dark(var(--gray-10), var(--gray-1)); --surface: light-dark(var(--gray-1), var(--gray-10)); --surface-reverse: light-dark(var(--gray-10), var(--gray-1)); } .article-content { background-color: var(--surface); /* Dark then light */ color: var(--text-reverse); /* Light then dark */ } .widget-content { background-color: var(--surface-reverse); /* Light then dark */ color: var(--text-reverse); /* Dark then light */ } so I went with an even more general abstraction: :root { --gray-1: #eaeaea;",
    "use_link": "",
-   "reject_hits": 2
+   "reject_hits": 2,
+   "digest_sent": true,
+   "channel_skip": true,
+   "skip_permanent": true
   },
   {
    "id": "63f7c1abbb4c9b31",
@@ -125,7 +134,10 @@
    "added": "2026-11-27T00:15:39+00:00",
    "full": "In a blog post, complexity theorist and former OpenAI researcher Scott Aaronson lays out what AI's recent math breakthroughs might mean for the rest of us. Proving the Riemann hypothesis probably wouldn't change anyone's daily life, Aaronson writes. The ideas behind work like that could lead to new applications in science and engineering down the road, but it's anyone's guess which ones. Aaronson, a professor at the University of Texas at Austin, argues the far bigger deal is that AI can do this kind of work at all. In his view, that could have \"staggering implications for everyday life,\" from reshaping the global economy to threatening all life on Earth. \"Opinions differ,\" he writes, but anyone serious about the topic should set aside the \"'ooga booga, me only care about Riemann proof if it help me make sharper spear' caveman act.\" Ad Aaronson walks through an OpenAI proof about matrix multiplication. The core question is how fast computational cost grows as matrices get larger. The new result, he writes, adds a matching lower bound to an existing fast algorithm. That shows how far computational cost can actually drop, at least in the model OpenAI studied. Ad OpenAI got a similar result for the Fourier transform, a basic math tool behind audio, image, and signal processing. It found a faster way to compute it and also proved that it can't be done much faster. Proofs like that second one are called lower bounds, and Aaronson stresses them in particular. A new method only sets a record, but a lower bound shows where further improvements hit a hard limit. It's now obvious that we'll be getting, not one-off solutions to this or that complexity question, but a whole new continent of mathematical truth, one that we'd previously only glimpsed through fog. Ad The results have also changed Aaronson's outlook on the biggest open question in his field. That question, known as P versus NP , asks whether every problem whose answer computers can check quickly can also be solved quickly. Most researchers suspect the answer is no, but nobody has proved it. \"I now feel in my bones, for the first time ever, that a proof of P ≠ NP is not far,\" Aaronson writes. Such a proof would confirm that some problems are easy for computers to check but hard to solve. He adds that he's \"virtually certain, from multiple reliable sources,\" that AI labs are sitting on \"one or more bombshells\" in cryptography, but says he doesn't have the details yet. Aaronson wrote in October that AI labs were testing whether their models could break cryptographic systems. Ad Already a subscriber? Sign in",
    "use_link": "",
-   "reject_hits": 2
+   "reject_hits": 2,
+   "digest_sent": true,
+   "channel_skip": true,
+   "skip_permanent": true
   },
   {
    "id": "cd4c0ad4f93097ac",
@@ -142,7 +154,10 @@
    "published": "2026-11-26T10:30:30+00:00",
    "added": "2026-11-27T06:00:50+00:00",
    "full": "Muesli is an AI-assisted reading app that helps users discuss books and articles, capture insights, listen to content, and turn notes into practical actions. The landing page uses abundant white space, soft neutral panels, and restrained orange accents to create a calm, editorial reading experience. Visit Website Tech Astro , React , Tailwind CSS Category Landing Page , Startup Style Minimal , Typographic Color White Features Bento Grid - Features Call-To-Action Footer Call-To-Action Hero FAQ Accordion Header Navigation Looping Product Demo Artificial Intelligence (AI) Audiobook Books & eBooks Learning Long Scrolling Productivity Web App Published 26 Nov 2026 Report an issue Sections on this page Header Navigation Call-To-Action Hero Looping Product Demo Bento Grid - Features FAQ Accordion Call-To-Action Footer Similar websites Solea App Landing Page Music Related Soma Landing Page Launching Soon Startup Sunstill App Landing Page GEOFORM® Landing Page Service Fonting App Landing Page Hoy Digital Product Landing Page Startup View all websites → Website categories Portfolio Landing Page Digital Product Launching Soon App Service Our favorite websites, every two weeks Join thousands of designers reading the Love Letter. Unsubscribe anytime",
-   "use_link": ""
+   "use_link": "",
+   "digest_sent": true,
+   "channel_skip": true,
+   "skip_permanent": true
   },
   {
    "id": "3bb34cd96a5a708f",
@@ -217,7 +232,10 @@
    "added": "2026-11-28T00:15:34+00:00",
    "full": "It's no surprise at this point, but for the record: Two Chinese companies installed Nvidia's powerful Blackwell chips at a Shanghai data center linked to Alice Huang, who had an affair with Nvidia CEO Jensen Huang . The details come from documents filed with Chinese regulators and reviewed by Bloomberg . According to the filings, Shanghai Shuoyao offered a GB300-NVL72 rack as collateral for a 96 million yuan ($14 million) loan from Shanghai Innovation Bank, while a second company, Shanghai Kezhan, listed a GB200 server at the same site in loan documents. Exporting these chips to China without a US license is banned. Bloomberg traced the rack to Taiwanese manufacturer Gigabyte through a serial number in a public warranty database. Shanghai Shuoyao is closely tied to Singapore-based Megaspeed, according to Bloomberg. The Trump administration added Megaspeed to a US trade blacklist this month on suspicion of chip smuggling. Alice Huang founded Megaspeed in 2023 , and Nvidia approved it as a partner within four days. It went on to become Nvidia's largest customer in Southeast Asia, Bloomberg reported. Ad The newly tightened US export rules and anti-diffusion measures are reportedly already causing headaches for Chinese AI startups . Ad Already a subscriber? Sign in",
    "use_link": "",
-   "reject_hits": 2
+   "reject_hits": 2,
+   "digest_sent": true,
+   "channel_skip": true,
+   "skip_permanent": true
   },
   {
    "id": "1cbafb2225ea483d",
@@ -235,7 +253,10 @@
    "added": "2026-11-28T00:15:34+00:00",
    "full": "OpenAI is building a data management platform codenamed \"Athena\" to make its AI agents more accurate when working with business data. Athena resembles a semantic layer, software that provides consistent definitions for business metrics such as revenue and customer count, The Information reports . The report says at least one customer found that ChatGPT Work's data analysis agent, launched last fall, wasn't accurate enough. The idea is to give agents the context they need so they guess less. A person familiar with the plans says OpenAI is using Athena to build agents that collect, document, and update business rules, so other agents don't have to start from scratch every time. Data platforms such as Snowflake and Databricks already offer their own semantic layers. Athena could be an effort to build a stronger competitive advantage, since the report says it's harder to switch semantic layer providers than to switch AI models. The platform is still in early development, and OpenAI hasn't shared a timeline or pricing. Ad Ad Already a subscriber? Sign in",
    "use_link": "",
-   "reject_hits": 2
+   "reject_hits": 2,
+   "digest_sent": true,
+   "channel_skip": true,
+   "skip_permanent": true
   },
   {
    "id": "68cfb35a007a7c13",
@@ -270,7 +291,10 @@
    "published": "2026-11-25T20:04:50-08:00",
    "added": "2026-11-28T00:30:36+00:00",
    "sources_count": 2,
-   "reject_hits": 2
+   "reject_hits": 2,
+   "digest_sent": true,
+   "channel_skip": true,
+   "skip_permanent": true
   },
   {
    "id": "c881f1e7111092b0",
@@ -288,7 +312,10 @@
    "added": "2026-11-28T09:46:24+00:00",
    "full": "Nvidia is under pressure to do things differently, and a new WSJ report shows how far that’s going. According to the Journal, Nvidia has told manufacturing partners, including Dell and Super Micro, to hit pause on server shipments to Malaysia, Singapore, Thailand, and Indonesia for an unspecified period as it assesses whether its regional partners are meeting U.S. export requirements. As for why those countries, Chinese companies have been tapping Nvidia chips remotely from data centers there, a loophole the US Commerce Department closed — reportedly grudgingly — earlier this month. The Journal notes that the think tank Institute for Progress estimates remote data centers like these supply about 24% of China’s AI computing power. Get an Early Peek at the Next TechCrunch Disrupt Disrupt, Startup Battlefield, and more will return next year, and you can be at the front of the line. Sign up for our waitlist Subscribe for the industry’s biggest tech news Every weekday and Sunday, you can get the best of TechCrunch’s coverage. TechCrunch Mobility is your destination for transportation news and insight. Startups are the core of TechCrunch, so get our best coverage delivered weekly. Provides movers and shakers with the info they need to start their day. By submitting your email, you agree to our Terms and Privacy Notice .",
    "use_link": "",
-   "reject_hits": 2
+   "reject_hits": 2,
+   "digest_sent": true,
+   "channel_skip": true,
+   "skip_permanent": true
   },
   {
    "id": "964c87b5f05255b6",
@@ -324,7 +351,10 @@
    "added": "2026-11-28T16:45:34+00:00",
    "full": "Renowned mathematician Terence Tao expects AI to overhaul how his field is organized. On the Hard Fork podcast, he calls this \"Big Math,\" paralleling the decades-old \"Big Science\" model. Mathematicians will collaborate in ever larger groups, he says, with even postdocs and PhD students leading ambitious projects because AI speeds up entry into complex topics. Human-AI teams could systematically map thousands of problems rather than solving them individually. Tao described a similar \"industrialization of mathematics\" in 2024 . Still, he sharply criticizes current AI results from major tech companies . The models solve open problems and contribute technically, he says, but produce answers without understanding and can't explain their proofs. Such proofs are \"toxic waste\" to those companies, in his view: an unwanted byproduct of training better models that firms must dump after minimal cleanup. In October, Tao and other mathematicians called for an OpenAI boycott . He's equally critical of AI-generated papers flooding academic journals. They sometimes solve open problems, he says, but often fail to open new research directions, cite sloppily, explain poorly, and aren't enjoyable to read. Eventually, Tao hopes AI will deliver the \"first awful solution,\" and humans will structure it properly and put it into clear context. Ad Ad Already a subscriber? Sign in",
    "use_link": "",
-   "reject_hits": 2
+   "reject_hits": 2,
+   "digest_sent": true,
+   "channel_skip": true,
+   "skip_permanent": true
   }
  ]
 }
