@@ -358,6 +358,21 @@
    "age_hours": 41.8,
    "published": "2026-11-26T16:00:00+00:00",
    "added": "2026-11-28T09:46:24+00:00"
+  },
+  {
+   "id": "964c87b5f05255b6",
+   "title": "Robotics startup Embo raises $110 million in seed funding to build world-model AI for robots",
+   "link": "https://the-decoder.com/robotics-startup-embo-raises-110-million-in-seed-funding-to-build-world-model-ai-for-robots",
+   "site": "",
+   "desc": "Embo raised $110 million in seed funding to build a universal robot brain with world models. Its AI learns how the physical world works from internet video and practices motor skills in simulation. Google Deepmind, Meta, and MIT researchers are behind the startup as the race for general-purpose robotics AI accelerates. The article Robotics startup Embo raises $110 million in seed funding to build world-model AI for robots appeared first on The Decoder .",
+   "source": "دیکودر",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 1.7,
+   "published": "2026-11-28T10:48:18+00:00",
+   "added": "2026-11-28T12:30:45+00:00"
   }
  ]
 }
