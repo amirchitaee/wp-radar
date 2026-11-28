@@ -106,36 +106,6 @@
    "cves": []
   },
   {
-   "t": "2026-11-24T18:16:19+00:00",
-   "id": "451939a621281be7",
-   "title": "LiteSpeed Cache 7.9.4",
-   "kind": "news",
-   "link": "https://wordpress.org/plugins/litespeed-cache/",
-   "ents": [
-    "cache",
-    "litespeed"
-   ],
-   "vers": [
-    "7.9.4"
-   ],
-   "cves": []
-  },
-  {
-   "t": "2026-11-24T21:01:10+00:00",
-   "id": "f0fb06df1cb45fc8",
-   "title": "Anthropic turns Claude Artifacts into standalone desktop apps for macOS and Windows",
-   "kind": "news",
-   "link": "https://the-decoder.com/anthropic-turns-claude-artifacts-into-standalone-desktop-apps-for-macos-and-windows",
-   "ents": [
-    "anthropic",
-    "artifacts",
-    "claude",
-    "windows"
-   ],
-   "vers": [],
-   "cves": []
-  },
-  {
    "t": "2026-11-25T04:46:05+00:00",
    "id": "09311b9a112be94a",
    "title": "Website Inspiration: Rinat Seif",

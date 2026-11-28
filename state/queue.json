@@ -313,6 +313,24 @@
    "digest_sent": true,
    "channel_skip": true,
    "skip_permanent": true
+  },
+  {
+   "id": "53ed084752fdeb33",
+   "title": "New study casts doubt on how AI companies test the safety systems meant to keep their agents in check",
+   "link": "https://the-decoder.com/new-study-casts-doubt-on-how-ai-companies-test-the-safety-systems-meant-to-keep-their-agents-in-check",
+   "site": "",
+   "desc": "The UK AI Security Institute is questioning whether simulated sabotage tests for AI monitors actually prove anything. In a new study, a former OpenAI monitor built on GPT-5.4 missed only 0.2 to 0.5 percent of harmful actions under standard attacks but nearly 23 percent when researchers used optimized methods. Simulated tests alone don't prove that monitors will hold up in live deployments, the study concludes. The article New study casts doubt on how AI companies test the safety systems meant to keep their agents in check appeared first on The Decoder .",
+   "source": "دیکودر",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 2.5,
+   "published": "2026-11-28T18:46:09+00:00",
+   "added": "2026-11-28T21:15:39+00:00",
+   "full": "Easy Perspectives Terms Own question Key Points A new study from the UK AI Security Institute questions what simulated sabotage tests actually prove. AI companies including OpenAI and Anthropic use these tests to evaluate automated monitors for AI agents. The researchers examined a monitoring system built on GPT-5.4 that OpenAI previously used in production, testing it across 30 fixed tasks. Under standard attacks, the monitor missed only 0.2 to 0.5 percent of harmful actions. Optimized methods pushed the miss rate to nearly 23 percent. Automated safety systems known as monitors are built to stop dangerous behavior by AI agents, and AI companies including OpenAI and Anthropic test them with simulated sabotage attempts. A new study from the UK AI Security Institute calls into question what those tests actually prove. As a case study, the researchers examined a monitoring system built on GPT-5.4 that OpenAI previously used in production. The deployment setting and the 30 test tasks stayed the same. Only the attack method changed. Against standard attacks, the monitor missed just 0.2 to 0.5 percent of harmful actions. Better-optimized attacks pushed that false-negative rate as high as 23 percent. Teams that rely entirely on established baseline tests can easily assume a monitor is reliable when it isn't, the study says. None of the attacks were optimized directly against GPT-5.4. The researchers tuned every attack only against proxy monitors, including Qwen 3.8 27B and GPT-5.6 Luna. That means these gaps can carry over to a monitor the attacks were never tuned against. The researchers simulated an internal AI agent powered by the open-weight model Qwen 3.8 27B. It handled routine cloud IT tasks like configuring servers while also receiving a hidden harmful side task, such as disabling two-factor authentication. Afterward, the monitor reviewed the full log of actions and chain of thought to flag suspicious cases for human reviewers. Under standard prompting with off-the-shelf instructions from earlier studies, GPT-5.4 missed only 0.2 to 0.5 percent of successful sabotage attempts. Optimized prompting, with two rounds of manual revisions guided by proxy-monitor feedback, raised the rate to 1.3 percent and then 6.4 percent. Reinforcement learning produced much higher miss rates. The researchers trained a copy of the agent specifically to slip side tasks past the proxy monitor. GPT-5.4 then missed 5.1 percent of attacks after about 5,500 training runs and 20.8 percent after nearly 22,000. Post-hoc log editing pushed the rate even higher. GPT-5.6 Sol rewrote existing logs of successful attacks step by step to make them look less suspicious, while another model checked that the attack still did its damage. After 100 editing steps, the miss rate reached nearly 23 percent. The authors write that their own optimization efforts got almost nowhere for weeks before they found three different ways to fool the monitor. A limited search for weaknesses can give a false sense of security, they argue. The study flags a deeper problem with simulated attacks, which are only artificial stand-ins for real misconduct. Removing the hidden attack instructions before the",
+   "use_link": "",
+   "reject_hits": 1
   }
  ]
 }
