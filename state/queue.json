@@ -361,6 +361,39 @@
    "added": "2026-11-28T00:30:36+00:00",
    "sources_count": 2,
    "reject_hits": 2
+  },
+  {
+   "id": "c881f1e7111092b0",
+   "title": "Nvidia hits pause on chip shipments to Southeast Asia",
+   "link": "https://techcrunch.com/2026/11/26/nvidia-hits-pause-on-chip-shipments-to-southeast-asia",
+   "site": "",
+   "desc": "Nvidia has told manufacturing partners to pause server shipments to Malaysia, Singapore, Thailand and Indonesia as the U.S. tightens its push to keep AI chips out of China.",
+   "source": "تک‌کرانچ",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 37.7,
+   "published": "2026-11-26T20:03:54+00:00",
+   "added": "2026-11-28T09:46:24+00:00",
+   "full": "Nvidia is under pressure to do things differently, and a new WSJ report shows how far that’s going. According to the Journal, Nvidia has told manufacturing partners, including Dell and Super Micro, to hit pause on server shipments to Malaysia, Singapore, Thailand, and Indonesia for an unspecified period as it assesses whether its regional partners are meeting U.S. export requirements. As for why those countries, Chinese companies have been tapping Nvidia chips remotely from data centers there, a loophole the US Commerce Department closed — reportedly grudgingly — earlier this month. The Journal notes that the think tank Institute for Progress estimates remote data centers like these supply about 24% of China’s AI computing power. Get an Early Peek at the Next TechCrunch Disrupt Disrupt, Startup Battlefield, and more will return next year, and you can be at the front of the line. Sign up for our waitlist Subscribe for the industry’s biggest tech news Every weekday and Sunday, you can get the best of TechCrunch’s coverage. TechCrunch Mobility is your destination for transportation news and insight. Startups are the core of TechCrunch, so get our best coverage delivered weekly. Provides movers and shakers with the info they need to start their day. By submitting your email, you agree to our Terms and Privacy Notice .",
+   "use_link": "",
+   "reject_hits": 1
+  },
+  {
+   "id": "ec74e9ba21876128",
+   "title": "Grand Theft Auto VI proves why efficiency isn’t a virtue",
+   "link": "https://techcrunch.com/2026/11/26/as-anthropic-ipos-grand-theft-auto-vi-proves-why-efficiency-isnt-a-virtue",
+   "site": "",
+   "desc": "On the same day that Anthropic entered the public market, a painstakingly human video game became one of most successful entertainment launches of all time.",
+   "source": "تک‌کرانچ",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 41.8,
+   "published": "2026-11-26T16:00:00+00:00",
+   "added": "2026-11-28T09:46:24+00:00"
   }
  ]
 }
