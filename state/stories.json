@@ -106,35 +106,6 @@
    "cves": []
   },
   {
-   "t": "2026-11-24T17:01:29+00:00",
-   "id": "937ca7e672fa0d7e",
-   "title": "What to do when your WooCommerce store starts failing during Black Friday",
-   "kind": "news",
-   "link": "https://kinsta.com/blog/woocommerce-black-friday",
-   "ents": [
-    "black",
-    "friday",
-    "woocommerce"
-   ],
-   "vers": [],
-   "cves": []
-  },
-  {
-   "t": "2026-11-24T17:01:30+00:00",
-   "id": "36c3b04644086fff",
-   "title": "WordPress 7.2 Release Candidate 3",
-   "kind": "news",
-   "link": "https://wordpress.org/news/2026/11/wordpress-7-2-release-candidate-3",
-   "ents": [
-    "candidate",
-    "wordpress"
-   ],
-   "vers": [
-    "7.2"
-   ],
-   "cves": []
-  },
-  {
    "t": "2026-11-24T18:16:19+00:00",
    "id": "451939a621281be7",
    "title": "LiteSpeed Cache 7.9.4",
