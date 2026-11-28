@@ -164,24 +164,6 @@
    "reject_hits": 2
   },
   {
-   "id": "a72a6281d079c05a",
-   "title": "FCC clears SpaceX to deploy up to 1 million Starmind satellites for orbital AI data centers by 2040",
-   "link": "https://the-decoder.com/fcc-clears-spacex-to-deploy-up-to-1-million-starmind-satellites-for-orbital-ai-data-centers-by-2040",
-   "site": "",
-   "desc": "The FCC has authorized SpaceX to deploy up to 1 million Starmind satellites to process AI data as orbital data centers. SpaceX is targeting its first launches in 2027, and the full constellation is set to be operating by 2040. Google and Blue Origin are also working on AI infrastructure in space, but Boston Consulting Group estimates costs will stay well above ground-based data centers for now. The article FCC clears SpaceX to deploy up to 1 million Starmind satellites for orbital AI data centers by 2040 appeared first on The Decoder .",
-   "source": "دیکودر",
-   "lang": "en",
-   "tier": 2,
-   "group": "ai",
-   "kind": "news",
-   "age_hours": 0.6,
-   "published": "2026-11-26T13:41:07+00:00",
-   "added": "2026-11-26T14:15:37+00:00",
-   "full": "FCC clears SpaceX to deploy up to 1 million Starmind satellites for orbital AI data centers by 2040 Nano Banana Pro prompted by THE DECODER SpaceX has won approval from US communications regulators for its Starmind constellation. Up to 1 million satellites would process AI data in orbit. The Federal Communications Commission (FCC) has authorized SpaceX to deploy up to 1 million satellites for orbital data centers, according to Reuters . The Starmind constellation of orbital compute modules is intended to meet part of the rapidly growing demand for AI computing power on Earth. The agency also approved radio links that let SpaceX monitor and control the satellites if their optical connections fail. Already a subscriber? Sign in Back to the homepage",
-   "use_link": "",
-   "reject_hits": 2
-  },
-  {
    "id": "cd4c0ad4f93097ac",
    "title": "Website Inspiration: Muesli",
    "link": "https://onepagelove.com/muesli",
