@@ -272,6 +272,57 @@
    "digest_sent": true,
    "channel_skip": true,
    "skip_permanent": true
+  },
+  {
+   "id": "fbf41e8b3541d7cd",
+   "title": "OpenAI countersues Apple over trade secret theft and alleged coercion of shared suppliers",
+   "link": "https://the-decoder.com/openai-countersues-apple-over-trade-secret-theft-and-alleged-coercion-of-shared-suppliers",
+   "site": "",
+   "desc": "OpenAI is suing Apple in a California court, accusing it of trade secret theft and of coercing shared suppliers. The countersuit follows Apple's own lawsuit from the summer. Just two years ago, the two companies teamed up to bring ChatGPT to the iPhone. Now OpenAI is building its own devices to compete directly with Apple. The article OpenAI countersues Apple over trade secret theft and alleged coercion of shared suppliers appeared first on The Decoder .",
+   "source": "دیکودر",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 4.6,
+   "published": "2026-11-27T19:38:37+00:00",
+   "added": "2026-11-28T00:15:34+00:00",
+   "channel_skip": true,
+   "skip_why": "خارج از مخاطب",
+   "skip_until": "2026-11-28T12:15:38+00:00"
+  },
+  {
+   "id": "51c822d383ea9734",
+   "title": "Banned Nvidia Blackwell chips turn up in a Shanghai data center linked to Alice Huang, Bloomberg reports",
+   "link": "https://the-decoder.com/banned-nvidia-blackwell-chips-turn-up-in-a-shanghai-data-center-linked-to-alice-huang-bloomberg-reports",
+   "site": "",
+   "desc": "Two Chinese companies installed Nvidia's powerful Blackwell chips at a Shanghai data center linked to Alice Huang, according to a Bloomberg investigation. A serial number led Bloomberg to Taiwanese manufacturer Gigabyte. Exporting these chips to China without a US license is illegal. The article Banned Nvidia Blackwell chips turn up in a Shanghai data center linked to Alice Huang, Bloomberg reports appeared first on The Decoder .",
+   "source": "دیکودر",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 5.8,
+   "published": "2026-11-27T18:27:02+00:00",
+   "added": "2026-11-28T00:15:34+00:00",
+   "full": "It's no surprise at this point, but for the record: Two Chinese companies installed Nvidia's powerful Blackwell chips at a Shanghai data center linked to Alice Huang, who had an affair with Nvidia CEO Jensen Huang . The details come from documents filed with Chinese regulators and reviewed by Bloomberg . According to the filings, Shanghai Shuoyao offered a GB300-NVL72 rack as collateral for a 96 million yuan ($14 million) loan from Shanghai Innovation Bank, while a second company, Shanghai Kezhan, listed a GB200 server at the same site in loan documents. Exporting these chips to China without a US license is banned. Bloomberg traced the rack to Taiwanese manufacturer Gigabyte through a serial number in a public warranty database. Shanghai Shuoyao is closely tied to Singapore-based Megaspeed, according to Bloomberg. The Trump administration added Megaspeed to a US trade blacklist this month on suspicion of chip smuggling. Alice Huang founded Megaspeed in 2023 , and Nvidia approved it as a partner within four days. It went on to become Nvidia's largest customer in Southeast Asia, Bloomberg reported. Ad The newly tightened US export rules and anti-diffusion measures are reportedly already causing headaches for Chinese AI startups . Ad Already a subscriber? Sign in",
+   "use_link": "",
+   "reject_hits": 1
+  },
+  {
+   "id": "1cbafb2225ea483d",
+   "title": "OpenAI is building \"Athena\" data platform to cut down on AI agent guesswork",
+   "link": "https://the-decoder.com/openai-is-building-athena-data-platform-to-cut-down-on-ai-agent-guesswork",
+   "site": "",
+   "desc": "OpenAI's data agent in ChatGPT Work still isn't accurate enough. Under the codename \"Athena,\" the company is building a semantic layer that gives agents standardized definitions for business metrics. The tool could also put OpenAI in direct competition with Snowflake and Databricks. The article OpenAI is building \"Athena\" data platform to cut down on AI agent guesswork appeared first on The Decoder .",
+   "source": "دیکودر",
+   "lang": "en",
+   "tier": 2,
+   "group": "ai",
+   "kind": "news",
+   "age_hours": 8.2,
+   "published": "2026-11-27T16:05:23+00:00",
+   "added": "2026-11-28T00:15:34+00:00"
   }
  ]
 }

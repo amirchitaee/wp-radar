@@ -82,19 +82,6 @@
    "cves": []
   },
   {
-   "t": "2026-11-24T00:01:16+00:00",
-   "id": "fe9a774fba4e4a1b",
-   "title": "OpenAI updates ChatGPT to handle complex everyday questions, web searches, and images more reliably",
-   "kind": "news",
-   "link": "https://the-decoder.com/openai-updates-chatgpt-to-handle-complex-everyday-questions-web-searches-and-images-more-reliably",
-   "ents": [
-    "chatgpt",
-    "openai"
-   ],
-   "vers": [],
-   "cves": []
-  },
-  {
    "t": "2026-11-24T00:15:36+00:00",
    "id": "289c8aeddacd50cf",
    "title": "datasette-charts 0.1a0",
