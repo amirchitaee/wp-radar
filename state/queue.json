@@ -325,7 +325,7 @@
    "added": "2026-11-28T00:15:34+00:00",
    "full": "OpenAI is building a data management platform codenamed \"Athena\" to make its AI agents more accurate when working with business data. Athena resembles a semantic layer, software that provides consistent definitions for business metrics such as revenue and customer count, The Information reports . The report says at least one customer found that ChatGPT Work's data analysis agent, launched last fall, wasn't accurate enough. The idea is to give agents the context they need so they guess less. A person familiar with the plans says OpenAI is using Athena to build agents that collect, document, and update business rules, so other agents don't have to start from scratch every time. Data platforms such as Snowflake and Databricks already offer their own semantic layers. Athena could be an effort to build a stronger competitive advantage, since the report says it's harder to switch semantic layer providers than to switch AI models. The platform is still in early development, and OpenAI hasn't shared a timeline or pricing. Ad Ad Already a subscriber? Sign in",
    "use_link": "",
-   "reject_hits": 1
+   "reject_hits": 2
   },
   {
    "id": "68cfb35a007a7c13",
