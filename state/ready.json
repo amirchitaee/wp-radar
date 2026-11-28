@@ -1,18 +1,3 @@
 {
- "items": [
-  {
-   "id": "2d66b9a2f223d46e",
-   "at": "2026-11-28T11:15:50+00:00",
-   "kind": "news",
-   "label": "خبر",
-   "text": "<b>📰 خبر: ⁦Google Deepmind⁩ — آزمون جدید گوگل دیپ‌مایند — مدل‌های برتر هوش مصنوعی در کارهای ساده هم خطا می‌کنند</b>\n\nگوگل دیپ‌مایند با آزمون «⁦Humanity's First Exam⁩» قابلیت اطمینان ۱۸ مدل هوش مصنوعی را سنجید. نتیجه: مدل‌های برتر تقریباً هر نوع کاری را یک بار درست انجام می‌دهند، اما هیچ‌کدام در اجرای پیاپی و بدون خطا موفق نیستند.\n\n<blockquote expandable>۷۳ درصد خطاها مربوط به درک تصویری است.\nافزایش زمان محاسبات هم مشکل را حل نمی‌کند.\nاین یعنی اگر برای تولید محتوا یا کد سایت به هوش مصنوعی تکیه می‌کنی، خروجی را یک بار دیگر خودت چک کن.</blockquote>\n\nاطلاعات بیشتر دربارهٔ این موضوع را از <a href=\"https://the-decoder.com/google-deepminds-humanitys-first-exam-shows-top-ai-models-still-fail-simple-everyday-tasks-under-repeated-runs\">منبع</a> بخوانید.\n\n<i>۷ آذر ۱۴۰۵ · ۱۴:۴۲</i>\n\n#خبر #هوش_مصنوعی",
-   "score": 49.5,
-   "title": "آزمون جدید گوگل دیپ‌مایند: مدل‌های برتر هوش مصنوعی در کارهای ساده هم خطا می‌کنند",
-   "summary": "گوگل دیپ‌مایند با آزمون «Humanity's First Exam» قابلیت اطمینان ۱۸ مدل هوش مصنوعی را سنجید. نتیجه: مدل‌های برتر تقریباً هر نوع کاری را یک بار درست انجام می‌دهند، اما هیچ‌کدام در اجرای پیاپی و بدون خطا موفق نیستند.",
-   "link": "https://the-decoder.com/google-deepminds-humanitys-first-exam-shows-top-ai-models-still-fail-simple-everyday-tasks-under-repeated-runs",
-   "source": "دیکودر",
-   "group": "ai",
-   "photo": ""
-  }
- ]
+ "items": []
 }
